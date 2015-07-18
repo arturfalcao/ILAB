@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TModelosparametro" table="t_modelosparametro">
+    <unique-constraints>
+      <unique-constraint name="IX_t_modelosparametro_descricao" columns="ft_descricao"/>
+    </unique-constraints>
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fbActivo" type="boolean" column="fb_activo" nullable="true"/>
+    <field name="ftDescricao" type="string" column="ft_descricao" length="100" nullable="false"/>
+    <field name="fnIdFamiliaparametro" type="bigint" column="fn_id_familiaparametro" nullable="false"/>
+    <field name="ftFormulaquimica" type="string" column="ft_formulaquimica" length="50" nullable="true"/>
+    <field name="fnIdLaboratorio" type="bigint" column="fn_id_laboratorio" nullable="false"/>
+    <field name="fnPrecocompra" type="decimal" column="fn_precocompra" precision="8" scale="2" nullable="false"/>
+    <field name="fnPrecovenda" type="decimal" column="fn_precovenda" precision="8" scale="2" nullable="false"/>
+    <field name="fnFactorcorreccao" type="decimal" column="fn_factorcorreccao" precision="10" scale="5" nullable="false"/>
+    <field name="fnIdMetodo" type="bigint" column="fn_id_metodo" nullable="false"/>
+    <field name="fnIdTecnica" type="bigint" column="fn_id_tecnica" nullable="false"/>
+    <field name="fnIdAreaensaio" type="bigint" column="fn_id_areaensaio" nullable="false"/>
+    <field name="fnNrdiasparaexecucao" type="boolean" column="fn_nrdiasparaexecucao" nullable="false"/>
+    <field name="fnIdModeloresultado" type="bigint" column="fn_id_modeloresultado" nullable="false"/>
+    <field name="fbAcreditado" type="boolean" column="fb_acreditado" nullable="false"/>
+    <field name="fnIdFrasco" type="bigint" column="fn_id_frasco" nullable="true"/>
+    <field name="fnVolumeminimo" type="integer" column="fn_volumeminimo" nullable="true"/>
+    <field name="ftObservacao" type="string" column="ft_observacao" length="300" nullable="true"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TDummyreports" table="t_dummyreports">
+    <id name="ftId" type="integer" column="ft_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ftCampo1" type="string" column="ft_campo1" length="50" nullable="true"/>
+    <field name="ftCampo2" type="string" column="ft_campo2" length="50" nullable="true"/>
+    <field name="ftCampo3" type="string" column="ft_campo3" length="50" nullable="true"/>
+    <field name="ftCampo4" type="string" column="ft_campo4" length="50" nullable="true"/>
+    <field name="ftCampo5" type="string" column="ft_campo5" length="50" nullable="true"/>
+    <field name="ftCampo6" type="string" column="ft_campo6" length="50" nullable="true"/>
+    <field name="ftCampo7" type="string" column="ft_campo7" length="50" nullable="true"/>
+    <field name="ftCampo8" type="string" column="ft_campo8" length="50" nullable="true"/>
+    <field name="ftCampo9" type="string" column="ft_campo9" length="50" nullable="true"/>
+    <field name="ftCampo10" type="string" column="ft_campo10" length="50" nullable="true"/>
+  </entity>
+</doctrine-mapping>

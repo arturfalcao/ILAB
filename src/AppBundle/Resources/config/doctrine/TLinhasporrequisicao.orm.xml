@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TLinhasporrequisicao" table="t_linhasporrequisicao">
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdRequisicao" type="bigint" column="fn_id_requisicao" nullable="false"/>
+    <field name="ftCodigoamostra" type="string" column="ft_codigoamostra" length="50" nullable="true"/>
+    <field name="ftNomeparametro1" type="string" column="ft_nomeparametro1" length="100" nullable="true"/>
+    <field name="fnCusto1" type="decimal" column="fn_custo1" precision="8" scale="2" nullable="true"/>
+    <field name="ftNomeparametro2" type="string" column="ft_nomeparametro2" length="100" nullable="true"/>
+    <field name="fnCusto2" type="decimal" column="fn_custo2" precision="8" scale="2" nullable="true"/>
+    <field name="ftNomeparametro3" type="string" column="ft_nomeparametro3" length="100" nullable="true"/>
+    <field name="fnCusto3" type="decimal" column="fn_custo3" precision="8" scale="2" nullable="true"/>
+    <field name="fnIdAmostra" type="bigint" column="fn_id_amostra" nullable="false"/>
+  </entity>
+</doctrine-mapping>

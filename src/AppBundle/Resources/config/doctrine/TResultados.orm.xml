@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TResultados" table="t_resultados">
+    <indexes>
+      <index name="IX_t_resultados_estado" columns="ft_id_estado"/>
+      <index name="IX_t_resultados_parametro" columns="fn_id_parametro"/>
+      <index name="IX_t_resultados_unidades" columns="fn_id_unidade"/>
+    </indexes>
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdParametro" type="bigint" column="fn_id_parametro" nullable="false"/>
+    <field name="ftDescricao" type="string" column="ft_descricao" length="100" nullable="false"/>
+    <field name="fnIdModeloresultado" type="bigint" column="fn_id_modeloresultado" nullable="false"/>
+    <field name="ftFormatado" type="string" column="ft_formatado" length="255" nullable="false"/>
+    <field name="ftOriginal" type="string" column="ft_original" length="255" nullable="false"/>
+    <field name="ftPrefixo" type="string" column="ft_prefixo" length="1" nullable="false"/>
+    <field name="fnValor" type="decimal" column="fn_valor" precision="18" scale="5" nullable="true"/>
+    <field name="fnCalculado" type="decimal" column="fn_calculado" precision="18" scale="5" nullable="true"/>
+    <field name="fnIdUnidade" type="bigint" column="fn_id_unidade" nullable="false"/>
+    <field name="ftObservacao" type="string" column="ft_observacao" length="300" nullable="false"/>
+    <field name="fdCriacao" type="datetime" column="fd_criacao" nullable="false"/>
+    <field name="fdConclusao" type="datetime" column="fd_conclusao" nullable="true"/>
+    <field name="fdAutorizacao" type="datetime" column="fd_autorizacao" nullable="true"/>
+    <field name="fbIncluirnorelatorio" type="boolean" column="fb_incluirnorelatorio" nullable="false"/>
+    <field name="fnMaximo" type="decimal" column="fn_maximo" precision="18" scale="5" nullable="false"/>
+    <field name="fnMinimo" type="decimal" column="fn_minimo" precision="18" scale="5" nullable="false"/>
+    <field name="fnLimitequantificacao" type="decimal" column="fn_limitequantificacao" precision="10" scale="5" nullable="false"/>
+    <field name="ftIdEstado" type="string" column="ft_id_estado" length="1" nullable="true"/>
+  </entity>
+</doctrine-mapping>
