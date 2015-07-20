@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TParametros" table="t_parametros">
+    <indexes>
+      <index name="IX_t_parametros_amostra" columns="fn_id_amostra"/>
+      <index name="IX_t_parametros_estado" columns="ft_id_estado"/>
+      <index name="IX_t_parametros_familiaparametro" columns="fn_id_familiaparametro"/>
+      <index name="IX_t_parametros_laboratorio" columns="fn_id_laboratorio"/>
+      <index name="FK_t_parametros_t_metodos" columns="fn_id_metodo"/>
+      <index name="FK_t_parametros_t_tecnicas" columns="fn_id_tecnica"/>
+      <index name="FK_t_parametros_t_modelosparametro1" columns="fn_id_modeloparametro"/>
+      <index name="FK_t_parametros_t_areasensaio" columns="fn_id_areaensaio"/>
+      <index name="FK_t_parametros_t_frascos" columns="fn_id_frasco"/>
+    </indexes>
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ftDescricao" type="string" column="ft_descricao" length="100" nullable="false"/>
+    <field name="fdLimiterealizacao" type="datetime" column="fd_limiterealizacao" nullable="false"/>
+    <field name="ftCumpreespecificacao" type="string" column="ft_cumpreespecificacao" length="1" nullable="true"/>
+    <field name="ftConclusao" type="string" column="ft_conclusao" length="300" nullable="false"/>
+    <field name="ftObservacao" type="string" column="ft_observacao" length="300" nullable="false"/>
+    <field name="fdCriacao" type="datetime" column="fd_criacao" nullable="false"/>
+    <field name="fdConclusao" type="datetime" column="fd_conclusao" nullable="true"/>
+    <field name="fdAutorizacao" type="datetime" column="fd_autorizacao" nullable="true"/>
+    <field name="fnPrecocompra" type="decimal" column="fn_precocompra" precision="8" scale="2" nullable="false"/>
+    <field name="fnPrecovenda" type="decimal" column="fn_precovenda" precision="8" scale="2" nullable="false"/>
+    <field name="fnFactorcorreccao" type="decimal" column="fn_factorcorreccao" precision="10" scale="5" nullable="false"/>
+    <field name="fbAcreditado" type="boolean" column="fb_acreditado" nullable="false"/>
+    <field name="fnLimitelegal" type="decimal" column="fn_limitelegal" precision="10" scale="5" nullable="false"/>
+    <field name="ftFormulaquimica" type="string" column="ft_formulaquimica" length="50" nullable="true"/>
+    <field name="fnVolumeminimo" type="integer" column="fn_volumeminimo" nullable="true"/>
+    <field name="fbConfirmacao" type="boolean" column="fb_confirmacao" nullable="false"/>
+    <field name="fbContraanalise" type="boolean" column="fb_contraanalise" nullable="true"/>
+    <field name="fdRealizacao" type="datetime" column="fd_Realizacao" nullable="false"/>
+    <many-to-one field="fnFamiliaparametro" target-entity="TFamiliasparametros">
+      <join-columns>
+        <join-column name="fn_id_familiaparametro" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fnFrasco" target-entity="TFrascos">
+      <join-columns>
+        <join-column name="fn_id_frasco" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="ftEstado" target-entity="TEstados">
+      <join-columns>
+        <join-column name="ft_id_estado" referenced-column-name="ft_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fnLaboratorio" target-entity="TLaboratorios">
+      <join-columns>
+        <join-column name="fn_id_laboratorio" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fnAreaensaio" target-entity="TAreasensaio">
+      <join-columns>
+        <join-column name="fn_id_areaensaio" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fnTecnica" target-entity="TTecnicas">
+      <join-columns>
+        <join-column name="fn_id_tecnica" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fnAmostra" target-entity="TAmostras">
+      <join-columns>
+        <join-column name="fn_id_amostra" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fnModeloparametro" target-entity="TModelosparametro">
+      <join-columns>
+        <join-column name="fn_id_modeloparametro" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="fnMetodo" target-entity="TMetodos">
+      <join-columns>
+        <join-column name="fn_id_metodo" referenced-column-name="fn_id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
