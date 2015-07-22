@@ -7,8 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TMetodos
  *
- * @ORM\Table(name="t_metodos", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_metodos_descricao", columns={"ft_descricao"}), @ORM\UniqueConstraint(name="IX_t_metodos_codigo", columns={"ft_codigo"})})
+ * @ORM\Table(name="t_metodos")
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class TMetodos
 {
@@ -41,13 +42,22 @@ class TMetodos
     private $ftObservacao;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id", type="bigint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
      */
     private $fnId;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="TParametros", mappedBy="fnMetodo")
+     */
+    protected $parametros;
+    
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
 
 }

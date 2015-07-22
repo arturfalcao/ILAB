@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * TParametros
  *
@@ -147,19 +147,22 @@ class TParametros
      */
     private $fnId;
 
-
-
     /**
-     * @var \AppBundle\Entity\TMetodos
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TMetodos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
-     * })
+     * @ORM\ManyToOne(targetEntity="TMetodos")
      */
     private $fnMetodo;
 
+    public function __toString()
+    {
+        return $this->getFtDescricao();
+    }
 
+    public function __construct()
+    {
+        $this->fnMetodo = new \Doctrine\Common\Collections\ArrayCollection();
+
+    }
 
     /**
      * Set ftDescricao
@@ -585,7 +588,6 @@ class TParametros
         return $this->fnId;
     }
 
-
     /**
      * Set fnMetodo
      *
@@ -594,7 +596,6 @@ class TParametros
      */
     public function setFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo = null)
     {
-
         $this->fnMetodo = $fnMetodo;
 
         return $this;

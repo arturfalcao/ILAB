@@ -33,12 +33,12 @@ class TParametrosType extends AbstractType
             ->add('fbConfirmacao')
             ->add('fbContraanalise')
             ->add('fdRealizacao')
-            ->add('fnMetodo', 'collection', array(
-                'type'         => new TMetodosType(),
-                'allow_add'    => true,
-                'by_reference' => false,
-                'allow_delete' => true
+            ->add('fnMetodo', 'entity', array(
+                'class' => 'AppBundle:TMetodos',
+                'placeholder' => 'Escolha uma opção',
+                'property' => 'FtDescricao'
             ))
+
         ;
     }
     

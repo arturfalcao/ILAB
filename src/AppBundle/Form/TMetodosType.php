@@ -19,7 +19,6 @@ class TMetodosType extends AbstractType
             ->add('ftDescricao')
             ->add('ftAlias')
             ->add('ftObservacao')
-            ->add('submit', 'submit', array('label' => 'Create'))
         ;
     }
     

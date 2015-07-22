@@ -2,11 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\TMetodos;
+use AppBundle\Form\TMetodosType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\TParametros;
 use AppBundle\Form\TParametrosType;
 
@@ -46,15 +49,17 @@ class TParametrosController extends Controller
     {
         $entity = new TParametros();
         $form = $this->createCreateForm($entity);
-
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
+            //exit(\Doctrine\Common\Util\Debug::dump($entity));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tparametros_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('tparametros_show', array('id' => $entity->getFnId())));
         }
 
         return array(
@@ -163,7 +168,7 @@ class TParametrosController extends Controller
     private function createEditForm(TParametros $entity)
     {
         $form = $this->createForm(new TParametrosType(), $entity, array(
-            'action' => $this->generateUrl('tparametros_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('tparametros_update', array('id' => $entity->getFnId())),
             'method' => 'PUT',
         ));
 
@@ -171,6 +176,47 @@ class TParametrosController extends Controller
 
         return $form;
     }
+
+    /**
+     * @Route("/newrole", name="new_contact_role")
+     */
+    public function newContactRoleAction(Request $request) {
+        $em = $this->getDoctrine()->getManager();
+
+        $newMethod = new TMetodos();
+
+        $MethodForm = $this->createForm(
+            new TMetodosType(),
+            $newMethod,
+            array('action' => $this->generateUrl('new_contact_role'),
+                'method' => 'POST')
+        );
+
+        if ($request->isMethod('POST')) {
+            $MethodForm->handleRequest($request);
+
+            if ($MethodForm->isValid()) {
+                $methodData = $MethodForm->getData();
+
+                $em->persist($methodData);
+                $em->flush();
+
+                $response = new Response(json_encode([
+                    'success' => true,
+                    'id' => $methodData->getFnId(),
+                    'name'  => $methodData->getFtDescricao()
+                ]));
+                $response->headers->set('Content-Type', 'application/json');
+
+                return $response;
+            }
+        }
+
+        return $this->render("default/newmethod.html.twig", array(
+            'form_role'  =>  $MethodForm->createView()
+        ));
+    }
+
     /**
      * Edits an existing TParametros entity.
      *
