@@ -5,6 +5,11 @@ index:
     pattern:   /
     defaults:  { _controller: AppBundle:Default:index }
 
+new:
+    pattern:   /newaction
+    defaults:  { _controller: AppBundle:TParametros:index }
+
+
 sonata_user_security:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
 
@@ -26,6 +31,7 @@ sonata_user_change_password:
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin

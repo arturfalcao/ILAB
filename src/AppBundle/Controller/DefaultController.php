@@ -2,9 +2,19 @@
 
 namespace AppBundle\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
+use AppBundle\Form\TMetodosType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use AppBundle\Entity\TParametros;
+use AppBundle\Entity\TMetodos;
+use AppBundle\Form\TParametrosType;
+
 
 class DefaultController extends Controller
 {
@@ -14,5 +24,18 @@ class DefaultController extends Controller
     public function indexAction()
     {
         return $this->render('default/index.html.twig');
+    }
+
+    public function newAction(Request $request)
+    {
+        $form = $this->createForm(new TParametrosType());
+        $form->add('submit', 'submit', array('label' => 'celso'));
+
+        return $this->render('default/newaction.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
+
+
     }
 }

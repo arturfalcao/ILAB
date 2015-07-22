@@ -1,0 +1,75 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>TParametros list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Ftdescricao</th>
+                <th>Fdlimiterealizacao</th>
+                <th>Ftcumpreespecificacao</th>
+                <th>Ftconclusao</th>
+                <th>Ftobservacao</th>
+                <th>Fdcriacao</th>
+                <th>Fdconclusao</th>
+                <th>Fdautorizacao</th>
+                <th>Fnprecocompra</th>
+                <th>Fnprecovenda</th>
+                <th>Fnfactorcorreccao</th>
+                <th>Fbacreditado</th>
+                <th>Fnlimitelegal</th>
+                <th>Ftformulaquimica</th>
+                <th>Fnvolumeminimo</th>
+                <th>Fbconfirmacao</th>
+                <th>Fbcontraanalise</th>
+                <th>Fdrealizacao</th>
+                <th>Fnid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('tparametros_show', { 'id': entity.fnId }) }}">{{ entity.ftDescricao }}</a></td>
+                <td>{% if entity.fdLimiterealizacao %}{{ entity.fdLimiterealizacao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.ftCumpreespecificacao }}</td>
+                <td>{{ entity.ftConclusao }}</td>
+                <td>{{ entity.ftObservacao }}</td>
+                <td>{% if entity.fdCriacao %}{{ entity.fdCriacao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.fdConclusao %}{{ entity.fdConclusao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.fdAutorizacao %}{{ entity.fdAutorizacao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.fnPrecocompra }}</td>
+                <td>{{ entity.fnPrecovenda }}</td>
+                <td>{{ entity.fnFactorcorreccao }}</td>
+                <td>{{ entity.fbAcreditado }}</td>
+                <td>{{ entity.fnLimitelegal }}</td>
+                <td>{{ entity.ftFormulaquimica }}</td>
+                <td>{{ entity.fnVolumeminimo }}</td>
+                <td>{{ entity.fbConfirmacao }}</td>
+                <td>{{ entity.fbContraanalise }}</td>
+                <td>{% if entity.fdRealizacao %}{{ entity.fdRealizacao|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.fnId }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('tparametros_show', { 'id': entity.fnId }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('tparametros_edit', { 'id': entity.fnId }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('tparametros_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
