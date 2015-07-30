@@ -1,6 +1,119 @@
 {% extends '::base.html.twig' %}
 
+{% block scripts -%}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script type="text/javascript">
+
+  angular.module('app', [])
+  .controller('theApp', function($scope, $locale, $http) {
+
+    $scope.errMsg = null;
+    $scope.rows = [];
+
+    $http.get('.').success(function(data){
+      if (data.entities)
+        $scope.rows = data.entities;
+      else
+        $scope.errMsg = "Verifica o codigo phahhh!!"
+    }).error(function(data){
+      $scope.errMsg = "Erro :("
+    })
+
+    $scope.postNew = function(){
+      var formData = {
+          "ftDescricao": $scope.newEntity.description,
+          "fdLimiterealizacao": {
+            date : { year : 2015, month : 12, day : 12},
+            time : { hour : 01, minute : 01}
+          },
+          "fdConclusao": {
+            date : { year : 2015, month : 12, day : 12},
+            time : { hour : 01, minute : 01}
+          },
+          "ftCumpreespecificacao": "a",
+          "ftConclusao": "a",
+          "ftObservacao": "a",
+          "fdCriacao": {
+            date : { year : 2015, month : 12, day : 12},
+            time : { hour : 01, minute : 01}
+          },
+          "fdConclusao": {
+            date : { year : 2015, month : 12, day : 12},
+            time : { hour : 01, minute : 01}
+          },
+          "fdAutorizacao": {
+            date : { year : 2015, month : 12, day : 12},
+            time : { hour : 01, minute : 01}
+          },
+          "fnPrecocompra": 0,
+          "fnPrecovenda": 0,
+          "fnFactorcorreccao": 0,
+          "fbAcreditado": true,
+          "fnLimitelegal": 0,
+          "ftFormulaquimica": "0",
+          "fnVolumeminimo": 0,
+          "fbConfirmacao": true,
+          "fbContraanalise": true,
+          "fdRealizacao": {
+            date : { year : 2015, month : 12, day : 12},
+            time : { hour : 01, minute : 01}
+          }
+      }
+
+      $http.post(".", formData)
+        .success(function(data){
+          if (data.entity)
+            $scope.rows.push(data.entity);
+          else
+            alert("Hummmm, alguma coisa correu mal, verificar aqui!");
+
+        }).error(function(data){
+          alert("Erro ao inserir documento");
+        });
+    }
+
+  });
+</script>
+{% endblock %}
+
 {% block body -%}
+
+
+    <h1>TParametros Dinamico</h1>
+    <!-- a minha Angular App -->
+    {% verbatim %}
+    <div ng-controller="theApp">
+
+      <table class="records_list" >
+          <thead>
+              <tr>
+                  <th>Ftdescricao</th>
+                  <th>Fdlimiterealizacao</th>
+                  <th>Ftcumpreespecificacao</th>
+                  <th>Ftconclusao</th>
+                  <th>Ftobservacao</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody ng-show="rows.length > 0">
+              <tr ng-repeat="row in rows">
+                  <td>{{ row.ftDescricao }}</td>
+                  <td>{{ row.fdLimiterealizacao | date:'short' }}</td>
+                  <td>{{ row.ftCumpreespecificacao }}</td>
+                  <td>{{ row.ftConclusao }}</td>
+                  <td>{{ row.ftObservacao }}</td>
+              </tr>
+          </tbody>
+      </table>
+      <p ng-show="rows.length <= 0 && !errMsg">Aguarde ...</p>
+      <p ng-show="errMsg">{{errMsg}}</p>
+      <div class="">
+        <input type="text" name="name" value="" ng-model="newEntity.description" placeholder="Descrição">
+        <button type="button" name="new" ng-click="postNew()">Testar Novo</button>
+      </div>
+    </div>
+    {% endverbatim %}
+
     <h1>TParametros list</h1>
 
     <table class="records_list">
@@ -65,11 +178,12 @@
         </tbody>
     </table>
 
-        <ul>
+    <ul>
         <li>
             <a href="{{ path('tparametros_new') }}">
                 Create a new entry
             </a>
         </li>
     </ul>
-    {% endblock %}
+
+{% endblock %}

@@ -49,7 +49,11 @@ class TParametrosController extends Controller
     {
         $entity = new TParametros();
         $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+
+        if ($request->getRequestFormat() == 'json')
+          $form->submit($request->request->all());
+        else
+          $form->handleRequest($request);
 
         if ($form->isValid()) {
 
@@ -59,7 +63,11 @@ class TParametrosController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tparametros_show', array('id' => $entity->getFnId())));
+            return $this->redirect(
+              $this->generateUrl(
+                'tparametros_show',
+                array('id' => $entity->getFnId()))
+            );
         }
 
         return array(
@@ -100,8 +108,9 @@ class TParametrosController extends Controller
         $entity = new TParametros();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('default/newaction.html.twig',array('entity' => $entity,
-            'form'   => $form->createView()
+        return $this->render('default/newaction.html.twig', array(
+          'entity' => $entity,
+          'form'   => $form->createView()
         ));
 
     }
@@ -291,5 +300,21 @@ class TParametrosController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    public function getParametrosAction()
+    {
+      $em = $this->getDoctrine()->getManager();
+      $entities = $em->getRepository('AppBundle:TParametros')->findAll();
+      return array(
+          'entities' => $entities,
+      );
+    }
+
+    public function getParametroAction($slug)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $entity = $em->getRepository('AppBundle:TParametros')->find($slug);
+      return $entity;
     }
 }

@@ -21,14 +21,15 @@ class TMetodosType extends AbstractType
             ->add('ftObservacao')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\TMetodos'
+            'data_class' => 'AppBundle\Entity\TMetodos',
+            'csrf_protection' => false // usado para desativar csrf via ajax
         ));
     }
 

@@ -41,14 +41,15 @@ class TParametrosType extends AbstractType
 
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\TParametros'
+            'data_class' => 'AppBundle\Entity\TParametros',
+            'csrf_protection' => false // usado para desativar csrf via ajax
         ));
     }
 

@@ -35,6 +35,11 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new AppBundle\AppBundle(),
+
+            //REST support
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
