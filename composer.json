@@ -27,7 +27,9 @@
         "sonata-project/user-bundle": "^2.2",
         "braincrafted/bootstrap-bundle": "dev-master",
         "twbs/bootstrap": "3.0.*",
-        "components/jquery": "1.9.*"
+        "components/jquery": "1.9.*",
+        "adesigns/calendar-bundle": "^1.1",
+        "friendsofsymfony/jsrouting-bundle": "^1.5"
 
     },
     "require-dev": {

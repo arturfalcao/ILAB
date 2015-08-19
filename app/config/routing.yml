@@ -8,10 +8,13 @@ index:
 new:
     pattern:   /newaction
     defaults:  { _controller: AppBundle:TParametros:index }
-
-
+calendar:
+    pattern:   /calendar
+    defaults:  { _controller: AppBundle:Default:AfterLogin }
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 sonata_user_security:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
+    resource: "@ApplicationSonataUserBundle/Resources/config/routing/sonata_security_2.xml"
 
 sonata_user_resetting:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml"
@@ -35,6 +38,9 @@ sonata_user:
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
+
+adesigns_calendar:
+  resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
 
 _sonata_admin:
     resource: .

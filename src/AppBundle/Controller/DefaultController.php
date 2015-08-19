@@ -34,8 +34,9 @@ class DefaultController extends Controller
         return $this->render('default/newaction.html.twig', array(
             'form' => $form->createView(),
         ));
-
-
-
+    }
+    public function AfterLoginAction(Request $request)
+    {
+        return $this->render('default/calendar.html.twig');
     }
 }
