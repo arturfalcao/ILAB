@@ -23,6 +23,12 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $securityContext = $this->container->get('security.context');
+        if ($securityContext->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
+            return $this->redirectToRoute('fos_user_security_login');
+
+        }
+
         return $this->render('default/index.html.twig');
     }
 

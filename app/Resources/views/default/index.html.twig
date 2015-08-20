@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% block login %}
-        {% render url('fos_user_security_login') %}
-    {% endblock login %}
+
+    {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+
 {% endblock %}

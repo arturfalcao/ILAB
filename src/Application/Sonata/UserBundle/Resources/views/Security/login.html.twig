@@ -1,4 +1,17 @@
+{% stylesheets '@AppBundle/Resources/public/css/*' %}
+<link rel="stylesheet" href="{{ asset('bundles/applicationsonatauser/css/style.css') }}" />
+{% endstylesheets %}
+
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('bundles/applicationsonatauser/js/mainjs.css') }}"></script>
+
+{% endblock %}
+
+
+
 {% if is_granted("ROLE") %}
+    saddas
     Hi {{ app.user.username }}
 {% else %}
 
@@ -7,9 +20,10 @@
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
+<form action="{{ path("fos_user_security_check") }}" method="post">
+
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
     <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
@@ -21,6 +35,7 @@
     <input type="hidden" name="_target_path" value="/calendar" />
 
     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+
 </form>
 {% endblock fos_user_content %}
     {% endif %}
