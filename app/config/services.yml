@@ -4,6 +4,8 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    acme.demobundle.calendar_listener:
+        class: AppBundle\EventListener\CalendarEventListener
+        tags:
+            - { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
+        arguments: ['@doctrine.orm.entity_manager']

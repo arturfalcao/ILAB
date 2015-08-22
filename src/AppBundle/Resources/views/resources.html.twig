@@ -1,0 +1,11 @@
+    {% stylesheets '@AppBundle/Resources/public/css/*' %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfoundation/css/foundation.min.css') }}" />
+
+
+    {% endstylesheets %}
+
+
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/vendor/jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/foundation.min.js') }}"></script>
+    {% endblock %}

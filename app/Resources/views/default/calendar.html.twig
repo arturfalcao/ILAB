@@ -1,15 +1,62 @@
+{% include 'AppBundle::resources.html.twig' %}
+
+
 {% stylesheets '@AppBundle/Resources/public/css/*' %}
 <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
 {% endstylesheets %}
 
-
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 {% endblock %}
 
 
-{% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+{% block scripts -%}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript">
+        angular.module('CalendarModule', [])
+            .controller('CalendarCtrl', function($scope, $locale, $http) {
+
+            });
+        $( document ).ready(function() {
+            $(".fc-widget-content").bind('click',function(){
+
+            })
+        });
+
+    </script>
+{% endblock %}
+
+
+{% block body%}
+
+    <!-- a minha Angular App -->
+    <div ng-app="CalendarModule">
+        <div ng-controller="CalendarCtrl">
+
+            {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+
+        </div>
+    </div>
+{% endblock %}
+
+
+<!-- Modal -->
+<div class="modal fade" id="new_role" role="dialog" aria-labelledby="new_role-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="new_role-label">Add new role</h4>
+            </div>
+            <div class="modal-body">
+                {{ render(controller('AppBundle:Agenda:new')) }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="save_role">Save role</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

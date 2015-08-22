@@ -4,13 +4,14 @@ app:
 index:
     pattern:   /
     defaults:  { _controller: AppBundle:Default:index }
-
 new:
     pattern:   /newaction
     defaults:  { _controller: AppBundle:TParametros:index }
+
 calendar:
     pattern:   /calendar
     defaults:  { _controller: AppBundle:Default:AfterLogin }
+
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 sonata_user_security:

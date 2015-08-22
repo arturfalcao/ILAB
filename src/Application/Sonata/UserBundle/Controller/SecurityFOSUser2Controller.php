@@ -19,12 +19,18 @@ class SecurityFOSUser2Controller extends BaseController
 
     public function loginAction()
     {
+
+
+
         $user = $this->container->get('security.context')->getToken()->getUser();
 
-        if ( $this->container->get('security.context')->isGranted('ROLE_USER')) {
+        if ($user instanceof UserInterface) {
             $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
-            return $this->container->get('templating')->renderResponse('default/calendar.html.twig',array('user'=>$user));
+            $url = $this->container->get('router')->generate('sonata_user_profile_show');
+
+            return new RedirectResponse($url);
         }
+
         return parent::loginAction();
     }
 }

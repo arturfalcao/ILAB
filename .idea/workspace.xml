@@ -2,12 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/js/mainjs.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/images/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-bold-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-bold-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-bold-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-bold-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-light-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-light-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-light-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-light-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-regular-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-regular-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-regular-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-regular-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-semibold-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-semibold-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-semibold-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-semibold-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/images/name_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/images/pass_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/images/textura_bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/ajaxsave.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/app.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/public/js/calendar-settings.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/generator_config.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/specimen_files/grid_12-825-55-15.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/default/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/layout.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/montserrat-bold-demo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-bold-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/montserrat-light-demo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-light-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/montserrat-regular-demo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-regular-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/montserrat-semibold-demo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/montserrat-semibold-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/resources.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/specimen_files/specimen_stylesheet.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/fonts/webfontkit-20150819-153931/stylesheet.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/TMetodos.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/TParametros.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\lab\ILAB\src\AppBundle\Tests\Controller\DefaultControllerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="C:\wamp\www\lab\ILAB\src\AppBundle\Tests\Controller\TParametrosControllerTest.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/AppBundle.php" afterPath="$PROJECT_DIR$/src/AppBundle/AppBundle.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityFOSUser2Controller.php" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityFOSUser2Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/SymfonyRequirements.php" afterPath="$PROJECT_DIR$/app/SymfonyRequirements.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/check.php" afterPath="$PROJECT_DIR$/app/check.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/newaction.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/newaction.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
@@ -31,82 +90,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="129" selection-end="129" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="18" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="558">
+            <state line="19" column="18" selection-start="1140" selection-end="1140" vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="576">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="89" selection-start="282" selection-end="282" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="828">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/edit.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="396">
-              <folding>
-                <marker date="1437563871360" expanded="true" signature="144:293" placeholder="..." />
-                <marker date="1437563871360" expanded="true" signature="153:250" placeholder="..." />
-                <marker date="1437563871360" expanded="true" signature="198:240" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="46" selection-start="1799" selection-end="1799" vertical-scroll-proportion="-5.6666665" vertical-offset="585" max-vertical-offset="1458">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="38" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainjs.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/js/mainjs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="162">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="42" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="186426">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -114,16 +102,16 @@
       <file leaf-file-name="calendar.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="765" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="378">
+            <state line="1" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="1224">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="security.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <file leaf-file-name="resources.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/resources.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="50" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0" vertical-offset="522" max-vertical-offset="1368">
+            <state line="11" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.22916667" vertical-offset="0" max-vertical-offset="864">
               <folding />
             </state>
           </provider>
@@ -142,58 +130,66 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Group.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/vendor/sonata-project/user-bundle/Resources/views/ChangePassword/changePassword_content.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/routing_dev.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/AppBundle.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/newaction.html" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/TMetodos.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/Type/TParametros.php" />
         <option value="$PROJECT_DIR$/app/cache/dev/appDevDebugProjectContainer.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/TMetodos.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/TParametros.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/TParametros.orm.xml" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/config/services.yml" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/TParametrosType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/newmethod.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TParametrosController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/TMetodosType.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/newaction.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/vendor/sonata-project/user-bundle/Controller/SecurityFOSUser1Controller.php" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/routing/sonata_security_2.xml" />
-        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityFOSUser2Controller.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/login.html.twig" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.xsl" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/js/mainjs.js" />
-        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/resources.html.twig" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/vendor/sonata-project/user-bundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/resources.html.twig" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
+        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
+        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityFOSUser2Controller.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/default/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/public/js/calendar-settings.js" />
+        <option value="$PROJECT_DIR$/app/Resources/public/js/calendar-settings.js" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/TMetodos.orm.xml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Agenda.orm.xml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/AppBundle.php" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newAgenda.html" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newAgenda.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/newaction.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/public/js/ajaxsave.js" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1912" />
+    <option name="y" value="22" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -221,6 +217,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -340,14 +337,6 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -363,95 +352,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
+              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -470,6 +371,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -522,6 +431,118 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -587,9 +608,56 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -600,18 +668,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\lab\ILAB\app\Resources\FOSUserBundle\views\Security" />
-      <recent name="C:\wamp\www\lab\ILAB\app\Resources\views\default" />
-      <recent name="C:\wamp\www\lab\ILAB\src\Application\Sonata\UserBundle\Resources\config\routing" />
-      <recent name="C:\wamp\www\lab\ILAB\src\Application\Sonata\UserBundle\Controller" />
-      <recent name="C:\wamp\www\lab\ILAB\src\Application\Sonata\UserBundle\Resources\views" />
+      <recent name="C:\wamp\www\lab\ILAB\app\Resources\views" />
+      <recent name="C:\wamp\www\lab\ILAB\app\Resources\public\js" />
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\views" />
+      <recent name="C:\wamp\www\lab\ILAB\src\Application\Sonata\UserBundle\Resources\public" />
+      <recent name="C:\wamp\www\lab\ILAB\web\bundles\bmatznerfoundation\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\js" />
-      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Form" />
-      <recent name="C:\wamp\www\lab\ILAB\app\Resources\views\default" />
       <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\views" />
-      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Entity" />
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\js" />
+      <recent name="C:\wamp\www\lab\ILAB\src\Application\Sonata\UserBundle\Resources\public\css" />
+      <recent name="C:\wamp\www\lab\ILAB\app\Resources\views" />
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Form" />
     </key>
   </component>
   <component name="RunManager">
@@ -640,15 +708,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="22" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="868" y="351" width="1183" height="563" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.284375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2077381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -656,11 +725,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293348" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -680,155 +748,171 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Command/UserPasswordEncoderCommand.php">
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityFOSUser2Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="8" selection-start="2021" selection-end="2021" vertical-scroll-proportion="-7.0740743" vertical-offset="529" max-vertical-offset="2898" />
+        <state line="26" column="45" selection-start="679" selection-end="679" vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="612" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Tests/Admin/AdminTest.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="432" column="69" selection-start="15842" selection-end="15842" vertical-scroll-proportion="10.074074" vertical-offset="7742" max-vertical-offset="27198" />
+        <state line="4" column="9" selection-start="59" selection-end="59" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="216" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/autoload.php">
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/routing/sonata_security_2.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="46" selection-start="169" selection-end="177" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="342" />
+        <state line="11" column="43" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/public/js/fullcalendar/jquery.fullcalendar.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="52" selection-start="86" selection-end="99" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="234" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="597" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/EventDispatcher/Event.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="28" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="432" />
+        <state line="29" column="6" selection-start="843" selection-end="843" vertical-scroll-proportion="-0.04199773" vertical-offset="433" max-vertical-offset="2394" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppCache.php">
+    <entry file="file://$PROJECT_DIR$/app/Resources/public/js/calendar-settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="921" />
+        <state line="26" column="0" selection-start="764" selection-end="764" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/AppBundle.php">
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/public/js/calendar-settings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="112" selection-end="112" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="324" />
+        <state line="22" column="58" selection-start="616" selection-end="635" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_files.php">
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/config/routing.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="367" selection-end="367" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="324" />
+        <state line="7" column="79" selection-start="390" selection-end="402" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Event/CalendarEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="49" selection-start="300" selection-end="300" vertical-scroll-proportion="0.18120806" vertical-offset="0" max-vertical-offset="894" />
+        <state line="15" column="1" selection-start="317" selection-end="317" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1728" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/SymfonyRequirements.php">
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/config/services.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.2678773" vertical-offset="1998" max-vertical-offset="13626" />
+        <state line="8" column="51" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/bootstrap.php.cache">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Entity/EventEntity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3092" column="58" selection-start="93580" selection-end="93580" vertical-scroll-proportion="0.33295584" vertical-offset="55362" max-vertical-offset="58050" />
+        <state line="37" column="48" selection-start="0" selection-end="4841" vertical-scroll-proportion="0.74496645" vertical-offset="0" max-vertical-offset="4266" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/TMetodos.orm.xml">
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="64" selection-end="120" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/TParametros.orm.xml">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="93" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756" />
+        <state line="41" column="12" selection-start="1093" selection-end="1093" vertical-scroll-proportion="-8.185185" vertical-offset="391" max-vertical-offset="1242">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/jquery/jquery/jquery-1.11.1.js">
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="172836" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="891">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Entity/Group.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="39" selection-start="851" selection-end="851" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1404" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Document/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="7" selection-start="184" selection-end="184" vertical-scroll-proportion="0.23431952" vertical-offset="0" max-vertical-offset="845" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Document/Group.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="16" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1404">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="315" selection-end="315" vertical-scroll-proportion="0.17589577" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="4" selection-start="4098" selection-end="4098" vertical-scroll-proportion="0.0" vertical-offset="2497" max-vertical-offset="11142" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="27" selection-start="2691" selection-end="2698" vertical-scroll-proportion="0.0" vertical-offset="2220" max-vertical-offset="3114" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1058" column="20" selection-start="33882" selection-end="33882" vertical-scroll-proportion="0.34279227" vertical-offset="18436" max-vertical-offset="21744" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/TParametrosType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1224" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TParametrosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="41" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.0" vertical-offset="846" max-vertical-offset="5418" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/newmethod.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="144" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/TMetodosType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="63" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="864" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="149" selection-end="149" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="113382" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/routing/security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="43" selection-start="12" selection-end="43" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="843" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Model/UserInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="10" selection-start="294" selection-end="294" vertical-scroll-proportion="0.12811388" vertical-offset="0" max-vertical-offset="843" />
+        <state line="9" column="52" selection-start="335" selection-end="355" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="44" selection-start="4736" selection-end="4736" vertical-scroll-proportion="0.0" vertical-offset="2511" max-vertical-offset="3834" />
+        <state line="121" column="27" selection-start="3886" selection-end="3886" vertical-scroll-proportion="0.0" vertical-offset="1674" max-vertical-offset="3816">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Resources/config/routing/sonata_security_1.xml">
+    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="921">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle/SonataDoctrineORMAdminBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="6" selection-start="672" selection-end="672" vertical-scroll-proportion="0.1409396" vertical-offset="0" max-vertical-offset="894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="710" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="666">
+          <folding>
+            <element signature="e#6#220#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/AppBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="7" selection-start="591" selection-end="591" vertical-scroll-proportion="-17.333334" vertical-offset="0" max-vertical-offset="612">
+          <folding>
+            <element signature="e#6#220#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="5130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/TMetodosType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
           <folding />
@@ -837,141 +921,186 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="73" selection-start="1707" selection-end="1734" vertical-scroll-proportion="-16.88889" vertical-offset="174" max-vertical-offset="1080" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/routing/sonata_security_2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="43" selection-start="535" selection-end="535" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="39" selection-start="232" selection-end="261" vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/user-bundle/Controller/SecurityFOSUser1Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="2" selection-start="524" selection-end="524" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="684" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/RedirectResponse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="20" selection-start="970" selection-end="970" vertical-scroll-proportion="0.3440095" vertical-offset="250" max-vertical-offset="1890" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="85" selection-start="2377" selection-end="2447" vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="1476" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/newaction.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="14" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1584" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="324">
+        <state line="26" column="52" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.47794995" vertical-offset="49" max-vertical-offset="1080">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="241" selection-end="249" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="954">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="66" selection-start="940" selection-end="940" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="972">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityFOSUser2Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="9" selection-start="639" selection-end="969" vertical-scroll-proportion="0.0" vertical-offset="468" max-vertical-offset="630">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="50" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1368">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="18" selection-start="1043" selection-end="1043" vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="558">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="42" selection-start="815" selection-end="815" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="186426">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1458">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#34#3007#0" expanded="false" />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1439831553363" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="272" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="378">
+          <folding>
+            <marker date="1437563871361" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437563871361" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1437563871361" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-          <folding>
-            <marker date="1437563871360" expanded="true" signature="144:293" placeholder="..." />
-            <marker date="1437563871360" expanded="true" signature="153:250" placeholder="..." />
-            <marker date="1437563871360" expanded="true" signature="198:240" placeholder="..." />
-          </folding>
+        <state line="9" column="37" selection-start="192" selection-end="192" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="396">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/index.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/TParametrosType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="46" selection-start="1799" selection-end="1799" vertical-scroll-proportion="-5.6666665" vertical-offset="585" max-vertical-offset="1458">
+        <state line="59" column="26" selection-start="1654" selection-end="1654" vertical-scroll-proportion="-25.222221" vertical-offset="345" max-vertical-offset="1188">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="32" selection-start="1057" selection-end="1073" vertical-scroll-proportion="-27.0" vertical-offset="27" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="49" selection-start="1584" selection-end="1593" vertical-scroll-proportion="-24.0" vertical-offset="90" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="15" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TParametrosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="71" selection-start="1653" selection-end="1669" vertical-scroll-proportion="-6.6666665" vertical-offset="756" max-vertical-offset="5256">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/views/calendar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="891">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/DependencyInjection/Configuration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/DependencyInjection/ADesignsCalendarExtension.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="558">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Controller/CalendarController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="38" selection-start="437" selection-end="455" vertical-scroll-proportion="-9.333333" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="113382">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/ajaxsave.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="28" selection-start="854" selection-end="854" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="129" selection-end="129" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="234">
+        <state line="3" column="0" selection-start="49" selection-end="49" vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="216">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/newaction.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="23" selection-start="180" selection-end="180" vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/newmethod.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="0" selection-end="22" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.23487544" vertical-offset="0" max-vertical-offset="843">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="103" selection-end="103" vertical-scroll-proportion="0.125" vertical-offset="0" max-vertical-offset="864">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="20" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.5393519" vertical-offset="1136" max-vertical-offset="4446">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="18" selection-start="1140" selection-end="1140" vertical-scroll-proportion="-12.666667" vertical-offset="0" max-vertical-offset="576">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="765" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="378">
+        <state line="1" column="0" selection-start="47" selection-end="47" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="1224">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/js/mainjs.js">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/resources.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="89" selection-start="282" selection-end="282" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="828">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="38" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="144">
+        <state line="11" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.22916667" vertical-offset="0" max-vertical-offset="864">
           <folding />
         </state>
       </provider>

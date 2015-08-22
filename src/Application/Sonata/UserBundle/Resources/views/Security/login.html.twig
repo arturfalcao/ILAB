@@ -1,14 +1,14 @@
+{{ include('resources.html.twig') }}
+
 {% stylesheets '@AppBundle/Resources/public/css/*' %}
 <link rel="stylesheet" href="{{ asset('bundles/applicationsonatauser/css/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('bundles/applicationsonatauser/css/app.css') }}" />
+
 {% endstylesheets %}
 
-
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('bundles/applicationsonatauser/js/mainjs.css') }}"></script>
-
+    <script type="text/javascript" src="{{ asset('bundles/applicationsonatauser/js/mainjs.js') }}"></script>
 {% endblock %}
-
-
 
 {% if is_granted("ROLE") %}
     saddas
@@ -21,21 +21,35 @@
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
+    <section class="row login valign-middle login" >
+        <div class="small-16 medium-12 large-6 columns">
+            <img src="{{ asset('bundles/applicationsonatauser/images/logo.png') }}" alt="ilab" class="login-logo"/>
 
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-    <input type="password" id="password" name="_password" required="required" />
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
-    <input type="hidden" name="_target_path" value="/calendar" />
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
 
-</form>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <input placeholder="Utilizador" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+                <input placeholder="Palavra-Chave" type="password" id="password" name="_password" required="required" />
+                <input type="submit" id="_submit" name="_submit" class="button expand" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+
+                <input type="checkbox" id="remember_me" name="_remember_me" value="on" /><label for="keep-session">Manter sessão aberta</label>
+                <input type="hidden" name="_target_path" value="/calendar" />
+                <a href="#" class="right">Esqueceu a sua password?</a>
+
+
+            </form>
+
+
+
+            <p class="text-center">&copy; 2015 iLab lims Admin Dashboard</p>
+        </div>
+    </section>
+
+
+
 {% endblock fos_user_content %}
     {% endif %}

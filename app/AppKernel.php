@@ -29,16 +29,16 @@ class AppKernel extends Kernel
             // This example uses SonataDoctrineORMAdmin but
             // it works the same with the alternatives
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-
+            new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
             // Then add SonataAdminBundle
+            new Bmatzner\FoundationBundle\BmatznerFoundationBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            new AppBundle\AppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

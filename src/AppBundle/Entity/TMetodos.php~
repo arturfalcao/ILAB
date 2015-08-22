@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="t_metodos")
  * @ORM\Entity
+ * @ORM\MappedSuperclass
  * @ORM\HasLifecycleCallbacks()
  */
 class TMetodos
@@ -53,11 +54,115 @@ class TMetodos
      * @ORM\OneToMany(targetEntity="TParametros", mappedBy="fnMetodo")
      */
     protected $parametros;
-    
+
+
+
     public function __toString()
     {
-        return $this->getName();
+        return $this->getFtDescricao();
     }
 
 
+
+    /**
+     * Set ftCodigo
+     *
+     * @param string $ftCodigo
+     * @return TMetodos
+     */
+    public function setFtCodigo($ftCodigo)
+    {
+        $this->ftCodigo = $ftCodigo;
+
+        return $this;
+    }
+
+    /**
+     * Get ftCodigo
+     *
+     * @return string 
+     */
+    public function getFtCodigo()
+    {
+        return $this->ftCodigo;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftDescricao
+     * @return TMetodos
+     */
+    public function setFtDescricao($ftDescricao)
+    {
+        $this->ftDescricao = $ftDescricao;
+
+        return $this;
+    }
+
+    /**
+     * Get ftDescricao
+     *
+     * @return string 
+     */
+    public function getFtDescricao()
+    {
+        return $this->ftDescricao;
+    }
+
+    /**
+     * Set ftAlias
+     *
+     * @param string $ftAlias
+     * @return TMetodos
+     */
+    public function setFtAlias($ftAlias)
+    {
+        $this->ftAlias = $ftAlias;
+
+        return $this;
+    }
+
+    /**
+     * Get ftAlias
+     *
+     * @return string 
+     */
+    public function getFtAlias()
+    {
+        return $this->ftAlias;
+    }
+
+    /**
+     * Set ftObservacao
+     *
+     * @param string $ftObservacao
+     * @return TMetodos
+     */
+    public function setFtObservacao($ftObservacao)
+    {
+        $this->ftObservacao = $ftObservacao;
+
+        return $this;
+    }
+
+    /**
+     * Get ftObservacao
+     *
+     * @return string 
+     */
+    public function getFtObservacao()
+    {
+        return $this->ftObservacao;
+    }
+
+    /**
+     * Get fnId
+     *
+     * @return integer 
+     */
+    public function getFnId()
+    {
+        return $this->fnId;
+    }
 }
