@@ -45,4 +45,14 @@ class DefaultController extends Controller
     {
         return $this->render('default/calendar.html.twig');
     }
+
+    public function getAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('AppBundle:TParametros')->findAll();
+        return array(
+            'entities' => $entities,
+        );
+
+    }
 }

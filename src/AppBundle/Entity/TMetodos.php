@@ -6,61 +6,33 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * TMetodos
- *
- * @ORM\Table(name="t_metodos")
- * @ORM\Entity
- * @ORM\HasLifecycleCallbacks()
  */
 class TMetodos
 {
     /**
      * @var string
-     *
-     * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
      */
     private $ftCodigo;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="ft_descricao", type="string", length=100, nullable=false)
      */
     private $ftDescricao;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="ft_alias", type="string", length=100, nullable=true)
      */
     private $ftAlias;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="ft_observacao", type="string", length=300, nullable=true)
      */
     private $ftObservacao;
 
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @var integer
      */
     private $fnId;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="TParametros", mappedBy="fnMetodo")
-     */
-    protected $parametros;
-
-
-
-    public function __toString()
-    {
-        return $this->getFtDescricao();
-    }
-
 
 
     /**

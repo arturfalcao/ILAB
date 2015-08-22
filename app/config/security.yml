@@ -29,6 +29,8 @@ security:
                 use_forward:    false
                 check_path:     /admin/login_check
                 failure_path:   null
+                always_use_default_target_path : true
+                default_target_path:   /calendar
             logout:
                 path:           /admin/logout
             anonymous:          true
@@ -49,7 +51,7 @@ security:
                 check_path:     /login_check
                 failure_path:   null
                 always_use_default_target_path : true
-                default_target_path:   /
+                default_target_path:   /calendar
             logout:             true
             anonymous:          true
 

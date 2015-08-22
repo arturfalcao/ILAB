@@ -29,6 +29,7 @@
         "twbs/bootstrap": "3.0.*",
         "components/jquery": "1.9.*",
         "adesigns/calendar-bundle": "^1.1",
+        "bmatzner/foundation-bundle": "~5.3",
         "friendsofsymfony/jsrouting-bundle": "^1.5"
 
     },

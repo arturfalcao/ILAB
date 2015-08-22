@@ -2,9 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="AppBundle\Entity\TParametros" table="t_parametros">
     <indexes>
-
-      <index name="FK_t_parametros_t_metodos" columns="fn_id_metodo"/>
-
+      <index name="IDX_B4C3AC671909E299" columns="fn_id_metodo"/>
     </indexes>
     <id name="fnId" type="bigint" column="fn_id">
       <generator strategy="IDENTITY"/>

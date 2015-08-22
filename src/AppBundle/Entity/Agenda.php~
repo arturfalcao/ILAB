@@ -1,0 +1,170 @@
+<?php
+namespace AppBundle\Entity;
+
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class for holding a calendar event's details.
+ *
+ * @author Mike Yudin <mikeyudin@gmail.com>
+ */
+
+
+/**
+ * TMetodos
+ *
+ * @ORM\Table(name="agenda")
+ * @ORM\Entity
+ * @ORM\MappedSuperclass
+ * @ORM\HasLifecycleCallbacks()
+ */
+class Agenda
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
+    protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     */
+    protected $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=100, nullable=false)
+     */
+    protected $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bgColor", type="string", length=100, nullable=false)
+     */
+    protected $bgColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fgColor", type="string", length=100, nullable=false)
+     */
+    protected $fgColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cssClass", type="string", length=100, nullable=false)
+     */
+    protected $cssClass;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="startDatetime", type="datetime", nullable=false)
+     */
+    protected $startDatetime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endDatetime", type="datetime", nullable=false)
+     */
+    protected $endDatetime;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="endDatetime", type="boolean", nullable=false)
+     */
+    protected $allDay = false;
+
+    /**
+     * @var array Non-standard fields
+     */
+    protected $otherFields = array();
+
+    public function __construct($title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = false)
+    {
+        $this->title = $title;
+        $this->startDatetime = $startDatetime;
+        $this->setAllDay($allDay);
+
+        if ($endDatetime === null && $this->allDay === false) {
+            throw new \InvalidArgumentException("Must specify an event End DateTime if not an all day event.");
+        }
+
+        $this->endDatetime = $endDatetime;
+    }
+
+    /**
+     * Convert calendar event details to an array
+     *
+     * @return array $event
+     */
+    public function toArray()
+    {
+        $event = array();
+
+        if ($this->id !== null) {
+            $event['id'] = $this->id;
+        }
+
+        $event['title'] = $this->title;
+        $event['start'] = $this->startDatetime->format("Y-m-d\TH:i:sP");
+
+        if ($this->url !== null) {
+            $event['url'] = $this->url;
+        }
+
+        if ($this->bgColor !== null) {
+            $event['backgroundColor'] = $this->bgColor;
+            $event['borderColor'] = $this->bgColor;
+        }
+
+        if ($this->fgColor !== null) {
+            $event['textColor'] = $this->fgColor;
+        }
+
+        if ($this->cssClass !== null) {
+            $event['className'] = $this->cssClass;
+        }
+
+        if ($this->endDatetime !== null) {
+            $event['end'] = $this->endDatetime->format("Y-m-d\TH:i:sP");
+        }
+
+        $event['allDay'] = $this->allDay;
+
+        foreach ($this->otherFields as $field => $value) {
+            $event[$field] = $value;
+        }
+
+        return $event;
+    }
+    /**
+     * @param string $name
+     * @param string $value
+     */
+    public function addField($name, $value)
+    {
+        $this->otherFields[$name] = $value;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function removeField($name)
+    {
+        if (!array_key_exists($name, $this->otherFields)) {
+            return;
+        }
+
+        unset($this->otherFields[$name]);
+    }
+}
