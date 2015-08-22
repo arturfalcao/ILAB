@@ -1,3 +1,30 @@
 body{
-    background-color: #000000;
+    background: #9993a3 url(../images/textura_bg.png) top left;
+}
+
+form{
+  border-bottom: 1px solid rgba(153,147,163,0.2);
+  padding-bottom: rem-calc(15);
+  margin-bottom: rem-calc(15);
+  input{
+    padding-left: rem-calc(15);
+    padding-right: rem-calc(50);
+  }
+  input[type=text]{
+    background: rgba(255,255,255,0.7) url(../images/name_icon.png) no-repeat 95% 50%;
+    &:hover, &:active, &:focus {
+      background: rgba(255,255,255,1) url(../images/name_icon.png) no-repeat 95% 50%;
+    }
+  }
+  input[type=password]{
+    background: rgba(255,255,255,0.7) url(../images/pass_icon.png) no-repeat 95% 50%;
+    &:hover, &:active, &:focus {
+      background: rgba(255,255,255,1) url(../images/pass_icon.png) no-repeat 95% 50%;
+    }
+  }
+  label{
+    color: #9993a3;
+    font-size: rem-calc(14);
+    @extend %light-font;
+  }
 }
