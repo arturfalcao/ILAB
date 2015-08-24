@@ -1,0 +1,11 @@
+
+{{ form_start(form , {'attr': {'id': 'short_calendar' }}) }}
+    {{ form_errors(form) }}
+<div><label>Quando:</label><div class="start_date"></div></div>
+
+{{ form_row(form.startdatetime) }}
+{{ form_row(form.title) }}
+    {{ form_row(form.enddatetime) }}
+    {{ form_row(form.submit,{ 'id': 'submit_short_calendar',  'attr': { 'class' : 'my_custom_class' }}) }}
+{{ form_end(form) }}
+

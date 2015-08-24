@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Agenda;
 use AppBundle\Form\AgendaType;
-
+use Symfony\Component\HttpFoundation\Response;
 /**
  * Agenda controller.
  *
@@ -21,7 +21,7 @@ class AgendaController extends Controller
     /**
      * Lists all Agenda entities.
      *
-     * @Route("/", name="agenda")
+     * @Route("/calendar", name="agenda")
      * @Method("GET")
      * @Template()
      */
@@ -38,7 +38,7 @@ class AgendaController extends Controller
     /**
      * Creates a new Agenda entity.
      *
-     * @Route("/", name="agenda_create")
+     * @Route("/calendar", name="agenda_create")
      * @Method("POST")
      * @Template("AppBundle:Agenda:new.html.twig")
      */
@@ -49,6 +49,7 @@ class AgendaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -84,7 +85,7 @@ class AgendaController extends Controller
     /**
      * Displays a form to create a new Agenda entity.
      *
-     * @Route("/new", name="agenda_new")
+     * @Route("calendar/new", name="agenda_new")
      * @Method("GET")
      * @Template()
      */
@@ -102,7 +103,7 @@ class AgendaController extends Controller
     /**
      * Finds and displays a Agenda entity.
      *
-     * @Route("/{id}", name="agenda_show")
+     * @Route("calendar/{id}", name="agenda_show")
      * @Method("GET")
      * @Template()
      */
@@ -127,7 +128,7 @@ class AgendaController extends Controller
     /**
      * Displays a form to edit an existing Agenda entity.
      *
-     * @Route("/{id}/edit", name="agenda_edit")
+     * @Route("calendar/{id}/edit", name="agenda_edit")
      * @Method("GET")
      * @Template()
      */
@@ -172,7 +173,7 @@ class AgendaController extends Controller
     /**
      * Edits an existing Agenda entity.
      *
-     * @Route("/{id}", name="agenda_update")
+     * @Route("calendar/{id}", name="agenda_update")
      * @Method("PUT")
      * @Template("AppBundle:Agenda:edit.html.twig")
      */
@@ -205,7 +206,7 @@ class AgendaController extends Controller
     /**
      * Deletes a Agenda entity.
      *
-     * @Route("/{id}", name="agenda_delete")
+     * @Route("calendar/{id}", name="agenda_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -243,5 +244,47 @@ class AgendaController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+
+
+    /**
+     * Creates a new Agenda entity.
+     *
+     * @Route("/calendar/newshort", name="agenda_create_short")
+     * @Method("POST")
+     */
+    public function newshortAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $entity = new Agenda();
+
+        $form = $this->createFormBuilder($entity)
+            ->add('title',null,array('label' => 'O que'))
+            ->add('startdatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'start_date_short'),'label' => false))
+            ->add('enddatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'end_date_short'),'label' => false))
+            ->add('submit','submit')
+            ->getForm();
+        $form->handleRequest($request);
+
+
+
+
+
+        if ($request->getMethod() == "POST") {
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($entity);
+                $em->flush();
+                $data1 = $entity->getStartdatetime()->format('Y-m-d H:i:s');
+                $data2 = $entity->getEnddatetime()->format('Y-m-d H:i:s');
+
+                return new Response('{"events" : {"event" : {"title": "'. $entity->getTitle() .'","startdate": "'. $data1 .'","enddate": "'. $data2.'"}}}');
+            }
+
+        }else{
+            return $this->render('AppBundle:Agenda:newshort.html.twig', array('form'=>$form->createView()));
+        }
+
     }
 }

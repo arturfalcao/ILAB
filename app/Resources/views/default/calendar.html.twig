@@ -1,13 +1,25 @@
+
 {% include 'AppBundle::resources.html.twig' %}
 
 
 {% stylesheets '@AppBundle/Resources/public/css/*' %}
-<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 {% endstylesheets %}
+
 
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
 {% endblock %}
 
 
@@ -17,12 +29,10 @@
         angular.module('CalendarModule', [])
             .controller('CalendarCtrl', function($scope, $locale, $http) {
 
-            });
-        $( document ).ready(function() {
-            $(".fc-widget-content").bind('click',function(){
+            }).config(function($interpolateProvider){
+                    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+                });
 
-            })
-        });
 
     </script>
 {% endblock %}
@@ -34,6 +44,10 @@
     <div ng-app="CalendarModule">
         <div ng-controller="CalendarCtrl">
 
+            <div id="cal_new_event" style="display: none;">
+                {{ render(controller('AppBundle:Agenda:newshort')) }}
+            </div>
+
             {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
 
         </div>
@@ -41,22 +55,40 @@
 {% endblock %}
 
 
-<!-- Modal -->
-<div class="modal fade" id="new_role" role="dialog" aria-labelledby="new_role-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="new_role-label">Add new role</h4>
-            </div>
-            <div class="modal-body">
-                {{ render(controller('AppBundle:Agenda:new')) }}
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="save_role">Save role</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<script>
+    function sendForm(form, callback) {
+        // Get all form values
+        var values = {};
+        $.each( form[0].elements, function(i, field) {
+            if (field.type != 'checkbox' || (field.type == 'checkbox' && field.checked)) {
+                values[field.name] = field.value;
+            }
+        });
 
+        // Post form
+        $.ajax({
+            type        : 'POST',
+            url         : '/app_dev.php/agenda/calendar/newshort',
+            data        : values,
+            success     : function(result) { callback( result ); }
+        });
+    }
+    $(function() {
+        $('#submit_short_calendar').on('click', function( e ){
+            e.preventDefault();
+            sendForm( $('#short_calendar'), function( response ){
+
+                var data = JSON.parse(response);
+                $('#calendar-holder').fullCalendar('renderEvent',
+                        {
+                            title: data.events.event.title,
+                            start: data.events.event.startdate,
+                            end: data.events.event.enddate,
+                            allDay:false
+                        }
+                );
+                $('#calendar-holder').fullCalendar('rerenderEvents')
+            });
+        });
+    });
+</script>
