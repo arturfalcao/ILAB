@@ -113,7 +113,7 @@ section.login form .button {
 
 /* line 61, ../scss/style.scss */
 body  {
-    background: url('../images/textura_bg.png') top left !important;
+    background: #fff url(../images/textura_bg.png) top left;
 }
 
 /* line 66, ../scss/style.scss */
@@ -138,7 +138,7 @@ section.login form input[type=text] {
 }
 /* line 81, ../scss/style.scss */
 section.login form input[type=text]:hover, section.login form input[type=text]:active, section.login form input[type=text]:focus {
-    background: white url(../images/name_icon.png) no-repeat 95% 50%;
+    background: white url(../images/name_icon_active.png) no-repeat 95% 50%;
 }
 /* line 85, ../scss/style.scss */
 section.login form input[type=password] {
@@ -146,7 +146,7 @@ section.login form input[type=password] {
 }
 /* line 87, ../scss/style.scss */
 section.login form input[type=password]:hover, section.login form input[type=password]:active, section.login form input[type=password]:focus {
-    background: white url(../images/pass_icon.png) no-repeat 95% 50%;
+    background: white url(../images/pass_icon_active.png) no-repeat 95% 50%;
 }
 /* line 91, ../scss/style.scss */
 section.login form label {
@@ -190,4 +190,65 @@ section.login p {
     font-size: 0.75rem;
     color: rgba(153, 147, 163, 0.8);
     font-style: italic;
+}
+
+/* Base for label styling */
+/* line 49, ../scss/style.scss */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  display: none;
+}
+
+/* line 54, ../scss/style.scss */
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+/* checkbox aspect */
+/* line 62, ../scss/style.scss */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #9993a3;
+  background: #fff;
+  border-radius: 2px;
+  margin-left: 0;
+}
+
+/* checked mark aspect */
+/* line 74, ../scss/style.scss */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: url(/bundles/applicationsonatauser/images/check.png) no-repeat;
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  color: #4cc3b8;
+  -webkit-transition: all 0.1s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -ms-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+
+/* checked mark aspect changes */
+/* line 83, ../scss/style.scss */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* line 87, ../scss/style.scss */
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
 }

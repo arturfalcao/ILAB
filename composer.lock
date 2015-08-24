@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3240d94034744ea1222d80acf0516e64",
+    "hash": "9e929202d448be7e743f80fc27373e04",
     "packages": [
         {
             "name": "adesigns/calendar-bundle",
@@ -1415,7 +1415,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
