@@ -196,59 +196,59 @@ section.login p {
 /* line 49, ../scss/style.scss */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
-  display: none;
+    display: none;
 }
 
 /* line 54, ../scss/style.scss */
 [type="checkbox"]:not(:checked) + label,
 [type="checkbox"]:checked + label {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  margin-left: 0;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    margin-left: 0;
 }
 
 /* checkbox aspect */
 /* line 62, ../scss/style.scss */
 [type="checkbox"]:not(:checked) + label:before,
 [type="checkbox"]:checked + label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 17px;
-  height: 17px;
-  border: 1px solid #9993a3;
-  background: #fff;
-  border-radius: 2px;
-  margin-left: 0;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #9993a3;
+    background: #fff;
+    border-radius: 2px;
+    margin-left: 0;
 }
 
 /* checked mark aspect */
 /* line 74, ../scss/style.scss */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {
-  content: url(/bundles/applicationsonatauser/images/check.png) no-repeat;
-  position: absolute;
-  top: 5px;
-  left: 3px;
-  color: #4cc3b8;
-  -webkit-transition: all 0.1s ease-in;
-  -moz-transition: all 0.1s ease-in;
-  -ms-transition: all 0.1s ease-in;
-  -o-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in;
+    content: url(/bundles/applicationsonatauser/images/check.png) no-repeat;
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    color: #4cc3b8;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
 }
 
 /* checked mark aspect changes */
 /* line 83, ../scss/style.scss */
 [type="checkbox"]:not(:checked) + label:after {
-  opacity: 0;
-  transform: scale(0);
+    opacity: 0;
+    transform: scale(0);
 }
 
 /* line 87, ../scss/style.scss */
 [type="checkbox"]:checked + label:after {
-  opacity: 1;
-  transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
 }

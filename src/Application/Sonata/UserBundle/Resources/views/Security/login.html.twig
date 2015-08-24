@@ -26,6 +26,9 @@
         <div class="small-16 medium-12 large-6 columns">
             <img src="{{ asset('bundles/applicationsonatauser/images/logo.png') }}" alt="ilab" class="login-logo"/>
 
+
+
+
             <form action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
@@ -41,6 +44,9 @@
 
 
             </form>
+
+
+
             <p class="text-center">&copy; 2015 iLab lims Admin Dashboard</p>
         </div>
     </section>
