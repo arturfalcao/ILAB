@@ -2,16 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-<<<<<<< HEAD
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/images/Untitled.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" afterPath="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/bootstrap.css" afterPath="$PROJECT_DIR$/web/css/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap.js" afterPath="$PROJECT_DIR$/web/js/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_affix_12.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_affix_12.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_alert_2.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_alert_2.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/bootstrap_bootstrap_1.css" afterPath="$PROJECT_DIR$/web/css/bootstrap_bootstrap_1.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_button_3.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_button_3.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_carousel_4.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_carousel_4.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_collapse_5.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_collapse_5.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_dropdown_6.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_dropdown_6.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/bootstrap_form_2.css" afterPath="$PROJECT_DIR$/web/css/bootstrap_form_2.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_modal_7.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_modal_7.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_popover_9.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_popover_9.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_scrollspy_10.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_scrollspy_10.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_tab_11.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_tab_11.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_tooltip_8.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_tooltip_8.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/bootstrap_transition_1.js" afterPath="$PROJECT_DIR$/web/js/bootstrap_transition_1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/jquery.js" afterPath="$PROJECT_DIR$/web/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/jquery_jquery-1.11.1_1.js" afterPath="$PROJECT_DIR$/web/js/jquery_jquery-1.11.1_1.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/resources.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/resources.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
-=======
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
->>>>>>> parent of 4e0d3b0... dsa
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
@@ -35,77 +55,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calendar.html.twig" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="calendar.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state line="22" column="14" selection-start="1394" selection-end="1394" vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="2178">
+            <state line="18" column="73" selection-start="1158" selection-end="1158" vertical-scroll-proportion="-11.333333" vertical-offset="18" max-vertical-offset="1296">
               <folding>
-                <marker date="1440437138563" expanded="true" signature="1549:1838" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="1669:1685" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="1724:1821" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="1883:2818" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="1903:2807" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2048:2799" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2073:2141" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2113:2128" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2165:2787" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2205:2720" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2318:2680" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2371:2659" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2427:2441" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2442:2551" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2758:2773" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2831:4115" placeholder="..." />
-                <marker date="1440437138563" expanded="true" signature="2871:3409" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="2982:3148" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="3073:3138" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="3188:3401" placeholder="{&quot;type&quot;: 'POST'...}" />
-                <marker date="1440437138563" expanded="true" signature="3427:4104" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="3490:4096" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="3588:4084" placeholder="{...}" />
-                <marker date="1440437138563" expanded="true" signature="3730:3982" placeholder="{&quot;allDay&quot;: false...}" />
-=======
-            <state line="42" column="32" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.38434163" vertical-offset="0" max-vertical-offset="1548">
-              <folding>
-                <element signature="e#350#1394#0" expanded="false" />
-                <element signature="e#1397#1854#0" expanded="false" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
->>>>>>> parent of 4e0d3b0... dsa
+                <element signature="e#1491#1948#0" expanded="false" />
+                <element signature="e#2801#3339#0" expanded="false" />
+                <element signature="e#3357#4034#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="resources.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/resources.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="270">
-=======
-      <file leaf-file-name="menu.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/menu.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8827" column="0" selection-start="282974" selection-end="282974" vertical-scroll-proportion="0.0" vertical-offset="158472" max-vertical-offset="177246">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="33" selection-start="5572" selection-end="5572" vertical-scroll-proportion="0.0" vertical-offset="2725" max-vertical-offset="3582">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -113,112 +71,64 @@
       <file leaf-file-name="calendar-settings.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="12" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="1476" max-vertical-offset="2034">
->>>>>>> parent of 4e0d3b0... dsa
+            <state line="125" column="21" selection-start="4764" selection-end="4764" vertical-scroll-proportion="0.0" vertical-offset="1566" max-vertical-offset="2682">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="resources.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="306">
-              <folding />
-=======
-      <file leaf-file-name="AgendaController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AgendaController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="252" column="6" selection-start="6717" selection-end="6717" vertical-scroll-proportion="-10.444445" vertical-offset="4254" max-vertical-offset="5328">
+            <state line="310" column="43" selection-start="8941" selection-end="8941" vertical-scroll-proportion="0.76506025" vertical-offset="4945" max-vertical-offset="6084">
               <folding>
                 <element signature="e#40#85#0" expanded="true" />
               </folding>
->>>>>>> parent of 4e0d3b0... dsa
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css">
+      <file leaf-file-name="Agenda.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state line="119" column="27" selection-start="4265" selection-end="4265" vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="4680">
-=======
-            <state line="80" column="20" selection-start="975" selection-end="975" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="5130">
->>>>>>> parent of 4e0d3b0... dsa
+            <state line="137" column="34" selection-start="1927" selection-end="1941" vertical-scroll-proportion="-23.037037" vertical-offset="1844" max-vertical-offset="5130">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/menu.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="342">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8827" column="0" selection-start="282974" selection-end="282974" vertical-scroll-proportion="0.0" vertical-offset="158472" max-vertical-offset="177246">
-=======
-            <state line="57" column="13" selection-start="1947" selection-end="1947" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="1206">
->>>>>>> parent of 4e0d3b0... dsa
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="33" selection-start="5572" selection-end="5572" vertical-scroll-proportion="0.0" vertical-offset="2790" max-vertical-offset="3600">
-=======
-      <file leaf-file-name="newshort.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="39" selection-start="129" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="306">
->>>>>>> parent of 4e0d3b0... dsa
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calendar-settings.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state line="82" column="12" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="2034">
-=======
-            <state line="27" column="16" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1278">
->>>>>>> parent of 4e0d3b0... dsa
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AgendaController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="262" column="57" selection-start="7062" selection-end="7062" vertical-scroll-proportion="-18.074074" vertical-offset="4102" max-vertical-offset="5202">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CalendarEventListener.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CalendarEventListener.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="74" selection-start="0" selection-end="2017" vertical-scroll-proportion="0.50120485" vertical-offset="286" max-vertical-offset="1116">
-              <folding>
-                <element signature="e#125#173#0" expanded="true" />
-              </folding>
+            <state line="49" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="-18.74074" vertical-offset="250" max-vertical-offset="1080">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AgendaType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="38" selection-start="988" selection-end="988" vertical-scroll-proportion="-23.333334" vertical-offset="0" max-vertical-offset="954">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventEntity.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Entity/EventEntity.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="126" column="25" selection-start="3016" selection-end="3021" vertical-scroll-proportion="-11.259259" vertical-offset="1964" max-vertical-offset="4284">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="39" selection-start="624" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1404">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -236,7 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/index.html.twig" />
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/vendor/sonata-project/user-bundle/Controller/SecurityFOSUser1Controller.php" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityController.php" />
@@ -249,8 +158,6 @@
         <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/vendor/sonata-project/user-bundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/resources.html.twig" />
-        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityFOSUser2Controller.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
@@ -263,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/doctrine/Agenda.orm.xml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/AppBundle.php" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
@@ -271,34 +177,26 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newAgenda.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/newaction.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/public/js/ajaxsave.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/public/js/calendar-settings.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/ajaxsave.js" />
         <option value="$PROJECT_DIR$/web/bundles/adesignscalendar/js/fullcalendar/fullcalendar.min.js" />
         <option value="$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Controller/CalendarController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/resources.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
+        <option value="$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Entity/EventEntity.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" />
-=======
-        <option value="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
->>>>>>> parent of 4e0d3b0... dsa
       </list>
     </option>
   </component>
@@ -363,7 +261,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,129 +275,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="adesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendar-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ADesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CalendarBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendar-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ADesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CalendarBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendar-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ADesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CalendarBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="calendar-bundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ADesigns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CalendarBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="bundles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -554,6 +334,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -604,12 +418,26 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -626,7 +454,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-<<<<<<< HEAD
             <PATH_ELEMENT>
               <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -635,8 +462,6 @@
               <option name="myItemId" value="EventListener" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-=======
->>>>>>> parent of 4e0d3b0... dsa
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -651,17 +476,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-<<<<<<< HEAD
-=======
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
->>>>>>> parent of 4e0d3b0... dsa
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -682,13 +496,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-<<<<<<< HEAD
-=======
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
->>>>>>> parent of 4e0d3b0... dsa
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -718,7 +525,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-<<<<<<< HEAD
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="ILAB" />
@@ -741,8 +573,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-=======
->>>>>>> parent of 4e0d3b0... dsa
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -763,11 +611,11 @@
       <recent name="C:\wamp\www\lab\ILAB\app\Resources\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\views" />
       <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\js" />
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\css\images" />
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\css" />
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\views" />
       <recent name="C:\wamp\www\lab\ILAB\src\Application\Sonata\UserBundle\Resources\public\css" />
-      <recent name="C:\wamp\www\lab\ILAB\app\Resources\views" />
-      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Form" />
     </key>
   </component>
   <component name="RunManager">
@@ -802,6 +650,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="287" y="309" width="1183" height="563" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3077381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -812,7 +661,6 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="287" y="309" width="1183" height="563" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -836,19 +684,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Document/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870" />
-      </provider>
-    </entry>
->>>>>>> parent of 4e0d3b0... dsa
-    <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="972" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="16" selection-start="1121" selection-end="1121" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1404" />
@@ -857,11 +692,6 @@
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="52" selection-start="335" selection-end="355" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="27" selection-start="3886" selection-end="3886" vertical-scroll-proportion="0.0" vertical-offset="1674" max-vertical-offset="3816" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
@@ -944,11 +774,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Entity/EventEntity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="48" selection-start="0" selection-end="4841" vertical-scroll-proportion="-24.037037" vertical-offset="17" max-vertical-offset="4266" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Event/CalendarEvent.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="1" selection-start="317" selection-end="317" vertical-scroll-proportion="-7.2222223" vertical-offset="21" max-vertical-offset="1674" />
@@ -984,16 +809,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="891" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="71" selection-start="489" selection-end="489" vertical-scroll-proportion="0.1875" vertical-offset="0" max-vertical-offset="864" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/resources.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="69" selection-start="302" selection-end="302" vertical-scroll-proportion="0.16666667" vertical-offset="0" max-vertical-offset="864" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="18" selection-start="242" selection-end="1466" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="666" />
@@ -1007,13 +822,6 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="23" selection-start="19" selection-end="48" vertical-scroll-proportion="0.0" vertical-offset="36" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="24" selection-start="418" selection-end="445" vertical-scroll-proportion="0.3125" vertical-offset="0" max-vertical-offset="918">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/config/services.xml">
@@ -1030,13 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="16" selection-start="723" selection-end="723" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1278">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="768" column="20" selection-start="25031" selection-end="25031" vertical-scroll-proportion="0.34279227" vertical-offset="13216" max-vertical-offset="21744">
@@ -1047,13 +848,6 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="39" selection-start="129" selection-end="139" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="20" selection-start="975" selection-end="975" vertical-scroll-proportion="0.0" vertical-offset="1142" max-vertical-offset="5130">
           <folding />
         </state>
       </provider>
@@ -1073,42 +867,46 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="921" />
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="13" selection-start="1947" selection-end="1947" vertical-scroll-proportion="0.0" vertical-offset="1026" max-vertical-offset="1206">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="12" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="1116">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="6" selection-start="6717" selection-end="6717" vertical-scroll-proportion="-10.444445" vertical-offset="4254" max-vertical-offset="5328">
+        <state line="10" column="0" selection-start="330" selection-end="330" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="3546">
           <folding>
-            <element signature="e#40#85#0" expanded="true" />
+            <marker date="1440413757788" expanded="true" signature="-1:-1" placeholder="parameters:" />
           </folding>
         </state>
       </provider>
     </entry>
->>>>>>> parent of 4e0d3b0... dsa
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="18" selection-start="553" selection-end="553" vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/resources.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="1" selection-start="3829" selection-end="3829" vertical-scroll-proportion="1.0455076" vertical-offset="886" max-vertical-offset="3582">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="33" selection-start="5572" selection-end="5572" vertical-scroll-proportion="0.0" vertical-offset="2725" max-vertical-offset="3582">
+        <state line="48" column="27" selection-start="2399" selection-end="2601" vertical-scroll-proportion="0.630105" vertical-offset="324" max-vertical-offset="3708">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8827" column="0" selection-start="282974" selection-end="282974" vertical-scroll-proportion="0.0" vertical-offset="158472" max-vertical-offset="177246">
+        <state line="8827" column="0" selection-start="282974" selection-end="282974" vertical-scroll-proportion="0.4715262" vertical-offset="158472" max-vertical-offset="177246">
           <folding />
         </state>
       </provider>
@@ -1120,86 +918,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state line="22" column="14" selection-start="1394" selection-end="1394" vertical-scroll-proportion="-14.666667" vertical-offset="0" max-vertical-offset="2178">
-          <folding>
-            <marker date="1440437138563" expanded="true" signature="1549:1838" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="1669:1685" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="1724:1821" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="1883:2818" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="1903:2807" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2048:2799" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2073:2141" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2113:2128" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2165:2787" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2205:2720" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2318:2680" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2371:2659" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2427:2441" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2442:2551" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2758:2773" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2831:4115" placeholder="..." />
-            <marker date="1440437138563" expanded="true" signature="2871:3409" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="2982:3148" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="3073:3138" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="3188:3401" placeholder="{&quot;type&quot;: 'POST'...}" />
-            <marker date="1440437138563" expanded="true" signature="3427:4104" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="3490:4096" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="3588:4084" placeholder="{...}" />
-            <marker date="1440437138563" expanded="true" signature="3730:3982" placeholder="{&quot;allDay&quot;: false...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/resources.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="270">
+        <state line="18" column="28" selection-start="557" selection-end="557" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="1080">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Entity/EventEntity.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="58" selection-end="58" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="306">
+        <state line="126" column="25" selection-start="3016" selection-end="3021" vertical-scroll-proportion="-11.259259" vertical-offset="1964" max-vertical-offset="4284">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css">
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="119" column="27" selection-start="4265" selection-end="4265" vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="4680">
+        <state line="24" column="39" selection-start="624" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1404">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="12" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="1015" max-vertical-offset="2034">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="57" selection-start="7062" selection-end="7062" vertical-scroll-proportion="-18.074074" vertical-offset="4102" max-vertical-offset="5202">
+        <state line="37" column="38" selection-start="988" selection-end="988" vertical-scroll-proportion="-23.333334" vertical-offset="0" max-vertical-offset="954">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="74" selection-start="0" selection-end="2017" vertical-scroll-proportion="0.50120485" vertical-offset="286" max-vertical-offset="1116">
+        <state line="49" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="-18.74074" vertical-offset="250" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="34" selection-start="1927" selection-end="1941" vertical-scroll-proportion="-23.037037" vertical-offset="1844" max-vertical-offset="5130">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="73" selection-start="1158" selection-end="1158" vertical-scroll-proportion="-11.333333" vertical-offset="18" max-vertical-offset="1296">
           <folding>
-            <element signature="e#125#173#0" expanded="true" />
-=======
-        <state line="42" column="32" selection-start="2023" selection-end="2023" vertical-scroll-proportion="0.38434163" vertical-offset="0" max-vertical-offset="1548">
+            <element signature="e#1491#1948#0" expanded="false" />
+            <element signature="e#2801#3339#0" expanded="false" />
+            <element signature="e#3357#4034#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="21" selection-start="4764" selection-end="4764" vertical-scroll-proportion="0.0" vertical-offset="1566" max-vertical-offset="2682">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="310" column="43" selection-start="8941" selection-end="8941" vertical-scroll-proportion="0.76506025" vertical-offset="4945" max-vertical-offset="6084">
           <folding>
-            <element signature="e#350#1394#0" expanded="false" />
-            <element signature="e#1397#1854#0" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
->>>>>>> parent of 4e0d3b0... dsa
+            <element signature="e#40#85#0" expanded="true" />
           </folding>
         </state>
       </provider>

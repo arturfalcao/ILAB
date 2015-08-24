@@ -41,6 +41,16 @@ section.login form label, section.login form a, section.login p {
     font-style: normal;
 }
 
+body {
+    background: url('../images/textura_bg.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+
+}
+
 /* line 23, ../scss/style.scss */
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
     -webkit-border-radius: 2px;
@@ -112,9 +122,6 @@ section.login form .button {
 }
 
 /* line 61, ../scss/style.scss */
-body .login {
-    background: #fff url(../images/textura_bg.png) top left;
-}
 
 /* line 66, ../scss/style.scss */
 section.login .login-logo {
@@ -134,19 +141,19 @@ section.login form input {
 }
 /* line 79, ../scss/style.scss */
 section.login form input[type=text] {
-    background: rgba(255, 255, 255, 0.7) url(../images/name_icon.png) no-repeat 95% 50%;
+    background: rgba(255, 255, 255, 0.7) url(images/name_icon.png) no-repeat 95% 50%;
 }
 /* line 81, ../scss/style.scss */
 section.login form input[type=text]:hover, section.login form input[type=text]:active, section.login form input[type=text]:focus {
-    background: white url(../images/name_icon.png) no-repeat 95% 50%;
+    background: white url(images/name_icon.png) no-repeat 95% 50%;
 }
 /* line 85, ../scss/style.scss */
 section.login form input[type=password] {
-    background: rgba(255, 255, 255, 0.7) url(../images/pass_icon.png) no-repeat 95% 50%;
+    background: rgba(255, 255, 255, 0.7) url(images/pass_icon.png) no-repeat 95% 50%;
 }
 /* line 87, ../scss/style.scss */
 section.login form input[type=password]:hover, section.login form input[type=password]:active, section.login form input[type=password]:focus {
-    background: white url(../images/pass_icon.png) no-repeat 95% 50%;
+    background: white url(images/pass_icon.png) no-repeat 95% 50%;
 }
 /* line 91, ../scss/style.scss */
 section.login form label {
