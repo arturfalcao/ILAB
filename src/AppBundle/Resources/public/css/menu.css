@@ -125,7 +125,7 @@
 /* line 1, ../scss/_side-menu.scss */
 .side-menu {
   height: 100vh;
-  width: 8.625rem;
+  width: 8.063rem;
   border-right: 1px solid #dfdfdf;
   background: #fff;
   z-index: 300;
@@ -163,7 +163,7 @@
 }
 /* line 30, ../scss/_side-menu.scss */
 .side-menu img {
-  margin: 1.5625rem 0.9375rem 0;
+  margin: 1.5em 0.60rem 0;
 }
 /* line 34, ../scss/_side-menu.scss */
 .side-menu ul {
