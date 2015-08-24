@@ -112,8 +112,8 @@ section.login form .button {
 }
 
 /* line 61, ../scss/style.scss */
-body .login {
-    background: #fff url(../images/textura_bg.png) top left;
+body  {
+    background: url('../images/textura_bg.png') top left !important;
 }
 
 /* line 66, ../scss/style.scss */
