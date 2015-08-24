@@ -7,11 +7,28 @@ index:
 new:
     pattern:   /newaction
     defaults:  { _controller: AppBundle:TParametros:index }
-
 calendar:
     pattern:   /calendar
     defaults:  { _controller: AppBundle:Default:AfterLogin }
 
+calendar_show:
+    path:     /calendar/{slug}
+    defaults: { _controller: AppBundle:Agenda:show }
+    methods:  [GET]
+
+calendar_update:
+    path:     /calendar/{slug}
+    defaults: { _controller: AppBundle:Agenda:update }
+    methods:  [PUT]
+
+calendar_delete:
+    path:     /calendar/{slug}
+    defaults: { _controller: AppBundle:Agenda:delete }
+    methods:  [DELETE]
+calendar_create:
+    path:     /calendar/new
+    defaults: { _controller: AppBundle:Agenda:create}
+    methods:  [POST]
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 sonata_user_security:

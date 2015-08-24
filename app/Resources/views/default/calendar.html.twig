@@ -1,13 +1,25 @@
+
 {% include 'AppBundle::resources.html.twig' %}
 
 
 {% stylesheets '@AppBundle/Resources/public/css/*' %}
-<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 {% endstylesheets %}
+
 
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
 {% endblock %}
 
 
@@ -17,41 +29,76 @@
         angular.module('CalendarModule', [])
             .controller('CalendarCtrl', function($scope, $locale, $http) {
 
-            });
-        $( document ).ready(function() {
-            $(".fc-widget-content").bind('click',function(){
+            }).config(function($interpolateProvider){
+                    $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+                });
 
-            })
-        });
 
     </script>
 {% endblock %}
-
-
+<div class="container-fluid">
 
 <div class="row">
-  <div class="small-2 large-4 columns">{{ render(controller('AppBundle:Agenda:new')) }}</div>
-  <div class="small-4 large-4 columns2">
-      {% block body%}
-
+    <div class="medium-1 large-1 columns">{% include 'default/menu.html.twig' %}</div>
+    <div class="medium-8 large-12 columns">
+        {% block body%}
             <!-- a minha Angular App -->
             <div ng-app="CalendarModule">
                 <div ng-controller="CalendarCtrl">
+
+                    <div id="cal_new_event" style="display: none;">
+                        {{ render(controller('AppBundle:Agenda:newshort')) }}
+                    </div>
 
                     {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
 
                 </div>
             </div>
         {% endblock %}
-  </div>
-  <div class="small-6 large-4 columns"></div>
-</div>
 
-<td class="fc-header-right">
-    <ul class="button-group">
-        <li><a href="#" class="fc-button-content">  Mês </a></li>
-        <li><a href="#" class="fc-button-content">Semana</a></li>
-        <li><a href="#" class="fc-button-content">  Dia </a></li>
-    </ul>
-</td>
-            
+
+    </div>
+    <div class="medium-3 large-3 columns"></div>
+</div>
+    </div>
+
+
+
+
+<script>
+    function sendForm(form, callback) {
+        // Get all form values
+        var values = {};
+        $.each( form[0].elements, function(i, field) {
+            if (field.type != 'checkbox' || (field.type == 'checkbox' && field.checked)) {
+                values[field.name] = field.value;
+            }
+        });
+
+        // Post form
+        $.ajax({
+            type        : 'POST',
+            url         : '/app_dev.php/agenda/calendar/newshort',
+            data        : values,
+            success     : function(result) { callback( result ); }
+        });
+    }
+    $(function() {
+        $('#submit_short_calendar').on('click', function( e ){
+            e.preventDefault();
+            sendForm( $('#short_calendar'), function( response ){
+
+                var data = JSON.parse(response);
+                $('#calendar-holder').fullCalendar('renderEvent',
+                        {
+                            title: data.events.event.title,
+                            start: data.events.event.startdate,
+                            end: data.events.event.enddate,
+                            allDay:false
+                        }
+                );
+                $('#calendar-holder').fullCalendar('rerenderEvents')
+            });
+        });
+    });
+</script>

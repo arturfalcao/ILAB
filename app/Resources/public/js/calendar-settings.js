@@ -23,7 +23,7 @@ $(function () {
                 url: Routing.generate('fullcalendar_loader'),
                 type: 'POST',
                 // A way to add custom filters to your event listeners
-                data: {
+                data: function(e){
 
                 },
                 error: function(e) {
