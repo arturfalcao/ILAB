@@ -36,23 +36,33 @@
 
     </script>
 {% endblock %}
+<div class="container-fluid">
 
+<div class="row">
+    <div class="medium-1 large-1 columns">{% include 'default/menu.html.twig' %}</div>
+    <div class="medium-8 large-12 columns">
+        {% block body%}
+            <!-- a minha Angular App -->
+            <div ng-app="CalendarModule">
+                <div ng-controller="CalendarCtrl">
 
-{% block body%}
+                    <div id="cal_new_event" style="display: none;">
+                        {{ render(controller('AppBundle:Agenda:newshort')) }}
+                    </div>
 
-    <!-- a minha Angular App -->
-    <div ng-app="CalendarModule">
-        <div ng-controller="CalendarCtrl">
+                    {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
 
-            <div id="cal_new_event" style="display: none;">
-                {{ render(controller('AppBundle:Agenda:newshort')) }}
+                </div>
             </div>
+        {% endblock %}
 
-            {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
 
-        </div>
     </div>
-{% endblock %}
+    <div class="medium-3 large-3 columns"></div>
+</div>
+    </div>
+
+
 
 
 <script>

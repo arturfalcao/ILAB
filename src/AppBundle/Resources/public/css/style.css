@@ -191,3 +191,4 @@ section.login p {
     color: rgba(153, 147, 163, 0.8);
     font-style: italic;
 }
+.row {min-width:100% !important;}
