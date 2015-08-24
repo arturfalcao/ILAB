@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/calendario.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
@@ -27,118 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="calendar.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="349" selection-end="349" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="2178">
-              <folding>
-                <marker date="1440437925631" expanded="true" signature="1643:1932" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="1763:1779" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="1818:1915" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="1977:3104" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2000:3097" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2152:3086" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2182:2271" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2229:2252" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2301:3070" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2349:2982" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2492:2924" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2555:2893" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2621:2635" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="2636:2765" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="3028:3051" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="3117:4401" placeholder="..." />
-                <marker date="1440437925631" expanded="true" signature="3157:3695" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="3268:3434" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="3359:3424" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="3474:3687" placeholder="{&quot;type&quot;: 'POST'...}" />
-                <marker date="1440437925631" expanded="true" signature="3713:4390" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="3776:4382" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="3874:4370" placeholder="{...}" />
-                <marker date="1440437925631" expanded="true" signature="4016:4268" placeholder="{&quot;allDay&quot;: false...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resources.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="93" selection-start="245" selection-end="245" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="360">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="243" column="33" selection-start="8019" selection-end="8019" vertical-scroll-proportion="0.0" vertical-offset="3733" max-vertical-offset="4662">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="666">
-              <folding>
-                <marker date="1440437552433" expanded="true" signature="21:1013" placeholder="..." />
-                <marker date="1440437552433" expanded="true" signature="32:77" placeholder="..." />
-                <marker date="1440437552433" expanded="true" signature="88:1005" placeholder="..." />
-                <marker date="1440437552433" expanded="true" signature="102:603" placeholder="..." />
-                <marker date="1440437552433" expanded="true" signature="335:425" placeholder="..." />
-                <marker date="1440437552433" expanded="true" signature="748:832" placeholder="..." />
-                <marker date="1440437552433" expanded="true" signature="893:993" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html.twig" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.08674699" vertical-offset="0" max-vertical-offset="1116">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/menu.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="6" selection-start="895" selection-end="895" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="324">
-              <folding>
-                <marker date="1440437945978" expanded="true" signature="22:894" placeholder="..." />
-                <marker date="1440437945978" expanded="true" signature="109:887" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resources.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/resources.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="14" selection-start="425" selection-end="425" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="216">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/menu.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="43" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4284">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="calendar-settings.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="21" selection-start="4764" selection-end="4764" vertical-scroll-proportion="0.0" vertical-offset="1566" max-vertical-offset="2682">
+            <state line="136" column="71" selection-start="4986" selection-end="4986" vertical-scroll-proportion="0.0" vertical-offset="1339" max-vertical-offset="2682">
               <folding />
             </state>
           </provider>
@@ -147,10 +39,87 @@
       <file leaf-file-name="AgendaController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="298" column="25" selection-start="8460" selection-end="8460" vertical-scroll-proportion="-72.85185" vertical-offset="3397" max-vertical-offset="6084">
+            <state line="308" column="44" selection-start="8707" selection-end="8712" vertical-scroll-proportion="-14.740741" vertical-offset="5020" max-vertical-offset="5958">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendario.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/calendario.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html.twig" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/header.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="843">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalendarEventListener.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="53" column="60" selection-start="1619" selection-end="1619" vertical-scroll-proportion="-21.407408" vertical-offset="250" max-vertical-offset="1080">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="1116">
               <folding>
-                <element signature="e#40#85#0" expanded="true" />
+                <marker date="1440438523289" expanded="true" signature="530:1919" placeholder="{% block fos_user_content ...%}" />
+                <marker date="1440438523289" expanded="true" signature="691:1883" placeholder="..." />
+                <marker date="1440438523289" expanded="true" signature="749:1868" placeholder="..." />
+                <marker date="1440438523289" expanded="true" signature="968:1773" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="39" selection-start="624" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1404">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppKernel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="51" selection-start="636" selection-end="636" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="1098">
+              <folding>
+                <element signature="e#7#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SymfonyRequirements.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/SymfonyRequirements.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="442" column="59" selection-start="17674" selection-end="17699" vertical-scroll-proportion="25.777779" vertical-offset="8526" max-vertical-offset="13626">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppCache.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/AppCache.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="270">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -168,8 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php" />
-        <option value="$PROJECT_DIR$/vendor/sonata-project/user-bundle/Controller/SecurityFOSUser1Controller.php" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/config/routing/sonata_security_2.xml" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/login.html.twig" />
@@ -208,7 +175,6 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Entity/EventEntity.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js" />
@@ -219,6 +185,9 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/calendario.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/header.html.twig" />
       </list>
     </option>
   </component>
@@ -408,15 +377,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
+              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,25 +395,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
+              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -468,53 +417,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Security" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
+              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -540,53 +443,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
+              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -599,36 +456,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Sonata" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="UserBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -729,9 +556,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp\www\lab\ILAB\app\Resources\views\default" />
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\css" />
       <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\views\Agenda" />
       <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\js" />
-      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\css" />
       <recent name="C:\wamp\www\lab\ILAB\app\Resources\views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -769,15 +596,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="22" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="true" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="287" y="309" width="1183" height="563" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="287" y="309" width="1183" height="563" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3077381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3077381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -808,34 +635,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/routing_dev.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle/SonataDoctrineORMAdminBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="6" selection-start="672" selection-end="672" vertical-scroll-proportion="0.1409396" vertical-offset="0" max-vertical-offset="894" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/ApplicationSonataUserBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="710" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="666" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/AppBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="7" selection-start="591" selection-end="591" vertical-scroll-proportion="-17.333334" vertical-offset="0" max-vertical-offset="612" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/TMetodosType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="52" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.47794995" vertical-offset="49" max-vertical-offset="1080" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TParametros/index.html.twig">
@@ -1001,23 +803,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="39" selection-start="624" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1404">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="38" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="666" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.0" vertical-offset="882" max-vertical-offset="1206">
           <folding />
         </state>
       </provider>
@@ -1029,28 +817,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="21" selection-start="4764" selection-end="4764" vertical-scroll-proportion="0.0" vertical-offset="1566" max-vertical-offset="2682">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="298" column="25" selection-start="8460" selection-end="8460" vertical-scroll-proportion="-72.85185" vertical-offset="3397" max-vertical-offset="6084">
-          <folding>
-            <element signature="e#40#85#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/menu.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="6" selection-start="895" selection-end="895" vertical-scroll-proportion="-8.0" vertical-offset="0" max-vertical-offset="324">
           <folding>
-            <marker date="1440437945978" expanded="true" signature="22:894" placeholder="..." />
-            <marker date="1440437945978" expanded="true" signature="109:887" placeholder="..." />
+            <marker date="1440437945978" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437945978" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1073,30 +845,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="349" selection-end="349" vertical-scroll-proportion="-6.0" vertical-offset="0" max-vertical-offset="2178">
           <folding>
-            <marker date="1440437925631" expanded="true" signature="1643:1932" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="1763:1779" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="1818:1915" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="1977:3104" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2000:3097" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2152:3086" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2182:2271" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2229:2252" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2301:3070" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2349:2982" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2492:2924" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2555:2893" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2621:2635" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="2636:2765" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="3028:3051" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="3117:4401" placeholder="..." />
-            <marker date="1440437925631" expanded="true" signature="3157:3695" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="3268:3434" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="3359:3424" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="3474:3687" placeholder="{&quot;type&quot;: 'POST'...}" />
-            <marker date="1440437925631" expanded="true" signature="3713:4390" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="3776:4382" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="3874:4370" placeholder="{...}" />
-            <marker date="1440437925631" expanded="true" signature="4016:4268" placeholder="{&quot;allDay&quot;: false...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: 'POST'...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1440437925631" expanded="true" signature="-1:-1" placeholder="{&quot;allDay&quot;: false...}" />
           </folding>
         </state>
       </provider>
@@ -1119,20 +891,90 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
           <folding>
-            <marker date="1440437552433" expanded="true" signature="21:1013" placeholder="..." />
-            <marker date="1440437552433" expanded="true" signature="32:77" placeholder="..." />
-            <marker date="1440437552433" expanded="true" signature="88:1005" placeholder="..." />
-            <marker date="1440437552433" expanded="true" signature="102:603" placeholder="..." />
-            <marker date="1440437552433" expanded="true" signature="335:425" placeholder="..." />
-            <marker date="1440437552433" expanded="true" signature="748:832" placeholder="..." />
-            <marker date="1440437552433" expanded="true" signature="893:993" placeholder="..." />
+            <marker date="1440437552433" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437552433" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437552433" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437552433" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437552433" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437552433" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1440437552433" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="0.08674699" vertical-offset="0" max-vertical-offset="1116">
+        <state line="4" column="0" selection-start="182" selection-end="182" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="1116">
+          <folding>
+            <marker date="1440438523289" expanded="true" signature="530:1919" placeholder="{% block fos_user_content ...%}" />
+            <marker date="1440438523289" expanded="true" signature="691:1883" placeholder="..." />
+            <marker date="1440438523289" expanded="true" signature="749:1868" placeholder="..." />
+            <marker date="1440438523289" expanded="true" signature="968:1773" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppCache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="51" selection-start="636" selection-end="636" vertical-scroll-proportion="-10.666667" vertical-offset="0" max-vertical-offset="1098">
+          <folding>
+            <element signature="e#7#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SymfonyRequirements.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="442" column="59" selection-start="17674" selection-end="17699" vertical-scroll-proportion="25.777779" vertical-offset="8526" max-vertical-offset="13626">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/js/calendar-settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="136" column="71" selection-start="4986" selection-end="4986" vertical-scroll-proportion="0.0" vertical-offset="1339" max-vertical-offset="2682">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/EventListener/CalendarEventListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="60" selection-start="1619" selection-end="1619" vertical-scroll-proportion="-21.407408" vertical-offset="250" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="39" selection-start="624" selection-end="642" vertical-scroll-proportion="0.0" vertical-offset="171" max-vertical-offset="1404">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="308" column="44" selection-start="8707" selection-end="8712" vertical-scroll-proportion="-14.740741" vertical-offset="5020" max-vertical-offset="5958">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/calendario.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4284">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/header.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
           <folding />
         </state>
       </provider>
