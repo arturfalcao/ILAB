@@ -27,7 +27,6 @@ $(function () {
 
 
     $('#calendar-holder').fullCalendar({
-        lang: 'pt',
         droppable: true,
         editable:true,
         allDayDefault: true,
@@ -79,18 +78,14 @@ $(function () {
             $("#cal_new_event").css( {position:"absolute", top:jsEvent.pageY, left: jsEvent.pageX,display:"block","z-index":"999"});
 
         },
-        eventResize: function(event, delta, revertFunc) {
+        eventDrop: function(event, delta, revertFunc) {
 
-            UpdateAgenda(event, delta , function( response ){
-                var data = JSON.parse(response);
-            });
+            alert(event.title + " was dropped on " + event.start.format());
 
-        },
-        eventDragStop: function(event, delta, revertFunc) {
+            if (!confirm("Are you sure about this change?")) {
+                revertFunc();
+            }
 
-            UpdateAgenda(event, delta , function( response ){
-                var data = JSON.parse(response);
-            });
         },
         eventSources: [
             {
@@ -108,36 +103,5 @@ $(function () {
         ]
     });
 });
-
-function UpdateAgenda(event,delta, callback) {
-    // Get all form values
-
-
-
-    // Post form
-    if(event._start != null){
-        var start = new Date(event._start._d - 1*60*60*1000);
-    } else{
-        var start = "";
-    }
-
-
-
-    if(event._end != null){
-        var end = new Date(event._end._d - 1*60*60*1000);
-    } else{
-        var end = "";
-    }
-
-
-
-
-    $.ajax({
-        type        : 'PUT',
-        url         : '/app_dev.php/agenda/calendar/newshort/'+ event.id,
-        data        : {"start" : start , "end" : end},
-        success     : function(result) { callback( result ); }
-    });
-}
 
 

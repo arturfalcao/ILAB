@@ -267,6 +267,10 @@ class AgendaController extends Controller
             ->getForm();
         $form->handleRequest($request);
 
+
+
+
+
         if ($request->getMethod() == "POST") {
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
@@ -283,50 +287,4 @@ class AgendaController extends Controller
         }
 
     }
-
-    /**
-     * Creates a new Agenda entity.
-     *
-     * @Route("/calendar/newshort/{slug}", name="agenda_update_short")
-     * @Method("PUT")
-     */
-    public function updatenewshortAction($slug)
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-        $request = $this->getRequest();
-        $AJAXresponse = array();
-
-        if(isset($slug)){
-            $myEntity = $em->getRepository('AppBundle:Agenda')->find($slug);
-        }
-
-
-        $defaultData = array('message' => 'Type your message here');
-
-
-        if ($request->getMethod() == 'PUT') {
-
-            if($request->request->get('start') != ""){
-                $dateStarted = \DateTime::createFromFormat('D M d Y H:i:s e+', $request->request->get('start')); // Thu Nov 15 2012 00:00:00 GMT-0700 (Mountain Standard Time)
-                $myEntity->setStartdatetime($dateStarted);
-            }
-            if($request->request->get('end') != ""){
-                $endStarted = \DateTime::createFromFormat('D M d Y H:i:s e+', $request->request->get('end')); // Thu Nov 15 2012 00:00:00 GMT-0700 (Mountain Standard Time)
-                $myEntity->setEnddatetime($endStarted );
-            }
-
-
-            $em->persist($myEntity);
-            $em->flush();
-            return new Response('ok');
-        }else{
-            return new Response('Alguma coisa correu mal');
-        }
-
-
-
-
-
-    }
-
 }

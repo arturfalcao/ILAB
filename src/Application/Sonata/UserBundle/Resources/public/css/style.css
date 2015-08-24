@@ -112,7 +112,11 @@ section.login form .button {
 }
 
 /* line 61, ../scss/style.scss */
+<<<<<<< HEAD
 body  {
+=======
+body .login {
+>>>>>>> parent of 4e0d3b0... dsa
     background: #fff url(../images/textura_bg.png) top left;
 }
 
