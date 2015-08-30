@@ -30,7 +30,8 @@
         "components/jquery": "1.9.*",
         "adesigns/calendar-bundle": "^1.1",
         "bmatzner/foundation-bundle": "~5.3",
-        "friendsofsymfony/jsrouting-bundle": "^1.5"
+        "friendsofsymfony/jsrouting-bundle": "^1.5",
+        "jms/serializer-bundle": "^1.0"
 
     },
     "require-dev": {

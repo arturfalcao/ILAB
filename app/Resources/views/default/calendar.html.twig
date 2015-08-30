@@ -5,9 +5,9 @@
 {% stylesheets '@AppBundle/Resources/public/css/*' %}
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css" />
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/calendario.css') }}" />
+
 {% endstylesheets %}
-
-
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
@@ -23,8 +23,6 @@
     <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
 {% endblock %}
-
-
 {% block scripts -%}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script type="text/javascript">
@@ -38,6 +36,8 @@
 
     </script>
 {% endblock %}
+
+
 <div class="container-fluid">
 
     <div class="row">
@@ -45,6 +45,8 @@
         <div class=" large-14 columns">
             <div class="row">
                 <div class="large-16 columns">
+                    {% include 'default/topheader.html.twig' %}
+
                 </div>
             </div>
             <div class="row">
@@ -68,7 +70,6 @@
                 <div class="large-3 columns">
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -86,6 +87,8 @@
             }
         });
 
+        values["form[startdatetime][time][hour]"] = values["form[startdatetime][time][hour]"] -1 ;
+        values["form[enddatetime][time][hour]"] = values["form[enddatetime][time][hour]"] -1 ;
         // Post form
         $.ajax({
             type        : 'POST',
@@ -97,11 +100,13 @@
     $(function() {
         $('#submit_short_calendar').on('click', function( e ){
             e.preventDefault();
+            $("#cal_new_event").css( {display:"none"});
             sendForm( $('#short_calendar'), function( response ){
 
                 var data = JSON.parse(response);
                 $('#calendar-holder').fullCalendar('renderEvent',
                         {
+                            id: data.events.event.id,
                             title: data.events.event.title,
                             start: data.events.event.startdate,
                             end: data.events.event.enddate,
