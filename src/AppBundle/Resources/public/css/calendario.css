@@ -1,0 +1,23 @@
+table {
+  border: solid 1px #dfdfdf;
+  margin-bottom: 1.25rem;
+  table-layout: auto;
+}
+
+table thead {
+  background: #fff;
+}
+
+.fc-day-number .fc-mon .fc-past{
+  border: 1px solid #dfdfdf;
+}
+
+.fc-ltr .fc-basic-view .fc-day-number {
+    text-align: right;
+    background-color: #fff;
+    border-top: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
+    padding-top: 13px;
+    padding-bottom: 2px;
+    padding-right: 20px;
+  }

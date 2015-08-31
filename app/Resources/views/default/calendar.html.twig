@@ -2,7 +2,7 @@
 {% include 'AppBundle::resources.html.twig' %}
 
 
-{% stylesheets '@AppBundle/Resources/public/css/*' %}
+{% stylesheets '@AppBundle/Resources/public/css/*'%}
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.css" />
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 {% endstylesheets %}
@@ -40,34 +40,32 @@
 {% endblock %}
 <div class="container-fluid">
 
+<div class="row">
+  <div class="medium-2 nopadding large-1 columns">{% include 'default/menu.html.twig' %}</div>
+      <div class=" large-15 columns">
+
+
+
     <div class="row">
-        <div class="medium-2 nopadding large-1 columns specialone">{% include 'default/menu.html.twig' %}</div>
-        <div class=" large-14 columns">
-            <div class="row">
-                <div class="large-16 columns">
+    <div class="large-13 columns">
+        {% block body%}
+            <!-- a minha Angular App -->
+            <div ng-app="CalendarModule">
+                <div ng-controller="CalendarCtrl">
+
+                    <div id="cal_new_event" style="display: none;">
+                        {{ render(controller('AppBundle:Agenda:newshort')) }}
+                    </div>
+
+                    {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+
                 </div>
             </div>
-            <div class="row">
-
-                <div class="large-13 columns">
-                    {% block body%}
-                        <!-- a minha Angular App -->
-                        <div ng-app="CalendarModule">
-                            <div ng-controller="CalendarCtrl">
-
-                                <div id="cal_new_event" style="display: none;">
-                                    {{ render(controller('AppBundle:Agenda:newshort')) }}
-                                </div>
-
-                                {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
-
-                            </div>
-                        </div>
-                    {% endblock %}
-                </div>
-                <div class="large-3 columns">
-                </div>
-            </div>
+        {% endblock %}
+    </div>
+        <div class="large-3 columns">
+        </div>
+    </div>
 
         </div>
     </div>
