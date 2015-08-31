@@ -239,7 +239,7 @@ header {
 header .title {
   font-size: 1.25rem;
   color: #171f2e;
-  padding: 0.8125rem 0 0 1.5625rem;
+  padding: 1.5rem 0 0 1.5625rem;
   margin: 0;
 }
 /* line 214, ../scss/style.scss */
@@ -252,13 +252,52 @@ header .button {
   text-transform: none;
   font-size: 1rem;
   padding: 1.0625rem 3.75rem;
-  margin: 0 1.5625rem 0 0;
+  margin: 0.5rem  1.5625rem 0 0;
+  background: rgba(76,195,184,1);
+  border-radius: 2px;
 }
 /* line 221, ../scss/style.scss */
 header .button:hover, header .button:active, header .button:focus {
-  opacity: 0.9;
-  filter: alpha(opactiy=90);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
-  -khtml-opacity: 0.9;
-  -moz-opacity: 0.9;
+  background: rgba(76,195,184,0.7) !important;
+}
+
+/* dropdown*/
+ul.profile-menu{
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+li.avatar{
+  list-style: none;
+}
+
+a.user-menu{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: #171f2e;
+  font-size: 15px;
+}
+.availability-wrap{
+  display: inline-block;
+  position: relative;
+}
+.profile-menu img{
+  display: inline-block;
+  border-radius: 50px;
+}
+i.availability{
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  border-radius: 50px;
+  right: -2px;
+  top: 0;
+}
+.profile-menu p{
+  display: inline-block;
+  color: 171f2e;
+  background: url(../images/arrow.png) no-repeat center right;
+  padding: 0 25px 0 25px;
 }
