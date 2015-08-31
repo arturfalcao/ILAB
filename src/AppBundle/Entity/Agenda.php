@@ -6,59 +6,95 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Agenda
+ *
+ * @ORM\Table(name="agenda")
+ * @ORM\Entity
  */
 class Agenda
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="title", type="text", nullable=true)
      */
     private $title;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="Descricao", type="text", nullable=true)
      */
     private $descricao;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="startDatetime", type="datetime", nullable=true)
      */
     private $startdatetime;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="endDatetime", type="datetime", nullable=true)
      */
     private $enddatetime;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="AllDayEvent", type="boolean", nullable=true)
      */
     private $alldayevent;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="url", type="text", nullable=true)
      */
     private $url;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="bgColor", type="text", nullable=true)
      */
     private $bgcolor;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="fgColor", type="text", nullable=true)
      */
     private $fgcolor;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="cssClass", type="text", nullable=true)
      */
     private $cssclass;
 
-    /**
-     * @var integer
-     */
-    private $id;
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set title
@@ -265,15 +301,5 @@ class Agenda
     public function getCssclass()
     {
         return $this->cssclass;
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 }

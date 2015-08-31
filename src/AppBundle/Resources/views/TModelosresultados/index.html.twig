@@ -1,0 +1,67 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+        <h1>TModelosresultados list</h1>
+        <script>
+            var app = angular.module('myApp', ['ui.grid']).config(function($interpolateProvider){
+                $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+            }).controller('customersCtrl', function($scope, $http) {
+                angular.element("#new_modelo_resultados form").submit( function( e ){
+                    e.preventDefault();
+                    $scope.postForm( $(this), function( response ){
+                    });
+                    return false;
+                });
+                $scope.postForm = function( $form, callback ){
+                    var values = {};
+                    $.each( $form.serializeArray(), function(i, field) {
+                        values[field.name] = field.value;
+                    });
+                    $.ajax({
+                        type        : $form.attr( 'method' ),
+                        url         : $form.attr( 'action' ),
+                        data        : values,
+                        success     : function(data) {
+                            $scope.myData.push(JSON.parse(JSON.parse(data)));
+                            if (!$scope.$$phase) {
+                                $scope.$apply();
+                            }
+                        }
+                    });
+
+                },
+                        $scope.gridOptions1 = {
+                            onRegisterApi: function(gridApi){ $scope.gridApi = gridApi; }
+                        };
+                $scope.$on( "updateGrid", function(e,d){
+                });
+                $scope.gridOptions1 = { data : 'myData' };
+                $scope.gridOptions1.columnDefs = [
+                    { name: 'fn_id'},
+                    { name: 'fb_activo'},
+                    { name: 'ft_descricao'},
+                    { name: 'fn_tipoarredondamento.ft_descricao' }
+                ];
+                $http.get('GetAllModelosResultado').
+                        then(function(response) {
+                            var data = JSON.parse(JSON.parse(response.data));
+                            $scope.myData = data;
+                        }, function(response) {
+                        });
+            });
+        </script>
+
+
+        <div ng-app="myApp" ng-controller="customersCtrl">
+            <div ui-grid="gridOptions1" ui-grid-selection class="grid"></div>
+        </div>
+        {{ render(controller('AppBundle:TModelosresultados:new')) }}
+
+        <!--
+<ul>
+<li>
+Create a new entry
+</a>
+</li>
+</ul>-->
+{% endblock %}

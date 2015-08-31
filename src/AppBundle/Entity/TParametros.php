@@ -6,109 +6,168 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * TParametros
+ *
+ * @ORM\Table(name="t_parametros", indexes={@ORM\Index(name="IDX_B4C3AC671909E299", columns={"fn_id_metodo"})})
+ * @ORM\Entity
  */
 class TParametros
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $fnId;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="ft_descricao", type="string", length=100, nullable=false)
      */
     private $ftDescricao;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="fd_limiterealizacao", type="datetime", nullable=false)
      */
     private $fdLimiterealizacao;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ft_cumpreespecificacao", type="string", length=1, nullable=true)
      */
     private $ftCumpreespecificacao;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ft_conclusao", type="string", length=300, nullable=false)
      */
     private $ftConclusao;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ft_observacao", type="string", length=300, nullable=false)
      */
     private $ftObservacao;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="fd_criacao", type="datetime", nullable=false)
      */
     private $fdCriacao;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="fd_conclusao", type="datetime", nullable=true)
      */
     private $fdConclusao;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="fd_autorizacao", type="datetime", nullable=true)
      */
     private $fdAutorizacao;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="fn_precocompra", type="decimal", precision=8, scale=2, nullable=false)
      */
     private $fnPrecocompra;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="fn_precovenda", type="decimal", precision=8, scale=2, nullable=false)
      */
     private $fnPrecovenda;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="fn_factorcorreccao", type="decimal", precision=10, scale=5, nullable=false)
      */
     private $fnFactorcorreccao;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="fb_acreditado", type="boolean", nullable=false)
      */
     private $fbAcreditado;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="fn_limitelegal", type="decimal", precision=10, scale=5, nullable=false)
      */
     private $fnLimitelegal;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ft_formulaquimica", type="string", length=50, nullable=true)
      */
     private $ftFormulaquimica;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="fn_volumeminimo", type="integer", nullable=true)
      */
     private $fnVolumeminimo;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="fb_confirmacao", type="boolean", nullable=false)
      */
     private $fbConfirmacao;
 
     /**
      * @var boolean
+     *
+     * @ORM\Column(name="fb_contraanalise", type="boolean", nullable=true)
      */
     private $fbContraanalise;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="fd_Realizacao", type="datetime", nullable=false)
      */
     private $fdRealizacao;
 
     /**
-     * @var integer
-     */
-    private $fnId;
-
-    /**
-     * @var \AppBundle\Entity\TMetodos
+     * @var \TMetodos
+     *
+     * @ORM\ManyToOne(targetEntity="TMetodos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
+     * })
      */
     private $fnMetodo;
 
+
+
+    /**
+     * Get fnId
+     *
+     * @return integer 
+     */
+    public function getFnId()
+    {
+        return $this->fnId;
+    }
 
     /**
      * Set ftDescricao
@@ -522,16 +581,6 @@ class TParametros
     public function getFdRealizacao()
     {
         return $this->fdRealizacao;
-    }
-
-    /**
-     * Get fnId
-     *
-     * @return integer 
-     */
-    public function getFnId()
-    {
-        return $this->fnId;
     }
 
     /**

@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
             // Then add SonataAdminBundle
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new Bmatzner\FoundationBundle\BmatznerFoundationBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),

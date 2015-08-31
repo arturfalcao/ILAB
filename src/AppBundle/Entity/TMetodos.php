@@ -6,34 +6,60 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * TMetodos
+ *
+ * @ORM\Table(name="t_metodos")
+ * @ORM\Entity
  */
 class TMetodos
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $fnId;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
      */
     private $ftCodigo;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ft_descricao", type="string", length=100, nullable=false)
      */
     private $ftDescricao;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ft_alias", type="string", length=100, nullable=true)
      */
     private $ftAlias;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="ft_observacao", type="string", length=300, nullable=true)
      */
     private $ftObservacao;
 
-    /**
-     * @var integer
-     */
-    private $fnId;
 
+
+    /**
+     * Get fnId
+     *
+     * @return integer 
+     */
+    public function getFnId()
+    {
+        return $this->fnId;
+    }
 
     /**
      * Set ftCodigo
@@ -125,15 +151,5 @@ class TMetodos
     public function getFtObservacao()
     {
         return $this->ftObservacao;
-    }
-
-    /**
-     * Get fnId
-     *
-     * @return integer 
-     */
-    public function getFnId()
-    {
-        return $this->fnId;
     }
 }

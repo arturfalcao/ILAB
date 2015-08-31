@@ -56,8 +56,10 @@ $(function () {
         },
 
         timeFormat: 'H(:mm)',
-        eventClick: function(calEvent, jsEvent, view) {
-
+        eventClick:  function(event, jsEvent, view) {
+            //set the values and open the modal
+            $("#eventInfo").html(event.description);
+            $("#eventLink").attr('href', event.url);
         },
         dayClick: function(date, jsEvent, view) {
             var d = date._d;
@@ -75,9 +77,7 @@ $(function () {
             $('#form_enddatetime_date_year option[value="'+ d.getFullYear()  +'"]').prop('selected', true);
             $('#form_enddatetime_time_hour option[value="'+ d.getHours()  +'"]').prop('selected', true);
             $('#form_enddatetime_time_minute option[value="'+ d.getMinutes() +'"]').prop('selected', true);
-
-            $("#cal_new_event").css( {position:"absolute", top:jsEvent.pageY, left: jsEvent.pageX,display:"block","z-index":"999"});
-
+            $("#cal_new_event").css( {position:"absolute", top:jsEvent.pageY, left: jsEvent.pageX - 230 ,display:"block","z-index":"999"});
         },
         eventResize: function(event, delta, revertFunc) {
 
@@ -86,6 +86,7 @@ $(function () {
             });
 
         },
+
         eventDragStop: function(event, delta, revertFunc) {
 
             UpdateAgenda(event, delta , function( response ){
@@ -111,27 +112,17 @@ $(function () {
 
 function UpdateAgenda(event,delta, callback) {
     // Get all form values
-
-
-
     // Post form
     if(event._start != null){
         var start = new Date(event._start._d - 1*60*60*1000);
     } else{
         var start = "";
     }
-
-
-
     if(event._end != null){
         var end = new Date(event._end._d - 1*60*60*1000);
     } else{
         var end = "";
     }
-
-
-
-
     $.ajax({
         type        : 'PUT',
         url         : '/app_dev.php/agenda/calendar/newshort/'+ event.id,
