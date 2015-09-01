@@ -262,42 +262,162 @@ header .button:hover, header .button:active, header .button:focus {
 }
 
 /* dropdown*/
-ul.profile-menu{
-  padding: 0px;
-  margin-top: 10px;
-  margin-bottom: 4px;
+/* line 2, ../scss/_dropdown.scss */
+.dropit {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-li.avatar{
+/* line 7, ../scss/_dropdown.scss */
+.dropit .dropit-trigger {
+  position: relative;
+}
+
+/* line 8, ../scss/_dropdown.scss */
+.dropit .dropit-submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  /* dropdown left or right */
+  z-index: 1000;
+  display: none;
+  min-width: 150px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 19, ../scss/_dropdown.scss */
+.dropit .dropit-open .dropit-submenu {
+  display: block;
+}
+/* line 250, ../scss/style.scss */
+ .profile {
+  width: 100%;
+  height: 6.25rem;
+  margin-left: -1px;
+}
+/* line 257, ../scss/style.scss */
+ .profile .dropit-trigger {
+  float: left;
+  width: 100%;
+}
+
+.profile li{
   list-style: none;
 }
-
-a.user-menu{
+/* line 261, ../scss/style.scss */
+.profile a.user-menu {
   display: block;
   margin: 0 auto;
   text-align: center;
-  color: #171f2e;
-  font-size: 15px;
 }
-.availability-wrap{
+/* line 265, ../scss/style.scss */
+.profile a.user-menu .availability-wrap {
   display: inline-block;
   position: relative;
 }
-.profile-menu img{
+/* line 269, ../scss/style.scss */
+.profile a.user-menu img {
   display: inline-block;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
   border-radius: 50px;
 }
-i.availability{
+/* line 273, ../scss/style.scss */
+.profile a.user-menu i.availability {
   width: 12px;
   height: 12px;
   position: absolute;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
   border-radius: 50px;
+  border: 2px solid #fff;
   right: -2px;
   top: 0;
 }
-.profile-menu p{
+/* line 281, ../scss/style.scss */
+.profile a.user-menu i.availability.available {
+  background: #4cc3b8;
+}
+/* line 284, ../scss/style.scss */
+.profile a.user-menu i.availability.unavailable {
+  background: #db1d45;
+}
+/* line 288, ../scss/style.scss */
+.profile a.user-menu p {
   display: inline-block;
-  color: 171f2e;
+  color: #171f2e;
   background: url(../images/arrow.png) no-repeat center right;
-  padding: 0 25px 0 25px;
+  padding: 0 1.5625rem 0 0.9375rem;
+}
+/* line 295, ../scss/style.scss */
+.profile .dropit-submenu {
+  background: #fff;
+  margin-top: 1.625rem;
+  text-align: left;
+  width: 100%;
+}
+/* line 300, ../scss/style.scss */
+.profile .dropit-submenu li {
+  border-bottom: 1px solid #dfdfdf;
+  float: left;
+  width: 100%;
+  position: relative;
+}
+/* line 305, ../scss/style.scss */
+.profile .dropit-submenu li a {
+  color: #171f2e;
+  padding: 1.5625rem 0;
+  display: block;
+  -webkit-transition: all 0.1s ease-in;
+  -moz-transition: all 0.1s ease-in;
+  -ms-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+  float: left;
+  width: 100%;
+}
+/* line 312, ../scss/style.scss */
+.profile .dropit-submenu li a:hover, .side-apps .profile .dropit-submenu li a:active, .side-apps .profile .dropit-submenu li a:focus {
+  opacity: 0.7;
+  filter: alpha(opactiy=70);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  -khtml-opacity: 0.7;
+  -moz-opacity: 0.7;
+}
+/* line 315, ../scss/style.scss */
+.profile .dropit-submenu li a span {
+  float: left;
+  display: inline-block;
+  padding-left: 1.5625rem;
+}
+/* line 320, ../scss/style.scss */
+.profile .dropit-submenu li a i {
+  display: inline-block;
+  float: left;
+  margin-left: 1.5625rem;
+}
+/* line 349, ../scss/style.scss */
+.profile .dropit-submenu li a b.message-count {
+  font-size: 0.6875rem;
+  color: #fff;
+  background: #db1d45;
+  padding: 4px;
+  position: absolute;
+  right: 10%;
+  top: 30%;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+  text-align: center;
+  width: 25px;
+  height: 25px;
 }
