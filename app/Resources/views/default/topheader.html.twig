@@ -1,1 +1,32 @@
-    Olá ,  {{ app.user.username }}
+
+    <div class="row full-width-row">
+      <header class="large-16 columns">
+        <div class="large-6 columns collapse">
+          <h6 class="title">Planeamento de Amostras</h6>
+        </div>
+        <div class="large-7 columns collapse">
+          <a href="#" class="button right">Adicionar evento</a>
+        </div>
+
+        <div class="large-3 columns collapse">
+          <header class="profile">
+            <ul class="profile-menu">
+              <li>
+                <a href="#" class="user-menu">
+                  <div class="availability-wrap">
+                    <img src="{{ asset('bundles/app/images/avatar.png') }}" alt="" />
+                    <i class="availability unavailable"></i>
+                  </div>
+                  <p>{{ app.user.username }}</p>
+                </a>            
+                <ul>
+                  <li><a href="#" class="user-menu-1"><i></i><span>Definições de conta</span></a></li>
+                  <li><a href="#" class="user-menu-2"><i></i><span>Mensagens chat <b class="message-count">25</b></span></a></li>
+                  <li><a href="#" class="user-menu-3"><i></i><span>Email</span></a></li>
+                  <li><a href="#" class="user-menu-4"><i></i><span>Sair</span></a></li>
+                </ul>
+              </li>
+            </ul>
+
+          </header>
+        </div>

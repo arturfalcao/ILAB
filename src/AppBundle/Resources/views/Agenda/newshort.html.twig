@@ -1,6 +1,6 @@
 
 
-<a>fechar</a>
+<a class="close"><img src="{{ asset('bundles/app/images/close.png') }}" alt="close"/></a>
 {{ form_start(form , {'attr': {'id': 'short_calendar' }}) }}
     {{ form_errors(form) }}
 <div><label>Quando:</label><div class="start_date"></div></div>
@@ -11,5 +11,5 @@
     {{ form_row(form.submit,{ 'id': 'submit_short_calendar',  'attr': { 'class' : 'my_custom_class' }}) }}
 {{ form_end(form) }}
 
-<a>Editar</a>
-<a>Excluir</a>
+<a class="edit">Editar</a>
+<a class="remove">Excluir</a>
