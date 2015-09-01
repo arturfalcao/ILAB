@@ -5,8 +5,8 @@
 {% stylesheets '@AppBundle/Resources/public/css/*' %}
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/calendario.css') }}" />
-
 {% endstylesheets %}
+
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
@@ -27,7 +27,11 @@
     <script type="text/javascript">
         angular.module('CalendarModule', [])
             .controller('CalendarCtrl', function($scope, $locale, $http) {
+                $scope.show = true;
+                $scope.changeshow = function(){
+                    $scope.show = $scope.show == true ? false : true;
 
+                }
             }).config(function($interpolateProvider){
                     $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
                 });
@@ -53,14 +57,11 @@
                     {% block body%}
                         <!-- a minha Angular App -->
                         <div ng-app="CalendarModule">
-                            <div ng-controller="CalendarCtrl">
-
+                            <div ng-controller="CalendarCtrl" >
                                 <div id="cal_new_event" style="display: none;">
                                     {{ render(controller('AppBundle:Agenda:newshort')) }}
                                 </div>
-
                                 {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
-
                             </div>
                         </div>
                     {% endblock %}
@@ -103,13 +104,13 @@
 
                 var data = JSON.parse(response);
                 $('#calendar-holder').fullCalendar('renderEvent',
-                        {
-                            id: data.events.event.id,
-                            title: data.events.event.title,
-                            start: data.events.event.startdate,
-                            end: data.events.event.enddate,
-                            allDay:false
-                        }
+                    {
+                        id: data.events.event.id,
+                        title: data.events.event.title,
+                        start: data.events.event.startdate,
+                        end: data.events.event.enddate,
+                        allDay:false
+                    }
                 );
                 $('#calendar-holder').fullCalendar('rerenderEvents')
             });

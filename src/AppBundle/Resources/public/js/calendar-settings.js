@@ -77,7 +77,9 @@ $(function () {
             $('#form_enddatetime_date_year option[value="'+ d.getFullYear()  +'"]').prop('selected', true);
             $('#form_enddatetime_time_hour option[value="'+ d.getHours()  +'"]').prop('selected', true);
             $('#form_enddatetime_time_minute option[value="'+ d.getMinutes() +'"]').prop('selected', true);
-            $("#cal_new_event").css( {position:"absolute", top:jsEvent.pageY, left: jsEvent.pageX - 230 ,display:"block","z-index":"999"});
+
+            $("#cal_new_event").css( {position:"absolute", top:jsEvent.pageY - 140, left: jsEvent.pageX - 230 ,display:"block","z-index":"999"});
+
         },
         eventResize: function(event, delta, revertFunc) {
 
@@ -110,6 +112,9 @@ $(function () {
     });
 });
 
+function closeshow(){
+    $('#cal_new_event').hide();
+}
 function UpdateAgenda(event,delta, callback) {
     // Get all form values
     // Post form
