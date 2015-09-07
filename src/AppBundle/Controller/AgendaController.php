@@ -44,6 +44,7 @@ class AgendaController extends Controller
      */
     public function createAction(Request $request)
     {
+
         $entity = new Agenda();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -54,7 +55,7 @@ class AgendaController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('agenda_show', array('id' => $entity->getId())));
+
         }
 
         return array(
@@ -72,6 +73,7 @@ class AgendaController extends Controller
      */
     private function createCreateForm(Agenda $entity)
     {
+
         $form = $this->createForm(new AgendaType(), $entity, array(
             'action' => $this->generateUrl('agenda_create'),
             'method' => 'POST',
@@ -275,7 +277,7 @@ class AgendaController extends Controller
                 $data1 = $entity->getStartdatetime()->format('Y-m-d H:i:s');
                 $data2 = $entity->getEnddatetime()->format('Y-m-d H:i:s');
 
-                return new Response('{"events" : {"event" : {"title": "'. $entity->getTitle() .'","startdate": "'. $data1 .'","enddate": "'. $data2.'"}}}');
+                return new Response('{"events" : {"event" : {"id": '. $entity->getId() .',"title": "'. $entity->getTitle() .'","startdate": "'. $data1 .'","enddate": "'. $data2.'"}}}');
             }
 
         }else{
@@ -288,7 +290,7 @@ class AgendaController extends Controller
      * Creates a new Agenda entity.
      *
      * @Route("/calendar/newshort/{slug}", name="agenda_update_short")
-     * @Method("PUT")
+     * @Method({"PUT", "DELETE"})
      */
     public function updatenewshortAction($slug)
     {
@@ -305,7 +307,6 @@ class AgendaController extends Controller
 
 
         if ($request->getMethod() == 'PUT') {
-
             if($request->request->get('start') != ""){
                 $dateStarted = \DateTime::createFromFormat('D M d Y H:i:s e+', $request->request->get('start')); // Thu Nov 15 2012 00:00:00 GMT-0700 (Mountain Standard Time)
                 $myEntity->setStartdatetime($dateStarted);
@@ -315,12 +316,20 @@ class AgendaController extends Controller
                 $myEntity->setEnddatetime($endStarted );
             }
 
-
-            $em->persist($myEntity);
             $em->flush();
-            return new Response('ok');
+
+            return new Response("ok");
         }else{
-            return new Response('Alguma coisa correu mal');
+            if ($request->getMethod() == "DELETE") {
+                $em->remove($myEntity);
+                $em->flush();
+
+                return new Response('' + $myEntity->getId());
+
+            }else{
+                return new Response('Alguma coisa correu mal');
+            }
+
         }
 
 

@@ -36,11 +36,10 @@ class TTiposarredondamento
     private $ftDescricao;
 
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->ftDescricao;
     }
-
-
     /**
      * Get fnId
      *

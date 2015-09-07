@@ -29,7 +29,7 @@ $(function () {
     $('#calendar-holder').fullCalendar({
         lang: 'pt',
         droppable: true,
-        editable:true,
+        editable: true,
         allDayDefault: true,
         defaultView: 'agendaWeek',
         views: {
@@ -82,14 +82,19 @@ $(function () {
 
         },
         eventResize: function(event, delta, revertFunc) {
-
             UpdateAgenda(event, delta , function( response ){
                 var data = JSON.parse(response);
-            });
+            },'PUT');
 
         },
+        eventClick: function(calEvent, jsEvent, view) {
+            $("#cal_new_event #form_title").val(calEvent.title);
+            $("#cal_new_event #id_del").val(calEvent._id);
 
-        eventDragStop: function(event, delta, revertFunc) {
+            $("#cal_new_event").css( {position:"absolute", top:jsEvent.pageY - 140, left: jsEvent.pageX - 230 ,display:"block","z-index":"999"});
+
+        },
+        eventDrop: function(event, delta, revertFunc) {
 
             UpdateAgenda(event, delta , function( response ){
                 var data = JSON.parse(response);
@@ -115,7 +120,19 @@ $(function () {
 function closeshow(){
     $('#cal_new_event').hide();
 }
-function UpdateAgenda(event,delta, callback) {
+
+function DeleteEvent(){
+
+    $.ajax({
+        type        : 'DELETE',
+        url         : '/app_dev.php/agenda/calendar/newshort/'+ $("#cal_new_event #id_del").val()
+    });
+    $('#calendar-holder').fullCalendar('removeEvents',$("#cal_new_event #id_del").val());
+    $("#cal_new_event").css( {display:"none"});
+
+
+}
+function UpdateAgenda(event,delta, callback,method) {
     // Get all form values
     // Post form
     if(event._start != null){
@@ -128,12 +145,15 @@ function UpdateAgenda(event,delta, callback) {
     } else{
         var end = "";
     }
-    $.ajax({
-        type        : 'PUT',
-        url         : '/app_dev.php/agenda/calendar/newshort/'+ event.id,
-        data        : {"start" : start , "end" : end},
-        success     : function(result) { callback( result ); }
-    });
+        $.ajax({
+            type: 'PUT',
+            url: '/app_dev.php/agenda/calendar/newshort/' + event.id,
+            data: {"start": start, "end": end},
+            success: function (result) {
+                callback(result);
+            }
+        });
+
 }
 
 

@@ -103,6 +103,11 @@ class TModelosresultados
 
 
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
+
     /**
      * Get fnId
      *
@@ -363,7 +368,6 @@ class TModelosresultados
      */
     public function getFnTipoarredondamento()
     {
-
         return $this->fnTipoarredondamento;
     }
 }

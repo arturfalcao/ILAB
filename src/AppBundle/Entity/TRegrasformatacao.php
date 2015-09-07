@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TRegrasformatacao
  *
- * @ORM\Table(name="t_regrasformatacao")
+ * @ORM\Table(name="t_regrasformatacao", indexes={@ORM\Index(name="tt", columns={"fn_id_modeloresultado"})})
  * @ORM\Entity
  */
 class TRegrasformatacao
@@ -20,13 +20,6 @@ class TRegrasformatacao
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $fnId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_modeloresultado", type="bigint", nullable=true)
-     */
-    private $fnIdModeloresultado;
 
     /**
      * @var integer
@@ -84,8 +77,21 @@ class TRegrasformatacao
      */
     private $ftExpressaoutilizador;
 
+    /**
+     * @var \TModelosresultados
+     *
+     * @ORM\ManyToOne(targetEntity="TModelosresultados")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_modeloresultado", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnModeloresultado;
 
 
+    public function __toString()
+    {
+        return $this->fnOrdem;
+    }
     /**
      * Get fnId
      *
@@ -94,29 +100,6 @@ class TRegrasformatacao
     public function getFnId()
     {
         return $this->fnId;
-    }
-
-    /**
-     * Set fnIdModeloresultado
-     *
-     * @param integer $fnIdModeloresultado
-     * @return TRegrasformatacao
-     */
-    public function setFnIdModeloresultado($fnIdModeloresultado)
-    {
-        $this->fnIdModeloresultado = $fnIdModeloresultado;
-
-        return $this;
-    }
-
-    /**
-     * Get fnIdModeloresultado
-     *
-     * @return integer 
-     */
-    public function getFnIdModeloresultado()
-    {
-        return $this->fnIdModeloresultado;
     }
 
     /**
@@ -301,5 +284,29 @@ class TRegrasformatacao
     public function getFtExpressaoutilizador()
     {
         return $this->ftExpressaoutilizador;
+    }
+
+    /**
+     * Set fnModeloresultado
+     *
+     * @param \AppBundle\Entity\TModelosresultados $fnModeloresultado
+     * @return TRegrasformatacao
+     */
+    public function setFnModeloresultado(\AppBundle\Entity\TModelosresultados $fnModeloresultado = null)
+    {
+
+        $this->fnModeloresultado = $fnModeloresultado;
+
+        return $this;
+    }
+
+    /**
+     * Get fnModeloresultado
+     *
+     * @return \AppBundle\Entity\TModelosresultados 
+     */
+    public function getFnModeloresultado()
+    {
+        return $this->fnModeloresultado;
     }
 }
