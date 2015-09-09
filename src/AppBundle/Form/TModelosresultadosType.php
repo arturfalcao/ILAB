@@ -26,6 +26,10 @@ class TModelosresultadosType extends AbstractType
             ->add('fnLimitequantificacao')
             ->add('ftObservacao')
             ->add('fnTipoarredondamento')
+            ->add('save', 'submit', array('label' => 'Gravar'))
+            ->add('saveandback', 'submit', array('label' => 'Gravar e voltar a lista '))
+            ->add('saveandadd', 'submit', array('label' => 'Gravar e adicionar novo'))
+
         ;
     }
     

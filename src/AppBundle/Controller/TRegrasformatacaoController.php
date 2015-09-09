@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * TRegrasformatacao controller.
  *
- * @Route("/tregrasformatacao")
+ * @Route("/RegrasFormatacao")
  */
 class TRegrasformatacaoController extends Controller
 {
@@ -54,22 +54,14 @@ class TRegrasformatacaoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            $serializer = $this->get('jms_serializer');
-            $response = $serializer->serialize($entity,'json');
-
-            return new Response(json_encode($response));
-
-        }else{
-
-            return new Response($form->getErrors()->__toString());
+            return $this->redirect($this->generateUrl('ttiposarredondamento_show', array('id' => $entity->getId())));
         }
-
-
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
         );
     }
+
 
     /**
      * Creates a form to create a TRegrasformatacao entity.

@@ -50,11 +50,38 @@ class TModelosresultadosController extends Controller
 
         $serializer = $this->get('jms_serializer');
         $response = $serializer->serialize($entities,'json');
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * Deletes a TModelosresultados entity.
+     *
+     * @Route("/DeleteSelec/{id}", name="tmodelosresultados_delete_selec")
+     * @Method("DELETE")
+     */
+    public function deleteSelecAction($id)
+    {
+        $elem = explode("L", $id);
 
 
+        for($i = 0 ; $i < count($elem); $i++){
+            if($elem[$i] != ''){
+                $em = $this->getDoctrine()->getManager();
+                $entity = $em->getRepository('AppBundle:TModelosresultados')->find($elem[$i]);
+                $em->remove($entity);
+                $em->flush();
+            }
+        }
+        $em = $this->getDoctrine()->getManager();
+        $entities = $em->getRepository('AppBundle:TModelosresultados')->findAll();
+        $serializer = $this->get('jms_serializer');
+        $response = $serializer->serialize($entities,'json');
         return new Response(json_encode($response));
 
     }
+
+
+
     /**
      * Creates a new TModelosresultados entity.
      *
@@ -62,24 +89,20 @@ class TModelosresultadosController extends Controller
      * @Method("POST")
      * @Template("AppBundle:TModelosresultados:new.html.twig")
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, $goto)
     {
         $entity = new TModelosresultados();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            $serializer = $this->get('jms_serializer');
-            $response = $serializer->serialize($entity,'json');
+            return $this->redirect($this->generateUrl('tmodelosresultados_show', array('id' => $entity->getFnId())));
 
-
-            return new Response(json_encode($response));
-        }else{
-            return new Response("Falha na Criação");
         }
 
         return array(
@@ -102,7 +125,7 @@ class TModelosresultadosController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+
 
         return $form;
     }

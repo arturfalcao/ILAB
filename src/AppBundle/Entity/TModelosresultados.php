@@ -29,9 +29,12 @@ class TModelosresultados
     private $fbActivo;
 
     /**
-     * @var integer
+     * @var \TTiposarredondamento
      *
-     * @ORM\Column(name="fn_id_unidade", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="TUnidadesmedida")
+     * @ORM\JoinColumns({
+     * @ORM\JoinColumn(name="fn_id_unidade", referencedColumnName="fn_id")
+     * })
      */
     private $fnIdUnidade;
 
