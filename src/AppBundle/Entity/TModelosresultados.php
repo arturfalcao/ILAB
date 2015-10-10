@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TModelosresultados
  *
- * @ORM\Table(name="t_modelosresultados", indexes={@ORM\Index(name="ModResult_TipoArre", columns={"fn_id_tipoarredondamento"})})
+ * @ORM\Table(name="t_modelosresultados", indexes={@ORM\Index(name="IDX_7AF2430BF2A8B520", columns={"fn_id_unidade"}), @ORM\Index(name="IDX_7AF2430B9BD428BC", columns={"fn_id_tipoarredondamento"})})
  * @ORM\Entity
  */
 class TModelosresultados
@@ -27,16 +27,6 @@ class TModelosresultados
      * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
      */
     private $fbActivo;
-
-    /**
-     * @var \TTiposarredondamento
-     *
-     * @ORM\ManyToOne(targetEntity="TUnidadesmedida")
-     * @ORM\JoinColumns({
-     * @ORM\JoinColumn(name="fn_id_unidade", referencedColumnName="fn_id")
-     * })
-     */
-    private $fnIdUnidade;
 
     /**
      * @var boolean
@@ -104,17 +94,24 @@ class TModelosresultados
      */
     private $fnTipoarredondamento;
 
+    /**
+     * @var \TUnidadesmedida
+     *
+     * @ORM\ManyToOne(targetEntity="TUnidadesmedida")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_unidade", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnUnidade;
 
-
-    public function __toString()
-    {
+    public function __toString() {
         return $this->ftDescricao;
     }
 
     /**
      * Get fnId
      *
-     * @return integer 
+     * @return integer
      */
     public function getFnId()
     {
@@ -137,34 +134,11 @@ class TModelosresultados
     /**
      * Get fbActivo
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getFbActivo()
     {
         return $this->fbActivo;
-    }
-
-    /**
-     * Set fnIdUnidade
-     *
-     * @param integer $fnIdUnidade
-     * @return TModelosresultados
-     */
-    public function setFnIdUnidade($fnIdUnidade)
-    {
-        $this->fnIdUnidade = $fnIdUnidade;
-
-        return $this;
-    }
-
-    /**
-     * Get fnIdUnidade
-     *
-     * @return integer 
-     */
-    public function getFnIdUnidade()
-    {
-        return $this->fnIdUnidade;
     }
 
     /**
@@ -183,7 +157,7 @@ class TModelosresultados
     /**
      * Get fbIncluirnorelatorio
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getFbIncluirnorelatorio()
     {
@@ -206,7 +180,7 @@ class TModelosresultados
     /**
      * Get fbGamavalores
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getFbGamavalores()
     {
@@ -229,7 +203,7 @@ class TModelosresultados
     /**
      * Get fnMaximo
      *
-     * @return string 
+     * @return string
      */
     public function getFnMaximo()
     {
@@ -252,7 +226,7 @@ class TModelosresultados
     /**
      * Get fnMinimo
      *
-     * @return string 
+     * @return string
      */
     public function getFnMinimo()
     {
@@ -275,7 +249,7 @@ class TModelosresultados
     /**
      * Get ftMensagemutilizador
      *
-     * @return string 
+     * @return string
      */
     public function getFtMensagemutilizador()
     {
@@ -298,7 +272,7 @@ class TModelosresultados
     /**
      * Get ftDescricao
      *
-     * @return string 
+     * @return string
      */
     public function getFtDescricao()
     {
@@ -321,7 +295,7 @@ class TModelosresultados
     /**
      * Get fnLimitequantificacao
      *
-     * @return string 
+     * @return string
      */
     public function getFnLimitequantificacao()
     {
@@ -344,7 +318,7 @@ class TModelosresultados
     /**
      * Get ftObservacao
      *
-     * @return string 
+     * @return string
      */
     public function getFtObservacao()
     {
@@ -367,10 +341,33 @@ class TModelosresultados
     /**
      * Get fnTipoarredondamento
      *
-     * @return \AppBundle\Entity\TTiposarredondamento 
+     * @return \AppBundle\Entity\TTiposarredondamento
      */
     public function getFnTipoarredondamento()
     {
         return $this->fnTipoarredondamento;
+    }
+
+    /**
+     * Set fnUnidade
+     *
+     * @param \AppBundle\Entity\TUnidadesmedida $fnUnidade
+     * @return TModelosresultados
+     */
+    public function setFnUnidade(\AppBundle\Entity\TUnidadesmedida $fnUnidade = null)
+    {
+        $this->fnUnidade = $fnUnidade;
+
+        return $this;
+    }
+
+    /**
+     * Get fnUnidade
+     *
+     * @return \AppBundle\Entity\TUnidadesmedida
+     */
+    public function getFnUnidade()
+    {
+        return $this->fnUnidade;
     }
 }

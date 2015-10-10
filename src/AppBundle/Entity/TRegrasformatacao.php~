@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TRegrasformatacao
  *
- * @ORM\Table(name="t_regrasformatacao", indexes={@ORM\Index(name="tt", columns={"fn_id_modeloresultado"})})
+ * @ORM\Table(name="t_regrasformatacao", indexes={@ORM\Index(name="IDX_1B930EB42B686C80", columns={"fn_id_modeloresultado"})})
  * @ORM\Entity
  */
 class TRegrasformatacao

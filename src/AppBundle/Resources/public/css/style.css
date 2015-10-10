@@ -199,3 +199,34 @@ section.login p {
     font-style: italic;
 }
 .row {min-width:100% !important;}
+
+
+.right-side{
+    margin-left: 0px ;
+}
+
+.sonata-ba-filter .select2-container{
+    width: 100px !important;
+    float: left;
+}
+
+.sonata-ba-filter input{
+    width: 100px !important;
+    float: left;
+}
+
+.sonata-ba-filter label{
+    width: 100px !important;
+    float: left;
+}
+
+.sonata-ba-filter .form-group{
+    float: left;
+}
+.sonata-ba-filter label{
+    width: 100px !important;
+    float: left;
+}
+
+
+

@@ -25,7 +25,9 @@
                         success     : function(data) {
                             $scope.myData.length = 0;
                             $scope.myData  = (JSON.parse(JSON.parse(data)));
-                            if($scope.myData.length == 0){}else{$scope.cur_id = $scope.myData[$scope.myData.length -1].fn_id;}
+                            if($scope.myData.length == 0){
+
+                            }else{$scope.cur_id = $scope.myData[$scope.myData.length -1].fn_id;}
 
                             if (!$scope.$$phase) {
                                 $scope.$apply();

@@ -1,0 +1,130 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * TModelosamostra
+ *
+ * @ORM\Table(name="t_modelosamostra", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_modelosamostra_descricao", columns={"ft_descricao"})}, indexes={@ORM\Index(name="t1", columns={"fn_id_cliente"}), @ORM\Index(name="t2", columns={"fn_id_tipoaprovacao"}), @ORM\Index(name="t3", columns={"fn_id_produto"}), @ORM\Index(name="t4", columns={"fn_id_legislacao"}), @ORM\Index(name="t5", columns={"fn_id_tipoamostra"}), @ORM\Index(name="t6", columns={"fn_id_tipocontrolo"}), @ORM\Index(name="t7", columns={"fn_id_grupoparametros"})})
+ * @ORM\Entity
+ */
+class TModelosamostra
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id", type="bigint", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $fnId;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
+     */
+    private $fbActivo = '1';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ft_descricao", type="string", length=100, nullable=false)
+     */
+    private $ftDescricao;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="fn_limitedias", type="boolean", nullable=false)
+     */
+    private $fnLimitedias;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_orcamento", type="bigint", nullable=true)
+     */
+    private $fnIdOrcamento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ft_observacao", type="string", length=300, nullable=true)
+     */
+    private $ftObservacao;
+
+    /**
+     * @var \TClientes
+     *
+     * @ORM\ManyToOne(targetEntity="TClientes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_cliente", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnCliente;
+
+    /**
+     * @var \TTipoaprovacao
+     *
+     * @ORM\ManyToOne(targetEntity="TTipoaprovacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoaprovacao", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoaprovacao;
+
+    /**
+     * @var \TProdutos
+     *
+     * @ORM\ManyToOne(targetEntity="TProdutos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_produto", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnProduto;
+
+    /**
+     * @var \TLegislacao
+     *
+     * @ORM\ManyToOne(targetEntity="TLegislacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_legislacao", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnLegislacao;
+
+    /**
+     * @var \TTiposamostra
+     *
+     * @ORM\ManyToOne(targetEntity="TTiposamostra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoamostra", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoamostra;
+
+    /**
+     * @var \TTiposcontrolo
+     *
+     * @ORM\ManyToOne(targetEntity="TTiposcontrolo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipocontrolo", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipocontrolo;
+
+    /**
+     * @var \TGruposparametros
+     *
+     * @ORM\ManyToOne(targetEntity="TGruposparametros")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_grupoparametros", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnGrupoparametros;
+
+
+}

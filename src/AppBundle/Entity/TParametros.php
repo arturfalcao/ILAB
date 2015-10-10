@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TParametros
  *
- * @ORM\Table(name="t_parametros", indexes={@ORM\Index(name="IDX_B4C3AC671909E299", columns={"fn_id_metodo"})})
+ * @ORM\Table(name="t_parametros", indexes={@ORM\Index(name="IX_t_parametros_amostra", columns={"fn_id_amostra"}), @ORM\Index(name="IX_t_parametros_estado", columns={"ft_id_estado"}), @ORM\Index(name="IX_t_parametros_familiaparametro", columns={"fn_id_familiaparametro"}), @ORM\Index(name="IX_t_parametros_laboratorio", columns={"fn_id_laboratorio"})})
  * @ORM\Entity
  */
 class TParametros
@@ -29,6 +29,34 @@ class TParametros
     private $ftDescricao;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_metodo", type="bigint", nullable=false)
+     */
+    private $fnIdMetodo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_tecnica", type="bigint", nullable=false)
+     */
+    private $fnIdTecnica;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_amostra", type="bigint", nullable=false)
+     */
+    private $fnIdAmostra;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_areaensaio", type="bigint", nullable=false)
+     */
+    private $fnIdAreaensaio;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fd_limiterealizacao", type="datetime", nullable=false)
@@ -48,6 +76,13 @@ class TParametros
      * @ORM\Column(name="ft_conclusao", type="string", length=300, nullable=false)
      */
     private $ftConclusao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_modeloparametro", type="bigint", nullable=false)
+     */
+    private $fnIdModeloparametro;
 
     /**
      * @var string
@@ -76,6 +111,13 @@ class TParametros
      * @ORM\Column(name="fd_autorizacao", type="datetime", nullable=true)
      */
     private $fdAutorizacao;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_laboratorio", type="bigint", nullable=false)
+     */
+    private $fnIdLaboratorio;
 
     /**
      * @var string
@@ -113,6 +155,13 @@ class TParametros
     private $fnLimitelegal;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_familiaparametro", type="bigint", nullable=false)
+     */
+    private $fnIdFamiliaparametro = '-1';
+
+    /**
      * @var string
      *
      * @ORM\Column(name="ft_formulaquimica", type="string", length=50, nullable=true)
@@ -122,23 +171,37 @@ class TParametros
     /**
      * @var integer
      *
+     * @ORM\Column(name="fn_id_frasco", type="bigint", nullable=true)
+     */
+    private $fnIdFrasco = '-1';
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="fn_volumeminimo", type="integer", nullable=true)
      */
-    private $fnVolumeminimo;
+    private $fnVolumeminimo = '-1';
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="fb_confirmacao", type="boolean", nullable=false)
      */
-    private $fbConfirmacao;
+    private $fbConfirmacao = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ft_id_estado", type="string", length=1, nullable=true)
+     */
+    private $ftIdEstado;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="fb_contraanalise", type="boolean", nullable=true)
      */
-    private $fbContraanalise;
+    private $fbContraanalise = '0';
 
     /**
      * @var \DateTime
@@ -147,462 +210,5 @@ class TParametros
      */
     private $fdRealizacao;
 
-    /**
-     * @var \TMetodos
-     *
-     * @ORM\ManyToOne(targetEntity="TMetodos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
-     * })
-     */
-    private $fnMetodo;
 
-
-
-    /**
-     * Get fnId
-     *
-     * @return integer 
-     */
-    public function getFnId()
-    {
-        return $this->fnId;
-    }
-
-    /**
-     * Set ftDescricao
-     *
-     * @param string $ftDescricao
-     * @return TParametros
-     */
-    public function setFtDescricao($ftDescricao)
-    {
-        $this->ftDescricao = $ftDescricao;
-
-        return $this;
-    }
-
-    /**
-     * Get ftDescricao
-     *
-     * @return string 
-     */
-    public function getFtDescricao()
-    {
-        return $this->ftDescricao;
-    }
-
-    /**
-     * Set fdLimiterealizacao
-     *
-     * @param \DateTime $fdLimiterealizacao
-     * @return TParametros
-     */
-    public function setFdLimiterealizacao($fdLimiterealizacao)
-    {
-        $this->fdLimiterealizacao = $fdLimiterealizacao;
-
-        return $this;
-    }
-
-    /**
-     * Get fdLimiterealizacao
-     *
-     * @return \DateTime 
-     */
-    public function getFdLimiterealizacao()
-    {
-        return $this->fdLimiterealizacao;
-    }
-
-    /**
-     * Set ftCumpreespecificacao
-     *
-     * @param string $ftCumpreespecificacao
-     * @return TParametros
-     */
-    public function setFtCumpreespecificacao($ftCumpreespecificacao)
-    {
-        $this->ftCumpreespecificacao = $ftCumpreespecificacao;
-
-        return $this;
-    }
-
-    /**
-     * Get ftCumpreespecificacao
-     *
-     * @return string 
-     */
-    public function getFtCumpreespecificacao()
-    {
-        return $this->ftCumpreespecificacao;
-    }
-
-    /**
-     * Set ftConclusao
-     *
-     * @param string $ftConclusao
-     * @return TParametros
-     */
-    public function setFtConclusao($ftConclusao)
-    {
-        $this->ftConclusao = $ftConclusao;
-
-        return $this;
-    }
-
-    /**
-     * Get ftConclusao
-     *
-     * @return string 
-     */
-    public function getFtConclusao()
-    {
-        return $this->ftConclusao;
-    }
-
-    /**
-     * Set ftObservacao
-     *
-     * @param string $ftObservacao
-     * @return TParametros
-     */
-    public function setFtObservacao($ftObservacao)
-    {
-        $this->ftObservacao = $ftObservacao;
-
-        return $this;
-    }
-
-    /**
-     * Get ftObservacao
-     *
-     * @return string 
-     */
-    public function getFtObservacao()
-    {
-        return $this->ftObservacao;
-    }
-
-    /**
-     * Set fdCriacao
-     *
-     * @param \DateTime $fdCriacao
-     * @return TParametros
-     */
-    public function setFdCriacao($fdCriacao)
-    {
-        $this->fdCriacao = $fdCriacao;
-
-        return $this;
-    }
-
-    /**
-     * Get fdCriacao
-     *
-     * @return \DateTime 
-     */
-    public function getFdCriacao()
-    {
-        return $this->fdCriacao;
-    }
-
-    /**
-     * Set fdConclusao
-     *
-     * @param \DateTime $fdConclusao
-     * @return TParametros
-     */
-    public function setFdConclusao($fdConclusao)
-    {
-        $this->fdConclusao = $fdConclusao;
-
-        return $this;
-    }
-
-    /**
-     * Get fdConclusao
-     *
-     * @return \DateTime 
-     */
-    public function getFdConclusao()
-    {
-        return $this->fdConclusao;
-    }
-
-    /**
-     * Set fdAutorizacao
-     *
-     * @param \DateTime $fdAutorizacao
-     * @return TParametros
-     */
-    public function setFdAutorizacao($fdAutorizacao)
-    {
-        $this->fdAutorizacao = $fdAutorizacao;
-
-        return $this;
-    }
-
-    /**
-     * Get fdAutorizacao
-     *
-     * @return \DateTime 
-     */
-    public function getFdAutorizacao()
-    {
-        return $this->fdAutorizacao;
-    }
-
-    /**
-     * Set fnPrecocompra
-     *
-     * @param string $fnPrecocompra
-     * @return TParametros
-     */
-    public function setFnPrecocompra($fnPrecocompra)
-    {
-        $this->fnPrecocompra = $fnPrecocompra;
-
-        return $this;
-    }
-
-    /**
-     * Get fnPrecocompra
-     *
-     * @return string 
-     */
-    public function getFnPrecocompra()
-    {
-        return $this->fnPrecocompra;
-    }
-
-    /**
-     * Set fnPrecovenda
-     *
-     * @param string $fnPrecovenda
-     * @return TParametros
-     */
-    public function setFnPrecovenda($fnPrecovenda)
-    {
-        $this->fnPrecovenda = $fnPrecovenda;
-
-        return $this;
-    }
-
-    /**
-     * Get fnPrecovenda
-     *
-     * @return string 
-     */
-    public function getFnPrecovenda()
-    {
-        return $this->fnPrecovenda;
-    }
-
-    /**
-     * Set fnFactorcorreccao
-     *
-     * @param string $fnFactorcorreccao
-     * @return TParametros
-     */
-    public function setFnFactorcorreccao($fnFactorcorreccao)
-    {
-        $this->fnFactorcorreccao = $fnFactorcorreccao;
-
-        return $this;
-    }
-
-    /**
-     * Get fnFactorcorreccao
-     *
-     * @return string 
-     */
-    public function getFnFactorcorreccao()
-    {
-        return $this->fnFactorcorreccao;
-    }
-
-    /**
-     * Set fbAcreditado
-     *
-     * @param boolean $fbAcreditado
-     * @return TParametros
-     */
-    public function setFbAcreditado($fbAcreditado)
-    {
-        $this->fbAcreditado = $fbAcreditado;
-
-        return $this;
-    }
-
-    /**
-     * Get fbAcreditado
-     *
-     * @return boolean 
-     */
-    public function getFbAcreditado()
-    {
-        return $this->fbAcreditado;
-    }
-
-    /**
-     * Set fnLimitelegal
-     *
-     * @param string $fnLimitelegal
-     * @return TParametros
-     */
-    public function setFnLimitelegal($fnLimitelegal)
-    {
-        $this->fnLimitelegal = $fnLimitelegal;
-
-        return $this;
-    }
-
-    /**
-     * Get fnLimitelegal
-     *
-     * @return string 
-     */
-    public function getFnLimitelegal()
-    {
-        return $this->fnLimitelegal;
-    }
-
-    /**
-     * Set ftFormulaquimica
-     *
-     * @param string $ftFormulaquimica
-     * @return TParametros
-     */
-    public function setFtFormulaquimica($ftFormulaquimica)
-    {
-        $this->ftFormulaquimica = $ftFormulaquimica;
-
-        return $this;
-    }
-
-    /**
-     * Get ftFormulaquimica
-     *
-     * @return string 
-     */
-    public function getFtFormulaquimica()
-    {
-        return $this->ftFormulaquimica;
-    }
-
-    /**
-     * Set fnVolumeminimo
-     *
-     * @param integer $fnVolumeminimo
-     * @return TParametros
-     */
-    public function setFnVolumeminimo($fnVolumeminimo)
-    {
-        $this->fnVolumeminimo = $fnVolumeminimo;
-
-        return $this;
-    }
-
-    /**
-     * Get fnVolumeminimo
-     *
-     * @return integer 
-     */
-    public function getFnVolumeminimo()
-    {
-        return $this->fnVolumeminimo;
-    }
-
-    /**
-     * Set fbConfirmacao
-     *
-     * @param boolean $fbConfirmacao
-     * @return TParametros
-     */
-    public function setFbConfirmacao($fbConfirmacao)
-    {
-        $this->fbConfirmacao = $fbConfirmacao;
-
-        return $this;
-    }
-
-    /**
-     * Get fbConfirmacao
-     *
-     * @return boolean 
-     */
-    public function getFbConfirmacao()
-    {
-        return $this->fbConfirmacao;
-    }
-
-    /**
-     * Set fbContraanalise
-     *
-     * @param boolean $fbContraanalise
-     * @return TParametros
-     */
-    public function setFbContraanalise($fbContraanalise)
-    {
-        $this->fbContraanalise = $fbContraanalise;
-
-        return $this;
-    }
-
-    /**
-     * Get fbContraanalise
-     *
-     * @return boolean 
-     */
-    public function getFbContraanalise()
-    {
-        return $this->fbContraanalise;
-    }
-
-    /**
-     * Set fdRealizacao
-     *
-     * @param \DateTime $fdRealizacao
-     * @return TParametros
-     */
-    public function setFdRealizacao($fdRealizacao)
-    {
-        $this->fdRealizacao = $fdRealizacao;
-
-        return $this;
-    }
-
-    /**
-     * Get fdRealizacao
-     *
-     * @return \DateTime 
-     */
-    public function getFdRealizacao()
-    {
-        return $this->fdRealizacao;
-    }
-
-    /**
-     * Set fnMetodo
-     *
-     * @param \AppBundle\Entity\TMetodos $fnMetodo
-     * @return TParametros
-     */
-    public function setFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo = null)
-    {
-        $this->fnMetodo = $fnMetodo;
-
-        return $this;
-    }
-
-    /**
-     * Get fnMetodo
-     *
-     * @return \AppBundle\Entity\TMetodos 
-     */
-    public function getFnMetodo()
-    {
-        return $this->fnMetodo;
-    }
 }

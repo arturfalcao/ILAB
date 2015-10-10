@@ -105,10 +105,7 @@ class TModelosresultadosController extends Controller
 
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+        return array('entity' => $entity,'form'   => $form->createView(),);
     }
 
     /**

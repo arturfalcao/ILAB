@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TModelosresultados
  *
- * @ORM\Table(name="t_modelosresultados", indexes={@ORM\Index(name="ModResult_TipoArre", columns={"fn_id_tipoarredondamento"})})
+ * @ORM\Table(name="t_modelosresultados", indexes={@ORM\Index(name="IDX_7AF2430BF2A8B520", columns={"fn_id_unidade"}), @ORM\Index(name="IDX_7AF2430B9BD428BC", columns={"fn_id_tipoarredondamento"})})
  * @ORM\Entity
  */
 class TModelosresultados
@@ -27,13 +27,6 @@ class TModelosresultados
      * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
      */
     private $fbActivo;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_unidade", type="bigint", nullable=false)
-     */
-    private $fnIdUnidade;
 
     /**
      * @var boolean
@@ -100,6 +93,16 @@ class TModelosresultados
      * })
      */
     private $fnTipoarredondamento;
+
+    /**
+     * @var \TUnidadesmedida
+     *
+     * @ORM\ManyToOne(targetEntity="TUnidadesmedida")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_unidade", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnUnidade;
 
 
 }
