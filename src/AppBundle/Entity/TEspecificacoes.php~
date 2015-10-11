@@ -78,9 +78,9 @@ class TEspecificacoes
     private $ftTextoQdNaoCumpreA;
 
     /**
-     * @var integer
+     * @var boolean
      *
-     * @ORM\Column(name="fb_emissao_de_relatorio", type="integer", nullable=false)
+     * @ORM\Column(name="fb_emissao_de_relatorio", type="boolean", nullable=false)
      */
     private $fbEmissaoDeRelatorio = '0';
 
@@ -106,9 +106,9 @@ class TEspecificacoes
     private $ftLegendavl;
 
     /**
-     * @var integer
+     * @var boolean
      *
-     * @ORM\Column(name="fb_activo", type="integer", nullable=false)
+     * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
      */
     private $fbActivo = '1';
 
@@ -321,7 +321,7 @@ class TEspecificacoes
     /**
      * Set fbEmissaoDeRelatorio
      *
-     * @param integer $fbEmissaoDeRelatorio
+     * @param boolean $fbEmissaoDeRelatorio
      * @return TEspecificacoes
      */
     public function setFbEmissaoDeRelatorio($fbEmissaoDeRelatorio)
@@ -334,7 +334,7 @@ class TEspecificacoes
     /**
      * Get fbEmissaoDeRelatorio
      *
-     * @return integer
+     * @return boolean 
      */
     public function getFbEmissaoDeRelatorio()
     {
@@ -413,7 +413,7 @@ class TEspecificacoes
     /**
      * Set fbActivo
      *
-     * @param integer $fbActivo
+     * @param boolean $fbActivo
      * @return TEspecificacoes
      */
     public function setFbActivo($fbActivo)
@@ -426,7 +426,7 @@ class TEspecificacoes
     /**
      * Get fbActivo
      *
-     * @return integer
+     * @return boolean 
      */
     public function getFbActivo()
     {

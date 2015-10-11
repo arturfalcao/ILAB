@@ -49,5 +49,112 @@ class TLegislacao
      */
     private $ftObservacao;
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
 
+
+
+    /**
+     * Get fnId
+     *
+     * @return integer
+     */
+    public function getFnId()
+    {
+        return $this->fnId;
+    }
+
+    /**
+     * Set ftCodigo
+     *
+     * @param string $ftCodigo
+     * @return TLegislacao
+     */
+    public function setFtCodigo($ftCodigo)
+    {
+        $this->ftCodigo = $ftCodigo;
+
+        return $this;
+    }
+
+    /**
+     * Get ftCodigo
+     *
+     * @return string
+     */
+    public function getFtCodigo()
+    {
+        return $this->ftCodigo;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftDescricao
+     * @return TLegislacao
+     */
+    public function setFtDescricao($ftDescricao)
+    {
+        $this->ftDescricao = $ftDescricao;
+
+        return $this;
+    }
+
+    /**
+     * Get ftDescricao
+     *
+     * @return string
+     */
+    public function getFtDescricao()
+    {
+        return $this->ftDescricao;
+    }
+
+    /**
+     * Set ftAlias
+     *
+     * @param string $ftAlias
+     * @return TLegislacao
+     */
+    public function setFtAlias($ftAlias)
+    {
+        $this->ftAlias = $ftAlias;
+
+        return $this;
+    }
+
+    /**
+     * Get ftAlias
+     *
+     * @return string
+     */
+    public function getFtAlias()
+    {
+        return $this->ftAlias;
+    }
+
+    /**
+     * Set ftObservacao
+     *
+     * @param string $ftObservacao
+     * @return TLegislacao
+     */
+    public function setFtObservacao($ftObservacao)
+    {
+        $this->ftObservacao = $ftObservacao;
+
+        return $this;
+    }
+
+    /**
+     * Get ftObservacao
+     *
+     * @return string
+     */
+    public function getFtObservacao()
+    {
+        return $this->ftObservacao;
+    }
 }
