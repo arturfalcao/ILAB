@@ -15,19 +15,10 @@ class TAmostrasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fnNumero')
-            ->add('ftSerie')
-            ->add('fdCriacao')
-            ->add('fdColheita')
-            ->add('fdRecepcao')
-            ->add('fdConclusao')
-            ->add('fdLimite')
-            ->add('ftResponsavelcolheita')
-            ->add('fnIdLocalcolheita')
-            ->add('fnIdOperador')
-            ->add('fnIdCliente')
-            ->add('fnIdModelo')
-            ->add('fnIdTipoaprovacao')
+            ->add('fnIdCliente', 'entity', array('class' => 'AppBundle:TClientes'))
+            ->add('fnIdLocalcolheita', 'entity', array('class' => 'AppBundle:TClientes'))
+            ->add('fnIdCliente', 'entity', array('class' => 'AppBundle:TClientes'))
+            ->add('fnIdCliente', 'entity', array('class' => 'AppBundle:TClientes'))
             ->add('save', 'submit', array('label' => 'Gravar'))
         ;
     }
