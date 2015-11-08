@@ -123,6 +123,16 @@ class TEspecificacoes
     private $fnLegislacao;
 
 
+    /**
+     * @ORM\ManyToMany(targetEntity="TParametros")
+     * @ORM\JoinTable(name="t_daadssda",
+     *      joinColumns={@ORM\JoinColumn(name="especificacoes_id", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="parametros_id", referencedColumnName="fn_id", unique=true)}
+     *      )
+     **/
+
+    private $fn_para_esp;
+
 
     /**
      * Get fnId
@@ -454,5 +464,45 @@ class TEspecificacoes
     public function getFnLegislacao()
     {
         return $this->fnLegislacao;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fn_para_esp = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add fn_para_esp
+     *
+     * @param \AppBundle\Entity\TParametros $fnParaEsp
+     * @return TEspecificacoes
+     */
+    public function addFnParaEsp(\AppBundle\Entity\TParametros $fnParaEsp)
+    {
+        $this->fn_para_esp[] = $fnParaEsp;
+
+        return $this;
+    }
+
+    /**
+     * Remove fn_para_esp
+     *
+     * @param \AppBundle\Entity\TParametros $fnParaEsp
+     */
+    public function removeFnParaEsp(\AppBundle\Entity\TParametros $fnParaEsp)
+    {
+        $this->fn_para_esp->removeElement($fnParaEsp);
+    }
+
+    /**
+     * Get fn_para_esp
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFnParaEsp()
+    {
+        return $this->fn_para_esp;
     }
 }

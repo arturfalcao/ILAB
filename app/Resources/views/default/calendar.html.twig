@@ -12,12 +12,14 @@
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-    <script type="text/javascript" src="{{ asset('bundles/app/js/lang-all.js') }}"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
+
+
+    <script type="text/javascript" src="{{ asset('bundles/app/js/lang-all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
 {% endblock %}
@@ -42,11 +44,11 @@
     </script>
 {% endblock %}
 
-
 <div class="container-fluid">
-
     <div class="row">
-        <div class="medium-2 nopadding large-1 columns specialone">{% include 'default/menu.html.twig' %}</div>
+        <div class="large-1 columns " style="height: 100%;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
+            {% include 'default/menu.html.twig' %}
+        </div>
         <div class=" large-15 columns">
             <div class="row">
                 <div class="large-16 columns no-padding">
@@ -54,8 +56,7 @@
                 </div>
             </div>
             <div class="row">
-
-                <div class="large-13 columns no-padding">
+                <div class="large-15 columns no-padding">
                     {% block body%}
                         <!-- a minha Angular App -->
                         <div ng-app="CalendarModule">
@@ -68,15 +69,11 @@
                         </div>
                     {% endblock %}
                 </div>
-                <div class="large-3 columns">
-                </div>
+
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 <script>
     function sendForm(form, callback) {
@@ -88,8 +85,6 @@
             }
         });
 
-        values["form[startdatetime][time][hour]"] = values["form[startdatetime][time][hour]"] -1 ;
-        values["form[enddatetime][time][hour]"] = values["form[enddatetime][time][hour]"] -1 ;
         // Post form
         $.ajax({
             type        : 'POST',
@@ -111,7 +106,7 @@
                         title: data.events.event.title,
                         start: data.events.event.startdate,
                         end: data.events.event.enddate,
-                        allDay:false
+                        allDay: data.events.event.allday == 1 ? true : false
                     }
                 );
                 $('#calendar-holder').fullCalendar('rerenderEvents')

@@ -11,7 +11,7 @@
     {{ form_row(form.submit,{ 'id': 'submit_short_calendar',  'attr': { 'class' : 'my_custom_class' } , 'label': 'Gravar' }) }}
 {{ form_end(form) }}
 
-<a class="edit" >Editar</a>
+<a class="edit" onclick="EditEvent()" >Editar</a>
 <a class="remove" onclick="DeleteEvent()">Excluir</a>
 
 <input type="hidden" id="id_del">

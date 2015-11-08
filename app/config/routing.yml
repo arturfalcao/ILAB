@@ -27,7 +27,9 @@ calendar_delete:
     path:     /calendar/{slug}
     defaults: { _controller: AppBundle:Agenda:delete }
     methods:  [DELETE]
-
+planeamento_create:
+    path:     /NovoPlaneamento
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:create }
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

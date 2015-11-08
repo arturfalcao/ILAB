@@ -81,6 +81,7 @@ class TEspecificacoesAdmin extends Admin
             ->add('ftSiglavl')
             ->add('ftLegendavl')
             ->add('fbActivo')
+            ->add('fn_para_esp', 'sonata_type_model', array('expanded' => true, 'by_reference' => false, 'multiple' => true))
         ;
     }
 

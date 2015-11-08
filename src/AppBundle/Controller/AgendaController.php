@@ -38,7 +38,7 @@ class AgendaController extends Controller
     /**
      * Creates a new Agenda entity.
      *
-     * @Route("/calendar", name="agenda_create")
+     * @Route("/calendario", name="agenda_create")
      * @Method("POST")
      * @Template("AppBundle:Agenda:new.html.twig")
      */
@@ -78,9 +78,6 @@ class AgendaController extends Controller
             'action' => $this->generateUrl('agenda_create'),
             'method' => 'POST',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
         return $form;
     }
 
@@ -167,8 +164,6 @@ class AgendaController extends Controller
             'action' => $this->generateUrl('agenda_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -272,13 +267,26 @@ class AgendaController extends Controller
         if ($request->getMethod() == "POST") {
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+                if($entity->getStartdatetime()->format('Y-m-d H:i:s') == $entity->getEnddatetime()->format('Y-m-d H:i:s')){
+                    $entity->setAllDay(true);
+                }
                 $em->persist($entity);
                 $em->flush();
                 $data1 = $entity->getStartdatetime()->format('Y-m-d H:i:s');
                 $data2 = $entity->getEnddatetime()->format('Y-m-d H:i:s');
 
-                return new Response('{"events" : {"event" : {"id": '. $entity->getId() .',"title": "'. $entity->getTitle() .'","startdate": "'. $data1 .'","enddate": "'. $data2.'"}}}');
+                if($entity->getStartdatetime()->format('Y-m-d H:i:s') == $entity->getEnddatetime()->format('Y-m-d H:i:s')){
+                    $allday = true;
+                }else{
+                    $allday = false;
+                }
+
+
+                return new Response('{"events" : {"event" : {"id": '. $entity->getId() .',"title": "'. $entity->getTitle() .'","startdate": "'. $data1 .'","enddate": "'. $data2.'","allday":"'. $allday .'"}}}');
+            }else{
+                return new Response("-->" .  $form->getErrorsAsString());
             }
+
 
         }else{
             return $this->render('AppBundle:Agenda:newshort.html.twig', array('form'=>$form->createView()));
@@ -307,18 +315,35 @@ class AgendaController extends Controller
 
 
         if ($request->getMethod() == 'PUT') {
+
+            if($request->request->get('allday') != ""){
+                if($request->request->get('allday') == "true"){
+                    $myEntity->setAllDay(1);
+                }else{
+                    $myEntity->setAllDay(0);
+                }
+
+            }
+
+
             if($request->request->get('start') != ""){
                 $dateStarted = \DateTime::createFromFormat('D M d Y H:i:s e+', $request->request->get('start')); // Thu Nov 15 2012 00:00:00 GMT-0700 (Mountain Standard Time)
                 $myEntity->setStartdatetime($dateStarted);
-            }
+        }
+
             if($request->request->get('end') != ""){
                 $endStarted = \DateTime::createFromFormat('D M d Y H:i:s e+', $request->request->get('end')); // Thu Nov 15 2012 00:00:00 GMT-0700 (Mountain Standard Time)
-                $myEntity->setEnddatetime($endStarted );
+                if($request->request->get('allday') == "true" || $request->request->get('allday') == true){
+                    $myEntity->setEnddatetime($endStarted );
+                }else{
+                    $myEntity->setEnddatetime($endStarted );
+                }
+
             }
 
             $em->flush();
 
-            return new Response("ok");
+            return new Response($request->request->get('allday'));
         }else{
             if ($request->getMethod() == "DELETE") {
                 $em->remove($myEntity);

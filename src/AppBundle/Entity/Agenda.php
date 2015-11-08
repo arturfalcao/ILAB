@@ -31,6 +31,13 @@ class Agenda
     /**
      * @var string
      *
+     * @ORM\Column(name="Morada", type="text", nullable=true)
+     */
+    private $morada;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="Descricao", type="text", nullable=true)
      */
     private $descricao;
@@ -52,9 +59,9 @@ class Agenda
     /**
      * @var boolean
      *
-     * @ORM\Column(name="AllDayEvent", type="boolean", nullable=true)
+     * @ORM\Column(name="allDay", type="boolean", nullable=true)
      */
-    private $alldayevent;
+    private $allDay;
 
     /**
      * @var string
@@ -83,6 +90,9 @@ class Agenda
      * @ORM\Column(name="cssClass", type="text", nullable=true)
      */
     private $cssclass;
+
+
+
 
 
 
@@ -194,9 +204,9 @@ class Agenda
      * @param boolean $alldayevent
      * @return Agenda
      */
-    public function setAlldayevent($alldayevent)
+    public function setAllDay($allDay)
     {
-        $this->alldayevent = $alldayevent;
+        $this->allDay = $allDay;
 
         return $this;
     }
@@ -206,9 +216,9 @@ class Agenda
      *
      * @return boolean 
      */
-    public function getAlldayevent()
+    public function getAllDay()
     {
-        return $this->alldayevent;
+        return $this->allDay;
     }
 
     /**
@@ -301,5 +311,28 @@ class Agenda
     public function getCssclass()
     {
         return $this->cssclass;
+    }
+
+    /**
+     * Set morada
+     *
+     * @param string $morada
+     * @return Agenda
+     */
+    public function setMorada($morada)
+    {
+        $this->morada = $morada;
+
+        return $this;
+    }
+
+    /**
+     * Get morada
+     *
+     * @return string 
+     */
+    public function getMorada()
+    {
+        return $this->morada;
     }
 }

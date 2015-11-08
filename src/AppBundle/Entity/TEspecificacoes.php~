@@ -78,9 +78,9 @@ class TEspecificacoes
     private $ftTextoQdNaoCumpreA;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="fb_emissao_de_relatorio", type="boolean", nullable=false)
+     * @ORM\Column(name="fb_emissao_de_relatorio", type="integer", nullable=false)
      */
     private $fbEmissaoDeRelatorio = '0';
 
@@ -106,9 +106,9 @@ class TEspecificacoes
     private $ftLegendavl;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
+     * @ORM\Column(name="fb_activo", type="integer", nullable=false)
      */
     private $fbActivo = '1';
 
@@ -122,6 +122,16 @@ class TEspecificacoes
      */
     private $fnLegislacao;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity="TParametros")
+     * @ORM\JoinTable(name="t_daadssda",
+     *      joinColumns={@ORM\JoinColumn(name="especificacoes_id", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="parametros_id", referencedColumnName="fn_id", unique=true)}
+     *      )
+     **/
+
+    private $fn_para_esp;
 
 
     /**
@@ -321,7 +331,7 @@ class TEspecificacoes
     /**
      * Set fbEmissaoDeRelatorio
      *
-     * @param boolean $fbEmissaoDeRelatorio
+     * @param integer $fbEmissaoDeRelatorio
      * @return TEspecificacoes
      */
     public function setFbEmissaoDeRelatorio($fbEmissaoDeRelatorio)
@@ -334,7 +344,7 @@ class TEspecificacoes
     /**
      * Get fbEmissaoDeRelatorio
      *
-     * @return boolean 
+     * @return integer
      */
     public function getFbEmissaoDeRelatorio()
     {
@@ -413,7 +423,7 @@ class TEspecificacoes
     /**
      * Set fbActivo
      *
-     * @param boolean $fbActivo
+     * @param integer $fbActivo
      * @return TEspecificacoes
      */
     public function setFbActivo($fbActivo)
@@ -426,7 +436,7 @@ class TEspecificacoes
     /**
      * Get fbActivo
      *
-     * @return boolean 
+     * @return integer
      */
     public function getFbActivo()
     {

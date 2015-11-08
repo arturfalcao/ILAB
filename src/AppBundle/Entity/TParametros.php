@@ -185,7 +185,7 @@ class TParametros
     /**
      * @var boolean
      *
-     * @ORM\Column(name="fb_confirmacao", type="boolean", nullable=false)
+     * @ORM\Column(name="fb_confirmacao", type="integer", nullable=false)
      */
     private $fbConfirmacao = '0';
 
@@ -197,9 +197,9 @@ class TParametros
     private $ftIdEstado;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="fb_contraanalise", type="boolean", nullable=true)
+     * @ORM\Column(name="fb_contraanalise", type="integer", nullable=true)
      */
     private $fbContraanalise = '0';
 
@@ -221,7 +221,17 @@ class TParametros
     {
         return $this->fnId;
     }
+    /**
+     * Get fnId
+     *
+     * @return integer
+     */
+    public function setFnId()
+    {
+        $this->fnId = fnId;
 
+        return $this;
+    }
     /**
      * Set ftDescricao
      *
@@ -754,7 +764,7 @@ class TParametros
     /**
      * Set fbConfirmacao
      *
-     * @param boolean $fbConfirmacao
+     * @param integer $fbConfirmacao
      * @return TParametros
      */
     public function setFbConfirmacao($fbConfirmacao)
@@ -767,7 +777,7 @@ class TParametros
     /**
      * Get fbConfirmacao
      *
-     * @return boolean 
+     * @return integer
      */
     public function getFbConfirmacao()
     {
@@ -800,7 +810,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param boolean $fbContraanalise
+     * @param integer $fbContraanalise
      * @return TParametros
      */
     public function setFbContraanalise($fbContraanalise)
@@ -813,7 +823,7 @@ class TParametros
     /**
      * Get fbContraanalise
      *
-     * @return boolean 
+     * @return integer
      */
     public function getFbContraanalise()
     {

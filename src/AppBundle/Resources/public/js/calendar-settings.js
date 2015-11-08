@@ -28,9 +28,9 @@ $(function () {
 
     $('#calendar-holder').fullCalendar({
         lang: 'pt',
-        droppable: true,
-        editable: true,
         allDayDefault: true,
+        editable: true,
+        height: 800,
         defaultView: 'agendaWeek',
         views: {
             month: {
@@ -61,6 +61,13 @@ $(function () {
             $("#eventInfo").html(event.description);
             $("#eventLink").attr('href', event.url);
         },
+        eventRender: function(event, element, view) {
+            if (event._allDay == 'true' || event._allDay == true ) {
+                event.allDay = true;
+            } else {
+                event.allDay = false;
+            }
+        },
         dayClick: function(date, jsEvent, view) {
             var d = date._d;
             var month = $.datepicker.formatDate('DD, dd MM', d);
@@ -75,7 +82,12 @@ $(function () {
             $('#form_enddatetime_date_month option[value="'+ (d.getMonth() + 1) +'"]').prop('selected', true);
             $('#form_enddatetime_date_day option[value="'+ d.getDate()  +'"]').prop('selected', true);
             $('#form_enddatetime_date_year option[value="'+ d.getFullYear()  +'"]').prop('selected', true);
-            $('#form_enddatetime_time_hour option[value="'+ d.getHours()  +'"]').prop('selected', true);
+            if(d.getHours() != 0){
+                $('#form_enddatetime_time_hour option[value="'+ (d.getHours()+1)   +'"]').prop('selected', true);
+            }else{
+                $('#form_enddatetime_time_hour option[value="'+ (d.getHours())   +'"]').prop('selected', true);
+            }
+
             $('#form_enddatetime_time_minute option[value="'+ d.getMinutes() +'"]').prop('selected', true);
 
             $("#cal_new_event").css( {position:"absolute", top:jsEvent.pageY - 140, left: jsEvent.pageX - 230 ,display:"block","z-index":"999"});
@@ -121,6 +133,18 @@ function closeshow(){
     $('#cal_new_event').hide();
 }
 
+
+function EditEvent(){
+
+    if($("#cal_new_event #id_del").val() != ""){
+        window.location.replace('/app_dev.php/agendacalendar/'+ $("#cal_new_event #id_del").val() + '/edit');
+    }else{
+        alert("tem de seleccionar um evento");
+    }
+
+
+}
+
 function DeleteEvent(){
 
     $.ajax({
@@ -136,19 +160,24 @@ function UpdateAgenda(event,delta, callback,method) {
     // Get all form values
     // Post form
     if(event._start != null){
-        var start = new Date(event._start._d - 1*60*60*1000);
+        var start = new Date(event._start._d);
     } else{
         var start = "";
     }
     if(event._end != null){
-        var end = new Date(event._end._d - 1*60*60*1000);
+        var end = new Date(event._end._d);
     } else{
-        var end = "";
+        var end = event._start._d;
     }
+
+    if(event._allDay != null){
+        var allday =event._allDay;
+    }
+
         $.ajax({
             type: 'PUT',
             url: '/app_dev.php/agenda/calendar/newshort/' + event.id,
-            data: {"start": start, "end": end},
+            data: {"start": start, "end": end, "allday" : allday },
             success: function (result) {
                 callback(result);
             }

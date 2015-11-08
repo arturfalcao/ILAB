@@ -42,12 +42,6 @@ section.login form label, section.login form a, section.login p {
 }
 
 body {
-    background: url('../images/textura_bg.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
 
 }
 
@@ -230,3 +224,188 @@ section.login p {
 
 
 
+.mainmenu, .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* make ALL links (main and submenu) have padding and background color */
+.mainmenu a {
+    display: block;
+    background: none;
+    text-decoration: none;
+    padding: 10px;
+    color: #000;
+}
+
+/* add hover behaviour */
+.mainmenu a:hover {
+}
+
+
+/* when hovering over a .mainmenu item,
+  display the submenu inside it.
+  we're changing the submenu's max-height from 0 to 200px;
+*/
+
+.mainmenu li:hover .submenu {
+    display: block;
+    max-height: 200px;
+}
+.mainmenu >li{
+    position: relative;
+}
+/*
+  we now overwrite the background-color for .submenu links only.
+  CSS reads down the page, so code at the bottom will overwrite the code at the top.
+*/
+
+.submenu a {
+}
+
+/* hover behaviour for links inside .submenu */
+.submenu a:hover {
+    color: rgba(76,195,184,1);
+}
+
+/* this is the initial state of all submenus.
+  we set it to max-height: 0, and hide the overflowed content.
+*/
+.submenu {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transition: all 0.5s ease-out;
+    position: absolute;
+    top: 14px;
+    left: 67px;
+    z-index: 99999;
+    width: 238px;
+    background: #fff;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.menu_principal{
+    width: 100%;
+
+}
+
+#logo{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+.mainmenu a.menu_planeamento{
+    background: url(../images/planeamento.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_planeamento:hover{
+    background: url(../images/planeamento_active.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_amostra{
+    background: url(../images/amostras.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_amostra:hover{
+    background: url(../images/amostras_active.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_resultados{
+    background: url(../images/resultados.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_resultados:hover{
+    background: url(../images/resultados_active.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+
+.mainmenu a.menu_configuracoes{
+    background: url(../images/configuracoes.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_configuracoes:hover{
+    background: url(../images/configuracoes_active.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_listagens{
+    background: url(../images/boletins.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_listagens:hover{
+    background: url(../images/boletins_active.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_cartas{
+    background: url(../images/cartas-controlo.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+.mainmenu a.menu_cartas:hover{
+    background: url(../images/cartas-controlo_active.png) no-repeat center center;
+    width: 50px;
+    height: 69px;
+    padding: 0;
+    margin: 0;
+}
+
+
+.menu_direita{
+    background: url(../images/side_apps.png) no-repeat center center;
+    width: 128px;
+    height: 69px;
+}
+
+.new_cal_element form{
+    margin-top: 41px;
+    margin-left: 58px;
+}
+
+.new_cal_element form .form-group{
+    float: left;
+    margin-right: 98px ;
+}
+
+.new_cal_element form input[type='text']{
+    width: 394px;
+    min-height: 26px;
+    height: 39px;
+}
+.new_cal_element form textarea{
+    width: 394px;
+    min-height: 26px;
+    height: 97px;
+}
