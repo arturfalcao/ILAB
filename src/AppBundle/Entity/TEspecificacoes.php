@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TEspecificacoes
  *
- * @ORM\Table(name="t_especificacoes", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_especificacoes_descricao", columns={"ft_descricao"}), @ORM\UniqueConstraint(name="IX_t_especificacoes_codigo", columns={"ft_codigo"})}, indexes={@ORM\Index(name="especificacoes_legis", columns={"fn_id_legislacao"})})
+ * @ORM\Table(name="t_especificacoes", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_especificacoes_descricao", columns={"ft_descricao"}), @ORM\UniqueConstraint(name="IX_t_especificacoes_codigo", columns={"ft_codigo"})}, indexes={@ORM\Index(name="IDX_6462B9FFB176857A", columns={"fn_id_legislacao"})})
  * @ORM\Entity
  */
 class TEspecificacoes
@@ -82,7 +82,7 @@ class TEspecificacoes
      *
      * @ORM\Column(name="fb_emissao_de_relatorio", type="integer", nullable=false)
      */
-    private $fbEmissaoDeRelatorio = '0';
+    private $fbEmissaoDeRelatorio;
 
     /**
      * @var string
@@ -110,7 +110,7 @@ class TEspecificacoes
      *
      * @ORM\Column(name="fb_activo", type="integer", nullable=false)
      */
-    private $fbActivo = '1';
+    private $fbActivo;
 
     /**
      * @var \TLegislacao
@@ -122,18 +122,33 @@ class TEspecificacoes
      */
     private $fnLegislacao;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TParametros", inversedBy="especificacoes")
+     * @ORM\JoinTable(name="t_daadssda",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="especificacoes_id", referencedColumnName="fn_id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="parametros_id", referencedColumnName="fn_id")
+     *   }
+     * )
+     */
+    private $parametros;
 
     /**
-     * @ORM\ManyToMany(targetEntity="TParametros")
-     * @ORM\JoinTable(name="t_daadssda",
-     *      joinColumns={@ORM\JoinColumn(name="especificacoes_id", referencedColumnName="fn_id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="parametros_id", referencedColumnName="fn_id", unique=true)}
-     *      )
-     **/
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->parametros = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
-    private $fn_para_esp;
-
-
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
     /**
      * Get fnId
      *
@@ -344,7 +359,7 @@ class TEspecificacoes
     /**
      * Get fbEmissaoDeRelatorio
      *
-     * @return integer
+     * @return integer 
      */
     public function getFbEmissaoDeRelatorio()
     {
@@ -436,7 +451,7 @@ class TEspecificacoes
     /**
      * Get fbActivo
      *
-     * @return integer
+     * @return integer 
      */
     public function getFbActivo()
     {
@@ -465,44 +480,37 @@ class TEspecificacoes
     {
         return $this->fnLegislacao;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->fn_para_esp = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add fn_para_esp
+     * Add parametros
      *
-     * @param \AppBundle\Entity\TParametros $fnParaEsp
+     * @param \AppBundle\Entity\TParametros $parametros
      * @return TEspecificacoes
      */
-    public function addFnParaEsp(\AppBundle\Entity\TParametros $fnParaEsp)
+    public function addParametro(\AppBundle\Entity\TParametros $parametros)
     {
-        $this->fn_para_esp[] = $fnParaEsp;
+        $this->parametros[] = $parametros;
 
         return $this;
     }
 
     /**
-     * Remove fn_para_esp
+     * Remove parametros
      *
-     * @param \AppBundle\Entity\TParametros $fnParaEsp
+     * @param \AppBundle\Entity\TParametros $parametros
      */
-    public function removeFnParaEsp(\AppBundle\Entity\TParametros $fnParaEsp)
+    public function removeParametro(\AppBundle\Entity\TParametros $parametros)
     {
-        $this->fn_para_esp->removeElement($fnParaEsp);
+        $this->parametros->removeElement($parametros);
     }
 
     /**
-     * Get fn_para_esp
+     * Get parametros
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getFnParaEsp()
+    public function getParametros()
     {
-        return $this->fn_para_esp;
+        return $this->parametros;
     }
 }

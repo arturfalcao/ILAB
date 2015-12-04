@@ -54,11 +54,10 @@ class TTiposamostra
         return $this->ftDescricao;
     }
 
-
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -81,7 +80,7 @@ class TTiposamostra
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -104,7 +103,7 @@ class TTiposamostra
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -127,7 +126,7 @@ class TTiposamostra
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -150,7 +149,7 @@ class TTiposamostra
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

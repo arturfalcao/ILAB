@@ -15,23 +15,40 @@ class TAmostrasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fnNumero')
-            ->add('ftSerie')
-            ->add('fdCriacao')
-            ->add('fdColheita')
-            ->add('fdRecepcao')
-            ->add('fdConclusao')
-            ->add('fdLimite')
-            ->add('ftResponsavelcolheita')
-            ->add('fnIdLocalcolheita')
-            ->add('fnIdOperador')
-            ->add('fnIdCliente')
-            ->add('fnIdModelo')
-            ->add('fnIdTipoaprovacao')
-            ->add('save', 'submit', array('label' => 'Gravar'))
+            ->add('fnCliente')
+            ->add('fnLocalcolheita')
+            ->add('ftGrupoparametros')
+            ->add('fnProduto')
+            ->add('startdatetime', 'datetime', array('label'=>'Data de inicio','date_widget' => "single_text", 'time_widget' => "single_text"))
+            ->add('enddatetime', 'datetime', array('label'=>'Data de fim','date_widget' => "single_text", 'time_widget' => "single_text"))
         ;
     }
-
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->add('fnCliente')
+            ->add('fnLocalcolheita')
+            ->add('ftGrupoparametros')
+            ->add('startdatetime', 'datetime', array('label'=>'Data de inicio','date_widget' => "single_text", 'time_widget' => "single_text"))
+            ->add('enddatetime', 'datetime', array('label'=>'Data de fim','date_widget' => "single_text", 'time_widget' => "single_text"))
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
+        ;
+    }
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('fnCliente')
+            ->add('fnLocalcolheita')
+            ->add('ftGrupoparametros')
+            ->add('startdatetime', 'datetime', array('label'=>'Data de inicio','date_widget' => "single_text", 'time_widget' => "single_text"))
+            ->add('enddatetime', 'datetime', array('label'=>'Data de fim','date_widget' => "single_text", 'time_widget' => "single_text"));
+    }
     /**
      * @param OptionsResolverInterface $resolver
      */

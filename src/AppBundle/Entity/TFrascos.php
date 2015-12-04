@@ -77,14 +77,12 @@ class TFrascos
      */
     private $fnIdAditivo;
 
-    public function __toString() {
-        return $this->ftDescricao;
-    }
+
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -107,7 +105,7 @@ class TFrascos
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -130,7 +128,7 @@ class TFrascos
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -153,7 +151,7 @@ class TFrascos
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -176,7 +174,7 @@ class TFrascos
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {
@@ -199,7 +197,7 @@ class TFrascos
     /**
      * Get fnCapacidade
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnCapacidade()
     {
@@ -222,7 +220,7 @@ class TFrascos
     /**
      * Get fnIdTipomaterial
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnIdTipomaterial()
     {
@@ -245,7 +243,7 @@ class TFrascos
     /**
      * Get fbEsteril
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbEsteril()
     {
@@ -268,7 +266,7 @@ class TFrascos
     /**
      * Get fnIdAditivo
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnIdAditivo()
     {

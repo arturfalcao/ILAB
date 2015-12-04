@@ -26,7 +26,7 @@ class TMetodos
      *
      * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
      */
-    private $ftCodigo = 'x';
+    private $ftCodigo;
 
     /**
      * @var string
@@ -49,16 +49,12 @@ class TMetodos
      */
     private $ftObservacao;
 
-    public function __toString() {
-        return $this->ftDescricao;
-    }
-
 
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -81,7 +77,7 @@ class TMetodos
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -104,7 +100,7 @@ class TMetodos
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -127,7 +123,7 @@ class TMetodos
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -150,7 +146,7 @@ class TMetodos
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

@@ -37,7 +37,7 @@ class TTipoaprovacao
 
     public function __toString()
     {
-        return $this->ftDescricao;
+        return $this->ftCodigo;
     }
 
     /**
@@ -46,6 +46,26 @@ class TTipoaprovacao
      * @return integer
      */
     public function getFnId()
+    {
+        return $this->fnId;
+    }
+    /**
+     * Get fnId
+     *
+     * @return integer
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;    }
+
+    /**
+     * Get fnId
+     *
+     * @return integer 
+     */
+    public function getId()
     {
         return $this->fnId;
     }
@@ -66,7 +86,7 @@ class TTipoaprovacao
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -89,7 +109,7 @@ class TTipoaprovacao
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {

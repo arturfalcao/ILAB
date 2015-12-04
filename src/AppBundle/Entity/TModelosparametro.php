@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TModelosparametro
  *
- * @ORM\Table(name="t_modelosparametro", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_modelosparametro_descricao", columns={"ft_descricao"})}, indexes={@ORM\Index(name="sdss", columns={"fn_id_familiaparametro"}), @ORM\Index(name="aaa", columns={"fn_id_laboratorio"}), @ORM\Index(name="bbb", columns={"fn_id_metodo"}), @ORM\Index(name="ccc", columns={"fn_id_tecnica"}), @ORM\Index(name="fff", columns={"fn_id_areaensaio"}), @ORM\Index(name="ttt", columns={"fn_id_modeloresultado"}), @ORM\Index(name="uuu", columns={"fn_id_frasco"})})
+ * @ORM\Table(name="t_modelosparametro", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_modelosparametro_descricao", columns={"ft_descricao"})}, indexes={@ORM\Index(name="IDX_D04F739D8A7894DE", columns={"fn_id_laboratorio"}), @ORM\Index(name="IDX_D04F739D1909E299", columns={"fn_id_metodo"}), @ORM\Index(name="IDX_D04F739D5D2AB5F4", columns={"fn_id_tecnica"}), @ORM\Index(name="IDX_D04F739D63E11BFC", columns={"fn_id_areaensaio"}), @ORM\Index(name="IDX_D04F739DE5DC4C23", columns={"fn_id_familiaparametro"}), @ORM\Index(name="IDX_D04F739D2B686C80", columns={"fn_id_modeloresultado"}), @ORM\Index(name="IDX_D04F739D9CB432B6", columns={"fn_id_frasco"})})
  * @ORM\Entity
  */
 class TModelosparametro
@@ -22,11 +22,11 @@ class TModelosparametro
     private $fnId;
 
     /**
-     * @var boolean
+     * @var integer
      *
      * @ORM\Column(name="fb_activo", type="bigint", nullable=true)
      */
-    private $fbActivo = '1';
+    private $fbActivo;
 
     /**
      * @var string
@@ -92,14 +92,14 @@ class TModelosparametro
     private $ftObservacao;
 
     /**
-     * @var \TLaboratorios
+     * @var \TFrascos
      *
-     * @ORM\ManyToOne(targetEntity="TLaboratorios")
+     * @ORM\ManyToOne(targetEntity="TFrascos")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_laboratorio", referencedColumnName="fn_id")
+     *   @ORM\JoinColumn(name="fn_id_frasco", referencedColumnName="fn_id")
      * })
      */
-    private $fnLaboratorio;
+    private $fnFrasco;
 
     /**
      * @var \TMetodos
@@ -110,6 +110,16 @@ class TModelosparametro
      * })
      */
     private $fnMetodo;
+
+    /**
+     * @var \TModelosresultados
+     *
+     * @ORM\ManyToOne(targetEntity="TModelosresultados")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_modeloresultado", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnModeloresultado;
 
     /**
      * @var \TTecnicas
@@ -132,6 +142,16 @@ class TModelosparametro
     private $fnAreaensaio;
 
     /**
+     * @var \TLaboratorios
+     *
+     * @ORM\ManyToOne(targetEntity="TLaboratorios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_laboratorio", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnLaboratorio;
+
+    /**
      * @var \TFamiliasparametros
      *
      * @ORM\ManyToOne(targetEntity="TFamiliasparametros")
@@ -141,32 +161,12 @@ class TModelosparametro
      */
     private $fnFamiliaparametro;
 
-    /**
-     * @var \TModelosresultados
-     *
-     * @ORM\ManyToOne(targetEntity="TModelosresultados")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_modeloresultado", referencedColumnName="fn_id")
-     * })
-     */
-    private $fnModeloresultado;
-
-    /**
-     * @var \TFrascos
-     *
-     * @ORM\ManyToOne(targetEntity="TFrascos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_frasco", referencedColumnName="fn_id")
-     * })
-     */
-    private $fnFrasco;
-
 
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -189,7 +189,7 @@ class TModelosparametro
     /**
      * Get fbActivo
      *
-     * @return integer
+     * @return integer 
      */
     public function getFbActivo()
     {
@@ -212,7 +212,7 @@ class TModelosparametro
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -235,7 +235,7 @@ class TModelosparametro
     /**
      * Get ftFormulaquimica
      *
-     * @return string
+     * @return string 
      */
     public function getFtFormulaquimica()
     {
@@ -258,7 +258,7 @@ class TModelosparametro
     /**
      * Get fnPrecocompra
      *
-     * @return string
+     * @return string 
      */
     public function getFnPrecocompra()
     {
@@ -281,7 +281,7 @@ class TModelosparametro
     /**
      * Get fnPrecovenda
      *
-     * @return string
+     * @return string 
      */
     public function getFnPrecovenda()
     {
@@ -304,7 +304,7 @@ class TModelosparametro
     /**
      * Get fnFactorcorreccao
      *
-     * @return string
+     * @return string 
      */
     public function getFnFactorcorreccao()
     {
@@ -327,7 +327,7 @@ class TModelosparametro
     /**
      * Get fnNrdiasparaexecucao
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFnNrdiasparaexecucao()
     {
@@ -350,7 +350,7 @@ class TModelosparametro
     /**
      * Get fbAcreditado
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbAcreditado()
     {
@@ -373,7 +373,7 @@ class TModelosparametro
     /**
      * Get fnVolumeminimo
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnVolumeminimo()
     {
@@ -396,7 +396,7 @@ class TModelosparametro
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {
@@ -404,26 +404,26 @@ class TModelosparametro
     }
 
     /**
-     * Set fnLaboratorio
+     * Set fnFrasco
      *
-     * @param \AppBundle\Entity\TLaboratorios $fnLaboratorio
+     * @param \AppBundle\Entity\TFrascos $fnFrasco
      * @return TModelosparametro
      */
-    public function setFnLaboratorio(\AppBundle\Entity\TLaboratorios $fnLaboratorio = null)
+    public function setFnFrasco(\AppBundle\Entity\TFrascos $fnFrasco = null)
     {
-        $this->fnLaboratorio = $fnLaboratorio;
+        $this->fnFrasco = $fnFrasco;
 
         return $this;
     }
 
     /**
-     * Get fnLaboratorio
+     * Get fnFrasco
      *
-     * @return \AppBundle\Entity\TLaboratorios
+     * @return \AppBundle\Entity\TFrascos 
      */
-    public function getFnLaboratorio()
+    public function getFnFrasco()
     {
-        return $this->fnLaboratorio;
+        return $this->fnFrasco;
     }
 
     /**
@@ -442,11 +442,34 @@ class TModelosparametro
     /**
      * Get fnMetodo
      *
-     * @return \AppBundle\Entity\TMetodos
+     * @return \AppBundle\Entity\TMetodos 
      */
     public function getFnMetodo()
     {
         return $this->fnMetodo;
+    }
+
+    /**
+     * Set fnModeloresultado
+     *
+     * @param \AppBundle\Entity\TModelosresultados $fnModeloresultado
+     * @return TModelosparametro
+     */
+    public function setFnModeloresultado(\AppBundle\Entity\TModelosresultados $fnModeloresultado = null)
+    {
+        $this->fnModeloresultado = $fnModeloresultado;
+
+        return $this;
+    }
+
+    /**
+     * Get fnModeloresultado
+     *
+     * @return \AppBundle\Entity\TModelosresultados 
+     */
+    public function getFnModeloresultado()
+    {
+        return $this->fnModeloresultado;
     }
 
     /**
@@ -465,7 +488,7 @@ class TModelosparametro
     /**
      * Get fnTecnica
      *
-     * @return \AppBundle\Entity\TTecnicas
+     * @return \AppBundle\Entity\TTecnicas 
      */
     public function getFnTecnica()
     {
@@ -488,11 +511,34 @@ class TModelosparametro
     /**
      * Get fnAreaensaio
      *
-     * @return \AppBundle\Entity\TAreasensaio
+     * @return \AppBundle\Entity\TAreasensaio 
      */
     public function getFnAreaensaio()
     {
         return $this->fnAreaensaio;
+    }
+
+    /**
+     * Set fnLaboratorio
+     *
+     * @param \AppBundle\Entity\TLaboratorios $fnLaboratorio
+     * @return TModelosparametro
+     */
+    public function setFnLaboratorio(\AppBundle\Entity\TLaboratorios $fnLaboratorio = null)
+    {
+        $this->fnLaboratorio = $fnLaboratorio;
+
+        return $this;
+    }
+
+    /**
+     * Get fnLaboratorio
+     *
+     * @return \AppBundle\Entity\TLaboratorios 
+     */
+    public function getFnLaboratorio()
+    {
+        return $this->fnLaboratorio;
     }
 
     /**
@@ -511,56 +557,10 @@ class TModelosparametro
     /**
      * Get fnFamiliaparametro
      *
-     * @return \AppBundle\Entity\TFamiliasparametros
+     * @return \AppBundle\Entity\TFamiliasparametros 
      */
     public function getFnFamiliaparametro()
     {
         return $this->fnFamiliaparametro;
-    }
-
-    /**
-     * Set fnModeloresultado
-     *
-     * @param \AppBundle\Entity\TModelosresultados $fnModeloresultado
-     * @return TModelosparametro
-     */
-    public function setFnModeloresultado(\AppBundle\Entity\TModelosresultados $fnModeloresultado = null)
-    {
-        $this->fnModeloresultado = $fnModeloresultado;
-
-        return $this;
-    }
-
-    /**
-     * Get fnModeloresultado
-     *
-     * @return \AppBundle\Entity\TModelosresultados
-     */
-    public function getFnModeloresultado()
-    {
-        return $this->fnModeloresultado;
-    }
-
-    /**
-     * Set fnFrasco
-     *
-     * @param \AppBundle\Entity\TFrascos $fnFrasco
-     * @return TModelosparametro
-     */
-    public function setFnFrasco(\AppBundle\Entity\TFrascos $fnFrasco = null)
-    {
-        $this->fnFrasco = $fnFrasco;
-
-        return $this;
-    }
-
-    /**
-     * Get fnFrasco
-     *
-     * @return \AppBundle\Entity\TFrascos
-     */
-    public function getFnFrasco()
-    {
-        return $this->fnFrasco;
     }
 }

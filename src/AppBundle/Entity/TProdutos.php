@@ -68,30 +68,31 @@ class TProdutos
      *
      * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
      */
-    private $fbActivo = '1';
+    private $fbActivo;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="fb_AcreditacaoAmostragem", type="boolean", nullable=false)
      */
-    private $fbAcreditacaoamostragem = '0';
+    private $fbAcreditacaoamostragem;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="fb_AcreditacaoAmostragemMicro", type="boolean", nullable=false)
      */
-    private $fbAcreditacaoamostragemmicro = '0';
+    private $fbAcreditacaoamostragemmicro;
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->ftDescricao;
     }
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -114,7 +115,7 @@ class TProdutos
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -137,7 +138,7 @@ class TProdutos
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -160,7 +161,7 @@ class TProdutos
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -183,7 +184,7 @@ class TProdutos
     /**
      * Get fnIdFamiliaproduto
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnIdFamiliaproduto()
     {
@@ -206,7 +207,7 @@ class TProdutos
     /**
      * Get fnIdLegislacao
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnIdLegislacao()
     {
@@ -229,7 +230,7 @@ class TProdutos
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {
@@ -252,7 +253,7 @@ class TProdutos
     /**
      * Get fbActivo
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbActivo()
     {
@@ -275,7 +276,7 @@ class TProdutos
     /**
      * Get fbAcreditacaoamostragem
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbAcreditacaoamostragem()
     {
@@ -298,7 +299,7 @@ class TProdutos
     /**
      * Get fbAcreditacaoamostragemmicro
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbAcreditacaoamostragemmicro()
     {

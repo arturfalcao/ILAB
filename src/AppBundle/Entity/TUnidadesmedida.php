@@ -50,13 +50,11 @@ class TUnidadesmedida
     private $ftObservacao;
 
 
-    public function __toString() {
-        return $this->ftDescricao;
-    }
+
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -79,7 +77,7 @@ class TUnidadesmedida
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -102,7 +100,7 @@ class TUnidadesmedida
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -125,7 +123,7 @@ class TUnidadesmedida
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -148,7 +146,7 @@ class TUnidadesmedida
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

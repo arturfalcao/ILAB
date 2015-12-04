@@ -124,17 +124,16 @@ class TClientes
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
-    public function getFnId()
-    {
-        return $this->fnId;
-    }
     public function __toString()
     {
         return $this->ftNome;
     }
-
+    public function getFnId()
+    {
+        return $this->fnId;
+    }
 
     /**
      * Set ftCodigo
@@ -152,7 +151,7 @@ class TClientes
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -175,7 +174,7 @@ class TClientes
     /**
      * Get ftNome
      *
-     * @return string
+     * @return string 
      */
     public function getFtNome()
     {
@@ -198,7 +197,7 @@ class TClientes
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -221,7 +220,7 @@ class TClientes
     /**
      * Get ftMorada
      *
-     * @return string
+     * @return string 
      */
     public function getFtMorada()
     {
@@ -244,7 +243,7 @@ class TClientes
     /**
      * Get ftCodpostal
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodpostal()
     {
@@ -267,7 +266,7 @@ class TClientes
     /**
      * Get ftLocalidade
      *
-     * @return string
+     * @return string 
      */
     public function getFtLocalidade()
     {
@@ -290,7 +289,7 @@ class TClientes
     /**
      * Get ftPais
      *
-     * @return string
+     * @return string 
      */
     public function getFtPais()
     {
@@ -313,7 +312,7 @@ class TClientes
     /**
      * Get ftTelefone
      *
-     * @return string
+     * @return string 
      */
     public function getFtTelefone()
     {
@@ -336,7 +335,7 @@ class TClientes
     /**
      * Get ftFax
      *
-     * @return string
+     * @return string 
      */
     public function getFtFax()
     {
@@ -359,7 +358,7 @@ class TClientes
     /**
      * Get ftEmail
      *
-     * @return string
+     * @return string 
      */
     public function getFtEmail()
     {
@@ -382,7 +381,7 @@ class TClientes
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {
@@ -405,7 +404,7 @@ class TClientes
     /**
      * Get ftNomecontacto
      *
-     * @return string
+     * @return string 
      */
     public function getFtNomecontacto()
     {
@@ -428,7 +427,7 @@ class TClientes
     /**
      * Get ftTelefonecontacto
      *
-     * @return string
+     * @return string 
      */
     public function getFtTelefonecontacto()
     {
@@ -451,7 +450,7 @@ class TClientes
     /**
      * Get ftEmailcontacto
      *
-     * @return string
+     * @return string 
      */
     public function getFtEmailcontacto()
     {

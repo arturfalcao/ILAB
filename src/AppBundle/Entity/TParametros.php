@@ -21,6 +21,8 @@ class TParametros
      */
     private $fnId;
 
+
+
     /**
      * @var string
      *
@@ -159,7 +161,7 @@ class TParametros
      *
      * @ORM\Column(name="fn_id_familiaparametro", type="bigint", nullable=false)
      */
-    private $fnIdFamiliaparametro = '-1';
+    private $fnIdFamiliaparametro;
 
     /**
      * @var string
@@ -173,21 +175,21 @@ class TParametros
      *
      * @ORM\Column(name="fn_id_frasco", type="bigint", nullable=true)
      */
-    private $fnIdFrasco = '-1';
+    private $fnIdFrasco;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="fn_volumeminimo", type="integer", nullable=true)
      */
-    private $fnVolumeminimo = '-1';
+    private $fnVolumeminimo;
 
     /**
-     * @var boolean
+     * @var integer
      *
      * @ORM\Column(name="fb_confirmacao", type="integer", nullable=false)
      */
-    private $fbConfirmacao = '0';
+    private $fbConfirmacao;
 
     /**
      * @var string
@@ -201,7 +203,7 @@ class TParametros
      *
      * @ORM\Column(name="fb_contraanalise", type="integer", nullable=true)
      */
-    private $fbContraanalise = '0';
+    private $fbContraanalise;
 
     /**
      * @var \DateTime
@@ -210,8 +212,26 @@ class TParametros
      */
     private $fdRealizacao;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TEspecificacoes", mappedBy="parametros")
+     */
+    private $especificacoes;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->especificacoes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
     /**
      * Get fnId
      *
@@ -221,17 +241,7 @@ class TParametros
     {
         return $this->fnId;
     }
-    /**
-     * Get fnId
-     *
-     * @return integer
-     */
-    public function setFnId()
-    {
-        $this->fnId = fnId;
 
-        return $this;
-    }
     /**
      * Set ftDescricao
      *
@@ -777,7 +787,7 @@ class TParametros
     /**
      * Get fbConfirmacao
      *
-     * @return integer
+     * @return integer 
      */
     public function getFbConfirmacao()
     {
@@ -823,7 +833,7 @@ class TParametros
     /**
      * Get fbContraanalise
      *
-     * @return integer
+     * @return integer 
      */
     public function getFbContraanalise()
     {
@@ -851,5 +861,38 @@ class TParametros
     public function getFdRealizacao()
     {
         return $this->fdRealizacao;
+    }
+
+    /**
+     * Add especificacoes
+     *
+     * @param \AppBundle\Entity\TEspecificacoes $especificacoes
+     * @return TParametros
+     */
+    public function addEspecificaco(\AppBundle\Entity\TEspecificacoes $especificacoes)
+    {
+        $this->especificacoes[] = $especificacoes;
+
+        return $this;
+    }
+
+    /**
+     * Remove especificacoes
+     *
+     * @param \AppBundle\Entity\TEspecificacoes $especificacoes
+     */
+    public function removeEspecificaco(\AppBundle\Entity\TEspecificacoes $especificacoes)
+    {
+        $this->especificacoes->removeElement($especificacoes);
+    }
+
+    /**
+     * Get especificacoes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEspecificacoes()
+    {
+        return $this->especificacoes;
     }
 }

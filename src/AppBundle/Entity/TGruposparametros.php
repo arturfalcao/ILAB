@@ -26,7 +26,7 @@ class TGruposparametros
      *
      * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
      */
-    private $ftCodigo = 'x';
+    private $ftCodigo;
 
     /**
      * @var string
@@ -55,15 +55,16 @@ class TGruposparametros
      * @ORM\Column(name="ft_observacao", type="string", length=300, nullable=true)
      */
     private $ftObservacao;
-
-
-    public function __toString() {
+    public function __toString()
+    {
         return $this->ftDescricao;
     }
+
+
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -86,7 +87,7 @@ class TGruposparametros
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -109,7 +110,7 @@ class TGruposparametros
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -132,7 +133,7 @@ class TGruposparametros
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -155,7 +156,7 @@ class TGruposparametros
     /**
      * Get fnIdProduto
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnIdProduto()
     {
@@ -178,7 +179,7 @@ class TGruposparametros
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TModelosresultados
  *
- * @ORM\Table(name="t_modelosresultados", indexes={@ORM\Index(name="IDX_7AF2430BF2A8B520", columns={"fn_id_unidade"}), @ORM\Index(name="IDX_7AF2430B9BD428BC", columns={"fn_id_tipoarredondamento"})})
+ * @ORM\Table(name="t_modelosresultados", indexes={@ORM\Index(name="IDX_7AF2430B9BD428BC", columns={"fn_id_tipoarredondamento"}), @ORM\Index(name="IDX_7AF2430BF2A8B520", columns={"fn_id_unidade"})})
  * @ORM\Entity
  */
 class TModelosresultados
@@ -85,16 +85,6 @@ class TModelosresultados
     private $ftObservacao;
 
     /**
-     * @var \TTiposarredondamento
-     *
-     * @ORM\ManyToOne(targetEntity="TTiposarredondamento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_tipoarredondamento", referencedColumnName="fn_id")
-     * })
-     */
-    private $fnTipoarredondamento;
-
-    /**
      * @var \TUnidadesmedida
      *
      * @ORM\ManyToOne(targetEntity="TUnidadesmedida")
@@ -104,14 +94,22 @@ class TModelosresultados
      */
     private $fnUnidade;
 
-    public function __toString() {
-        return $this->ftDescricao;
-    }
+    /**
+     * @var \TTiposarredondamento
+     *
+     * @ORM\ManyToOne(targetEntity="TTiposarredondamento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoarredondamento", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoarredondamento;
+
+
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -134,7 +132,7 @@ class TModelosresultados
     /**
      * Get fbActivo
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbActivo()
     {
@@ -157,7 +155,7 @@ class TModelosresultados
     /**
      * Get fbIncluirnorelatorio
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbIncluirnorelatorio()
     {
@@ -180,7 +178,7 @@ class TModelosresultados
     /**
      * Get fbGamavalores
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getFbGamavalores()
     {
@@ -203,7 +201,7 @@ class TModelosresultados
     /**
      * Get fnMaximo
      *
-     * @return string
+     * @return string 
      */
     public function getFnMaximo()
     {
@@ -226,7 +224,7 @@ class TModelosresultados
     /**
      * Get fnMinimo
      *
-     * @return string
+     * @return string 
      */
     public function getFnMinimo()
     {
@@ -249,7 +247,7 @@ class TModelosresultados
     /**
      * Get ftMensagemutilizador
      *
-     * @return string
+     * @return string 
      */
     public function getFtMensagemutilizador()
     {
@@ -272,7 +270,7 @@ class TModelosresultados
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -295,7 +293,7 @@ class TModelosresultados
     /**
      * Get fnLimitequantificacao
      *
-     * @return string
+     * @return string 
      */
     public function getFnLimitequantificacao()
     {
@@ -318,34 +316,11 @@ class TModelosresultados
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {
         return $this->ftObservacao;
-    }
-
-    /**
-     * Set fnTipoarredondamento
-     *
-     * @param \AppBundle\Entity\TTiposarredondamento $fnTipoarredondamento
-     * @return TModelosresultados
-     */
-    public function setFnTipoarredondamento(\AppBundle\Entity\TTiposarredondamento $fnTipoarredondamento = null)
-    {
-        $this->fnTipoarredondamento = $fnTipoarredondamento;
-
-        return $this;
-    }
-
-    /**
-     * Get fnTipoarredondamento
-     *
-     * @return \AppBundle\Entity\TTiposarredondamento
-     */
-    public function getFnTipoarredondamento()
-    {
-        return $this->fnTipoarredondamento;
     }
 
     /**
@@ -364,10 +339,33 @@ class TModelosresultados
     /**
      * Get fnUnidade
      *
-     * @return \AppBundle\Entity\TUnidadesmedida
+     * @return \AppBundle\Entity\TUnidadesmedida 
      */
     public function getFnUnidade()
     {
         return $this->fnUnidade;
+    }
+
+    /**
+     * Set fnTipoarredondamento
+     *
+     * @param \AppBundle\Entity\TTiposarredondamento $fnTipoarredondamento
+     * @return TModelosresultados
+     */
+    public function setFnTipoarredondamento(\AppBundle\Entity\TTiposarredondamento $fnTipoarredondamento = null)
+    {
+        $this->fnTipoarredondamento = $fnTipoarredondamento;
+
+        return $this;
+    }
+
+    /**
+     * Get fnTipoarredondamento
+     *
+     * @return \AppBundle\Entity\TTiposarredondamento 
+     */
+    public function getFnTipoarredondamento()
+    {
+        return $this->fnTipoarredondamento;
     }
 }

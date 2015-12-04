@@ -61,7 +61,19 @@
 
                     {% block body -%}
 
-                        {{ form(form) }}
+                            <h1>TAmostras edit</h1>
+
+                            {{ form(edit_form) }}
+
+                            <ul class="record_actions">
+                                <li>
+                                    <a href="{{ path('tamostras') }}">
+                                        Back to the list
+                                    </a>
+                                </li>
+                                <li>{{ form(delete_form) }}</li>
+                            </ul>
+
 
                     {% endblock %}
 
@@ -72,44 +84,8 @@
     </div>
 </div>
 
-<script>
-    function sendForm(form, callback) {
-        // Get all form values
-        var values = {};
-        $.each( form[0].elements, function(i, field) {
-            if (field.type != 'checkbox' || (field.type == 'checkbox' && field.checked)) {
-                values[field.name] = field.value;
-            }
-        });
 
-        // Post form
-        $.ajax({
-            type        : 'POST',
-            url         : '/app_dev.php/agenda/calendar/newshort',
-            data        : values,
-            success     : function(result) { callback( result ); }
-        });
-    }
-    $(function() {
-        $('#submit_short_calendar').on('click', function( e ){
-            e.preventDefault();
-            $("#cal_new_event").css( {display:"none"});
-            sendForm( $('#short_calendar'), function( response ){
 
-                var data = JSON.parse(response);
-                $('#calendar-holder').fullCalendar('renderEvent',
-                        {
-                            id: data.events.event.id,
-                            title: data.events.event.title,
-                            start: data.events.event.startdate,
-                            end: data.events.event.enddate,
-                            allDay: data.events.event.allday == 1 ? true : false
-                        }
-                );
-                $('#calendar-holder').fullCalendar('rerenderEvents')
-            });
-        });
-    });
-</script>
+
 
 

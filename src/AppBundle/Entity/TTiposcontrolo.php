@@ -54,11 +54,10 @@ class TTiposcontrolo
         return $this->ftDescricao;
     }
 
-
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -81,7 +80,7 @@ class TTiposcontrolo
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -104,7 +103,7 @@ class TTiposcontrolo
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -127,7 +126,7 @@ class TTiposcontrolo
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -150,7 +149,7 @@ class TTiposcontrolo
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

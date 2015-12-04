@@ -49,17 +49,12 @@ class TLegislacao
      */
     private $ftObservacao;
 
-    public function __toString()
-    {
-        return $this->ftDescricao;
-    }
-
 
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -82,7 +77,7 @@ class TLegislacao
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -105,7 +100,7 @@ class TLegislacao
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -128,7 +123,7 @@ class TLegislacao
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -151,7 +146,7 @@ class TLegislacao
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

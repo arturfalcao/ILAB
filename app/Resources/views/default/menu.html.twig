@@ -5,12 +5,27 @@
             <li><a href="" class="menu_planeamento"></a>
                     <ul class="submenu">
                         <div>Planeamento de amostras</div>
-                        <li><a href="">Calendario</a></li>
-                        <li><a href="">Novo Planeamento</a></li>
+                        <li><a href="{{path('tamostras') }}" >Calendario</a></li>
+
+                        <li><a href="{{ path('admin_app_tamostras_create') }}">Novo Planeamento</a></li>
                     </ul>
                 </li>
-            <li><a href="" class="menu_amostras"></a></li>
-            <li><a href="" class="menu_resultados"></a></li>
+            <li><a href="" class="menu_amostras"></a>
+                <ul class="submenu">
+                    <div>Amostras</div>
+                    <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
+
+                    <li><a href="{{ path('tamostras_new') }}">Lançamento de Amostra</a></li>
+                </ul>
+            </li>
+            <li><a href="" class="menu_resultados"></a>
+                <ul class="submenu">
+                    <div>Resultados</div>
+                    <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Resultados</a></li>
+
+                    <li><a href="{{ path('tamostras_new') }}">Entrada de Resultados</a></li>
+                </ul>
+            </li>
             <li><a href="" class="menu_configuracoes"></a>
             <li><a href="" class="menu_listagens"></a>
             <li><a href="" class="menu_cartas"></a>

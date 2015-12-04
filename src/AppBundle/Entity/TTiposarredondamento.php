@@ -34,15 +34,13 @@ class TTiposarredondamento
      * @ORM\Column(name="ft_descricao", type="string", length=100, nullable=false)
      */
     private $ftDescricao;
-    public function __toString() {
-        return $this->ftDescricao;
-    }
+
 
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -65,7 +63,7 @@ class TTiposarredondamento
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -88,7 +86,7 @@ class TTiposarredondamento
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {

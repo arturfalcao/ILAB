@@ -49,15 +49,12 @@ class TAreasensaio
      */
     private $ftObservacao;
 
-    public function __toString() {
-        return $this->ftDescricao;
-    }
 
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -80,7 +77,7 @@ class TAreasensaio
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -103,7 +100,7 @@ class TAreasensaio
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -126,7 +123,7 @@ class TAreasensaio
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -149,7 +146,7 @@ class TAreasensaio
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

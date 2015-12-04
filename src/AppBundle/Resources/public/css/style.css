@@ -310,14 +310,14 @@ section.login p {
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_amostra{
+.mainmenu a.menu_amostras{
     background: url(../images/amostras.png) no-repeat center center;
     width: 50px;
     height: 69px;
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_amostra:hover{
+.mainmenu a.menu_amostras:hover{
     background: url(../images/amostras_active.png) no-repeat center center;
     width: 50px;
     height: 69px;
@@ -408,4 +408,9 @@ section.login p {
     width: 394px;
     min-height: 26px;
     height: 97px;
+}
+
+
+.modeloslistas_form input[type="text"]{
+    display: none;
 }

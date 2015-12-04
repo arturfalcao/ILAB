@@ -1,0 +1,97 @@
+
+
+{% include 'AppBundle::resources.html.twig' %}
+
+
+{% stylesheets%}
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+{% endstylesheets %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
+
+
+    <script type="text/javascript" src="{{ asset('bundles/app/js/lang-all.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
+{% endblock %}
+
+<link rel="stylesheet" type="text/css" href="/bundles/app/css/calendario.css" />
+
+{% block scripts -%}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+
+{% endblock %}
+
+<div class="container-fluid new_cal_element">
+    <div class="row">
+        <div class="large-1 columns " style="height: 100%;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
+            {% include 'default/menu.html.twig' %}
+        </div>
+        <div class=" large-15 columns">
+            <div class="row">
+                <div class="large-16 columns no-padding">
+                    {% include 'default/topheader_planeamento.html.twig' %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-10 columns no-padding">
+
+                    {% block body -%}
+
+
+
+                        <table class="records_list">
+                            <thead>
+                            <tr>
+                                <th>Actions</th>
+                                <th>Data Inicio</th>
+                                <th>Data de fim</th>
+                                <th>Cliente</th>
+                                <th>Local de colheita</th>
+                                <th>Grupo de Parâmetros</th>
+                                <th>Produtos</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td>{{ entity.fnId }}</td>
+                                    <td>{% if entity.startdatetime %}{{ entity.startdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{% if entity.enddatetime %}{{ entity.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{{ entity.fnCliente }}</td>
+                                    <td>{{ entity.fdColheita }}</td>
+                                    <td>{{ entity.ftGrupoparametros }}</td>
+                                    <td>{{ entity.fnProduto }}</td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ path('tamostras_edit', { 'id': entity.fnId }) }}">Editar</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                    {% endblock %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

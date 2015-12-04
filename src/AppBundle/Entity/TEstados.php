@@ -35,7 +35,10 @@ class TEstados
      */
     private $ftDescricao;
 
-
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
 
     /**
      * Get ftId

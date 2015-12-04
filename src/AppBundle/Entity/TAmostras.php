@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TAmostras
  *
- * @ORM\Table(name="t_amostras", indexes={@ORM\Index(name="IX_t_amostras_cliente", columns={"fn_id_cliente"}), @ORM\Index(name="IX_t_amostras_data_colheita", columns={"fd_colheita"}), @ORM\Index(name="IX_t_amostras_estado", columns={"ft_id_estado"}), @ORM\Index(name="IX_t_amostras_local_colheita", columns={"fn_id_localcolheita"}), @ORM\Index(name="IX_t_amostras_orcamento", columns={"fn_id_orcamento"}), @ORM\Index(name="IX_t_amostras_produto", columns={"fn_id_produto"})})
+ * @ORM\Table(name="t_amostras", indexes={@ORM\Index(name="IDX_6F19836424C8FD6", columns={"fn_id_cliente"}), @ORM\Index(name="IX_t_amostras_data_colheita", columns={"fd_colheita"}), @ORM\Index(name="IX_t_amostras_estado", columns={"ft_id_estado"}), @ORM\Index(name="IX_t_amostras_local_colheita", columns={"fn_id_localcolheita"}), @ORM\Index(name="IX_t_amostras_orcamento", columns={"fn_id_orcamento"}), @ORM\Index(name="IX_t_amostras_produto", columns={"fn_id_produto"})})
  * @ORM\Entity
  */
 class TAmostras
@@ -24,35 +24,35 @@ class TAmostras
     /**
      * @var integer
      *
-     * @ORM\Column(name="fn_numero", type="bigint", nullable=false)
+     * @ORM\Column(name="fn_numero", type="bigint", nullable=true)
      */
     private $fnNumero;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ft_serie", type="string", length=5, nullable=false)
+     * @ORM\Column(name="ft_serie", type="string", length=5, nullable=true)
      */
     private $ftSerie;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fd_criacao", type="datetime", nullable=false)
+     * @ORM\Column(name="fd_criacao", type="datetime", nullable=true)
      */
     private $fdCriacao;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fd_colheita", type="datetime", nullable=false)
+     * @ORM\Column(name="fd_colheita", type="datetime", nullable=true)
      */
     private $fdColheita;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fd_recepcao", type="datetime", nullable=false)
+     * @ORM\Column(name="fd_recepcao", type="datetime", nullable=true)
      */
     private $fdRecepcao;
 
@@ -73,44 +73,19 @@ class TAmostras
     /**
      * @var string
      *
-     * @ORM\Column(name="ft_responsavelcolheita", type="string", length=100, nullable=false)
+     * @ORM\Column(name="ft_responsavelcolheita", type="string", length=100, nullable=true)
      */
     private $ftResponsavelcolheita;
 
     /**
-     * @var integer
+     * @var \FosUserUser
      *
-     * @ORM\Column(name="fn_id_localcolheita", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_operador", referencedColumnName="id")
+     * })
      */
-    private $fnIdLocalcolheita;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_operador", type="bigint", nullable=false)
-     */
-    private $fnIdOperador;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_cliente", type="bigint", nullable=false)
-     */
-    private $fnIdCliente;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_modelo", type="bigint", nullable=false)
-     */
-    private $fnIdModelo;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_tipoaprovacao", type="bigint", nullable=false)
-     */
-    private $fnIdTipoaprovacao;
+    private $fnOperador;
 
     /**
      * @var \DateTime
@@ -120,44 +95,23 @@ class TAmostras
     private $fdAutorizacao;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_produto", type="bigint", nullable=false)
-     */
-    private $fnIdProduto;
-
-    /**
      * @var string
      *
-     * @ORM\Column(name="ft_origem", type="string", length=100, nullable=false)
+     * @ORM\Column(name="ft_origem", type="string", length=100, nullable=true)
      */
     private $ftOrigem;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ft_grupoparametros", type="string", length=100, nullable=false)
-     */
-    private $ftGrupoparametros;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_legislacao", type="bigint", nullable=false)
-     */
-    private $fnIdLegislacao;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ft_tipoemissaorelatorio", type="string", length=2, nullable=false)
+     * @ORM\Column(name="ft_tipoemissaorelatorio", type="string", length=2, nullable=true)
      */
     private $ftTipoemissaorelatorio;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="fb_relatorioemitido", type="boolean", nullable=false)
+     * @ORM\Column(name="fb_relatorioemitido", type="boolean", nullable=true)
      */
     private $fbRelatorioemitido;
 
@@ -169,13 +123,6 @@ class TAmostras
     private $fdEmissaorelatorio;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_tipo", type="bigint", nullable=false)
-     */
-    private $fnIdTipo;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="ft_refexterna", type="string", length=300, nullable=true)
@@ -185,44 +132,23 @@ class TAmostras
     /**
      * @var string
      *
-     * @ORM\Column(name="ft_conclusao", type="string", length=300, nullable=false)
+     * @ORM\Column(name="ft_conclusao", type="string", length=300, nullable=true)
      */
     private $ftConclusao;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ft_obs", type="string", length=300, nullable=false)
+     * @ORM\Column(name="ft_obs", type="string", length=300, nullable=true)
      */
     private $ftObs;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="fn_id_tipocontrolo", type="bigint", nullable=false)
-     */
-    private $fnIdTipocontrolo;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="fn_id_orcamento", type="bigint", nullable=true)
      */
-    private $fnIdOrcamento = '-1';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ft_id_estado", type="string", length=1, nullable=false)
-     */
-    private $ftIdEstado = 'I';
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_especificacao", type="bigint", nullable=true)
-     */
-    private $fnIdEspecificacao;
+    private $fnIdOrcamento;
 
     /**
      * @var string
@@ -243,17 +169,152 @@ class TAmostras
      *
      * @ORM\Column(name="fb_facturada", type="boolean", nullable=true)
      */
-    private $fbFacturada = '0';
+    private $fbFacturada;
 
     /**
-     * @var integer
+     * @var \DateTime
      *
-     * @ORM\Column(name="fn_id_requisicaocliente", type="bigint", nullable=false)
+     * @ORM\Column(name="startDatetime", type="datetime", nullable=true)
      */
-    private $fnIdRequisicaocliente = '-1';
+    private $startdatetime;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="endDatetime", type="datetime", nullable=true)
+     */
+    private $enddatetime;
+
+    /**
+     * @var \TClientes
+     *
+     * @ORM\ManyToOne(targetEntity="TClientes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_cliente", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnCliente;
+
+    /**
+     * @var \TGruposparametros
+     *
+     * @ORM\ManyToOne(targetEntity="TGruposparametros")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ft_grupoparametros", referencedColumnName="fn_id")
+     * })
+     */
+    private $ftGrupoparametros;
+
+    /**
+     * @var \TProdutos
+     *
+     * @ORM\ManyToOne(targetEntity="TProdutos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_produto", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnProduto;
+
+    /**
+     * @var \TLocaiscolheita
+     *
+     * @ORM\ManyToOne(targetEntity="TLocaiscolheita")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_localcolheita", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnLocalcolheita;
+
+    /**
+     * @var \TTipoaprovacao
+     *
+     * @ORM\ManyToOne(targetEntity="TTipoaprovacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoaprovacao", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoaprovacao;
+
+    /**
+     * @var \TEspecificacoes
+     *
+     * @ORM\ManyToOne(targetEntity="TEspecificacoes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_especificacao", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnEspecificacao;
+
+    /**
+     * @var \TLegislacao
+     *
+     * @ORM\ManyToOne(targetEntity="TLegislacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_legislacao", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnLegislacao;
+
+    /**
+     * @var \TModelosamostra
+     *
+     * @ORM\ManyToOne(targetEntity="TModelosamostra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_modelo", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnModelo;
+
+    /**
+     * @var \TTiposamostra
+     *
+     * @ORM\ManyToOne(targetEntity="TTiposamostra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipo", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipo;
+
+    /**
+     * @var \TTiposcontrolo
+     *
+     * @ORM\ManyToOne(targetEntity="TTiposcontrolo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipocontrolo", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipocontrolo;
+
+    /**
+     * @var \TEstados
+     *
+     * @ORM\ManyToOne(targetEntity="TEstados")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
+     * })
+     */
+    private $ftEstado;
+
+    /**
+     * @var \TRequisicoescliente
+     *
+     * @ORM\ManyToOne(targetEntity="TRequisicoescliente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_requisicaocliente", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnRequisicaocliente;
 
 
 
+
+
+
+
+    public function getId()
+    {
+        return $this->fnId;
+    }
     /**
      * Get fnId
      *
@@ -263,6 +324,11 @@ class TAmostras
     {
         return $this->fnId;
     }
+    public function getSerie()
+    {
+        return $this->ftSerie  . " - " . $this->fnId;
+    }
+
 
     /**
      * Set fnNumero
@@ -439,6 +505,51 @@ class TAmostras
     }
 
     /**
+     * Set startdatetime
+     *
+     * @param \DateTime $startdatetime
+     * @return Agenda
+     */
+    public function setStartdatetime($startdatetime)
+    {
+        $this->startdatetime = $startdatetime;
+
+        return $this;
+    }
+
+    /**
+     * Get startdatetime
+     *
+     * @return \DateTime
+     */
+    public function getStartdatetime()
+    {
+        return $this->startdatetime;
+    }
+
+    /**
+     * Set enddatetime
+     *
+     * @param \DateTime $enddatetime
+     * @return Agenda
+     */
+    public function setEnddatetime($enddatetime)
+    {
+        $this->enddatetime = $enddatetime;
+
+        return $this;
+    }
+
+    /**
+     * Get enddatetime
+     *
+     * @return \DateTime
+     */
+    public function getEnddatetime()
+    {
+        return $this->enddatetime;
+    }
+    /**
      * Get ftResponsavelcolheita
      *
      * @return string 
@@ -472,49 +583,26 @@ class TAmostras
     }
 
     /**
-     * Set fnIdOperador
+     * Set fnOperador
      *
-     * @param integer $fnIdOperador
+     * @param \AppBundle\Entity\FosUserUser $fnOperador
      * @return TAmostras
      */
-    public function setFnIdOperador($fnIdOperador)
+    public function setFnOperador(\AppBundle\Entity\FosUserUser $fnOperador = null)
     {
-        $this->fnIdOperador = $fnIdOperador;
+        $this->fnOperador = $fnOperador;
 
         return $this;
     }
 
     /**
-     * Get fnIdOperador
+     * Get fnOperador
      *
-     * @return integer 
+     * @return \AppBundle\Entity\FosUserUser
      */
-    public function getFnIdOperador()
+    public function getFnOperador()
     {
-        return $this->fnIdOperador;
-    }
-
-    /**
-     * Set fnIdCliente
-     *
-     * @param integer $fnIdCliente
-     * @return TAmostras
-     */
-    public function setFnIdCliente($fnIdCliente)
-    {
-        $this->fnIdCliente = $fnIdCliente;
-
-        return $this;
-    }
-
-    /**
-     * Get fnIdCliente
-     *
-     * @return integer 
-     */
-    public function getFnIdCliente()
-    {
-        return $this->fnIdCliente;
+        return $this->fnOperador;
     }
 
     /**
@@ -587,26 +675,26 @@ class TAmostras
     }
 
     /**
-     * Set fnIdProduto
+     * Set fnProduto
      *
-     * @param integer $fnIdProduto
+     * @param \AppBundle\Entity\TProdutos $fnProduto
      * @return TAmostras
      */
-    public function setFnIdProduto($fnIdProduto)
+    public function setFnProduto(\AppBundle\Entity\TProdutos $fnProduto = null)
     {
-        $this->fnIdProduto = $fnIdProduto;
+        $this->fnProduto = $fnProduto;
 
         return $this;
     }
 
     /**
-     * Get fnIdProduto
+     * Get fnProduto
      *
-     * @return integer 
+     * @return \AppBundle\Entity\TProdutos
      */
-    public function getFnIdProduto()
+    public function getFnProduto()
     {
-        return $this->fnIdProduto;
+        return $this->fnProduto;
     }
 
     /**
@@ -1021,5 +1109,236 @@ class TAmostras
     public function getFnIdRequisicaocliente()
     {
         return $this->fnIdRequisicaocliente;
+    }
+
+    /**
+     * Set fnCliente
+     *
+     * @param \AppBundle\Entity\TClientes $fnCliente
+     * @return TAmostras
+     */
+    public function setFnCliente(\AppBundle\Entity\TClientes $fnCliente = null)
+    {
+        $this->fnCliente = $fnCliente;
+
+        return $this;
+    }
+
+    /**
+     * Get fnCliente
+     *
+     * @return \AppBundle\Entity\TClientes 
+     */
+    public function getFnCliente()
+    {
+        return $this->fnCliente;
+    }
+
+    /**
+     * Set fnLocalcolheita
+     *
+     * @param \AppBundle\Entity\TLocaiscolheita $fnLocalcolheita
+     * @return TAmostras
+     */
+    public function setFnLocalcolheita(\AppBundle\Entity\TLocaiscolheita $fnLocalcolheita = null)
+    {
+        $this->fnLocalcolheita = $fnLocalcolheita;
+
+        return $this;
+    }
+
+    /**
+     * Get fnLocalcolheita
+     *
+     * @return \AppBundle\Entity\TLocaiscolheita
+     */
+    public function getFnLocalcolheita()
+    {
+        return $this->fnLocalcolheita;
+    }
+
+
+    /**
+     * Set fnTipoaprovacao
+     *
+     * @param \AppBundle\Entity\TTipoaprovacao $fnTipoaprovacao
+     * @return TAmostras
+     */
+    public function setFnTipoaprovacao(\AppBundle\Entity\TTipoaprovacao $fnTipoaprovacao = null)
+    {
+        $this->fnTipoaprovacao = $fnTipoaprovacao;
+
+        return $this;
+    }
+
+    /**
+     * Get fnTipoaprovacao
+     *
+     * @return \AppBundle\Entity\TTipoaprovacao
+     */
+    public function getFnTipoaprovacao()
+    {
+        return $this->fnTipoaprovacao;
+    }
+
+    /**
+     * Set fnEspecificacao
+     *
+     * @param \AppBundle\Entity\TEspecificacoes $fnEspecificacao
+     * @return TAmostras
+     */
+    public function setFnEspecificacao(\AppBundle\Entity\TEspecificacoes $fnEspecificacao = null)
+    {
+        $this->fnEspecificacao = $fnEspecificacao;
+
+        return $this;
+    }
+
+    /**
+     * Get fnEspecificacao
+     *
+     * @return \AppBundle\Entity\TEspecificacoes
+     */
+    public function getFnEspecificacao()
+    {
+        return $this->fnEspecificacao;
+    }
+
+    /**
+     * Set fnLegislacao
+     *
+     * @param \AppBundle\Entity\TLegislacao $fnLegislacao
+     * @return TAmostras
+     */
+    public function setFnLegislacao(\AppBundle\Entity\TLegislacao $fnLegislacao = null)
+    {
+        $this->fnLegislacao = $fnLegislacao;
+
+        return $this;
+    }
+
+    /**
+     * Get fnLegislacao
+     *
+     * @return \AppBundle\Entity\TLegislacao
+     */
+    public function getFnLegislacao()
+    {
+        return $this->fnLegislacao;
+    }
+
+    /**
+     * Set fnModelo
+     *
+     * @param \AppBundle\Entity\TModelosamostra $fnModelo
+     * @return TAmostras
+     */
+    public function setFnModelo(\AppBundle\Entity\TModelosamostra $fnModelo = null)
+    {
+        $this->fnModelo = $fnModelo;
+
+        return $this;
+    }
+
+    /**
+     * Get fnModelo
+     *
+     * @return \AppBundle\Entity\TModelosamostra
+     */
+    public function getFnModelo()
+    {
+        return $this->fnModelo;
+    }
+
+    /**
+     * Set fnTipo
+     *
+     * @param \AppBundle\Entity\TTiposamostra $fnTipo
+     * @return TAmostras
+     */
+    public function setFnTipo(\AppBundle\Entity\TTiposamostra $fnTipo = null)
+    {
+        $this->fnTipo = $fnTipo;
+
+        return $this;
+    }
+
+    /**
+     * Get fnTipo
+     *
+     * @return \AppBundle\Entity\TTiposamostra
+     */
+    public function getFnTipo()
+    {
+        return $this->fnTipo;
+    }
+
+    /**
+     * Set fnTipocontrolo
+     *
+     * @param \AppBundle\Entity\TTiposcontrolo $fnTipocontrolo
+     * @return TAmostras
+     */
+    public function setFnTipocontrolo(\AppBundle\Entity\TTiposcontrolo $fnTipocontrolo = null)
+    {
+        $this->fnTipocontrolo = $fnTipocontrolo;
+
+        return $this;
+    }
+
+    /**
+     * Get fnTipocontrolo
+     *
+     * @return \AppBundle\Entity\TTiposcontrolo
+     */
+    public function getFnTipocontrolo()
+    {
+        return $this->fnTipocontrolo;
+    }
+
+    /**
+     * Set ftEstado
+     *
+     * @param \AppBundle\Entity\TEstados $ftEstado
+     * @return TAmostras
+     */
+    public function setFtEstado(\AppBundle\Entity\TEstados $ftEstado = null)
+    {
+        $this->ftEstado = $ftEstado;
+
+        return $this;
+    }
+
+    /**
+     * Get ftEstado
+     *
+     * @return \AppBundle\Entity\TEstados
+     */
+    public function getFtEstado()
+    {
+        return $this->ftEstado;
+    }
+
+    /**
+     * Set fnRequisicaocliente
+     *
+     * @param \AppBundle\Entity\TRequisicoescliente $fnRequisicaocliente
+     * @return TAmostras
+     */
+    public function setFnRequisicaocliente(\AppBundle\Entity\TRequisicoescliente $fnRequisicaocliente = null)
+    {
+        $this->fnRequisicaocliente = $fnRequisicaocliente;
+
+        return $this;
+    }
+
+    /**
+     * Get fnRequisicaocliente
+     *
+     * @return \AppBundle\Entity\TRequisicoescliente
+     */
+    public function getFnRequisicaocliente()
+    {
+        return $this->fnRequisicaocliente;
     }
 }

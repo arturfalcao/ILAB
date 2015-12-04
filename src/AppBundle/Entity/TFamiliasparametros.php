@@ -49,14 +49,12 @@ class TFamiliasparametros
      */
     private $ftObservacao;
 
-    public function __toString() {
-        return $this->ftDescricao;
-    }
+
 
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -79,7 +77,7 @@ class TFamiliasparametros
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -102,7 +100,7 @@ class TFamiliasparametros
     /**
      * Get ftDescricao
      *
-     * @return string
+     * @return string 
      */
     public function getFtDescricao()
     {
@@ -125,7 +123,7 @@ class TFamiliasparametros
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -148,7 +146,7 @@ class TFamiliasparametros
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {

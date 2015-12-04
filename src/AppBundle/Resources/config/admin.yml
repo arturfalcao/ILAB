@@ -142,3 +142,46 @@ services:
         arguments: [~, AppBundle\Entity\TEspecificacoes, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: TEspecificacoes}
+
+    app.admin.t_locaiscolheita:
+        class: AppBundle\Entity\TLocaiscolheitaAdmin
+        arguments: [~, AppBundle\Entity\TLocaiscolheita, AppBundle:TLocaiscolheitaAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TLocaiscolheita}
+
+    app.admin.t_requisicoes:
+        class: AppBundle\Entity\TRequisicoesAdmin
+        arguments: [~, AppBundle\Entity\TRequisicoes, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TRequisicoes}
+
+    app.admin.t_requisicoescliente:
+        class: AppBundle\Entity\TRequisicoesclienteAdmin
+        arguments: [~, AppBundle\Entity\TRequisicoescliente, AppBundle:TRequisicoesclienteAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TRequisicoescliente}
+
+    app.admin.t_responsaveiscolheita:
+        class: AppBundle\Entity\TResponsaveiscolheitaAdmin
+        arguments: [~, AppBundle\Entity\TResponsaveiscolheita, AppBundle:TResponsaveiscolheitaAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TResponsaveiscolheita}
+
+    app.admin.t_resultados:
+        class: AppBundle\Entity\TResultadosAdmin
+        arguments: [~, AppBundle\Entity\TResultados, AppBundle:TResultadosAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TResultados}
+    app.admin.t_produtos:
+            class: AppBundle\Entity\TProdutosAdmin
+            arguments: [~, AppBundle\Entity\TProdutos, AppBundle:TProdutosAdmin]
+            tags:
+                - {name: sonata.admin, manager_type: orm, group: admin, label: TProdutos}
+
+    app.admin.modelos_listas:
+        class: AppBundle\Entity\ModelosListasAdmin
+        arguments: [~, AppBundle\Entity\ModelosListas, AppBundle:ModelosListasAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ModelosListas}
+        calls:
+            - [ setTemplate, [edit, AppBundle:ModelosListas:edit.html.twig]]

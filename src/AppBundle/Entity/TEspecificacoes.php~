@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TEspecificacoes
  *
- * @ORM\Table(name="t_especificacoes", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_especificacoes_descricao", columns={"ft_descricao"}), @ORM\UniqueConstraint(name="IX_t_especificacoes_codigo", columns={"ft_codigo"})}, indexes={@ORM\Index(name="especificacoes_legis", columns={"fn_id_legislacao"})})
+ * @ORM\Table(name="t_especificacoes", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_especificacoes_descricao", columns={"ft_descricao"}), @ORM\UniqueConstraint(name="IX_t_especificacoes_codigo", columns={"ft_codigo"})}, indexes={@ORM\Index(name="IDX_6462B9FFB176857A", columns={"fn_id_legislacao"})})
  * @ORM\Entity
  */
 class TEspecificacoes
@@ -82,7 +82,7 @@ class TEspecificacoes
      *
      * @ORM\Column(name="fb_emissao_de_relatorio", type="integer", nullable=false)
      */
-    private $fbEmissaoDeRelatorio = '0';
+    private $fbEmissaoDeRelatorio;
 
     /**
      * @var string
@@ -110,7 +110,7 @@ class TEspecificacoes
      *
      * @ORM\Column(name="fb_activo", type="integer", nullable=false)
      */
-    private $fbActivo = '1';
+    private $fbActivo;
 
     /**
      * @var \TLegislacao
@@ -122,347 +122,27 @@ class TEspecificacoes
      */
     private $fnLegislacao;
 
-
     /**
-     * @ORM\ManyToMany(targetEntity="TParametros")
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="TParametros", inversedBy="especificacoes")
      * @ORM\JoinTable(name="t_daadssda",
-     *      joinColumns={@ORM\JoinColumn(name="especificacoes_id", referencedColumnName="fn_id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="parametros_id", referencedColumnName="fn_id", unique=true)}
-     *      )
-     **/
-
-    private $fn_para_esp;
-
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="especificacoes_id", referencedColumnName="fn_id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="parametros_id", referencedColumnName="fn_id")
+     *   }
+     * )
+     */
+    private $parametros;
 
     /**
-     * Get fnId
-     *
-     * @return integer 
+     * Constructor
      */
-    public function getFnId()
+    public function __construct()
     {
-        return $this->fnId;
+        $this->parametros = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Set ftCodigo
-     *
-     * @param string $ftCodigo
-     * @return TEspecificacoes
-     */
-    public function setFtCodigo($ftCodigo)
-    {
-        $this->ftCodigo = $ftCodigo;
-
-        return $this;
-    }
-
-    /**
-     * Get ftCodigo
-     *
-     * @return string 
-     */
-    public function getFtCodigo()
-    {
-        return $this->ftCodigo;
-    }
-
-    /**
-     * Set ftDescricao
-     *
-     * @param string $ftDescricao
-     * @return TEspecificacoes
-     */
-    public function setFtDescricao($ftDescricao)
-    {
-        $this->ftDescricao = $ftDescricao;
-
-        return $this;
-    }
-
-    /**
-     * Get ftDescricao
-     *
-     * @return string 
-     */
-    public function getFtDescricao()
-    {
-        return $this->ftDescricao;
-    }
-
-    /**
-     * Set ftAlias
-     *
-     * @param string $ftAlias
-     * @return TEspecificacoes
-     */
-    public function setFtAlias($ftAlias)
-    {
-        $this->ftAlias = $ftAlias;
-
-        return $this;
-    }
-
-    /**
-     * Get ftAlias
-     *
-     * @return string 
-     */
-    public function getFtAlias()
-    {
-        return $this->ftAlias;
-    }
-
-    /**
-     * Set ftMensagemUtilizador
-     *
-     * @param string $ftMensagemUtilizador
-     * @return TEspecificacoes
-     */
-    public function setFtMensagemUtilizador($ftMensagemUtilizador)
-    {
-        $this->ftMensagemUtilizador = $ftMensagemUtilizador;
-
-        return $this;
-    }
-
-    /**
-     * Get ftMensagemUtilizador
-     *
-     * @return string 
-     */
-    public function getFtMensagemUtilizador()
-    {
-        return $this->ftMensagemUtilizador;
-    }
-
-    /**
-     * Set ftTextoQdPassaP
-     *
-     * @param string $ftTextoQdPassaP
-     * @return TEspecificacoes
-     */
-    public function setFtTextoQdPassaP($ftTextoQdPassaP)
-    {
-        $this->ftTextoQdPassaP = $ftTextoQdPassaP;
-
-        return $this;
-    }
-
-    /**
-     * Get ftTextoQdPassaP
-     *
-     * @return string 
-     */
-    public function getFtTextoQdPassaP()
-    {
-        return $this->ftTextoQdPassaP;
-    }
-
-    /**
-     * Set ftTextoQdNaoPassaP
-     *
-     * @param string $ftTextoQdNaoPassaP
-     * @return TEspecificacoes
-     */
-    public function setFtTextoQdNaoPassaP($ftTextoQdNaoPassaP)
-    {
-        $this->ftTextoQdNaoPassaP = $ftTextoQdNaoPassaP;
-
-        return $this;
-    }
-
-    /**
-     * Get ftTextoQdNaoPassaP
-     *
-     * @return string 
-     */
-    public function getFtTextoQdNaoPassaP()
-    {
-        return $this->ftTextoQdNaoPassaP;
-    }
-
-    /**
-     * Set ftTextoQdCumpreA
-     *
-     * @param string $ftTextoQdCumpreA
-     * @return TEspecificacoes
-     */
-    public function setFtTextoQdCumpreA($ftTextoQdCumpreA)
-    {
-        $this->ftTextoQdCumpreA = $ftTextoQdCumpreA;
-
-        return $this;
-    }
-
-    /**
-     * Get ftTextoQdCumpreA
-     *
-     * @return string 
-     */
-    public function getFtTextoQdCumpreA()
-    {
-        return $this->ftTextoQdCumpreA;
-    }
-
-    /**
-     * Set ftTextoQdNaoCumpreA
-     *
-     * @param string $ftTextoQdNaoCumpreA
-     * @return TEspecificacoes
-     */
-    public function setFtTextoQdNaoCumpreA($ftTextoQdNaoCumpreA)
-    {
-        $this->ftTextoQdNaoCumpreA = $ftTextoQdNaoCumpreA;
-
-        return $this;
-    }
-
-    /**
-     * Get ftTextoQdNaoCumpreA
-     *
-     * @return string 
-     */
-    public function getFtTextoQdNaoCumpreA()
-    {
-        return $this->ftTextoQdNaoCumpreA;
-    }
-
-    /**
-     * Set fbEmissaoDeRelatorio
-     *
-     * @param integer $fbEmissaoDeRelatorio
-     * @return TEspecificacoes
-     */
-    public function setFbEmissaoDeRelatorio($fbEmissaoDeRelatorio)
-    {
-        $this->fbEmissaoDeRelatorio = $fbEmissaoDeRelatorio;
-
-        return $this;
-    }
-
-    /**
-     * Get fbEmissaoDeRelatorio
-     *
-     * @return integer
-     */
-    public function getFbEmissaoDeRelatorio()
-    {
-        return $this->fbEmissaoDeRelatorio;
-    }
-
-    /**
-     * Set ftObservacao
-     *
-     * @param string $ftObservacao
-     * @return TEspecificacoes
-     */
-    public function setFtObservacao($ftObservacao)
-    {
-        $this->ftObservacao = $ftObservacao;
-
-        return $this;
-    }
-
-    /**
-     * Get ftObservacao
-     *
-     * @return string 
-     */
-    public function getFtObservacao()
-    {
-        return $this->ftObservacao;
-    }
-
-    /**
-     * Set ftSiglavl
-     *
-     * @param string $ftSiglavl
-     * @return TEspecificacoes
-     */
-    public function setFtSiglavl($ftSiglavl)
-    {
-        $this->ftSiglavl = $ftSiglavl;
-
-        return $this;
-    }
-
-    /**
-     * Get ftSiglavl
-     *
-     * @return string 
-     */
-    public function getFtSiglavl()
-    {
-        return $this->ftSiglavl;
-    }
-
-    /**
-     * Set ftLegendavl
-     *
-     * @param string $ftLegendavl
-     * @return TEspecificacoes
-     */
-    public function setFtLegendavl($ftLegendavl)
-    {
-        $this->ftLegendavl = $ftLegendavl;
-
-        return $this;
-    }
-
-    /**
-     * Get ftLegendavl
-     *
-     * @return string 
-     */
-    public function getFtLegendavl()
-    {
-        return $this->ftLegendavl;
-    }
-
-    /**
-     * Set fbActivo
-     *
-     * @param integer $fbActivo
-     * @return TEspecificacoes
-     */
-    public function setFbActivo($fbActivo)
-    {
-        $this->fbActivo = $fbActivo;
-
-        return $this;
-    }
-
-    /**
-     * Get fbActivo
-     *
-     * @return integer
-     */
-    public function getFbActivo()
-    {
-        return $this->fbActivo;
-    }
-
-    /**
-     * Set fnLegislacao
-     *
-     * @param \AppBundle\Entity\TLegislacao $fnLegislacao
-     * @return TEspecificacoes
-     */
-    public function setFnLegislacao(\AppBundle\Entity\TLegislacao $fnLegislacao = null)
-    {
-        $this->fnLegislacao = $fnLegislacao;
-
-        return $this;
-    }
-
-    /**
-     * Get fnLegislacao
-     *
-     * @return \AppBundle\Entity\TLegislacao 
-     */
-    public function getFnLegislacao()
-    {
-        return $this->fnLegislacao;
-    }
 }

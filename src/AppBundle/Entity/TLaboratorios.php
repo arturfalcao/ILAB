@@ -33,7 +33,7 @@ class TLaboratorios
      *
      * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
      */
-    private $ftCodigo = 'x';
+    private $ftCodigo;
 
     /**
      * @var string
@@ -131,7 +131,7 @@ class TLaboratorios
     /**
      * Get fnId
      *
-     * @return integer
+     * @return integer 
      */
     public function getFnId()
     {
@@ -154,7 +154,7 @@ class TLaboratorios
     /**
      * Get ftNclaboratorio
      *
-     * @return string
+     * @return string 
      */
     public function getFtNclaboratorio()
     {
@@ -174,14 +174,10 @@ class TLaboratorios
         return $this;
     }
 
-    public function __toString() {
-        return $this->ftNome;
-    }
-
     /**
      * Get ftCodigo
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodigo()
     {
@@ -204,7 +200,7 @@ class TLaboratorios
     /**
      * Get ftNome
      *
-     * @return string
+     * @return string 
      */
     public function getFtNome()
     {
@@ -227,7 +223,7 @@ class TLaboratorios
     /**
      * Get ftAlias
      *
-     * @return string
+     * @return string 
      */
     public function getFtAlias()
     {
@@ -250,7 +246,7 @@ class TLaboratorios
     /**
      * Get ftMorada
      *
-     * @return string
+     * @return string 
      */
     public function getFtMorada()
     {
@@ -273,7 +269,7 @@ class TLaboratorios
     /**
      * Get ftCodpostal
      *
-     * @return string
+     * @return string 
      */
     public function getFtCodpostal()
     {
@@ -296,7 +292,7 @@ class TLaboratorios
     /**
      * Get ftLocalidade
      *
-     * @return string
+     * @return string 
      */
     public function getFtLocalidade()
     {
@@ -319,7 +315,7 @@ class TLaboratorios
     /**
      * Get ftPais
      *
-     * @return string
+     * @return string 
      */
     public function getFtPais()
     {
@@ -342,7 +338,7 @@ class TLaboratorios
     /**
      * Get ftTelefone
      *
-     * @return string
+     * @return string 
      */
     public function getFtTelefone()
     {
@@ -365,7 +361,7 @@ class TLaboratorios
     /**
      * Get ftFax
      *
-     * @return string
+     * @return string 
      */
     public function getFtFax()
     {
@@ -388,7 +384,7 @@ class TLaboratorios
     /**
      * Get ftEmail
      *
-     * @return string
+     * @return string 
      */
     public function getFtEmail()
     {
@@ -411,7 +407,7 @@ class TLaboratorios
     /**
      * Get ftObservacao
      *
-     * @return string
+     * @return string 
      */
     public function getFtObservacao()
     {
@@ -434,7 +430,7 @@ class TLaboratorios
     /**
      * Get ftNomecontacto
      *
-     * @return string
+     * @return string 
      */
     public function getFtNomecontacto()
     {
@@ -457,7 +453,7 @@ class TLaboratorios
     /**
      * Get ftTelefonecontacto
      *
-     * @return string
+     * @return string 
      */
     public function getFtTelefonecontacto()
     {
@@ -480,7 +476,7 @@ class TLaboratorios
     /**
      * Get ftEmailcontacto
      *
-     * @return string
+     * @return string 
      */
     public function getFtEmailcontacto()
     {
