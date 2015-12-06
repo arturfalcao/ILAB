@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TLegislacao
+ * TFamiliasprodutos
  *
- * @ORM\Table(name="t_legislacao", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_legislacao_descricao", columns={"ft_descricao"}), @ORM\UniqueConstraint(name="IX_t_legislacao_codigo", columns={"ft_codigo"})})
+ * @ORM\Table(name="t_familiasprodutos", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_familiasprodutos_codigo", columns={"ft_codigo"}), @ORM\UniqueConstraint(name="IX_t_familiasprodutos_descricao", columns={"ft_descricao"})})
  * @ORM\Entity
  */
-class TLegislacao
+class TFamiliasprodutos
 {
     /**
      * @var integer
@@ -26,7 +26,7 @@ class TLegislacao
      *
      * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
      */
-    private $ftCodigo;
+    private $ftCodigo = 'x';
 
     /**
      * @var string
@@ -54,8 +54,6 @@ class TLegislacao
         return $this->ftDescricao;
     }
 
-
-
     /**
      * Get fnId
      *
@@ -70,7 +68,7 @@ class TLegislacao
      * Set ftCodigo
      *
      * @param string $ftCodigo
-     * @return TLegislacao
+     * @return TFamiliasprodutos
      */
     public function setFtCodigo($ftCodigo)
     {
@@ -93,7 +91,7 @@ class TLegislacao
      * Set ftDescricao
      *
      * @param string $ftDescricao
-     * @return TLegislacao
+     * @return TFamiliasprodutos
      */
     public function setFtDescricao($ftDescricao)
     {
@@ -116,7 +114,7 @@ class TLegislacao
      * Set ftAlias
      *
      * @param string $ftAlias
-     * @return TLegislacao
+     * @return TFamiliasprodutos
      */
     public function setFtAlias($ftAlias)
     {
@@ -139,7 +137,7 @@ class TLegislacao
      * Set ftObservacao
      *
      * @param string $ftObservacao
-     * @return TLegislacao
+     * @return TFamiliasprodutos
      */
     public function setFtObservacao($ftObservacao)
     {

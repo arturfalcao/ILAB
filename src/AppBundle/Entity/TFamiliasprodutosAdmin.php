@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class TEspecificacoesAdmin extends Admin
+class TFamiliasprodutosAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -16,19 +16,11 @@ class TEspecificacoesAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('fnId')
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('ftMensagemUtilizador')
-            ->add('ftTextoQdPassaP')
-            ->add('ftTextoQdNaoPassaP')
-            ->add('ftTextoQdCumpreA')
-            ->add('ftTextoQdNaoCumpreA')
-            ->add('fbEmissaoDeRelatorio')
             ->add('ftObservacao')
-            ->add('ftSiglavl')
-            ->add('ftLegendavl')
-            ->add('fbActivo')
         ;
     }
 
@@ -38,19 +30,11 @@ class TEspecificacoesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('fnId')
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('ftMensagemUtilizador')
-            ->add('ftTextoQdPassaP')
-            ->add('ftTextoQdNaoPassaP')
-            ->add('ftTextoQdCumpreA')
-            ->add('ftTextoQdNaoCumpreA')
-            ->add('fbEmissaoDeRelatorio')
             ->add('ftObservacao')
-            ->add('ftSiglavl')
-            ->add('ftLegendavl')
-            ->add('fbActivo')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -71,21 +55,8 @@ class TEspecificacoesAdmin extends Admin
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('ftMensagemUtilizador')
-            ->add('ftTextoQdPassaP')
-            ->add('ftTextoQdNaoPassaP')
-            ->add('ftTextoQdCumpreA')
-            ->add('ftTextoQdNaoCumpreA')
-            ->add('fbEmissaoDeRelatorio')
-            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
             ->add('ftObservacao')
-            ->add('ftSiglavl')
-            ->add('ftLegendavl')
-            ->add('fbActivo')
-            ->add('fnParametros', 'sonata_type_model_autocomplete', array('multiple' => true,  'property' => 'ftDescricao'))
-
-
-    ;
+        ;
     }
 
     /**
@@ -94,19 +65,11 @@ class TEspecificacoesAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
+            ->add('fnId')
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('ftMensagemUtilizador')
-            ->add('ftTextoQdPassaP')
-            ->add('ftTextoQdNaoPassaP')
-            ->add('ftTextoQdCumpreA')
-            ->add('ftTextoQdNaoCumpreA')
-            ->add('fbEmissaoDeRelatorio')
             ->add('ftObservacao')
-            ->add('ftSiglavl')
-            ->add('ftLegendavl')
-            ->add('fbActivo')
         ;
     }
 }

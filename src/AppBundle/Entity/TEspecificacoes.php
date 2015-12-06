@@ -5,9 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TEspecificacoes
+ * TProdutos
  *
- * @ORM\Table(name="t_especificacoes", uniqueConstraints={@ORM\UniqueConstraint(name="IX_t_especificacoes_descricao", columns={"ft_descricao"}), @ORM\UniqueConstraint(name="IX_t_especificacoes_codigo", columns={"ft_codigo"})}, indexes={@ORM\Index(name="IDX_6462B9FFB176857A", columns={"fn_id_legislacao"})})
+ * @ORM\Table(name="t_especificacoes")
  * @ORM\Entity
  */
 class TEspecificacoes
@@ -122,28 +122,99 @@ class TEspecificacoes
      */
     private $fnLegislacao;
 
+
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="TParametros", inversedBy="especificacoes")
-     * @ORM\JoinTable(name="t_daadssda",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="especificacoes_id", referencedColumnName="fn_id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="parametros_id", referencedColumnName="fn_id")
-     *   }
-     * )
+     * @ORM\ManyToMany(targetEntity="TParametros")
+     * @ORM\JoinTable(name="t_parametrosporespecificacao",
+     *      joinColumns={@ORM\JoinColumn(name="fn_id_especificacao", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_familiaparametro", referencedColumnName="fn_id")}
+     *      )
      */
-    private $parametros;
+    private $fnParametros;
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="TProdutos", mappedBy="fnEspecificacoes")
+     */
+    private $fnProdutos;
+
+
+
+    /**
+     * Add fnEspecificacoes
+     *
+     * @param \AppBundle\Entity\TProdutos $fnProdutos
+     */
+    public function setfnProdutos(\AppBundle\Entity\TProdutos $fnProdutos = null)
+    {
+        $this->fnProdutos[] = $fnProdutos;
+    }
+    /**
+     * Get fnEspecificacoes
+     *
+     * @return \AppBundle\Entity\TProdutos
+     */
+    public function getfnProdutos()
+    {
+        return $this->fnProdutos;
+    }
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->parametros = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->fnProdutos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->fnParametros = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
+
+
+    /**
+     * Add projectMedia
+     *
+     * @param \AppBundle\Entity\TParametros
+     * @return TParametros
+     */
+    public function addfnParametros(\AppBundle\Entity\TParametros $fnParametros)
+    {
+        $this->fnParametros[] = $fnParametros;
+        return $this;
+    }
+    /**
+     * Remove projectMedia
+     *
+     * @param \AppBundle\Entity\TParametros
+     */
+    public function removefnParametros(\AppBundle\Entity\TParametros $fnParametros)
+    {
+        $this->fnParametros->remove($fnParametros);
+    }
+    /**
+     * Get projectMedia
+     *
+     * @return \AppBundle\Entity\TParametros
+     */
+    public function getfnParametros()
+    {
+        return $this->fnParametros;
+    }
+    /**
+     * Set projectMedia
+     *
+     * @param array
+     * @return TParametros
+     */
+    public function setfnParametros($fnParametros)
+    {
+        $this->fnParametros = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach ($fnParametros as $m) {
+            $m->setespecificacoes($this);
+            $this->addfnParametros($m);
+        }
+        return $this;
+    }
+
 
     public function __toString()
     {
@@ -157,6 +228,18 @@ class TEspecificacoes
     public function getFnId()
     {
         return $this->fnId;
+    }
+    /**
+     * Set ftCodigo
+     *
+     * @param string $fnId
+     * @return TProdutos
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;
     }
 
     /**

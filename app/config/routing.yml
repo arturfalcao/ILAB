@@ -35,6 +35,9 @@ tamostras_new:
     path:     /NovoPlaneamento/new
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:new }
     methods:  [GET]
+generateworklist:
+    path:     /generateworklist/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:Generateworklist }
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

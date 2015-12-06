@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class ModelosListasAdmin extends Admin
+class TProdutosespecificacoesAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -16,11 +16,9 @@ class ModelosListasAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('tablejson')
-            ->add('idParametro', 'doctrine_orm_model_autocomplete', array(), null, array(
-                'property'=>'ftDescricao',
-            ))
-           
+            ->add('id')
+            ->add('fbMaster')
+            ->add('fnOrdem')
         ;
     }
 
@@ -30,7 +28,9 @@ class ModelosListasAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('idParametro')
+            ->add('id')
+            ->add('fbMaster')
+            ->add('fnOrdem')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,8 +47,9 @@ class ModelosListasAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('idParametro', 'sonata_type_model_autocomplete', array('multiple' => true,  'property' => 'ftDescricao'))
-            ->add('tablejson', 'text', array('label'=>'Estrutura Lista de Trabalho'))
+            ->add('id')
+            ->add('fbMaster')
+            ->add('fnOrdem')
         ;
     }
 
@@ -58,7 +59,9 @@ class ModelosListasAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('tablejson')
+            ->add('id')
+            ->add('fbMaster')
+            ->add('fnOrdem')
         ;
     }
 }

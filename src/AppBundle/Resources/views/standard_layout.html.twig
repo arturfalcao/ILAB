@@ -111,11 +111,8 @@ file that was distributed with this source code.
 
                 {% block sonata_header %}
                     {% set foo = path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))|split('/') %}
-                    {% if admin is defined %}
-                    {% if admin.form is null %}
-                        <div id="sonata_title"></div>
-                        <a href="{{ admin.generateUrl('list') }}">Voltar a Lista</a>
-                    {% else %}
+                    {% if admin.form is defined %}
+
                         {% if admin.list is not null %}
                             <div id="sonata_title"></div>
                             {% if _actions %}
@@ -127,7 +124,7 @@ file that was distributed with this source code.
                             <div id="sonata_title"></div>
                             <a href="{{ admin.generateUrl('list') }}">Voltar a Lista</a>
                         {% endif %}
-                    {% endif %}
+
                     {% endif %}
 
                 {% endblock sonata_header %}

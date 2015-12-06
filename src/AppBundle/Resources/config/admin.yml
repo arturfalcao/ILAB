@@ -82,6 +82,8 @@ services:
         arguments: [~, AppBundle\Entity\TAmostras, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: TAmostras}
+        calls:
+            - [ setTemplate, [edit, AppBundle:Amostras:edit.html.twig]]
 
     app.admin.t_unidadesmedida:
         class: AppBundle\Entity\TUnidadesmedidaAdmin
@@ -185,3 +187,15 @@ services:
             - {name: sonata.admin, manager_type: orm, group: admin, label: ModelosListas}
         calls:
             - [ setTemplate, [edit, AppBundle:ModelosListas:edit.html.twig]]
+
+    app.admin.t_produtosespecificacoes:
+        class: AppBundle\Entity\TProdutosespecificacoesAdmin
+        arguments: [~, AppBundle\Entity\TProdutosespecificacoes, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TProdutosespecificacoes}
+
+    app.admin.t_familiasprodutos:
+        class: AppBundle\Entity\TFamiliasprodutosAdmin
+        arguments: [~, AppBundle\Entity\TFamiliasprodutos, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TFamiliasprodutos}

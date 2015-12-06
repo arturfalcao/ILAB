@@ -10,22 +10,29 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class TProdutosAdmin extends Admin
 {
+
+    public function prePersist($project)
+    {
+        $project->setfnEspecificacoes($project->getfnEspecificacoes());
+    }
+    public function preUpdate($project)
+    {
+        $project->setfnEspecificacoes($project->getfnEspecificacoes());
+    }
+
     /**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('fnIdFamiliaproduto')
-            ->add('fnIdLegislacao')
+            ->add('fnFamiliaproduto')
+            ->add('fnLegislacao')
             ->add('ftObservacao')
-            ->add('fbActivo')
-            ->add('fbAcreditacaoamostragem')
-            ->add('fbAcreditacaoamostragemmicro')
+
         ;
     }
 
@@ -35,12 +42,12 @@ class TProdutosAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
+
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('fnIdFamiliaproduto')
-            ->add('fnIdLegislacao')
+            ->add('fnFamiliaproduto')
+            ->add('fnLegislacao')
             ->add('ftObservacao')
             ->add('fbActivo')
             ->add('fbAcreditacaoamostragem')
@@ -61,17 +68,16 @@ class TProdutosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnId')
+
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('fnIdFamiliaproduto')
-            ->add('fnIdLegislacao')
-            ->add('ftObservacao')
-            ->add('fbActivo')
-            ->add('fbAcreditacaoamostragem')
-            ->add('fbAcreditacaoamostragemmicro')
+            ->add('fnFamiliaproduto', 'sonata_type_model', array('label' => 'Familia do Produto', 'by_reference' => false))
+            ->add('fnEspecificacoes', 'sonata_type_model', array('btn_add' => false,'multiple' => true, 'by_reference' => false))
+            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
+            ->add('ftObservacao', 'text', array('label' => 'Observações', 'by_reference' => false))
         ;
+
     }
 
     /**
@@ -80,16 +86,13 @@ class TProdutosAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('fnId')
             ->add('ftCodigo')
             ->add('ftDescricao')
             ->add('ftAlias')
-            ->add('fnIdFamiliaproduto')
-            ->add('fnIdLegislacao')
+            ->add('fnFamiliaproduto')
+            ->add('fnLegislacao')
             ->add('ftObservacao')
-            ->add('fbActivo')
-            ->add('fbAcreditacaoamostragem')
-            ->add('fbAcreditacaoamostragemmicro')
+
         ;
     }
 }

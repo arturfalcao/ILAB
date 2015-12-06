@@ -41,20 +41,25 @@ class TProdutos
      * @ORM\Column(name="ft_alias", type="string", length=100, nullable=true)
      */
     private $ftAlias;
+    /**
+     * @var \TFamiliasprodutos
+     *
+     * @ORM\ManyToOne(targetEntity="TFamiliasprodutos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_familiaproduto", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnFamiliaproduto;
 
     /**
-     * @var integer
+     * @var \TLegislacao
      *
-     * @ORM\Column(name="fn_id_familiaproduto", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="TLegislacao")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_legislacao", referencedColumnName="fn_id")
+     * })
      */
-    private $fnIdFamiliaproduto;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_legislacao", type="bigint", nullable=false)
-     */
-    private $fnIdLegislacao;
+    private $fnLegislacao;
 
     /**
      * @var string
@@ -77,6 +82,7 @@ class TProdutos
      */
     private $fbAcreditacaoamostragem;
 
+
     /**
      * @var boolean
      *
@@ -84,11 +90,98 @@ class TProdutos
      */
     private $fbAcreditacaoamostragemmicro;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="TEspecificacoes")
+     * @ORM\JoinTable(name="t_produtosespecificacoes",
+     *      joinColumns={@ORM\JoinColumn(name="fn_id_produto", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_especificacao", referencedColumnName="fn_id")}
+     *      )
+     */
+    private $fnEspecificacoes;
+
+    public function __construct() {
+        $this->fnEspecificacoes = new \Doctrine\Common\Collections\ArrayCollection();
+
+    }
+
+
+    /**
+     * Add projectMedia
+     *
+     * @param \AppBundle\Entity\TEspecificacoes
+     * @return TEspecificacoes
+     */
+    public function addfnEspecificacoes(\AppBundle\Entity\TEspecificacoes $fnEspecificacoes)
+    {
+        $this->fnEspecificacoes[] = $fnEspecificacoes;
+        return $this;
+    }
+    /**
+     * Remove projectMedia
+     *
+     * @param \AppBundle\Entity\TEspecificacoes
+     */
+    public function removefnEspecificacoes(\AppBundle\Entity\TEspecificacoes $fnEspecificacoes)
+    {
+        $this->fnEspecificacoes->remove($fnEspecificacoes);
+    }
+    /**
+     * Get projectMedia
+     *
+     * @return \AppBundle\Entity\TEspecificacoes
+     */
+    public function getfnEspecificacoes()
+    {
+        return $this->fnEspecificacoes;
+    }
+    /**
+     * Set projectMedia
+     *
+     * @param array
+     * @return TEspecificacoes
+     */
+    public function setfnEspecificacoes($fnEspecificacoes)
+    {
+        $this->fnEspecificacoes = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach ($fnEspecificacoes as $m) {
+            $m->setfnProdutos($this);
+            $this->addfnEspecificacoes($m);
+        }
+        return $this;
+    }
+
+
+
+
+
+
     public function __toString()
     {
         return $this->ftDescricao;
     }
 
+    /**
+     * Set fnLegislacao
+     *
+     * @param \AppBundle\Entity\TLegislacao $fnLegislacao
+     * @return TProdutos
+     */
+    public function setFnLegislacao(\AppBundle\Entity\TLegislacao $fnLegislacao = null)
+    {
+        $this->fnLegislacao = $fnLegislacao;
+
+        return $this;
+    }
+
+    /**
+     * Get fnLegislacao
+     *
+     * @return \AppBundle\Entity\TLegislacao
+     */
+    public function getFnLegislacao()
+    {
+        return $this->fnLegislacao;
+    }
     /**
      * Get fnId
      *
@@ -97,6 +190,18 @@ class TProdutos
     public function getFnId()
     {
         return $this->fnId;
+    }
+    /**
+     * Set ftCodigo
+     *
+     * @param string $fnId
+     * @return TProdutos
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;
     }
 
     /**
@@ -168,27 +273,28 @@ class TProdutos
         return $this->ftAlias;
     }
 
+
     /**
-     * Set fnIdFamiliaproduto
+     * Set fnFamiliaproduto
      *
-     * @param integer $fnIdFamiliaproduto
+     * @param \AppBundle\Entity\TFamiliasprodutos $fnFamiliaproduto
      * @return TProdutos
      */
-    public function setFnIdFamiliaproduto($fnIdFamiliaproduto)
+    public function setFnFamiliaproduto(\AppBundle\Entity\TFamiliasprodutos $fnFamiliaproduto = null)
     {
-        $this->fnIdFamiliaproduto = $fnIdFamiliaproduto;
+        $this->fnFamiliaproduto = $fnFamiliaproduto;
 
         return $this;
     }
 
     /**
-     * Get fnIdFamiliaproduto
+     * Get fnFamiliaproduto
      *
-     * @return integer 
+     * @return \AppBundle\Entity\TFamiliasprodutos
      */
-    public function getFnIdFamiliaproduto()
+    public function getFnFamiliaproduto()
     {
-        return $this->fnIdFamiliaproduto;
+        return $this->fnFamiliaproduto;
     }
 
     /**

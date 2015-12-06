@@ -80,7 +80,7 @@ class TAmostras
     /**
      * @var \FosUserUser
      *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="\Application\Sonata\UserBundle\Entity\User")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="fn_id_operador", referencedColumnName="id")
      * })
@@ -585,10 +585,10 @@ class TAmostras
     /**
      * Set fnOperador
      *
-     * @param \AppBundle\Entity\FosUserUser $fnOperador
+     * @param \Application\Sonata\UserBundle\Entity\User $fnOperador
      * @return TAmostras
      */
-    public function setFnOperador(\AppBundle\Entity\FosUserUser $fnOperador = null)
+    public function setFnOperador(\Application\Sonata\UserBundle\Entity\User $fnOperador = null)
     {
         $this->fnOperador = $fnOperador;
 
@@ -598,10 +598,11 @@ class TAmostras
     /**
      * Get fnOperador
      *
-     * @return \AppBundle\Entity\FosUserUser
+     * @return \Application\Sonata\UserBundle\Entity\User
      */
     public function getFnOperador()
     {
+
         return $this->fnOperador;
     }
 

@@ -20,7 +20,65 @@ class TParametros
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $fnId;
+    /**
+     * @var \TMetodos
+     *
+     * @ORM\ManyToOne(targetEntity="TMetodos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnMetodo;
 
+    /**
+     * @var \TAreasensaio
+     *
+     * @ORM\ManyToOne(targetEntity="TAreasensaio")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_areaensaio", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnAreaensaio;
+
+    /**
+     * @var \TModelosparametro
+     *
+     * @ORM\ManyToOne(targetEntity="TModelosparametro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_modeloparametro", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnModeloparametro;
+
+    /**
+     * @var \TFamiliasparametros
+     *
+     * @ORM\ManyToOne(targetEntity="TFamiliasparametros")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_familiaparametro", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnFamiliaparametro;
+
+    /**
+     * @var \TFrascos
+     *
+     * @ORM\ManyToOne(targetEntity="TFrascos")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_frasco", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnFrasco;
+
+    /**
+     * @var \TEstados
+     *
+     * @ORM\ManyToOne(targetEntity="TEstados")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
+     * })
+     */
+    private $ftEstado;
 
 
     /**
@@ -44,6 +102,15 @@ class TParametros
      */
     private $fnIdTecnica;
 
+    /**
+     * @var \TTecnicas
+     *
+     * @ORM\ManyToOne(targetEntity="TTecnicas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tecnica", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTecnica;
     /**
      * @var integer
      *
@@ -213,11 +280,20 @@ class TParametros
     private $fdRealizacao;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="TEspecificacoes", mappedBy="parametros")
+     * @ORM\ManyToMany(targetEntity="TEspecificacoes", mappedBy="fnEspecificacoes")
      */
     private $especificacoes;
+
+
+    /**
+     * @var \TLaboratorios
+     *
+     * @ORM\ManyToOne(targetEntity="TLaboratorios")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_laboratorio", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnLaboratorio;
 
     /**
      * Constructor
@@ -226,6 +302,28 @@ class TParametros
     {
         $this->especificacoes = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+    /**
+     * Add fnEspecificacoes
+     *
+     * @param \AppBundle\Entity\TEspecificacoes $fnProdutos
+     */
+    public function setespecificacoes(\AppBundle\Entity\TEspecificacoes $especificacoes = null)
+    {
+        $this->especificacoes[] = $especificacoes;
+
+    }
+    /**
+     * Get fnEspecificacoes
+     *
+     * @return \AppBundle\Entity\TProdutos
+     */
+    public function getfnProdutos()
+    {
+        return $this->fnProdutos;
+    }
+
+
 
 
     public function __toString()
@@ -256,6 +354,30 @@ class TParametros
     }
 
     /**
+     * Set fnLaboratorio
+     *
+     * @param \AppBundle\Entity\TLaboratorios $fnLaboratorio
+     * @return TParametros
+     */
+    public function setFnLaboratorio(\AppBundle\Entity\TLaboratorios $fnLaboratorio = null)
+    {
+        $this->fnLaboratorio = $fnLaboratorio;
+
+        return $this;
+    }
+
+    /**
+     * Get fnLaboratorio
+     *
+     * @return \AppBundle\Entity\TLaboratorios
+     */
+    public function getFnLaboratorio()
+    {
+        return $this->fnLaboratorio;
+    }
+
+
+    /**
      * Get ftDescricao
      *
      * @return string 
@@ -263,6 +385,28 @@ class TParametros
     public function getFtDescricao()
     {
         return $this->ftDescricao;
+    }
+    /**
+     * Set fnTecnica
+     *
+     * @param \AppBundle\Entity\TTecnicas $fnTecnica
+     * @return TParametros
+     */
+    public function setFnTecnica(\AppBundle\Entity\TTecnicas $fnTecnica = null)
+    {
+        $this->fnTecnica = $fnTecnica;
+
+        return $this;
+    }
+
+    /**
+     * Get fnTecnica
+     *
+     * @return \AppBundle\Entity\TTecnicas
+     */
+    public function getFnTecnica()
+    {
+        return $this->fnTecnica;
     }
 
     /**
@@ -889,10 +1033,148 @@ class TParametros
     /**
      * Get especificacoes
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEspecificacoes()
     {
         return $this->especificacoes;
+    }
+
+    /**
+     * Set fnMetodo
+     *
+     * @param \AppBundle\Entity\TMetodos $fnMetodo
+     * @return TParametros
+     */
+    public function setFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo = null)
+    {
+        $this->fnMetodo = $fnMetodo;
+
+        return $this;
+    }
+
+    /**
+     * Get fnMetodo
+     *
+     * @return \AppBundle\Entity\TMetodos
+     */
+    public function getFnMetodo()
+    {
+        return $this->fnMetodo;
+    }
+
+    /**
+     * Set fnAreaensaio
+     *
+     * @param \AppBundle\Entity\TAreasensaio $fnAreaensaio
+     * @return TParametros
+     */
+    public function setFnAreaensaio(\AppBundle\Entity\TAreasensaio $fnAreaensaio = null)
+    {
+        $this->fnAreaensaio = $fnAreaensaio;
+
+        return $this;
+    }
+
+    /**
+     * Get fnAreaensaio
+     *
+     * @return \AppBundle\Entity\TAreasensaio
+     */
+    public function getFnAreaensaio()
+    {
+        return $this->fnAreaensaio;
+    }
+
+    /**
+     * Set fnModeloparametro
+     *
+     * @param \AppBundle\Entity\TModelosparametro $fnModeloparametro
+     * @return TParametros
+     */
+    public function setFnModeloparametro(\AppBundle\Entity\TModelosparametro $fnModeloparametro = null)
+    {
+        $this->fnModeloparametro = $fnModeloparametro;
+
+        return $this;
+    }
+
+    /**
+     * Get fnModeloparametro
+     *
+     * @return \AppBundle\Entity\TModelosparametro
+     */
+    public function getFnModeloparametro()
+    {
+        return $this->fnModeloparametro;
+    }
+
+    /**
+     * Set fnFamiliaparametro
+     *
+     * @param \AppBundle\Entity\TFamiliasparametros $fnFamiliaparametro
+     * @return TParametros
+     */
+    public function setFnFamiliaparametro(\AppBundle\Entity\TFamiliasparametros $fnFamiliaparametro = null)
+    {
+        $this->fnFamiliaparametro = $fnFamiliaparametro;
+
+        return $this;
+    }
+
+    /**
+     * Get fnFamiliaparametro
+     *
+     * @return \AppBundle\Entity\TFamiliasparametros
+     */
+    public function getFnFamiliaparametro()
+    {
+        return $this->fnFamiliaparametro;
+    }
+
+    /**
+     * Set fnFrasco
+     *
+     * @param \AppBundle\Entity\TFrascos $fnFrasco
+     * @return TParametros
+     */
+    public function setFnFrasco(\AppBundle\Entity\TFrascos $fnFrasco = null)
+    {
+        $this->fnFrasco = $fnFrasco;
+
+        return $this;
+    }
+
+    /**
+     * Get fnFrasco
+     *
+     * @return \AppBundle\Entity\TFrascos
+     */
+    public function getFnFrasco()
+    {
+        return $this->fnFrasco;
+    }
+
+    /**
+     * Set ftEstado
+     *
+     * @param \AppBundle\Entity\TEstados $ftEstado
+     * @return TParametros
+     */
+    public function setFtEstado(\AppBundle\Entity\TEstados $ftEstado = null)
+    {
+        $this->ftEstado = $ftEstado;
+
+        return $this;
+    }
+
+    /**
+     * Get ftEstado
+     *
+     * @return \AppBundle\Entity\TEstados
+     */
+    public function getFtEstado()
+    {
+        return $this->ftEstado;
     }
 }
