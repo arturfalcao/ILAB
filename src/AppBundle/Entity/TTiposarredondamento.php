@@ -35,6 +35,10 @@ class TTiposarredondamento
      */
     private $ftDescricao;
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
 
 
     /**

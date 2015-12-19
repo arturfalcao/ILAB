@@ -10,6 +10,11 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class TAmostrasAdmin extends Admin
 {
+
+    public function postPersist($user)
+    {
+
+    }
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -104,17 +109,53 @@ class TAmostrasAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        if ($this->id($this->getSubject())) {
+
+
+        }
+        else {
+            $em = $this->modelManager->getEntityManager('AppBundle:TEstados');
+            $query = $em->createQueryBuilder('c')
+                ->select('c')
+                ->from('AppBundle:TEstados', 'c')
+                ->where("c.ftId = 'I'");
+        }
+
+
+
+
         $formMapper
-            ->add('fnModelo', 'sonata_type_model', array('label' => 'Modelo', 'by_reference' => false))
-            ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente', 'by_reference' => false))
-            ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto', 'by_reference' => false))
-            ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
-            ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo Controlo', 'by_reference' => false))
-            ->add('ftObs', 'text', array('label' => 'Observações'))
-            ->add('fdColheita', 'datetime', array('label'=>'Data/hora Colheita','date_widget' => "single_text", 'time_widget' => "single_text"))
-            ->add('fnOperador')
-            ->add('ftResponsavelcolheita', 'choice',  array('multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
-            ->add('ftOrigem', 'text', array('label' => 'Ponto de Amostragem'))
+            ->with('Nova Amostra')
+
+                ->add('fnModelo', 'sonata_type_model', array('label' => 'Modelo', 'by_reference' => false))
+                ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente', 'by_reference' => false))
+                ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto', 'by_reference' => false))
+                ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
+                ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo Controlo', 'by_reference' => false))
+                ->add('ftObs')
+                ->add('fdColheita', 'datetime', array('label'=>'Data/hora Colheita','date_widget' => "single_text", 'time_widget' => "single_text"))
+                ->add('fnOperador')
+                ->add('ftResponsavelcolheita', 'choice',  array('multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
+                ->add('ftOrigem', 'text', array('label' => 'Ponto de Amostragem'))
+            ->end();
+
+             if ($this->id($this->getSubject())) {
+
+
+             }
+             else {
+                 $em = $this->modelManager->getEntityManager('AppBundle:TEstados');
+                 $query = $em->createQueryBuilder('c')
+                     ->select('c')
+                     ->from('AppBundle:TEstados', 'c')
+                     ->where("c.ftId = 'I'");
+
+                 $formMapper ->with('Addresses', array('class' => 'display_none'))
+                     ->add('ftEstado','sonata_type_model', array('attr' => array('class' => 'display_none'),'query' => $query))
+                     ->end();
+             }
+
+
         ;
     }
 

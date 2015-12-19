@@ -78,6 +78,11 @@ class TFrascos
     private $fnIdAditivo;
 
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
+
 
     /**
      * Get fnId

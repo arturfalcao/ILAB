@@ -50,6 +50,7 @@ class TEstados
         return $this->ftId;
     }
 
+
     /**
      * Set ftCodigo
      *

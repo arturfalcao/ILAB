@@ -10,6 +10,23 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class TResultadosAdmin extends Admin
 {
+
+    public function preUpdate($user)
+    {
+        $em = $this->getModelManager()->getEntityManager($this->getClass());
+
+        $originalObject = $em->getUnitOfWork()->getOriginalEntityData($user);
+
+        if ($user->getSomeField() !== $originalObject['fieldName']) {
+            // Field has been changed
+        }
+    }
+
+    public function postUpdate($user)
+    {
+       var_dump($user);
+        die;
+    }
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -45,7 +62,9 @@ class TResultadosAdmin extends Admin
             ->add('fnParametro')
             ->add('ftDescricao')
             ->add('ftFormatado')
-            ->add('ftOriginal')
+            ->add('ftOriginal',null, array(
+                'editable' => true
+            ))
             ->add('ftPrefixo')
             ->add('fnValor')
             ->add('fnCalculado')

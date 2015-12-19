@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+
+
             //...
 
             // If you haven't already, add the storage bundle
@@ -36,7 +38,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Bmatzner\FoundationBundle\BmatznerFoundationBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

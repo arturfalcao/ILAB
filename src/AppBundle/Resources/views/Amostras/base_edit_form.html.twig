@@ -8,7 +8,7 @@
             {{ "form_not_available"|trans({}, "SonataAdminBundle") }}
         </div>
     {% else %}
-        <form class="modeloslistas_form"
+        <form class=""
               {% if admin_pool.getOption('form_type') == 'horizontal' %}class="form-horizontal"{% endif %}
               role="form"
               action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}" {{ form_enctype(form) }}
@@ -97,7 +97,7 @@
                                 {% set currentPath = path(app.request.attributes.get('_route'),
                                 app.request.attributes.get('_route_params')) %}
 
-                                <a class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Gerar lista de trabalho</a>
+                                <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Gerar lista de trabalho</a>
 
 
                             {% endif %}

@@ -29,6 +29,7 @@ class TEspecificacoesAdmin extends Admin
             ->add('ftSiglavl')
             ->add('ftLegendavl')
             ->add('fbActivo')
+            ->add('fnParametros')
         ;
     }
 

@@ -50,6 +50,11 @@ class TUnidadesmedida
     private $ftObservacao;
 
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
+
 
     /**
      * Get fnId

@@ -127,6 +127,11 @@ class TLaboratorios
     private $ftEmailcontacto;
 
 
+    public function __toString()
+    {
+        return $this->ftNome;
+    }
+
 
     /**
      * Get fnId

@@ -38,7 +38,12 @@ tamostras_new:
 generateworklist:
     path:     /generateworklist/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Generateworklist }
-
+EntradaResultados:
+    path:     /EntradaResultados
+    defaults: { _controller: AppBundle:EntResultados:EntradaResultados }
+EntradaResultadosGetByParameter:
+  pattern:  /EntradaResultados/para
+  defaults: { _controller: AppBundle:EntResultados:getByParameter }
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 

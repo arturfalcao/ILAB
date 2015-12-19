@@ -251,7 +251,7 @@ section.login p {
 
 .mainmenu li:hover .submenu {
     display: block;
-    max-height: 200px;
+    max-height: 700px;
 }
 .mainmenu >li{
     position: relative;
@@ -280,7 +280,7 @@ section.login p {
     top: 14px;
     left: 67px;
     z-index: 99999;
-    width: 238px;
+    max-width: 638px;
     background: #fff;
     box-shadow: 10px 10px 5px #888888;
 }
@@ -412,5 +412,17 @@ section.login p {
 
 
 .modeloslistas_form input[type="text"]{
+    display: none;
+}
+
+.select2-container {
+    min-width: 300px;
+}
+
+.mce-tinymce {
+    float: left !important;
+    width: 100% !important;
+}
+.display_none{
     display: none;
 }

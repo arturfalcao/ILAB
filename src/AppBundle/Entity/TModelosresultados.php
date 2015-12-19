@@ -104,6 +104,11 @@ class TModelosresultados
      */
     private $fnTipoarredondamento;
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
+
 
 
     /**

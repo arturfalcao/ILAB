@@ -17,12 +17,11 @@ class ModelosListasAdmin extends Admin
     {
         $datagridMapper
             ->add('tablejson')
-            ->add('idParametro', 'doctrine_orm_model_autocomplete', array(), null, array(
-                'property'=>'ftDescricao',
-            ))
-           
+            ->add('idParametro')
         ;
     }
+
+
 
     /**
      * @param ListMapper $listMapper
@@ -47,7 +46,7 @@ class ModelosListasAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('idParametro', 'sonata_type_model_autocomplete', array('multiple' => true,  'property' => 'ftDescricao'))
+            ->add('idParametro')
             ->add('tablejson', 'text', array('label'=>'Estrutura Lista de Trabalho'))
         ;
     }

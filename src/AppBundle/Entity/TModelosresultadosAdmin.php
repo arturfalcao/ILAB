@@ -10,6 +10,9 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class TModelosresultadosAdmin extends Admin
 {
+
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -40,7 +43,6 @@ class TModelosresultadosAdmin extends Admin
             ->add('ftDescricao','text', array('label' => 'Nome'))
             ->add('fnUnidade','text', array('label' => 'Unidades'))
             ->add('fnLimitequantificacao','text', array('label' => 'Quantificação'))
-            ->add('fnTipoarredondamento.ftDescricao','text', array('label' => 'Unidades'))
             ->add('fbGamavalores',null, array('label' => 'Gama'))
             ->add('fnMaximo','number', array('label' => 'Máximo'))
             ->add('fnMinimo','number', array('label' => 'Mínimo'))

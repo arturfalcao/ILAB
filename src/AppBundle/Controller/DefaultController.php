@@ -25,7 +25,7 @@ class DefaultController extends Controller
     {
         $securityContext = $this->container->get('security.context');
         if ($securityContext->isGranted('IS_AUTHENTICATED_ANONYMOUSLY')) {
-            return $this->redirectToRoute('fos_user_security_login');
+            return $this->redirectToRoute('sonata_user_security_login');
 
         }
 

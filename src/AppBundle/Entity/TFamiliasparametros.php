@@ -49,6 +49,10 @@ class TFamiliasparametros
      */
     private $ftObservacao;
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
 
 
     /**

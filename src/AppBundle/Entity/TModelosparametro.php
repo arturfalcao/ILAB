@@ -162,6 +162,11 @@ class TModelosparametro
     private $fnFamiliaparametro;
 
 
+    public function __toString()
+    {
+        return $this->ftDescricao;
+    }
+
 
     /**
      * Get fnId

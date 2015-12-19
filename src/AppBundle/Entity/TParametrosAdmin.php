@@ -71,14 +71,6 @@ class TParametrosAdmin extends Admin
             ->add('fnFactorcorreccao')
             ->add('fbAcreditado')
             ->add('fnLimitelegal')
-            ->add('fnFamiliaparametro')
-            ->add('ftFormulaquimica')
-            ->add('fnFrasco')
-            ->add('fnVolumeminimo')
-            ->add('fbConfirmacao')
-            ->add('ftEstado')
-            ->add('fbContraanalise')
-            ->add('fdRealizacao')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

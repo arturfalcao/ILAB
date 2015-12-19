@@ -24,7 +24,7 @@ class ModelosListas
     /**
      * @var string
      *
-     * @ORM\Column(name="tablejson", type="string", length=255, nullable=false)
+     * @ORM\Column(name="tablejson", type="string", length=100000, nullable=false)
      */
     private $tablejson;
 

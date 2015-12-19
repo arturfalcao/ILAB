@@ -1317,6 +1317,7 @@ class TAmostras
      */
     public function getFtEstado()
     {
+
         return $this->ftEstado;
     }
 
