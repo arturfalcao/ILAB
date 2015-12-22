@@ -130,6 +130,17 @@ class TResultados
     private $fnModeloresultado;
 
     /**
+     * @var \TAmostra
+     *
+     * @ORM\ManyToOne(targetEntity="TAmostras")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_amostra", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnAmostra;
+
+
+    /**
      * @var \TParametros
      *
      * @ORM\ManyToOne(targetEntity="TParametros")
@@ -169,6 +180,18 @@ class TResultados
     public function getFnId()
     {
         return $this->fnId;
+    }
+
+
+    /**
+     * Get fnId
+     *
+     * @return integer
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+        return $this;
     }
 
     /**
@@ -538,6 +561,31 @@ class TResultados
     {
         return $this->fnParametro;
     }
+
+
+    /**
+     * Set fnAmostra
+     *
+     * @param \AppBundle\Entity\TAmostras $fnAmostra
+     * @return TResultados
+     */
+    public function setFnAmostra(\AppBundle\Entity\TAmostras $fnAmostra = null)
+    {
+        $this->fnAmostra = $fnAmostra;
+
+        return $this;
+    }
+
+    /**
+     * Get fnAmostra
+     *
+     * @return \AppBundle\Entity\TAmostras
+     */
+    public function getFnAmostra()
+    {
+        return $this->fnAmostra;
+    }
+
 
     /**
      * Set fnUnidade

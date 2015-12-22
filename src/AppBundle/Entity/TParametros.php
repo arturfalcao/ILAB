@@ -303,6 +303,18 @@ class TParametros
         $this->especificacoes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
+
+    /**
+     * Get fnId
+     *
+     * @return integer
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+        return $this;
+    }
     /**
      * Add fnEspecificacoes
      *
@@ -573,10 +585,10 @@ class TParametros
     /**
      * Set fnIdModeloparametro
      *
-     * @param integer $fnIdModeloparametro
+     * @param \AppBundle\Entity\TModelosparametro $fnIdModeloparametro
      * @return TParametros
      */
-    public function setFnIdModeloparametro($fnIdModeloparametro)
+    public function setFnIdModeloparametro(\AppBundle\Entity\TModelosparametro $fnIdModeloparametro = null)
     {
         $this->fnIdModeloparametro = $fnIdModeloparametro;
 
@@ -584,14 +596,16 @@ class TParametros
     }
 
     /**
-     * Get fnIdModeloparametro
+     * Get TModelosparametro
      *
-     * @return integer 
+     * @return \AppBundle\Entity\TModelosparametro
      */
     public function getFnIdModeloparametro()
     {
         return $this->fnIdModeloparametro;
     }
+
+
 
     /**
      * Set ftObservacao

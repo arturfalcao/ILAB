@@ -106,7 +106,6 @@ class TParametrosAdmin extends Admin
             ->add('fnFactorcorreccao')
             ->add('fbAcreditado')
             ->add('fnLimitelegal')
-            ->add('fnFamiliaparametro')
             ->add('ftFormulaquimica')
             ->add('fnFrasco')
             ->add('fnVolumeminimo')
