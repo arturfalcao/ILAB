@@ -49,17 +49,94 @@ class TGruposparametros
      */
     private $fnIdProduto;
 
+
+    /**
+     * @ORM\ManyToMany(targetEntity="TParametros")
+     * @ORM\JoinTable(name="t_parametrosgrupo",
+     *      joinColumns={@ORM\JoinColumn(name="t_grupo", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="t_parametro", referencedColumnName="fn_id")}
+     *      )
+     */
+    public $fnParametros;
+
+
     /**
      * @var string
      *
      * @ORM\Column(name="ft_observacao", type="string", length=300, nullable=true)
      */
     private $ftObservacao;
-    public function __toString()
+
+
+    /**
+     * Add projectMedia
+     *
+     * @param \AppBundle\Entity\TParametros
+     * @return TParametros
+     */
+    public function addfnParametros(\AppBundle\Entity\TParametros $fnParametros)
     {
-        return $this->ftDescricao;
+        $this->fnParametros[] = $fnParametros;
+        return $this;
     }
 
+    public function __construct()
+    {
+        $this->fnParametros = new \Doctrine\Common\Collections\ArrayCollection();
+
+    }
+
+    /**
+     * Remove projectMedia
+     *
+     * @param \AppBundle\Entity\TParametros
+     */
+    public function removefnParametros(\AppBundle\Entity\TParametros $fnParametros)
+    {
+        $this->fnParametros->remove($fnParametros);
+    }
+    /**
+     * Get projectMedia
+     *
+     * @return \AppBundle\Entity\TParametros
+     */
+    public function getfnParametros()
+    {
+        return $this->fnParametros;
+    }
+    /**
+     * Set projectMedia
+     *
+     * @param array
+     * @return TParametros
+     */
+    public function setfnParametros($fnParametros)
+    {
+        $this->fnParametros = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach ($fnParametros as $m) {
+            $this->addfnParametros($m);
+        }
+        return $this;
+    }
+
+
+    public function __toString()
+    {
+        return $this->ftCodigo;
+    }
+
+    /**
+     * Set ftCodigo
+     *
+     * @param string $fnId
+     * @return TProdutos
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;
+    }
 
     /**
      * Get fnId

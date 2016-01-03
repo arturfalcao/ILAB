@@ -76,6 +76,11 @@ class TModelosresultadosAdmin extends Admin
                 ->add('fnMinimo','number', array('label' => 'Minimo'))
                 ->add('ftMensagemutilizador','text', array('label' => 'Mensagem Utilizador'))
                 ->add('fnLimitequantificacao','number', array('label' => 'Limite Quantificação'))
+            ->add('RegasFormatacao', 'sonata_type_collection', array(), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable'  => 'position'
+            ))
             ->end();
 
     }

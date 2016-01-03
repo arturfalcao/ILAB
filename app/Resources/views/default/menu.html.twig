@@ -15,7 +15,7 @@
                     <div>Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
 
-                    <li><a href="{{ path('tamostras_new') }}">Lançamento de Amostra</a></li>
+                    <li><a href="{{ path('tamostras_new') }}">{{ "Lançamento de Amostra"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
                 </ul>
             </li>
             <li><a href="" class="menu_resultados"></a>
@@ -28,7 +28,7 @@
             </li>
             <li><a href="" class="menu_configuracoes"></a>
                 <ul class="submenu">
-                    <div>Configurações</div>
+                    <div>{{ "Configurações"|convert_encoding('UTF-8', ' iso-8859-1') }}</div>
                     <li><a href="{{path('admin_app_tclientes_list') }}" >Clientes</a></li>
                     <li><a href="{{ path('admin_app_tmodelosamostra_list') }}">Modelos Amostra</a></li>
                     <li><a href="{{ path('admin_app_tmodelosparametro_list') }}">Modelos Parametros</a></li>
@@ -36,8 +36,8 @@
                     <li><a href="{{ path('admin_app_tparametros_list') }}">Parametros</a></li>
                     <li><a href="{{ path('admin_app_tgruposparametros_list') }}">Grupos Parametros</a></li>
                     <li><a href="{{ path('admin_app_tprodutos_list') }}">Produtos</a></li>
-                    <li><a href="{{ path('admin_app_tespecificacoes_list') }}">Especificações</a></li>
-                    <li><a href="{{ path('admin_app_tlegislacao_list') }}">Legislação</a></li>
+                    <li><a href="{{ path('admin_app_tespecificacoes_list') }}">{{ "Especificações"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                    <li><a href="{{ path('admin_app_tlegislacao_list') }}">{{ "Legislação"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
                     <li><a href="{{ path('admin_app_tunidadesmedida_list') }}">Unidades de Medida</a></li>
 
                 </ul>

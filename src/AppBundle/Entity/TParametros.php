@@ -315,6 +315,9 @@ class TParametros
         $this->fnId = $fnId;
         return $this;
     }
+
+
+
     /**
      * Add fnEspecificacoes
      *

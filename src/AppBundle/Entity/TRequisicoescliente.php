@@ -56,6 +56,10 @@ class TRequisicoescliente
      */
     private $fbActiva;
 
+    public function __toString()
+    {
+        return $this->ftCodigo;
+    }
 
 
     /**

@@ -86,6 +86,13 @@ class TClientesAdmin extends Admin
             ->add('ftNomecontacto')
             ->add('ftTelefonecontacto')
             ->add('ftEmailcontacto')
+            ->add('ftNomeUtilizador')
+            ->add('ftpassword')
+            ->add('fbuserativo', 'checkbox', array(
+                'label'     => 'Utilizador Ativo',
+                'required'  => false,
+            ))
+
         ;
     }
 

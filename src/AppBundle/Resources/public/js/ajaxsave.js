@@ -20,6 +20,18 @@ function sendForm(form, callback) {
         success     : function(result) { callback( result ); }
     });
 }
+
+
+function OpenRightSide() {
+}
+
+
+
+
+
+
+
+
 $(function() {
     $('select[id=appbundle_tparametros_fnMetodo]')
         .append($('<option>', {value : 'new', text: 'Add new role'}))

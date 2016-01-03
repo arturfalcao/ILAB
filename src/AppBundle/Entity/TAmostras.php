@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,90 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TAmostras
 {
+    /**
+     * @var string $createdBy
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(type="string")
+     */
+    private $createdBy;
+
+    /**
+     * @var string $updatedBy
+     *
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(type="string")
+     */
+    private $updatedBy;
+    /**
+     * @var string $createdByTime
+     *
+     * @Gedmo\Blameable(on="create")
+     * @ORM\Column(type="string")
+     */
+    private $createdByTime;
+
+    /**
+     * @var string $updatedByTime
+     *
+     * @Gedmo\Blameable(on="update")
+     * @ORM\Column(type="string")
+     */
+    private $updatedByTime;
+
+
+
+    public function getCreatedByTime()
+    {
+        return $this->createdByTime;
+    }
+
+    public function getUpdatedByTime()
+    {
+        return $this->updatedByTime;
+    }
+
+
+
+    public function setCreatedByTime($createdByTime)
+    {
+        $this->createdByTime = $createdByTime;
+        return $this->createdByTime;
+    }
+
+    public function setUpdatedByTime($updatedByTime)
+    {
+        $this->updatedByTime = $updatedByTime;
+        return $this->updatedByTime;
+    }
+
+
+
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    public function getUpdatedBy()
+    {
+        return $this->updatedBy;
+    }
+
+
+
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+        return $this->createdBy;
+    }
+
+    public function setUpdatedBy($updatedBy)
+    {
+        $this->updatedBy = $updatedBy;
+        return $this->updatedBy;
+    }
+
+
     /**
      * @var integer
      *

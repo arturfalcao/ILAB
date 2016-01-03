@@ -23,6 +23,7 @@ return array(
     'JMS\\SerializerBundle' => array($vendorDir . '/jms/serializer-bundle'),
     'JMS\\Serializer' => array($vendorDir . '/jms/serializer/src'),
     'JMS\\' => array($vendorDir . '/jms/parser-lib/src'),
+    'Gedmo\\' => array($vendorDir . '/gedmo/doctrine-extensions/lib'),
     'FOS\\UserBundle' => array($vendorDir . '/friendsofsymfony/user-bundle'),
     'FOS\\RestBundle' => array($vendorDir . '/friendsofsymfony/rest-bundle'),
     'Exporter' => array($vendorDir . '/sonata-project/exporter/lib'),
@@ -36,6 +37,7 @@ return array(
     'Braincrafted\\Bundle\\BootstrapBundle' => array($vendorDir . '/braincrafted/bootstrap-bundle'),
     'Bmatzner\\JQueryBundle' => array($vendorDir . '/bmatzner/jquery-bundle'),
     'Bmatzner\\FoundationBundle' => array($vendorDir . '/bmatzner/foundation-bundle'),
+    'Behat\\Transliterator' => array($vendorDir . '/behat/transliterator/src'),
     'Assetic' => array($vendorDir . '/kriswallsmith/assetic/src'),
     'ADesigns\\CalendarBundle' => array($vendorDir . '/adesigns/calendar-bundle'),
 );

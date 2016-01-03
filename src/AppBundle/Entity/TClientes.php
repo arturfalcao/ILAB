@@ -38,6 +38,21 @@ class TClientes
     /**
      * @var string
      *
+     * @ORM\Column(name="ft_nomeutilizador", type="string", length=100, nullable=false)
+     */
+    private $ftNomeUtilizador;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ft_password", type="string", length=100, nullable=false)
+     */
+    private $ftpassword;
+
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="ft_alias", type="string", length=100, nullable=true)
      */
     private $ftAlias;
@@ -119,6 +134,12 @@ class TClientes
      */
     private $ftEmailcontacto;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="fb_userativo", type="boolean", nullable=true)
+     */
+    private $fbuserativo;
 
 
     /**
@@ -130,10 +151,41 @@ class TClientes
     {
         return $this->ftNome;
     }
+
+    public function getFbUserativo()
+    {
+        return $this->fbuserativo;
+    }
+    /**
+     * Set fnId
+     *
+     * @param string $fnId
+     * @return TClientes
+     */
+    public function setFbuserativo($fbuserativo)
+    {
+        $this->fbuserativo = $fbuserativo;
+
+        return $this;
+    }
+
     public function getFnId()
     {
         return $this->fnId;
     }
+    /**
+     * Set fnId
+     *
+     * @param string $fnId
+     * @return TClientes
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;
+    }
+
 
     /**
      * Set ftCodigo
@@ -170,7 +222,49 @@ class TClientes
 
         return $this;
     }
+    /**
+     * Set ftNomeUtilizador
+     *
+     * @param string $ftNomeUtilizador
+     * @return TClientes
+     */
+    public function setFtNomeUtilizador($ftNomeUtilizador)
+    {
+        $this->ftNomeUtilizador = $ftNomeUtilizador;
 
+        return $this;
+    }
+    /**
+     * Set ftpassword
+     *
+     * @param string $ftpassword
+     * @return TClientes
+     */
+    public function setFtPassword($ftpassword)
+    {
+        $this->ftpassword = $ftpassword;
+
+        return $this;
+    }
+
+    /**
+     * Get ftNome
+     *
+     * @return string
+     */
+    public function getFtNomeUtilizador()
+    {
+        return $this->ftNomeUtilizador;
+    }
+    /**
+     * Get ftNome
+     *
+     * @return string
+     */
+    public function getFtPassword()
+    {
+        return $this->ftpassword;
+    }
     /**
      * Get ftNome
      *

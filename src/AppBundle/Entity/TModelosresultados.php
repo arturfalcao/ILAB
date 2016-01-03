@@ -94,6 +94,69 @@ class TModelosresultados
      */
     private $fnUnidade;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="TRegrasformatacao", mappedBy="fnModeloresultado")
+     */
+    protected $RegasFormatacao;
+
+
+    /**
+     * Set fnUnidade
+     *
+     * @param \AppBundle\Entity\TRegrasformatacao $RegasFormatacao
+     * @return TModelosresultados
+     */
+    public function addRegasFormatacao(\AppBundle\Entity\TRegrasformatacao $RegasFormatacao)
+    {
+        $this->RegasFormatacao[] = $RegasFormatacao;
+
+        return $this;
+    }
+
+    /**
+     * Remove pois
+     *
+     * @param \AppBundle\Entity\TRegrasformatacao  $RegasFormatacao
+     */
+    public function removeRegasFormatacao(\AppBundle\Entity\TRegrasformatacao   $RegasFormatacao)
+    {
+        $this->RegasFormatacao->removeElement($RegasFormatacao);
+    }
+
+    public function addRegasFormataca(\AppBundle\Entity\TRegrasformatacao $RegasFormataca)
+    {
+        $RegasFormataca->setFnModeloresultado($this);
+        $this->RegasFormatacao->add($RegasFormataca);
+    }
+
+    public function removeRegasFormataca(\AppBundle\Entity\TRegrasformatacao $RegasFormatac)
+    {
+        $this->RegasFormatacao->removeElement($RegasFormatac);
+    }
+
+    /**
+     * Get pois
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRegasFormatacao()
+    {
+
+        return $this->RegasFormatacao;
+    }
+
+    public function setRegasFormatacao($RegasFormatacao)
+    {
+        if (count($RegasFormatacao) > 0) {
+            foreach ($RegasFormatacao as $i) {
+                $this->addRegasFormatacao($i);
+            }
+        }
+
+        return $this;
+    }
+
     /**
      * @var \TTiposarredondamento
      *
@@ -103,6 +166,13 @@ class TModelosresultados
      * })
      */
     private $fnTipoarredondamento;
+
+
+    public function __construct()
+    {
+        $this->RegasFormatacao = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
 
     public function __toString()
     {

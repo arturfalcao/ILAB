@@ -15,6 +15,28 @@ class TAmostrasAdmin extends Admin
     {
 
     }
+
+    public function prePersist($user)
+    {
+        $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
+
+        $user->setCreatedBy($user1->getUsername());
+        $user->setCreatedByTime(date('Y-m-d H:i:s'));
+    }
+    public function preUpdate($user)
+    {
+        $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
+        $user->setUpdatedBy($user1->getUsername());
+        $user->setUpdatedByTime(date('Y-m-d H:i:s'));
+    }
+    public function preRemove($user)
+    {
+        $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
+        $user->setCreatedBy($user1->getUsername());
+        $user->setCreatedByTime(date('Y-m-d H:i:s'));
+    }
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */

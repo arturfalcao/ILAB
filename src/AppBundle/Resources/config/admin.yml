@@ -84,6 +84,7 @@ services:
             - {name: sonata.admin, manager_type: orm, group: admin, label: TAmostras}
         calls:
             - [ setTemplate, [edit, AppBundle:Amostras:edit.html.twig]]
+            - [ setTemplate, [list, AppBundle:Amostras:list.html.twig]]
 
     app.admin.t_unidadesmedida:
         class: AppBundle\Entity\TUnidadesmedidaAdmin

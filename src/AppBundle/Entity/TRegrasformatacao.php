@@ -78,12 +78,7 @@ class TRegrasformatacao
     private $ftExpressaoutilizador;
 
     /**
-     * @var \TModelosresultados
-     *
-     * @ORM\ManyToOne(targetEntity="TModelosresultados")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_modeloresultado", referencedColumnName="fn_id")
-     * })
+     * @ORM\ManyToOne(targetEntity="TModelosresultados", inversedBy="RegasFormatacao")
      */
     private $fnModeloresultado;
 

@@ -132,6 +132,19 @@ class TModelosamostra
     }
 
     /**
+     * Set ftCodigo
+     *
+     * @param string $fnId
+     * @return TProdutos
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;
+    }
+
+    /**
      * Get fnId
      *
      * @return integer 
