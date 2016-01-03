@@ -11,6 +11,15 @@ use Sonata\AdminBundle\Show\ShowMapper;
 class TModelosresultadosAdmin extends Admin
 {
 
+    public function prePersist($project)
+    {
+        $this->preUpdate($project);
+    }
+
+    public function preUpdate($project)
+    {
+        $project->setRegasFormatacao($project->getRegasFormatacao());
+    }
 
 
     /**
@@ -76,12 +85,20 @@ class TModelosresultadosAdmin extends Admin
                 ->add('fnMinimo','number', array('label' => 'Minimo'))
                 ->add('ftMensagemutilizador','text', array('label' => 'Mensagem Utilizador'))
                 ->add('fnLimitequantificacao','number', array('label' => 'Limite Quantificação'))
-            ->add('RegasFormatacao', 'sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-            ->end();
+
+
+            ->end()
+            ->with('Gallery')
+            ->add('RegasFormatacao', 'sonata_type_collection', array(
+                'cascade_validation' => true,
+            ), array(
+                    'edit'              => 'inline',
+                    'inline'            => 'table',
+                    'sortable'          => 'position',
+                )
+            )
+            ->end()
+        ;
 
     }
 

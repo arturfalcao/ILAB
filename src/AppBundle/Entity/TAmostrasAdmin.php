@@ -77,7 +77,7 @@ class TAmostrasAdmin extends Admin
     {
         $listMapper
             ->add('fnId')
-            ->add('ftEstado')
+            ->add('ftEstado', 'sonata_type_model', array('label' => 'Modelo', 'by_reference' => false))
             ->add('fbRelatorioemitido')
             ->add('serie')
             ->add('fnProduto')

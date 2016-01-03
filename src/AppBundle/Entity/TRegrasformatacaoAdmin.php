@@ -16,7 +16,6 @@ class TRegrasformatacaoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
             ->add('fnOrdem')
             ->add('ftDescricao')
             ->add('fnLimiteinferior')
@@ -34,7 +33,6 @@ class TRegrasformatacaoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
             ->add('fnOrdem')
             ->add('ftDescricao')
             ->add('fnLimiteinferior')
@@ -59,7 +57,6 @@ class TRegrasformatacaoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnId')
             ->add('fnOrdem')
             ->add('ftDescricao')
             ->add('fnLimiteinferior')
@@ -77,7 +74,6 @@ class TRegrasformatacaoAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('fnId')
             ->add('fnOrdem')
             ->add('ftDescricao')
             ->add('fnLimiteinferior')

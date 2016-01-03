@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * TModelosresultados
  *
@@ -17,7 +18,7 @@ class TModelosresultados
      *
      * @ORM\Column(name="fn_id", type="bigint", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $fnId;
 
@@ -94,9 +95,19 @@ class TModelosresultados
      */
     private $fnUnidade;
 
+    /**
+     * @var \TTiposarredondamento
+     *
+     * @ORM\ManyToOne(targetEntity="TTiposarredondamento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoarredondamento", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoarredondamento;
+
 
     /**
-     * @ORM\OneToMany(targetEntity="TRegrasformatacao", mappedBy="fnModeloresultado")
+     * @ORM\OneToMany(targetEntity="TRegrasformatacao", mappedBy="fnModeloresultado", cascade={"persist"}, orphanRemoval=true)
      */
     protected $RegasFormatacao;
 
@@ -109,13 +120,14 @@ class TModelosresultados
      */
     public function addRegasFormatacao(\AppBundle\Entity\TRegrasformatacao $RegasFormatacao)
     {
+
+
         $this->RegasFormatacao[] = $RegasFormatacao;
 
         return $this;
     }
 
     /**
-     * Remove pois
      *
      * @param \AppBundle\Entity\TRegrasformatacao  $RegasFormatacao
      */
@@ -126,6 +138,7 @@ class TModelosresultados
 
     public function addRegasFormataca(\AppBundle\Entity\TRegrasformatacao $RegasFormataca)
     {
+
         $RegasFormataca->setFnModeloresultado($this);
         $this->RegasFormatacao->add($RegasFormataca);
     }
@@ -136,7 +149,6 @@ class TModelosresultados
     }
 
     /**
-     * Get pois
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -148,24 +160,17 @@ class TModelosresultados
 
     public function setRegasFormatacao($RegasFormatacao)
     {
+
         if (count($RegasFormatacao) > 0) {
             foreach ($RegasFormatacao as $i) {
-                $this->addRegasFormatacao($i);
+                $this->addRegasFormataca($i);
             }
         }
 
         return $this;
     }
 
-    /**
-     * @var \TTiposarredondamento
-     *
-     * @ORM\ManyToOne(targetEntity="TTiposarredondamento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_tipoarredondamento", referencedColumnName="fn_id")
-     * })
-     */
-    private $fnTipoarredondamento;
+
 
 
     public function __construct()
@@ -361,6 +366,13 @@ class TModelosresultados
     public function setFnLimitequantificacao($fnLimitequantificacao)
     {
         $this->fnLimitequantificacao = $fnLimitequantificacao;
+
+        return $this;
+    }
+
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
 
         return $this;
     }
