@@ -15,15 +15,13 @@
                     <div>Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
 
-                    <li><a href="{{ path('tamostras_new') }}">{{ "Lançamento de Amostra"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                    <li><a href="{{ path('admin_app_tamostras_create') }}">{{ "Lançamento de Amostra"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
                 </ul>
             </li>
             <li><a href="" class="menu_resultados"></a>
                 <ul class="submenu">
                     <div>Resultados</div>
-                    <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Resultados</a></li>
-
-                    <li><a href="{{ path('tamostras_new') }}">Entrada de Resultados</a></li>
+                    <li><a href="{{ path('EntradaResultados') }}">Entrada de Resultados</a></li>
                 </ul>
             </li>
             <li><a href="" class="menu_configuracoes"></a>

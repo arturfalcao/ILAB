@@ -86,11 +86,11 @@ class TModelosresultadosAdmin extends Admin
                 ->add('ftMensagemutilizador','text', array('label' => 'Mensagem Utilizador'))
                 ->add('fnLimitequantificacao','number', array('label' => 'Limite Quantificação'))
 
-
             ->end()
             ->with('Gallery')
             ->add('RegasFormatacao', 'sonata_type_collection', array(
                 'cascade_validation' => true,
+                'label' => 'Regras de Formatação',
             ), array(
                     'edit'              => 'inline',
                     'inline'            => 'table',

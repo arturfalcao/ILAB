@@ -29,4 +29,8 @@ class ApplicationSonataUserBundle extends Bundle
     {
         return 'SonataUserBundle';
     }
+    public function getCharset()
+    {
+        return 'ISO-8859-1';
+    }
 }

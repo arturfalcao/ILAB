@@ -58,14 +58,17 @@ class TRegrasformatacaoAdmin extends Admin
     {
         $formMapper
             ->add('fnOrdem')
-            ->add('ftDescricao')
-            ->add('fnLimiteinferior')
-            ->add('fnLimitesuperior')
-            ->add('fnCasasdecimais')
-            ->add('fbFormatoexponencial')
-            ->add('fbFormatoutilizador')
-            ->add('ftExpressaoutilizador')
+            ->add('ftDescricao','text', array('label' => 'Descrição'))
+            ->add('fnLimiteinferior','text', array('label' => '>='))
+            ->add('fnLimitesuperior','text', array('label' => '<'))
+            ->add('fbFormatoexponencial','checkbox', array('label' => 'Exponencial','attr' => array('class' => "regra_exp")))
+            ->add('fbFormatoutilizador','checkbox', array('label' => 'Normal','attr' => array('class' => "regra_normal")))
+            ->add('fnCasasdecimais','number', array('label' => 'Casas Decimais','attr' => array('disabled' => true,'class' => "casasdecimais")))
+            ->add('ftExpressaoutilizador','text', array('label' => 'Expressão Utilizador','attr' => array('disabled' => true,'class' => "expre_utilizador"),))
         ;
+
+
+
     }
 
     /**

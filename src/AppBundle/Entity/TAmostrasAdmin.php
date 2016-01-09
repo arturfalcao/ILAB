@@ -162,8 +162,6 @@ class TAmostrasAdmin extends Admin
             ->end();
 
              if ($this->id($this->getSubject())) {
-
-
              }
              else {
                  $em = $this->modelManager->getEntityManager('AppBundle:TEstados');
@@ -171,7 +169,6 @@ class TAmostrasAdmin extends Admin
                      ->select('c')
                      ->from('AppBundle:TEstados', 'c')
                      ->where("c.ftId = 'I'");
-
                  $formMapper ->with('Addresses', array('class' => 'display_none'))
                      ->add('ftEstado','sonata_type_model', array('attr' => array('class' => 'display_none'),'query' => $query))
                      ->end();

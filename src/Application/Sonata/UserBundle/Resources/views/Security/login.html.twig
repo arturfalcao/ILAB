@@ -1,5 +1,8 @@
 {{ include('resources.html.twig') }}
 
+<!DOCTYPE html>
+
+
 {% stylesheets '@AppBundle/Resources/public/css/*' %}
 <link rel="stylesheet" href="{{ asset('bundles/applicationsonatauser/css/app.css') }}" />
 
@@ -12,7 +15,7 @@
 {% endblock %}
 
 {% if is_granted("ROLE") %}
-    saddas
+
     Hi {{ app.user.username }}
 {% else %}
 
@@ -26,19 +29,16 @@
         <div class="small-16 medium-12 large-6 columns">
             <img src="{{ asset('bundles/applicationsonatauser/images/logo.png') }}" alt="ilab" class="login-logo"/>
 
-
-
-
             <form action="{{ path("fos_user_security_check") }}" method="post" class="login-form">
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                 <input placeholder="Utilizador" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
                 <input placeholder="Palavra-Chave" type="password" id="password" name="_password" required="required" />
-                <input type="submit" id="_submit" name="_submit" class="button expand" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+                <input type="submit" id="_submit" name="_submit" class="button expand" value="{{ 'Entrar'|trans({}, 'FOSUserBundle') }}" />
 
                 <input id="keep-session" type="checkbox">
-                <label for="keep-session">Manter sess√£o aberta</label>
+                <label for="keep-session">Manter sess„o aberta</label>
                 <input type="hidden" name="_target_path" value="/calendar" />
                 <a href="#" class="right">Esqueceu a sua password?</a>
 

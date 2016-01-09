@@ -4,7 +4,8 @@ services:
         arguments: [~, AppBundle\Entity\TModelosresultados, AppBundle:TModelosresultadosAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Modelo de Resultados}
-
+        calls:
+            - [ setTemplate, [edit, AppBundle:RegrasFormatacao:edit.html.twig]]
     app.admin.t_areasensaio:
         class: AppBundle\Entity\TAreasensaioAdmin
         arguments: [~, AppBundle\Entity\TAreasensaio, SonataAdminBundle:CRUD]
