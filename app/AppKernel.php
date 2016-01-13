@@ -55,10 +55,12 @@ class AppKernel extends Kernel
         date_default_timezone_set( 'Europe/Lisbon' );
         parent::init();
     }
+
     public function getCharset()
     {
-        return 'ISO-8859-1';
+        return 'UTF-8';
     }
+
     public function registerContainerConfiguration(LoaderInterface $loader)
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');

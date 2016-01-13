@@ -73,7 +73,7 @@ class TClientesAdmin extends Admin
         $formMapper
             ->add('fnId')
             ->add('ftCodigo')
-            ->add('ftNome')
+            ->add('ftNome', 'text', array('label' => 'Mçdelo', 'by_reference' => false))
             ->add('ftAlias')
             ->add('ftMorada')
             ->add('ftCodpostal')

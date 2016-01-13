@@ -1,25 +1,38 @@
 {% block form %}
 
+
+
     <script>
 
+
         $(document).ready(function() {
-            //set initial state.
-            $('.regra_normal').parent().change(function() {
-                if($(this).is(":checked")) {
-                    $(".casasdecimais").prop('disabled', false);
-                    $('.regra_exp').prop('checked', false);
-                }
-            });
-            $('.regra_exp').parent().change(function() {
-                if($(this).is(":checked")) {
-                    $(".expre_utilizador").prop('disabled', false);
-                    $('.regra_normal').prop('checked', false);
-                }
-            });
+            $(".bind_regras").on("click", function() {
+                setTimeout(function() {   //calls click event after a certain time
+
+
+                        $('.regra_normal').siblings('ins').click(function() {
+                            setTimeout(function() {   //calls click event after a certain time
+                                if($(this).parent().hasClass('checked')) {
+
+                                }
+                            }, 100);
+
+                        });
+                        $('.regra_exp').siblings('ins').click(function() {
+                            setTimeout(function() {   //calls click event after a certain time
+                                if($(this).parent().hasClass('checked')) {
+
+                                }
+                            }, 100);
+                        });
+
+                    }, 3000);
+                });
 
         });
 
     </script>
+
     {{ sonata_block_render_event('sonata.admin.edit.form.top', { 'admin': admin, 'object': object }) }}
 
     {% set url = admin.id(object) is not null ? 'edit' : 'create' %}
@@ -31,7 +44,7 @@
 
     {% else %}
         <form
-              {% if admin_pool.getOption('form_type') == 'horizontal' %}class="form-horizontal"{% endif %}
+              {% if admin_pool.getOption('form_type') == 'horizontal' %} id="new_regras" class="form-horizontal"{% endif %}
               role="form"
               action="{{ admin.generateUrl(url, {'id': admin.id(object), 'uniqid': admin.uniqid, 'subclass': app.request.get('subclass')}) }}" {{ form_enctype(form) }}
               method="POST"
