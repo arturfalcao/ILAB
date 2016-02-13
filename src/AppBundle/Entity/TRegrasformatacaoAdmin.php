@@ -58,13 +58,13 @@ class TRegrasformatacaoAdmin extends Admin
     {
         $formMapper
             ->add('fnOrdem')
-            ->add('ftDescricao','text', array('label' => 'Descrição'))
+            ->add('ftDescricao','text', array('required' => false,'label' => 'Descrição'))
             ->add('fnLimiteinferior','text', array('label' => '>='))
             ->add('fnLimitesuperior','text', array('label' => '<'))
-            ->add('fbFormatoexponencial','checkbox', array('label' => 'Exponencial','attr' => array('class' => "regra_exp")))
-            ->add('fbFormatoutilizador','checkbox', array('label' => 'Normal','attr' => array('class' => "regra_normal")))
-            ->add('fnCasasdecimais','number', array('label' => 'Casas Decimais','attr' => array('disabled' => true,'class' => "casasdecimais")))
-            ->add('ftExpressaoutilizador','text', array('label' => 'Expressão Utilizador','attr' => array('disabled' => true,'class' => "expre_utilizador"),))
+            ->add('fbFormatoexponencial','checkbox', array('required' => false,'label' => 'Exponencial','attr' => array('class' => "regra_exp")))
+            ->add('fbFormatoutilizador','checkbox', array('required' => false,'label' => 'Normal','attr' => array('class' => "regra_normal")))
+            ->add('fnCasasdecimais','number', array('required' => false,'label' => 'Casas Decimais','attr' => array('class' => "casasdecimais")))
+            ->add('ftExpressaoutilizador','text', array('required' => false,'label' => 'Expressão Utilizador','attr' => array('class' => "expre_utilizador"),))
         ;
 
 

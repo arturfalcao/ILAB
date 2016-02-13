@@ -37,6 +37,21 @@ class TAmostrasAdminCustomController extends Controller
         );
     }
 
+
+    public function AmostrasGetCicloVidaAction()
+    {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+        $sql = "SELECT * FROM t_amostras_logs WHERE fn_id_amostra =".$arr2[1]  ."";
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $result = $activeDate->fetchAll();
+
+        return new Response(json_encode($result));
+
+    }
+
+
     /**
      * Creates a new TAmostra entity.
      *

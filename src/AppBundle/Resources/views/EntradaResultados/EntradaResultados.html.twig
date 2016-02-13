@@ -6,7 +6,6 @@
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    {% stylesheets '@AppBundle/Resources/public/css/*' %}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/app.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}" />
@@ -14,7 +13,6 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
     <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/vendor/select2/select2.css') }}">
-    {% endstylesheets %}
 
     {% block javascripts %}
 
@@ -45,6 +43,16 @@
 </head>
 <body>
 
+<style>
+
+    .testgrid tbody th:nth-child(5){
+        display:none !important;
+    }
+
+    .testgrid thead td:nth-child(5){
+        display:none !important;
+    }
+</style>
 <div class="container-fluid">
 
     <div class="row">
@@ -72,7 +80,7 @@
                     {% block actions %}
                         <div class="form-group">
                             <label for="inputdefault">ID Amostra</label>
-                            <input class="form-control" id="inputdefault" type="text">
+                            <input class="form-control" id="Amostra_id" type="text">
                         </div>
                         <div class="form-group">
                             <label for="parametro_ent_resultados">Parametro</label>
@@ -85,6 +93,7 @@
                         </div>
                     <div class="form-group">
                         <a href="#" onclick="getdata()" class="button right">Pesquisar</a>
+                        <a href="#" onclick="savedata()" class="button right">Salvar</a>
                     </div>
                     {% endblock %}
                     {% block tab_menu %}
@@ -113,13 +122,54 @@
     window.onload = function() {
         editableGrid = new EditableGrid("Entrada Resultados",{
             modelChanged: function(rowIndex, columnIndex, oldValue, newValue, row) {
-                updateCellValue(this, rowIndex, columnIndex, oldValue, newValue, row);
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('EntradaResultadosgetByRegrasFormatacao')}}',
+                    data: {data1 : row.cells[1].textContent , data2 :row.cells[2].textContent },
+                    success: function(data) {
+                        var obj = $.parseJSON(data);
+                        var val_down = 0;
+                        var val_up = 0;
+                        var validate = false;
+                        if(obj.condi.length !=0) {
+                            $.each(obj.condi, function( index, value ) {
+                                val_down = value.fn_limiteinferior;
+                                val_up = value.fn_limitesuperior;
+                                if(parseFloat(newValue.replace(',','.').replace(' ','')) > parseFloat(val_down.replace(',','.').replace(' ','')) && parseFloat(newValue.replace(',','.').replace(' ','')) < parseFloat(val_up.replace(',','.').replace(' ',''))){
+                                    editableGrid.setValueAt(rowIndex, 4, value.ft_expressaoutilizador, true);
+                                    validate = true;
+                                }
+                            });
+
+                        }
+                        if(validate == false){
+                            editableGrid.setValueAt(rowIndex, 4, "", true);
+                        }
+                    }
+                });
             }
         });
         editableGrid.tableLoaded = function() { this.renderGrid("tablecontent", "testgrid"); };
     }
 
+    var condi;
+    function savedata(){
+        $.ajax({
+            type: "POST",
+            url: '{{path('EntradaResultadossetByRegrasFormatacao')}}',
+            data: JSON.stringify(editableGrid.data),
+            success: function(data) {
+                if(data > 0){
+                    alert("Resultados Guardados com sucesso");
+                }else{
+                    alert("Resultado não guardado");
+                }
 
+            }
+        });
+        var tt = editableGrid;
+
+    }
     function getdata(){
         if( $('.parametro_ent_resultados').select2('data') != null){
             $.ajax({
@@ -127,38 +177,135 @@
                 url: '{{path('EntradaResultadosGetByParameter')}}',
                 data: $('.parametro_ent_resultados').select2('data').id,
                 success: function(data) {
-                    var metadata = [];
-                    metadata.push({ name: "ft_id_estado", label: "E", datatype: "string", editable: false});
-                    metadata.push({ name: "fn_id_amostra", label: "Amostra", datatype: "double", editable: false});
-                    metadata.push({ name: "ft_descricao", label: "Parametro", datatype: "string", editable: false});
-                    metadata.push({ name: "ft_original", label: "Resultado Original", datatype: "double", editable: true});
-                    metadata.push({ name: "ft_formatado", label: "Valor Formatado", datatype: "double", editable: false});
-                    metadata.push({ name: "medida", label: "Unidades", datatype: "string", editable: false});
-                    metadata.push({ name: "fn_calculado", label: "Resultado Calculado", datatype: "double", editable: false});
-                    metadata.push({ name: "fd_conclusao", label: "Concluido Em", datatype: "date", editable: false});
-                    metadata.push({ name: "fd_criacao", label: "Realizado Em", datatype: "date", editable: false});
-                    var obj = $.parseJSON(data);
-
-                    if(obj.data.length !=0){
-                        var data2 = [];
-                        var tt =1;
-                        $.each( obj, function( key, value ) {
-
-                            var values = JSON.stringify(value).replace('[','');
-                            values = values.replace(']','');
-
-                            data2.push({id: tt, values: JSON.parse(values)});
-                            tt++;
+                    if(data != "NoData"){
+                        var metadata = [];
+                        metadata.push({name: "ft_id_estado", label: "E", datatype: "string", editable: false});
+                        metadata.push({
+                            name: "fn_id_amostra",
+                            label: "Amostra",
+                            datatype: "string",
+                            editable: false
                         });
+                        metadata.push({
+                            name: "ft_descricao",
+                            label: "Parametro",
+                            datatype: "string",
+                            editable: false
+                        });
+                        metadata.push({
+                            name: "ft_original",
+                            label: "Resultado Original",
+                            datatype: "string",
+                            editable: true
+                        });
+                        metadata.push({
+                            name: "ft_formatado",
+                            label: "Valor Formatado",
+                            datatype: "string",
+                            editable: false
+                        });
+                        metadata.push({name: "medida", label: "Unidades", datatype: "string", editable: false});
+                        metadata.push({
+                            name: "fn_id_parametro",
+                            label: "ID Paramentro",
+                            datatype: "string",
+                            hidden: true
+                        });
+
+                        var obj = $.parseJSON(data);
+
+                        if(obj.data.length !=0){
+                            var data2 = [];
+                            var tt =1;
+                            $.each( obj.data, function( key, value ) {
+
+                                var values = JSON.stringify(value).replace('[','');
+                                values = values.replace(']','');
+
+                                data2.push({id: tt, values: JSON.parse(values)});
+                                tt++;
+                            });
+                        }else{
+                            var data2 = [];
+
+                        }
+                        editableGrid.load({"metadata": metadata, "data": data2});
+                        editableGrid.renderGrid("tablecontent", "testgrid");
+
                     }else{
-                        var data2 = [];
-
+                        alert("Não foram encontrados resultados para o seu pedido.")
                     }
-                    editableGrid.load({"metadata": metadata, "data": data2});
-                    editableGrid.renderGrid("tablecontent", "testgrid");
-
                 }
             });
+        }else{
+            if( $('#Amostra_id').val() != null){
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('EntradaResultadosGetByAmostra')}}',
+                    data: $('#Amostra_id').val(),
+                    success: function(data) {
+                        if (data != "NoData") {
+                            var metadata = [];
+                            metadata.push({name: "ft_id_estado", label: "E", datatype: "string", editable: false});
+                            metadata.push({
+                                name: "fn_id_amostra",
+                                label: "Amostra",
+                                datatype: "string",
+                                editable: false
+                            });
+                            metadata.push({
+                                name: "ft_descricao",
+                                label: "Parametro",
+                                datatype: "string",
+                                editable: false
+                            });
+                            metadata.push({
+                                name: "ft_original",
+                                label: "Resultado Original",
+                                datatype: "string",
+                                editable: true
+                            });
+                            metadata.push({
+                                name: "ft_formatado",
+                                label: "Valor Formatado",
+                                datatype: "string",
+                                editable: false
+                            });
+                            metadata.push({name: "medida", label: "Unidades", datatype: "string", editable: false});
+                            metadata.push({
+                                name: "fn_id_parametro",
+                                label: "ID Paramentro",
+                                datatype: "string",
+                                hidden: true
+                            });
+
+                            var obj = $.parseJSON(data);
+
+                            if (obj.data.length != 0) {
+                                var data2 = [];
+                                var tt = 1;
+                                $.each(obj.data, function (key, value) {
+
+                                    var values = JSON.stringify(value).replace('[', '');
+                                    values = values.replace(']', '');
+
+                                    data2.push({id: tt, values: JSON.parse(values)});
+                                    tt++;
+                                });
+                            } else {
+                                var data2 = [];
+
+                            }
+                            editableGrid.load({"metadata": metadata, "data": data2});
+                            editableGrid.renderGrid("tablecontent", "testgrid");
+
+                        } else {
+                            alert("Não foram encontrados resultados para o seu pedido.")
+                        }
+                    }
+                });
+            }
+
         }
 
 

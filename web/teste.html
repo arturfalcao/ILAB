@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Made In Portugal</title>
+    <style>
+        body {
+            background: url(brevemente.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+
+
+
+    function teste(arr){
+        var _duplicates = [];
+        var _aux = 0;
+        var _aux2 = false;
+        for(var e = arr.length - 1; e >= 0; e--){
+            if(_aux2 == true){
+                _duplicates.push(arr[i]);
+                _aux2= false;
+            }
+            _aux = arr[e];
+
+            for(var i = arr.length - 1; i >= 0; i--){
+                if(arr[i] == _aux){
+                    if(_aux2 == false){
+                        _aux2 = true;
+                        arr.splice(i,1);
+                    }else{
+                        arr.splice(i,1);
+                    }
+
+                }
+            }
+        }
+
+        return _duplicates;
+    }
+    teste([1, 2, 2, 2, 3, 4, 3, 6, 6]);
+</script>
+
+</body>
+</html>

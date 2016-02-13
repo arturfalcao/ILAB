@@ -135,7 +135,70 @@
                 <p>asddsa</p>
             </div>
             <div id="tabs-3">
-                <p>dsadsa</p>
+                <script>
+                    $( document ).ready(function() {
+                        $.ajax({
+                            type: "POST",
+                            url: '{{path('AmostrasGetCicloVida')}}',
+                            data: {data: {{ admin.id(object)  }} },
+                            success: function(data) {
+
+                                var obj = $.parseJSON(data);
+
+                                if (obj.length != 0) {
+                                    var html = "";
+                                    var estado = "";
+                                    var bullet = "";
+                                    $.each(obj, function (key, value) {
+                                        if(value.ft_id_estado == 'I'){
+                                            estado = 'Indisponivel';
+                                            bullet = "bullet-gray";
+                                        }
+                                        if(value.ft_id_estado == 'D'){
+                                            estado = 'Em Progresso';
+                                            bullet = "bullet-yellow";
+                                        }
+                                        if(value.ft_id_estado == 'P'){
+                                            estado = 'Planeada';
+                                            bullet = "bullet-blue";
+                                        }
+                                        if(value.ft_id_estado == 'C'){
+                                            estado = 'Completo';
+                                            bullet = "bullet-green";
+                                        }
+                                        if(value.ft_id_estado == 'X'){
+                                            estado = 'Cancelada';
+                                            bullet = "bullet-pink";
+                                        }
+                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.created_by_time +'</td><td>'+value.created_by +'</td></tr>'
+
+                                    });
+                                    $('.table_ciclo tbody').append(html);
+                                } else {
+
+                                }
+                            }
+                        });
+                    });
+
+
+                </script>
+
+                <div class="table-padding">
+                    <table class="hover table_ciclo">
+                        <thead>
+                        <tr>
+                            <th width="100">Estado</th>
+                            <th width="100">Data</th>
+                            <th width="150">Utilizador</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>

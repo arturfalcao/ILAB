@@ -44,6 +44,22 @@ EntradaResultados:
 EntradaResultadosGetByParameter:
   pattern:  /EntradaResultados/para
   defaults: { _controller: AppBundle:EntResultados:getByParameter }
+
+EntradaResultadosGetByAmostra:
+    pattern:  /EntradaResultados/amostra
+    defaults: { _controller: AppBundle:EntResultados:getByAmostra }
+EntradaResultadosgetByRegrasFormatacao:
+    pattern:  /EntradaResultados/regras
+    defaults: { _controller: AppBundle:EntResultados:getByRegrasFormatacao }
+EntradaResultadossetByRegrasFormatacao:
+    pattern:  /EntradaResultados/saveregras
+    defaults: { _controller: AppBundle:EntResultados:setByRegrasFormatacao }
+
+AmostrasGetCicloVida:
+    pattern:  /amostras/ciclo
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetCicloVida }
+
+
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 

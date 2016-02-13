@@ -70,7 +70,7 @@
                                     <td>{% if entity.startdatetime %}{{ entity.startdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
                                     <td>{% if entity.enddatetime %}{{ entity.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
                                     <td>{{ entity.fnCliente }}</td>
-                                    <td>{{ entity.fdColheita }}</td>
+                                    <td>{{ entity.fdColheita|date('Y-m-d H:i:s')  }}</td>
                                     <td>{{ entity.ftGrupoparametros }}</td>
                                     <td>{{ entity.fnProduto }}</td>
                                     <td>

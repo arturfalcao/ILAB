@@ -9839,3 +9839,34 @@ th.hide-for-touch {
     display: none !important;
   }
 }
+
+/* line 585, ../scss/style.scss */
+.bullet-green {
+  background: #84cd5d;
+}
+.bullet-gray {
+  background: gray;
+}
+.bullet-blue {
+  background: blue;
+}
+/* line 588, ../scss/style.scss */
+.bullet-yellow {
+  background: #ffc100;
+}
+/* line 591, ../scss/style.scss */
+.bullet-pink {
+  background: #ff1558;
+}
+.table_ciclo tbody td span{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  border-radius: 25px;
+  vertical-align: middle;
+  margin-right: 0.625rem;
+}
