@@ -143,17 +143,21 @@ class TAmostrasAdmin extends Admin
                 ->where("c.ftId = 'I'");
         }
 
+        $formMapper
+            ->with('codigo',array('description' => 'Codigo','class' => 'Codigo_amostra'))
+                ->add('fnId', 'text', array('label' => 'ID','read_only' => false,'disabled'  => false))
+            ->end();
+
+        if ($this->id($this->getSubject())) {
+            $formMapper
+                ->with('Estado',array('description' => 'Estado','class' => 'Estado_amostra'))
+                ->add('ftEstado', 'text', array('label' => 'Estado', 'by_reference' => false))
+                ->end();
+        }
 
 
 
         $formMapper
-
-            ->with('codigo',array('description' => 'Codigo','class' => 'Codigo_amostra'))
-                ->add('fnId', 'string', array('label' => 'ID','read_only' => true,'disabled'  => true))
-            ->end()
-            ->with('Estado',array('description' => 'Estado','class' => 'Estado_amostra'))
-                ->add('ftEstado', 'sonata_type_model', array('label' => 'Estado', 'by_reference' => false))
-            ->end()
             ->with('Cliente',array('description' => 'Cliente','class' => 'Cliente_amostra'))
                 ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente', 'by_reference' => false))
             ->end()
@@ -162,32 +166,27 @@ class TAmostrasAdmin extends Admin
                 ->add('ftGrupoparametros', 'sonata_type_model', array('label' => 'Grupo de parâmetros', 'by_reference' => false,'disabled'  => true))
             ->end()
             ->with('Lote',array('description' => 'Lote','class' => 'Lote_amostra'))
-
+            ->add('fnAmostrasalimentos', 'sonata_type_admin',array(
+                'btn_add' => false,'delete' => false,
+            ))
             ->end()
-            ->with('Colheita',array('description' => 'Colheita','class' => 'Colheita_amostra'))
-
+                ->add('fdColheita', 'datetime', array('label'=>'Data/hora Colheita','date_widget' => "single_text", 'time_widget' => "single_text"))
+                ->add('fnOperador')
+                ->add('ftResponsavelcolheita', 'choice',  array('multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
+                ->add('ftOrigem', 'text', array('label' => 'Ponto de Amostragem'))
             ->end()
             ->with('Caracterização',array('description' => 'Caracterização','class' => 'Caracterizacao_amostra'))
-
-            ->end()
-
-            ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto', 'by_reference' => false))
-
-            ->with('group1')
-                ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
+                ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto', 'by_reference' => false))
+                ->add('ftOrigem', 'text', array('label' => 'Origem', 'by_reference' => false))
+                ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
+                ->add('fnEspecificacao', 'sonata_type_model', array('label' => 'Especificação', 'by_reference' => false))
+                ->add('fnRequisicaocliente', 'sonata_type_model', array('label' => 'Especificação', 'by_reference' => false))
                 ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo Controlo', 'by_reference' => false))
-                ->add('ftObs')
-            ->end()
-
-            ->with('group2')
-            ->add('fdColheita', 'datetime', array('label'=>'Data/hora Colheita','date_widget' => "single_text", 'time_widget' => "single_text"))
-            ->add('fnOperador')
-            ->add('ftResponsavelcolheita', 'choice',  array('multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
-            ->add('ftOrigem', 'text', array('label' => 'Ponto de Amostragem'))
+                ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
+                ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo Aprovação', 'by_reference' => false))
+                ->add('ftConclusao', 'text', array('label' => 'Conclusão'))
+                ->add('ftObs', 'text', array('label' => 'Observações'))
             ->end();
-
-
-
              if ($this->id($this->getSubject())) {
              }
              else {
@@ -200,8 +199,6 @@ class TAmostrasAdmin extends Admin
                      ->add('ftEstado','sonata_type_model', array('attr' => array('class' => 'display_none'),'query' => $query))
                      ->end();
              }
-
-
         ;
     }
 

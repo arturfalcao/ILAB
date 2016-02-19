@@ -201,3 +201,8 @@ services:
         arguments: [~, AppBundle\Entity\TFamiliasprodutos, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: TFamiliasprodutos}
+    app.admin.t_amostrasalimentos:
+        class: AppBundle\Entity\TAmostrasalimentosAdmin
+        arguments: [~, AppBundle\Entity\TAmostrasalimentos, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Amostras Alimentos}

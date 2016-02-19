@@ -10,7 +10,8 @@
         </div>
 
     {% else %}
-
+        <script type="text/javascript" src="{{ asset('bundles/app/node_modules/dist/jquery.bootgrid.js') }}"></script>
+        <link href="{{ asset('bundles/app/node_modules/dist/jquery.bootgrid.css') }}" rel="stylesheet">
         <script>
             $(function() {
                 $( "#tabs" ).tabs();
@@ -132,7 +133,13 @@
                 </form>
             </div>
             <div id="tabs-2">
-                <p>asddsa</p>
+                <div class="row">
+                    <div class="col-md-4">
+
+
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
             </div>
             <div id="tabs-3">
                 <script>
@@ -170,7 +177,7 @@
                                             estado = 'Cancelada';
                                             bullet = "bullet-pink";
                                         }
-                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.created_by_time +'</td><td>'+value.created_by +'</td></tr>'
+                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.updated_by_time +'</td><td>'+value.created_by +'</td></tr>'
 
                                     });
                                     $('.table_ciclo tbody').append(html);

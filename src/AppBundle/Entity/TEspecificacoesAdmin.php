@@ -70,6 +70,8 @@ class TEspecificacoesAdmin extends Admin
         $formMapper
             ->add('fnId')
             ->add('ftCodigo')
+            ->add('fnParametros', 'sonata_type_model', array(
+                'multiple' => true,'by_reference' => false))
             ->add('ftDescricao')
             ->add('ftAlias')
             ->add('ftMensagemUtilizador')
@@ -83,7 +85,7 @@ class TEspecificacoesAdmin extends Admin
             ->add('ftSiglavl')
             ->add('ftLegendavl')
             ->add('fbActivo')
-            ->add('fnParametros', 'sonata_type_model_autocomplete', array('multiple' => true,  'property' => 'ftDescricao'))
+
 
 
     ;

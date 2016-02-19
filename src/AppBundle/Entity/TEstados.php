@@ -50,6 +50,17 @@ class TEstados
         return $this->ftId;
     }
 
+    /**
+     * Get ftId
+     *
+     * @return string
+     */
+    public function setFtId($ftId)
+    {
+        $this->ftId = $ftId;
+
+        return $this;
+    }
 
     /**
      * Set ftCodigo

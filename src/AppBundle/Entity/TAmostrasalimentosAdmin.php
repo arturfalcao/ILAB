@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class TClientesAdmin extends Admin
+class TAmostrasalimentosAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,20 +17,11 @@ class TClientesAdmin extends Admin
     {
         $datagridMapper
             ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftNome')
-            ->add('ftAlias')
-            ->add('ftMorada')
-            ->add('ftCodpostal')
-            ->add('ftLocalidade')
-            ->add('ftPais')
-            ->add('ftTelefone')
-            ->add('ftFax')
-            ->add('ftEmail')
-            ->add('ftObservacao')
-            ->add('ftNomecontacto')
-            ->add('ftTelefonecontacto')
-            ->add('ftEmailcontacto')
+            ->add('ftLote')
+            ->add('ftAcondicionamento')
+            ->add('ftValidade')
+            ->add('ftTemperatura')
+            ->add('ftFaseprocesso')
         ;
     }
 
@@ -41,20 +32,11 @@ class TClientesAdmin extends Admin
     {
         $listMapper
             ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftNome')
-            ->add('ftAlias')
-            ->add('ftMorada')
-            ->add('ftCodpostal')
-            ->add('ftLocalidade')
-            ->add('ftPais')
-            ->add('ftTelefone')
-            ->add('ftFax')
-            ->add('ftEmail')
-            ->add('ftObservacao')
-            ->add('ftNomecontacto')
-            ->add('ftTelefonecontacto')
-            ->add('ftEmailcontacto')
+            ->add('ftLote')
+            ->add('ftAcondicionamento')
+            ->add('ftValidade')
+            ->add('ftTemperatura')
+            ->add('ftFaseprocesso')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -72,27 +54,11 @@ class TClientesAdmin extends Admin
     {
         $formMapper
             ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftNome', 'text', array('label' => 'Mçdelo', 'by_reference' => false))
-            ->add('ftAlias')
-            ->add('ftMorada')
-            ->add('ftCodpostal')
-            ->add('ftLocalidade')
-            ->add('ftPais')
-            ->add('ftTelefone')
-            ->add('ftFax')
-            ->add('ftEmail')
-            ->add('ftObservacao')
-            ->add('ftNomecontacto')
-            ->add('ftTelefonecontacto')
-            ->add('ftEmailcontacto')
-            ->add('ftNomeUtilizador')
-            ->add('ftpassword')
-            ->add('fbuserativo', 'checkbox', array(
-                'label'     => 'Utilizador Ativo',
-                'required'  => false,
-            ))
-
+            ->add('ftLote')
+            ->add('ftAcondicionamento')
+            ->add('ftValidade')
+            ->add('ftTemperatura')
+            ->add('ftFaseprocesso')
         ;
     }
 
@@ -103,20 +69,11 @@ class TClientesAdmin extends Admin
     {
         $showMapper
             ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftNome')
-            ->add('ftAlias')
-            ->add('ftMorada')
-            ->add('ftCodpostal')
-            ->add('ftLocalidade')
-            ->add('ftPais')
-            ->add('ftTelefone')
-            ->add('ftFax')
-            ->add('ftEmail')
-            ->add('ftObservacao')
-            ->add('ftNomecontacto')
-            ->add('ftTelefonecontacto')
-            ->add('ftEmailcontacto')
+            ->add('ftLote')
+            ->add('ftAcondicionamento')
+            ->add('ftValidade')
+            ->add('ftTemperatura')
+            ->add('ftFaseprocesso')
         ;
     }
 }

@@ -381,6 +381,16 @@ class TAmostras
     private $ftEstado;
 
     /**
+     * @var \TAmostrasalimentos
+     *
+     * @ORM\ManyToOne(targetEntity="TAmostrasalimentos",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_amostraalimentos", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnAmostrasalimentos;
+
+    /**
      * @var \TRequisicoescliente
      *
      * @ORM\ManyToOne(targetEntity="TRequisicoescliente")
@@ -1405,6 +1415,32 @@ class TAmostras
 
         return $this->ftEstado;
     }
+
+
+    /**
+     * Set ftEstado
+     *
+     * @param \AppBundle\Entity\TAmostrasalimentos $fnAmostrasalimentos
+     * @return TAmostras
+     */
+    public function setFnAmostrasalimentos(\AppBundle\Entity\TAmostrasalimentos $fnAmostrasalimentos = null)
+    {
+        $this->fnAmostrasalimentos = $fnAmostrasalimentos;
+
+        return $this;
+    }
+
+    /**
+     * Get ftEstado
+     *
+     * @return \AppBundle\Entity\TEstados
+     */
+    public function getFnAmostrasalimentos()
+    {
+
+        return $this->fnAmostrasalimentos;
+    }
+
 
     /**
      * Set fnRequisicaocliente
