@@ -77,7 +77,7 @@ class TAmostrasAdmin extends Admin
     {
         $listMapper
             ->add('fnId')
-            ->add('ftEstado', 'sonata_type_model', array('label' => 'Modelo', 'by_reference' => false))
+            ->add('ftEstado')
             ->add('fbRelatorioemitido')
             ->add('serie')
             ->add('fnProduto')
@@ -147,15 +147,6 @@ class TAmostrasAdmin extends Admin
             ->with('codigo',array('description' => 'Codigo','class' => 'Codigo_amostra'))
                 ->add('fnId', 'text', array('label' => 'ID','read_only' => false,'disabled'  => false))
             ->end();
-
-        if ($this->id($this->getSubject())) {
-            $formMapper
-                ->with('Estado',array('description' => 'Estado','class' => 'Estado_amostra'))
-                ->add('ftEstado', 'text', array('label' => 'Estado', 'by_reference' => false))
-                ->end();
-        }
-
-
 
         $formMapper
             ->with('Cliente',array('description' => 'Cliente','class' => 'Cliente_amostra'))
