@@ -7,9 +7,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TResultados.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TResultados.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,13 +38,13 @@
       <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6091954">
-              <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.62873566">
+              <caret line="160" column="23" selection-start-line="160" selection-start-column="23" selection-end-line="160" selection-end-column="23" />
               <folding>
                 <element signature="e#40#81#0#PHP" expanded="true" />
-                <marker date="1456414965913" expanded="true" signature="2612:3735" placeholder="INSERT INTO ..." />
-                <marker date="1456414965913" expanded="true" signature="3123:3735" placeholder="SELECT aa.fn..t_parametros..." />
-                <marker date="1456414965913" expanded="true" signature="3940:4010" placeholder="UPDATE t_par..." />
+                <marker date="1456415135340" expanded="true" signature="2612:3735" placeholder="INSERT INTO ..." />
+                <marker date="1456415135340" expanded="true" signature="3123:3735" placeholder="SELECT aa.fn..t_parametros..." />
+                <marker date="1456415135340" expanded="true" signature="3940:4010" placeholder="UPDATE t_par..." />
               </folding>
             </state>
           </provider>
@@ -1262,13 +1260,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6091954">
-          <caret line="159" column="24" selection-start-line="159" selection-start-column="24" selection-end-line="159" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.62873566">
+          <caret line="160" column="23" selection-start-line="160" selection-start-column="23" selection-end-line="160" selection-end-column="23" />
           <folding>
             <element signature="e#40#81#0#PHP" expanded="true" />
-            <marker date="1456414965913" expanded="true" signature="2612:3735" placeholder="INSERT INTO ..." />
-            <marker date="1456414965913" expanded="true" signature="3123:3735" placeholder="SELECT aa.fn..t_parametros..." />
-            <marker date="1456414965913" expanded="true" signature="3940:4010" placeholder="UPDATE t_par..." />
+            <marker date="1456415135340" expanded="true" signature="2612:3735" placeholder="INSERT INTO ..." />
+            <marker date="1456415135340" expanded="true" signature="3123:3735" placeholder="SELECT aa.fn..t_parametros..." />
+            <marker date="1456415135340" expanded="true" signature="3940:4010" placeholder="UPDATE t_par..." />
           </folding>
         </state>
       </provider>
