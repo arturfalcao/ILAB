@@ -158,7 +158,7 @@ class WorkListCTRLController extends Controller
                         $estado_resultados = $em->getRepository('AppBundle:TEstados')->findOneByFtCodigo('D');
                         $result->setFnAmostra($amostra2);
                         $result->setFnParametro($value2);
-                       
+
 
 
                         $mod_para_id = $value2->getFnIdModeloparametro();
