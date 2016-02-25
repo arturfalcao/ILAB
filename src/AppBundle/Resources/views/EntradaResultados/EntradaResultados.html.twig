@@ -125,7 +125,7 @@
                 $.ajax({
                     type: "POST",
                     url: '{{path('EntradaResultadosgetByRegrasFormatacao')}}',
-                    data: {data1 : row.cells[1].textContent , data2 :row.cells[2].textContent },
+                    data: {data1 : row.cells[1].textContent , data2 :row.cells[6].textContent },
                     success: function(data) {
                         var obj = $.parseJSON(data);
                         var val_down = 0;
