@@ -106,16 +106,16 @@ class TAmostrasAdminCustomController extends Controller
             }
         }
 
-        $sql = "update t_amostras set ft_id_estado = 'D' where " . $where;
+        $sql = "update t_amostras set ft_id_estado = 'V' where " . $where;
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
 
         try {
             $activeDate->execute();
         } catch (Exception $e) {
-            return new Response(json_encode("Impossivel lançar amostras"));
+            return new Response(json_encode($e));
         }
 
-        return new Response(json_encode("ok"));
+        return new Response("ok");
 
     }
     public function AmostrasGetCicloVidaAction()
@@ -173,6 +173,8 @@ class TAmostrasAdminCustomController extends Controller
                     if(count($rr) != 0){
                         $entity = new TAmostras();
                         $em = $this->getDoctrine()->getManager();
+
+                        $modelo = $em->getRepository('AppBundle:TModelosamostra')->findOneByftDescricao($rr[5]);
                         $estado = $em->getRepository('AppBundle:TEstados')->findOneByftCodigo('P');
                         $clientes = $em->getRepository('AppBundle:TClientes')->findOneByftNome($rr[2]);
                         $produtos = $em->getRepository('AppBundle:TProdutos')->findOneByftDescricao($rr[0]);
@@ -181,7 +183,7 @@ class TAmostrasAdminCustomController extends Controller
                         $entity->setFnCliente($clientes);
                         $entity->setFnProduto($produtos);
                         $entity->setFtGrupoparametros($grupos);
-
+                        $entity->setFnModelo($modelo);
                         $date = new \DateTime(str_replace("/","-",$rr[3]));
                         $entity->setStartdatetime($date);
                         $date = new \DateTime(str_replace("/","-",$rr[4]));
