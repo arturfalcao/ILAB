@@ -50,6 +50,9 @@ tamostras_new:
 generateworklist:
     path:     /generateworklist/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Generateworklist }
+completesample:
+    path:     /completesample/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:Completesample }
 EntradaResultados:
     path:     /EntradaResultados
     defaults: { _controller: AppBundle:EntResultados:EntradaResultados }

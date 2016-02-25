@@ -24,6 +24,19 @@ use Symfony\Component\HttpFoundation\Response;
 class WorkListCTRLController extends Controller
 {
 
+
+    public function CompletesampleAction($slug){
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'C'));
+        $amostra->setFtEstado($estado);
+        $em->persist($amostra);
+        $em->flush();
+        return new Response("ok");
+
+
+    }
     public function GenerateworklistAction($slug)
     {
         error_reporting(0);
