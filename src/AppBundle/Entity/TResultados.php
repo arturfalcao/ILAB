@@ -143,7 +143,7 @@ class TResultados
     /**
      * @var \TParametros
      *
-     * @ORM\ManyToOne(targetEntity="TParametros")
+     * @ORM\ManyToOne(targetEntity="TParametrosamostra")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")
      * })
@@ -179,6 +179,7 @@ class TResultados
      */
     public function getFnId()
     {
+
         return $this->fnId;
     }
 
@@ -542,10 +543,10 @@ class TResultados
     /**
      * Set fnParametro
      *
-     * @param \AppBundle\Entity\TParametros $fnParametro
+     * @param \AppBundle\Entity\TParametrosamostra $fnParametro
      * @return TResultados
      */
-    public function setFnParametro(\AppBundle\Entity\TParametros $fnParametro = null)
+    public function setFnParametro(\AppBundle\Entity\TParametrosamostra $fnParametro = null)
     {
         $this->fnParametro = $fnParametro;
 
@@ -555,7 +556,7 @@ class TResultados
     /**
      * Get fnParametro
      *
-     * @return \AppBundle\Entity\TParametros 
+     * @return \AppBundle\Entity\TParametrosamostra
      */
     public function getFnParametro()
     {

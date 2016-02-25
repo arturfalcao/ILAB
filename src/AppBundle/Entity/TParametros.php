@@ -254,7 +254,7 @@ class TParametros
     /**
      * @var integer
      *
-     * @ORM\Column(name="fb_confirmacao", type="integer", nullable=false)
+     * @ORM\Column(name="fb_confirmacao", type="boolean", nullable=false)
      */
     private $fbConfirmacao;
 
@@ -268,7 +268,7 @@ class TParametros
     /**
      * @var integer
      *
-     * @ORM\Column(name="fb_contraanalise", type="integer", nullable=true)
+     * @ORM\Column(name="fb_contraanalise", type="boolean", nullable=true)
      */
     private $fbContraanalise;
 

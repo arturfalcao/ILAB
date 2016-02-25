@@ -55,6 +55,16 @@ class WorkListCTRLController extends Controller
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
                 }else{
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
+
+
+                    $conn = $this->getDoctrine()->getConnection();
+                    $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getIdparametro();
+                    $activeDate = $this->getDoctrine()->getManager()->getConnection();
+                    $activeDate->prepare($sql)->execute();
+
+                    $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $slug . " where id=" . $activeDate->lastInsertId();
+                    $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                    $activeDate->execute();
                 }
 
                     $info = $value2->getFnIdAreaensaio();
@@ -113,15 +123,26 @@ class WorkListCTRLController extends Controller
             $em->flush();
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
+
+            $arr = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
+
             foreach ($arr as $value) {
+
                 if($flag == 0){
-                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
+                    $value2= $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $value->getId()));
                 }else{
-                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
+                    $value2= $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $value->getId()));
+
                 }
 
                     $info = $value2->getFtDescricao();
-                    if(!$em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value2->getFnId(),'fnAmostra' => $amostra2->getFnId()))){
+
+
+                $logger = new \Doctrine\DBAL\Logging\DebugStack();
+
+
+
+                if(!$em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value2->getFnId(),'fnAmostra' => $amostra2->getFnId()))){
                         $result = new TResultados();
                         $estado_resultados = $em->getRepository('AppBundle:TEstados')->findOneByFtCodigo('D');
                         $result->setFnAmostra($amostra2);
@@ -132,12 +153,14 @@ class WorkListCTRLController extends Controller
                         $result->setFnUnidade($mod_para->getFnModeloresultado()->getFnUnidade());
                         $result->setFtDescricao($value2->getFtDescricao());
                         $result->setFtEstado($estado_resultados);
-                        try{
+
+                    $logger = new \Doctrine\DBAL\Logging\DebugStack();
+
+                    $em->getConnection()->getConfiguration()->setSQLLogger($logger);
                             $em->persist($result);
                             $em->flush();
-                        }catch(\Exception $e){
-                            var_dump($e->getMessage());
-                        }
+                    var_dump($logger->queries);
+
                     }
                     $amostra = $em->getRepository('AppBundle:ModelosListas')->findOneByidParametro($value2->getFnId());
                     if($amostra != null){

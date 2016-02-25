@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\TAmostras;
 use AppBundle\Form\TAmostrasType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Agenda controller.
@@ -25,30 +26,183 @@ class TAmostrasAdminCustomController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $form = $this->createFormBuilder()->getForm();
+        $form->handleRequest($request);
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:TAmostras')->findAll();
+        $qb = $em->createQueryBuilder();
+
+
+
+        $query = $qb->select('s')
+            ->from('AppBundle:TAmostras', 's')
+            ->where('s.ftEstado = :estado')
+            ->setParameter('estado', 'P');
+
+        $arr_filtros = array("ftEstado"=>"D");
+
+        if ($request->isMethod('GET')) {
+
+            if(!empty($request->query->get('cliente')) ){
+                $query->andWhere('s.fnCliente = :cliente')->setParameter('cliente', $request->query->get('cliente'));
+
+            }
+            if(!empty($request->query->get('produto')) ){
+                $query->andWhere('s.fnProduto = :produto')->setParameter('produto', $request->query->get('produto'));
+
+            }
+            if(!empty($request->query->get('grupo')) ){
+                $query->andWhere('s.ftGrupoparametros = :grupo')->setParameter('grupo', $request->query->get('grupo'));
+            }
+            if(!empty($request->query->get('dataini')) ){
+
+                $date = new \DateTime($request->query->get('dataini'));
+
+                $query->andWhere("s.startdatetime >= '". $date->format('Y-m-d') ."' ");
+
+
+
+            }
+            if(!empty($request->query->get('datafim')) ){
+
+                $date = new \DateTime($request->query->get('datafim'));
+
+                $query->andWhere("s.enddatetime <= '". $date->format('Y-m-d') ."' ");
+            }
+        }
+
+        $entities =  $query->getQuery()->getResult();
+
+
+        //$entities = $em->getRepository('AppBundle:TAmostras')->findBy(array($arr_filtros));
+        $clientes = $em->getRepository('AppBundle:TClientes')->findAll();
+        $produtos = $em->getRepository('AppBundle:TProdutos')->findAll();
+        $grupos = $em->getRepository('AppBundle:TGruposparametros')->findAll();
 
 
         return array(
-            'entities' => $entities,
+            'entities' => $entities,'clientes' => $clientes,'produtos' => $produtos,'grupos' => $grupos,
         );
     }
 
+    /**
+     * Lists all TAmostras entities.
+     *
+     * @Method("POST")
+     * @Template()
+     */
+    public function LancaAmostrasAction()
+    {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("-", $arr);
+        $where ="";
+        foreach ($arr2 as &$value) {
+            if($where == ""){
+                $where = "fn_id =" . $value ;
+            }else{
+                $where = $where  . " OR " .  "fn_id =" . $value ;
+            }
+        }
 
+        $sql = "update t_amostras set ft_id_estado = 'D' where " . $where;
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+
+        try {
+            $activeDate->execute();
+        } catch (Exception $e) {
+            return new Response(json_encode("Impossivel lançar amostras"));
+        }
+
+        return new Response(json_encode("ok"));
+
+    }
     public function AmostrasGetCicloVidaAction()
     {
         $arr = $this->get("request")->getContent();
         $arr2 = explode("=", $arr);
-        $sql = "SELECT * FROM t_amostras_logs WHERE fn_id_amostra =".$arr2[1]  ."";
+        $sql = "SELECT * FROM t_amostras_logs WHERE fn_id_amostra =".$arr2[1];
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
 
         return new Response(json_encode($result));
 
+    }
+    public function AmostrasGetParametrosAction()
+    {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+        $sql = "SELECT r.fn_id ,r.ft_descricao AS resultado, p.ft_descricao AS parametros, e.ft_codigo , r.ft_formatado ,u.ft_descricao AS unidades , para_esp.ft_texto_relatorio FROM `t_resultados` AS r INNER JOIN t_parametros AS p ON r.fn_id_parametro = p.fn_id INNER JOIN t_estados AS e ON r.ft_id_estado = e.ft_id INNER JOIN t_unidadesmedida AS u ON r.fn_id_unidade = u.fn_id INNER JOIN t_amostras AS a ON r.fn_id_amostra = a.fn_id INNER JOIN t_produtosespecificacoes AS pro ON a.fn_id_produto = pro.fn_id_produto LEFT JOIN t_parametrosporespecificacao AS para_esp ON pro.fn_id_especificacao = para_esp.fn_id_especificacao AND  r.fn_id_parametro = para_esp.fn_id_familiaparametro WHERE r.fn_id_amostra = ".$arr2[1];
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $result = $activeDate->fetchAll();
+        return new Response(json_encode($result));
+
+    }
+
+
+    /**
+     * Creates a new TAmostra entity.
+     *
+     * @Route("/importacao", name="importacaoamostra")
+     * @Method("POST")
+     * @Template("AppBundle:TAmostrasAdminCustom:importacao.html.twig")
+     */
+    public function importacaoAction(Request $request)
+    {
+        $texto = "";
+        if ($request->isMethod('POST')) {
+
+
+            $uploadedFile = $request->files->get('fileToUpload');
+            $filename = $uploadedFile->getPathname();
+            $csvData = file_get_contents($filename);
+            $lines = explode(PHP_EOL, $csvData);
+            $array = array();
+            foreach ($lines as $line) {
+                $array[] = str_getcsv($line);
+            }
+
+
+            try {
+                foreach ($array as &$value) {
+                    $rr = explode(";",$value[0]);
+
+                    if(count($rr) != 0){
+                        $entity = new TAmostras();
+                        $em = $this->getDoctrine()->getManager();
+                        $estado = $em->getRepository('AppBundle:TEstados')->findOneByftCodigo('P');
+                        $clientes = $em->getRepository('AppBundle:TClientes')->findOneByftNome($rr[2]);
+                        $produtos = $em->getRepository('AppBundle:TProdutos')->findOneByftDescricao($rr[0]);
+                        $grupos = $em->getRepository('AppBundle:TGruposparametros')->findOneByftCodigo($rr[1]);
+                        $entity->setFtEstado($estado);
+                        $entity->setFnCliente($clientes);
+                        $entity->setFnProduto($produtos);
+                        $entity->setFtGrupoparametros($grupos);
+
+                        $date = new \DateTime(str_replace("/","-",$rr[3]));
+                        $entity->setStartdatetime($date);
+                        $date = new \DateTime(str_replace("/","-",$rr[4]));
+                        $entity->setEnddatetime($date);
+                        $em->persist($entity);
+                        $em->flush();
+                    }
+
+
+                }
+                $texto = "Importação realizada com sucesso";
+            } catch (Exception $e) {
+                $texto = "Falha na importação por favor valide os dados";
+            }
+
+
+        }
+
+
+        return $this->render(
+            'AppBundle:TAmostrasAdminCustom:importacao.html.twig',array('string' => $texto));
     }
 
 

@@ -24,7 +24,7 @@ class TModelosparametro
     /**
      * @var integer
      *
-     * @ORM\Column(name="fb_activo", type="bigint", nullable=true)
+     * @ORM\Column(name="fb_activo", type="boolean", nullable=true)
      */
     private $fbActivo;
 

@@ -16,21 +16,17 @@ class TClientesAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftNome')
-            ->add('ftAlias')
-            ->add('ftMorada')
-            ->add('ftCodpostal')
-            ->add('ftLocalidade')
-            ->add('ftPais')
-            ->add('ftTelefone')
-            ->add('ftFax')
-            ->add('ftEmail')
-            ->add('ftObservacao')
-            ->add('ftNomecontacto')
-            ->add('ftTelefonecontacto')
-            ->add('ftEmailcontacto')
+            ->add('fnId',null, array('label' => 'ID'))
+            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftNome',null, array('label' => 'Nome'))
+            ->add('ftAlias',null, array('label' => 'Alias'))
+            ->add('ftMorada',null, array('label' => 'Morada'))
+            ->add('ftCodpostal',null, array('label' => 'Codigo Postal'))
+            ->add('ftLocalidade',null, array('label' => 'Localidade'))
+            ->add('ftPais',null, array('label' => 'Pais'))
+            ->add('ftTelefone',null, array('label' => 'Telefone'))
+            ->add('ftFax',null, array('label' => 'Fax'))
+            ->add('ftEmail',null, array('label' => 'Email'))
         ;
     }
 
@@ -40,21 +36,13 @@ class TClientesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftNome')
-            ->add('ftAlias')
-            ->add('ftMorada')
-            ->add('ftCodpostal')
-            ->add('ftLocalidade')
-            ->add('ftPais')
-            ->add('ftTelefone')
-            ->add('ftFax')
-            ->add('ftEmail')
-            ->add('ftObservacao')
-            ->add('ftNomecontacto')
-            ->add('ftTelefonecontacto')
-            ->add('ftEmailcontacto')
+            ->add('fnId',null, array('label' => 'ID'))
+            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftNome',null, array('label' => 'Nome'))
+            ->add('ftMorada',null, array('label' => 'Morada'))
+            ->add('ftLocalidade',null, array('label' => 'Localidade'))
+            ->add('ftTelefone',null, array('label' => 'Telefone'))
+            ->add('ftEmail',null, array('label' => 'Email'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -70,28 +58,25 @@ class TClientesAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+
         $formMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftNome', 'text', array('label' => 'Mçdelo', 'by_reference' => false))
-            ->add('ftAlias')
-            ->add('ftMorada')
-            ->add('ftCodpostal')
-            ->add('ftLocalidade')
-            ->add('ftPais')
-            ->add('ftTelefone')
-            ->add('ftFax')
-            ->add('ftEmail')
-            ->add('ftObservacao')
-            ->add('ftNomecontacto')
-            ->add('ftTelefonecontacto')
-            ->add('ftEmailcontacto')
-            ->add('ftNomeUtilizador')
-            ->add('ftpassword')
-            ->add('fbuserativo', 'checkbox', array(
-                'label'     => 'Utilizador Ativo',
-                'required'  => false,
-            ))
+            ->add('ftCodigo', 'text', array('required' => true,'label' => 'Codigo'))
+            ->add('ftNome', 'text', array('required' => true,'label' => 'Nome'))
+            ->add('ftAlias', 'text', array('required' => false,'label' => 'Alias'))
+            ->add('ftMorada', 'text', array('required' => true,'label' => 'Morada'))
+            ->add('ftCodpostal', 'text', array('required' => true,'label' => 'Cod-Postal'))
+            ->add('ftLocalidade', 'text', array('required' => true,'label' => 'Localidade'))
+            ->add('ftPais', 'text', array('required' => true,'label' => 'Pais'))
+            ->add('ftTelefone', 'integer', array('required' => true,'label' => 'Telefone'))
+            ->add('ftFax', 'integer', array('required' => false,'label' => 'Fax'))
+            ->add('ftEmail', 'text', array('required' => true,'label' => 'Email'))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observações'))
+            ->add('ftNomecontacto', 'text', array('required' => false,'label' => 'Nome do Contacto'))
+            ->add('ftTelefonecontacto', 'integer', array('required' => false,'label' => 'Telefone Contacto'))
+            ->add('ftEmailcontacto', 'text', array('required' => false,'label' => 'Email Contacto'))
+            ->add('ftNomeUtilizador', 'text', array('required' => false,'label' => 'Nome de Utilizador'))
+            ->add('ftpassword', 'text', array('required' => false,'label' => 'Password'))
+            ->add('fbuserativo', 'checkbox', array('label'=> 'Utilizador Ativo','required'  => false,))
 
         ;
     }

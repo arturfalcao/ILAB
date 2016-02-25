@@ -7,15 +7,15 @@
                         <div>Planeamento de amostras</div>
                         <li><a href="{{path('tamostras') }}" >Calendario</a></li>
 
-                        <li><a href="{{ path('admin_app_tamostras_create') }}">Novo Planeamento</a></li>
+                        <li><a href="{{ path('tamostras_planeamento') }}">Novo Planeamento</a></li>
                     </ul>
                 </li>
             <li><a href="" class="menu_amostras"></a>
                 <ul class="submenu">
                     <div>Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
-
                     <li><a href="{{ path('admin_app_tamostras_create') }}">{{ "Lançamento de Amostra"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                    <li><a href="{{ path('importacaoamostra') }}">{{ "Importação de Amostras"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
                 </ul>
             </li>
             <li><a href="" class="menu_resultados"></a>
@@ -48,6 +48,11 @@
                 </ul>
             </li>
             <li><a href="" class="menu_cartas"></a>
+                <ul class="submenu">
+                    <div>Administração</div>
+                    <li><a href="{{path('sonata_admin_dashboard') }}" >{{ "Gestão de Utilizadores"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+
+                </ul>
                 <!--<ul class="submenu">
                     <li><a href="">Tops</a></li>
                     <li><a href="">Bottoms</a></li>

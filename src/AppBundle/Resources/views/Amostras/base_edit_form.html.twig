@@ -10,8 +10,8 @@
         </div>
 
     {% else %}
-        <script type="text/javascript" src="{{ asset('bundles/app/node_modules/dist/jquery.bootgrid.js') }}"></script>
-        <link href="{{ asset('bundles/app/node_modules/dist/jquery.bootgrid.css') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.js') }}"></script>
+        <link href="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.css') }}" rel="stylesheet">
         <script>
             $(function() {
                 $( "#tabs" ).tabs();
@@ -135,7 +135,19 @@
             <div id="tabs-2">
                 <div class="row">
                     <div class="col-md-4">
-
+                        <table id="parametros_grid" class="table table-condensed table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th data-column-id="fn_id" data-type="numeric" data-identifier="true">ID</th>
+                                <th data-column-id="ft_codigo" data-type="numeric" >asddsa</th>
+                                <th data-column-id="resultado">Sender</th>
+                                <th data-column-id="parametros" >Received</th>
+                                <th data-column-id="ft_formatado">Link</th>
+                                <th data-column-id="unidades">Link</th>
+                                <th data-column-id="ft_texto_relatorio">Link</th>
+                            </tr>
+                            </thead>
+                        </table>
 
                     </div>
                     <div class="col-md-8"></div>
@@ -149,9 +161,7 @@
                             url: '{{path('AmostrasGetCicloVida')}}',
                             data: {data: {{ admin.id(object)  }} },
                             success: function(data) {
-
                                 var obj = $.parseJSON(data);
-
                                 if (obj.length != 0) {
                                     var html = "";
                                     var estado = "";
@@ -181,6 +191,37 @@
 
                                     });
                                     $('.table_ciclo tbody').append(html);
+                                } else {
+
+                                }
+                            }
+                        });
+                    });
+
+
+                    $( document ).ready(function() {
+                        $.ajax({
+                            type: "POST",
+                            url: '{{path('AmostrasGetParametros')}}',
+                            data: {data: {{ admin.id(object)  }} },
+                            success: function(data) {
+
+                                var grid_para = $("#parametros_grid").bootgrid({
+                                    navigation:0,
+                                    selection: true,
+                                    keepSelection:true,
+                                    rowSelect:true,
+                                    multiSelect:true
+
+                                });
+
+                                var obj = $.parseJSON(data);
+
+                                if (obj.length != 0) {
+                                    grid_para.bootgrid("append",obj );
+                                    $.each(obj, function (key, value) {
+
+                                    });
                                 } else {
 
                                 }

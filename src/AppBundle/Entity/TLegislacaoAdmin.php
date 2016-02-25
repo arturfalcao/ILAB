@@ -16,11 +16,11 @@ class TLegislacaoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->add('fnId',null, array('label' => 'ID'))
+            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('ftAlias',null, array('label' => 'Alias'))
+            ->add('ftObservacao',null, array('label' => 'Observação'))
         ;
     }
 
@@ -30,11 +30,11 @@ class TLegislacaoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->add('fnId',null, array('label' => 'ID'))
+            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('ftAlias',null, array('label' => 'Alias'))
+            ->add('ftObservacao',null, array('label' => 'Observação'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -51,11 +51,10 @@ class TLegislacaoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->add('ftCodigo', 'text', array('required' => true,'label' => 'Codigo'))
+            ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
+            ->add('ftAlias', 'text', array('required' => false,'label' => 'Alias'))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observação'))
         ;
     }
 

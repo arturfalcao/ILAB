@@ -52,8 +52,6 @@ class TProdutosAdmin extends Admin
             ->add('fnEspecificacoes')
             ->add('ftObservacao')
             ->add('fbActivo')
-            ->add('fbAcreditacaoamostragem')
-            ->add('fbAcreditacaoamostragemmicro')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

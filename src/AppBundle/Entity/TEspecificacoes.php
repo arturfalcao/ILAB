@@ -84,7 +84,7 @@ class TEspecificacoes
     /**
      * @var integer
      *
-     * @ORM\Column(name="fb_emissao_de_relatorio", type="integer", nullable=false)
+     * @ORM\Column(name="fb_emissao_de_relatorio", type="boolean", nullable=false)
      */
     private $fbEmissaoDeRelatorio;
 
@@ -112,7 +112,7 @@ class TEspecificacoes
     /**
      * @var integer
      *
-     * @ORM\Column(name="fb_activo", type="integer", nullable=false)
+     * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
      */
     private $fbActivo;
 
@@ -128,13 +128,11 @@ class TEspecificacoes
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="TParametros")
-     * @ORM\JoinTable(name="t_parametrosporespecificacao",
-     *      joinColumns={@ORM\JoinColumn(name="fn_id_especificacao", referencedColumnName="fn_id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_familiaparametro", referencedColumnName="fn_id")}
-     *      )
+     * @ORM\OneToMany(targetEntity="TParametrosporespecificacao", mappedBy="fnIdEspecificacao", cascade={"persist"}, orphanRemoval=true)
      */
     private $fnParametros;
+
+
 
 
     /**
@@ -177,10 +175,10 @@ class TEspecificacoes
     /**
      * Add projectMedia
      *
-     * @param \AppBundle\Entity\TParametros
-     * @return TParametros
+     * @param \AppBundle\Entity\TParametrosporespecificacao
+     * @return TParametrosporespecificacao
      */
-    public function addfnParametros(\AppBundle\Entity\TParametros $fnParametros)
+    public function addfnParametros(\AppBundle\Entity\TParametrosporespecificacao $fnParametros)
     {
         $this->fnParametros[] = $fnParametros;
         return $this;
@@ -188,16 +186,16 @@ class TEspecificacoes
     /**
      * Remove projectMedia
      *
-     * @param \AppBundle\Entity\TParametros
+     * @param \AppBundle\Entity\TParametrosporespecificacao
      */
-    public function removefnParametros(\AppBundle\Entity\TParametros $fnParametros)
+    public function removefnParametros(\AppBundle\Entity\TParametrosporespecificacao $fnParametros)
     {
         $this->fnParametros->remove($fnParametros);
     }
     /**
      * Get projectMedia
      *
-     * @return \AppBundle\Entity\TParametros
+     * @return \AppBundle\Entity\TParametrosporespecificacao
      */
     public function getfnParametros()
     {
@@ -211,9 +209,10 @@ class TEspecificacoes
      */
     public function setfnParametros($fnParametros)
     {
+
         $this->fnParametros = new \Doctrine\Common\Collections\ArrayCollection();
         foreach ($fnParametros as $m) {
-            $m->setespecificacoes($this);
+            $m->setFnIdEspecificacao($this);
             $this->addfnParametros($m);
         }
         return $this;

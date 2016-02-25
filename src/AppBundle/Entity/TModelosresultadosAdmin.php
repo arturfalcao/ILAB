@@ -28,15 +28,15 @@ class TModelosresultadosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fbActivo')
-            ->add('fbIncluirnorelatorio')
-            ->add('fbGamavalores')
-            ->add('fnMaximo')
-            ->add('fnMinimo')
-            ->add('ftMensagemutilizador')
-            ->add('ftDescricao')
-            ->add('fnLimitequantificacao')
-            ->add('ftObservacao')
+            ->add('fbActivo',null, array('label' => 'Activo'))
+            ->add('fbIncluirnorelatorio',null, array('label' => 'Incluir Relatorio'))
+            ->add('fbGamavalores',null, array('label' => 'Gama de Valores'))
+            ->add('fnMaximo',null, array('label' => 'Maximo'))
+            ->add('fnMinimo',null, array('label' => 'Minimo'))
+            ->add('ftMensagemutilizador',null, array('label' => 'MSG Utilizador'))
+            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('fnLimitequantificacao',null, array('label' => 'Limite'))
+            ->add('ftObservacao',null, array('label' => 'Observação'))
         ;
     }
 
@@ -84,7 +84,7 @@ class TModelosresultadosAdmin extends Admin
                 ->add('fnMaximo','number', array('label' => 'Maximo'))
                 ->add('fnMinimo','number', array('label' => 'Minimo'))
                 ->add('ftMensagemutilizador','text', array('label' => 'Mensagem Utilizador'))
-                ->add('fnLimitequantificacao','number', array('label' => 'Limite Quantificação'))
+                ->add('fnLimitequantificacao','integer', array('label' => 'Limite Quantificação'))
 
             ->end()
             ->with('Gallery')

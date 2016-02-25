@@ -15,57 +15,97 @@
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
+
+
+
+    <link rel="stylesheet" href="/bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/vendor/AdminLTE/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/vendor/AdminLTE/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/vendor/jqueryui/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/vendor/select2/select2.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/vendor/select2/select2-bootstrap.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/css/styles.css">
+    <link rel="stylesheet" href="/bundles/sonataadmin/css/layout.css">
+
+    <link rel="stylesheet" type="text/css" href="/bundles/app/css/sonata.css">
+    <link rel="stylesheet" type="text/css" href="/bundles/app/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/bundles/app/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/bundles/app/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="/bundles/app/js/icheck/skins/minimal/minimal.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
 
 
+    <script type="text/javascript" src="{{ asset('bundles/app/js/icheck/icheck.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('bundles/app/js/lang-all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sonataadmin/vendor/select2/select2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sonataadmin/vendor/select2/select2_locale_pt-PT.js') }}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
 {% endblock %}
 
-<link rel="stylesheet" type="text/css" href="/bundles/app/css/calendario.css" />
 
 {% block scripts -%}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 
 {% endblock %}
 
-<div class="container-fluid new_cal_element">
+<div class="new_cal_element">
     <div class="row">
-        <div class="large-1 columns " style="height: 100%;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
+        <div class="col-md-1  " style="height: 100%;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
+        <div class=" col-md-11 ">
             <div class="row">
-                <div class="large-16 columns no-padding">
+                <div class="col-md-12 columns no-padding">
                     {% include 'default/topheader_planeamento.html.twig' %}
                 </div>
             </div>
             <div class="row">
-                <div class="large-10 columns no-padding">
 
                     {% block body -%}
 
 
-
-                        <table class="records_list">
-                            <thead>
-                            <tr>
-                                <th>Actions</th>
-                                <th>Data Inicio</th>
-                                <th>Data de fim</th>
-                                <th>Cliente</th>
-                                <th>Local de colheita</th>
-                                <th>Grupo de Parâmetros</th>
-                                <th>Produtos</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                    <div class="sonata-ba-list col-md-10">
+                        <div class="box box-primary">
+                            <div class="box-body table-responsive no-padding" style="height: 800px;max-height: 800px;overflow-y: scroll;">
+                           <table>
+                               <thead>
+                               <tr class="sonata-ba-list-field-header">
+                                   <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">
+                                   </th>
+                                   <th class="sonata-ba-list-field-header-integer ">ID</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Data Inicio</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Data de fim</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Cliente</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Local de colheita</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Grupo de Parâmetros</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Produtos</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Actions</th>
+                               </tr>
+                               </thead>
+                           </table>
+                                <table class="records_list table table-bordered table-striped">
+                            <tbody style="">
                             {% for entity in entities %}
                                 <tr>
+                                    <td class="">
+                                        <input type="checkbox" name="idx[{{ entity.fnId }}]" id="{{ entity.fnId }}">
+                                    </td>
                                     <td>{{ entity.fnId }}</td>
                                     <td>{% if entity.startdatetime %}{{ entity.startdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
                                     <td>{% if entity.enddatetime %}{{ entity.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -74,24 +114,128 @@
                                     <td>{{ entity.ftGrupoparametros }}</td>
                                     <td>{{ entity.fnProduto }}</td>
                                     <td>
-                                        <ul>
-                                            <li>
-                                                <a href="{{ path('tamostras_edit', { 'id': entity.fnId }) }}">Editar</a>
-                                            </li>
-                                        </ul>
+                                        <a href="{{ path('tamostras_edit', { 'id': entity.fnId }) }}" class="btn btn-sm btn-default edit_link" title="Editar">
+                                            <i class="glyphicon glyphicon-edit"></i>
+                                            Editar
+                                        </a>
                                     </td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="sonata-ba-filter col-md-2">
+                        <form class="sonata-filter-form "  style="float: left;margin: 0;" action="{{ path('tamostras_planeamento') }}" method="GET" role="form">
+                            <div class="form-group">
+                                <label for="filter_fnOperador_value">Cliente</label>
+                                <select id="cliente" name="cliente" title="Cliente">
+                                    <option value=""></option>
+                                    {% for cliente  in clientes %}
+                                        <option value="{{cliente.fnId}}">{{ cliente.ftNome }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="filter_fnOperador_value">Produto</label>
+                                <select id="produto" name="produto" title="Produto">
+                                    <option value=""></option>
+                                    {% for produto  in produtos %}
+                                        <option value="{{produto.fnId}}">{{ produto.ftDescricao }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="filter_fnOperador_value">Grupo Parametros</label>
+                                <select id="grupo" name="grupo" title="Grupo">
+                                    <option value=""></option>
+                                    {% for grupo  in grupos %}
+                                        <option value="{{grupo.fnId}}">{{ grupo.ftDescricao }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="datetimepicker1">Data inicio</label>
+                                <div class='input-group date datepickers'  id='datetimepicker1'>
+                                    <input type='text' name="dataini" class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="datetimepicker2">Data Fim</label>
+                                <div class='input-group date datepickers'  id='datetimepicker2'>
+                                    <input type='text' name="datafim" class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 columns">
+                                <button type="submit">Filtrar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                        <script>
+                            $( document ).ready(function() {
+                                $('input[type="checkbox"]').iCheck({
+                                    checkboxClass: 'icheckbox_minimal',
+                                    radioClass: 'iradio_minimal',
+                                    increaseArea: '20%' // optional
+                                });
+                                $('.lancar_amostras').click(function() {
+
+                                    var tt = $('input[type="checkbox"]').iCheck('data');
+                                    var send ="";
+                                    $.each(tt, function( index, value ) {
+                                        if(value.checked == true){
+                                            if(send == ""){
+                                                send = value.id;
+                                            }else{
+                                                send = send + "-" + value.id;
+                                            }
+                                        }
+                                    });
+                                    $.ajax({
+                                        type: "POST",
+                                        url: '{{path('tamostras_planeamentolancaamostras')}}',
+                                        data:  send ,
+                                        success: function(data) {
+                                            if(data == "ok"){
+                                                location.reload();
+                                            }else{
+                                                alert("Não foi possivel atualizar/lançar as amostras");
+                                            }
+
+                                        }
+                                    });
+                                });
+                                $('select').select2();
+                                $('.datepickers').datetimepicker({
+                                    locale: 'pt',
+                                    format: 'YYYY/MM/DD'
+                                });
+                            });
 
 
+                        </script>
                     {% endblock %}
-
                 </div>
 
+
+            <div class="col-md-6 columns">
+                <a  href="#" class="button right lancar_amostras">{{ "Lançar Amostras"|convert_encoding('UTF-8', ' iso-8859-1') }}</a>
             </div>
+            <div class="col-md-6 columns">
+                <a  href="#" class="button right lancar_amostras">{{ "Importar Amostras"|convert_encoding('UTF-8', ' iso-8859-1') }}</a>
+            </div>
+
         </div>
     </div>
 </div>
+
 

@@ -16,12 +16,12 @@ class TModelosamostraAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
-            ->add('fbActivo')
-            ->add('ftDescricao')
-            ->add('fnLimitedias')
-            ->add('fnIdOrcamento')
-            ->add('ftObservacao')
+            ->add('fnId',null, array('label' => 'ID'))
+            ->add('fbActivo',null, array('label' => 'Activo'))
+            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('fnLimitedias',null, array('label' => 'Limite de Dias'))
+            ->add('fnIdOrcamento',null, array('label' => 'Orçamento'))
+            ->add('ftObservacao',null, array('label' => 'Observação'))
         ;
     }
 
@@ -31,12 +31,10 @@ class TModelosamostraAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
-            ->add('fbActivo')
-            ->add('ftDescricao')
-            ->add('fnLimitedias')
-            ->add('fnIdOrcamento')
-            ->add('ftObservacao')
+            ->add('fnId',null, array('label' => 'ID'))
+            ->add('fbActivo',null, array('label' => 'Activo'))
+            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('ftObservacao',null, array('label' => 'Observação'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -53,12 +51,11 @@ class TModelosamostraAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnId')
-            ->add('fbActivo')
-            ->add('ftDescricao')
-            ->add('fnLimitedias')
-            ->add('fnIdOrcamento')
-            ->add('ftObservacao')
+            ->add('fbActivo', 'checkbox', array('required' => true,'label' => 'Activo'))
+            ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
+            ->add('fnLimitedias', 'checkbox', array('required' => true,'label' => 'Limite de Dias'))
+            ->add('fnIdOrcamento', 'text', array('required' => false,'label' => 'Orçamento'))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observação'))
             ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente','by_reference' => false))
             ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo Aprovação','by_reference' => false))
             ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto','by_reference' => false))

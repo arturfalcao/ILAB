@@ -206,3 +206,8 @@ services:
         arguments: [~, AppBundle\Entity\TAmostrasalimentos, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Amostras Alimentos}
+    app.admin.t_parametrosporespecificacao:
+        class: AppBundle\Entity\TParametrosporespecificacaoAdmin
+        arguments: [~, AppBundle\Entity\TParametrosporespecificacao, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: parametros amostra}

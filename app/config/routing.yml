@@ -27,10 +27,22 @@ calendar_delete:
     path:     /calendar/{slug}
     defaults: { _controller: AppBundle:Agenda:delete }
     methods:  [DELETE]
-tamostras:
+tamostras_planeamento:
     path:     /NovoPlaneamento
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:index }
     methods:  [GET]
+importacaoamostra:
+    path:     /importacao
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:importacao }
+
+tamostras_planeamentogetamostras:
+    path:     /Getamostras
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:getAmostras }
+    methods:  [GET]
+tamostras_planeamentolancaamostras:
+    path:     /Lancaamostras
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:LancaAmostras }
+    methods:  [POST]
 tamostras_new:
     path:     /NovoPlaneamento/new
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:new }
@@ -58,6 +70,10 @@ EntradaResultadossetByRegrasFormatacao:
 AmostrasGetCicloVida:
     pattern:  /amostras/ciclo
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetCicloVida }
+
+AmostrasGetParametros:
+    pattern:  /amostras/parametros
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetParametros }
 
 
 fos_js_routing:

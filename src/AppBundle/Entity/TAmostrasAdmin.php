@@ -143,10 +143,15 @@ class TAmostrasAdmin extends Admin
                 ->where("c.ftId = 'I'");
         }
 
-        $formMapper
-            ->with('codigo',array('description' => 'Codigo','class' => 'Codigo_amostra'))
-                ->add('fnId', 'text', array('label' => 'ID','read_only' => false,'disabled'  => false))
-            ->end();
+        if ($this->id($this->getSubject())) {
+            $formMapper
+                ->with('codigo',array('description' => 'Codigo','class' => 'Codigo_amostra'))
+                ->add('fnId', 'text', array('label' => 'ID','read_only' => true,'disabled'  => true))
+                ->end();
+        }
+        else {
+
+        }
 
         $formMapper
             ->with('Cliente',array('description' => 'Cliente','class' => 'Cliente_amostra'))

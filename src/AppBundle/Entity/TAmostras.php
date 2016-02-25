@@ -508,6 +508,18 @@ class TAmostras
     }
 
     /**
+     * Set ftCodigo
+     *
+     * @param string $fnId
+     * @return TProdutos
+     */
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;
+    }
+    /**
      * Get fdColheita
      *
      * @return \DateTime 

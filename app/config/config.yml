@@ -140,6 +140,15 @@ fos_user:
     service:
         user_manager: sonata.user.orm.user_manager
 sonata_admin:
+    security:
+        handler: sonata.admin.security.handler.role
+        information:
+            EDIT: EDIT
+            LIST: LIST
+            CREATE: CREATE
+            VIEW: VIEW
+            DELETE: DELETE
+            MASTER: MASTER
     title:      Admin Panel
     title_logo: /bundles/sonataadmin/logo_title.png
     templates:

@@ -75,7 +75,7 @@ class EntResultadosController extends Controller
         $q = $qb->update('AppBundle\Entity\TResultados', 'u')
             ->set('u.ftFormatado', $qb->expr()->literal($arr[0]['columns'][4]))
             ->set('u.ftOriginal', $qb->expr()->literal($arr[0]['columns'][3]))
-            ->set('u.ftEstado', $qb->expr()->literal("C"))
+            //->set('u.ftEstado', $qb->expr()->literal("C"))
             ->where('u.fnAmostra = :idamostra and u.fnParametro  = :idpara')
             ->setParameter('idamostra', ($arr[0]['columns'][1]))
             ->setParameter('idpara', ($arr[0]['columns'][6]))
