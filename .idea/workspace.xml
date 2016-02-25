@@ -8,7 +8,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,18 +63,18 @@
       <file leaf-file-name="EntResultadosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80344826">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2954023">
+              <caret line="34" column="627" selection-start-line="34" selection-start-column="627" selection-end-line="34" selection-end-column="627" />
               <folding>
-                <element signature="e#3481#5180#0#PHP" expanded="false" />
-                <element signature="e#5185#7010#0#PHP" expanded="false" />
-                <marker date="1456417197662" expanded="true" signature="1646:2341" placeholder="SELECT t_res..t_resultados..." />
-                <marker date="1456417197662" expanded="true" signature="2953:2992" placeholder="select * fro..t_regrasformatacao..." />
-                <marker date="1456417197662" expanded="true" signature="3620:4346" placeholder="SELECT t_res..t_resultados..." />
-                <marker date="1456417197662" expanded="true" signature="5418:6225" placeholder="SELECT t_res..t_resultados..." />
-                <marker date="1456417197662" expanded="true" signature="6597:6636" placeholder="select * fro..t_regrasformatacao..." />
-                <marker date="1456417197662" expanded="true" signature="7638:8340" placeholder="SELECT t_res..t_resultados..." />
-                <marker date="1456417197662" expanded="true" signature="8954:8993" placeholder="select * fro..t_regrasformatacao..." />
+                <element signature="e#3491#5190#0#PHP" expanded="false" />
+                <element signature="e#5195#7020#0#PHP" expanded="false" />
+                <marker date="1456417543512" expanded="true" signature="1646:2351" placeholder="SELECT t_res..t_resultados..." />
+                <marker date="1456417543512" expanded="true" signature="2963:3002" placeholder="select * fro..t_regrasformatacao..." />
+                <marker date="1456417543512" expanded="true" signature="3630:4356" placeholder="SELECT t_res..t_resultados..." />
+                <marker date="1456417543512" expanded="true" signature="5428:6235" placeholder="SELECT t_res..t_resultados..." />
+                <marker date="1456417543512" expanded="true" signature="6607:6646" placeholder="select * fro..t_regrasformatacao..." />
+                <marker date="1456417543512" expanded="true" signature="7648:8350" placeholder="SELECT t_res..t_resultados..." />
+                <marker date="1456417543512" expanded="true" signature="8964:9003" placeholder="select * fro..t_regrasformatacao..." />
               </folding>
             </state>
           </provider>
@@ -1276,18 +1275,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80344826">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.2954023">
+          <caret line="34" column="627" selection-start-line="34" selection-start-column="627" selection-end-line="34" selection-end-column="627" />
           <folding>
-            <element signature="e#3481#5180#0#PHP" expanded="false" />
-            <element signature="e#5185#7010#0#PHP" expanded="false" />
-            <marker date="1456417197662" expanded="true" signature="1646:2341" placeholder="SELECT t_res..t_resultados..." />
-            <marker date="1456417197662" expanded="true" signature="2953:2992" placeholder="select * fro..t_regrasformatacao..." />
-            <marker date="1456417197662" expanded="true" signature="3620:4346" placeholder="SELECT t_res..t_resultados..." />
-            <marker date="1456417197662" expanded="true" signature="5418:6225" placeholder="SELECT t_res..t_resultados..." />
-            <marker date="1456417197662" expanded="true" signature="6597:6636" placeholder="select * fro..t_regrasformatacao..." />
-            <marker date="1456417197662" expanded="true" signature="7638:8340" placeholder="SELECT t_res..t_resultados..." />
-            <marker date="1456417197662" expanded="true" signature="8954:8993" placeholder="select * fro..t_regrasformatacao..." />
+            <element signature="e#3491#5190#0#PHP" expanded="false" />
+            <element signature="e#5195#7020#0#PHP" expanded="false" />
+            <marker date="1456417543512" expanded="true" signature="1646:2351" placeholder="SELECT t_res..t_resultados..." />
+            <marker date="1456417543512" expanded="true" signature="2963:3002" placeholder="select * fro..t_regrasformatacao..." />
+            <marker date="1456417543512" expanded="true" signature="3630:4356" placeholder="SELECT t_res..t_resultados..." />
+            <marker date="1456417543512" expanded="true" signature="5428:6235" placeholder="SELECT t_res..t_resultados..." />
+            <marker date="1456417543512" expanded="true" signature="6607:6646" placeholder="select * fro..t_regrasformatacao..." />
+            <marker date="1456417543512" expanded="true" signature="7648:8350" placeholder="SELECT t_res..t_resultados..." />
+            <marker date="1456417543512" expanded="true" signature="8964:9003" placeholder="select * fro..t_regrasformatacao..." />
           </folding>
         </state>
       </provider>
