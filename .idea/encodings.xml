@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/Resources/views/default/testejose.html.twig" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" charset="ISO-8859-1" />
   </component>

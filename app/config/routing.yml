@@ -10,7 +10,6 @@ new:
 calendar:
     pattern:   /calendar
     defaults:  { _controller: AppBundle:Default:AfterLogin }
-
 calendar_show:
     path:     /calendar/{slug}
     defaults: { _controller: AppBundle:Agenda:show }
