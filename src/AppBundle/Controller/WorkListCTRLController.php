@@ -34,9 +34,34 @@ class WorkListCTRLController extends Controller
         $em->persist($amostra);
         $em->flush();
         return new Response("ok");
+    }
+    public function ReopensampleAction($slug){
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'D'));
+        $amostra->setFtEstado($estado);
+        $em->persist($amostra);
+        $em->flush();
+        return new Response("ok");
+    }
+    public function CancelsampleAction($slug){
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'X'));
+        $amostra->setFtEstado($estado);
+        $em->persist($amostra);
+        $em->flush();
+        return new Response("ok");
+    }
 
+    //TODO : notificar cliente de amostra completa
+    public function NotifysampleAction($slug){
 
     }
+
+
     public function GenerateworklistAction($slug)
     {
         error_reporting(0);
@@ -47,6 +72,7 @@ class WorkListCTRLController extends Controller
         $tipo_modelo = '';
         $info2 = "";
         $flag = 0;
+        $resultflag = 0;
         foreach ($samples as &$slug) {
             $em = $this->getDoctrine()->getManager();
             $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($slug);
@@ -65,17 +91,19 @@ class WorkListCTRLController extends Controller
             foreach ($arr as $value) {
 
                 if($flag == 0){
+
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
-                }else{
-                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
                     $conn = $this->getDoctrine()->getConnection();
-                    $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getIdparametro();
+                    $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
                     $activeDate = $this->getDoctrine()->getManager()->getConnection();
                     $activeDate->prepare($sql)->execute();
 
                     $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $slug . " where id=" . $activeDate->lastInsertId();
                     $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                     $activeDate->execute();
+                }else{
+                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
+                    $resultflag = 1;
                 }
 
                     $info = $value2->getFnIdAreaensaio();
@@ -135,8 +163,8 @@ class WorkListCTRLController extends Controller
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
 
+            //crio novo parametro associado a amostra em questão
             $arr = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
-
             foreach ($arr as $value) {
 
                 if($flag == 0){
@@ -154,12 +182,12 @@ class WorkListCTRLController extends Controller
 
 
                 if(!$em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value2->getFnId(),'fnAmostra' => $amostra2->getFnId()))){
+                    if($resultflag != 1){
                         $result = new TResultados();
                         $estado_resultados = $em->getRepository('AppBundle:TEstados')->findOneByFtCodigo('D');
                         $result->setFnAmostra($amostra2);
+
                         $result->setFnParametro($value2);
-
-
 
                         $mod_para_id = $value2->getFnIdModeloparametro();
                         $mod_para = $em->getRepository('AppBundle:TModelosparametro')->findOneByFnId($mod_para_id);
@@ -168,15 +196,15 @@ class WorkListCTRLController extends Controller
                         $result->setFtDescricao($value2->getFtDescricao());
                         $result->setFtEstado($estado_resultados);
 
-                    $logger = new \Doctrine\DBAL\Logging\DebugStack();
 
-                    $em->getConnection()->getConfiguration()->setSQLLogger($logger);
-                            $em->persist($result);
-                            $em->flush();
 
+                        $em->persist($result);
+                        $em->flush();
+                        $sql = "UPDATE t_resultados SET fn_id_parametro = " . $result->getFnParametro()->getId() . " where fn_id=" . $result->getFnId();
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
                     }
-
-
+                    }
                     $amostra = $em->getRepository('AppBundle:ModelosListas')->findOneByidParametro($value2->getFnId());
 
                     if($amostra != null){
@@ -185,11 +213,8 @@ class WorkListCTRLController extends Controller
                         $par_container[] = ['tipo_modelo' => $tipo_modelo  , "tablejson" => "Por favor crie um modelo de Lista de Trabalho para o parametro " . $value2->getFtDescricao(),"id_amostra" => $amostra2->getFnId(),"nome_parametro" => $info,"tipo" => $nome_produto ];
 
                     }
-
+                }
             }
-
-        }
-
 
 
         return $this->render('AppBundle:ModelosListas:modelo.html.twig', array(

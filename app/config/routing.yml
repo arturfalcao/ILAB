@@ -52,6 +52,15 @@ generateworklist:
 completesample:
     path:     /completesample/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Completesample }
+reopensample:
+    path:     /reopensample/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:Reopensample }
+cancelsample:
+    path:     /cancelsample/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:Cancelsample }
+notifysample:
+    path:     /notifysample/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:Notifysample }
 EntradaResultados:
     path:     /EntradaResultados
     defaults: { _controller: AppBundle:EntResultados:EntradaResultados }
