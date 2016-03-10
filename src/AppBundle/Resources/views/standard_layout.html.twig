@@ -101,10 +101,13 @@ file that was distributed with this source code.
 
 
 
+
 {% if is_granted("ROLE_USER") %}
 
     <div class="container-fluid">
         <div class="row">
+            {% include 'default/topheader_geral.html.twig' %}
+
             <div class="large-1 columns ">
                 {% include 'default/menu.html.twig' %}
             </div>

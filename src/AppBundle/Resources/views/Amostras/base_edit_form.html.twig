@@ -15,6 +15,7 @@
         <script>
             $(function() {
                 $( "#tabs" ).tabs();
+                $( "#tabs2" ).tabs();
             });
         </script>
         <div id="tabs">
@@ -138,25 +139,53 @@
             </div>
             <div id="tabs-2">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <table id="parametros_grid" class="table table-condensed table-hover table-striped">
                             <thead>
                             <tr>
-                                <th data-column-id="fn_id" data-type="numeric" data-identifier="true">ID</th>
-                                <th data-column-id="ft_codigo" data-type="numeric" >asddsa</th>
-                                <th data-column-id="resultado">Sender</th>
-                                <th data-column-id="parametros" >Received</th>
-                                <th data-column-id="ft_formatado">Link</th>
-                                <th data-column-id="unidades">Link</th>
-                                <th data-column-id="ft_texto_relatorio">Link</th>
+                                <th data-width="60" data-column-id="fn_id" data-type="numeric" data-identifier="true">ID</th>
+                                <th data-width="40" data-column-id="ft_codigo" data-type="numeric" >E</th>
+                                <th data-column-id="resultado">Parâmetro</th>
+                                <th data-column-id="parametros" >Resultado</th>
+                                <th data-column-id="ft_formatado">Valor</th>
+                                <th data-column-id="unidades">Unidades</th>
+                                <th data-column-id="ft_texto_relatorio">Limite</th>
                             </tr>
                             </thead>
                         </table>
 
                     </div>
-                    <div class="col-md-8"></div>
+                    <div class="col-md-6">
+                        <div id="tabs2">
+                            <ul>
+                                <li><a href="#tabs-4">{{ "Geral"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                                <li><a href="#tabs-5">{{ "Resultado"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                                <li><a href="#tabs-6">{{ "Ciclo de Vida"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                            </ul>
+                            <div id="tabs-4">
+
+                            </div>
+                            <div id="tabs-5">
+
+                            </div>
+                            <div id="tabs-6">
+
+                            </div>
+
+                    </div>
+                </div>
+
+
+
+                </div>
+                <div class="row">
+                    <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Guardar</a>
+                    <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Autorizar </a>
+                    <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Desautorizar </a>
+                    <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Eliminar</a>
                 </div>
             </div>
+
             <div id="tabs-3">
                 <script>
                     $( document ).ready(function() {

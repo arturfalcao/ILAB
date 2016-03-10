@@ -86,6 +86,7 @@ class WorkListCTRLController extends Controller
 
 
 
+
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
             foreach ($arr as $value) {
