@@ -246,8 +246,14 @@
                                     rowSelect:true,
                                     multiSelect:true
 
+                                }).on("selected.rs.jquery.bootgrid", function(e, rows)
+                                {
+                                    var rowIds = [];
+                                    for (var i = 0; i < rows.length; i++)
+                                    {
+                                        rowIds.push(rows[i].id);
+                                    }
                                 });
-
                                 var obj = $.parseJSON(data);
 
                                 if (obj.length != 0) {

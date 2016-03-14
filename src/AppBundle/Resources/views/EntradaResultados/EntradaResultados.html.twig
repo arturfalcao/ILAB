@@ -209,27 +209,21 @@
                             datatype: "string",
                             hidden: true
                         });
-
                         var obj = $.parseJSON(data);
-
                         if(obj.data.length !=0){
                             var data2 = [];
                             var tt =1;
                             $.each( obj.data, function( key, value ) {
-
                                 var values = JSON.stringify(value).replace('[','');
                                 values = values.replace(']','');
-
                                 data2.push({id: tt, values: JSON.parse(values)});
                                 tt++;
                             });
                         }else{
                             var data2 = [];
-
                         }
                         editableGrid.load({"metadata": metadata, "data": data2});
                         editableGrid.renderGrid("tablecontent", "testgrid");
-
                     }else{
                         alert("Não foram encontrados resultados para o seu pedido.")
                     }

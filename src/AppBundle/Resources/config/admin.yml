@@ -82,7 +82,7 @@ services:
         class: AppBundle\Entity\TAmostrasAdmin
         arguments: [~, AppBundle\Entity\TAmostras, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: TAmostras}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Amostras}
         calls:
             - [ setTemplate, [edit, AppBundle:Amostras:edit.html.twig]]
             - [ setTemplate, [list, AppBundle:Amostras:list.html.twig]]
@@ -97,7 +97,7 @@ services:
         class: AppBundle\Entity\TClientesAdmin
         arguments: [~, AppBundle\Entity\TClientes, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: TClientes}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Clientes}
 
     app.admin.t_gruposparametros:
         class: AppBundle\Entity\TGruposparametrosAdmin
