@@ -9,12 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use AppBundle\Entity\Agenda;
 use AppBundle\Form\AgendaType;
-
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-
-
-use AppBundle\Entity\TAmostras;
 /**
  * Agenda controller.
  *
@@ -40,128 +35,6 @@ class AgendaController extends Controller
             'entities' => $entities,
         );
     }
-
-    
-
-
-
-
-    /**
-     * Obter todas as amostras do dia de hoje.
-     *
-     * @Route("calendar/geteventos", name="eventos_planeados")
-     */
-    
-    public function geteventosAction()
-    {
-        
-        $t = \date('Y-m-d');
-        
-        $inicio = $t . " 00:00:00";
-        
-        $fim = $t . " 23:59:59";
-
-        $data_inicio = \DateTime::createFromFormat("Y-m-d H:i:s",$inicio);
-        $data_fim = \DateTime::createFromFormat("Y-m-d H:i:s",$fim);
-        
-        $ft_estado = 'P';
-        $em = $this->getDoctrine()->getManager();
-        
-        $result = $em->createQueryBuilder();
-        
-        $dql = $result->select('a')
-                      ->from('AppBundle:TAmostras', 'a')
-                      ->where('a.startdatetime >= :data_inicio')
-                      ->setParameter('data_inicio', $data_inicio)
-                      ->andWhere('a.startdatetime <= :data_fim')
-                      ->setParameter('data_fim', $data_fim)
-                      ->andWhere('a.ftEstado = :ft_estado')
-                      ->setParameter('ft_estado', $ft_estado)
-                      ->orderBy('a.startdatetime', 'ASC')
-                      ->getQuery()
-                      ->getResult();
-        
-        $info = [];
-        $i = 0;
-
-        foreach ($dql as $amostra) {
-
-            $info[$i]['tempo'] = $amostra->getStartdatetime();
-            $info[$i]['observacao'] = $amostra->getFtObs(); 
-            $info[$i]['am_ag'] = 1;
-            $info[$i]['id'] = 'am_' . $amostra->getFnId();
-            $info[$i]['done'] = $amostra->getFnDone();
-            $i++;
-        }
-
-        $em_2 = $this->getDoctrine()->getManager();
-        
-        $result_2 = $em_2->createQueryBuilder();
-        
-
-        $dql_ag = $result_2->select('ag')
-                           ->from('AppBundle:Agenda', 'ag')
-                           ->where('ag.startdatetime >= :data_inicio')
-                           ->setParameter('data_inicio', $data_inicio)
-                           ->andWhere('ag.startdatetime <= :data_fim')
-                           ->setParameter('data_fim', $data_fim)
-                           ->orderBy('ag.startdatetime', 'ASC')
-                           ->getQuery()
-                           ->getResult();
-        
-
-        foreach ($dql_ag as $agenda) {
-            $info[$i]['tempo'] = $agenda->getStartdatetime();
-            $info[$i]['observacao'] = $agenda->getTitle(); 
-            $info[$i]['am_ag'] = 0;
-            $info[$i]['id'] = 'ag_' . $agenda->getId();
-            $info[$i]['done'] = $agenda->getFnDone();
-            $i++;
-        }              
-
-        return new Response(json_encode($info));
-    }
-
-    /**
-     * Obter todas as amostras do dia de hoje.
-     *
-     * @Route("/calendar/updateeventos", name="eventos_atualizados")
-     */
-
-    public function updateeventosAction()
-    {
-        $parameter = $this->get("request")->getContent();
-        $parameter = explode("&", $parameter);
-        $arr1 = explode("=", $parameter[0]);
-        
-        $am_or_ag = $arr1[1];
-        
-        $arr2 = explode("=", $parameter[1]);
-        
-        $done = intval($arr2[1]);
-        
-        $arr3 = explode("=", $parameter[2]);
-
-        $nid = intval($arr3[1]);
-
-        $em = $this->getDoctrine()->getManager();
-
-        if(strcmp($am_or_ag,"am") == 0)
-        {
-        $amostra = $em->getRepository('AppBundle:TAmostras')->find($nid);   
-        $amostra->setFnDone($done);
-        $em->flush();        
-        }
-        elseif (strcmp($am_or_ag,"ag") == 0) 
-        {
-        $amostra = $em->getRepository('AppBundle:Agenda')->find($nid);   
-        $amostra->setFnDone($done);
-        $em->flush();
-        }
-
-        return new Response(json_encode($nid));
-    }
-
     /**
      * Creates a new Agenda entity.
      *

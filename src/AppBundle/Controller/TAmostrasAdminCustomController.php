@@ -11,6 +11,11 @@ use AppBundle\Entity\TAmostras;
 use AppBundle\Form\TAmostrasType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints\DateTime;
+use AppBundle\Entity\Agenda;
+use AppBundle\Form\AgendaType;
+use AppBundle\Entity\ModelosListas;
+use AppBundle\Entity\TResultados;
+use AppBundle\Entity\TEstados;
 
 /**
  * Agenda controller.
@@ -106,10 +111,11 @@ class TAmostrasAdminCustomController extends Controller
             }
         }
 
+        try {
         $sql = "update t_amostras set ft_id_estado = 'V' where " . $where;
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
 
-        try {
+
             $activeDate->execute();
         } catch (Exception $e) {
             return new Response(json_encode($e));
@@ -118,6 +124,7 @@ class TAmostrasAdminCustomController extends Controller
         return new Response("ok");
 
     }
+
     public function AmostrasGetCicloVidaAction()
     {
         $arr = $this->get("request")->getContent();
@@ -126,15 +133,24 @@ class TAmostrasAdminCustomController extends Controller
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
-
         return new Response(json_encode($result));
+    }
+    public function GetAllParaAction()
+    {
+        $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $queryBuilder->select('u.ftDescricao','u.fnId' )->from('AppBundle:TParametros','u');
+
+        // consider using ->getArrayResult() to use less memory
+        return new Response(json_encode($queryBuilder->getQuery()->getResult()));
+
 
     }
+
     public function AmostrasGetParametrosAction()
     {
         $arr = $this->get("request")->getContent();
         $arr2 = explode("=", $arr);
-        $sql = "SELECT DISTINCT r.fn_id ,r.ft_descricao AS resultado, p.ft_descricao AS parametros, e.ft_codigo , r.ft_formatado ,u.ft_descricao AS unidades , para_esp.ft_texto_relatorio FROM t_resultados AS r INNER JOIN t_parametrosamostra AS p ON r.fn_id_parametro = p.id  INNER JOIN t_estados AS e ON r.ft_id_estado = e.ft_id INNER JOIN t_unidadesmedida AS u ON r.fn_id_unidade = u.fn_id INNER JOIN t_amostras AS a ON r.fn_id_amostra = a.fn_id INNER JOIN t_produtosespecificacoes AS pro ON a.fn_id_produto = pro.fn_id_produto LEFT JOIN t_parametrosporespecificacao AS para_esp ON pro.fn_id_especificacao = para_esp.fn_id_especificacao AND  p.fn_id = para_esp.fn_id_familiaparametro  WHERE r.fn_id_amostra = ".$arr2[1];
+        $sql = "SELECT DISTINCT r.fn_id as id ,r.ft_descricao AS resultado, p.ft_descricao AS parametros, e.ft_codigo , r.ft_formatado ,u.ft_descricao AS unidades , para_esp.ft_texto_relatorio FROM t_resultados AS r INNER JOIN t_parametrosamostra AS p ON r.fn_id_parametro = p.id  INNER JOIN t_estados AS e ON r.ft_id_estado = e.ft_id INNER JOIN t_unidadesmedida AS u ON r.fn_id_unidade = u.fn_id INNER JOIN t_amostras AS a ON r.fn_id_amostra = a.fn_id INNER JOIN t_produtosespecificacoes AS pro ON a.fn_id_produto = pro.fn_id_produto LEFT JOIN t_parametrosporespecificacao AS para_esp ON pro.fn_id_especificacao = para_esp.fn_id_especificacao AND  p.fn_id = para_esp.fn_id_familiaparametro  WHERE  p.ft_id_estado NOT LIKE 'X' and r.fn_id_amostra = ".$arr2[1];
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
@@ -154,8 +170,6 @@ class TAmostrasAdminCustomController extends Controller
     {
         $texto = "";
         if ($request->isMethod('POST')) {
-
-
             $uploadedFile = $request->files->get('fileToUpload');
             $filename = $uploadedFile->getPathname();
             $csvData = file_get_contents($filename);
@@ -164,8 +178,6 @@ class TAmostrasAdminCustomController extends Controller
             foreach ($lines as $line) {
                 $array[] = str_getcsv($line);
             }
-
-
             try {
                 foreach ($array as &$value) {
                     $rr = explode(";",$value[0]);
@@ -174,38 +186,94 @@ class TAmostrasAdminCustomController extends Controller
                         $entity = new TAmostras();
                         $em = $this->getDoctrine()->getManager();
 
-                        $modelo = $em->getRepository('AppBundle:TModelosamostra')->findOneByftDescricao($rr[5]);
+                        //$modelo = $em->getRepository('AppBundle:TModelosamostra')->findOneByftDescricao($rr[5]);
                         $estado = $em->getRepository('AppBundle:TEstados')->findOneByftCodigo('P');
-                        $clientes = $em->getRepository('AppBundle:TClientes')->findOneByftNome($rr[2]);
+                        $clientes = $em->getRepository('AppBundle:TClientes')->findOneByftCodigo($rr[2]);
                         $produtos = $em->getRepository('AppBundle:TProdutos')->findOneByftDescricao($rr[0]);
                         $grupos = $em->getRepository('AppBundle:TGruposparametros')->findOneByftCodigo($rr[1]);
                         $entity->setFtEstado($estado);
                         $entity->setFnCliente($clientes);
                         $entity->setFnProduto($produtos);
                         $entity->setFtGrupoparametros($grupos);
-                        $entity->setFnModelo($modelo);
+                        $entity->setFtRefexterna($rr[5]);
+                        //$entity->setFnModelo($modelo);
                         $date = new \DateTime(str_replace("/","-",$rr[3]));
                         $entity->setStartdatetime($date);
                         $date = new \DateTime(str_replace("/","-",$rr[4]));
                         $entity->setEnddatetime($date);
                         $em->persist($entity);
                         $em->flush();
+                        $this->GenerateParaBySample($entity->getFnId() , $rr[1]);
+
                     }
-
-
                 }
                 $texto = "Importação realizada com sucesso";
             } catch (Exception $e) {
                 $texto = "Falha na importação por favor valide os dados";
             }
-
-
         }
-
-
         return $this->render(
             'AppBundle:TAmostrasAdminCustom:importacao.html.twig',array('string' => $texto));
     }
+
+    public function GenerateParaBySample($sample,$paraGroup){
+
+        $em = $this->getDoctrine()->getManager();
+        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($sample);
+        $arr= [];
+
+        $paraGroupID  = $em->getRepository('AppBundle:TGruposparametros')->findByftCodigo($paraGroup);
+        $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($paraGroupID);
+
+        // Cria os parametros e gera os primeiros log
+        foreach ($arr as $value) {
+            $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
+            $conn = $this->getDoctrine()->getConnection();
+            $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 'P' , aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
+            $activeDate = $this->getDoctrine()->getManager()->getConnection();
+            $activeDate->prepare($sql)->execute();
+            $last = $activeDate->lastInsertId();
+
+            //log parametros
+            $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 'P' , aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
+            $activeDate = $this->getDoctrine()->getManager()->getConnection();
+            $activeDate->prepare($sql)->execute();
+
+            $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $sample . " where id=" .$last;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+
+            //log parametros
+            $sql = "UPDATE t_parametrosamostra_log SET  date = CURDATE() and  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' and fn_id_amostra = " . $sample . " where id=" . $last ;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+        }
+            $arr = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($sample);
+            foreach ($arr as $value) {
+            $value2= $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $value->getId()));
+            $info = $value2->getFtDescricao();
+            if(!$em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value2->getFnId(),'fnAmostra' => $amostra->getFnId()))){
+
+                    $result = new TResultados();
+                    $estado_resultados = $em->getRepository('AppBundle:TEstados')->findOneByFtCodigo('D');
+                    $result->setFnAmostra($amostra);
+                    $result->setFnParametro($value2);
+                    $mod_para_id = $value2->getFnIdModeloparametro();
+                    $mod_para = $em->getRepository('AppBundle:TModelosparametro')->findOneByFnId($mod_para_id);
+                    $result->setFnModeloresultado($mod_para->getFnModeloresultado());
+                    $result->setFnUnidade($mod_para->getFnModeloresultado()->getFnUnidade());
+                    $result->setFtDescricao($value2->getFtDescricao());
+                    $result->setFtEstado($estado_resultados);
+
+                    $em->persist($result);
+                    $em->flush();
+                    $sql = "UPDATE t_resultados SET fn_id_parametro = " . $result->getFnParametro()->getId() . " where fn_id=" . $result->getFnId();
+                    $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                    $activeDate->execute();
+                }
+            }
+
+        }
 
 
     /**

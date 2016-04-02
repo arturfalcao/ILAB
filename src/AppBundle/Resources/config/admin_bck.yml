@@ -46,7 +46,7 @@ services:
         class: AppBundle\Entity\TModelosparametroAdmin
         arguments: [~, AppBundle\Entity\TModelosparametro, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Modelos Parametro}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TModelosparametro}
 
     app.admin.t_modelosparametrosgrupo:
         class: AppBundle\Entity\TModelosparametrosgrupoAdmin
@@ -58,7 +58,7 @@ services:
         class: AppBundle\Entity\TParametrosAdmin
         arguments: [~, AppBundle\Entity\TParametros, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Parametros}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TParametros}
 
     app.admin.t_regrasformatacao:
         class: AppBundle\Entity\TRegrasformatacaoAdmin
@@ -82,7 +82,7 @@ services:
         class: AppBundle\Entity\TAmostrasAdmin
         arguments: [~, AppBundle\Entity\TAmostras, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Amostra}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Amostras}
         calls:
             - [ setTemplate, [edit, AppBundle:Amostras:edit.html.twig]]
             - [ setTemplate, [list, AppBundle:Amostras:list.html.twig]]
@@ -91,7 +91,7 @@ services:
         class: AppBundle\Entity\TUnidadesmedidaAdmin
         arguments: [~, AppBundle\Entity\TUnidadesmedida, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Unidades de Medida}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TUnidadesmedida}
 
     app.admin.t_clientes:
         class: AppBundle\Entity\TClientesAdmin
@@ -103,25 +103,25 @@ services:
         class: AppBundle\Entity\TGruposparametrosAdmin
         arguments: [~, AppBundle\Entity\TGruposparametros, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Grupos Parametros}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TGruposparametros}
 
     app.admin.t_legislacao:
         class: AppBundle\Entity\TLegislacaoAdmin
         arguments: [~, AppBundle\Entity\TLegislacao, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Legislacao}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TLegislacao}
 
     app.admin.t_modelosamostra:
         class: AppBundle\Entity\TModelosamostraAdmin
         arguments: [~, AppBundle\Entity\TModelosamostra, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Modelos Amostra}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TModelosamostra}
 
     app.admin.t_produtos:
         class: AppBundle\Entity\TProdutosAdmin
         arguments: [~, AppBundle\Entity\TProdutos, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Produtos}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TProdutos}
 
     app.admin.t_tipoaprovacao:
         class: AppBundle\Entity\TTipoaprovacaoAdmin
@@ -145,7 +145,7 @@ services:
         class: AppBundle\Entity\TEspecificacoesAdmin
         arguments: [~, AppBundle\Entity\TEspecificacoes, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Especificacoes}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TEspecificacoes}
 
     app.admin.t_locaiscolheita:
         class: AppBundle\Entity\TLocaiscolheitaAdmin
@@ -186,7 +186,7 @@ services:
         class: AppBundle\Entity\ModelosListasAdmin
         arguments: [~, AppBundle\Entity\ModelosListas, AppBundle:ModelosListasAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Modelos Listas}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ModelosListas}
         calls:
             - [ setTemplate, [edit, AppBundle:ModelosListas:edit.html.twig]]
 
@@ -210,4 +210,4 @@ services:
         class: AppBundle\Entity\TParametrosporespecificacaoAdmin
         arguments: [~, AppBundle\Entity\TParametrosporespecificacao, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Parametros amostra}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: parametros amostra}

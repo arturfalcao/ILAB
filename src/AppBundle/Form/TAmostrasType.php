@@ -15,10 +15,10 @@ class TAmostrasType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fnCliente')
-            ->add('fnLocalcolheita')
-            ->add('ftGrupoparametros')
-            ->add('fnProduto')
+            ->add('fnCliente',null, array('label'=>'Cliente'))
+            ->add('ftRefexterna','text', array('label'=>'Local de Recolha'))
+            ->add('ftGrupoparametros',null, array('label'=>'Grupo de Parametros'))
+            ->add('fnProduto',null, array('label'=>'Produto'))
             ->add('startdatetime', 'datetime', array('label'=>'Data de inicio','date_widget' => "single_text", 'time_widget' => "single_text"))
             ->add('enddatetime', 'datetime', array('label'=>'Data de fim','date_widget' => "single_text", 'time_widget' => "single_text"))
         ;

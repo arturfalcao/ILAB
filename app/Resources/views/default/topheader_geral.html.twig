@@ -1,30 +1,94 @@
+    {% block stylesheets %}
+          <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+          <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+    {% endblock %}
 
+    {% if admin is defined %} 
     <div class="row full-width-row">
-      <header class="large-16 columns" style="width: 99%;">
+      <header class="large-16 columns header" style="width: 100.5%;">
+      {% if app.user %}
+        <input type="hidden" id="logged" value="{{app.user.id}}">
+      {% endif %}
+        
         <div class="large-6 columns">
-
-          <h6 class="title"> {{  admin.label }} </h6>
+          {% if 'list' in admin.request.pathInfo%}
+              {% if 'Legislação' == admin.label %}
+              <h6 class="title"> Listagem de Legislações </h6>
+              {% else %}  
+              <h6 class="title"> Listagem de {{  admin.label ~ (admin.label|last == 's' ? '' : 's') }} </h6>
+              {% endif %}
+          {% elseif 'edit' in admin.request.pathInfo%}
+          <h6 class="title"> Edição - {{  admin.label }} </h6>
+          {% elseif 'create' in admin.request.pathInfo%}
+          <h6 class="title"> Criação - {{  admin.label }} </h6>
+          {% endif %}
         </div>
-        <div class="large-9 columns">
-          <a  href="{{ path('tamostras_new') }}" class="button right">Adicionar Novo</a>
+        {% if 'list' in admin.request.pathInfo %}
+          <div class="large-8 columns">
+              <!-- <a  href="{{ path('tamostras_new') }}" class="button right">Adicionar Novo</a>-->
+              <a  id="nova_entidade" href="#" class="button right">Adicionar Novo</a>
+          </div>
+          <div class="large-1 columns">
+            <div class="menu_direita" ></div>
+          </div> 
+        {% else %}
+           <div class="large-8 columns">
+              <a class="button right inactiveLink bg_color"></a> 
+           </div>
+           <div class="large-1 columns">
+            <div class="menu_direita" ></div>
+          </div>  
+        {% endif %}
+        
+        {% include 'default/ajax_chat_topheader_geral.html.twig' %}
+
+        {% include 'default/ajax_agenda_topheader_geral.html.twig' %}
+
+        <style>
+          
+
+        </style>
+        <!--<div class="rightbar right_aside-toggle" id="tabs">
+            <ul class="nav nav-tabs material-tabs rightbar-tab" role="tablist">
+                  <li class="active">
+                  <a href="#tabs-1" aria-controls="message" role="tab" data-toggle="tab" aria-expanded="true">Chat</a></li>
+                  <li class=""><a href="#tabs-2" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="false">Agenda</a></li>
+                </ul>   
         </div>
-        <div class="large-1 columns">
-          <div class="menu_direita"></div>
-        </div>
+        <div id="tabs-1">
+          <p>Chat</p>
+        </div> 
+        <div id="tabs-1">
+          <p>Agenda</p>
+        </div>-->
+        
+        
+        <div id="tabs" class="sideBarRight" style="display: none;">
 
-        <script>
 
-          $( document ).ready(function() {
-            $( ".menu_direita" ).click(function() {
-              $('.sideBarRight').show();
-            });
-          });
-        </script>
+            <ul class="nav nav-tabs material-tabs" role="tablist">
+                <li  class="li_agenda">
+                <a id="chat_tab" class="tabulador" href="#tabs-1" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="false">Agenda de hoje</a>
+                
+                </li>
+                
+                <li class="li_chat"><a class="tabulador" href="#tabs-2" aria-controls="message" role="tab" data-toggle="tab" aria-expanded="true">Chat</a>
+                </li>
+            
+            </ul>
+            <div id="n_lidas">
+                    
+            </div>
+            
+            <div id="tabs-1">
+                
+            </div>
+            
+            <div id="tabs-2">
 
-        <div class="sideBarRight" style="display: none;">
-          teste
-
-        </div>
+        
+            </div> 
+        
         <!--
         <div class="large-3 columns collapse">
           <header class="profile">
@@ -49,3 +113,4 @@
         </div> -->
       </header>
     </div>
+    {% endif %}

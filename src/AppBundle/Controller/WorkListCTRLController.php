@@ -25,20 +25,99 @@ class WorkListCTRLController extends Controller
 {
 
 
+
+    //parametres actions
+    public function CompleteparaAction(){
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $arr = $this->get("request")->getContent();
+        $arr = json_decode($arr);
+
+        foreach ($arr as &$value) {
+            $resultados = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnId' => $value));
+            $amostra = $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $resultados->getFnParametro()));
+            $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'C'));
+            $resultados->setFtEstado($estado);
+            $amostra->setFtEstado($estado);
+            $em->persist($amostra);
+            $em->persist($resultados);
+            $em->flush();
+        }
+
+        return new Response("ok");
+    }
+    public function ReopenparaAction(){
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $arr = $this->get("request")->getContent();
+        $arr = json_decode($arr);
+
+        foreach ($arr as &$value) {
+            $resultados = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnId' => $value));
+            $amostra = $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $resultados->getFnParametro()));
+            $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'D'));
+            $resultados->setFtEstado($estado);
+            $amostra->setFtEstado($estado);
+            $em->persist($amostra);
+            $em->persist($resultados);
+            $em->flush();
+        }
+
+        return new Response("ok");
+    }
+    public function AddparaAction(){
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("&", $arr);
+        $amostra = explode("=", $arr2[1]);
+        $para = explode("=", $arr2[0]);
+        $this->AddNewparaAction($amostra[1],$para[1]);
+        return new Response("ok");
+    }
+
+    public function CancelparaAction(){
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $arr = $this->get("request")->getContent();
+        $arr = json_decode($arr);
+
+        foreach ($arr as &$value) {
+            $resultados = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnId' => $value));
+            $amostra = $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $resultados->getFnParametro()));
+            $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'X'));
+            $resultados->setFtEstado($estado);
+            $amostra->setFtEstado($estado);
+            $em->persist($amostra);
+            $em->persist($resultados);
+            $em->flush();
+        }
+
+        return new Response("ok");
+    }
+
+    //Sample actions
     public function CompletesampleAction($slug){
         error_reporting(0);
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        if($amostra->getFtEstado()->getFtCodigo() == 'P'){
+            return new Response("Amostra Não Disponivel");
+        }
         $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'C'));
         $amostra->setFtEstado($estado);
         $em->persist($amostra);
         $em->flush();
         return new Response("ok");
     }
+
     public function ReopensampleAction($slug){
         error_reporting(0);
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        if($amostra->getFtEstado()->getFtCodigo() == 'P'){
+            return new Response("Amostra Não Disponivel");
+        }
         $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'D'));
         $amostra->setFtEstado($estado);
         $em->persist($amostra);
@@ -61,6 +140,78 @@ class WorkListCTRLController extends Controller
 
     }
 
+    public function AddNewparaAction($idsample,$idpara)
+    {
+        error_reporting(0);
+        $samples = explode(",", $idsample);
+        $par_container= [];
+        $info = "";
+        $nome_produto = "";
+        $tipo_modelo = '';
+        $info2 = "";
+        $flag = 0;
+        $resultflag = 0;
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        //add new tparametrosamostra
+
+        $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($idpara);
+        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($idsample);
+
+        $conn = $this->getDoctrine()->getConnection();
+        $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " .$idpara;
+        $activeDate = $this->getDoctrine()->getManager()->getConnection();
+        $activeDate->prepare($sql)->execute();
+        $celso = $conn->lastInsertId('id');
+
+
+        $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $idsample . " where id=" . $activeDate->lastInsertId();
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+
+        $NewAmostraParametro = new TAmostrasParametros();
+        $NewAmostraParametro->setIdamostra($idsample);
+
+        $NewAmostraParametro->setIdparametro($idpara);
+
+        $em->persist($NewAmostraParametro);
+        $em->flush();
+
+        //cria resultado
+        if(!$em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $idpara,'fnAmostra' =>$idsample))){
+            if($resultflag != 1){
+                $result = new TResultados();
+                $estado_resultados = $em->getRepository('AppBundle:TEstados')->findOneByFtCodigo('D');
+                $result->setFnAmostra($amostra);
+
+                $value2= $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $celso));
+
+                $result->setFnParametro($value2);
+
+                $mod_para_id = $value2->getFnIdModeloparametro();
+                $mod_para = $em->getRepository('AppBundle:TModelosparametro')->findOneByFnId($mod_para_id);
+                $result->setFnModeloresultado($mod_para->getFnModeloresultado());
+                $result->setFnUnidade($mod_para->getFnModeloresultado()->getFnUnidade());
+                $result->setFtDescricao($value2->getFtDescricao());
+                $result->setFtEstado($estado_resultados);
+
+
+
+                $em->persist($result);
+                $em->flush();
+                $sql = "UPDATE t_resultados SET fn_id_parametro = " . $result->getFnParametro()->getId() . " where fn_id=" . $result->getFnId();
+                $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                $activeDate->execute();
+            }
+        }
+
+
+       return "ok";
+    }
+
+
 
     public function GenerateworklistAction($slug)
     {
@@ -76,15 +227,16 @@ class WorkListCTRLController extends Controller
         foreach ($samples as &$slug) {
             $em = $this->getDoctrine()->getManager();
             $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($slug);
+            if($amostra->getFtEstado()->getFtCodigo() == 'P'){
+                return $this->render('AppBundle:ModelosListas:Indisponivel.html.twig');
+            }
 
-            if($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X'){
+            if($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X' && $amostra->getFtEstado()->getFtCodigo() != 'P' ){
                 $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($amostra->getFnModelo()->getFnGrupoparametros()->getFnId());
             }else{
                 $arr = $em->getRepository('AppBundle:TAmostrasParametros')->findByIdamostra($slug);
                 $flag = 1;
             }
-
-
 
 
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
@@ -98,10 +250,25 @@ class WorkListCTRLController extends Controller
                     $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
                     $activeDate = $this->getDoctrine()->getManager()->getConnection();
                     $activeDate->prepare($sql)->execute();
+                    $last = $activeDate->lastInsertId();
 
-                    $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $slug . " where id=" . $activeDate->lastInsertId();
+                    //log parametros
+                    $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
+                    $activeDate = $this->getDoctrine()->getManager()->getConnection();
+                    $activeDate->prepare($sql)->execute();
+
+
+
+                    $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $slug . " where id=" .$last;
                     $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                     $activeDate->execute();
+
+                    //log parametros
+                    $sql = "UPDATE t_parametrosamostra_log SET  date = CURDATE() and  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' and fn_id_amostra = " . $slug . " where id=" . $last ;
+                    $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                    $activeDate->execute();
+
+
                 }else{
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
                     $resultflag = 1;
