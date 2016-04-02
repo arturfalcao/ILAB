@@ -276,7 +276,7 @@ a:active, a:focus {
   box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
 }
 
-input[type="checkbox"], input[type="radio"], select {
+.esconde {
     margin: 0 0 1rem 0;
     visibility: hidden;
 }
@@ -285,7 +285,7 @@ p.agenda
 {
   font-size: 13px;
   margin-top: -38px !important;
-  margin-left: 15px !important;
+  margin-left: 30px !important;
 }
 
 

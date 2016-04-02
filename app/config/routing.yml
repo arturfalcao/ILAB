@@ -164,6 +164,10 @@ chat_mens_nao_lidas:
     path:     /chat/mens_nao_lidas
     defaults: { _controller: AppBundle:Chat:mens_nao_lidas }
 
+chat_getusername:
+    path:     /chat/getusername
+    defaults: { _controller: AppBundle:Chat:getusername }
+
 _sonata_admin:
     resource: .
     type: sonata_admin

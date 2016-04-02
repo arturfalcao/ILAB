@@ -45,11 +45,6 @@
   }, 0, 'test');
 }())
 
-
-var reticencias;
-var textomensagensnaolidas;
-var novasmensagensutilizador;
-
 function TextoMensagensNaoLidas()
 {
 var user = Number($('#logged').val());
@@ -89,7 +84,7 @@ $.ajax({
           }
         }
     });
-textomensagensnaolidas=setTimeout(TextoMensagensNaoLidas, 2000);	
+setTimeout(TextoMensagensNaoLidas, 5000);	
 }
 
 function MensagensNaoLidas()
@@ -119,14 +114,13 @@ function novasMensagensUtilizador()
 {
 var user = Number($('#logged').val());
 var nid = Number($('#clicked_user').val());
-
 $.ajax({
             type: "POST",
             url: '{{path('chat_gethistoriconovo')}}',
             data: {id: nid, id2: user},
             success: function(data) {
             	var arr = $.parseJSON(data);
-
+            	
             	if(arr.length != 0)
                 {
                   $.each(arr, function(index,value) {
@@ -149,18 +143,19 @@ $.ajax({
                     });
                   	
                   	   
-                    /*$.ajax({
+                    
+                }
+                $.ajax({
 		                type: "POST",
 		                url: '{{path('chat_updatehistorico')}}',
 		                data: {id: nid, id2: user},
 		                success: function(data) {}
                 	
-					});*/
-                }
+					});
             }
 	});
 
-novasmensagensutilizador=setTimeout(novasMensagensUtilizador, 4000);	
+setTimeout(novasMensagensUtilizador, 4000);	
 }
 
 
@@ -214,27 +209,22 @@ function histMens(element)
 	    $("#insere").remove();
 	    $("#chat").remove();
 		
-	    clearTimeout(novasmensagensutilizador);
-	    clearTimeout(textomensagensnaolidas);
 	    $.ajax({
                 type: "POST",
                 url: '{{path('chat_gethistorico')}}',
                 data: {id: nid, id2: user},
                 success: function(data) {
                 	var arr = $.parseJSON(data);
-
-                	var teste = "TESTE2";
-                	var test = "TESTE#";
+                	$("#tabs-2").append("<div id='chat'>");
                 	if(arr.length != 0)
                     {
-                      $("#tabs-2").append("<div id='chat'>");
+                      
                       $("#chat").append("<h6 class='h6' align='center'>" + nome_user + "</h6>" );
                       $.each(arr, function(index,value) {
 
                       		if(value.id_emissor == user)
                       		{	
-								nome_user_logado = value.username;                      		
-                      			$("#chat").append("<div >");
+								$("#chat").append("<div>");
                       			var imagem = '<img class="circle_image imagem_direita" id="us_' + value.id_emissor + '" src="/bundles/app/images/avatar_' + value.id_emissor +'.png" alt="' + value.username + '" >';
                       			$("#chat").append(imagem);
                       			$("#chat").append("<p  class='triangle-isosceles dir quebra'>" + value.mensagem + "</p>" );
@@ -255,17 +245,30 @@ function histMens(element)
 
                         });
                       	
-                      $("#tabs-2").append("</div>");
-                      	
 	                    
-	                    TextoMensagensNaoLidas();
-	                    novasMensagensUtilizador();
 	                  
                     }
+                    $("#tabs-2").append("</div>");
                     $("#tabs-2").append('<input type="hidden" id="clicked_user" value="' + nid + '">');
-                      	$("#tabs-2").append("<p class='sms_n_lidas'></p>");
-                    	$("#tabs-2").append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' maxlength='300' x='i_" + user + "_" + nid +"' ></div>");
-                    	$("#tabs-2").append("<div id='insere'><i class='fa fa-play-circle-o botao_f_size botao_enviar' x='" + nome_user_logado +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+                    novasMensagensUtilizador();       
+	                TextoMensagensNaoLidas();
+                    
+                  	$("#tabs-2").append("<p class='sms_n_lidas'></p>");
+                	$("#tabs-2").append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' maxlength='300' x='i_" + user + "_" + nid +"' ></div>");
+
+                	$.ajax({
+					    type: "POST",
+					    url: '{{path('chat_getusername')}}',
+					    data: {userid: user},
+					    success: function(data) { 
+					    	$("#tabs-2").append("<div id='insere'><i class='fa fa-play-circle-o botao_f_size botao_enviar' x='" + data +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+
+					    }
+			    	});
+
+
+
+                	
                 }
 		});
 	    

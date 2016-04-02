@@ -88,7 +88,7 @@
                                   var info = data_format + ' - '+ value.observacao;
                                   var html =  "<div class='roundedOne'>";
                                   
-                                  var ok = '<input type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
+                                  var ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                                   html += ok; 
                                   html += "</div>";
                                   html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';                                    
@@ -105,7 +105,7 @@
                                   var info = value.observacao;
                                   var html =  "<div class='roundedOne'>";
                                   
-                                  var ok = '<input type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
+                                  var ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                                   html += ok; 
                                   html += "</div>";
                                   html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';                       
