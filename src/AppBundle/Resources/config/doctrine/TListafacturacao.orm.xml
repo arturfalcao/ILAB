@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TListafacturacao" table="t_listafacturacao">
+    <id name="ftSerie" type="string" column="ft_serie" length="5"/>
+    <id name="fnNumero" type="bigint" column="fn_numero"/>
+    <field name="fdDatainicial" type="datetime" column="fd_datainicial" nullable="true"/>
+    <field name="fdDatafinal" type="datetime" column="fd_datafinal" nullable="true"/>
+    <field name="ftTipodata" type="string" column="ft_tipodata" length="10" nullable="true"/>
+    <field name="fnIdCliente" type="bigint" column="fn_id_cliente" nullable="true"/>
+    <field name="ftDescricao" type="string" column="ft_descricao" length="300" nullable="true"/>
+    <field name="ftObservacao" type="string" column="ft_observacao" length="300" nullable="true"/>
+    <field name="ftCodigocentrocusto" type="string" column="ft_codigocentrocusto" length="20" nullable="true"/>
+  </entity>
+</doctrine-mapping>

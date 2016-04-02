@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TRegrasformatacao" table="t_regrasformatacao">
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdModeloresultado" type="bigint" column="fn_id_modeloresultado" nullable="true"/>
+    <field name="fnOrdem" type="integer" column="fn_ordem" nullable="true"/>
+    <field name="ftDescricao" type="string" column="ft_descricao" length="100" nullable="true"/>
+    <field name="fnLimiteinferior" type="decimal" column="fn_limiteinferior" precision="10" scale="5" nullable="true"/>
+    <field name="fnLimitesuperior" type="decimal" column="fn_limitesuperior" precision="10" scale="5" nullable="true"/>
+    <field name="fnCasasdecimais" type="integer" column="fn_casasdecimais" nullable="true"/>
+    <field name="fbFormatoexponencial" type="boolean" column="fb_formatoexponencial" nullable="true"/>
+    <field name="fbFormatoutilizador" type="boolean" column="fb_formatoutilizador" nullable="true"/>
+    <field name="ftExpressaoutilizador" type="string" column="ft_expressaoutilizador" length="20" nullable="true"/>
+  </entity>
+</doctrine-mapping>

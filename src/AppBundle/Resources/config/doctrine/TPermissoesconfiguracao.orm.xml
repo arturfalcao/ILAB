@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TPermissoesconfiguracao" table="t_permissoesconfiguracao">
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdPerfil" type="bigint" column="fn_id_perfil" nullable="true"/>
+    <field name="fbModelos" type="boolean" column="fb_modelos" nullable="true"/>
+    <field name="fbGruposparametros" type="boolean" column="fb_gruposparametros" nullable="true"/>
+    <field name="fbProdutos" type="boolean" column="fb_produtos" nullable="true"/>
+    <field name="fbUtilizadores" type="boolean" column="fb_utilizadores" nullable="true"/>
+    <field name="fbPerfis" type="boolean" column="fb_perfis" nullable="true"/>
+    <field name="fbClientes" type="boolean" column="fb_clientes" nullable="true"/>
+    <field name="fbLocaiscolheita" type="boolean" column="fb_locaiscolheita" nullable="true"/>
+    <field name="fbOrcamentos" type="boolean" column="fb_orcamentos" nullable="true"/>
+    <field name="fbPlanificador" type="boolean" column="fb_planificador" nullable="true"/>
+  </entity>
+</doctrine-mapping>

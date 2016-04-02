@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TGestaorelatoriosensaio" table="t_gestaorelatoriosensaio">
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdAmostra" type="bigint" column="fn_id_amostra" nullable="true"/>
+    <field name="fdDataemissao" type="datetime" column="fd_dataemissao" nullable="true"/>
+    <field name="ftNomeutilizador" type="string" column="ft_nomeutilizador" length="100" nullable="true"/>
+    <field name="ftFuncaoutilizador" type="string" column="ft_funcaoutilizador" length="100" nullable="true"/>
+    <field name="fnIdTipoemissaorelatorio" type="bigint" column="fn_id_tipoemissaorelatorio" nullable="true"/>
+    <field name="ftAssinaturaresponsavel" type="string" column="ft_assinaturaresponsavel" length="100" nullable="true"/>
+    <field name="ftFuncaoresponsavel" type="string" column="ft_funcaoresponsavel" length="100" nullable="true"/>
+    <field name="ftObservacao" type="string" column="ft_observacao" length="300" nullable="true"/>
+  </entity>
+</doctrine-mapping>

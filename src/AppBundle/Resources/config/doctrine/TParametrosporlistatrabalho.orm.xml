@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TParametrosporlistatrabalho" table="t_parametrosporlistatrabalho">
+    <id name="fnData" type="integer" column="fn_data"/>
+    <id name="fnHora" type="integer" column="fn_hora"/>
+    <id name="fnIdParametro" type="bigint" column="fn_id_parametro"/>
+    <field name="fnIdAmostra" type="bigint" column="fn_id_amostra" nullable="true"/>
+  </entity>
+</doctrine-mapping>

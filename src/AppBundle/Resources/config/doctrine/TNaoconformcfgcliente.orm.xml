@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TNaoconformcfgcliente" table="t_naoconformcfgcliente">
+    <id name="fnIdCliente" type="integer" column="fn_id_Cliente">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fbPorfax" type="boolean" column="fb_PorFax" nullable="false"/>
+    <field name="fbPoremail" type="boolean" column="fb_PorEmail" nullable="false"/>
+    <field name="fbGerarpdf" type="boolean" column="fb_GerarPdf" nullable="false"/>
+    <field name="ftPastadepdfs" type="string" column="ft_PastaDePdfs" length="300" nullable="true"/>
+    <field name="ftEmaildestino" type="string" column="ft_EmailDestino" length="200" nullable="false"/>
+    <field name="ftObservacao" type="string" column="ft_Observacao" length="500" nullable="true"/>
+  </entity>
+</doctrine-mapping>

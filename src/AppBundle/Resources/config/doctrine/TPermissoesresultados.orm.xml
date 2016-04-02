@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TPermissoesresultados" table="t_permissoesresultados">
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdPerfil" type="bigint" column="fn_id_perfil" nullable="true"/>
+    <field name="fnIdTipopermissao" type="bigint" column="fn_id_tipopermissao" nullable="true"/>
+    <field name="fbValor" type="boolean" column="fb_valor" nullable="true"/>
+  </entity>
+</doctrine-mapping>
