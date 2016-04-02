@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TListafacturacaoamostra" table="t_listafacturacaoamostra">
+    <id name="fnIdAmostra" type="bigint" column="fn_id_amostra">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ftSerie" type="string" column="ft_serie" length="5" nullable="false"/>
+    <field name="fnNumero" type="bigint" column="fn_numero" nullable="false"/>
+  </entity>
+</doctrine-mapping>

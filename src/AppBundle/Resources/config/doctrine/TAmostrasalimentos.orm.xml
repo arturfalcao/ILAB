@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TAmostrasalimentos" table="t_amostrasalimentos">
+    <id name="fnId" type="integer" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ftLote" type="string" column="ft_lote" length="50" nullable="true"/>
+    <field name="ftAcondicionamento" type="string" column="ft_acondicionamento" length="100" nullable="true"/>
+    <field name="ftValidade" type="string" column="ft_validade" length="50" nullable="true"/>
+    <field name="ftTemperatura" type="string" column="ft_temperatura" length="50" nullable="true"/>
+    <field name="ftFaseprocesso" type="string" column="ft_faseprocesso" length="100" nullable="true"/>
+  </entity>
+</doctrine-mapping>

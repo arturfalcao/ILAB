@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TModelosparametrosgrupo" table="t_modelosparametrosgrupo">
+    <id name="fnIdGrupo" type="bigint" column="fn_id_grupo"/>
+    <id name="fnIdModeloparametro" type="bigint" column="fn_id_modeloparametro"/>
+  </entity>
+</doctrine-mapping>

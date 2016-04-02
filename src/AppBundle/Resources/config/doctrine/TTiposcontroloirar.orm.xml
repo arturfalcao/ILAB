@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TTiposcontroloirar" table="t_tiposcontroloirar">
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdTipocontrolo" type="bigint" column="fn_id_tipocontrolo" nullable="true"/>
+    <field name="ftCodigoirar" type="string" column="ft_codigoirar" length="50" nullable="true"/>
+    <field name="ftObservacao" type="string" column="ft_observacao" length="300" nullable="true"/>
+  </entity>
+</doctrine-mapping>

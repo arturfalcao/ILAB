@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TAmostras" table="t_amostras">
+    <indexes>
+      <index name="IX_t_amostras_cliente" columns="fn_id_cliente"/>
+      <index name="IX_t_amostras_data_colheita" columns="fd_colheita"/>
+      <index name="IX_t_amostras_estado" columns="ft_id_estado"/>
+      <index name="IX_t_amostras_local_colheita" columns="fn_id_localcolheita"/>
+      <index name="IX_t_amostras_orcamento" columns="fn_id_orcamento"/>
+      <index name="IX_t_amostras_produto" columns="fn_id_produto"/>
+    </indexes>
+    <id name="fnId" type="bigint" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnNumero" type="bigint" column="fn_numero" nullable="false"/>
+    <field name="ftSerie" type="string" column="ft_serie" length="5" nullable="false"/>
+    <field name="fdCriacao" type="datetime" column="fd_criacao" nullable="false"/>
+    <field name="fdColheita" type="datetime" column="fd_colheita" nullable="false"/>
+    <field name="fdRecepcao" type="datetime" column="fd_recepcao" nullable="false"/>
+    <field name="fdConclusao" type="datetime" column="fd_conclusao" nullable="true"/>
+    <field name="fdLimite" type="datetime" column="fd_limite" nullable="true"/>
+    <field name="ftResponsavelcolheita" type="string" column="ft_responsavelcolheita" length="100" nullable="false"/>
+    <field name="fnIdLocalcolheita" type="bigint" column="fn_id_localcolheita" nullable="false"/>
+    <field name="fnIdOperador" type="bigint" column="fn_id_operador" nullable="false"/>
+    <field name="fnIdCliente" type="bigint" column="fn_id_cliente" nullable="false"/>
+    <field name="fnIdModelo" type="bigint" column="fn_id_modelo" nullable="false"/>
+    <field name="fnIdTipoaprovacao" type="bigint" column="fn_id_tipoaprovacao" nullable="false"/>
+    <field name="fdAutorizacao" type="datetime" column="fd_autorizacao" nullable="true"/>
+    <field name="fnIdProduto" type="bigint" column="fn_id_produto" nullable="false"/>
+    <field name="ftOrigem" type="string" column="ft_origem" length="100" nullable="false"/>
+    <field name="ftGrupoparametros" type="string" column="ft_grupoparametros" length="100" nullable="false"/>
+    <field name="fnIdLegislacao" type="bigint" column="fn_id_legislacao" nullable="false"/>
+    <field name="ftTipoemissaorelatorio" type="string" column="ft_tipoemissaorelatorio" length="2" nullable="false"/>
+    <field name="fbRelatorioemitido" type="boolean" column="fb_relatorioemitido" nullable="false"/>
+    <field name="fdEmissaorelatorio" type="datetime" column="fd_emissaorelatorio" nullable="true"/>
+    <field name="fnIdTipo" type="bigint" column="fn_id_tipo" nullable="false"/>
+    <field name="ftRefexterna" type="string" column="ft_refexterna" length="300" nullable="true"/>
+    <field name="ftConclusao" type="string" column="ft_conclusao" length="300" nullable="false"/>
+    <field name="ftObs" type="string" column="ft_obs" length="300" nullable="false"/>
+    <field name="fnIdTipocontrolo" type="bigint" column="fn_id_tipocontrolo" nullable="false"/>
+    <field name="fnIdOrcamento" type="bigint" column="fn_id_orcamento" nullable="true"/>
+    <field name="ftIdEstado" type="string" column="ft_id_estado" length="1" nullable="false"/>
+    <field name="fnIdEspecificacao" type="bigint" column="fn_id_especificacao" nullable="true"/>
+    <field name="ftCumpreespecificacao" type="string" column="ft_cumpreespecificacao" length="1" nullable="true"/>
+    <field name="fdInicioanalise" type="datetime" column="fd_inicioanalise" nullable="true"/>
+    <field name="fbFacturada" type="boolean" column="fb_facturada" nullable="true"/>
+    <field name="fnIdRequisicaocliente" type="bigint" column="fn_id_requisicaocliente" nullable="false"/>
+  </entity>
+</doctrine-mapping>

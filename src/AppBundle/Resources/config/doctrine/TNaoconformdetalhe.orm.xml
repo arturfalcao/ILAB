@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\TNaoconformdetalhe" table="t_naoconformdetalhe">
+    <indexes>
+      <index name="IX_t_NaoConformDetalhe_Cabecalho" columns="fn_id_NaoConformCabecalho"/>
+    </indexes>
+    <id name="fnId" type="integer" column="fn_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="fnIdNaoconformcabecalho" type="integer" column="fn_id_NaoConformCabecalho" nullable="false"/>
+    <field name="fnDatalng" type="integer" column="fn_DataLng" nullable="false"/>
+    <field name="fnHoralng" type="integer" column="fn_HoraLng" nullable="false"/>
+    <field name="ftEstadoinicial" type="string" column="ft_EstadoInicial" length="50" nullable="false"/>
+    <field name="ftEstadofinal" type="string" column="ft_EstadoFinal" length="50" nullable="false"/>
+    <field name="ftValidacao" type="string" column="ft_Validacao" length="2000" nullable="true"/>
+    <field name="ftEmaildestino" type="string" column="ft_EmailDestino" length="200" nullable="false"/>
+    <field name="ftUtilizadorenvio" type="string" column="ft_UtilizadorEnvio" length="100" nullable="false"/>
+  </entity>
+</doctrine-mapping>
