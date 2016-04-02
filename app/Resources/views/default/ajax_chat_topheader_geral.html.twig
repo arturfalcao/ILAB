@@ -222,17 +222,17 @@ function histMens(element)
                 data: {id: nid, id2: user},
                 success: function(data) {
                 	var arr = $.parseJSON(data);
-                	var teste = "TESTE";
+                	$("#tabs-2").append("<div id='chat'>");
                 	if(arr.length != 0)
                     {
-                      $("#tabs-2").append("<div id='chat'>");
+                      
                       $("#chat").append("<h6 class='h6' align='center'>" + nome_user + "</h6>" );
                       $.each(arr, function(index,value) {
 
                       		if(value.id_emissor == user)
                       		{	
 								nome_user_logado = value.username;                      		
-                      			$("#chat").append("<div >");
+                      			$("#chat").append("<div>");
                       			var imagem = '<img class="circle_image imagem_direita" id="us_' + value.id_emissor + '" src="/bundles/app/images/avatar_' + value.id_emissor +'.png" alt="' + value.username + '" >';
                       			$("#chat").append(imagem);
                       			$("#chat").append("<p  class='triangle-isosceles dir quebra'>" + value.mensagem + "</p>" );
@@ -253,13 +253,14 @@ function histMens(element)
 
                         });
                       	
-                      $("#tabs-2").append("</div>");
+                      
                       	
 	                    
 	                    TextoMensagensNaoLidas();
 	                    novasMensagensUtilizador();
 	                  
                     }
+                    $("#tabs-2").append("</div>");
                     $("#tabs-2").append('<input type="hidden" id="clicked_user" value="' + nid + '">');
                       	$("#tabs-2").append("<p class='sms_n_lidas'></p>");
                     	$("#tabs-2").append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' maxlength='300' x='i_" + user + "_" + nid +"' ></div>");
