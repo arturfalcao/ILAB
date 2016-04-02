@@ -143,7 +143,7 @@
                         <table id="parametros_grid" class="table table-condensed table-hover table-striped">
                             <thead>
                             <tr>
-                                <th data-width="60" data-column-id="fn_id" data-type="numeric" data-identifier="true">ID</th>
+                                <th data-width="60" data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
                                 <th data-width="40" data-column-id="ft_codigo" data-type="numeric" >E</th>
                                 <th data-column-id="resultado">Parâmetro</th>
                                 <th data-column-id="parametros" >Resultado</th>
@@ -153,6 +153,9 @@
                             </tr>
                             </thead>
                         </table>
+
+                        <div class="NewParaDiv"></div>
+                        <a target="_blank" class="btn generateworklist" onclick="AddParaActions()"><i class="fa fa-minus-circle"></i> Adicionar </a>
 
                     </div>
                     <div class="col-md-6">
@@ -179,16 +182,117 @@
 
                 </div>
                 <div class="row">
-                    <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Guardar</a>
-                    <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Autorizar </a>
-                    <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Desautorizar </a>
-                    <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Eliminar</a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-minus-circle"></i> Autorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-minus-circle"></i> Desautorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
                 </div>
             </div>
 
             <div id="tabs-3">
                 <script>
+                    var rowIds = [];
+                    var selectedRows = [];
+                    function AddParaActions(){
+
+
+                        if(typeof $('.NewPara').select2('data').id != 'undefined' && $('.NewPara').select2('data').id != ""){
+                            $.ajax({
+                                type: "POST",
+                                url: '/app_dev.php/addpara',
+                                data: {idpara: $('.NewPara').select2('data').id , idamostra : {{ admin.id(object)  }}},
+                                contentType: "application/json",
+                                success: function(data) {
+                                    alert(data);
+                                    $("#parametros_grid").bootgrid("destroy");
+                                    GetParametros();
+
+                                }
+                            });
+                        }
+
+
+                    }
+
+                    function UpdateParaActions(URL){
+                        if(rowIds.length != 0){
+                            $.ajax({
+                                type: "POST",
+                                url: URL,
+                                data: JSON.stringify(rowIds),
+                                contentType: "application/json",
+                                success: function(data) {
+                                    $("#parametros_grid").bootgrid("destroy");
+                                    rowIds.length = 0;
+                                    GetParametros();
+
+                                }
+                            });
+                        }
+
+
+                    }
+                    function GetParametros(){
+                        $.ajax({
+                            type: "POST",
+                            url: '{{path('AmostrasGetParametros')}}',
+                            data: {data: {{ admin.id(object)  }} },
+                            success: function(data) {
+
+                                var grid_para = $("#parametros_grid").bootgrid({
+                                    navigation:0,
+                                    selection: true,
+                                    multiSelect: true,
+                                    rowSelect: true,
+                                    keepSelection: true
+                                }).on("selected.rs.jquery.bootgrid", function(e, rows)
+                                {
+                                    for (var i = 0; i < rows.length; i++)
+                                    {
+                                        rowIds.push(rows[i].id);
+                                    }
+                                }).on("deselected.rs.jquery.bootgrid", function(e, rows)
+                                {
+                                    for (var i = 0; i < rows.length; i++)
+                                    {
+                                        rowIds.push(rows[i].id);
+                                    }
+                                }).on("click.rs.jquery.bootgrid", function (e,rows,row)
+                                {
+                                    selectedRows = rows;
+                                });
+                                var obj = $.parseJSON(data);
+
+                                if (obj.length != 0) {
+                                    grid_para.bootgrid("append",obj );
+                                    $.each(obj, function (key, value) {
+
+                                    });
+                                } else {
+
+                                }
+                            }
+                        });
+                    }
+                    function GetAllPara(){
+                        $.ajax({
+                            type: "POST",
+                            url: "/app_dev.php/GetAllPara",
+                            dataType: 'json',
+                            success: function(data) {
+                                $('.NewParaDiv').append("<select  class='NewPara'></select>");
+
+                                $.each(data, function(index, value) {
+                                    $('.NewPara').append(
+                                            '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                                    );
+                                });
+                                $(".NewPara").select2();
+                            }
+                        });
+                    }
+
                     $( document ).ready(function() {
+
                         $.ajax({
                             type: "POST",
                             url: '{{path('AmostrasGetCicloVida')}}',
@@ -229,45 +333,9 @@
                                 }
                             }
                         });
+                        GetParametros();
+                        GetAllPara();
                     });
-
-
-                    $( document ).ready(function() {
-                        $.ajax({
-                            type: "POST",
-                            url: '{{path('AmostrasGetParametros')}}',
-                            data: {data: {{ admin.id(object)  }} },
-                            success: function(data) {
-
-                                var grid_para = $("#parametros_grid").bootgrid({
-                                    navigation:0,
-                                    selection: true,
-                                    keepSelection:true,
-                                    rowSelect:true,
-                                    multiSelect:true
-
-                                }).on("selected.rs.jquery.bootgrid", function(e, rows)
-                                {
-                                    var rowIds = [];
-                                    for (var i = 0; i < rows.length; i++)
-                                    {
-                                        rowIds.push(rows[i].id);
-                                    }
-                                });
-                                var obj = $.parseJSON(data);
-
-                                if (obj.length != 0) {
-                                    grid_para.bootgrid("append",obj );
-                                    $.each(obj, function (key, value) {
-
-                                    });
-                                } else {
-
-                                }
-                            }
-                        });
-                    });
-
 
                 </script>
 

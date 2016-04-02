@@ -1,0 +1,334 @@
+<script>
+/*\
+|*|
+|*|  Polyfill which enables the passage of arbitrary arguments to the
+|*|  callback functions of JavaScript timers (HTML5 standard syntax).
+|*|
+|*|  https://developer.mozilla.org/en-US/docs/DOM/window.setInterval
+|*|
+|*|  Syntax:
+|*|  var timeoutID = window.setTimeout(func, delay, [param1, param2, ...]);
+|*|  var timeoutID = window.setTimeout(code, delay);
+|*|  var intervalID = window.setInterval(func, delay[, param1, param2, ...]);
+|*|  var intervalID = window.setInterval(code, delay);
+|*|
+\*/
+
+(function() {
+  setTimeout(function(arg1) {
+    if (arg1 === 'test') {
+      // feature test is passed, no need for polyfill
+      return;
+    }
+    var __nativeST__ = window.setTimeout;
+    window.setTimeout = function(vCallback, nDelay /*, argumentToPass1, argumentToPass2, etc. */ ) {
+      var aArgs = Array.prototype.slice.call(arguments, 2);
+      return __nativeST__(vCallback instanceof Function ? function() {
+        vCallback.apply(null, aArgs);
+      } : vCallback, nDelay);
+    };
+  }, 0, 'test');
+
+  var interval = setInterval(function(arg1) {
+    clearInterval(interval);
+    if (arg1 === 'test') {
+      // feature test is passed, no need for polyfill
+      return;
+    }
+    var __nativeSI__ = window.setInterval;
+    window.setInterval = function(vCallback, nDelay /*, argumentToPass1, argumentToPass2, etc. */ ) {
+      var aArgs = Array.prototype.slice.call(arguments, 2);
+      return __nativeSI__(vCallback instanceof Function ? function() {
+        vCallback.apply(null, aArgs);
+      } : vCallback, nDelay);
+    };
+  }, 0, 'test');
+}())
+
+
+var reticencias;
+var textomensagensnaolidas;
+var novasmensagensutilizador;
+
+function TextoMensagensNaoLidas()
+{
+var user = Number($('#logged').val());
+var nid = Number($('#clicked_user').val());
+var texto = "Tem ";
+$.ajax({
+        type: "POST",
+        url: '{{path('chat_mens_nao_lidas')}}',
+        data: {id: user, emi: nid},
+        success: function(data) {
+          var n = data.search("_");
+          var n_lidas = Number(data.slice(1,n));
+          var n_colaboradores = Number(data.slice(n+1,data.length-1));	
+
+          if(n_lidas != 0)
+          {
+          	if(n_lidas == 1)
+          	{
+          		texto = texto + n_lidas + " mensagem de outro colaborador";
+          	}
+          	else
+          	{
+          		if(n_colaboradores > 1)
+          		{
+          		 texto = texto + n_lidas + " mensagens de outros colaboradores";
+          		}
+          		else
+          		{
+          		 texto = texto + n_lidas + " mensagens de outro colaborador";
+          		}	
+          	}
+            $(".sms_n_lidas").text(texto);
+          }
+          else
+          {
+            $(".sms_n_lidas").text('');
+          }
+        }
+    });
+textomensagensnaolidas=setTimeout(TextoMensagensNaoLidas, 2000);	
+}
+
+function MensagensNaoLidas()
+{
+
+var user = Number($('#logged').val());
+$.ajax({
+      type: "POST",
+      url: '{{path('chat_mens_nao_lidas')}}',
+      data: {id: user, emi: 0},
+      success: function(data) {
+      	var n = data.search("_");
+        var n_lidas = Number(data.slice(1,n));
+        $("#n_lidas").html('');
+        if(n_lidas != 0)
+        {
+          $("#n_lidas").append('<div class="circulo">' + n_lidas + '</div>');
+        }
+        
+      }
+  });
+setTimeout(MensagensNaoLidas, 2000);
+}
+
+
+function novasMensagensUtilizador()
+{
+var user = Number($('#logged').val());
+var nid = Number($('#clicked_user').val());
+
+$.ajax({
+            type: "POST",
+            url: '{{path('chat_gethistoriconovo')}}',
+            data: {id: nid, id2: user},
+            success: function(data) {
+            	var arr = $.parseJSON(data);
+
+            	if(arr.length != 0)
+                {
+                  $.each(arr, function(index,value) {
+
+                  		if(value.id_emissor != user)
+                  		{	
+						$("#chat").append("<div>");
+                        	
+
+                  			if($("#hc_" + value.id).length == 0) {
+                  				var imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="/bundles/app/images/avatar_' + value.id_emissor +'.png" alt="' + value.username + '" >';
+                  				$("#chat").append(imagem);
+  								$("#chat").append("<p class='triangle-isosceles esq quebra' id='hc_" + value.id + "'>" + value.mensagem + "</p>" );	
+							}
+                  			
+	                    	$("#chat").append("</div>");
+	                    	
+						}
+                        	
+                    });
+                  	
+                  	   
+                    /*$.ajax({
+		                type: "POST",
+		                url: '{{path('chat_updatehistorico')}}',
+		                data: {id: nid, id2: user},
+		                success: function(data) {}
+                	
+					});*/
+                }
+            }
+	});
+
+novasmensagensutilizador=setTimeout(novasMensagensUtilizador, 4000);	
+}
+
+
+
+function sendMessage(element)
+{
+ var nome_user=$(element).attr('x');	
+ var id_user = $("#texto_imp").attr('x');
+ var id_em_re = id_user.slice(2);
+ var mensagem = $("#texto_imp").val();
+ var n = id_em_re.search("_");
+ 
+ var id_emissor = Number(id_em_re.slice(0,n));
+ var id_receptor = Number(id_em_re.slice(n+1));
+ $("#texto_imp").val('');
+
+if(mensagem.length != 0)
+{	
+	$("#chat").append("<div >");
+	var imagem = '<img class="circle_image imagem_direita" id="us_' + id_emissor + '" src="/bundles/app/images/avatar_' + id_emissor +'.png" alt="' + nome_user + '" >';
+
+	$("#chat").append(imagem);
+	$("#chat").append("<p  class='triangle-isosceles dir quebra'>" + mensagem + "</p>" );
+
+	$("#chat").append("</div>");
+
+	$.ajax({
+	    type: "POST",
+	    url: '{{path('chat_inserthistorico')}}',
+	    data: {emi: id_emissor, rece: id_receptor, mens: mensagem},
+	    success: function(data) { }
+    });
+}
+
+}
+
+
+
+function histMens(element)
+{
+	  	var user = Number($('#logged').val());
+	    var nome_user = $(element).attr('alt');
+	    var id_user = $(element).attr('id');
+	    var nid = Number(id_user.slice(3));
+	    var nome_user_logado;
+
+	    $("#clicked_user").remove();
+		$("#texto_imp").remove();
+	    $(".botao_enviar").remove();
+	    $(".sms_n_lidas").remove();
+	    $("#insere").remove();
+	    $("#chat").remove();
+		
+	    clearTimeout(novasmensagensutilizador);
+	    clearTimeout(textomensagensnaolidas);
+	    $.ajax({
+                type: "POST",
+                url: '{{path('chat_gethistorico')}}',
+                data: {id: nid, id2: user},
+                success: function(data) {
+                	var arr = $.parseJSON(data);
+                	var teste = "TESTE";
+                	if(arr.length != 0)
+                    {
+                      $("#tabs-2").append("<div id='chat'>");
+                      $("#chat").append("<h6 class='h6' align='center'>" + nome_user + "</h6>" );
+                      $.each(arr, function(index,value) {
+
+                      		if(value.id_emissor == user)
+                      		{	
+								nome_user_logado = value.username;                      		
+                      			$("#chat").append("<div >");
+                      			var imagem = '<img class="circle_image imagem_direita" id="us_' + value.id_emissor + '" src="/bundles/app/images/avatar_' + value.id_emissor +'.png" alt="' + value.username + '" >';
+                      			$("#chat").append(imagem);
+                      			$("#chat").append("<p  class='triangle-isosceles dir quebra'>" + value.mensagem + "</p>" );
+                      			
+                      			
+                      			$("#chat").append("</div>");
+
+                      			
+                      		}
+                            else{
+                            	$("#chat").append("<div>");
+                            	var imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="/bundles/app/images/avatar_' + value.id_emissor +'.png" alt="' + value.username + '" >';
+                      			$("#chat").append(imagem);
+                            	$("#chat").append("<p class='triangle-isosceles esq quebra'>" + value.mensagem + "</p>" );
+                      			$("#chat").append("</div>");
+                            	}
+                            	
+
+                        });
+                      	
+                      $("#tabs-2").append("</div>");
+                      	
+	                    
+	                    TextoMensagensNaoLidas();
+	                    novasMensagensUtilizador();
+	                  
+                    }
+                    $("#tabs-2").append('<input type="hidden" id="clicked_user" value="' + nid + '">');
+                      	$("#tabs-2").append("<p class='sms_n_lidas'></p>");
+                    	$("#tabs-2").append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' maxlength='300' x='i_" + user + "_" + nid +"' ></div>");
+                    	$("#tabs-2").append("<div id='insere'><i class='fa fa-play-circle-o botao_f_size botao_enviar' x='" + nome_user_logado +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+                }
+		});
+	    
+}
+
+function nomeUtilizador(element)
+{
+	var nome_user = $(element).attr('alt');
+	var id_foto = $(element).attr('id');
+	var id_user = id_foto.slice(3);
+	
+	$("." + id_foto ).prepend("<p id='p_" + id_user + "' class='legenda_user'>" + nome_user + "</p>");
+}
+
+function removeParagrafo(element)
+{
+	var id_foto = $(element).attr('id');
+	$("." + id_foto + " p").remove();
+}
+
+$( document ).ready(function() {
+
+		var user = Number($('#logged').val());
+		$('.li_chat, .li_chat a').click(function(){
+			    
+			    $('#tabs-2').append("<div class='loading'></div>");
+                $('.loading').show();
+                $("#clicked_user").remove();
+			    
+			    $("#clicked_user").remove();
+				$("#texto_imp").remove();
+			    $(".botao_enviar").remove();
+			    $(".sms_n_lidas").remove();
+			    $("#insere").remove();
+			    $("#chat").remove();
+				$(".img_block").remove();
+				
+				$.ajax({
+		                    type: "POST",
+		                    url: '{{path('chat_getusers')}}',
+		                    data: {id: user},
+		                    success: function(data) {
+		                    	var arr = $.parseJSON(data);
+		                        
+		                        
+		                        $( "#tabs-2" ).html('');
+		                        if(arr.length != 0)
+		                        {
+		                          $("#tabs-2").append("<div class='img_block'>");	
+		                          $.each(arr, function(index,value) {
+ 									 
+ 									  $(".img_block").append("<div class='us_" + value.id + "'>");
+		                          	  var imagem = '<img class="img_align circle_image" id="us_' + value.id + '" ' + 'src="/bundles/app/images/avatar_' + value.id +'.png" alt="' + value.username + '" onclick="histMens(this)" onmouseover="nomeUtilizador(this)" onmouseout="removeParagrafo(this)" />';
+		                              $('.us_' + value.id).append(imagem);
+		                              $('.img_block').append("</div>");	
+		                            
+		                            });
+		                          
+		                          $("#tabs-2").append("</div>");
+		                        
+		                        }
+		                        $('.loading').hide();
+		                    }
+		                });
+
+	});
+});	
+</script>

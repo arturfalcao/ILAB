@@ -12,38 +12,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Agenda
 {
-    
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_done", type="integer")
-     */
-
-    private $fnDone;
-
-    /**
-     * Set done
-     *
-     * @param integer $done
-     * @return Agenda
-     */
-    public function setFnDone($done)
-    {
-        $this->fnDone = $done;
-
-        return $this;
-    }
-
-    /**
-     * Get done
-     *
-     * @return integer 
-     */
-    public function getFnDone()
-    {
-        return $this->fnDone;
-    }
-
     /**
      * @var integer
      *

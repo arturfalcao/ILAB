@@ -52,6 +52,19 @@ generateworklist:
 completesample:
     path:     /completesample/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Completesample }
+completepara:
+    path:     /completepara
+    defaults: { _controller: AppBundle:WorkListCTRL:Completepara }
+reopenpara:
+    path:     /reopenpara
+    defaults: { _controller: AppBundle:WorkListCTRL:Reopenpara }
+cancelpara:
+    path:     /cancelpara
+    defaults: { _controller: AppBundle:WorkListCTRL:Cancelpara }
+addpara:
+    path:     /addpara
+    defaults: { _controller: AppBundle:WorkListCTRL:addpara }
+
 reopensample:
     path:     /reopensample/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Reopensample }
@@ -81,12 +94,12 @@ EntradaResultadossetByRegrasFormatacao:
 AmostrasGetCicloVida:
     pattern:  /amostras/ciclo
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetCicloVida }
-
 AmostrasGetParametros:
     pattern:  /amostras/parametros
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetParametros }
-
-
+GetAllPara:
+    pattern:  /GetAllPara
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllPara}
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
@@ -118,6 +131,38 @@ admin:
 
 adesigns_calendar:
   resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
+
+#Jose
+calendar_geteventos:
+    path:     /calendar/geteventos
+    defaults: { _controller: AppBundle:Agenda:geteventos }
+
+calendar_updateeventos:
+    path:     /calendar/updateeventos
+    defaults: { _controller: AppBundle:Agenda:updateeventos }
+chat_getusers:
+    path:     /chat/getusers
+    defaults: { _controller: AppBundle:Chat:getusers }
+
+chat_gethistoriconovo:
+    path:     /chat/gethistoriconovo
+    defaults: { _controller: AppBundle:Chat:gethistoriconovo }
+
+chat_gethistorico:
+    path:     /chat/gethistorico
+    defaults: { _controller: AppBundle:Chat:gethistorico }
+
+chat_inserthistorico:
+    path:     /chat/inserthistorico
+    defaults: { _controller: AppBundle:Chat:inserthistorico }
+
+chat_updatehistorico:
+    path:     /chat/updatehistorico
+    defaults: { _controller: AppBundle:Chat:updatehistorico }
+
+chat_mens_nao_lidas:
+    path:     /chat/mens_nao_lidas
+    defaults: { _controller: AppBundle:Chat:mens_nao_lidas }
 
 _sonata_admin:
     resource: .

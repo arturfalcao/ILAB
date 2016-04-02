@@ -92,7 +92,7 @@
                                    <th class="sonata-ba-list-field-header-integer ">Data Inicio</th>
                                    <th class="sonata-ba-list-field-header-integer ">Data de fim</th>
                                    <th class="sonata-ba-list-field-header-integer ">Cliente</th>
-                                   <th class="sonata-ba-list-field-header-integer ">Local de colheita</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Local de Recolha</th>
                                    <th class="sonata-ba-list-field-header-integer ">Grupo de Parâmetros</th>
                                    <th class="sonata-ba-list-field-header-integer ">Produtos</th>
                                    <th class="sonata-ba-list-field-header-integer ">Actions</th>
@@ -110,7 +110,7 @@
                                     <td>{% if entity.startdatetime %}{{ entity.startdatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
                                     <td>{% if entity.enddatetime %}{{ entity.enddatetime|date('Y-m-d H:i:s') }}{% endif %}</td>
                                     <td>{{ entity.fnCliente }}</td>
-                                    <td>{{ entity.fdColheita|date('Y-m-d H:i:s')  }}</td>
+                                    <td>{{ entity.ftRefexterna }}</td>
                                     <td>{{ entity.ftGrupoparametros }}</td>
                                     <td>{{ entity.fnProduto }}</td>
                                     <td>
