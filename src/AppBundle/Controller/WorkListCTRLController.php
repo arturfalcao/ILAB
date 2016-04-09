@@ -42,6 +42,20 @@ class WorkListCTRLController extends Controller
             $em->persist($amostra);
             $em->persist($resultados);
             $em->flush();
+
+            $sql = "SELECT MAX(id_table) FROM t_parametrosamostra_log ";
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+            $last =  $activeDate->fetchAll();
+
+            $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra_log AS aa WHERE aa.ft_id_estado = 'D' and aa.fn_id_amostra = ".  $amostra->getFnIdAmostra() . " and aa.id =" . $amostra->getId();
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+
+            $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 'C' where id_table > " . $last[0]["MAX(id_table)"] ;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+
         }
 
         return new Response("ok");
@@ -61,6 +75,19 @@ class WorkListCTRLController extends Controller
             $em->persist($amostra);
             $em->persist($resultados);
             $em->flush();
+
+            $sql = "SELECT MAX(id_table) FROM t_parametrosamostra_log ";
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+            $last =  $activeDate->fetchAll();
+
+            $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra_log AS aa WHERE aa.ft_id_estado = 'D' and aa.fn_id_amostra = ".  $amostra->getFnIdAmostra() . " and aa.id =" . $amostra->getId();
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+
+            $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 'D' where id_table > " . $last[0]["MAX(id_table)"] ;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
         }
 
         return new Response("ok");
@@ -91,6 +118,19 @@ class WorkListCTRLController extends Controller
             $em->persist($amostra);
             $em->persist($resultados);
             $em->flush();
+
+            $sql = "SELECT MAX(id_table) FROM t_parametrosamostra_log ";
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+            $last =  $activeDate->fetchAll();
+
+            $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra_log AS aa WHERE aa.ft_id_estado = 'D' and aa.fn_id_amostra = ".  $amostra->getFnIdAmostra() . " and aa.id =" . $amostra->getId();
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+
+            $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 'X' where id_table > " . $last[0]["MAX(id_table)"] ;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
         }
 
         return new Response("ok");
@@ -166,8 +206,20 @@ class WorkListCTRLController extends Controller
         $activeDate->prepare($sql)->execute();
         $celso = $conn->lastInsertId('id');
 
+        //log parametros
+        $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 'P' , aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra AS aa WHERE aa.id = " . $celso;
+        $activeDate = $this->getDoctrine()->getManager()->getConnection();
+        $activeDate->prepare($sql)->execute();
+
 
         $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $idsample . " where id=" . $activeDate->lastInsertId();
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+
+        //log parametros
+        $sql = "UPDATE t_parametrosamostra_log SET  ft_id_estado = 'D' , date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , fn_id_amostra = " . $idsample . " where id=" . $celso;
+
+
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
 
@@ -227,6 +279,23 @@ class WorkListCTRLController extends Controller
         foreach ($samples as &$slug) {
             $em = $this->getDoctrine()->getManager();
             $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($slug);
+
+
+            $sql = "SELECT MAX(id_table) FROM t_parametrosamostra_log ";
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+            $last =  $activeDate->fetchAll();
+
+            $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra_log AS aa WHERE aa.ft_id_estado = 'V' and aa.fn_id_amostra =" . $slug;
+
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+
+            $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 'D' , fn_id_amostra = " .$slug . " where id_table > " . $last[0]["MAX(id_table)"] ;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+
+
             if($amostra->getFtEstado()->getFtCodigo() == 'P'){
                 return $this->render('AppBundle:ModelosListas:Indisponivel.html.twig');
             }
@@ -242,8 +311,16 @@ class WorkListCTRLController extends Controller
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
             foreach ($arr as $value) {
-
                 if($flag == 0){
+                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
+
+                }else{
+                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
+
+                }
+/*
+                if($flag == 0){
+
 
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
                     $conn = $this->getDoctrine()->getConnection();
@@ -253,18 +330,16 @@ class WorkListCTRLController extends Controller
                     $last = $activeDate->lastInsertId();
 
                     //log parametros
-                    $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
+                    $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, aa.ft_id_estado, aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra AS aa WHERE aa.fn_id = " . $value->getTparametro();
                     $activeDate = $this->getDoctrine()->getManager()->getConnection();
                     $activeDate->prepare($sql)->execute();
-
-
 
                     $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $slug . " where id=" .$last;
                     $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                     $activeDate->execute();
 
                     //log parametros
-                    $sql = "UPDATE t_parametrosamostra_log SET  date = CURDATE() and  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' and fn_id_amostra = " . $slug . " where id=" . $last ;
+                    $sql = "UPDATE t_parametrosamostra_log SET  date = CURDATE() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , fn_id_amostra = " . $slug . " where id=" . $last ;
                     $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                     $activeDate->execute();
 
@@ -273,6 +348,7 @@ class WorkListCTRLController extends Controller
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
                     $resultflag = 1;
                 }
+                */
 
                     $info = $value2->getFnIdAreaensaio();
                     $info2 = $em->getRepository('AppBundle:TAreasensaio')->findOneByFnId($info);

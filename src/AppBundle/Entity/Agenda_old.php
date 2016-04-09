@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="agenda")
  * @ORM\Entity
  */
-class Agenda
+class Agenda1
 {
     /**
      * @var integer

@@ -14,11 +14,12 @@
         <link href="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.css') }}" rel="stylesheet">
         <script>
             $(function() {
-                $( "#tabs" ).tabs();
+                $( "#tabs_Amostra" ).tabs( { active: 0 });
                 $( "#tabs2" ).tabs();
+
             });
         </script>
-        <div id="tabs">
+        <div id="tabs_Amostra">
             <ul>
                 <li><a href="#tabs-1">{{ "Identificação"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
                 <li><a href="#tabs-2">{{ "Parâmetros"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
@@ -182,12 +183,11 @@
 
                 </div>
                 <div class="row">
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-minus-circle"></i> Autorizar </a>
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-minus-circle"></i> Desautorizar </a>
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/app_dev.php/completepara')"><i class="fa fa-minus-circle"></i> Autorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/app_dev.php/reopenpara')"><i class="fa fa-minus-circle"></i> Desautorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/app_dev.php/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
                 </div>
             </div>
-
             <div id="tabs-3">
                 <script>
                     var rowIds = [];
