@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AppBundle\Entity\TParametrosporespecificacao" table="t_parametrosporespecificacao">
-    <id name="fnIdEspecificacao" type="bigint" column="fn_id_especificacao"/>
-    <id name="fnIdFamiliaparametro" type="bigint" column="fn_id_familiaparametro"/>
-    <field name="fnMaximo" type="decimal" column="fn_maximo" precision="11" scale="5" nullable="false"/>
-    <field name="fnMinimo" type="decimal" column="fn_minimo" precision="11" scale="5" nullable="false"/>
-  </entity>
-</doctrine-mapping>

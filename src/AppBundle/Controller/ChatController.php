@@ -260,25 +260,6 @@ class ChatController extends Controller
     /**
      * Mensagens entre o utilizador clicado e o utilizador autenticado
      *
-     * @Route("chat/getusername", name="username")
-     */
-	
-	public function getusernameAction()
-    {
-        
-        $parameter = $this->get("request")->getContent();
-        $parameter = explode("&", $parameter);
-        $arr1 = explode("=", $parameter[0]);
-        
-        $user = intval($arr1[1]);
-        $repository = $this->getDoctrine()->getRepository('AppBundle:FosUserUser');
-        $username = $repository->find($user)->getUsername();    	 
-        return new Response(json_encode($username));
-    }
-
-    /**
-     * 
-     *
      * @Route("chat/gethistorico", name="historico")
      */
 
