@@ -2,16 +2,26 @@
           <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
           <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
     {% endblock %}
-
+    <style>
+      .header_profile {
+        position: fixed;
+        margin-left: -1px;
+        z-index: 999;
+        height: 92px;
+        border-left: 1px solid #DFDFDF;
+        border-bottom: 1px solid #DFDFDF;
+        background: white;
+      }
+    </style>
     <div class="row full-width-row">
-      <header class="large-16 columns header_planeamento" style="width: 100.5%;">
+      <header class="large-16 columns header_profile" style="width: 100.5%;">
       {% if app.user %}
         <input type="hidden" id="logged" value="{{app.user.id}}">
         <input type="hidden" id="logged_username" value="{{app.user.username}}">
       {% endif %}
         
         <div class="large-6 columns">
-              <h6 class="title"> Importação de Amostras </h6>
+              <h6 class="title"> Definições de conta </h6>
               
         </div>
         <div class="large-8 columns">
@@ -28,10 +38,10 @@
 
         {% include 'default/ajax_agenda_topheader_geral.html.twig' %}
 
-        <script>
+        <script type="text/javascript">
           $( document ).ready(function() {
              MensagensNaoLidas();
-          });   
+          });
         </script>
         
         <div id="tabs" class="sideBarRight" style="display: none;">

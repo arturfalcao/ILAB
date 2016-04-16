@@ -62,13 +62,8 @@ class TAmostrasAdminCustomController extends Controller
                 $query->andWhere('s.ftGrupoparametros = :grupo')->setParameter('grupo', $request->query->get('grupo'));
             }
             if(!empty($request->query->get('dataini')) ){
-
                 $date = new \DateTime($request->query->get('dataini'));
-
                 $query->andWhere("s.startdatetime >= '". $date->format('Y-m-d') ."' ");
-
-
-
             }
             if(!empty($request->query->get('datafim')) ){
 
@@ -134,16 +129,13 @@ class TAmostrasAdminCustomController extends Controller
         }
 
         try {
-
-            $sql = "update t_amostras set ft_id_estado = 'V' where " . $where;
-        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
-        $activeDate->execute();
+            $sql = "update t_amostras set ft_id_estado = 'V' , updated_by_time = NOW() ,  updated_by = '". $this->get('security.token_storage')->getToken()->getUser() ."' where " . $where;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
         } catch (Exception $e) {
             return new Response(json_encode($e));
         }
-
         return new Response("ok");
-
     }
 
     public function AmostrasGetCicloVidaAction()
@@ -156,16 +148,33 @@ class TAmostrasAdminCustomController extends Controller
         $result = $activeDate->fetchAll();
         return new Response(json_encode($result));
     }
+    public function AmostrasGetCicloVidaPorParametroAction()
+    {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+        $sql = "SELECT * FROM t_parametrosamostra_log WHERE id = ". $arr2[1] . " order by id asc";
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $result = $activeDate->fetchAll();
+        return new Response(json_encode($result));
+    }
+
     public function GetAllParaAction()
     {
         $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder();
         $queryBuilder->select('u.ftDescricao','u.fnId' )->from('AppBundle:TParametros','u');
-
         // consider using ->getArrayResult() to use less memory
         return new Response(json_encode($queryBuilder->getQuery()->getResult()));
-
-
     }
+    public function GetAllUnidadesMedidaAction()
+    {
+        $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $queryBuilder->select('u.ftDescricao','u.fnId' )->from('AppBundle:TUnidadesmedida','u');
+        // consider using ->getArrayResult() to use less memory
+        return new Response(json_encode($queryBuilder->getQuery()->getResult()));
+    }
+
+
 
     public function AmostrasGetParametrosAction()
     {
@@ -217,6 +226,8 @@ class TAmostrasAdminCustomController extends Controller
                         $entity->setFnProduto($produtos);
                         $entity->setFtGrupoparametros($grupos);
                         $entity->setFtRefexterna($rr[5]);
+                        $entity->setUpdatedByTime(date("Y-m-d H:m:s"));
+                        $entity->setUpdatedBy($this->get('security.token_storage')->getToken()->getUser());
                         //$entity->setFnModelo($modelo);
                         $date = new \DateTime(str_replace("/","-",$rr[3]));
                         $entity->setStartdatetime($date);
@@ -304,7 +315,7 @@ class TAmostrasAdminCustomController extends Controller
      *
      * @Route("/NovoPlaneamento/new", name="tamostras_create")
      * @Method("GET")
-     * @Template("AppBundle:Amostras:new.html.twig")
+     * @Template("AppBundle:TAmostrasAdminCustom:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -315,6 +326,8 @@ class TAmostrasAdminCustomController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $estado = $em->getRepository('AppBundle:TEstados')->findOneByftId("P");
+            $entity->setFtEstado($estado);
             $em->persist($entity);
             $em->flush();
         }
@@ -336,8 +349,11 @@ class TAmostrasAdminCustomController extends Controller
 
         $form = $this->createForm(new TAmostrasType(), $entity, array(
             'action' => $this->generateUrl('tamostras_create'),
-            'method' => 'POST',
+            'method' => 'GET',
         ));
+        $form->add('submit','submit');
+
+
         return $form;
     }
 
