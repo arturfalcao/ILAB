@@ -170,64 +170,40 @@
 
                             </div>
                             <div id="tabs-5">
+                                <h3>Resultado:</h3>
+                                <div class="checkbox disabled">
+                                    <label>
+                                        <input type="checkbox" value="" disabled>
+                                        Incluir no relatorio
+                                    </label>
+                                </div>
+                                <div class="checkbox disabled">
+                                    <label>
+                                        <input type="checkbox" value="" disabled>
+                                        Valor Calculado
+                                    </label>
+                                </div>
+                                <div class="NewUnidadesDiv"></div>
+
+                                <div class="form-group">
+                                    <label for="_valororiginal">Original</label>
+                                    <input type="text" class="form-control" id="_valororiginal" >
+                                    <label for="_valorformatado">formatado</label>
+                                    <input type="text" class="form-control" id="_valorformatado" disabled>
+                                    <label for="_valorcalculado">Calculado</label>
+                                    <input type="text" class="form-control" id="_valorcalculado" disabled>
+                                    <label for="_valor">Valor</label>
+                                    <input type="text" class="form-control" id="_valor" disabled>
+                                    <input type="text" class="form-control" id="_sinal"  disabled>
+                                    <label for="_conclusao">Conclusão</label>
+                                    <input type="text" class="form-control" id="_conclusao" disabled>
+
+
+                                </div>
+
 
                             </div>
                             <div id="tabs-6">
-                                <script>
-
-                                    function GetCicloPorParametro(_id_Para){
-
-                                        $.ajax({
-                                            type: "POST",
-                                            url: '{{path('AmostrasGetCicloVidaPorPara')}}',
-                                            data: {data: _id_Para  },
-                                            success: function(data) {
-                                                $('.table_ciclo_para tbody').html("");
-                                                var obj = $.parseJSON(data);
-                                                if (obj.length != 0) {
-                                                    var html = "";
-                                                    var estado = "";
-                                                    var bullet = "";
-                                                    $.each(obj, function (key, value) {
-                                                        if(value.ft_id_estado == 'I'){
-                                                            estado = 'Indisponivel';
-                                                            bullet = "bullet-gray";
-                                                        }
-                                                        if(value.ft_id_estado == 'V'){
-                                                            estado = 'Disponivel';
-                                                            bullet = "bullet-gray";
-                                                        }
-                                                        if(value.ft_id_estado == 'D'){
-                                                            estado = 'Em Progresso';
-                                                            bullet = "bullet-yellow";
-                                                        }
-                                                        if(value.ft_id_estado == 'P'){
-                                                            estado = 'Planeada';
-                                                            bullet = "bullet-blue";
-                                                        }
-                                                        if(value.ft_id_estado == 'C'){
-                                                            estado = 'Completo';
-                                                            bullet = "bullet-green";
-                                                        }
-                                                        if(value.ft_id_estado == 'X'){
-                                                            estado = 'Cancelada';
-                                                            bullet = "bullet-pink";
-                                                        }
-                                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
-
-                                                    });
-                                                    $('.table_ciclo_para tbody').append(html);
-                                                } else {
-
-                                                }
-                                            }
-                                        });
-                                    }
-
-
-
-                                </script>
-
                                 <div class="table-padding">
                                     <table class="hover table_ciclo_para">
                                         <thead>
@@ -261,6 +237,7 @@
                     var selectedRows = [];
                     var _lastSelectedRow = 0;
                     var _ParaData = [];
+
                     function AddParaActions(){
                         if(typeof $('.NewPara').select2('data').id != 'undefined' && $('.NewPara').select2('data').id != ""){
                             $.ajax({
@@ -277,7 +254,6 @@
                             });
                         }
                     }
-
                     function UpdateParaActions(URL){
                         var _old = rowIds.slice(0);
                         $.each(_ParaData, function( index, value ) {
@@ -358,6 +334,7 @@
                                 {
 
                                     GetCicloPorParametro(row.idparametro);
+                                    GetResultadoPorParametro(row.idparametro);
                                     selectedRows = rows;
                                 });
                                 var obj = $.parseJSON(data);
@@ -390,6 +367,119 @@
                             }
                         });
                     }
+                    function GetAllUnidades(){
+                        $.ajax({
+                            type: "POST",
+                            url: "{{ path('GetAllUnidadesMedida') }}",
+                            dataType: 'json',
+                            success: function(data) {
+                                $('.NewUnidadesDiv').append("<select  class='NewUnidades'></select>");
+                                $.each(data, function(index, value) {
+                                    $('.NewUnidades').append(
+                                            '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                                    );
+                                });
+                                $(".NewUnidades").select2();
+                            }
+                        });
+                    }
+                    function GetCicloPorParametro(_id_Para){
+
+                        $.ajax({
+                            type: "POST",
+                            url: '{{path('AmostrasGetCicloVidaPorPara')}}',
+                            data: {data: _id_Para  },
+                            success: function(data) {
+                                $('.table_ciclo_para tbody').html("");
+                                var obj = $.parseJSON(data);
+                                if (obj.length != 0) {
+                                    var html = "";
+                                    var estado = "";
+                                    var bullet = "";
+                                    $.each(obj, function (key, value) {
+                                        if(value.ft_id_estado == 'I'){
+                                            estado = 'Indisponivel';
+                                            bullet = "bullet-gray";
+                                        }
+                                        if(value.ft_id_estado == 'V'){
+                                            estado = 'Disponivel';
+                                            bullet = "bullet-gray";
+                                        }
+                                        if(value.ft_id_estado == 'D'){
+                                            estado = 'Em Progresso';
+                                            bullet = "bullet-yellow";
+                                        }
+                                        if(value.ft_id_estado == 'P'){
+                                            estado = 'Planeada';
+                                            bullet = "bullet-blue";
+                                        }
+                                        if(value.ft_id_estado == 'C'){
+                                            estado = 'Completo';
+                                            bullet = "bullet-green";
+                                        }
+                                        if(value.ft_id_estado == 'X'){
+                                            estado = 'Cancelada';
+                                            bullet = "bullet-pink";
+                                        }
+                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
+
+                                    });
+                                    $('.table_ciclo_para tbody').append(html);
+                                } else {
+
+                                }
+                            }
+                        });
+                    }
+                    function GetResultadoPorParametro(_id_Para){
+
+                        $.ajax({
+                            type: "POST",
+                            url: '{{path('AmostrasGetUnidadePorPara')}}',
+                            data: {data: _id_Para  },
+                            success: function(data) {
+                                $('.table_ciclo_para tbody').html("");
+                                var obj = $.parseJSON(data);
+                                if (obj.length != 0) {
+                                    var html = "";
+                                    var estado = "";
+                                    var bullet = "";
+                                    $.each(obj, function (key, value) {
+                                        if(value.ft_id_estado == 'I'){
+                                            estado = 'Indisponivel';
+                                            bullet = "bullet-gray";
+                                        }
+                                        if(value.ft_id_estado == 'V'){
+                                            estado = 'Disponivel';
+                                            bullet = "bullet-gray";
+                                        }
+                                        if(value.ft_id_estado == 'D'){
+                                            estado = 'Em Progresso';
+                                            bullet = "bullet-yellow";
+                                        }
+                                        if(value.ft_id_estado == 'P'){
+                                            estado = 'Planeada';
+                                            bullet = "bullet-blue";
+                                        }
+                                        if(value.ft_id_estado == 'C'){
+                                            estado = 'Completo';
+                                            bullet = "bullet-green";
+                                        }
+                                        if(value.ft_id_estado == 'X'){
+                                            estado = 'Cancelada';
+                                            bullet = "bullet-pink";
+                                        }
+                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
+
+                                    });
+                                    $('.table_ciclo_para tbody').append(html);
+                                } else {
+
+                                }
+                            }
+                        });
+                    }
+
 
                     $( document ).ready(function() {
 
@@ -439,7 +529,9 @@
                         });
                         GetParametros();
                         GetAllPara();
+                        GetAllUnidades();
                     });
+
 
                 </script>
 

@@ -158,6 +158,18 @@ class TAmostrasAdminCustomController extends Controller
         $result = $activeDate->fetchAll();
         return new Response(json_encode($result));
     }
+    public function AmostrasGetUnidadePorParametroAction()
+    {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+        $sql = "SELECT * FROM t_parametrosamostra_log WHERE id = ". $arr2[1] . " order by id asc";
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $result = $activeDate->fetchAll();
+        return new Response(json_encode($result));
+    }
+
+
 
     public function GetAllParaAction()
     {

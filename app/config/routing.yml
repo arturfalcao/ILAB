@@ -90,13 +90,15 @@ EntradaResultadosgetByRegrasFormatacao:
 EntradaResultadossetByRegrasFormatacao:
     pattern:  /EntradaResultados/saveregras
     defaults: { _controller: AppBundle:EntResultados:setByRegrasFormatacao }
-
 AmostrasGetCicloVida:
     pattern:  /amostras/ciclo
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetCicloVida }
 AmostrasGetCicloVidaPorPara:
     pattern:  /amostras/ciclopara
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetCicloVidaPorParametro }
+AmostrasGetUnidadePorPara:
+    pattern:  /amostras/unidadepara
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetUnidadePorParametro }
 AmostrasGetParametros:
     pattern:  /amostras/parametros
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetParametros }

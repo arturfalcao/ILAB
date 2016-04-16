@@ -2,31 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\wamp\www\lab\ILAB\src\AppBundle\Entity\Agenda_old.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/FosUserUser.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/FosUserUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TModelosresultados/edit.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TModelosresultados/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_importacao.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_importacao.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
@@ -55,46 +38,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34994206">
-              <caret line="445" column="43" selection-start-line="445" selection-start-column="43" selection-end-line="445" selection-end-column="43" />
+            <state vertical-scroll-proportion="-15.615385">
+              <caret line="437" column="67" selection-start-line="437" selection-start-column="67" selection-end-line="437" selection-end-column="67" />
               <folding>
-                <element signature="e#11750#15062#0#HTML" expanded="false" />
-                <element signature="e#16807#17617#0#HTML" expanded="false" />
-                <element signature="e#16933#17595#0#HTML" expanded="false" />
-                <element signature="e#17670#19761#0#HTML" expanded="false" />
-                <element signature="e#19806#22142#0#HTML" expanded="false" />
-                <element signature="e#22184#22972#0#HTML" expanded="false" />
-                <element signature="e#23025#25659#0#HTML" expanded="false" />
+                <element signature="e#15222#16032#0#HTML" expanded="false" />
+                <element signature="e#16084#18175#0#HTML" expanded="false" />
+                <element signature="e#18220#20635#0#HTML" expanded="false" />
+                <element signature="e#20677#21465#0#HTML" expanded="false" />
+                <element signature="e#21511#22325#0#HTML" expanded="false" />
+                <element signature="e#22385#24993#0#HTML" expanded="false" />
+                <element signature="e#27717#30393#0#HTML" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.538462">
-              <caret line="168" column="34" selection-start-line="168" selection-start-column="34" selection-end-line="168" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.4727694">
+              <caret line="183" column="21" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="21" />
               <folding>
                 <element signature="e#40#85#0#PHP" expanded="true" />
-                <marker date="1460766679651" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1460766679651" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
-                <marker date="1460766679651" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1460766679651" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
-                <marker date="1460766679651" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
-                <marker date="1460766679651" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
-                <marker date="1460766679651" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
-                <marker date="1460766679651" expanded="true" signature="7912:8698" placeholder="SELECT DISTI..t_resultados..." />
-                <marker date="1460766679651" expanded="true" signature="12450:13562" placeholder="INSERT INTO ..." />
-                <marker date="1460766679651" expanded="true" signature="12961:13562" placeholder="SELECT aa.fn..t_parametros..." />
-                <marker date="1460766679651" expanded="true" signature="13820:14951" placeholder="INSERT INTO ..." />
-                <marker date="1460766679651" expanded="true" signature="14338:14951" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-                <marker date="1460766679651" expanded="true" signature="15114:15186" placeholder="UPDATE t_par..." />
-                <marker date="1460766679651" expanded="true" signature="15376:15546" placeholder="UPDATE t_par..." />
-                <marker date="1460766679651" expanded="true" signature="17018:17115" placeholder="UPDATE t_res..." />
+                <marker date="1460769218411" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+                <marker date="1460769218411" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
+                <marker date="1460769218411" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+                <marker date="1460769218411" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
+                <marker date="1460769218411" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
+                <marker date="1460769218411" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
+                <marker date="1460769218411" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
+                <marker date="1460769218411" expanded="true" signature="7159:7239" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
+                <marker date="1460769218411" expanded="true" signature="8388:9174" placeholder="SELECT DISTI..t_resultados..." />
+                <marker date="1460769218411" expanded="true" signature="12926:14038" placeholder="INSERT INTO ..." />
+                <marker date="1460769218411" expanded="true" signature="13437:14038" placeholder="SELECT aa.fn..t_parametros..." />
+                <marker date="1460769218411" expanded="true" signature="14296:15427" placeholder="INSERT INTO ..." />
+                <marker date="1460769218411" expanded="true" signature="14814:15427" placeholder="SELECT aa.fn..t_parametrosamostra..." />
+                <marker date="1460769218411" expanded="true" signature="15590:15662" placeholder="UPDATE t_par..." />
+                <marker date="1460769218411" expanded="true" signature="15852:16022" placeholder="UPDATE t_par..." />
+                <marker date="1460769218411" expanded="true" signature="17494:17591" placeholder="UPDATE t_res..." />
               </folding>
             </state>
           </provider>
@@ -113,8 +97,8 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.555555">
-              <caret line="105" column="20" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="20" />
+            <state vertical-scroll-proportion="-14.481482">
+              <caret line="100" column="91" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -190,9 +174,9 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
       </list>
     </option>
   </component>
@@ -1160,51 +1144,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.538462">
-          <caret line="168" column="34" selection-start-line="168" selection-start-column="34" selection-end-line="168" selection-end-column="34" />
+        <state vertical-scroll-proportion="-15.615385">
+          <caret line="437" column="67" selection-start-line="437" selection-start-column="67" selection-end-line="437" selection-end-column="67" />
           <folding>
-            <element signature="e#40#85#0#PHP" expanded="true" />
-            <marker date="1460766679651" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1460766679651" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
-            <marker date="1460766679651" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1460766679651" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
-            <marker date="1460766679651" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
-            <marker date="1460766679651" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
-            <marker date="1460766679651" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
-            <marker date="1460766679651" expanded="true" signature="7912:8698" placeholder="SELECT DISTI..t_resultados..." />
-            <marker date="1460766679651" expanded="true" signature="12450:13562" placeholder="INSERT INTO ..." />
-            <marker date="1460766679651" expanded="true" signature="12961:13562" placeholder="SELECT aa.fn..t_parametros..." />
-            <marker date="1460766679651" expanded="true" signature="13820:14951" placeholder="INSERT INTO ..." />
-            <marker date="1460766679651" expanded="true" signature="14338:14951" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-            <marker date="1460766679651" expanded="true" signature="15114:15186" placeholder="UPDATE t_par..." />
-            <marker date="1460766679651" expanded="true" signature="15376:15546" placeholder="UPDATE t_par..." />
-            <marker date="1460766679651" expanded="true" signature="17018:17115" placeholder="UPDATE t_res..." />
+            <element signature="e#15222#16032#0#HTML" expanded="false" />
+            <element signature="e#16084#18175#0#HTML" expanded="false" />
+            <element signature="e#18220#20635#0#HTML" expanded="false" />
+            <element signature="e#20677#21465#0#HTML" expanded="false" />
+            <element signature="e#21511#22325#0#HTML" expanded="false" />
+            <element signature="e#22385#24993#0#HTML" expanded="false" />
+            <element signature="e#27717#30393#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.555555">
-          <caret line="105" column="20" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="20" />
+        <state vertical-scroll-proportion="-14.481482">
+          <caret line="100" column="91" selection-start-line="100" selection-start-column="60" selection-end-line="100" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34994206">
-          <caret line="445" column="43" selection-start-line="445" selection-start-column="43" selection-end-line="445" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.4727694">
+          <caret line="183" column="21" selection-start-line="183" selection-start-column="8" selection-end-line="183" selection-end-column="21" />
           <folding>
-            <element signature="e#11750#15062#0#HTML" expanded="false" />
-            <element signature="e#16807#17617#0#HTML" expanded="false" />
-            <element signature="e#16933#17595#0#HTML" expanded="false" />
-            <element signature="e#17670#19761#0#HTML" expanded="false" />
-            <element signature="e#19806#22142#0#HTML" expanded="false" />
-            <element signature="e#22184#22972#0#HTML" expanded="false" />
-            <element signature="e#23025#25659#0#HTML" expanded="false" />
+            <element signature="e#40#85#0#PHP" expanded="true" />
+            <marker date="1460769218411" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1460769218411" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
+            <marker date="1460769218411" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1460769218411" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
+            <marker date="1460769218411" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
+            <marker date="1460769218411" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
+            <marker date="1460769218411" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
+            <marker date="1460769218411" expanded="true" signature="7159:7239" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
+            <marker date="1460769218411" expanded="true" signature="8388:9174" placeholder="SELECT DISTI..t_resultados..." />
+            <marker date="1460769218411" expanded="true" signature="12926:14038" placeholder="INSERT INTO ..." />
+            <marker date="1460769218411" expanded="true" signature="13437:14038" placeholder="SELECT aa.fn..t_parametros..." />
+            <marker date="1460769218411" expanded="true" signature="14296:15427" placeholder="INSERT INTO ..." />
+            <marker date="1460769218411" expanded="true" signature="14814:15427" placeholder="SELECT aa.fn..t_parametrosamostra..." />
+            <marker date="1460769218411" expanded="true" signature="15590:15662" placeholder="UPDATE t_par..." />
+            <marker date="1460769218411" expanded="true" signature="15852:16022" placeholder="UPDATE t_par..." />
+            <marker date="1460769218411" expanded="true" signature="17494:17591" placeholder="UPDATE t_res..." />
           </folding>
         </state>
       </provider>
