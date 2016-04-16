@@ -45,19 +45,19 @@
     </script>
 {% endblock %}
 
-<div class="container-fluid new_cal_element">
+<div class="container-fluid new_cal_element new_planeamento">
     <div class="row">
-        <div class="large-1 columns " style="height: 100%;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 100px;padding-left: 25px;">
+        <div class="large-1 columns " style="height: auto;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 100px;padding-left: 25px;">
             {% include 'default/menu.html.twig' %}
         </div>
         <div class=" large-15 columns">
             <div class="row">
-                <div class="large-16 columns no-padding">
-                    {% include 'default/topheader.html.twig' %}
+                <div class="large-16 columns">
+                    {% include 'default/topheader_planeamento_new.html.twig' %}
                 </div>
             </div>
             <div class="row">
-                <div class="large-10 columns no-padding">
+                <div class="large-10 columns no-padding" style="margin-top: -550px;">
 
                     {% block body -%}
                         {{ form(form) }}

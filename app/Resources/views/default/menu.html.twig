@@ -21,7 +21,7 @@
                 <ul class="submenu">
                     <div>Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
-                    <li><a href="{{ path('admin_app_tamostras_create') }}">Lançamento de Amostra</a></li>
+                    {#<li><a href="{{ path('admin_app_tamostras_create') }}">Lançamento de Amostra</a></li>#}
                     <li><a href="{{ path('importacaoamostra') }}">Importação de Amostras</a></li>
                 </ul>
             </li>
@@ -36,7 +36,7 @@
                     <div>Configurações</div>
                     <li><a href="{{path('admin_app_tclientes_list') }}" >Clientes</a></li>
                     <li><a href="{{ path('admin_app_tmodelosamostra_list') }}">Modelos Amostra</a></li>
-                    <li><a href="{{ path('admin_app_tmodelosparametro_list') }}">Modelos Parâmetros</a></l>
+                    <li><a href="{{ path('admin_app_tmodelosparametro_list') }}">Modelos Parâmetros</a></li>
                     <li><a href="{{ path('admin_app_tmodelosresultados_list') }}">Modelos Resultados</a></li>
                     <li><a href="{{ path('admin_app_tparametros_list') }}">Parâmetros</a></li>
                     <li><a href="{{ path('admin_app_tgruposparametros_list') }}">Grupos Parâmetros</a></li>
@@ -73,7 +73,7 @@
                     <input type="hidden" id="util" name="util" value="{{app.user.id}}">
 
                     <div class="medidas_imagem_botao">
-                        <a href="/app_dev.php/profile"><img id="img_user_logado" style="margin-left: 10px;" class="circle_image" id="us_{{app.user.id}}"src="" alt=""></a>
+                        <a href="/app_dev.php/profile"><img id="img_user_logado" class="circle_image" id="us_{{app.user.id}}"src="" alt=""></a>
                         <div class="circulo_verde"></div>
                     </div>
 
@@ -81,7 +81,7 @@
             {%endif%}
 
             <li>
-                <a href="/app_dev.php/logout"><img class="botao_logout" src="/bundles/app/images/logout.png" alt="" style="margin-bottom: 20px"></a>
+                <a href="/app_dev.php/logout"><img src="/bundles/app/images/logout.png" alt="" style="margin-bottom: 20px"></a>
             </li>
         </ul>
 

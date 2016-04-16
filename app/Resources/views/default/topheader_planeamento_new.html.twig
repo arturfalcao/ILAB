@@ -1,0 +1,179 @@
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+{% endblock %}
+
+<div class="row full-width-row">
+    <header class="large-16 columns header_agenda" style="width: 100.5%;margin-left: 26px;margin-top: -670px;">
+        {% if app.user %}
+            <input type="hidden" id="logged" value="{{app.user.id}}">
+            <input type="hidden" id="logged_username" value="{{app.user.username}}">
+        {% endif %}
+
+        <div class="large-6 columns">
+            <h6 class="title"> Criação - Planeamento de Amostra </h6>
+
+        </div>
+        <div class="large-8 columns">
+            <a class="button right inactiveLink bg_color"></a>
+        </div>
+        <div class="large-1 columns">
+            <div class="menu_direita">
+                <div id="menu_direita_circulo"></div>
+            </div>
+        </div>
+
+        {% include 'default/ajax_chat_topheader_geral.html.twig' %}
+
+        {% include 'default/ajax_agenda_topheader_geral.html.twig' %}
+
+
+        <script>
+            $( document ).ready(function() {
+                MensagensNaoLidas();
+            });
+        </script>
+        <style>
+            /*.a_em_cima{*/
+                /*color:black;*/
+            /*}*/
+
+            /*.a_em_cima:hover .a_em_cima:focus:hover{*/
+                /*box-shadow: inset 0 -2px 0 #139c9b;*/
+                /*color: #139c9b;*/
+            /*}*/
+
+            /*p.agenda {*/
+                /*font-size: 13px;*/
+                /*margin-top: -69px !important;*/
+                /*margin-left: 35px !important;*/
+                /*margin-bottom: -35px!important;*/
+                /*color:black;*/
+            /*}*/
+
+            /*.roundedOne {*/
+                /*left: -118px;*/
+                /*width: 15px;*/
+                /*height: 15px;*/
+                /*background: #fcfff4;*/
+                /*background: -webkit-linear-gradient(top, white 0%, white 40%, white 100%);*/
+                /*background: -moz-linear-gradient(top, white 0%, white 40%, white 100%);*/
+                /*background: -o-linear-gradient(top, white 0%, white 40%, white 100%);*/
+                /*background: -ms-linear-gradient(top, white 0%, white 40%, white 100%);*/
+                /*background: linear-gradient(top, white 0%, white 40%, white 100%);*/
+                /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );*/
+                /*margin: 53px auto!important;*/
+                /*-webkit-border-radius: 50px;*/
+                /*-moz-border-radius: 50px;*/
+                /*border-radius: 50px;*/
+                /*-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);*/
+                /*-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);*/
+                /*box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);*/
+                /*position: relative;*/
+            /*}*/
+
+            /*.img_block*/
+            /*{*/
+                /*float: left;*/
+                /*width: 100%;*/
+            /*}*/
+
+
+
+            /*#tab_sidebar .ui-tabs, #tab_sidebar .ui-tabs-nav, #tab_sidebar .ui-tabs-anchor {*/
+                /*margin-right: 5px!important;*/
+            /*}*/
+
+            /*#tab_sidebar .material-tabs.nav-tabs > li.active > a:hover, #tab_sidebar .material-tabs.nav-tabs > li.active > a:focus:hover {*/
+                /*border: none!important;*/
+                /*color: #139c9b!important;*/
+            /*}*/
+
+            /*#tab_sidebar .material-tabs.nav-tabs > li.active > a, #tab_sidebar .material-tabs.nav-tabs > li.active > a:focus {*/
+                /*border: none!important;*/
+                /*-webkit-box-shadow: inset 0 -2px 0 #139c9b!important;*/
+                /*-moz-box-shadow: inset 0 -2px 0 #139c9b!important;*/
+                /*box-shadow: inset 0 -2px 0 #139c9b!important;*/
+                /*color: #139c9b!important;*/
+            /*}*/
+
+            /*#tab_sidebar .material-tabs.nav-tabs > li > a:hover, #tab_sidebar .material-tabs.nav-tabs > li > a:focus:hover {*/
+                /*background-color: transparent!important;*/
+                /*-webkit-box-shadow: inset 0 -2px 0 #139c9b!important;*/
+                /*-moz-box-shadow: inset 0 -2px 0 #139c9b!important;*/
+                /*box-shadow: inset 0 -2px 0 #139c9b!important;*/
+                /*color: #139c9b!important;*/
+            /*}*/
+
+            /*#tab_sidebar .material-tabs.nav-tabs > li > a, #tab_sidebar .material-tabs.nav-tabs > li > a:focus {*/
+                /*margin-right: 0!important;*/
+                /*border: none!important;*/
+                /*-webkit-box-shadow: inset 0 -1px 0 #dddddd!important;*/
+                /*-moz-box-shadow: inset 0 -1px 0 #dddddd!important;*/
+                /*box-shadow: inset 0 -1px 0 #dddddd!important;*/
+                /*-webkit-transition: all 0.2s!important;*/
+                /*-o-transition: all 0.2s!important;*/
+                /*transition: all 0.2s!important;*/
+                /*-webkit-transition: all all 0.2s ease-out!important;*/
+                /*-moz-transition: all all 0.2s ease-out!important;*/
+                /*-o-transition: all all 0.2s ease-out!important;*/
+                /*transition: all all 0.2s ease-out!important;*/
+            /*}*/
+            /*#tab_sidebar .nav-tabs > li.active > a, #tab_sidebar .nav-tabs > li.active > a:hover, #tab_sidebar .nav-tabs > li.active > a:focus {*/
+                /*color: #555555!important;*/
+                /*background-color: #ffffff!important;*/
+                /*border: 1px solid #dddddd!important;*/
+                /*border-bottom-color: transparent!important;*/
+                /*cursor: default!important;*/
+            /*}*/
+
+
+            /*#tab_sidebar .nav-tabs > li > a:hover {*/
+                /*border-color: #eeeeee #eeeeee #dddddd!important;*/
+            /*}*/
+            /*#tab_sidebar .nav > li > a:hover, #tab_sidebar .nav > li > a:focus {*/
+                /*text-decoration: none!important;*/
+                /*background-color: #eeeeee!important;*/
+            /*}*/
+
+            /*#tab_sidebar .nav > li > a {*/
+                /*position: relative!important;*/
+                /*display: block!important;*/
+            /*}*/
+
+            /*.circulo{*/
+                /*margin-top: -9px!important;*/
+                /*margin-left: 250px!important;*/
+            /*}*/
+        </style>
+
+
+        <div id="tab_sidebar" class="sideBarRight" style="display: none;">
+
+
+            <ul class="nav nav-tabs material-tabs" role="tablist" style="list-style: none;">
+                <li  class="li_agenda" style="float: left;margin-left: -20px;margin-right: 10px;">
+                    <a id="chat_tab" class="a_em_cima tabulador" href="#tabs-1" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="false">Agenda de hoje</a>
+
+                </li>
+
+                <li class="li_chat" style="float: left;"><a class="tabulador a_em_cima" href="#tabs-2" aria-controls="message" role="tab" data-toggle="tab" aria-expanded="true">Chat</a>
+                </li>
+
+            </ul>
+            <div id="n_lidas">
+
+            </div>
+
+            <div id="tabs-1">
+
+            </div>
+
+            <div id="tabs-2">
+
+
+            </div>
+
+        </div>
+    </header>
+</div>

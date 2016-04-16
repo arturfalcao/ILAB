@@ -66,7 +66,7 @@
 
 <div class="new_cal_element">
     <div class="row">
-        <div class="col-md-1  " style="height: 100%;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
+        <div class="col-md-1  " style="height: auto;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
             {% include 'default/menu.html.twig' %}
         </div>
         <div class=" col-md-11 ">
@@ -75,12 +75,12 @@
                     {% include 'default/topheader_importacao.html.twig' %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 80px;">
 
                     {% block body -%}
 
                         <form action="{{ path('importacaoamostra') }}" method="post" enctype="multipart/form-data">
-                            {{ "Por favor faça upload do ficheiro"|convert_encoding('UTF-8', ' iso-8859-1') }}
+                            {{ "Por favor faï¿½a upload do ficheiro"|convert_encoding('UTF-8', ' iso-8859-1') }}
                             <input type="file" name="fileToUpload" id="fileToUpload">
                             <input type="submit" value="Submeter" name="submit">
                             {{ string}}
