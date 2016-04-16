@@ -7,15 +7,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostraLog.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostraLog.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
@@ -44,11 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.115385">
-              <caret line="391" column="131" selection-start-line="391" selection-start-column="131" selection-end-line="391" selection-end-column="131" />
+            <state vertical-scroll-proportion="0.29663962">
+              <caret line="341" column="79" selection-start-line="341" selection-start-column="79" selection-end-line="341" selection-end-column="79" />
               <folding>
                 <element signature="e#18264#18790#0#HTML" expanded="false" />
               </folding>
@@ -66,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntResultadosController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EntResultadosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35424355">
-              <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+            <state vertical-scroll-proportion="-20.307692">
+              <caret line="114" column="45" selection-start-line="92" selection-start-column="6" selection-end-line="114" selection-end-column="45" />
               <folding>
                 <element signature="e#41#73#0#PHP" expanded="true" />
                 <marker date="1460782541326" expanded="true" signature="1646:2351" placeholder="SELECT t_res..t_resultados..." />
@@ -99,29 +92,28 @@
       <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0545454">
-              <caret line="341" column="26" selection-start-line="341" selection-start-column="20" selection-end-line="341" selection-end-column="26" />
+            <state vertical-scroll-proportion="-8.345454">
+              <caret line="206" column="24" selection-start-line="206" selection-start-column="24" selection-end-line="206" selection-end-column="24" />
               <folding>
                 <element signature="e#40#85#0#PHP" expanded="true" />
-                <marker date="1460795446122" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1460795446122" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
-                <marker date="1460795446122" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1460795446122" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
-                <marker date="1460795446122" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
-                <marker date="1460795446122" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
-                <marker date="1460795446122" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
-                <marker date="1460795446122" expanded="true" signature="7153:8006" placeholder="SELECT * FRO..t_parametrosamostra..." />
-                <marker date="1460795446122" expanded="true" signature="7153:8017" placeholder="SELECT * FRO..t_parametrosamostra..." />
-                <marker date="1460795446122" expanded="true" signature="8411:8462" placeholder="SELECT * FRO..t_resultados..." />
-                <marker date="1460795446122" expanded="true" signature="8839:8890" placeholder="SELECT * FRO..t_resultados..." />
-                <marker date="1460795446122" expanded="true" signature="11926:12712" placeholder="SELECT DISTI..t_resultados..." />
-                <marker date="1460795446122" expanded="true" signature="16464:17760" placeholder="INSERT INTO ..." />
-                <marker date="1460795446122" expanded="true" signature="17061:17760" placeholder="SELECT aa.fn..t_parametros..." />
-                <marker date="1460795446122" expanded="true" signature="18018:19149" placeholder="INSERT INTO ..." />
-                <marker date="1460795446122" expanded="true" signature="18536:19149" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-                <marker date="1460795446122" expanded="true" signature="19312:19384" placeholder="UPDATE t_par..." />
-                <marker date="1460795446122" expanded="true" signature="19574:19744" placeholder="UPDATE t_par..." />
-                <marker date="1460795446122" expanded="true" signature="21216:21313" placeholder="UPDATE t_res..." />
+                <marker date="1460796699063" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+                <marker date="1460796699063" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
+                <marker date="1460796699063" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+                <marker date="1460796699063" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
+                <marker date="1460796699063" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
+                <marker date="1460796699063" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
+                <marker date="1460796699063" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
+                <marker date="1460796699063" expanded="true" signature="7153:8006" placeholder="SELECT * FRO..t_parametrosamostra..." />
+                <marker date="1460796699063" expanded="true" signature="7153:8017" placeholder="SELECT * FRO..t_parametrosamostra..." />
+                <marker date="1460796699063" expanded="true" signature="8411:8462" placeholder="SELECT * FRO..t_resultados..." />
+                <marker date="1460796699063" expanded="true" signature="13163:13949" placeholder="SELECT DISTI..t_resultados..." />
+                <marker date="1460796699063" expanded="true" signature="17701:18997" placeholder="INSERT INTO ..." />
+                <marker date="1460796699063" expanded="true" signature="18298:18997" placeholder="SELECT aa.fn..t_parametros..." />
+                <marker date="1460796699063" expanded="true" signature="19255:20386" placeholder="INSERT INTO ..." />
+                <marker date="1460796699063" expanded="true" signature="19773:20386" placeholder="SELECT aa.fn..t_parametrosamostra..." />
+                <marker date="1460796699063" expanded="true" signature="20549:20621" placeholder="UPDATE t_par..." />
+                <marker date="1460796699063" expanded="true" signature="20811:20981" placeholder="UPDATE t_par..." />
+                <marker date="1460796699063" expanded="true" signature="22453:22550" placeholder="UPDATE t_res..." />
               </folding>
             </state>
           </provider>
@@ -237,14 +229,14 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TAmostras.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TTecnicas.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostraLog.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
       </list>
     </option>
   </component>
@@ -878,8 +870,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="22" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="22" width="1696" height="1026" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28511906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1216,14 +1208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.884615">
-          <caret line="428" column="5" selection-start-line="428" selection-start-column="5" selection-end-line="428" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostraLog.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.846153">
@@ -1297,49 +1281,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.115385">
-          <caret line="391" column="131" selection-start-line="391" selection-start-column="131" selection-end-line="391" selection-end-column="131" />
-          <folding>
-            <element signature="e#18264#18790#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0545454">
-          <caret line="341" column="26" selection-start-line="341" selection-start-column="20" selection-end-line="341" selection-end-column="26" />
-          <folding>
-            <element signature="e#40#85#0#PHP" expanded="true" />
-            <marker date="1460795446122" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1460795446122" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
-            <marker date="1460795446122" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1460795446122" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
-            <marker date="1460795446122" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
-            <marker date="1460795446122" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
-            <marker date="1460795446122" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
-            <marker date="1460795446122" expanded="true" signature="7153:8006" placeholder="SELECT * FRO..t_parametrosamostra..." />
-            <marker date="1460795446122" expanded="true" signature="7153:8017" placeholder="SELECT * FRO..t_parametrosamostra..." />
-            <marker date="1460795446122" expanded="true" signature="8411:8462" placeholder="SELECT * FRO..t_resultados..." />
-            <marker date="1460795446122" expanded="true" signature="8839:8890" placeholder="SELECT * FRO..t_resultados..." />
-            <marker date="1460795446122" expanded="true" signature="11926:12712" placeholder="SELECT DISTI..t_resultados..." />
-            <marker date="1460795446122" expanded="true" signature="16464:17760" placeholder="INSERT INTO ..." />
-            <marker date="1460795446122" expanded="true" signature="17061:17760" placeholder="SELECT aa.fn..t_parametros..." />
-            <marker date="1460795446122" expanded="true" signature="18018:19149" placeholder="INSERT INTO ..." />
-            <marker date="1460795446122" expanded="true" signature="18536:19149" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-            <marker date="1460795446122" expanded="true" signature="19312:19384" placeholder="UPDATE t_par..." />
-            <marker date="1460795446122" expanded="true" signature="19574:19744" placeholder="UPDATE t_par..." />
-            <marker date="1460795446122" expanded="true" signature="21216:21313" placeholder="UPDATE t_res..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35424355">
-          <caret line="68" column="28" selection-start-line="68" selection-start-column="28" selection-end-line="68" selection-end-column="28" />
+        <state vertical-scroll-proportion="-20.307692">
+          <caret line="114" column="45" selection-start-line="92" selection-start-column="6" selection-end-line="114" selection-end-column="45" />
           <folding>
             <element signature="e#41#73#0#PHP" expanded="true" />
             <marker date="1460782541326" expanded="true" signature="1646:2351" placeholder="SELECT t_res..t_resultados..." />
@@ -1350,6 +1295,52 @@
             <marker date="1460782541326" expanded="true" signature="8284:8323" placeholder="select * fro..t_regrasformatacao..." />
             <marker date="1460782541326" expanded="true" signature="9327:10029" placeholder="SELECT t_res..t_resultados..." />
             <marker date="1460782541326" expanded="true" signature="10644:10683" placeholder="select * fro..t_regrasformatacao..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65207875">
+          <caret line="334" column="34" selection-start-line="334" selection-start-column="12" selection-end-line="334" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.345454">
+          <caret line="206" column="24" selection-start-line="206" selection-start-column="24" selection-end-line="206" selection-end-column="24" />
+          <folding>
+            <element signature="e#40#85#0#PHP" expanded="true" />
+            <marker date="1460796699063" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1460796699063" expanded="true" signature="3785:4941" placeholder="INSERT INTO ..." />
+            <marker date="1460796699063" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1460796699063" expanded="true" signature="5117:5314" placeholder="UPDATE t_par..." />
+            <marker date="1460796699063" expanded="true" signature="5636:5793" placeholder="update t_amo..." />
+            <marker date="1460796699063" expanded="true" signature="6229:6280" placeholder="SELECT * FRO..t_amostras_logs..." />
+            <marker date="1460796699063" expanded="true" signature="6685:6765" placeholder="SELECT * FRO..t_parametrosamostra_log..." />
+            <marker date="1460796699063" expanded="true" signature="7153:8006" placeholder="SELECT * FRO..t_parametrosamostra..." />
+            <marker date="1460796699063" expanded="true" signature="7153:8017" placeholder="SELECT * FRO..t_parametrosamostra..." />
+            <marker date="1460796699063" expanded="true" signature="8411:8462" placeholder="SELECT * FRO..t_resultados..." />
+            <marker date="1460796699063" expanded="true" signature="13163:13949" placeholder="SELECT DISTI..t_resultados..." />
+            <marker date="1460796699063" expanded="true" signature="17701:18997" placeholder="INSERT INTO ..." />
+            <marker date="1460796699063" expanded="true" signature="18298:18997" placeholder="SELECT aa.fn..t_parametros..." />
+            <marker date="1460796699063" expanded="true" signature="19255:20386" placeholder="INSERT INTO ..." />
+            <marker date="1460796699063" expanded="true" signature="19773:20386" placeholder="SELECT aa.fn..t_parametrosamostra..." />
+            <marker date="1460796699063" expanded="true" signature="20549:20621" placeholder="UPDATE t_par..." />
+            <marker date="1460796699063" expanded="true" signature="20811:20981" placeholder="UPDATE t_par..." />
+            <marker date="1460796699063" expanded="true" signature="22453:22550" placeholder="UPDATE t_res..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29663962">
+          <caret line="341" column="79" selection-start-line="341" selection-start-column="79" selection-end-line="341" selection-end-column="79" />
+          <folding>
+            <element signature="e#18264#18790#0#HTML" expanded="false" />
           </folding>
         </state>
       </provider>
