@@ -72,8 +72,8 @@
       <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3549832">
-              <caret line="612" column="109" selection-start-line="612" selection-start-column="109" selection-end-line="612" selection-end-column="109" />
+            <state vertical-scroll-proportion="0.25979844">
+              <caret line="607" column="1" selection-start-line="607" selection-start-column="1" selection-end-line="607" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -1112,8 +1112,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3549832">
-          <caret line="612" column="109" selection-start-line="612" selection-start-column="109" selection-end-line="612" selection-end-column="109" />
+        <state vertical-scroll-proportion="0.25979844">
+          <caret line="607" column="1" selection-start-line="607" selection-start-column="1" selection-end-line="607" selection-end-column="1" />
           <folding />
         </state>
       </provider>
