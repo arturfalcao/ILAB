@@ -228,3 +228,6 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+EmitRelatorio:
+    path:     /relatorio/emit
+    defaults: { _controller: AppBundle:WorkListCTRL:EmitRelatorio }

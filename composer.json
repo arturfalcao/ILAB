@@ -32,7 +32,8 @@
         "bmatzner/foundation-bundle": "~5.3",
         "friendsofsymfony/jsrouting-bundle": "^1.5",
         "jms/serializer-bundle": "^1.0",
-        "stof/doctrine-extensions-bundle": "^1.2"
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "whiteoctober/tcpdf-bundle": "dev-master"
 
     },
     "require-dev": {
