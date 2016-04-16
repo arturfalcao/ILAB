@@ -304,6 +304,130 @@ class TParametrosamostra
      */
     private $fnLaboratorio;
 
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fb_amostrainterno", type="boolean", nullable=true)
+     */
+    private $fbAmostrainterno;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fb_amostraexterno", type="boolean", nullable=true)
+     */
+    private $fbAmostraexterno;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fb_determinacaoexterno", type="boolean", nullable=true)
+     */
+    private $fbDeterminacaoexterno;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fb_determinacaointerno", type="boolean", nullable=true)
+     */
+    private $fbDeterminacaointerno;
+
+    /**
+     * Set fbContraanalise
+     *
+     * @param integer $fbContraanalise
+     * @return TParametros
+     */
+    public function setFbAmostrainterno($fbAmostrainterno)
+    {
+        $this->fbAmostrainterno = $fbAmostrainterno;
+
+        return $this;
+    }
+
+    /**
+     * Get fbContraanalise
+     *
+     * @return integer
+     */
+    public function getFbAmostrainterno()
+    {
+        return $this->fbAmostrainterno;
+    }
+
+    /**
+     * Set fbContraanalise
+     *
+     * @param integer $fbContraanalise
+     * @return TParametros
+     */
+    public function setFbAmostraexterno($fbAmostraexterno)
+    {
+        $this->fbAmostraexterno = $fbAmostraexterno;
+
+        return $this;
+    }
+
+    /**
+     * Get fbContraanalise
+     *
+     * @return integer
+     */
+    public function getFbAmostraexterno()
+    {
+        return $this->fbAmostraexterno;
+    }
+
+
+    /**
+     * Set fbContraanalise
+     *
+     * @param integer $fbContraanalise
+     * @return TParametros
+     */
+    public function setFbDeterminacaoexterno($fbDeterminacaoexterno)
+    {
+        $this->fbDeterminacaoexterno = $fbDeterminacaoexterno;
+
+        return $this;
+    }
+
+    /**
+     * Get fbContraanalise
+     *
+     * @return integer
+     */
+    public function getFbDeterminacaoexterno()
+    {
+        return $this->fbDeterminacaoexterno;
+    }
+
+
+    /**
+     * Set fbContraanalise
+     *
+     * @param integer $fbContraanalise
+     * @return TParametros
+     */
+    public function setFbDeterminacaointerno($fbDeterminacaointerno)
+    {
+        $this->fbDeterminacaointerno = $fbDeterminacaointerno;
+
+        return $this;
+    }
+
+    /**
+     * Get fbContraanalise
+     *
+     * @return integer
+     */
+    public function getFbDeterminacaointerno()
+    {
+        return $this->fbDeterminacaointerno;
+    }
+
     /**
      * Constructor
      */

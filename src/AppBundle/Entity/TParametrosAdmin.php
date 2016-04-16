@@ -94,6 +94,10 @@ class TParametrosAdmin extends Admin
             ->add('fbConfirmacao')
             ->add('fbContraanalise')
             ->add('fdRealizacao')
+            ->add('fbAmostrainterno')
+            ->add('fbAmostraexterno')
+            ->add('fbDeterminacaoexterno')
+            ->add('fbDeterminacaointerno')
         ;
     }
 

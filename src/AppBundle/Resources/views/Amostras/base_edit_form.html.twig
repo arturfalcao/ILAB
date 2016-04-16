@@ -19,6 +19,500 @@
 
             });
         </script>
+        <script>
+            var rowIds = [];
+            var selectedRows = [];
+            var _lastSelectedRow = 0;
+            var _ParaData = [];
+            var _oldoriginalvalue = 0;
+            function AddParaActions(){
+                if(typeof $('.NewPara').select2('data').id != 'undefined' && $('.NewPara').select2('data').id != ""){
+                    $.ajax({
+                        type: "POST",
+                        url: '/app_dev.php/addpara',
+                        data: {idpara: $('.NewPara').select2('data').id , idamostra : {{ admin.id(object)  }}},
+                        contentType: "application/json",
+                        success: function(data) {
+                            alert(data);
+                            $("#parametros_grid").bootgrid("destroy");
+                            GetParametros();
+
+                        }
+                    });
+                }
+            }
+            function UpdateParaActions(URL){
+                var _old = rowIds.slice(0);
+                $.each(_ParaData, function( index, value ) {
+                    $.each(rowIds, function( index1, value1 ) {
+                        if(URL.indexOf("completepara")>= 0){
+                            if(value.id == value1){
+                                if(value.ft_codigo == "C"){
+                                    rowIds.splice(index1,1);
+                                }
+                            }
+                        }
+                        if(URL.indexOf("reopenpara")>= 0){
+                            if(value.id == value1){
+                                if(value.ft_codigo == "D"){
+                                    rowIds.splice(index1,1);
+                                }
+                            }
+                        }
+                        if(URL.indexOf("cancelpara")>= 0){
+                            if(value.id == value1){
+                                if(value.ft_codigo == "X"){
+                                    rowIds.splice(index1,1);
+                                }
+                            }
+                        }
+                    });
+                });
+
+                if(rowIds.length != 0){
+                    $.ajax({
+                        type: "POST",
+                        url: URL,
+                        data: JSON.stringify(rowIds),
+                        contentType: "application/json",
+                        success: function(data) {
+                            $("#parametros_grid").bootgrid("destroy");
+                            rowIds.length = 0;
+                            GetParametros();
+
+                        }
+                    });
+                }
+                rowIds = _old;
+
+            }
+            function GetParametros(){
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('AmostrasGetParametros')}}',
+                    data: {data: {{ admin.id(object)  }} },
+                    success: function(data) {
+
+                        var grid_para = $("#parametros_grid").bootgrid({
+                            navigation:0,
+                            selection: true,
+                            multiSelect: true,
+                            rowSelect: true,
+                            keepSelection: true
+                        }).on("selected.rs.jquery.bootgrid", function(e, rows)
+                        {
+                            for (var i = 0; i < rows.length; i++)
+                            {
+                                rowIds.push(rows[i].id);
+                            }
+                        }).on("deselected.rs.jquery.bootgrid", function(e, rows)
+                        {
+                            for (var i = 0; i < rows.length; i++)
+                            {
+                                $.each(rowIds, function( index, value ) {
+                                    if(value == rows[i].id){
+                                        rowIds.splice(index,1);
+                                    }
+                                });
+
+
+                            }
+                        }).on("click.rs.jquery.bootgrid", function (e,rows,row)
+                        {
+
+                            GetCicloPorParametro(row.idparametro);
+                            GetResultadoPorParametro(row.idparametro);
+                            GetParametroData(row.idparametro);
+                            selectedRows = rows;
+                        });
+                        var obj = $.parseJSON(data);
+                        _ParaData= obj;
+                        if (obj.length != 0) {
+                            grid_para.bootgrid("append",obj );
+                            $.each(obj, function (key, value) {
+
+                            });
+                        } else {
+
+                        }
+                    }
+                });
+            }
+            function GetAllPara(){
+                $.ajax({
+                    type: "POST",
+                    url: "/app_dev.php/GetAllPara",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.NewParaDiv').append("<select  class='NewPara'></select>");
+
+                        $.each(data, function(index, value) {
+                            $('.NewPara').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".NewPara").select2();
+                    }
+                });
+            }
+            function GetAllUnidades(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllUnidadesMedida') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.NewUnidadesDiv').append("<select  class='NewUnidades'></select>");
+                        $.each(data, function(index, value) {
+                            $('.NewUnidades').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".NewUnidades").select2();
+                    }
+                });
+            }
+            function GetAllFamilias(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllFamilias') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.familiadiv').append("<select  class='familia'></select>");
+                        $.each(data, function(index, value) {
+                            $('.familia').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".familia").select2();
+                    }
+                });
+            }
+            //get laboratorios
+            function GetAllLaboratorios(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllLaboratorios') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.laboratoriodiv').append("<select  class='laboratirio'></select>");
+                        $.each(data, function(index, value) {
+                            $('.laboratirio').append(
+                                    '<option value="' + value.fnId + '">' + value.ftNome + '</option>'
+                            );
+                        });
+                        $(".laboratirio").select2();
+                    }
+                });
+            }
+            //get area ensaio
+            function GetAllEnsaio(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllArea') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.areaensaiodiv').append("<select  class='areaensaio'></select>");
+                        $.each(data, function(index, value) {
+                            $('.areaensaio').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".areaensaio").select2();
+                    }
+                });
+            }
+            //get metodo
+            function GetAllMetodo(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllMetodo') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.metododiv').append("<select  class='metodo'></select>");
+                        $.each(data, function(index, value) {
+                            $('.metodo').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".metodo").select2();
+                    }
+                });
+            }
+            //get tecnica
+            function GetAllTecnica(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllTecnica') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.tecnicadiv').append("<select  class='tecnica'></select>");
+                        $.each(data, function(index, value) {
+                            $('.tecnica').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".tecnica").select2();
+                    }
+                });
+            }
+            function GetCicloPorParametro(_id_Para){
+
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('AmostrasGetCicloVidaPorPara')}}',
+                    data: {data: _id_Para  },
+                    success: function(data) {
+                        $('.table_ciclo_para tbody').html("");
+                        var obj = $.parseJSON(data);
+                        if (obj.length != 0) {
+                            var html = "";
+                            var estado = "";
+                            var bullet = "";
+                            $.each(obj, function (key, value) {
+                                if(value.ft_id_estado == 'I'){
+                                    estado = 'Indisponivel';
+                                    bullet = "bullet-gray";
+                                }
+                                if(value.ft_id_estado == 'V'){
+                                    estado = 'Disponivel';
+                                    bullet = "bullet-gray";
+                                }
+                                if(value.ft_id_estado == 'D'){
+                                    estado = 'Em Progresso';
+                                    bullet = "bullet-yellow";
+                                }
+                                if(value.ft_id_estado == 'P'){
+                                    estado = 'Planeada';
+                                    bullet = "bullet-blue";
+                                }
+                                if(value.ft_id_estado == 'C'){
+                                    estado = 'Completo';
+                                    bullet = "bullet-green";
+                                }
+                                if(value.ft_id_estado == 'X'){
+                                    estado = 'Cancelada';
+                                    bullet = "bullet-pink";
+                                }
+                                html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
+
+                            });
+                            $('.table_ciclo_para tbody').append(html);
+                        } else {
+
+                        }
+                    }
+                });
+            }
+            function GetResultadoPorParametro(_id_Para){
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('AmostrasGetUnidadePorPara')}}',
+                    data: {data: _id_Para  },
+                    success: function(data) {
+                        var obj = $.parseJSON(data);
+                        if (obj.length != 0) {
+                            $(".NewUnidades").select2("val", obj[0].fn_id_unidade);
+                            $("#_valororiginal").val(obj[0].ft_original);
+                            $("#_valorformatado").val(obj[0].ft_formatado);
+                            $("#_idresultado").val(obj[0].fn_id);
+                            $("#_idparametro").val(obj[0].fn_id_parametro);
+
+
+                            if(obj[0].fb_incluirnorelatorio != null){
+                                $("#_incluirelatorio").prop('checked', true);
+                            }
+                        }
+                    }
+                });
+            }
+            function GetParametroData(_id_Para){
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('AmostrasGetParametro')}}',
+                    data: {data: _id_Para  },
+                    success: function(data) {
+                        var obj = $.parseJSON(data);
+                        if (obj.length != 0) {
+
+                            $("#_nomeparametro").val(obj[0].ft_descricao);
+                            $(".familia").select2("val", obj[0].fn_id_familiaparametro);
+
+                            $("#_modeloparametro").val(obj[0].modelodepara);
+                            $("#_formulaquimica").val(obj[0].ft_formulaquimica);
+                            $("#_idmodeloparametro").val(obj[0].fn_id_modeloparametro);
+                            $("#_idparametroData").val(obj[0].id);
+
+
+                            $(".laboratorio").select2("val", obj[0].fn_id_laboratorio);
+                            $(".areaensaio").select2("val", obj[0].fn_id_areaensaio);
+                            $(".metodo").select2("val", obj[0].fn_id_metodo);
+                            $(".tecnica").select2("val", obj[0].fn_id_tecnica);
+
+                            $("#_compra").val(obj[0].fn_precocompra);
+                            $("#_venda").val(obj[0].fn_precovenda);
+                            $("#_fator").val(obj[0].fn_factorcorreccao);
+
+                            $("#_conclusao").val(obj[0].ft_conclusao);
+                            $("#_observacoes").val(obj[0].ft_observacao);
+
+                            if(obj[0].fb_confirmacao == 1){
+                                $('#_confirmacao').iCheck('check');
+                                $("#_confirmacao").prop('checked', true);
+                            }
+                            if(obj[0].fb_contraanalise == 1){
+                                $('#_contraanalise').iCheck('check');
+                                $("#_contraanalise").prop('checked', true);
+                            }
+                            if(obj[0].fb_amostraexterno == 1){
+                                $('#_ambexterno').iCheck('check');
+                                $("#_ambexterno").prop('checked', true);
+                            }
+                            if(obj[0].fb_amostrainterno == 1){
+                                $('#_ambinterno').iCheck('check');
+                                $("#_ambinterno").prop('checked', true);
+                            }
+                            if(obj[0].fb_determinacaoexterno == 1){
+                                $('#_deterexterno').iCheck('check');
+                                $("#_deterexterno").prop('checked', true);
+                            }
+                            if(obj[0].fb_determinacaointerno == 1){
+                                $('#_deterinterno').iCheck('check');
+                                $("#_deterinterno").prop('checked', true);
+                            }
+
+                            if(obj[0].fb_incluirnorelatorio != null){
+                                $("#_incluirelatorio").prop('checked', true);
+                            }
+                        }
+                    }
+                });
+            }
+            function Savedata(){
+                var arr = [$("#_amostra").val(),$("#_idparametro").val() , $("#_valorformatado").val() , $("#_valororiginal").val(), $(".NewUnidades").select2('data').id];
+                var arr2 = [ $("#_idparametro").val(),$("#_formulaquimica").val(), $(".familia").select2('data').id,$(".laboratirio").select2('data').id, $(".areaensaio").select2('data').id , $(".metodo").select2('data').id , $(".tecnica").select2('data').id , $('#_confirmacao:checkbox:checked').length > 0 ? 1 : 0, $('#_contraanalise:checkbox:checked').length > 0 ? 1 : 0,  $('#_compra').val(), $('#_venda').val() , $('#_fator').val(), $('#_conclusao').val() , $('#_observacoes').val() ,$('#_ambexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_ambinterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterinterno:checkbox:checked').length > 0 ? 1 : 0  ];
+
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('EntradaResultadossetByRegrasFormatacaoAmostra')}}',
+                    data: JSON.stringify(arr),
+                    success: function(data) {
+                        if(data > 0){
+                            alert("Resultados Guardados com sucesso");
+                            GetParametros();
+                        }else{
+                            alert("Resultado não guardado");
+                        }
+                    }
+                });
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('SaveParaporAmostra')}}',
+                    data: JSON.stringify(arr2),
+                    success: function(data) {
+                        if(data > 0){
+                            alert("Resultados Guardados com sucesso");
+                            GetParametros();
+                        }else{
+                            alert("Resultado não guardado");
+                        }
+                    }
+                });
+
+            }
+            $( document ).ready(function() {
+
+                //valor original do resultado altera
+                $('#_valororiginal').focus(function() {
+                    _oldoriginalvalue = $(this).val();
+                    $(this).val("");
+                });
+                $('#_valororiginal').focusout(function() {
+                    if($("#_valororiginal").val() == ''){
+                        $("#_valororiginal").val(_oldoriginalvalue);
+                    }else{
+                        $.ajax({
+                            type: "POST",
+                            url: '{{path('EntradaResultadosgetByRegrasFormatacao')}}',
+                            data: {data1 : $("#_amostra").val() , data2 :$("#_idparametro").val() },
+                            success: function(data) {
+                                var obj = $.parseJSON(data);
+                                var val_down = 0;
+                                var val_up = 0;
+                                var validate = false;
+                                if(obj.condi.length !=0) {
+                                    $.each(obj.condi, function( index, value ) {
+                                        val_down = value.fn_limiteinferior;
+                                        val_up = value.fn_limitesuperior;
+                                        if(parseFloat($("#_valororiginal").val().replace(',','.').replace(' ','')) > parseFloat(val_down.replace(',','.').replace(' ','')) && parseFloat($("#_valororiginal").val().replace(',','.').replace(' ','')) < parseFloat(val_up.replace(',','.').replace(' ',''))){
+                                            $("#_valorformatado").val(value.ft_expressaoutilizador);
+                                            validate = true;
+                                        }
+                                    });
+                                }
+                                if(validate == false){
+                                    $("#_valorformatado").val($("#_valororiginal").val());
+                                }
+                            }
+                        });
+                    }
+                });
+
+                //GET o Ciclo de vida da amostra no arranque
+                $.ajax({
+                    type: "POST",
+                    url: '{{path('AmostrasGetCicloVida')}}',
+                    data: {data: {{ admin.id(object)  }} },
+                    success: function(data) {
+                        var obj = $.parseJSON(data);
+                        if (obj.length != 0) {
+                            var html = "";
+                            var estado = "";
+                            var bullet = "";
+                            $.each(obj, function (key, value) {
+                                if(value.ft_id_estado == 'I'){
+                                    estado = 'Indisponivel';
+                                    bullet = "bullet-gray";
+                                }
+                                if(value.ft_id_estado == 'V'){
+                                    estado = 'Disponivel';
+                                    bullet = "bullet-gray";
+                                }
+                                if(value.ft_id_estado == 'D'){
+                                    estado = 'Em Progresso';
+                                    bullet = "bullet-yellow";
+                                }
+                                if(value.ft_id_estado == 'P'){
+                                    estado = 'Planeada';
+                                    bullet = "bullet-blue";
+                                }
+                                if(value.ft_id_estado == 'C'){
+                                    estado = 'Completo';
+                                    bullet = "bullet-green";
+                                }
+                                if(value.ft_id_estado == 'X'){
+                                    estado = 'Cancelada';
+                                    bullet = "bullet-pink";
+                                }
+                                html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.updated_by_time +'</td><td>'+value.updated_by +'</td></tr>'
+
+                            });
+                            $('.table_ciclo tbody').append(html);
+                        } else {
+
+                        }
+                    }
+                });
+
+                GetParametros();
+                GetAllPara();
+                GetAllUnidades();
+                GetAllFamilias();
+                GetAllLaboratorios();
+                GetAllEnsaio();
+                GetAllMetodo();
+                GetAllTecnica();
+            });
+        </script>
         <div id="tabs_Amostra">
             <ul>
                 <li><a href="#tabs-1">{{ "Identificação"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
@@ -168,21 +662,78 @@
                             </ul>
                             <div id="tabs-4">
 
+                                <h3>{{ "Execução"|convert_encoding('UTF-8', ' iso-8859-1') }}:</h3>
+                                <div class="form-group">
+                                    <label for="_nomeparametro">ID</label>
+                                    <input type="text" class="form-control" id="_idparametroData" disabled>
+                                    <label for="_nomeparametro">Nome</label>
+                                    <input type="text" class="form-control" id="_nomeparametro" disabled>
+                                    <label for="_idmodeloparametro">Modelo</label>
+                                    <input type="text" class="form-control" id="_idmodeloparametro" disabled>
+                                    <input type="text" class="form-control" id="_modeloparametro" disabled>
+                                    <label for="_formulaquimica">Formula Quimica</label>
+                                    <input type="text" class="form-control" id="_formulaquimica" >
+                                    <label for="_valororiginal">Familia</label>
+                                    <div class="familiadiv"></div>
+                                </div>
+
+                                <h3>{{ "Execução"|convert_encoding('UTF-8', ' iso-8859-1') }}:</h3>
+                                <div class="form-group">
+                                    <label for="laboratoriodiv">Laboratorio</label>
+                                    <div class="laboratoriodiv"></div>
+                                    <label for="areaensaiodiv">Area de ensaio</label>
+                                    <div class="areaensaiodiv"></div>
+                                    <label for="metododiv">Metodo</label>
+                                    <div class="metododiv"></div>
+                                    <label for="tecnicadiv">Tecnica</label>
+                                    <div class="tecnicadiv"></div>
+
+                                    <label for="_confirmacao">Confirmação</label>
+                                    <input type="checkbox" class="form-control" id="_confirmacao" >
+                                    <label for="_contraanalise">Contra Analise</label>
+                                    <input type="checkbox" class="form-control" id="_contraanalise" >
+
+                                </div>
+
+                                <div class="form-group">
+                                    <h3>{{ "Preço"|convert_encoding('UTF-8', ' iso-8859-1') }}:</h3>
+                                    <label for="_compra">Compra</label>
+                                    <input type="text" class="form-control" id="_compra" >
+                                    <label for="_venda">Venda</label>
+                                    <input type="text" class="form-control" id="_venda" >
+                                    <label for="_fator">Fator</label>
+                                    <input type="text" class="form-control" id="_fator" >
+                                </div>
+                                <div class="form-group">
+                                    <h3>{{ "Acreditação Amostragem"|convert_encoding('UTF-8', ' iso-8859-1') }}:</h3>
+                                    <label for="_confirmacao">Ambito Interno</label>
+                                    <input type="checkbox" class="form-control" id="_ambinterno" >
+                                    <label for="_contraanalise">Ambito Externo</label>
+                                    <input type="checkbox" class="form-control" id="_ambexterno" >
+                                </div>
+                                <div class="form-group">
+                                    <h3>{{ "Acreditação Determinação"|convert_encoding('UTF-8', ' iso-8859-1') }}:</h3>
+                                    <label for="_confirmacao">Ambito Interno</label>
+                                    <input type="checkbox" class="form-control" id="_deterinterno" >
+                                    <label for="_contraanalise">Ambito Externo</label>
+                                    <input type="checkbox" class="form-control" id="_deterexterno" >
+                                </div>
+
+                                <label for="_fator">Conclusão</label>
+                                <input type="text" class="form-control" id="_conclusao" >
+                                <label for="_fator">Observações</label>
+                                <input type="text" class="form-control" id="_observacoes" >
+
                             </div>
                             <div id="tabs-5">
                                 <h3>Resultado:</h3>
                                 <div class="checkbox disabled">
                                     <label>
-                                        <input type="checkbox" value="" disabled>
+                                        <input type="checkbox" id="_incluirelatorio" value="" disabled>
                                         Incluir no relatorio
                                     </label>
                                 </div>
-                                <div class="checkbox disabled">
-                                    <label>
-                                        <input type="checkbox" value="" disabled>
-                                        Valor Calculado
-                                    </label>
-                                </div>
+
                                 <label>
 
                                     Unidade de Medida
@@ -190,22 +741,17 @@
                                 <div class="NewUnidadesDiv"></div>
 
                                 <div class="form-group">
+                                    <input type="hidden"  id="_idresultado" >
+                                    <input type="hidden"  id="_idparametro" >
+                                    <input type="hidden"  id="_amostra" value="{{ admin.id(object)  }}" >
+
                                     <label for="_valororiginal">Original</label>
                                     <input type="text" class="form-control" id="_valororiginal" >
                                     <label for="_valorformatado">formatado</label>
                                     <input type="text" class="form-control" id="_valorformatado" disabled>
-                                    <label for="_valorcalculado">Calculado</label>
-                                    <input type="text" class="form-control" id="_valorcalculado" disabled>
-                                    <label for="_valor">Valor</label>
-                                    <input type="text" class="form-control" id="_valor" disabled>
-                                    <input type="text" class="form-control" id="_sinal"  disabled>
                                     <label for="_conclusao">Conclusão</label>
                                     <input type="text" class="form-control" id="_conclusao" disabled>
-
-
                                 </div>
-
-
                             </div>
                             <div id="tabs-6">
                                 <div class="table-padding">
@@ -222,323 +768,17 @@
                                     </table>
                                 </div>
                             </div>
-
                     </div>
                 </div>
-
-
-
                 </div>
                 <div class="row">
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/app_dev.php/completepara')"><i class="fa fa-minus-circle"></i> Autorizar </a>
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/app_dev.php/reopenpara')"><i class="fa fa-minus-circle"></i> Desautorizar </a>
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/app_dev.php/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-minus-circle"></i> Autorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-minus-circle"></i> Desautorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
+                    <a target="_blank" class="btn generateworklist" onclick="Savedata()"><i class="fa fa-minus-circle"></i> Guardar</a>
                 </div>
             </div>
             <div id="tabs-3">
-                <script>
-                    var rowIds = [];
-                    var selectedRows = [];
-                    var _lastSelectedRow = 0;
-                    var _ParaData = [];
-
-                    function AddParaActions(){
-                        if(typeof $('.NewPara').select2('data').id != 'undefined' && $('.NewPara').select2('data').id != ""){
-                            $.ajax({
-                                type: "POST",
-                                url: '/app_dev.php/addpara',
-                                data: {idpara: $('.NewPara').select2('data').id , idamostra : {{ admin.id(object)  }}},
-                                contentType: "application/json",
-                                success: function(data) {
-                                    alert(data);
-                                    $("#parametros_grid").bootgrid("destroy");
-                                    GetParametros();
-
-                                }
-                            });
-                        }
-                    }
-                    function UpdateParaActions(URL){
-                        var _old = rowIds.slice(0);
-                        $.each(_ParaData, function( index, value ) {
-                            $.each(rowIds, function( index1, value1 ) {
-                                if(URL.indexOf("completepara")>= 0){
-                                    if(value.id == value1){
-                                        if(value.ft_codigo == "C"){
-                                            rowIds.splice(index1,1);
-                                        }
-                                    }
-                                }
-                                if(URL.indexOf("reopenpara")>= 0){
-                                    if(value.id == value1){
-                                        if(value.ft_codigo == "D"){
-                                            rowIds.splice(index1,1);
-                                        }
-                                    }
-                                }
-                                if(URL.indexOf("cancelpara")>= 0){
-                                    if(value.id == value1){
-                                        if(value.ft_codigo == "X"){
-                                            rowIds.splice(index1,1);
-                                        }
-                                    }
-                                }
-                            });
-                        });
-
-                        if(rowIds.length != 0){
-                            $.ajax({
-                                type: "POST",
-                                url: URL,
-                                data: JSON.stringify(rowIds),
-                                contentType: "application/json",
-                                success: function(data) {
-                                    $("#parametros_grid").bootgrid("destroy");
-                                    rowIds.length = 0;
-                                    GetParametros();
-
-                                }
-                            });
-                        }
-                        rowIds = _old;
-
-                    }
-                    function GetParametros(){
-                        $.ajax({
-                            type: "POST",
-                            url: '{{path('AmostrasGetParametros')}}',
-                            data: {data: {{ admin.id(object)  }} },
-                            success: function(data) {
-
-                                var grid_para = $("#parametros_grid").bootgrid({
-                                    navigation:0,
-                                    selection: true,
-                                    multiSelect: true,
-                                    rowSelect: true,
-                                    keepSelection: true
-                                }).on("selected.rs.jquery.bootgrid", function(e, rows)
-                                {
-                                    for (var i = 0; i < rows.length; i++)
-                                    {
-                                        rowIds.push(rows[i].id);
-                                    }
-                                }).on("deselected.rs.jquery.bootgrid", function(e, rows)
-                                {
-                                    for (var i = 0; i < rows.length; i++)
-                                    {
-                                        $.each(rowIds, function( index, value ) {
-                                            if(value == rows[i].id){
-                                                rowIds.splice(index,1);
-                                            }
-                                        });
-
-
-                                    }
-                                }).on("click.rs.jquery.bootgrid", function (e,rows,row)
-                                {
-
-                                    GetCicloPorParametro(row.idparametro);
-                                    GetResultadoPorParametro(row.idparametro);
-                                    selectedRows = rows;
-                                });
-                                var obj = $.parseJSON(data);
-                                _ParaData= obj;
-                                if (obj.length != 0) {
-                                    grid_para.bootgrid("append",obj );
-                                    $.each(obj, function (key, value) {
-
-                                    });
-                                } else {
-
-                                }
-                            }
-                        });
-                    }
-                    function GetAllPara(){
-                        $.ajax({
-                            type: "POST",
-                            url: "/app_dev.php/GetAllPara",
-                            dataType: 'json',
-                            success: function(data) {
-                                $('.NewParaDiv').append("<select  class='NewPara'></select>");
-
-                                $.each(data, function(index, value) {
-                                    $('.NewPara').append(
-                                            '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
-                                    );
-                                });
-                                $(".NewPara").select2();
-                            }
-                        });
-                    }
-                    function GetAllUnidades(){
-                        $.ajax({
-                            type: "POST",
-                            url: "{{ path('GetAllUnidadesMedida') }}",
-                            dataType: 'json',
-                            success: function(data) {
-                                $('.NewUnidadesDiv').append("<select  class='NewUnidades'></select>");
-                                $.each(data, function(index, value) {
-                                    $('.NewUnidades').append(
-                                            '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
-                                    );
-                                });
-                                $(".NewUnidades").select2();
-                            }
-                        });
-                    }
-                    function GetCicloPorParametro(_id_Para){
-
-                        $.ajax({
-                            type: "POST",
-                            url: '{{path('AmostrasGetCicloVidaPorPara')}}',
-                            data: {data: _id_Para  },
-                            success: function(data) {
-                                $('.table_ciclo_para tbody').html("");
-                                var obj = $.parseJSON(data);
-                                if (obj.length != 0) {
-                                    var html = "";
-                                    var estado = "";
-                                    var bullet = "";
-                                    $.each(obj, function (key, value) {
-                                        if(value.ft_id_estado == 'I'){
-                                            estado = 'Indisponivel';
-                                            bullet = "bullet-gray";
-                                        }
-                                        if(value.ft_id_estado == 'V'){
-                                            estado = 'Disponivel';
-                                            bullet = "bullet-gray";
-                                        }
-                                        if(value.ft_id_estado == 'D'){
-                                            estado = 'Em Progresso';
-                                            bullet = "bullet-yellow";
-                                        }
-                                        if(value.ft_id_estado == 'P'){
-                                            estado = 'Planeada';
-                                            bullet = "bullet-blue";
-                                        }
-                                        if(value.ft_id_estado == 'C'){
-                                            estado = 'Completo';
-                                            bullet = "bullet-green";
-                                        }
-                                        if(value.ft_id_estado == 'X'){
-                                            estado = 'Cancelada';
-                                            bullet = "bullet-pink";
-                                        }
-                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
-
-                                    });
-                                    $('.table_ciclo_para tbody').append(html);
-                                } else {
-
-                                }
-                            }
-                        });
-                    }
-                    function GetResultadoPorParametro(_id_Para){
-
-                        $.ajax({
-                            type: "POST",
-                            url: '{{path('AmostrasGetUnidadePorPara')}}',
-                            data: {data: _id_Para  },
-                            success: function(data) {
-                                $('.table_ciclo_para tbody').html("");
-                                var obj = $.parseJSON(data);
-                                if (obj.length != 0) {
-                                    var html = "";
-                                    var estado = "";
-                                    var bullet = "";
-                                    $.each(obj, function (key, value) {
-                                        if(value.ft_id_estado == 'I'){
-                                            estado = 'Indisponivel';
-                                            bullet = "bullet-gray";
-                                        }
-                                        if(value.ft_id_estado == 'V'){
-                                            estado = 'Disponivel';
-                                            bullet = "bullet-gray";
-                                        }
-                                        if(value.ft_id_estado == 'D'){
-                                            estado = 'Em Progresso';
-                                            bullet = "bullet-yellow";
-                                        }
-                                        if(value.ft_id_estado == 'P'){
-                                            estado = 'Planeada';
-                                            bullet = "bullet-blue";
-                                        }
-                                        if(value.ft_id_estado == 'C'){
-                                            estado = 'Completo';
-                                            bullet = "bullet-green";
-                                        }
-                                        if(value.ft_id_estado == 'X'){
-                                            estado = 'Cancelada';
-                                            bullet = "bullet-pink";
-                                        }
-                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
-
-                                    });
-                                    $('.table_ciclo_para tbody').append(html);
-                                } else {
-
-                                }
-                            }
-                        });
-                    }
-
-
-                    $( document ).ready(function() {
-
-                        $.ajax({
-                            type: "POST",
-                            url: '{{path('AmostrasGetCicloVida')}}',
-                            data: {data: {{ admin.id(object)  }} },
-                            success: function(data) {
-                                var obj = $.parseJSON(data);
-                                if (obj.length != 0) {
-                                    var html = "";
-                                    var estado = "";
-                                    var bullet = "";
-                                    $.each(obj, function (key, value) {
-                                        if(value.ft_id_estado == 'I'){
-                                            estado = 'Indisponivel';
-                                            bullet = "bullet-gray";
-                                        }
-                                        if(value.ft_id_estado == 'V'){
-                                            estado = 'Disponivel';
-                                            bullet = "bullet-gray";
-                                        }
-                                        if(value.ft_id_estado == 'D'){
-                                            estado = 'Em Progresso';
-                                            bullet = "bullet-yellow";
-                                        }
-                                        if(value.ft_id_estado == 'P'){
-                                            estado = 'Planeada';
-                                            bullet = "bullet-blue";
-                                        }
-                                        if(value.ft_id_estado == 'C'){
-                                            estado = 'Completo';
-                                            bullet = "bullet-green";
-                                        }
-                                        if(value.ft_id_estado == 'X'){
-                                            estado = 'Cancelada';
-                                            bullet = "bullet-pink";
-                                        }
-                                        html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.updated_by_time +'</td><td>'+value.updated_by +'</td></tr>'
-
-                                    });
-                                    $('.table_ciclo tbody').append(html);
-                                } else {
-
-                                }
-                            }
-                        });
-                        GetParametros();
-                        GetAllPara();
-                        GetAllUnidades();
-                    });
-
-
-                </script>
-
                 <div class="table-padding">
                     <table class="hover table_ciclo">
                         <thead>
@@ -549,8 +789,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
-
                         </tbody>
                     </table>
                 </div>
