@@ -20,8 +20,8 @@ class TAmostrasAdmin extends Admin
     {
         $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
 
-        $user->setCreatedBy($user1->getUsername());
-        $user->setCreatedByTime(date('Y-m-d H:i:s'));
+        $user->setUpdatedBy($user1->getUsername());
+        $user->setUpdatedByTime(date('Y-m-d H:i:s'));
     }
     public function preUpdate($user)
     {
@@ -32,8 +32,8 @@ class TAmostrasAdmin extends Admin
     public function preRemove($user)
     {
         $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
-        $user->setCreatedBy($user1->getUsername());
-        $user->setCreatedByTime(date('Y-m-d H:i:s'));
+        $user->setUpdatedBy($user1->getUsername());
+        $user->setUpdatedByTime(date('Y-m-d H:i:s'));
     }
 
 

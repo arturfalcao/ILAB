@@ -303,6 +303,51 @@ class FosUserUser
     private $group;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="imagem", type="text")
+     */
+     private $imagem;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cargo", type="text")
+     */
+     private $cargo;
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="telemovel", type="string", length=64, nullable=true)
+    */
+    private $telemovel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="morada", type="text")
+     */
+     private $morada;
+
+
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="codigopostal", type="string", length=10, nullable=true)
+    */
+    private $codigopostal;
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="cidade", type="string", length=100, nullable=true)
+    */
+    private $cidade;
+    
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -322,6 +367,18 @@ class FosUserUser
     }
 
     /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    
+
+    /**
      * Set username
      *
      * @param string $username
@@ -332,16 +389,6 @@ class FosUserUser
         $this->username = $username;
     
         return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string 
-     */
-    public function getUsername()
-    {
-        return $this->username;
     }
 
     /**
@@ -1196,6 +1243,29 @@ class FosUserUser
     }
 
     /**
+     * Set imagem
+     *
+     * @param string $imagem
+     * @return FosUserUser
+     */
+    public function setImagem($imagem)
+    {
+        $this->imagem = $imagem;
+    
+        return $this;
+    }
+
+    /**
+     * Get imagem
+     *
+     * @return string 
+     */
+    public function getImagem()
+    {
+        return $this->imagem;
+    }
+
+    /**
      * Add group
      *
      * @param \AppBundle\Entity\FosUserGroup $group
@@ -1226,5 +1296,120 @@ class FosUserUser
     public function getGroup()
     {
         return $this->group;
+    }
+
+    /**
+     * Set cargo
+     *
+     * @param string $cargo
+     * @return FosUserUser
+     */
+    public function setCargo($cargo)
+    {
+        $this->cargo = $cargo;
+    
+        return $this;
+    }
+
+    /**
+     * Get cargo
+     *
+     * @return string 
+     */
+    public function getCargo()
+    {
+        return $this->cargo;
+    }
+
+    /**
+     * Set telemovel
+     *
+     * @param string $telemovel
+     * @return FosUserUser
+     */
+    public function setTelemovel($telemovel)
+    {
+        $this->telemovel = $telemovel;
+    
+        return $this;
+    }
+
+    /**
+     * Get telemovel
+     *
+     * @return string 
+     */
+    public function getTelemovel()
+    {
+        return $this->telemovel;
+    }
+
+    /**
+     * Set morada
+     *
+     * @param string $morada
+     * @return FosUserUser
+     */
+    public function setMorada($morada)
+    {
+        $this->morada = $morada;
+    
+        return $this;
+    }
+
+    /**
+     * Get morada
+     *
+     * @return string 
+     */
+    public function getMorada()
+    {
+        return $this->morada;
+    }
+
+    /**
+     * Set codigopostal
+     *
+     * @param string $codigopostal
+     * @return FosUserUser
+     */
+    public function setCodigopostal($codigopostal)
+    {
+        $this->codigopostal = $codigopostal;
+    
+        return $this;
+    }
+
+    /**
+     * Get codigopostal
+     *
+     * @return string 
+     */
+    public function getCodigopostal()
+    {
+        return $this->codigopostal;
+    }
+
+    /**
+     * Set cidade
+     *
+     * @param string $cidade
+     * @return FosUserUser
+     */
+    public function setCidade($cidade)
+    {
+        $this->cidade = $cidade;
+    
+        return $this;
+    }
+
+    /**
+     * Get cidade
+     *
+     * @return string 
+     */
+    public function getCidade()
+    {
+        return $this->cidade;
     }
 }

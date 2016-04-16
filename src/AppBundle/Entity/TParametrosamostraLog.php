@@ -7,10 +7,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TParametros
  *
- * @ORM\Table(name="t_parametrosamostra", indexes={@ORM\Index(name="IX_t_parametros_amostra", columns={"fn_id_amostra"}), @ORM\Index(name="IX_t_parametros_estado", columns={"ft_id_estado"}), @ORM\Index(name="IX_t_parametros_familiaparametro", columns={"fn_id_familiaparametro"}), @ORM\Index(name="IX_t_parametros_laboratorio", columns={"fn_id_laboratorio"})})
+ * @ORM\Table(name="t_parametrosamostra_log", indexes={@ORM\Index(name="IX_t_parametros_amostra", columns={"fn_id_amostra"}), @ORM\Index(name="IX_t_parametros_estado", columns={"ft_id_estado"}), @ORM\Index(name="IX_t_parametros_familiaparametro", columns={"fn_id_familiaparametro"}), @ORM\Index(name="IX_t_parametros_laboratorio", columns={"fn_id_laboratorio"})})
  * @ORM\Entity
  */
-class TParametrosamostra
+class TParametrosamostraLog
 {
     /**
      * @var integer
@@ -303,7 +303,6 @@ class TParametrosamostra
      * })
      */
     private $fnLaboratorio;
-
 
 
     /**

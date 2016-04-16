@@ -88,6 +88,32 @@ class EntResultadosController extends Controller
 
         return new Response(json_encode($p));
     }
+    public function setByRegrasFormatacaoAmostraAction()
+    {
+        $arr1 = json_decode($this->get("request")->getContent(),true);
+
+
+        $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, t_resultados.ft_formatado FROM t_resultados INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  WHERE t_resultados.fn_id_amostra =". $arr1[0] ." AND (t_resultados.ft_id_estado = 'D' OR t_resultados.ft_id_estado = 'C') AND t_parametrosamostra.fn_id = '". $arr1[1] ."' ";
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $result = $activeDate->fetchAll();
+        $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
+
+        $q = $qb->update('AppBundle\Entity\TResultados', 'u')
+            ->set('u.ftFormatado', $qb->expr()->literal($arr1[2]))
+            ->set('u.ftOriginal', $qb->expr()->literal($arr1[3]))
+            ->set('u.fnUnidade', $qb->expr()->literal($arr1[4]))
+            ->where('u.fnAmostra = :idamostra and u.fnParametro  = :idpara')
+            ->setParameter('idamostra', ($arr1[0]))
+            ->setParameter('idpara', ($arr1[1]))
+            ->getQuery();
+        $p = $q->execute();
+
+
+
+
+        return new Response(json_encode($p));
+    }
     public function getByRegrasFormatacaoAction()
     {
         $arr = $this->get("request")->getContent();
@@ -119,6 +145,7 @@ class EntResultadosController extends Controller
         $id_amostra = $this->get("request")->getContent();
         //$sql = "SELECT t_parametrosporespecificacao.fn_id_familiaparametro FROM t_amostras inner join t_produtos on t_amostras.fn_id_produto = t_produtos.fn_id inner join t_produtosespecificacoes on t_produtos.fn_id = t_produtosespecificacoes.fn_id_produto inner join t_parametrosporespecificacao on t_produtosespecificacoes.fn_id_especificacao = t_parametrosporespecificacao.fn_id_especificacao where ft_id_estado = 'D' and t_parametrosporespecificacao.fn_id_familiaparametro = ". $id_parameter ."  ";
         $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, t_resultados.ft_formatado ,t_resultados.fn_id_parametro FROM t_resultados INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  WHERE t_resultados.fn_id_amostra =". $id_amostra ." AND (t_resultados.ft_id_estado = 'D' OR t_resultados.ft_id_estado = 'C')";
+
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
