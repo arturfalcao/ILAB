@@ -90,16 +90,24 @@ EntradaResultadosgetByRegrasFormatacao:
 EntradaResultadossetByRegrasFormatacao:
     pattern:  /EntradaResultados/saveregras
     defaults: { _controller: AppBundle:EntResultados:setByRegrasFormatacao }
-
 AmostrasGetCicloVida:
     pattern:  /amostras/ciclo
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetCicloVida }
+AmostrasGetCicloVidaPorPara:
+    pattern:  /amostras/ciclopara
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetCicloVidaPorParametro }
+AmostrasGetUnidadePorPara:
+    pattern:  /amostras/unidadepara
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetUnidadePorParametro }
 AmostrasGetParametros:
     pattern:  /amostras/parametros
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:AmostrasGetParametros }
 GetAllPara:
     pattern:  /GetAllPara
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllPara}
+GetAllUnidadesMedida:
+    pattern:  /GetAllUnidadesMedida
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllUnidadesMedida}
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
@@ -133,6 +141,9 @@ adesigns_calendar:
   resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
 
 #Jose
+sucesso:
+    path:     /sucesso
+    defaults: { _controller: AppBundle:Chat:profilehandler }
 calendar_geteventos:
     path:     /calendar/geteventos
     defaults: { _controller: AppBundle:Agenda:geteventos }
@@ -140,9 +151,14 @@ calendar_geteventos:
 calendar_updateeventos:
     path:     /calendar/updateeventos
     defaults: { _controller: AppBundle:Agenda:updateeventos }
+
 chat_getusers:
     path:     /chat/getusers
     defaults: { _controller: AppBundle:Chat:getusers }
+
+chat_getdusers:
+    path:     /chat/getdusers
+    defaults: { _controller: AppBundle:Chat:getdusers }
 
 chat_gethistoriconovo:
     path:     /chat/gethistoriconovo
@@ -164,10 +180,21 @@ chat_mens_nao_lidas:
     path:     /chat/mens_nao_lidas
     defaults: { _controller: AppBundle:Chat:mens_nao_lidas }
 
-chat_getusername:
-    path:     /chat/getusername
-    defaults: { _controller: AppBundle:Chat:getusername }
+carrega_imagens:
+    path:     /chat/carrega_imagens
+    defaults: { _controller: AppBundle:Chat:carrega_imagens }
 
+chat_getimagem:
+    path:     /chat/getimagem
+    defaults: { _controller: AppBundle:Chat:getimagem }
+
+chat_validapass:
+    path:     /chat/chat_validapass
+    defaults: { _controller: AppBundle:Chat:chat_validapass }
+
+chat_mudapass:
+    path:     /chat/chat_mudapass
+    defaults: { _controller: AppBundle:Chat:chat_mudapass }
 _sonata_admin:
     resource: .
     type: sonata_admin

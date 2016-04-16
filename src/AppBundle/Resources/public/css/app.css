@@ -9858,7 +9858,7 @@ th.hide-for-touch {
 .bullet-pink {
   background: #ff1558;
 }
-.table_ciclo tbody td span{
+.table_ciclo tbody td span , .table_ciclo_para tbody td span{
   display: inline-block;
   width: 10px;
   height: 10px;

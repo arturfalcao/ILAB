@@ -1,21 +1,28 @@
-<div class="">
-    <a href="/calendar" class=""><img id="logo" src="{{ asset('bundles/app/images/logo.png') }}" alt="ilab" /></a>
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+{% endblock %}
+
+<div style="height:auto;">
+    <a href="/app_dev.php/calendar" class=""><img id="logo" src="{{ asset('bundles/app/images/logo.png') }}" alt="ilab" /></a>
     <nav class="navigation menu_principal">
         <ul class="mainmenu">
             <li><a href="" class="menu_planeamento"></a>
-                    <ul class="submenu">
-                        <div>Planeamento de amostras</div>
-                        <li><a href="{{path('tamostras') }}" >Calendario</a></li>
+                <ul class="submenu">
+                    <div>Planeamento de amostras</div>
+                    <li><a href="{{path('calendar') }}" >
+                            Calend√°rio
+                        </a></li>
 
-                        <li><a href="{{ path('tamostras_planeamento') }}">Novo Planeamento</a></li>
-                    </ul>
-                </li>
+                    <li><a href="{{ path('tamostras_planeamento') }}">Novo Planeamento</a></li>
+                </ul>
+            </li>
             <li><a href="" class="menu_amostras"></a>
                 <ul class="submenu">
                     <div>Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
-                    <li><a href="{{ path('admin_app_tamostras_create') }}">{{ "LanÁamento de Amostra"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
-                    <li><a href="{{ path('importacaoamostra') }}">{{ "ImportaÁ„o de Amostras"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                    <li><a href="{{ path('admin_app_tamostras_create') }}">Lan√ßamento de Amostra</a></li>
+                    <li><a href="{{ path('importacaoamostra') }}">Importa√ß√£o de Amostras</a></li>
                 </ul>
             </li>
             <li><a href="" class="menu_resultados"></a>
@@ -26,16 +33,16 @@
             </li>
             <li><a href="" class="menu_configuracoes"></a>
                 <ul class="submenu">
-                    <div>{{ "ConfiguraÁıes"|convert_encoding('UTF-8', ' iso-8859-1') }}</div>
+                    <div>Configura√ß√µes</div>
                     <li><a href="{{path('admin_app_tclientes_list') }}" >Clientes</a></li>
                     <li><a href="{{ path('admin_app_tmodelosamostra_list') }}">Modelos Amostra</a></li>
-                    <li><a href="{{ path('admin_app_tmodelosparametro_list') }}">{{ "Modelos Par‚metros"|convert_encoding('UTF-8', ' iso-8859-1') }} </a></l>
+                    <li><a href="{{ path('admin_app_tmodelosparametro_list') }}">Modelos Par√¢metros</a></l>
                     <li><a href="{{ path('admin_app_tmodelosresultados_list') }}">Modelos Resultados</a></li>
-                    <li><a href="{{ path('admin_app_tparametros_list') }}">{{ "Par‚metros"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
-                    <li><a href="{{ path('admin_app_tgruposparametros_list') }}">{{ "Grupos Par‚metros"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                    <li><a href="{{ path('admin_app_tparametros_list') }}">Par√¢metros</a></li>
+                    <li><a href="{{ path('admin_app_tgruposparametros_list') }}">Grupos Par√¢metros</a></li>
                     <li><a href="{{ path('admin_app_tprodutos_list') }}">Produtos</a></li>
-                    <li><a href="{{ path('admin_app_tespecificacoes_list') }}">{{ "EspecificaÁıes"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
-                    <li><a href="{{ path('admin_app_tlegislacao_list') }}">{{ "LegislaÁ„o"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                    <li><a href="{{ path('admin_app_tespecificacoes_list') }}">Especifica√ß√µes</a></li>
+                    <li><a href="{{ path('admin_app_tlegislacao_list') }}">Legisla√ß√£o</a></li>
                     <li><a href="{{ path('admin_app_tunidadesmedida_list') }}">Unidades de Medida</a></li>
 
                 </ul>
@@ -47,19 +54,77 @@
 
                 </ul>
             </li>
-            <li><a href="" class="menu_cartas"></a>
+            <li>
+                <a href="" class="menu_cartas"></a>
                 <ul class="submenu">
-                    <div>AdministraÁ„o</div>
-                    <li><a href="{{path('sonata_admin_dashboard') }}" >{{ "Gest„o de Utilizadores"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
-
+                    <div>Administra√ß√£o</div>
+                    <li><a href="{{path('sonata_admin_dashboard') }}" >Gest√£o de Utilizadores</a></li>
                 </ul>
                 <!--<ul class="submenu">
+                {{ "Administra√ß√£o"|convert_encoding('UTF-8', 'iso-8859-1') }}
                     <li><a href="">Tops</a></li>
                     <li><a href="">Bottoms</a></li>
                     <li><a href="">Footwear</a></li>
                 </ul>-->
+            </li>
 
+            {%if app.user %}
+                <li>
+                    <input type="hidden" id="util" name="util" value="{{app.user.id}}">
 
+                    <div class="medidas_imagem_botao">
+                        <a href="/app_dev.php/profile"><img id="img_user_logado" style="margin-left: 10px;" class="circle_image" id="us_{{app.user.id}}"src="" alt=""></a>
+                        <div class="circulo_verde"></div>
+                    </div>
+
+                </li>
+            {%endif%}
+
+            <li>
+                <a href="/app_dev.php/logout"><img class="botao_logout" src="/bundles/app/images/logout.png" alt="" style="margin-bottom: 20px"></a>
+            </li>
         </ul>
+
+
+
+
     </nav>
+
+    <script>
+        $( document ).ready(function() {
+            var user = Number($('#util').val());
+            $.ajax({
+                type: "POST",
+                url: '{{path('chat_getdusers')}}',
+                data: {id: user},
+                success: function(data) {
+
+                    var arr = $.parseJSON(data);
+                    if(arr.length != 0)
+                    {
+                        $.each(arr, function(index,value) {
+
+                            var imagem = value.imagem;
+                            if(imagem)
+                            {
+                                imagem = imagem.replace('"','');
+                                imagem = imagem.replace('"','');
+                                imagem = imagem.replace(/\\/g,'');
+                                $("#img_user_logado").attr("src", imagem);
+                                if(value.firstname)
+                                    $("#img_user_logado").attr("alt", imagem);
+                            }
+                        });
+
+
+
+                    }
+                }
+
+            });
+
+        });
+
+    </script>
+
 </div>
