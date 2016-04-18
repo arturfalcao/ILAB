@@ -156,12 +156,12 @@ setTimeout(novasMensagensUtilizador, 4000);
 function histMens(element)
 {
 	  	var user = Number($('#logged').val());
-      var username = "";
+        var username = "";
 	    var nome_user = $(element).attr('alt');
 	    var id_user = $(element).attr('id');
 	    var nid = Number(id_user.slice(3));
 	    var nome_user_logado;
-      var t="";
+        var t="";
 	    $("#clicked_user").remove();
 		  $("#texto_imp").remove();
 	    $(".botao_enviar").remove();
@@ -218,15 +218,72 @@ function histMens(element)
                             $("#chat").append("</div>");
                           }
                       });
-                    }
-                    $("#tabs-2").append("</div>");
-                    $("#tabs-2").append('<input type="hidden" id="clicked_user" value="' + nid + '">');
-                    novasMensagensUtilizador();
-	                  TextoMensagensNaoLidas();
 
-                    $("#tabs-2").append("<p class='sms_n_lidas'></p>");
-                	  $("#tabs-2").append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' ></div>");
-                    $("#tabs-2").append("<div id='insere'><img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t +  "' x='" + username +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+                        $("#tabs-2").append("</div>");
+                        $("#tabs-2").append('<input type="hidden" id="clicked_user" value="' + nid + '">');
+                        novasMensagensUtilizador();
+                        TextoMensagensNaoLidas();
+
+                        $("#tabs-2").append("<p class='sms_n_lidas'></p>");
+                        $("#tabs-2").append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' ></div>");
+                        $("#tabs-2").append("<div id='insere'><img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t +  "' x='" + username +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+                    }
+                    else{
+
+                        $.ajax({
+                            type: "POST",
+                            url: '{{path('chat_getdusers')}}',
+                            data: {id: user},
+                            success: function(data) {
+                                var arr = $.parseJSON(data);
+                                var p_n='';
+                                var imagem='';
+                                if(arr.length != 0)
+                                {
+                                    $.each(arr, function(index,value) {
+                                        imagem = value.imagem;
+                                        if(imagem)
+                                        {
+                                            imagem = imagem.replace('"','');
+                                            imagem = imagem.replace('"','');
+                                            imagem = imagem.replace(/\\/g,'');
+                                        }
+                                        else{
+                                            imagem = '';
+                                        }
+                                        if(!value.firstname)
+                                            p_n ="";
+                                        else
+                                            p_n = value.firstname;
+
+
+                                    });
+
+                                }
+                                $("#tabs-2").append('<input type="hidden" id="clicked_user" value="' + nid + '">');
+                                novasMensagensUtilizador();
+                                TextoMensagensNaoLidas();
+
+                                $("#tabs-2").append("<p class='sms_n_lidas'></p>");
+                                $("#tabs-2").append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' ></div>");
+                                $("#tabs-2").append("<div id='insere'><img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + imagem +  "' x='" + p_n +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+
+
+
+
+
+                            }
+                        });
+
+
+
+
+
+
+
+
+                    }
+
 
                 }
 		});

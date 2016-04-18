@@ -17,9 +17,6 @@
             "email": "jeresig@gmail.com"
         }
     ],
-    "require": {
-        "robloach/component-installer": "*"
-    },
     "extra": {
         "component": {
             "scripts": [
@@ -27,9 +24,9 @@
             ],
             "files": [
                 "jquery.min.js",
+                "jquery.min.map",
                 "jquery-migrate.js",
-                "jquery-migrate.min.js",
-                "jquery.min.map"
+                "jquery-migrate.min.js"
             ]
         }
     }

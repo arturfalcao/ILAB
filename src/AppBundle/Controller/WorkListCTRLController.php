@@ -14,6 +14,7 @@ use AppBundle\Entity\ModelosListas;
 use AppBundle\Entity\TResultados;
 use AppBundle\Entity\TEstados;
 use Symfony\Component\HttpFoundation\Response;
+use WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle;
 
 
 /**
@@ -134,8 +135,49 @@ class WorkListCTRLController extends Controller
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
         }
-
         return new Response("ok");
+    }
+
+    public function EmitRelatorioAction(){
+
+        $pdf = $this->container->get("white_october.tcpdf")->create(
+            'P',
+            PDF_UNIT,
+            PDF_PAGE_FORMAT,
+            true,
+            'UTF-8',
+            false
+        );
+        $pdf->SetAuthor('Pimenta do Vale');
+        $pdf->SetTitle('Relatorio de Ensaio');
+        $pdf->SetSubject('client');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        $pdf->setFontSubsetting(true);
+
+        $pdf->SetFont('helvetica', '', 11, '', true);
+        $pdf->AddPage();
+
+        $html = '<h1>Working on Symfony</h1>';
+
+        $pdf->writeHTMLCell(
+            $w = 0,
+            $h = 0,
+            $x = '',
+            $y = '',
+            $html,
+            $border = 0,
+            $ln = 1,
+            $fill = 0,
+            $reseth = true,
+            $align = '',
+            $autopadding = true
+        );
+
+        $pdf->Output("example.pdf", 'I');
+        $pdf->Output("example.pdf", 'F');
+
+
+
     }
 
     //Sample actions

@@ -4,7 +4,7 @@
 {% endblock %}
 
 <div class="row full-width-row">
-    <header class="large-16 columns header_agenda" style="width: 100.5%;margin-left: 26px;margin-top: -670px;">
+    <header class="large-16 columns header_agenda" style="width: 100.5%;margin-left: 16px;margin-top: -670px;">
         {% if app.user %}
             <input type="hidden" id="logged" value="{{app.user.id}}">
             <input type="hidden" id="logged_username" value="{{app.user.username}}">
@@ -25,7 +25,7 @@
 
         {% include 'default/ajax_chat_topheader_geral.html.twig' %}
 
-        {% include 'default/ajax_agenda_topheader_geral.html.twig' %}
+        {% include 'default/ajax_agenda_topheader_geral_calendar.html.twig' %}
 
 
         <script>

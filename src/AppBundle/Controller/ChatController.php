@@ -90,7 +90,7 @@ class ChatController extends Controller
     foreach ($dql as $fosuseruser)
     {
       $info[$i]['id'] = $fosuseruser->getId();
-      $info[$i]['username'] = $fosuseruser->getUsername();
+      $info[$i]['firstname'] = $fosuseruser->getFirstname();
       $info[$i]['imagem'] = $fosuseruser->getImagem();
       $info[$i]['morada'] = $fosuseruser->getMorada();
       $info[$i]['telemovel'] = $fosuseruser->getTelemovel();
