@@ -66,7 +66,7 @@
 
 <div class="new_cal_element">
     <div class="row">
-        <div class="col-md-1  " style="height: 100%;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
+        <div class="col-md-1" style="height: auto;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
             {% include 'default/menu.html.twig' %}
         </div>
         <div class=" col-md-11 ">
@@ -75,7 +75,7 @@
                     {% include 'default/topheader_planeamento.html.twig' %}
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 110px;">
 
                     {% block body -%}
 
@@ -93,7 +93,7 @@
                                    <th class="sonata-ba-list-field-header-integer ">Data de fim</th>
                                    <th class="sonata-ba-list-field-header-integer ">Cliente</th>
                                    <th class="sonata-ba-list-field-header-integer ">Local de Recolha</th>
-                                   <th class="sonata-ba-list-field-header-integer ">Grupo de Parâmetros</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Grupo de Parï¿½metros</th>
                                    <th class="sonata-ba-list-field-header-integer ">Produtos</th>
                                    <th class="sonata-ba-list-field-header-integer ">Actions</th>
                                </tr>
@@ -208,7 +208,7 @@
                                             if(data == "ok"){
                                                 location.reload();
                                             }else{
-                                                alert("Não foi possivel atualizar/lançar as amostras");
+                                                alert("Nï¿½o foi possivel atualizar/lanï¿½ar as amostras");
                                             }
 
                                         }
@@ -228,7 +228,7 @@
 
 
             <div class="col-md-6 columns">
-                <a  href="#" class="button right lancar_amostras">{{ "Lançar Amostras"|convert_encoding('UTF-8', ' iso-8859-1') }}</a>
+                <a  href="#" class="button right lancar_amostras">{{ "Lanï¿½ar Amostras"|convert_encoding('UTF-8', ' iso-8859-1') }}</a>
             </div>
 
 

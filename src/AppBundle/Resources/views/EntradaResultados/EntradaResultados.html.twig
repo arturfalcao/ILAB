@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/app.css') }}" />
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
     <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/vendor/select2/select2.css') }}">
+
 
     {% block javascripts %}
 
@@ -53,29 +54,122 @@
         display:none !important;
     }
 </style>
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+{% endblock %}
+
 <div class="container-fluid">
 
     <div class="row">
-        <div class="nopadding large-1 columns">{% include 'default/menu.html.twig' %}</div>
+        <div class="large-1 columns" style="height: auto;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">{% include 'default/menu.html.twig' %}</div>
         <div class=" large-15 columns">
             <div class="row">
                 <div class="large-16 columns">
 
+
+
                     <div class="row full-width-row">
-                        <header class="large-16 columns" style="width: 99%;">
+                        <style>
+
+
+                        </style>
+
+
+                        <header class="large-16 columns header_planeamento" style="width: 100.5%;margin-top: -672px;margin-left: 23px;">
+                            {% if app.user %}
+                                <input type="hidden" id="logged" value="{{app.user.id}}">
+                            {% endif %}
+
                             <div class="large-6 columns">
-                                <h6 class="title">Entrada de Resultados</h6>
+                                <h6 class="title"> Entrada de Resultados </h6>
+
+                            </div>
+                            <div class="large-8 columns">
+                                <a class="button right inactiveLink bg_color"></a>
                             </div>
                             <div class="large-1 columns">
-                                <div class="menu_direita"></div>
+                                <div class="menu_direita" >
+                                    <div id="menu_direita_circulo"></div>
+                                </div>
+
+                            </div>
+
+                            {% include 'default/ajax_chat_topheader_geral.html.twig' %}
+
+                            {% include 'default/ajax_agenda_topheader_geral.html.twig' %}
+
+                            <div id="tab_sidebar" class="sideBarRight" style="display: none;">
+
+
+                                <ul class="nav nav-tabs material-tabs" role="tablist">
+                                    <li  class="li_agenda" style="float: left;margin-left: -20px;margin-right: 10px;">
+                                        <a id="chat_tab" class="tabulador" href="#tabs-1" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="false">Agenda de hoje</a>
+
+                                    </li>
+
+                                    <li class="li_chat"><a class="tabulador" href="#tabs-2" aria-controls="message" role="tab" data-toggle="tab" aria-expanded="true">Chat</a>
+                                    </li>
+
+                                </ul>
+                                <div id="n_lidas">
+
+                                </div>
+
+                                <div id="tabs-1">
+
+                                </div>
+
+                                <div id="tabs-2">
+
+
+                                </div>
+
+
                             </div>
                         </header>
                     </div>
+
+                    <style>
+                        #tab_sidebar a
+                        {
+                            cursor: pointer!important;
+                            color: black;
+                            text-decoration: none!important;
+                            background-color: white!important;
+                        }
+
+                        #tab_sidebar a:hover{
+                            background-color: transparent!important;
+                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            box-shadow: inset 0 -2px 0 #139c9b!important;
+                            color: #139c9b!important;
+                        }
+
+                        #tab_sidebar a:focus{
+                            background-color: transparent!important;
+                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            box-shadow: inset 0 -2px 0 #139c9b!important;
+                            color: #139c9b!important;
+                        }
+
+                        .loading
+                        {
+                            margin-top: 10px!important;
+                        }
+
+                        #chat_tab{
+                            margin-right: 0px!important;
+                        }
+                    </style>
                 </div>
             </div>
             <div class="row">
 
-                <div class="large-13 columns">
+                <div class="large-13 columns" style="margin-top: -560px;margin-left: 35px;">
 
                     {% block actions %}
                         <div class="form-group">
@@ -91,10 +185,10 @@
                                 {% endfor %}
                             </select>
                         </div>
-                    <div class="form-group">
-                        <a href="#" onclick="getdata()" class="button right">Pesquisar</a>
-                        <a href="#" onclick="savedata()" class="button right">Salvar</a>
-                    </div>
+                        <div class="form-group">
+                            <a href="#" onclick="getdata()" class="button right">Pesquisar</a>
+                            <a href="#" onclick="savedata()" class="button right">Salvar</a>
+                        </div>
                     {% endblock %}
                     {% block tab_menu %}
                     {% endblock %}
@@ -162,7 +256,7 @@
                 if(data > 0){
                     alert("Resultados Guardados com sucesso");
                 }else{
-                    alert("Resultado n„o guardado");
+                    alert("Resultado n√£o guardado");
                 }
             }
         });
@@ -225,7 +319,7 @@
                         editableGrid.load({"metadata": metadata, "data": data2});
                         editableGrid.renderGrid("tablecontent", "testgrid");
                     }else{
-                        alert("N„o foram encontrados resultados para o seu pedido.")
+                        alert("N√£o foram encontrados resultados para o seu pedido.")
                     }
                 }
             });
@@ -292,7 +386,7 @@
                             editableGrid.renderGrid("tablecontent", "testgrid");
 
                         } else {
-                            alert("N„o foram encontrados resultados para o seu pedido.")
+                            alert("N√£o foram encontrados resultados para o seu pedido.")
                         }
                     }
                 });
