@@ -145,7 +145,7 @@ class TAmostrasAdmin extends Admin
 
         if ($this->id($this->getSubject())) {
             $formMapper
-                ->with('codigo',array('description' => 'Codigo','class' => 'Codigo_amostra'))
+                ->with('codigo',array('description' => 'Codigo','class' => 'Codigo_amostra col-md-4'))
                 ->add('fnId', 'text', array('label' => 'ID','read_only' => true,'disabled'  => true))
                 ->end();
         }
