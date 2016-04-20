@@ -25,8 +25,6 @@ use WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle;
 class WorkListCTRLController extends Controller
 {
 
-
-
     //parametres actions
     public function CompleteparaAction(){
         error_reporting(0);

@@ -6,8 +6,11 @@
 {% stylesheets%}
  
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
 {% endstylesheets %}
- 
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/bootstrap.css') }}" />
+
 {% block javascripts %}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
@@ -46,12 +49,11 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="large-1 columns " style="height: auto;box-shadow: 1px 1px 10px #888888;z-index: 999;">
+        <div class="col-md-1" style="height: auto;box-shadow: 1px 1px 10px #888888;z-index: 999;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
-            <div class="row">
-                <div class="large-16 columns">
+        <div class="col-md-11 ">
+                <div class="col-md-12 ">
                     {% include 'default/topheader.html.twig' %}
                     <style>
 
@@ -93,9 +95,7 @@
                     </style>
 
                 </div>
-            </div>
-            <div class="row">
-                <div class="large-15 columns no-padding">
+                <div class="col-md-12 ">
                     {% block body%}
                         <!-- a minha Angular App -->
                         <div ng-app="CalendarModule">
@@ -108,10 +108,7 @@
                         </div>
                     {% endblock %}
                 </div>
-                <div class="large-0 sidebarright columns ">
 
-                </div>
-            </div>
         </div>
     </div>
 </div>
