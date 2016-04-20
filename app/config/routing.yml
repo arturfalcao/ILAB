@@ -168,7 +168,9 @@ admin:
 
 adesigns_calendar:
   resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
-
+EmitRelatorio:
+    path:     /relatorio/emit/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:EmitRelatorio }
 #Jose
 sucesso:
     path:     /sucesso
@@ -228,6 +230,3 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
-EmitRelatorio:
-    path:     /relatorio/emit
-    defaults: { _controller: AppBundle:WorkListCTRL:EmitRelatorio }

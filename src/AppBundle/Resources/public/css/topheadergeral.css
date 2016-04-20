@@ -17,19 +17,19 @@
 .header
 {
     position: fixed;
-    margin-left: 102px;
-    z-index: 999;
-    height: 92px;
-    border-left: 1px solid #DFDFDF;
+    z-index: 2;
     border-bottom: 1px solid #DFDFDF;
     background: white;
+    height: 80px;
+    width: 100%;
+    padding: 0!important;
 }
 
 .header_planeamento
 {
     position: fixed;
     margin-left: -5px;
-    z-index: 999;
+    z-index: 2;
     height: 92px;
     border-left: 1px solid #DFDFDF;
     border-bottom: 1px solid #DFDFDF;
@@ -38,18 +38,18 @@
 
 .header_agenda
 {
+    height:80px;
+    z-index: 2;
     position: fixed;
-    margin-left: 10px;
-    z-index: 999;
-    height: 92px;
-    border-left: 1px solid #DFDFDF;
     border-bottom: 1px solid #DFDFDF;
     background: white;
+    width: 100%;
 }
+
 
 .title
 {
-    padding: 10px 0 0 1.5625rem !important;
+    padding: 24px 0 0 1.5625rem !important;
 
 }
 
@@ -62,19 +62,18 @@
 
 .button
 {
-    margin: -3px 1.5625rem 0 0 !important;
+    margin-top: 15px!important;
+    padding: 0.8rem 2rem 0.8rem 2rem!important;
+    color: white!important;
 }
 
-.menu_direita
-{
+
+
+.menu_direita {
     position: relative;
-    margin-left: -44px;
-    margin-top: -12px;
-}
-
-.content
-{
-    margin-top: 92px !important;
+    border-left: 1px solid #DFDFDF;
+    height: 80px!important;
+    width: 80px!important;
 }
 
 a
@@ -82,6 +81,9 @@ a
     cursor: pointer!important;
 }
 
+#nova_entidade{
+    text-decoration: none;
+}
 
 #tab_sidebar .ui-widget-header
 {
@@ -111,7 +113,7 @@ a
 
 .sideBarRight {
     border: 1px solid #E6E6E6!important;
-    margin-top: 32px;
+    margin-top: 19px;
     width: 330px;
     height:500px;
     max-height: 600px;
@@ -304,26 +306,23 @@ p.agenda
 }
 
 #texto_imp {
+    margin-left: 15px;
     margin-bottom: 15px;
     height: 40px;
     width: 216px;
-    margin-right: 5px;
     min-height: 0 !important;
     display: initial !important;
     background-color: #f6f6f6;
     border: none transparent !important;
-
 }
 
 #textoimp:focus{
     outline: none;
 }
 
-.botao_enviar{
+.botao_enviar {
     margin-top: -52px;
-    display: block!important;
-    margin-left: 230px;
-    padding: 0 0 0 0 !important;
+    margin-left: 250px;
 }
 
 .triangle-isosceles.dir {
@@ -456,7 +455,7 @@ p.quebra{
 
 .circulo
 {
-    margin-left: 245px;
+    margin-left: 255px;
     position: absolute;
     width:15px;
     height:15px;
@@ -466,11 +465,12 @@ p.quebra{
     line-height:15px;
     text-align:center;
     background:red;
-    margin-top: -30px;
+    margin-top: -18px;
 }
 
+
 .circulo_menu_direita {
-    margin-left: 74px;
+    margin-left: 51px;
     position: absolute;
     width: 12px;
     height: 12px;
@@ -479,7 +479,8 @@ p.quebra{
     line-height: 15px;
     text-align: center;
     background: red;
-    margin-top: 18px;
+    margin-top: 23px;
+    border: 2px solid white;
 }
 
 
@@ -513,4 +514,73 @@ p.quebra{
     padding-top:10px;
     padding-bottom:10px;
     margin-bottom: 20px;
+}
+
+
+#logo {
+    margin: 1.25rem auto 0;
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+
+}
+
+
+
+.new-bottom-section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.new-bottom-section a.user-menu {
+    display: block;
+    text-align: center;
+    border-top: 1px solid #dfdfdf;
+}
+
+.new-bottom-section a.logout {
+    border-top: 1px solid #dfdfdf;
+    display: block;
+    margin: 0.9375rem 0 0.9375rem 0;
+}
+
+.new-bottom-section a.user-menu .availability-wrap {
+    display: inline-block;
+    position: relative;
+    margin-top: 0.9375rem;
+}
+
+.new-bottom-section a.logout img {
+    margin: 0.9375rem auto 0;
+    display: block;
+}
+
+.new-bottom-section a.user-menu img {
+    display: inline-block;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin: 0;
+}
+
+.new-bottom-section a.user-menu i.availability.unavailable {
+    background: #84cd5d;
+}
+
+.new-bottom-section a.user-menu i.availability {
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+    right: -2px;
+    top: 0;
+}
+
+.btn:hover, .btn-primary:hover{
+    background: rgba(76,195,184,0.7) !important;
+    outline: none;
 }

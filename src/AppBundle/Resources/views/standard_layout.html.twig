@@ -100,19 +100,33 @@ file that was distributed with this source code.
 <body {% block body_attributes %}class="sonata-bc skin-black"{% endblock %}>
 
 
-
+<style>
+    .container-fluid {
+        margin:0!important;
+        padding: 0!important;
+        /* margin-left: auto; */
+        /* padding-left: 15px; */
+        /* padding-right: 15px; */
+    }
+</style>
 
 {% if is_granted("ROLE_USER") %}
 
     <div class="container-fluid">
-        <div class="row">
-            {% include 'default/topheader_geral.html.twig' %}
-
-            <div class="large-1 columns " style="width:107px;box-shadow: 1px 1px 10px #888888;z-index: 999;
-            padding-left:25px;margin-left: -15px;">
-                {% include 'default/menu.html.twig' %}
+        <div class="row" style="height: 100%;">
+        <div class="large-1 columns no-padding" style="position:fixed;height: 100%;border: 1px solid #DFDFDF;z-index: 5;">
+            {% include 'default/menu.html.twig' %}
+        </div>
+        <div class="large-15 columns">
+            <div class="row">
+                <div class="large-16 columns" >
+                    {% include 'default/topheader_geral.html.twig' %}
+                </div>
             </div>
-            <div class="large-15 columns ">
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
 
                 {% block sonata_header %}
                     {% set foo = path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))|split('/') %}
@@ -134,7 +148,7 @@ file that was distributed with this source code.
 
                 {% endblock sonata_header %}
             </div>
-            <div class="large-15 columns " style="margin-top: -650px;">
+            <div class="large-15 columns ">
                 {% block sonata_wrapper %}
                     <div class=" ">
                         <aside class="">

@@ -136,7 +136,7 @@ class WorkListCTRLController extends Controller
         return new Response("ok");
     }
 
-    public function EmitRelatorioAction(){
+    public function EmitRelatorioAction($slug){
 
         $pdf = $this->container->get("white_october.tcpdf")->create(
             'P',
@@ -150,12 +150,15 @@ class WorkListCTRLController extends Controller
         $pdf->SetTitle('Relatorio de Ensaio');
         $pdf->SetSubject('client');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        $pdf->SetHeaderData('logo_lab.png',300);
+
         $pdf->setFontSubsetting(true);
 
         $pdf->SetFont('helvetica', '', 11, '', true);
+
         $pdf->AddPage();
 
-        $html = '<h1>Working on Symfony</h1>';
+        $html = 'celso';
 
         $pdf->writeHTMLCell(
             $w = 0,
@@ -173,8 +176,6 @@ class WorkListCTRLController extends Controller
 
         $pdf->Output("example.pdf", 'I');
         $pdf->Output("example.pdf", 'F');
-
-
 
     }
 

@@ -251,8 +251,7 @@ select {
 
 /* line 248, ../bower_components/foundation/scss/foundation/components/_grid.scss */
 .column + .column:last-child,
-.columns + .column:last-child, .column +
-.columns:last-child,
+.columns + .column:last-child, .column + .columns:last-child,
 .columns +
 .columns:last-child {
   float: right;
@@ -2130,8 +2129,6 @@ select {
 
 /* line 112, ../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box {
-  border-style: solid;
-  border-width: 1px;
   display: block;
   font-size: 0.8125rem;
   font-weight: normal;
@@ -2140,7 +2137,7 @@ select {
   position: relative;
   transition: opacity 300ms ease-out;
   background-color: #008CBA;
-  border-color: #0078a0;
+  border: 1px solid #0078a0;
   color: #FFFFFF;
 }
 /* line 115, ../bower_components/foundation/scss/foundation/components/_alert-boxes.scss */
@@ -2735,15 +2732,13 @@ select {
 }
 /* line 118, ../bower_components/foundation/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs {
-  border-style: solid;
-  border-width: 1px;
   display: block;
   list-style: none;
   margin-left: 0;
   overflow: hidden;
   padding: 0.5625rem 0.875rem 0.5625rem;
   background-color: #f4f4f4;
-  border-color: gainsboro;
+  border: 1px solid gainsboro;
   border-radius: 3px;
 }
 /* line 122, ../bower_components/foundation/scss/foundation/components/_breadcrumbs.scss */
@@ -2817,8 +2812,6 @@ button, .button {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 0;
-  border-style: solid;
-  border-width: 0;
   cursor: pointer;
   font-family: "montserratregular", Helvetica, Roboto, Arial, sans-serif;
   font-weight: normal;
@@ -2831,7 +2824,7 @@ button, .button {
   padding: 1rem 2rem 1.0625rem 2rem;
   font-size: 1rem;
   background-color: #008CBA;
-  border-color: #007095;
+  border: 0 solid #007095;
   color: #FFFFFF;
   transition: background-color 300ms ease-out;
 }
@@ -3404,15 +3397,15 @@ button::-moz-focus-inner {
 }
 /* line 125, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.radius.stack > *:first-child, .button-group.radius.stack > *:first-child > a, .button-group.radius.stack > *:first-child > button, .button-group.radius.stack > *:first-child > .button {
-  -webkit-top-left-radius: 3px;
-  -webkit-top-right-radius: 3px;
+  /*-webkit-top-left-radius: 3px;
+  -webkit-top-right-radius: 3px;*/
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 /* line 136, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.radius.stack > *:last-child, .button-group.radius.stack > *:last-child > a, .button-group.radius.stack > *:last-child > button, .button-group.radius.stack > *:last-child > .button {
-  -webkit-bottom-left-radius: 3px;
-  -webkit-bottom-right-radius: 3px;
+  /*-webkit-bottom-left-radius: 3px;
+  -webkit-bottom-right-radius: 3px;*/
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
@@ -3493,15 +3486,15 @@ button::-moz-focus-inner {
   }
   /* line 125, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.radius.stack-for-small > *:first-child, .button-group.radius.stack-for-small > *:first-child > a, .button-group.radius.stack-for-small > *:first-child > button, .button-group.radius.stack-for-small > *:first-child > .button {
-    -webkit-top-left-radius: 3px;
-    -webkit-top-right-radius: 3px;
+    /*-webkit-top-left-radius: 3px;
+    -webkit-top-right-radius: 3px;*/
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
   }
   /* line 136, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.radius.stack-for-small > *:last-child, .button-group.radius.stack-for-small > *:last-child > a, .button-group.radius.stack-for-small > *:last-child > button, .button-group.radius.stack-for-small > *:last-child > .button {
-    -webkit-bottom-left-radius: 3px;
-    -webkit-bottom-right-radius: 3px;
+    /*-webkit-bottom-left-radius: 3px;
+    -webkit-bottom-right-radius: 3px;*/
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
   }
@@ -3580,15 +3573,15 @@ button::-moz-focus-inner {
 }
 /* line 125, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.round.stack > *:first-child, .button-group.round.stack > *:first-child > a, .button-group.round.stack > *:first-child > button, .button-group.round.stack > *:first-child > .button {
-  -webkit-top-left-radius: 1rem;
-  -webkit-top-right-radius: 1rem;
+  /*-webkit-top-left-radius: 1rem;
+  -webkit-top-right-radius: 1rem;*/
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
 /* line 136, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.round.stack > *:last-child, .button-group.round.stack > *:last-child > a, .button-group.round.stack > *:last-child > button, .button-group.round.stack > *:last-child > .button {
-  -webkit-bottom-left-radius: 1rem;
-  -webkit-bottom-right-radius: 1rem;
+  /*-webkit-bottom-left-radius: 1rem;
+  -webkit-bottom-right-radius: 1rem;*/
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
@@ -3669,15 +3662,15 @@ button::-moz-focus-inner {
   }
   /* line 125, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.round.stack-for-small > *:first-child, .button-group.round.stack-for-small > *:first-child > a, .button-group.round.stack-for-small > *:first-child > button, .button-group.round.stack-for-small > *:first-child > .button {
-    -webkit-top-left-radius: 1rem;
-    -webkit-top-right-radius: 1rem;
+    /*-webkit-top-left-radius: 1rem;
+    -webkit-top-right-radius: 1rem;*/
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
   /* line 136, ../bower_components/foundation/scss/foundation/components/_button-groups.scss */
   .button-group.round.stack-for-small > *:last-child, .button-group.round.stack-for-small > *:last-child > a, .button-group.round.stack-for-small > *:last-child > button, .button-group.round.stack-for-small > *:last-child > .button {
-    -webkit-bottom-left-radius: 1rem;
-    -webkit-bottom-right-radius: 1rem;
+    /*-webkit-bottom-left-radius: 1rem;
+    -webkit-bottom-right-radius: 1rem;*/
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
   }
@@ -3981,13 +3974,12 @@ button::-moz-focus-inner {
 }
 /* line 105, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown:before {
-  border: inset 6px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: transparent transparent #FFFFFF transparent;
-  border-bottom-style: solid;
+  border: 6px inset transparent;
+  border-bottom: solid #FFFFFF;
   position: absolute;
   top: -12px;
   left: 10px;
@@ -3995,13 +3987,12 @@ button::-moz-focus-inner {
 }
 /* line 112, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown:after {
-  border: inset 7px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: transparent transparent #cccccc transparent;
-  border-bottom-style: solid;
+  border: 7px inset transparent;
+  border-bottom: solid #cccccc;
   position: absolute;
   top: -14px;
   left: 9px;
@@ -4022,7 +4013,7 @@ button::-moz-focus-inner {
   display: none;
   left: -9999px;
   list-style: none;
-  margin-left: 0;
+  /*margin-left: 0;*/
   position: absolute;
   background: #FFFFFF;
   border: solid 1px #cccccc;
@@ -4049,13 +4040,12 @@ button::-moz-focus-inner {
 }
 /* line 135, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown.drop-right:before {
-  border: inset 6px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: transparent #FFFFFF transparent transparent;
-  border-right-style: solid;
+  border: 6px inset transparent;
+  border-right: solid #FFFFFF;
   position: absolute;
   top: 10px;
   left: -12px;
@@ -4063,13 +4053,12 @@ button::-moz-focus-inner {
 }
 /* line 142, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown.drop-right:after {
-  border: inset 7px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: transparent #cccccc transparent transparent;
-  border-right-style: solid;
+  border: 7px inset transparent;
+  border-right: solid #cccccc;
   position: absolute;
   top: 9px;
   left: -14px;
@@ -4080,7 +4069,7 @@ button::-moz-focus-inner {
   display: none;
   left: -9999px;
   list-style: none;
-  margin-left: 0;
+  /*margin-left: 0;*/
   position: absolute;
   background: #FFFFFF;
   border: solid 1px #cccccc;
@@ -4107,13 +4096,12 @@ button::-moz-focus-inner {
 }
 /* line 156, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown.drop-left:before {
-  border: inset 6px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: transparent transparent transparent #FFFFFF;
-  border-left-style: solid;
+  border: 6px inset transparent;
+  border-left: solid #FFFFFF;
   position: absolute;
   top: 10px;
   right: -12px;
@@ -4122,13 +4110,12 @@ button::-moz-focus-inner {
 }
 /* line 164, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown.drop-left:after {
-  border: inset 7px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: transparent transparent transparent #cccccc;
-  border-left-style: solid;
+  border: 7px inset transparent;
+  border-left: solid #cccccc;
   position: absolute;
   top: 9px;
   right: -14px;
@@ -4149,7 +4136,6 @@ button::-moz-focus-inner {
   max-height: none;
   width: 100%;
   z-index: 89;
-  margin-left: 0;
   margin-top: -2px;
   max-width: 200px;
 }
@@ -4167,13 +4153,12 @@ button::-moz-focus-inner {
 }
 /* line 179, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown.drop-top:before {
-  border: inset 6px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: #FFFFFF transparent transparent transparent;
-  border-top-style: solid;
+  border: 6px inset transparent;
+  border-top: solid #FFFFFF;
   bottom: -12px;
   position: absolute;
   top: auto;
@@ -4183,13 +4168,12 @@ button::-moz-focus-inner {
 }
 /* line 188, ../bower_components/foundation/scss/foundation/components/_dropdown.scss */
 .f-dropdown.drop-top:after {
-  border: inset 7px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: #cccccc transparent transparent transparent;
-  border-top-style: solid;
+  border: 7px inset transparent;
+  border-top: solid #cccccc;
   bottom: -14px;
   position: absolute;
   top: auto;
@@ -4447,8 +4431,7 @@ label small {
 /* line 404, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .prefix,
 .postfix {
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid;
   display: block;
   font-size: 0.875rem;
   height: 2.375rem;
@@ -4471,47 +4454,36 @@ label small {
 /* line 409, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .prefix.button {
   border: none;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-top: 0;
+  padding: 0;
   text-align: center;
 }
 
 /* line 411, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .prefix.button.radius {
-  border-radius: 0;
   -webkit-border-bottom-left-radius: 3px;
   -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  border-radius: 3px 0 0 3px;
 }
 
 /* line 412, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .postfix.button.radius {
-  border-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
   -webkit-border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
+  border-radius: 0 3px 3px 0;
 }
 
 /* line 413, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .prefix.button.round {
-  border-radius: 0;
   -webkit-border-bottom-left-radius: 1000px;
   -webkit-border-top-left-radius: 1000px;
-  border-bottom-left-radius: 1000px;
-  border-top-left-radius: 1000px;
+  border-radius: 1000px 0 0 1000px;
 }
 
 /* line 414, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .postfix.button.round {
-  border-radius: 0;
   -webkit-border-bottom-right-radius: 1000px;
   -webkit-border-top-right-radius: 1000px;
-  border-bottom-right-radius: 1000px;
-  border-top-right-radius: 1000px;
+  border-radius: 0 1000px 1000px 0;
 }
 
 /* Separate prefix and postfix styles when on span or label so buttons keep their own */
@@ -4537,9 +4509,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   -moz-appearance: none;
   border-radius: 0;
   background-color: #FFFFFF;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #9993a3;
+  border: 1px solid #9993a3;
   box-shadow: inset 0 1px 2px transparent;
   color: #9993a3;
   display: block;
@@ -4554,7 +4524,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   box-sizing: border-box;
   -webkit-transition: border-color 0.15s linear, background 0.15s linear;
   -moz-transition: border-color 0.15s linear, background 0.15s linear;
-  -ms-transition: border-color 0.15s linear, background 0.15s linear;
+  /*-ms-transition: border-color 0.15s linear, background 0.15s linear;*/
   -o-transition: border-color 0.15s linear, background 0.15s linear;
   transition: border-color 0.15s linear, background 0.15s linear;
 }
@@ -4584,76 +4554,60 @@ form .row .prefix-radius.row.collapse input,
 form .row .prefix-radius.row.collapse textarea,
 form .row .prefix-radius.row.collapse select,
 form .row .prefix-radius.row.collapse button {
-  border-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
   -webkit-border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
+  border-radius: 0 3px 3px 0;
 }
 /* line 445, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 form .row .prefix-radius.row.collapse .prefix {
-  border-radius: 0;
   -webkit-border-bottom-left-radius: 3px;
   -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  border-radius: 3px 0 0 3px;
 }
 /* line 448, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 form .row .postfix-radius.row.collapse input,
 form .row .postfix-radius.row.collapse textarea,
 form .row .postfix-radius.row.collapse select,
 form .row .postfix-radius.row.collapse button {
-  border-radius: 0;
   -webkit-border-bottom-left-radius: 3px;
   -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  border-radius: 3px 0 0 3px;
 }
 /* line 452, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 form .row .postfix-radius.row.collapse .postfix {
-  border-radius: 0;
   -webkit-border-bottom-right-radius: 3px;
   -webkit-border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
+  border-radius: 0 3px 3px 0;
 }
 /* line 455, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 form .row .prefix-round.row.collapse input,
 form .row .prefix-round.row.collapse textarea,
 form .row .prefix-round.row.collapse select,
 form .row .prefix-round.row.collapse button {
-  border-radius: 0;
   -webkit-border-bottom-right-radius: 1000px;
   -webkit-border-top-right-radius: 1000px;
-  border-bottom-right-radius: 1000px;
-  border-top-right-radius: 1000px;
+  border-radius: 0 1000px 1000px 0;
 }
 /* line 459, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 form .row .prefix-round.row.collapse .prefix {
-  border-radius: 0;
   -webkit-border-bottom-left-radius: 1000px;
   -webkit-border-top-left-radius: 1000px;
-  border-bottom-left-radius: 1000px;
-  border-top-left-radius: 1000px;
+  border-radius: 1000px 0 0 1000px;
 }
 /* line 462, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 form .row .postfix-round.row.collapse input,
 form .row .postfix-round.row.collapse textarea,
 form .row .postfix-round.row.collapse select,
 form .row .postfix-round.row.collapse button {
-  border-radius: 0;
   -webkit-border-bottom-left-radius: 1000px;
   -webkit-border-top-left-radius: 1000px;
-  border-bottom-left-radius: 1000px;
-  border-top-left-radius: 1000px;
+  border-radius: 1000px 0 0 1000px;
 }
 /* line 466, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 form .row .postfix-round.row.collapse .postfix {
-  border-radius: 0;
   -webkit-border-bottom-right-radius: 1000px;
   -webkit-border-top-right-radius: 1000px;
-  border-bottom-right-radius: 1000px;
-  border-top-right-radius: 1000px;
+  border-radius: 0 1000px 1000px 0;
 }
 
 /* line 471, ../bower_components/foundation/scss/foundation/components/_forms.scss */
@@ -4702,20 +4656,14 @@ textarea {
 select {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
-  background-color: #FAFAFA;
   border-radius: 0;
-  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+);
-  background-position: 100% center;
-  background-repeat: no-repeat;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #9993a3;
+  background: #FAFAFA url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMTJweCIgeT0iMHB4IiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIzcHgiIHZpZXdCb3g9IjAgMCA2IDMiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYgMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PHBvbHlnb24gcG9pbnRzPSI1Ljk5MiwwIDIuOTkyLDMgLTAuMDA4LDAgIi8+PC9zdmc+) no-repeat 100% center;
+  border: 1px solid #9993a3;
   color: #9993a3;
   font-family: inherit;
   font-size: 0.9375rem;
   line-height: normal;
   padding: 0.5rem;
-  border-radius: 0;
   height: 2.375rem;
 }
 /* line 337, ../bower_components/foundation/scss/foundation/components/_forms.scss */
@@ -4778,7 +4726,7 @@ fieldset {
 fieldset legend {
   background: #FFFFFF;
   font-weight: bold;
-  margin-left: -0.1875rem;
+  /*margin-left: -0.1875rem;*/
   margin: 0;
   padding: 0 0.1875rem;
 }
@@ -5307,8 +5255,8 @@ label.error {
 /* line 53, ../bower_components/foundation/scss/foundation/components/_inline-lists.scss */
 .inline-list {
   list-style: none;
-  margin-left: -1.375rem;
-  margin-right: 0;
+  /*margin-left: -1.375rem;
+  margin-right: 0;*/
   margin: 0 auto 1.0625rem auto;
   overflow: hidden;
   padding: 0;
@@ -5531,10 +5479,8 @@ label.error {
 .keystroke,
 kbd {
   background-color: #ededed;
-  border-color: #dddddd;
   color: #222222;
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid #dddddd;
   font-family: "Consolas", "Menlo", "Courier", monospace;
   font-size: inherit;
   margin: 0;
@@ -5786,10 +5732,8 @@ kbd {
   top: 0;
   width: 11px;
   height: 14px;
-  border: inset 8px;
-  border-left-style: solid;
-  border-color: transparent;
-  border-left-color: #FFFFFF;
+  border: 8px inset transparent;
+  border-left: solid #FFFFFF;
   right: -4px;
 }
 /* line 247, ../bower_components/foundation/scss/foundation/components/_orbit.scss */
@@ -6019,9 +5963,7 @@ ul.pagination li {
 /* Panels */
 /* line 86, ../bower_components/foundation/scss/foundation/components/_panels.scss */
 .panel {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d8d8d8;
+  border: 1px solid #d8d8d8;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   background: #f2f2f2;
@@ -6050,9 +5992,7 @@ ul.pagination li {
 }
 /* line 88, ../bower_components/foundation/scss/foundation/components/_panels.scss */
 .panel.callout {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #d8d8d8;
+  border: 1px solid #d8d8d8;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   background: #ecfaff;
@@ -6207,7 +6147,7 @@ ul.pagination li {
   border: 1px solid #DDDDDD;
   margin: 1.25rem 0;
   position: relative;
-  -ms-touch-action: none;
+  /*-ms-touch-action: none;*/
   touch-action: none;
   display: block;
   height: 1rem;
@@ -6219,7 +6159,7 @@ ul.pagination li {
   border: 1px solid #DDDDDD;
   margin: 1.25rem 0;
   position: relative;
-  -ms-touch-action: none;
+  /*-ms-touch-action: none;*/
   touch-action: none;
   display: inline-block;
   height: 12.5rem;
@@ -6306,7 +6246,7 @@ ul.pagination li {
   top: -0.3125rem;
   width: 2rem;
   z-index: 1;
-  -ms-touch-action: manipulation;
+  /*-ms-touch-action: manipulation;*/
   touch-action: manipulation;
   background: #008CBA;
 }
@@ -6326,7 +6266,6 @@ ul.pagination li {
   right: 0;
   top: 0;
   z-index: 1004;
-  left: 0;
 }
 
 /* line 171, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
@@ -6442,7 +6381,7 @@ ul.pagination li {
 }
 /* line 190, ../bower_components/foundation/scss/foundation/components/_reveal.scss */
 .reveal-modal.full {
-  height: 100vh;
+  /*height: 100vh;*/
   height: 100%;
   left: 0;
   margin-left: 0 !important;
@@ -6480,8 +6419,7 @@ ul.pagination li {
 .side-nav {
   display: block;
   font-family: "montserratregular", Helvetica, Roboto, Arial, sans-serif;
-  list-style-position: outside;
-  list-style-type: none;
+  list-style: none outside;
   margin: 0;
   padding: 0.875rem 0;
 }
@@ -6515,11 +6453,10 @@ ul.pagination li {
 }
 /* line 97, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.divider {
-  border-top: 1px solid;
   height: 0;
   list-style: none;
   padding: 0;
-  border-top-color: #e6e6e6;
+  border-top: 1px solid #e6e6e6;
 }
 /* line 105, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.heading {
@@ -7437,7 +7374,6 @@ meta.foundation-mq-topbar {
   font-family: "montserratregular", Helvetica, Roboto, Arial, sans-serif;
   font-size: 0.8125rem;
   font-weight: normal;
-  padding-left: 0.9375rem;
   padding: 12px 0 12px 0.9375rem;
   text-transform: none;
   width: 100%;
@@ -7618,7 +7554,7 @@ meta.foundation-mq-topbar {
 }
 /* line 373, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li:hover:not(.has-form) > a {
-  background-color: #555555;
+  /*background-color: #555555;*/
   color: #FFFFFF;
   background: #222222;
 }
@@ -7642,13 +7578,12 @@ meta.foundation-mq-topbar {
 }
 /* line 404, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .has-dropdown > a:after {
-  border: inset 5px;
   content: "";
   display: block;
   height: 0;
   width: 0;
-  border-color: transparent transparent transparent rgba(255, 255, 255, 0.4);
-  border-left-style: solid;
+  border: 5px inset transparent;
+  border-left: solid rgba(255, 255, 255, 0.4);
   margin-right: 0.9375rem;
   margin-top: -4.5px;
   position: absolute;
@@ -7661,9 +7596,9 @@ meta.foundation-mq-topbar {
 }
 /* line 420, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .has-dropdown.moved > .dropdown {
-  position: static !important;
+  /*position: static !important;*/
   height: auto;
-  width: auto;
+  /*width: auto;*/
   overflow: visible;
   clip: auto;
   display: block;
@@ -7683,7 +7618,6 @@ meta.foundation-mq-topbar {
   width: 1px;
   display: block;
   padding: 0;
-  position: absolute;
   top: 0;
   z-index: 99;
   left: 100%;
@@ -7790,7 +7724,7 @@ meta.foundation-mq-topbar {
 
   /* line 522, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .contain-to-grid .top-bar {
-    margin-bottom: 0;
+    /*margin-bottom: 0;*/
     margin: 0 auto;
     max-width: 73.75rem;
   }
@@ -7816,7 +7750,7 @@ meta.foundation-mq-topbar {
   }
   /* line 545, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section li.hover > a:not(.button) {
-    background-color: #555555;
+    /*background-color: #555555;*/
     background: #222222;
     color: #FFFFFF;
   }
@@ -7828,7 +7762,7 @@ meta.foundation-mq-topbar {
   }
   /* line 559, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section li:not(.has-form) a:not(.button):hover {
-    background-color: #555555;
+    /*background-color: #555555;*/
     background: #222222;
   }
   /* line 569, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -7849,13 +7783,12 @@ meta.foundation-mq-topbar {
   }
   /* line 586, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-dropdown > a:after {
-    border: inset 5px;
     content: "";
     display: block;
     height: 0;
     width: 0;
-    border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent;
-    border-top-style: solid;
+    border: 5px inset transparent;
+    border-top: solid rgba(255, 255, 255, 0.4);
     margin-top: -2.5px;
     top: 1.40625rem;
   }
@@ -7874,7 +7807,7 @@ meta.foundation-mq-topbar {
   }
   /* line 601, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-dropdown.hover > .dropdown, .top-bar-section .has-dropdown.not-click:hover > .dropdown {
-    position: static !important;
+    /*position: static !important;*/
     height: auto;
     width: auto;
     overflow: visible;
@@ -7884,7 +7817,7 @@ meta.foundation-mq-topbar {
   }
   /* line 606, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-dropdown > a:focus + .dropdown {
-    position: static !important;
+    /*position: static !important;*/
     height: auto;
     width: auto;
     overflow: visible;
@@ -7921,7 +7854,7 @@ meta.foundation-mq-topbar {
   }
   /* line 646, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .dropdown li:not(.has-form):not(.active):hover > a:not(.button) {
-    background-color: #555555;
+    /*background-color: #555555;*/
     color: #FFFFFF;
     background: #222222;
   }
@@ -7972,7 +7905,7 @@ meta.foundation-mq-topbar {
 
   /* line 708, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .no-js .top-bar-section ul li:hover > a {
-    background-color: #555555;
+    /*background-color: #555555;*/
     background: #222222;
     color: #FFFFFF;
   }
@@ -7983,7 +7916,7 @@ meta.foundation-mq-topbar {
   }
   /* line 725, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .no-js .top-bar-section .has-dropdown:hover > .dropdown {
-    position: static !important;
+    /*position: static !important;*/
     height: auto;
     width: auto;
     overflow: visible;
@@ -7993,7 +7926,7 @@ meta.foundation-mq-topbar {
   }
   /* line 730, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .no-js .top-bar-section .has-dropdown > a:focus + .dropdown {
-    position: static !important;
+    /*position: static !important;*/
     height: auto;
     width: auto;
     overflow: visible;
@@ -8386,9 +8319,7 @@ small {
 /* line 304, ../bower_components/foundation/scss/foundation/components/_type.scss */
 code {
   background-color: #f8f8f8;
-  border-color: #dfdfdf;
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid #dfdfdf;
   color: #333333;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
   font-weight: normal;
@@ -8613,7 +8544,7 @@ blockquote p {
   width: 100%;
   -webkit-transition: -webkit-transform 500ms ease;
   -moz-transition: -moz-transform 500ms ease;
-  -ms-transition: -ms-transform 500ms ease;
+  /*-ms-transition: -ms-transform 500ms ease;*/
   -o-transition: -o-transform 500ms ease;
   transition: transform 500ms ease;
 }
@@ -8745,7 +8676,7 @@ blockquote p {
   z-index: 1001;
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
-  -ms-transform: translate(-100%, 0);
+  /*-ms-transform: translate(-100%, 0);*/
   -ms-transform: translate3d(-100%, 0, 0);
   -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
@@ -8773,7 +8704,7 @@ blockquote p {
   z-index: 1001;
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
-  -ms-transform: translate(100%, 0);
+  /*-ms-transform: translate(100%, 0);*/
   -ms-transform: translate3d(100%, 0, 0);
   -o-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
@@ -8824,7 +8755,7 @@ ul.off-canvas-list li a:active {
 .move-right > .inner-wrap {
   -webkit-transform: translate3d(15.625rem, 0, 0);
   -moz-transform: translate3d(15.625rem, 0, 0);
-  -ms-transform: translate(15.625rem, 0);
+  /*-ms-transform: translate(15.625rem, 0);*/
   -ms-transform: translate3d(15.625rem, 0, 0);
   -o-transform: translate3d(15.625rem, 0, 0);
   transform: translate3d(15.625rem, 0, 0);
@@ -8856,7 +8787,7 @@ ul.off-canvas-list li a:active {
 .move-left > .inner-wrap {
   -webkit-transform: translate3d(-15.625rem, 0, 0);
   -moz-transform: translate3d(-15.625rem, 0, 0);
-  -ms-transform: translate(-15.625rem, 0);
+  /*-ms-transform: translate(-15.625rem, 0);*/
   -ms-transform: translate3d(-15.625rem, 0, 0);
   -o-transform: translate3d(-15.625rem, 0, 0);
   transform: translate3d(-15.625rem, 0, 0);
@@ -9013,14 +8944,14 @@ ul.off-canvas-list li a:active {
   z-index: 1002;
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
-  -ms-transform: translate(-100%, 0);
+  /*-ms-transform: translate(-100%, 0);*/
   -ms-transform: translate3d(-100%, 0, 0);
   -o-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
   left: 0;
   -webkit-transition: -webkit-transform 500ms ease;
   -moz-transition: -moz-transform 500ms ease;
-  -ms-transition: -ms-transform 500ms ease;
+  /*-ms-transition: -ms-transform 500ms ease;*/
   -o-transition: -o-transform 500ms ease;
   transition: transform 500ms ease;
 }
@@ -9055,7 +8986,7 @@ ul.off-canvas-list li a:active {
 .left-submenu.move-right, .left-submenu.offcanvas-overlap-right, .left-submenu.offcanvas-overlap {
   -webkit-transform: translate3d(0%, 0, 0);
   -moz-transform: translate3d(0%, 0, 0);
-  -ms-transform: translate(0%, 0);
+  /*-ms-transform: translate(0%, 0);*/
   -ms-transform: translate3d(0%, 0, 0);
   -o-transform: translate3d(0%, 0, 0);
   transform: translate3d(0%, 0, 0);
@@ -9077,14 +9008,14 @@ ul.off-canvas-list li a:active {
   z-index: 1002;
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
-  -ms-transform: translate(100%, 0);
+  /*-ms-transform: translate(100%, 0);*/
   -ms-transform: translate3d(100%, 0, 0);
   -o-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
   right: 0;
   -webkit-transition: -webkit-transform 500ms ease;
   -moz-transition: -moz-transform 500ms ease;
-  -ms-transition: -ms-transform 500ms ease;
+  /*-ms-transition: -ms-transform 500ms ease;*/
   -o-transition: -o-transform 500ms ease;
   transition: transform 500ms ease;
 }
@@ -9119,7 +9050,7 @@ ul.off-canvas-list li a:active {
 .right-submenu.move-left, .right-submenu.offcanvas-overlap-left, .right-submenu.offcanvas-overlap {
   -webkit-transform: translate3d(0%, 0, 0);
   -moz-transform: translate3d(0%, 0, 0);
-  -ms-transform: translate(0%, 0);
+  /*-ms-transform: translate(0%, 0);*/
   -ms-transform: translate3d(0%, 0, 0);
   -o-transform: translate3d(0%, 0, 0);
   transform: translate3d(0%, 0, 0);
@@ -9864,8 +9795,8 @@ th.hide-for-touch {
   height: 10px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
-  -ms-border-radius: 25px;
-  -o-border-radius: 25px;
+  /*-ms-border-radius: 25px;
+  -o-border-radius: 25px;*/
   border-radius: 25px;
   vertical-align: middle;
   margin-right: 0.625rem;

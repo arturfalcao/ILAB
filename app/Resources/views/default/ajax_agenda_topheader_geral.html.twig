@@ -11,18 +11,19 @@ function changeDone(element)
   var nid = Number(id_amag.slice(3));
 
   var risco;
-  
-  if($(am_ag).is( ':checked' ))
+  var m;
+
+   if($(am_ag).is( ':checked' ))
   {
-    var m = 'label[for="' + id_amag +'"]';
+    m = 'label[for="' + id_amag +'"]';
     $(m).css('background', 'rgb(76, 195, 184)'); 
     risco=1;
   }
   else
   {
-   var m = 'label[for="' + id_amag +'"]';
-   $(m).css('background', 'white'); 
-   risco=0;
+    m = 'label[for="' + id_amag +'"]';
+    $(m).css('background', 'white');
+    risco=0;
   }  
 
   // Amostra ou agenda
@@ -45,10 +46,10 @@ $( document ).ready(function() {
       });
 
     
-
-  var local = $('a.sonata-action-element').attr('href');
+  var localidade = $('a.sonata-action-element');
+  var local = localidade.attr('href');
   
-  $('a.sonata-action-element').hide();
+  localidade.hide();
   $('#nova_entidade').attr("href",local);
   
   //INICIO CLICK MENU_DIREITA
@@ -61,8 +62,10 @@ $( document ).ready(function() {
   MensagensNaoLidas();
   
   $('.li_agenda, .li_agenda a').click(function(){
-      
-
+      var info;
+      var html;
+      var ok;
+      var m;
       $('#tabs-1').append("<div class='loading'></div>");
       $('.loading').show();
       // INICIO AJAX - responsável por buscar os eventos associados da agenda e da tamostras
@@ -85,34 +88,34 @@ $( document ).ready(function() {
                     {
                       if(value.am_ag == 0)
                       {
-                        var info = data_format + ' - '+ value.observacao;
-                        var html =  "<div class='roundedOne'>";
+                        info = data_format + ' - '+ value.observacao;
+                        html =  "<div class='roundedOne'>";
                         
-                        var ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
+                        ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                         html += ok; 
                         html += "</div>";
                         html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';                                    
                         $('#tabs-1').append(html);
                         if(value.done==1)
                         {
-                          var m = 'label[for="' + value.id +'"]';
+                          m = 'label[for="' + value.id +'"]';
                           $(m).css('background', 'rgb(76, 195, 184)');
                         }
                       
                       } 
                       else if(value.am_ag == 1)
                       {
-                        var info = value.observacao;
-                        var html =  "<div class='roundedOne'>";
+                        info = value.observacao;
+                        html =  "<div class='roundedOne'>";
                         
-                        var ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
+                        ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                         html += ok; 
                         html += "</div>";
                         html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';                       
                         $('#tabs-1').append(html);
                         if(value.done==1)
                         {
-                          var m = 'label[for="' + value.id +'"]';
+                          m = 'label[for="' + value.id +'"]';
                           $(m).css('background', 'rgb(76, 195, 184)');
                         }
                       }

@@ -1,15 +1,16 @@
-{% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
-{% endblock %}
+{% stylesheets%}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+{% endstylesheets %}
 
-<div style="height:auto;">
+
+
+<div style="height:96.5%;">
     <a href="/app_dev.php/calendar" class=""><img id="logo" src="{{ asset('bundles/app/images/logo.png') }}" alt="ilab" /></a>
     <nav class="navigation menu_principal">
         <ul class="mainmenu">
             <li><a href="" class="menu_planeamento"></a>
                 <ul class="submenu">
-                    <div>Planeamento de amostras</div>
+                    <div class="subtitle">Planeamento de amostras</div>
                     <li><a href="{{path('calendar') }}" >
                             Calendário
                         </a></li>
@@ -19,21 +20,22 @@
             </li>
             <li><a href="" class="menu_amostras"></a>
                 <ul class="submenu">
-                    <div>Amostras</div>
+                    <div class="subtitle">Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
-                    {#<li><a href="{{ path('admin_app_tamostras_create') }}">Lançamento de Amostra</a></li>#}
+{#<li><a href="{{ path('admin_app_tamostras_create') }}">Lançamento de Amostra</a></li>#}
+
                     <li><a href="{{ path('importacaoamostra') }}">Importação de Amostras</a></li>
                 </ul>
             </li>
             <li><a href="" class="menu_resultados"></a>
                 <ul class="submenu">
-                    <div>Resultados</div>
+                    <div class="subtitle">Resultados</div>
                     <li><a href="{{ path('EntradaResultados') }}">Entrada de Resultados</a></li>
                 </ul>
             </li>
             <li><a href="" class="menu_configuracoes"></a>
                 <ul class="submenu">
-                    <div>Configurações</div>
+                    <div class="subtitle">Configurações</div>
                     <li><a href="{{path('admin_app_tclientes_list') }}" >Clientes</a></li>
                     <li><a href="{{ path('admin_app_tmodelosamostra_list') }}">Modelos Amostra</a></li>
                     <li><a href="{{ path('admin_app_tmodelosparametro_list') }}">Modelos Parâmetros</a></li>
@@ -49,7 +51,7 @@
             </li>
             <li><a href="" class="menu_listagens"></a>
                 <ul class="submenu">
-                    <div>Listas de Trabalho</div>
+                    <div class="subtitle">Listas de Trabalho</div>
                     <li><a href="{{path('admin_app_modeloslistas_list') }}" >Modelos de Listas</a></li>
 
                 </ul>
@@ -57,42 +59,38 @@
             <li>
                 <a href="" class="menu_cartas"></a>
                 <ul class="submenu">
-                    <div>Administração</div>
+                    <div class="subtitle">Administração</div>
                     <li><a href="{{path('sonata_admin_dashboard') }}" >Gestão de Utilizadores</a></li>
                 </ul>
-                <!--<ul class="submenu">
-                {{ "Administração"|convert_encoding('UTF-8', 'iso-8859-1') }}
-                    <li><a href="">Tops</a></li>
-                    <li><a href="">Bottoms</a></li>
-                    <li><a href="">Footwear</a></li>
-                </ul>-->
-            </li>
 
-            {%if app.user %}
-                <li>
-                    <input type="hidden" id="util" name="util" value="{{app.user.id}}">
-
-                    <div class="medidas_imagem_botao">
-                        <a href="/app_dev.php/profile"><img id="img_user_logado" class="circle_image" id="us_{{app.user.id}}"src="" alt=""></a>
-                        <div class="circulo_verde"></div>
-                    </div>
-
-                </li>
-            {%endif%}
-
-            <li>
-                <a href="/app_dev.php/logout"><img src="/bundles/app/images/logout.png" alt="" style="margin-bottom: 20px"></a>
             </li>
         </ul>
 
-
-
+        {%if app.user %}
+            <div class="new-bottom-section">
+                <input type="hidden" id="util" name="util" value="{{app.user.id}}">
+                <a href="/app_dev.php/profile" class="user-menu">
+                    <div class="availability-wrap">
+                        <img id="img_user_logado" style="height: 40px;" src="" alt="">
+                        <i class="availability unavailable"></i>
+                    </div>
+                </a>
+                <a href="/app_dev.php/logout" class="logout">
+                    <img src="/bundles/app/images/logout.png" alt="">
+                </a>
+            </div>
+        {%endif%}
 
     </nav>
+
+    <style>
+
+    </style>
 
     <script>
         $( document ).ready(function() {
             var user = Number($('#util').val());
+            var img_user_logado = $("#img_user_logado");
             $.ajax({
                 type: "POST",
                 url: '{{path('chat_getdusers')}}',
@@ -110,9 +108,9 @@
                                 imagem = imagem.replace('"','');
                                 imagem = imagem.replace('"','');
                                 imagem = imagem.replace(/\\/g,'');
-                                $("#img_user_logado").attr("src", imagem);
+                                img_user_logado.attr("src", imagem);
                                 if(value.firstname)
-                                    $("#img_user_logado").attr("alt", imagem);
+                                    img_user_logado.attr("alt", imagem);
                             }
                         });
 

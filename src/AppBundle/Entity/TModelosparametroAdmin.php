@@ -17,15 +17,15 @@ class TModelosparametroAdmin extends Admin
     {
         $datagridMapper
             ->add('fbActivo',null, array('label' => 'Activo'))
-            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('ftDescricao',null, array('label' => 'DescriÃ§Ã£o'))
             ->add('ftFormulaquimica',null, array('label' => 'Formula Quimica'))
-            ->add('fnPrecocompra',null, array('label' => 'Preço Compra'))
-            ->add('fnPrecovenda',null, array('label' => 'Preço Venda'))
-            ->add('fnFactorcorreccao',null, array('label' => 'Factor correcção'))
-            ->add('fnNrdiasparaexecucao',null, array('label' => 'Numero de Dias para Execução'))
+            ->add('fnPrecocompra',null, array('label' => 'PreÃ§o Compra'))
+            ->add('fnPrecovenda',null, array('label' => 'PreÃ§o Venda'))
+            ->add('fnFactorcorreccao',null, array('label' => 'Factor correcÃ§Ã£o'))
+            ->add('fnNrdiasparaexecucao',null, array('label' => 'Numero de Dias para ExecuÃ§Ã£o'))
             ->add('fbAcreditado',null, array('label' => 'Acreditado'))
             ->add('fnVolumeminimo',null, array('label' => 'Volume minimo'))
-            ->add('ftObservacao',null, array('label' => 'Observação'))
+            ->add('ftObservacao',null, array('label' => 'ObservaÃ§Ã£o'))
         ;
     }
 
@@ -36,12 +36,12 @@ class TModelosparametroAdmin extends Admin
     {
         $listMapper
             ->add('fbActivo',null, array('label' => 'Activo'))
-            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('ftDescricao',null, array('label' => 'DescriÃ§Ã£o'))
             ->add('ftFormulaquimica',null, array('label' => 'Formula Quimica'))
-            ->add('fnNrdiasparaexecucao',null, array('label' => 'Numero de Dias para Execução'))
+            ->add('fnNrdiasparaexecucao',null, array('label' => 'Numero de Dias para ExecuÃ§Ã£o'))
             ->add('fbAcreditado',null, array('label' => 'Acreditado'))
             ->add('fnVolumeminimo',null, array('label' => 'Volume minimo'))
-            ->add('ftObservacao',null, array('label' => 'Observação'))
+            ->add('ftObservacao',null, array('label' => 'ObservaÃ§Ã£o'))
 
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -60,15 +60,15 @@ class TModelosparametroAdmin extends Admin
     {
         $formMapper
             ->add('fbActivo', 'checkbox', array('required' => false,'label' => 'Activo'))
-            ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
+            ->add('ftDescricao', 'text', array('required' => true,'label' => 'DescriÃ§Ã£o'))
             ->add('ftFormulaquimica', 'text', array('required' => false,'label' => 'Formula Quimica'))
-            ->add('fnPrecocompra', 'text', array('required' => false,'label' => 'Preço Compra'))
-            ->add('fnPrecovenda', 'text', array('required' => false,'label' => 'Preço Venda'))
-            ->add('fnFactorcorreccao', 'text', array('required' => false,'label' => 'Factor correcção'))
-            ->add('fnNrdiasparaexecucao', 'text', array('required' => true,'label' => 'Numero de Dias para Execução'))
+            ->add('fnPrecocompra', 'text', array('required' => false,'label' => 'PreÃ§o Compra'))
+            ->add('fnPrecovenda', 'text', array('required' => false,'label' => 'PreÃ§o Venda'))
+            ->add('fnFactorcorreccao', 'text', array('required' => false,'label' => 'Factor correcÃ§Ã£o'))
+            ->add('fnNrdiasparaexecucao', 'text', array('required' => true,'label' => 'Numero de Dias para ExecuÃ§Ã£o'))
             ->add('fbAcreditado', 'checkbox', array('required' => false,'label' => 'Acreditado'))
             ->add('fnVolumeminimo', 'text', array('required' => false,'label' => 'Volume minimo'))
-            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observação'))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'ObservaÃ§Ã£o'))
             ->add('fnFamiliaparametro', 'sonata_type_model', array('label' => 'Familia Parametro','by_reference' => false))
             ->add('fnLaboratorio', 'sonata_type_model', array('label' => 'Laboratorio','by_reference' => false))
             ->add('fnMetodo', 'sonata_type_model', array('label' => 'Metodo','by_reference' => false))

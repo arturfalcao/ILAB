@@ -2,19 +2,9 @@
           <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
           <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
     {% endblock %}
-    <style>
-      .header_profile {
-        position: fixed;
-        margin-left: -1px;
-        z-index: 999;
-        height: 92px;
-        border-left: 1px solid #DFDFDF;
-        border-bottom: 1px solid #DFDFDF;
-        background: white;
-      }
-    </style>
+
     <div class="row full-width-row">
-      <header class="large-16 columns header_profile" style="width: 100.5%;">
+      <header class="large-16 columns header" style="width: 100%;">
       {% if app.user %}
         <input type="hidden" id="logged" value="{{app.user.id}}">
         <input type="hidden" id="logged_username" value="{{app.user.username}}">

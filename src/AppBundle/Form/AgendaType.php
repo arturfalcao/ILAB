@@ -17,7 +17,7 @@ class AgendaType extends AbstractType
         $builder
             ->add('title','text', array('label' => 'Nome do Evento'))
             ->add('morada','text', array('label' => 'Onde'))
-            ->add('descricao','textarea', array('label' => 'Descrição'))
+            ->add('descricao','textarea', array('label' => 'DescriÃ§Ã£o'))
             ->add('startdatetime', 'datetime', array('label'=>'Data de inicio','date_widget' => "single_text", 'time_widget' => "single_text"))
             ->add('enddatetime', 'datetime', array('label'=>'Data de fim','date_widget' => "single_text", 'time_widget' => "single_text"))
             ->add('allDay','checkbox', array('label' => 'Todo o dia?'))

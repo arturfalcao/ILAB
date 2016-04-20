@@ -18,9 +18,9 @@ class TLegislacaoAdmin extends Admin
         $datagridMapper
             ->add('fnId',null, array('label' => 'ID'))
             ->add('ftCodigo',null, array('label' => 'Codigo'))
-            ->add('ftDescricao',null, array('label' => 'DescriÁ„o'))
+            ->add('ftDescricao',null, array('label' => 'Descri√ß√£o'))
             ->add('ftAlias',null, array('label' => 'Alias'))
-            ->add('ftObservacao',null, array('label' => 'ObservaÁ„o'))
+            ->add('ftObservacao',null, array('label' => 'Observa√ß√£o'))
         ;
     }
 
@@ -32,9 +32,9 @@ class TLegislacaoAdmin extends Admin
         $listMapper
             ->add('fnId',null, array('label' => 'ID'))
             ->add('ftCodigo',null, array('label' => 'Codigo'))
-            ->add('ftDescricao',null, array('label' => 'DescriÁ„o'))
+            ->add('ftDescricao',null, array('label' => 'Descri√ß√£o'))
             ->add('ftAlias',null, array('label' => 'Alias'))
-            ->add('ftObservacao',null, array('label' => 'ObservaÁ„o'))
+            ->add('ftObservacao',null, array('label' => 'Observa√ß√£o'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -52,9 +52,9 @@ class TLegislacaoAdmin extends Admin
     {
         $formMapper
             ->add('ftCodigo', 'text', array('required' => true,'label' => 'Codigo'))
-            ->add('ftDescricao', 'text', array('required' => true,'label' => 'DescriÁ„o'))
+            ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descri√ß√£o'))
             ->add('ftAlias', 'text', array('required' => false,'label' => 'Alias'))
-            ->add('ftObservacao', 'text', array('required' => false,'label' => 'ObservaÁ„o'))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observa√ß√£o'))
         ;
     }
 

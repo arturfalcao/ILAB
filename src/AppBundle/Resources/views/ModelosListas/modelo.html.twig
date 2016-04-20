@@ -167,11 +167,11 @@
         <div style="float: left;margin-left: 10px;">
             <div style="font-size: 24px;font-weight: bold;text-align: left;">PIMENTA DO VALE</div>
             <div style="font-size: 17px;text-align: left;">LABORATORIOS, LDA</div>
-            <div style="font-size: 17px;text-align: left;"> {{ "AN¡LISE DE ¡GUAS E ALIMENTOS"|convert_encoding('UTF-8', ' iso-8859-1') }}</div>
+            <div style="font-size: 17px;text-align: left;"> AN√ÅLISE DE √ÅGUAS E ALIMENTOS</div>
         </div>
         <div style="float: right;margin-left: 10px;">
-            <div style="font-size: 24px;font-weight: bold;text-align: center;">{{ "Lista de Trabalho - Microbiologia Alimentos e Zaragatoas"|convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-            <div style="font-size: 17px;text-align: center;">{{ "Data Emiss„o Lista de Trabalho :"|convert_encoding('UTF-8', ' iso-8859-1') }} {{  "now"|date("m/d/Y") }}</div>
+            <div style="font-size: 24px;font-weight: bold;text-align: center;">Lista de Trabalho - Microbiologia Alimentos e Zaragatoas</div>
+            <div style="font-size: 17px;text-align: center;">Data Emiss√£o Lista de Trabalho : {{  "now"|date("m/d/Y") }}</div>
         </div>
     </div>
     {% else %}
@@ -180,11 +180,11 @@
             <div style="float: left;margin-left: 10px;">
                 <div style="font-size: 24px;font-weight: bold;text-align: left;">PIMENTA DO VALE</div>
                 <div style="font-size: 17px;text-align: left;">LABORATORIOS, LDA</div>
-                <div style="font-size: 17px;text-align: left;"> {{ "AN¡LISE DE ¡GUAS E ALIMENTOS"|convert_encoding('UTF-8', ' iso-8859-1') }}</div>
+                <div style="font-size: 17px;text-align: left;"> AN√ÅLISE DE √ÅGUAS E ALIMENTOS</div>
             </div>
             <div style="float: right;margin-left: 10px;">
-                <div style="font-size: 24px;font-weight: bold;text-align: center;">{{ "Lista de Trabalho - Microbiologia de ¡guas"|convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                <div style="font-size: 17px;text-align: center;">{{ "Data Emiss„o Lista de Trabalho :"|convert_encoding('UTF-8', ' iso-8859-1') }} {{  "now"|date("m/d/Y") }}</div>
+                <div style="font-size: 24px;font-weight: bold;text-align: center;">Lista de Trabalho - Microbiologia de √°guas</div>
+                <div style="font-size: 17px;text-align: center;">Data Emiss√£o Lista de Trabalho : {{  "now"|date("m/d/Y") }}</div>
             </div>
         </div>
     {% endif %}
@@ -201,31 +201,31 @@
 
                 {% else %}
                     {% set foo = item.id_amostra %}
-                    <div class="id_amostra"><span class="bold"> {{ "IdentificaÁ„o Amostra :" |convert_encoding('UTF-8', ' iso-8859-1') }} </span>{{ item.id_amostra |convert_encoding('UTF-8', ' iso-8859-1') }} Data de entrada : {{ item.data_inicio |date("Y-m-d") }}</div>
+                    <div class="id_amostra"><span class="bold">Identifica√ß√£o Amostra :</span>{{ item.id_amostra}} Data de entrada : {{ item.data_inicio |date("Y-m-d") }}</div>
                     <div class="alimentos_cabecalho">
-                        <div class="alimentos_cabecalho1">{{ "Data de inÌcio :" |convert_encoding('UTF-8', ' iso-8859-1') }}______________</div>
-                        <div class="alimentos_cabecalho1">{{ "TÈcnico :" |convert_encoding('UTF-8', ' iso-8859-1') }}______________</div>
-                        <div class="alimentos_cabecalho1">{{ "Data de fim de an·lise: :" |convert_encoding('UTF-8', ' iso-8859-1') }}______________</div>
-                        <div class="alimentos_cabecalho1">{{ "TÈcnico :" |convert_encoding('UTF-8', ' iso-8859-1') }}______________</div>
+                        <div class="alimentos_cabecalho1">Data de in√≠cio :______________</div>
+                        <div class="alimentos_cabecalho1">T√©cnico :______________</div>
+                        <div class="alimentos_cabecalho1">Data de fim de an√°lise: :______________</div>
+                        <div class="alimentos_cabecalho1">T√©cnico :______________</div>
                     </div>
                     <div class="alimentos_cabecalho2">
-                        <div class="alimentos_cabecalho3 titulo">{{ "Tipo de amostra:" |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>{{ "SÛl. Bem misturado:" |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>{{ "Outros sÛlidos:" |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>{{ "LÌquidos:" |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>{{ "SÛl. Pequenos:" |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
+                        <div class="alimentos_cabecalho3 titulo">Tipo de amostra:</div>
+                        <div class="alimentos_cabecalho3"><span class="box"></span>S√≥l. Bem misturado:</div>
+                        <div class="alimentos_cabecalho3"><span class="box"></span>Outros s√≥lidos:</div>
+                        <div class="alimentos_cabecalho3"><span class="box"></span>L√≠quidos:</div>
+                        <div class="alimentos_cabecalho3"><span class="box"></span>S√≥l. Pequenos:</div>
                     </div>
                     <div class="alimentos_cabecalho4">
-                        <div class="alimentos_cabecalho3 titulo">{{ "Zaragatoas:" |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                        <div class="alimentos_cabecalho3">{{ "Volume (Ml) lÌquido:" |convert_encoding('UTF-8', ' iso-8859-1') }}_________________</div>
-                        <div class="alimentos_cabecalho3">{{ "¡rea amostragem:" |convert_encoding('UTF-8', ' iso-8859-1') }}___________________</div>
+                        <div class="alimentos_cabecalho3 titulo">Zaragatoas:</div>
+                        <div class="alimentos_cabecalho3">Volume (Ml) l√≠quido:_________________</div>
+                        <div class="alimentos_cabecalho3">√Årea amostragem:___________________</div>
 
                     </div>
                 {% endif %}
 
 
-                <div class="nome_parametro"><span class="bold">Nome Parametro:</span>{{ item.nome_parametro |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
+                <div class="nome_parametro"><span class="bold">Nome Parametro:</span>{{ item.nome_parametro}}</div>
+                <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo}}</div>
                 <div class="delimiter_list"></div>
                 <div class="table_content">
                     {{ item.tablejson  | raw}}
@@ -244,12 +244,12 @@
 
                 {% else %}
                     {% set foo = item.id_amostra %}
-                    <div class="id_amostra"><span class="bold"> {{ "IdentificaÁ„o Amostra :" |convert_encoding('UTF-8', ' iso-8859-1') }} </span>{{ item.id_amostra |convert_encoding('UTF-8', ' iso-8859-1') }} Data de entrada : {{ item.data_inicio |date("Y-m-d") }}</div>
+                    <div class="id_amostra"><span class="bold">Identifica√ß√£o Amostra : </span>{{ item.id_amostra}} Data de entrada : {{ item.data_inicio |date("Y-m-d") }}</div>
                 {% endif %}
 
 
-                <div class="nome_parametro"><span class="bold">Nome Parametro:</span>{{ item.nome_parametro |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
-                <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo |convert_encoding('UTF-8', ' iso-8859-1') }}</div>
+                <div class="nome_parametro"><span class="bold">Nome Parametro:</span>{{ item.nome_parametro}}</div>
+                <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo}}</div>
                 <div class="delimiter_list"></div>
                 <div class="table_content">
                     {{ item.tablejson  | raw}}

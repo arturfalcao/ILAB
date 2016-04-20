@@ -1,26 +1,32 @@
     {% block stylesheets %}
-          <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
-          <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
+
+
     {% endblock %}
 
     <div class="row full-width-row">
-      <header class="large-16 columns header_agenda" style="width: 100.5%;margin-left:0px;">
-      {% if app.user %}
-        <input type="hidden" id="logged" value="{{app.user.id}}">
-        <input type="hidden" id="logged_username" value="{{app.user.username}}">
-      {% endif %}
 
-        <div class="large-6 columns">
-              <h6 class="title"> Agenda </h6>
 
-        </div>
-        <div class="large-8 columns">
-              <a href="agendacalendar/new" class="button right">Adicionar evento</a>
-          </div>
-          <div class="large-1 columns">
-            <div class="menu_direita" >
-            <div id="menu_direita_circulo"></div></div>
-          </div>
+        <header class="large-16 columns header">
+            {% if app.user %}
+                <input type="hidden" id="logged" value="{{app.user.id}}">
+                <input type="hidden" id="logged_username" value="{{app.user.username}}">
+            {% endif %}
+
+            <div class="large-6 columns">
+                <h6 class="title"> Agenda </h6>
+
+            </div>
+            <div class="large-8 columns">
+                <a href="agendacalendar/new" class="button right">Adicionar evento</a>
+            </div>
+            <div class="large-1 columns">
+                <div class="menu_direita" >
+                <div id="menu_direita_circulo"></div></div>
+            </div>
 
         {% include 'default/ajax_chat_topheader_geral.html.twig' %}
 
@@ -62,6 +68,3 @@
 
       </header>
     </div>
-    <style>
-
-    </style>

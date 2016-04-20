@@ -109,7 +109,7 @@ body .fc { /* extra precedence to overcome jqui */
 	/* don't allow browser text-selection */
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
-	-khtml-user-select: none;
+	/*-khtml-user-select: none;*/
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
@@ -186,7 +186,7 @@ NOTE: use percentage font sizes or else old IE chokes
 --------------------------------------------------------------------------------------------------*/
 
 /*.fc button {
-	/* force height to include the border and padding */
+	/* force height to include the border and padding
 /*	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -205,19 +205,18 @@ NOTE: use percentage font sizes or else old IE chokes
 						background: rgba(76,195,184,1);
 						color: #fff;
 					}
-*/
 
-	/* dimensions */
+	/* dimensions
 	margin: 0;
 	height: 2.1em;
 	padding: 0 .6em;
 
-	/* text & cursor */
-	font-size: 1em; /* normalize */
+	/* text & cursor
+	font-size: 1em; normalize
 	font-weight: normal;
 	white-space: nowrap;
 	cursor: pointer;
-}
+}*/
 
 /* Firefox has an annoying inner border */
 .fc button::-moz-focus-inner { margin: 0; padding: 0; }
@@ -290,7 +289,7 @@ previous button's border...
 	color: rgba(76,195,184,1) !important;
 	border: 1px solid #dfdfdf;
 	height: 2.44em;
-	border-color: #dfdfdf !important
+	/*border-color: #dfdfdf !important;*/
 }
 
 .fc-today-button:hover, .fc-prev-button:hover,.fc-next-button:hover{
@@ -298,7 +297,7 @@ previous button's border...
 	color: #fff !important;
 	border: 1px solid rgba(76,195,184,1);
 	height: 2.44em;
-	border-color: rgba(76,195,184,1) !important
+	/*border-color: rgba(76,195,184,1) !important;*/
 }
 
 span.fc-prev-button, span.fc-next-button, span.fc-today-button{
@@ -313,7 +312,7 @@ button.fc-today-button{
 /* Popover
 --------------------------------------------------------------------------------------------------*/
 
-}
+
 .fc-popover {
 	position: absolute;
 	box-shadow: 0 2px 6px rgba(0,0,0,.15);
@@ -344,8 +343,7 @@ button.fc-today-button{
 /* unthemed */
 
 .fc-unthemed .fc-popover {
-	border-width: 1px;
-	border-style: solid;
+	border: 1px solid;
 }
 
 .fc-unthemed .fc-popover .fc-header .fc-close {
@@ -433,8 +431,7 @@ hr.fc-divider {
 
 .fc .fc-row { /* extra precedence to overcome themes w/ .ui-widget-content forcing a 1px border */
 	/* no visible border by default. but make available if need be (scrollbar width compensation) */
-	border-style: solid;
-	border-width: 0;
+	border: 0 solid;
 }
 
 .fc-row table {

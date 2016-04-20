@@ -49,14 +49,14 @@ body {
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+    /*-ms-border-radius: 2px;
+    -o-border-radius: 2px;*/
     border-radius: 2px;
 }
 
 /* line 27, ../scss/style.scss */
 input[type="text"], input[type="password"] {
-    min-height: 3.125rem;
+    min-height: 2.5rem;
     height: 3.125rem;
 }
 
@@ -68,8 +68,8 @@ section.login form .button {
     background: #4cc3b8;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+    /*-ms-border-radius: 2px;
+    -o-border-radius: 2px;*/
     border-radius: 2px;
 }
 
@@ -162,7 +162,7 @@ section.login form a {
     font-style: italic;
     -webkit-transition: all 0.1s ease-in;
     -moz-transition: all 0.1s ease-in;
-    -ms-transition: all 0.1s ease-in;
+    /*-ms-transition: all 0.1s ease-in;*/
     -o-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
 }
@@ -174,16 +174,16 @@ section.login form a:hover, section.login form a:active, section.login form a:fo
 section.login form .button {
     -webkit-transition: all 0.1s ease-in;
     -moz-transition: all 0.1s ease-in;
-    -ms-transition: all 0.1s ease-in;
+    /*-ms-transition: all 0.1s ease-in;*/
     -o-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
 }
 /* line 110, ../scss/style.scss */
 section.login form .button:hover, section.login form .button:active, section.login form .button:focus {
     opacity: 0.9;
-    filter: alpha(opactiy=90);
+    filter: alpha(opacity=90);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
-    -khtml-opacity: 0.9;
+    /*-khtml-opacity: 0.9;*/
     -moz-opacity: 0.9;
 }
 /* line 116, ../scss/style.scss */
@@ -196,7 +196,7 @@ section.login p {
 
 
 .right-side{
-    margin-left: 0px ;
+    margin-left: 0;
 }
 
 .sonata-ba-filter .select2-container{
@@ -262,6 +262,8 @@ section.login p {
 */
 
 .submenu a {
+    padding-top: 10px;
+    padding-left: 24px;
 }
 
 /* hover behaviour for links inside .submenu */
@@ -277,12 +279,18 @@ section.login p {
     max-height: 0;
     -webkit-transition: all 0.5s ease-out;
     position: absolute;
-    top: 14px;
-    left: 67px;
+    width: 250px;
+    top: 0!important;
+    left: 93px!important;
     z-index: 99999;
     max-width: 638px;
     background: #fff;
-    box-shadow: 10px 10px 5px #888888;
+    box-shadow: 1px 2px 2px #dfdfdf;
+}
+
+.subtitle{
+    padding: 23px 23px 9px 23px;
+    text-transform: uppercase;
 }
 
 .menu_principal{
@@ -303,7 +311,8 @@ section.login p {
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_planeamento:hover{
+
+.mainmenu a.menu_planeamento:hover, .mainmenu a.menu_planeamento:active, .mainmenu a.menu_planeamento:focus{
     background: url(../images/planeamento_active.png) no-repeat center center;
     width: 50px;
     height: 69px;
@@ -317,7 +326,7 @@ section.login p {
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_amostras:hover{
+.mainmenu a.menu_amostras:hover, .mainmenu a.menu_amostras:active, .mainmenu a.menu_amostras:focus{
     background: url(../images/amostras_active.png) no-repeat center center;
     width: 50px;
     height: 69px;
@@ -331,7 +340,7 @@ section.login p {
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_resultados:hover{
+.mainmenu a.menu_resultados:hover, .mainmenu a.menu_resultados:active, .mainmenu a.menu_resultados:focus{
     background: url(../images/resultados_active.png) no-repeat center center;
     width: 50px;
     height: 69px;
@@ -346,7 +355,7 @@ section.login p {
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_configuracoes:hover{
+.mainmenu a.menu_configuracoes:hover, .mainmenu a.menu_configuracoes:active, .mainmenu a.menu_configuracoes:focus{
     background: url(../images/configuracoes_active.png) no-repeat center center;
     width: 50px;
     height: 69px;
@@ -360,7 +369,7 @@ section.login p {
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_listagens:hover{
+.mainmenu a.menu_listagens:hover, .mainmenu a.menu_listagens:active, .mainmenu a.menu_listagens:focus{
     background: url(../images/boletins_active.png) no-repeat center center;
     width: 50px;
     height: 69px;
@@ -374,7 +383,7 @@ section.login p {
     padding: 0;
     margin: 0;
 }
-.mainmenu a.menu_cartas:hover{
+.mainmenu a.menu_cartas:hover, .mainmenu a.menu_cartas:active, .mainmenu a.menu_cartas:focus{
     background: url(../images/cartas-controlo_active.png) no-repeat center center;
     width: 50px;
     height: 69px;
@@ -388,6 +397,97 @@ section.login p {
     width: 128px;
     height: 69px;
 }
+
+/* jose*/
+.mainmenu{
+    margin-top: 1em;
+}
+
+.mainmenu a.menu_planeamento{
+    width: 100%!important;
+    padding-left: 25px;
+}
+
+.mainmenu a.menu_planeamento:hover{
+    width: 100%!important;
+    padding-left: 19px;
+}
+
+.submenu{
+    top: 25px!important;
+    left: 85px!important;
+}
+
+.menu_principal > ul > li > a:hover, .menu_principal > ul > li > a:active, .menu_principal > ul > li > a:focus,
+.menu_principal > ul > li > a:active {
+    color: #171f2e;
+    background-color: #faf9fa!important;
+    border-left: 3px solid #4cc3b8;
+
+}
+
+
+.mainmenu a.menu_amostras{
+    width: 100%!important;
+    padding-left: 25px;
+}
+
+.mainmenu a.menu_amostras:hover{
+    width: 100%!important;
+    padding-left: 22px;
+}
+
+.mainmenu a.menu_resultados{
+    width: 100%!important;
+    padding-left: 25px;
+}
+
+.mainmenu a.menu_resultados:hover{
+    width: 100%!important;
+    padding-left: 22px;
+}
+
+.mainmenu a.menu_configuracoes{
+    width: 100%!important;
+    padding-left: 25px;
+}
+
+.mainmenu a.menu_configuracoes:hover{
+    width: 100%!important;
+    padding-left: 22px;
+}
+
+.mainmenu a.menu_listagens{
+    width: 100%!important;
+    padding-left: 25px;
+}
+
+.mainmenu a.menu_listagens:hover{
+    width: 100%!important;
+    padding-left: 22px;
+}
+
+.mainmenu a.menu_cartas{
+    width: 100%!important;
+    padding-left: 25px;
+}
+
+.mainmenu a.menu_cartas:hover{
+    width: 100%!important;
+    padding-left: 22px;
+}
+
+/* fim*/
+
+
+
+
+
+
+
+
+
+
 
 .new_cal_element form{
     margin-top: 41px;

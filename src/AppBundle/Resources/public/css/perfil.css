@@ -1,11 +1,5 @@
 
 
-.image-upload > input
-{
-    display: none;
-
-}
-
 .imagem_redonda {
     border-radius: 50%;
 
@@ -28,8 +22,7 @@
     font-family: "montserratregular", Helvetica, Roboto, Arial, sans-serif;
     font-style: normal;
     line-height: 1.4;
-    margin-bottom: 0.5rem;
-    margin-top: 0.2rem;
+    margin:0;
     text-rendering: optimizeLegibility;
 }
 
@@ -47,7 +40,7 @@
 #primeiro_nome{
     font-size: 100%;
     padding: 5px;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -77,7 +70,7 @@
 #ultimo_nome{
     font-size: 100%;
     padding: 5px;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -106,7 +99,7 @@
 
 #email{
     font-size: 100%;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -134,7 +127,7 @@
 }
 
 #cargo{
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -162,7 +155,7 @@
 }
 
 #genero{
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -207,12 +200,11 @@
     -o-border-radius: 3px;*/
     border-radius: 3px;
     font-size: 14px;
-    /*padding: 5px 43px;*/
-    /*margin: 2.6875rem 0 0;*/
+    padding: 5px 0;
+    margin: 0;
 }
 
 .buttons-center .hollow-button:hover, .buttons-center .hollow-button:active, .buttons-center .hollow-button:focus {
-    /*background: #fff;*/
     background-color: #65c0b2;
     opacity: 0.8;
     filter: alpha(opacity=80);
@@ -221,27 +213,11 @@
     -moz-opacity: 0.8;
 }
 
-button:hover, button:focus, .button:hover, .button:focus {
-    background: white!important;
-    color:#65c0b2;
-}
-
 #alt_password
 {
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     width: 100%;
     outline: none!important;
-}
-
-
-
-
-.posicao_linha{
-    border: 1px solid #dfdfdf;
-    margin-top: -233px;
-    position: absolute;
-    width: 100%;
-    margin-left: 83px;
 }
 
 #data_dia:focus{
@@ -252,8 +228,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 
 #data_dia{
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -280,8 +256,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 
 #data_mes{
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -309,8 +285,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 
 #data_ano{
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -338,8 +314,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 #telefone{
     font-size: 100%;
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -367,8 +343,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 #telemovel{
     font-size: 100%;
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -395,8 +371,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 
 #morada{
-    height: 6rem !important;
-    border-radius: 2px;
+    height: 5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -425,8 +401,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 #cp_1 {
     font-size: 100%;
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -454,8 +430,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 #cp_2 {
     font-size: 100%;
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -484,8 +460,8 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 #cidade {
     font-size: 100%;
-    height: 3.5rem !important;
-    border-radius: 2px;
+    height: 2.5rem !important;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -515,19 +491,19 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 #g_sair{
     outline: none!important;
-    width: 120%;
+    padding:10px;
 }
 
 
 #cancelar {
     outline: none!important;
-    width: 120%;
+    padding:10px;
 }
 
 .hollow-button span, .hollow-button img {
     display: inline-block;
     vertical-align: middle;
-    padding: 0px 5px;
+    padding: 0 5px;
 }
 
 #primeiro_nome:focus{
@@ -546,13 +522,20 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 }
 
+#pass_antiga:focus{
+    background: #fafafa;
+    border-color: #65c0b2;
+    outline: none;
+
+}
+
 #pass_antiga{
     width: 70%;
     font-size: 100%;
     padding: 5px;
     margin-left: 88px;
     height: 2.5rem !important;
-    border-radius: 2px;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -577,13 +560,20 @@ button:hover, button:focus, .button:hover, .button:focus {
     margin-bottom: 10px;
 }
 
+#pass_nova:focus{
+    background: #fafafa;
+    border-color: #65c0b2;
+    outline: none;
+
+}
+
 #pass_nova{
     width: 70%;
     font-size: 100%;
     padding: 5px;
     margin-left: 88px;
     height: 2.5rem !important;
-    border-radius: 2px;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -607,6 +597,12 @@ button:hover, button:focus, .button:hover, .button:focus {
     margin-bottom: 10px;
 }
 
+#r_pass_nova:focus{
+    background: #fafafa;
+    border-color: #65c0b2;
+    outline: none;
+
+}
 
 #r_pass_nova{
     width: 70%;
@@ -614,7 +610,7 @@ button:hover, button:focus, .button:hover, .button:focus {
     padding: 5px;
     margin-left: 88px;
     height: 2.5rem !important;
-    border-radius: 2px;
+    /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #FFFFFF;
@@ -682,30 +678,51 @@ button:hover, button:focus, .button:hover, .button:focus {
     -webkit-transform:translate(-50%, -50%);
     transform:translate(-50%, -50%);
     box-shadow:0 2px 6px rgba(0,0,0,1);
-    border-radius:3px;
+    /*border-radius:3px;*/
     background:#fff;
 }
 
 #alt_password:hover, #alt_password:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #g_sair_1:hover, #g_sair_1:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #g_sair:hover, #g_sair:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #cancelar:hover, #cancelar:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #cancelar_1:hover, #cancelar_1:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 .linha_branco{
     color: transparent;
+}
+
+.profile_pic{
+    height: 275px;
+    width: 300px;
+}
+
+#editar_imagem{
+    position: relative;
+    margin-top: -150px;
+    margin-left: -45px;
 }

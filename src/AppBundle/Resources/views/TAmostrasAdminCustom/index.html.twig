@@ -36,6 +36,8 @@
     <link rel="stylesheet" type="text/css" href="/bundles/app/css/menu.css">
     <link rel="stylesheet" type="text/css" href="/bundles/app/js/icheck/skins/minimal/minimal.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
 
 
 
@@ -65,17 +67,25 @@
 {% endblock %}
 
 <div class="new_cal_element">
-    <div class="row">
-        <div class="col-md-1" style="height: auto;box-shadow: 1px 1px 10px #888888;z-index: 999;width: 107px;padding-left: 25px;">
+
+    <div class="row" >
+        <div class="large-1 columns no-padding" style="position:fixed;height: 100%;border: 1px solid #DFDFDF;z-index: 5;padding: 0;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" col-md-11 ">
+
+        <div class="large-15 columns">
             <div class="row">
-                <div class="col-md-12 columns no-padding">
+                <div class="large-16 columns">
                     {% include 'default/topheader_planeamento.html.twig' %}
                 </div>
             </div>
-            <div class="row" style="margin-top: 110px;">
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+
+            <div class="row" >
 
                     {% block body -%}
 
@@ -93,7 +103,7 @@
                                    <th class="sonata-ba-list-field-header-integer ">Data de fim</th>
                                    <th class="sonata-ba-list-field-header-integer ">Cliente</th>
                                    <th class="sonata-ba-list-field-header-integer ">Local de Recolha</th>
-                                   <th class="sonata-ba-list-field-header-integer ">Grupo de Par�metros</th>
+                                   <th class="sonata-ba-list-field-header-integer ">Grupo de Parâmetros</th>
                                    <th class="sonata-ba-list-field-header-integer ">Produtos</th>
                                    <th class="sonata-ba-list-field-header-integer ">Actions</th>
                                </tr>
@@ -208,7 +218,7 @@
                                             if(data == "ok"){
                                                 location.reload();
                                             }else{
-                                                alert("N�o foi possivel atualizar/lan�ar as amostras");
+                                                alert("Não foi possivel atualizar/lançar as amostras");
                                             }
 
                                         }
@@ -226,9 +236,14 @@
                     {% endblock %}
                 </div>
 
-
+            <style>
+                button:hover, button:focus, .button:hover, .button:focus {
+                    background-color: #007095!important;
+                    color: white;
+                }
+            </style>
             <div class="col-md-6 columns">
-                <a  href="#" class="button right lancar_amostras">{{ "Lan�ar Amostras"|convert_encoding('UTF-8', ' iso-8859-1') }}</a>
+                <a  href="#" class="button right lancar_amostras">Lançar Amostras</a>
             </div>
 
 
