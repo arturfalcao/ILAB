@@ -11,16 +11,17 @@
         var nid = Number(id_amag.slice(3));
 
         var risco;
+        var m;
 
         if($(am_ag).is( ':checked' ))
         {
-            var m = 'label[for="' + id_amag +'"]';
+            m = 'label[for="' + id_amag +'"]';
             $(m).css('background', 'rgb(76, 195, 184)');
             risco=1;
         }
         else
         {
-            var m = 'label[for="' + id_amag +'"]';
+            m = 'label[for="' + id_amag +'"]';
             $(m).css('background', 'white');
             risco=0;
         }
@@ -45,10 +46,10 @@
         });
 
 
+        var localidade = $('a.sonata-action-element');
+        var local = localidade.attr('href');
 
-        var local = $('a.sonata-action-element').attr('href');
-
-        $('a.sonata-action-element').hide();
+        localidade.hide();
         $('#nova_entidade').attr("href",local);
 
         //INICIO CLICK MENU_DIREITA
@@ -61,9 +62,12 @@
             MensagensNaoLidas();
 
             $('.li_agenda, .li_agenda a').click(function(){
-
-
-                $('#tabs-1').append("<div class='loading'></div>");
+                var info;
+                var html;
+                var ok;
+                var m;
+                var tabs_1 = $( "#tabs-1" );
+                tabs_1.append("<div class='loading'></div>");
                 $('.loading').show();
                 // INICIO AJAX - responsável por buscar os eventos associados da agenda e da tamostras
                 $.ajax({
@@ -72,9 +76,9 @@
                     data: {},
                     success: function(data) {
                         var arr = $.parseJSON(data);
-                        $( "#tabs-1" ).html('');
+                        tabs_1.html('');
 
-                        $('#tabs-1').append("<div style='margin-top:60px;'></div>");
+                        tabs_1.append("<div style='margin-top:60px;'></div>");
                         if(arr.length != 0)
                         {
                             $.each(arr, function(index,value) {
@@ -85,34 +89,34 @@
                                 {
                                     if(value.am_ag == 0)
                                     {
-                                        var info = data_format + ' - '+ value.observacao;
-                                        var html =  "<div class='roundedOne'>";
+                                        info = data_format + ' - '+ value.observacao;
+                                        html =  "<div class='roundedOne'>";
 
-                                        var ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
+                                        ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                                         html += ok;
                                         html += "</div>";
                                         html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';
-                                        $('#tabs-1').append(html);
+                                        tabs_1.append(html);
                                         if(value.done==1)
                                         {
-                                            var m = 'label[for="' + value.id +'"]';
+                                            m = 'label[for="' + value.id +'"]';
                                             $(m).css('background', 'rgb(76, 195, 184)');
                                         }
 
                                     }
                                     else if(value.am_ag == 1)
                                     {
-                                        var info = value.observacao;
-                                        var html =  "<div class='roundedOne'>";
+                                        info = value.observacao;
+                                        html =  "<div class='roundedOne'>";
 
-                                        var ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
+                                        ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                                         html += ok;
                                         html += "</div>";
                                         html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';
-                                        $('#tabs-1').append(html);
+                                        tabs_1.append(html);
                                         if(value.done==1)
                                         {
-                                            var m = 'label[for="' + value.id +'"]';
+                                            m = 'label[for="' + value.id +'"]';
                                             $(m).css('background', 'rgb(76, 195, 184)');
                                         }
                                     }

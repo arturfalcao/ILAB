@@ -4,8 +4,7 @@
 */
 /* line 1, ../scss/_menu-icons.scss */
 .menu-icon, .side-menu ul li a.menu-item-1 i, .side-menu ul li a.menu-item-2 i, .side-menu ul li a.menu-item-3 i, .side-menu ul li a.menu-item-4 i, .side-menu ul li a.menu-item-5 i, .side-menu ul li a.menu-item-6 i, .side-menu ul li a.menu-item-7 i, .side-menu ul li a.menu-item-8 i {
-  background-image: url(../images/menu-icons.png);
-  background-repeat: no-repeat;
+  background: url(../images/menu-icons.png) no-repeat;
   display: inline-block;
   margin-left: 2.5rem;
 }
@@ -132,7 +131,7 @@
   z-index: 300;
   -webkit-transition: all 0.1s ease-in;
   -moz-transition: all 0.1s ease-in;
-  -ms-transition: all 0.1s ease-in;
+  /*-ms-transition: all 0.1s ease-in;*/
   -o-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
@@ -246,7 +245,7 @@ header .title {
 header .button {
   -webkit-transition: all 0.1s ease-in;
   -moz-transition: all 0.1s ease-in;
-  -ms-transition: all 0.1s ease-in;
+  /*-ms-transition: all 0.1s ease-in;*/
   -o-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
   text-transform: none;
@@ -323,8 +322,8 @@ header .button:hover, header .button:active, header .button:focus {
   display: inline-block;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  /*-ms-border-radius: 50px;
+  -o-border-radius: 50px;*/
   border-radius: 50px;
 }
 /* line 273, ../scss/style.scss */
@@ -334,8 +333,8 @@ header .button:hover, header .button:active, header .button:focus {
   position: absolute;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  /*-ms-border-radius: 50px;
+  -o-border-radius: 50px;*/
   border-radius: 50px;
   border: 2px solid #fff;
   right: -2px;
@@ -377,7 +376,7 @@ header .button:hover, header .button:active, header .button:focus {
   display: block;
   -webkit-transition: all 0.1s ease-in;
   -moz-transition: all 0.1s ease-in;
-  -ms-transition: all 0.1s ease-in;
+  /*-ms-transition: all 0.1s ease-in;*/
   -o-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
   float: left;
@@ -386,9 +385,9 @@ header .button:hover, header .button:active, header .button:focus {
 /* line 312, ../scss/style.scss */
 .profile .dropit-submenu li a:hover, .side-apps .profile .dropit-submenu li a:active, .side-apps .profile .dropit-submenu li a:focus {
   opacity: 0.7;
-  filter: alpha(opactiy=70);
+  filter: alpha(opacity=70);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
-  -khtml-opacity: 0.7;
+  /*-khtml-opacity: 0.7*/;
   -moz-opacity: 0.7;
 }
 /* line 315, ../scss/style.scss */
@@ -414,8 +413,8 @@ header .button:hover, header .button:active, header .button:focus {
   top: 30%;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  /*-ms-border-radius: 50px;
+  -o-border-radius: 50px;*/
   border-radius: 50px;
   text-align: center;
   width: 25px;

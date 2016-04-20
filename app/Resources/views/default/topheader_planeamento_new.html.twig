@@ -1,10 +1,11 @@
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
 {% endblock %}
 
 <div class="row full-width-row">
-    <header class="large-16 columns header_agenda" style="width: 100.5%;margin-left: 16px;margin-top: -670px;">
+    <header class="large-16 columns header" style="width: 100%;z-index:2;">
         {% if app.user %}
             <input type="hidden" id="logged" value="{{app.user.id}}">
             <input type="hidden" id="logged_username" value="{{app.user.username}}">

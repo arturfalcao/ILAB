@@ -74,8 +74,8 @@ class TProdutosAdmin extends Admin
             ->add('ftAlias')
             ->add('fnFamiliaproduto', 'sonata_type_model', array('label' => 'Familia do Produto', 'by_reference' => false))
             ->add('fnEspecificacoes', 'sonata_type_model', array('btn_add' => false,'multiple' => true, 'by_reference' => false))
-            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
-            ->add('ftObservacao', 'text', array('label' => 'Observações', 'by_reference' => false))
+            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'LegislaÃ§Ã£o', 'by_reference' => false))
+            ->add('ftObservacao', 'text', array('label' => 'ObservaÃ§Ãµes', 'by_reference' => false))
         ;
 
     }

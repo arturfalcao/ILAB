@@ -18,10 +18,10 @@ class TModelosamostraAdmin extends Admin
         $datagridMapper
             ->add('fnId',null, array('label' => 'ID'))
             ->add('fbActivo',null, array('label' => 'Activo'))
-            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('ftDescricao',null, array('label' => 'DescriÃ§Ã£o'))
             ->add('fnLimitedias',null, array('label' => 'Limite de Dias'))
-            ->add('fnIdOrcamento',null, array('label' => 'Orçamento'))
-            ->add('ftObservacao',null, array('label' => 'Observação'))
+            ->add('fnIdOrcamento',null, array('label' => 'OrÃ§amento'))
+            ->add('ftObservacao',null, array('label' => 'ObservaÃ§Ã£o'))
         ;
     }
 
@@ -33,8 +33,8 @@ class TModelosamostraAdmin extends Admin
         $listMapper
             ->add('fnId',null, array('label' => 'ID'))
             ->add('fbActivo',null, array('label' => 'Activo'))
-            ->add('ftDescricao',null, array('label' => 'Descrição'))
-            ->add('ftObservacao',null, array('label' => 'Observação'))
+            ->add('ftDescricao',null, array('label' => 'DescriÃ§Ã£o'))
+            ->add('ftObservacao',null, array('label' => 'ObservaÃ§Ã£o'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -52,14 +52,14 @@ class TModelosamostraAdmin extends Admin
     {
         $formMapper
             ->add('fbActivo', 'checkbox', array('required' => true,'label' => 'Activo'))
-            ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
+            ->add('ftDescricao', 'text', array('required' => true,'label' => 'DescriÃ§Ã£o'))
             ->add('fnLimitedias', 'checkbox', array('required' => true,'label' => 'Limite de Dias'))
-            ->add('fnIdOrcamento', 'text', array('required' => false,'label' => 'Orçamento'))
-            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observação'))
+            ->add('fnIdOrcamento', 'text', array('required' => false,'label' => 'OrÃ§amento'))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'ObservaÃ§Ã£o'))
             ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente','by_reference' => false))
-            ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo Aprovação','by_reference' => false))
+            ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo AprovaÃ§Ã£o','by_reference' => false))
             ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto','by_reference' => false))
-            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação','by_reference' => false))
+            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'LegislaÃ§Ã£o','by_reference' => false))
             ->add('fnTipoamostra', 'sonata_type_model', array('label' => 'Tipo Amostra','by_reference' => false))
             ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo Controlo','by_reference' => false))
             ->add('fnGrupoparametros', 'sonata_type_model', array('label' => 'Grupo Parametros','by_reference' => false))

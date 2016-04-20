@@ -34,9 +34,9 @@ class TModelosresultadosAdmin extends Admin
             ->add('fnMaximo',null, array('label' => 'Maximo'))
             ->add('fnMinimo',null, array('label' => 'Minimo'))
             ->add('ftMensagemutilizador',null, array('label' => 'MSG Utilizador'))
-            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('ftDescricao',null, array('label' => 'DescriÃ§Ã£o'))
             ->add('fnLimitequantificacao',null, array('label' => 'Limite'))
-            ->add('ftObservacao',null, array('label' => 'Observação'))
+            ->add('ftObservacao',null, array('label' => 'ObservaÃ§Ã£o'))
         ;
     }
 
@@ -51,10 +51,10 @@ class TModelosresultadosAdmin extends Admin
             ->add('fbIncluirnorelatorio',null, array('label' => 'Boletim'))
             ->add('ftDescricao','text', array('label' => 'Nome'))
             ->add('fnUnidade','text', array('label' => 'Unidades'))
-            ->add('fnLimitequantificacao','text', array('label' => 'Quantificação'))
+            ->add('fnLimitequantificacao','text', array('label' => 'QuantificaÃ§Ã£o'))
             ->add('fbGamavalores',null, array('label' => 'Gama'))
-            ->add('fnMaximo','number', array('label' => 'Máximo'))
-            ->add('fnMinimo','number', array('label' => 'Mínimo'))
+            ->add('fnMaximo','number', array('label' => 'MÃ¡ximo'))
+            ->add('fnMinimo','number', array('label' => 'MÃ­nimo'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -73,10 +73,10 @@ class TModelosresultadosAdmin extends Admin
         $formMapper
             ->with('Novo Modelo',array('class'=> 'col_esq',))
                 ->add('fbActivo',null, array('label' => 'Activo'))
-                ->add('ftDescricao','text', array('label' => 'Descrição'))
+                ->add('ftDescricao','text', array('label' => 'DescriÃ§Ã£o'))
                 ->add('fnUnidade', 'sonata_type_model', array('label' => 'Unidade de Medida', 'by_reference' => false))
                 ->add('fnTipoarredondamento', 'sonata_type_model', array('label' => 'Tipo de Arredondamento','by_reference' => false))
-                ->add('ftObservacao','text', array('label' => 'Observação'))
+                ->add('ftObservacao','text', array('label' => 'ObservaÃ§Ã£o'))
             ->end()
             ->with('',array('class'=> 'col_esq',))
                 ->add('fbGamavalores')
@@ -84,13 +84,13 @@ class TModelosresultadosAdmin extends Admin
                 ->add('fnMaximo','number', array('label' => 'Maximo'))
                 ->add('fnMinimo','number', array('label' => 'Minimo'))
                 ->add('ftMensagemutilizador','text', array('label' => 'Mensagem Utilizador'))
-                ->add('fnLimitequantificacao','integer', array('label' => 'Limite Quantificação'))
+                ->add('fnLimitequantificacao','integer', array('label' => 'Limite QuantificaÃ§Ã£o'))
 
             ->end()
             ->with('Gallery')
             ->add('RegasFormatacao', 'sonata_type_collection', array(
                 'cascade_validation' => true,
-                'label' => 'Regras de Formatação',
+                'label' => 'Regras de FormataÃ§Ã£o',
             ), array(
                     'edit'              => 'inline',
                     'inline'            => 'table',

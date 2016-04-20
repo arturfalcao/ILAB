@@ -70,7 +70,7 @@ class TClientesAdmin extends Admin
             ->add('ftTelefone', 'integer', array('required' => true,'label' => 'Telefone'))
             ->add('ftFax', 'integer', array('required' => false,'label' => 'Fax'))
             ->add('ftEmail', 'text', array('required' => true,'label' => 'Email'))
-            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observações'))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'ObservaÃ§Ãµes'))
             ->add('ftNomecontacto', 'text', array('required' => false,'label' => 'Nome do Contacto'))
             ->add('ftTelefonecontacto', 'integer', array('required' => false,'label' => 'Telefone Contacto'))
             ->add('ftEmailcontacto', 'text', array('required' => false,'label' => 'Email Contacto'))

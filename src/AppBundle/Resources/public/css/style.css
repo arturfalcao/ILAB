@@ -49,8 +49,8 @@ body {
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+    /*-ms-border-radius: 2px;
+    -o-border-radius: 2px;*/
     border-radius: 2px;
 }
 
@@ -68,8 +68,8 @@ section.login form .button {
     background: #4cc3b8;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
-    -ms-border-radius: 2px;
-    -o-border-radius: 2px;
+    /*-ms-border-radius: 2px;
+    -o-border-radius: 2px;*/
     border-radius: 2px;
 }
 
@@ -162,7 +162,7 @@ section.login form a {
     font-style: italic;
     -webkit-transition: all 0.1s ease-in;
     -moz-transition: all 0.1s ease-in;
-    -ms-transition: all 0.1s ease-in;
+    /*-ms-transition: all 0.1s ease-in;*/
     -o-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
 }
@@ -174,16 +174,16 @@ section.login form a:hover, section.login form a:active, section.login form a:fo
 section.login form .button {
     -webkit-transition: all 0.1s ease-in;
     -moz-transition: all 0.1s ease-in;
-    -ms-transition: all 0.1s ease-in;
+    /*-ms-transition: all 0.1s ease-in;*/
     -o-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
 }
 /* line 110, ../scss/style.scss */
 section.login form .button:hover, section.login form .button:active, section.login form .button:focus {
     opacity: 0.9;
-    filter: alpha(opactiy=90);
+    filter: alpha(opacity=90);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
-    -khtml-opacity: 0.9;
+    /*-khtml-opacity: 0.9;*/
     -moz-opacity: 0.9;
 }
 /* line 116, ../scss/style.scss */
@@ -196,7 +196,7 @@ section.login p {
 
 
 .right-side{
-    margin-left: 0px ;
+    margin-left: 0;
 }
 
 .sonata-ba-filter .select2-container{

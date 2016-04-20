@@ -4,7 +4,7 @@
     {% endblock %}
 
     <div class="row full-width-row">
-      <header class="large-16 columns header_planeamento" style="width: 100.5%;">
+      <header class="large-16 columns header">
       {% if app.user %}
         <input type="hidden" id="logged" value="{{app.user.id}}">
         <input type="hidden" id="logged_username" value="{{app.user.username}}">
@@ -48,7 +48,7 @@
                 </li>
             
             </ul>
-            <div id="n_lidas">
+            <div id="n_lidas" style="margin-top: -15px;">
                     
             </div>
             

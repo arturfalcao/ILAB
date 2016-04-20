@@ -62,20 +62,22 @@ setTimeout(TextoMensagensNaoLidas, 5000);
 function MensagensNaoLidas()
 {
 var user = Number($('#logged').val());
-$.ajax({
+var n_lidas_tag = $("#n_lidas");
+var menu_dreita_circulo_tag = $("#menu_direita_circulo");
+    $.ajax({
       type: "POST",
       url: '{{path('chat_mens_nao_lidas')}}',
       data: {id: user, emi: 0},
       success: function(data) {
         var n = data.search("_");
         var n_lidas = Number(data.slice(1,n));
-        $("#n_lidas").html('');
-        $("#menu_direita_circulo").removeClass('circulo_menu_direita');
+        n_lidas_tag.html('');
+        menu_dreita_circulo_tag.removeClass('circulo_menu_direita');
 
         if(n_lidas != 0)
         {
-          $("#n_lidas").append('<div class="circulo">' + n_lidas + '</div>');
-          $("#menu_direita_circulo").addClass('circulo_menu_direita');
+          n_lidas_tag.append('<div class="circulo">' + n_lidas + '</div>');
+          menu_dreita_circulo_tag.addClass('circulo_menu_direita');
         }
 
       }
@@ -89,7 +91,9 @@ function novasMensagensUtilizador()
 {
 var user = Number($('#logged').val());
 var nid = Number($('#clicked_user').val());
-$.ajax({
+var imagem;
+var chat = $("#chat");
+    $.ajax({
             type: "POST",
             url: '{{path('chat_gethistoriconovo')}}',
             data: {id: nid, id2: user},
@@ -101,7 +105,7 @@ $.ajax({
                   $.each(arr, function(index,value) {
 
                       var firstname = value.firstname;
-                      var imagem = value.imagem;
+                      imagem = value.imagem;
 
                       if(imagem)
                       {
@@ -120,16 +124,16 @@ $.ajax({
 
                   		if(value.id_emissor != user)
                   		{
-						            $("#chat").append("<div>");
+						            chat.append("<div>");
 
 
                   			if($("#hc_" + value.id).length == 0) {
                   				var imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
-                  				$("#chat").append(imagem);
-  								        $("#chat").append("<p class='triangle-isosceles esq quebra' id='hc_" + value.id + "'>" + value.mensagem + "</p>" );
+                  				chat.append(imagem);
+  								chat.append("<p class='triangle-isosceles esq quebra' id='hc_" + value.id + "'>" + value.mensagem + "</p>" );
 							         }
 
-	                    	$("#chat").append("</div>");
+	                    	chat.append("</div>");
 
 						        }
 
@@ -160,10 +164,9 @@ function histMens(element)
 	    var nome_user = $(element).attr('alt');
 	    var id_user = $(element).attr('id');
 	    var nid = Number(id_user.slice(3));
-	    var nome_user_logado;
-        var t="";
+	    var t="";
 	    $("#clicked_user").remove();
-		  $("#texto_imp").remove();
+        $("#texto_imp").remove();
 	    $(".botao_enviar").remove();
 	    $(".sms_n_lidas").remove();
 	    $("#insere").remove();

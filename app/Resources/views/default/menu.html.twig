@@ -1,9 +1,90 @@
-{% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
-{% endblock %}
+{% stylesheets%}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
+{% endstylesheets %}
 
-<div style="height:auto;">
+<style>
+
+    .mainmenu{
+        margin-top: 1em;
+    }
+
+    .mainmenu a.menu_planeamento{
+        width: 100%!important;
+        padding-left: 25px;
+    }
+
+    .mainmenu a.menu_planeamento:hover{
+        width: 100%!important;
+        padding-left: 19px;
+    }
+
+    .submenu{
+        top: 25px!important;
+        left: 85px!important;
+    }
+
+    .menu_principal > ul > li > a:hover, .menu_principal > ul > li > a:active, .menu_principal > ul > li > a:focus,
+    .menu_principal ul li a.active {
+        color: #171f2e;
+        background: #faf9fa;
+        border-left: 3px solid #4cc3b8;
+    }
+
+
+    .mainmenu a.menu_amostras{
+        width: 100%!important;
+        padding-left: 25px;
+    }
+
+    .mainmenu a.menu_amostras:hover{
+        width: 100%!important;
+        padding-left: 22px;
+    }
+
+    .mainmenu a.menu_resultados{
+        width: 100%!important;
+        padding-left: 25px;
+    }
+
+    .mainmenu a.menu_resultados:hover{
+        width: 100%!important;
+        padding-left: 22px;
+    }
+
+    .mainmenu a.menu_configuracoes{
+        width: 100%!important;
+        padding-left: 25px;
+    }
+
+    .mainmenu a.menu_configuracoes:hover{
+        width: 100%!important;
+        padding-left: 22px;
+    }
+
+    .mainmenu a.menu_listagens{
+        width: 100%!important;
+        padding-left: 25px;
+    }
+
+    .mainmenu a.menu_listagens:hover{
+        width: 100%!important;
+        padding-left: 22px;
+    }
+
+    .mainmenu a.menu_cartas{
+        width: 100%!important;
+        padding-left: 25px;
+    }
+
+    .mainmenu a.menu_cartas:hover{
+        width: 100%!important;
+        padding-left: 22px;
+    }
+
+
+</style>
+
+<div style="height:96.5%;">
     <a href="/app_dev.php/calendar" class=""><img id="logo" src="{{ asset('bundles/app/images/logo.png') }}" alt="ilab" /></a>
     <nav class="navigation menu_principal">
         <ul class="mainmenu">
@@ -21,7 +102,8 @@
                 <ul class="submenu">
                     <div>Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
-                    {#<li><a href="{{ path('admin_app_tamostras_create') }}">Lançamento de Amostra</a></li>#}
+{#<li><a href="{{ path('admin_app_tamostras_create') }}">Lançamento de Amostra</a></li>#}
+
                     <li><a href="{{ path('importacaoamostra') }}">Importação de Amostras</a></li>
                 </ul>
             </li>
@@ -60,39 +142,35 @@
                     <div>Administração</div>
                     <li><a href="{{path('sonata_admin_dashboard') }}" >Gestão de Utilizadores</a></li>
                 </ul>
-                <!--<ul class="submenu">
-                {{ "Administração"|convert_encoding('UTF-8', 'iso-8859-1') }}
-                    <li><a href="">Tops</a></li>
-                    <li><a href="">Bottoms</a></li>
-                    <li><a href="">Footwear</a></li>
-                </ul>-->
-            </li>
 
-            {%if app.user %}
-                <li>
-                    <input type="hidden" id="util" name="util" value="{{app.user.id}}">
-
-                    <div class="medidas_imagem_botao">
-                        <a href="/app_dev.php/profile"><img id="img_user_logado" class="circle_image" id="us_{{app.user.id}}"src="" alt=""></a>
-                        <div class="circulo_verde"></div>
-                    </div>
-
-                </li>
-            {%endif%}
-
-            <li>
-                <a href="/app_dev.php/logout"><img src="/bundles/app/images/logout.png" alt="" style="margin-bottom: 20px"></a>
             </li>
         </ul>
 
-
-
+        {%if app.user %}
+            <div class="new-bottom-section">
+                <input type="hidden" id="util" name="util" value="{{app.user.id}}">
+                <a href="/app_dev.php/profile" class="user-menu">
+                    <div class="availability-wrap">
+                        <img id="img_user_logado" style="height: 40px;" src="" alt="">
+                        <i class="availability unavailable"></i>
+                    </div>
+                </a>
+                <a href="/app_dev.php/logout" class="logout">
+                    <img src="/bundles/app/images/logout.png" alt="">
+                </a>
+            </div>
+        {%endif%}
 
     </nav>
+
+    <style>
+
+    </style>
 
     <script>
         $( document ).ready(function() {
             var user = Number($('#util').val());
+            var img_user_logado = $("#img_user_logado");
             $.ajax({
                 type: "POST",
                 url: '{{path('chat_getdusers')}}',
@@ -110,9 +188,9 @@
                                 imagem = imagem.replace('"','');
                                 imagem = imagem.replace('"','');
                                 imagem = imagem.replace(/\\/g,'');
-                                $("#img_user_logado").attr("src", imagem);
+                                img_user_logado.attr("src", imagem);
                                 if(value.firstname)
-                                    $("#img_user_logado").attr("alt", imagem);
+                                    img_user_logado.attr("alt", imagem);
                             }
                         });
 
