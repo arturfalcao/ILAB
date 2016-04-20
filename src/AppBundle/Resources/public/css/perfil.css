@@ -1,11 +1,5 @@
 
 
-.image-upload > input
-{
-    display: none;
-
-}
-
 .imagem_redonda {
     border-radius: 50%;
 
@@ -28,8 +22,7 @@
     font-family: "montserratregular", Helvetica, Roboto, Arial, sans-serif;
     font-style: normal;
     line-height: 1.4;
-    margin-bottom: 0.5rem;
-    margin-top: 0.2rem;
+    margin:0;
     text-rendering: optimizeLegibility;
 }
 
@@ -47,7 +40,7 @@
 #primeiro_nome{
     font-size: 100%;
     padding: 5px;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -77,7 +70,7 @@
 #ultimo_nome{
     font-size: 100%;
     padding: 5px;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -106,7 +99,7 @@
 
 #email{
     font-size: 100%;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -134,7 +127,7 @@
 }
 
 #cargo{
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -162,7 +155,7 @@
 }
 
 #genero{
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     border-radius: 2px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -201,18 +194,17 @@
     background: rgba(255, 255, 255, 0);
     border: 1px solid #65c0b2;
     color: #65c0b2;
-    /*-webkit-border-radius: 3px;
+    -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     /*-ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px;*/
+    -o-border-radius: 3px;*/
+    border-radius: 3px;
     font-size: 14px;
-    /*padding: 5px 43px;*/
-    /*margin: 2.6875rem 0 0;*/
+    padding: 5px 0;
+    margin: 0;
 }
 
 .buttons-center .hollow-button:hover, .buttons-center .hollow-button:active, .buttons-center .hollow-button:focus {
-    /*background: #fff;*/
     background-color: #65c0b2;
     opacity: 0.8;
     filter: alpha(opacity=80);
@@ -223,7 +215,7 @@
 
 #alt_password
 {
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     width: 100%;
     outline: none!important;
 }
@@ -236,7 +228,7 @@
 }
 
 #data_dia{
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -264,7 +256,7 @@
 }
 
 #data_mes{
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -293,7 +285,7 @@
 }
 
 #data_ano{
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -322,7 +314,7 @@
 
 #telefone{
     font-size: 100%;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -351,7 +343,7 @@
 
 #telemovel{
     font-size: 100%;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -379,7 +371,7 @@
 }
 
 #morada{
-    height: 6rem !important;
+    height: 5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -409,7 +401,7 @@
 
 #cp_1 {
     font-size: 100%;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -438,7 +430,7 @@
 
 #cp_2 {
     font-size: 100%;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -468,7 +460,7 @@
 
 #cidade {
     font-size: 100%;
-    height: 3.5rem !important;
+    height: 2.5rem !important;
     /*border-radius: 2px;*/
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -499,13 +491,13 @@
 
 #g_sair{
     outline: none!important;
-    width: 120%;
+    padding:10px;
 }
 
 
 #cancelar {
     outline: none!important;
-    width: 120%;
+    padding:10px;
 }
 
 .hollow-button span, .hollow-button img {
@@ -692,24 +684,45 @@
 
 #alt_password:hover, #alt_password:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #g_sair_1:hover, #g_sair_1:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #g_sair:hover, #g_sair:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #cancelar:hover, #cancelar:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 #cancelar_1:hover, #cancelar_1:focus{
     color: #65c0b2!important;
+    background: white!important;
+    border: 1px solid rgba(76,195,184,0.7)!important;
 }
 
 .linha_branco{
     color: transparent;
+}
+
+.profile_pic{
+    height: 275px;
+    width: 300px;
+}
+
+#editar_imagem{
+    position: relative;
+    margin-top: -150px;
+    margin-left: -45px;
 }

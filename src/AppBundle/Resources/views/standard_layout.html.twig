@@ -117,13 +117,16 @@ file that was distributed with this source code.
         <div class="large-1 columns no-padding" style="position:fixed;height: 100%;border: 1px solid #DFDFDF;z-index: 5;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
+        <div class="large-15 columns">
             <div class="row">
-                <div class="large-16 columns" style="margin-left: 103px!important;">
+                <div class="large-16 columns" >
                     {% include 'default/topheader_geral.html.twig' %}
                 </div>
-                </div>
-
+            </div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
 
                 {% block sonata_header %}
                     {% set foo = path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))|split('/') %}
