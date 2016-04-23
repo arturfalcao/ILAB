@@ -140,42 +140,42 @@ class WorkListCTRLController extends Controller
 
         $pdf = $this->container->get("white_october.tcpdf")->create(
             'P',
-            PDF_UNIT,
-            PDF_PAGE_FORMAT,
+            'mm',
+            'A4',
             true,
             'UTF-8',
             false
         );
-        $pdf->SetAuthor('Pimenta do Vale');
-        $pdf->SetTitle('Relatorio de Ensaio');
-        $pdf->SetSubject('client');
+        // set document information
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetTitle('TCPDF Example 010');
+        $pdf->SetSubject('TCPDF Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-        $pdf->SetHeaderData('logo_lab.png',300);
 
-        $pdf->setFontSubsetting(true);
+// set default header data
+        $pdf->SetHeaderData('logo_lab.png', 24, PDF_HEADER_TITLE.' 010', PDF_HEADER_STRING);
 
-        $pdf->SetFont('helvetica', '', 11, '', true);
+// set header and footer fonts
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
-        $pdf->AddPage();
+// set default monospaced font
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
-        $html = 'celso';
+// set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
-        $pdf->writeHTMLCell(
-            $w = 0,
-            $h = 0,
-            $x = '',
-            $y = '',
-            $html,
-            $border = 0,
-            $ln = 1,
-            $fill = 0,
-            $reseth = true,
-            $align = '',
-            $autopadding = true
-        );
+// set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+// set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
 
         $pdf->Output("example.pdf", 'I');
-        $pdf->Output("example.pdf", 'F');
 
     }
 
