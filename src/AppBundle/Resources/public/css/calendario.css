@@ -1167,3 +1167,17 @@ a.edit:hover, a.remove:hover{
   color: rgba(76,195,184,0.7);
   border: 1px solid rgba(76,195,184,0.7);
 }
+
+.fc-row.fc-widget-header{
+    border-right-width: 0!important;
+}
+
+.fc-row.fc-week.fc-widget-content{
+    border-color: #eee!important;
+}
+
+.fc-month-button, .fc-agendaWeek-button, .fc-agendaDay-button
+{
+    z-index: 0!important;
+    outline:none!important;
+}

@@ -327,9 +327,9 @@ class TAmostrasAdminCustomController extends Controller
 
                     }
                 }
-                $texto = "Importação realizada com sucesso";
+                $texto = "ImportaÃ§Ã£o realizada com sucesso";
             } catch (Exception $e) {
-                $texto = "Falha na importação por favor valide os dados";
+                $texto = "Falha na importaÃ§Ã£o por favor valide os dados";
             }
         }
         return $this->render(

@@ -108,6 +108,18 @@ file that was distributed with this source code.
         /* padding-left: 15px; */
         /* padding-right: 15px; */
     }
+
+    .content{
+        background: white;
+    }
+
+    .box.box-primary {
+        border-top-color: transparent;
+    }
+
+    .box{
+        box-shadow: none;
+    }
 </style>
 
 {% if is_granted("ROLE_USER") %}
@@ -121,6 +133,13 @@ file that was distributed with this source code.
             <div class="row">
                 <div class="large-16 columns" >
                     {% include 'default/topheader_geral.html.twig' %}
+
+                    <style>
+                        .botao_enviar {
+                            margin-top: -100px!important;
+                        }
+                    </style>
+
                 </div>
             </div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
@@ -214,5 +233,10 @@ file that was distributed with this source code.
 
 {% endif %}
 </body>
+<script>
+    $( document ).ready(function() {
+        $('.sonata-ba-list-field-header-actions').html('Ações');
 
+    })
+</script>
 </html>

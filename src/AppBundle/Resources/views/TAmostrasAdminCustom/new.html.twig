@@ -47,67 +47,81 @@
 
 <div class="container-fluid new_cal_element new_planeamento">
     <div class="row">
-        <div class="large-1 columns no-padding" style="position:fixed;height: 100%;border: 1px solid #DFDFDF;z-index: 5;">
+        <div class="large-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;">
             {% include 'default/menu.html.twig' %}
         </div>
         <div class=" large-15 columns">
             <div class="row">
                 <div class="large-16 columns">
                     {% include 'default/topheader_planeamento_new.html.twig' %}
-                    <style>
-                        #tab_sidebar a
-                        {
-                            cursor: pointer!important;
-                            color: black;
-                            text-decoration: none!important;
-                            background-color: white!important;
-                        }
 
-                        #tab_sidebar a:hover{
-                            background-color: transparent!important;
-                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            box-shadow: inset 0 -2px 0 #139c9b!important;
-                            color: #139c9b!important;
-                        }
-
-                        #tab_sidebar a:focus{
-                            background-color: transparent!important;
-                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            box-shadow: inset 0 -2px 0 #139c9b!important;
-                            color: #139c9b!important;
-                        }
-
-                        .loading
-                        {
-                            margin-top: 10px!important;
-                        }
-
-                        #chat_tab{
-                            margin-right: 0px!important;
-                        }
-
-                        p.agenda {
-                            margin-left: 35px !important;
-                            color: black;
-                        }
-                    </style>
+                    <link rel="stylesheet" type="text/css" href="/bundles/app/css/chat_agenda.css" />
                 </div>
             </div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row">
-                <div class="large-10 columns no-padding">
+                <div class="large-16 columns no-padding">
 
                     {% block body -%}
-                        {{ form(form) }}
+                        {{ form_start(form) }}
+                        <div class="row linha_branco">0</div>
+                        <div class="row linha_branco">0</div>
+                        <div class="large-6 push-1 form-group">
+                            {{ form_label(form.fnCliente, 'Cliente') }}
+                            {{ form_widget(form.fnCliente) }}
+                        </div>
+
+                        <div class="large-6 push-1 form-group">
+                            {{ form_label(form.ftRefexterna, 'Local de Recolha') }}
+                            {{ form_widget(form.ftRefexterna) }}
+                        </div>
+
+                        <div class="large-6 push-1 form-group">
+                            {{ form_label(form.ftGrupoparametros, 'Grupo de Parametros') }}
+                            {{ form_widget(form.ftGrupoparametros) }}
+                        </div>
+
+                        <div class="large-6 push-1 form-group">
+                            {{ form_label(form.fnProduto, 'Produto') }}
+                            {{ form_widget(form.fnProduto) }}
+                        </div>
+
+                        <div class="large-3 push-1 form-group">
+                            {{ form_label(form.startdatetime, 'Data de inicio') }}
+                            {{ form_widget(form.startdatetime) }}
+                        </div>
+
+                        <div class="large-3 push-1 form-group">
+                            {{ form_label(form.enddatetime, 'Data de fim') }}
+                            {{ form_widget(form.enddatetime) }}
+                        </div>
+
+                        <div class="row linha_branco">0</div>
+                        <hr>
+
+
+                        <div class="bottom-buttons buttons-center">
+                            <button type="submit" id="g_sair" class="hollow-button">
+                                <img src="/bundles/app/images/icon-button-2.png" alt="">
+                                <span>Guardar</span>
+                            </button>
+
+                            <button id="cancelar" class="hollow-button">
+                                <img src="/bundles/app/images/close.png" alt="">
+                                <span>Cancelar</span>
+                            </button>
+                        </div>
+
+
+
+
+                        {{ form_end(form) }}
+
+
                     {% endblock %}
 
-                    <div class="large-9 columns">
-                        <a href="/NovoPlaneamento" class="button right">Voltar a Lista</a>
-                    </div>
 
                 </div>
             </div>
@@ -155,4 +169,14 @@
     });
 </script>
 
+<script>
+    $( document ).ready(function() {
+        $("#Novo_Planeamento_submit").hide();
+        $('#cancelar').on('click', function(e)  {
+            window.location.href = '/app_dev.php/NovoPlaneamento';
+            e.preventDefault();
+        });
+
+    });
+</script>
 

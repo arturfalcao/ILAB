@@ -232,6 +232,8 @@ class AgendaController extends Controller
      * @Route("calendar/{id}", name="agenda_show")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function showAction($id)
     {
