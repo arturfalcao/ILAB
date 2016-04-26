@@ -61,15 +61,12 @@
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
-            <div class="row linha_branco"><div class="col-md-12">0</div></div>
-            <div class="row linha_branco"><div class="col-md-12">0</div></div>
-
 
             <div class="row">
                 <div >
                     {% block body%}
                         <!-- a minha Angular App -->
-                        <div ng-app="CalendarModule">
+                        <div ng-app="CalendarModule" style="padding-top:8px;">
                             <div ng-controller="CalendarCtrl" >
                                 <div id="cal_new_event" style="display: none;">
                                     {{ render(controller('AppBundle:Agenda:newshort')) }}

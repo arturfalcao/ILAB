@@ -55,6 +55,48 @@
 			<div class="row">
 				<div class="large-16 columns">
 					{% include 'default/profile.html.twig' %}
+                    <style>
+
+
+
+
+                        #tab_sidebar a
+                        {
+                            cursor: pointer!important;
+                            color: black;
+                            text-decoration: none!important;
+                            background-color: white!important;
+                        }
+
+                        #tab_sidebar a:hover{
+                            background-color: transparent!important;
+                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            box-shadow: inset 0 -2px 0 #139c9b!important;
+                            color: #139c9b!important;
+                        }
+
+                        #tab_sidebar a:focus{
+                            background-color: transparent!important;
+                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
+                            box-shadow: inset 0 -2px 0 #139c9b!important;
+                            color: #139c9b!important;
+                        }
+
+                        .loading
+                        {
+                            margin-top: 10px!important;
+                        }
+
+                        p.agenda {
+                            margin-left: 35px !important;
+                            color: black;
+                        }
+
+                    </style>
+
+
 				</div>
 			</div>
 			<div class="row linha_branco"><div class="col-md-12">0</div></div>
@@ -65,13 +107,14 @@
 
 			<form id="form" action="/app_dev.php/sucesso" method="post" enctype="multipart/form-data">
 				<input type="hidden" id="util" name="util" value="{{app.user.id}}">
-				<div class="row">
+
+                <div class="row">
 					<div class="col-md-4 linha_branco" >0</div>
-					<div class="col-md-2"><h6 class="grupo">Identificação</h6></div>
-					<div class="col-md-6 linha_branco">0</div>
+                    <div class="col-md-6 linha_branco">0</div>
 				</div>
 				<div class="col-md-1 linha_branco" >0</div>
-				<div class="row">
+
+                <div class="row">
 					<div class="col-md-2">
 
                         <style>
@@ -94,17 +137,20 @@
                         </div>
 
                         <script>
-                            $("#editar_imagem").click(function () {
-                                $("#file-input").trigger('click');
+                            $( document ).ready(function() {
+                                $("#editar_imagem").click(function () {
+                                    $("#file-input").trigger('click');
+                                });
                             });
                         </script>
 
 
 
 					</div>
-
+                    <div class="col-md-2 col-md-offset-1"><h6 class="grupo">Identificação</h6></div>
+                    <div class="col-md-6 linha_branco" >0</div>
 					<div class="row">
-						<div class="col-md-2 col-md-offset-1" style="padding-left: 5px;">
+						<div class="col-md-2 col-md-offset-1" style="padding-left: 10px;">
 							<label class="cor_label">Primeiro nome<span class="cor_asterisco">*</span></label>
                             <input id="primeiro_nome" type="text"
                                    name="primeiro_nome" value="{{app.user.firstname}}" required>
@@ -120,7 +166,7 @@
 						</div>
 
 						<div class="col-md-1 linha_branco">0</div>
-						<div class="col-md-2" style="padding-left: 5px;">
+						<div class="col-md-2" style="padding-left: 10px;">
 							<label class="cor_label">Cargo<span class="cor_asterisco">*</span></label>
                             <div class="styled-select" >
                                 <select id="cargo" name="cargo">
@@ -152,7 +198,7 @@
 					</div>
 				</div>
 
-				<div class="row" style="border: 1px solid #dfdfdf;"></div>
+				<div class="row" style="border-bottom: 1px solid #dfdfdf;"></div>
 				<div class="row linha_branco">0</div>
 				<div class="row linha_branco">0</div>
 				<div class="row">
@@ -160,7 +206,7 @@
 					<div class="col-md-4"><h6 class="grupo">Dados pessoais (complementares)</h6></div>
 					<div class="col-md-4 linha_branco">0</div>
 				</div>
-
+                <div class="row linha_branco">0</div>
 				<div class="row">
 					<div class="col-md-4 linha_branco">0</div>
 
@@ -268,8 +314,8 @@
                         <input id="cidade" placeholder="Cidade" type="text" maxlength="100" name="cidade" value="">
                     </div>
                 </div>
-
-				<div class="row" style="border: 1px solid #dfdfdf;"></div>
+                <div class="row linha_branco">0</div>
+				<div class="row" style="border-bottom: 1px solid #dfdfdf;margin:0;"></div>
 				<div class="row linha_branco">0</div>
 
 				<div class="row">
@@ -279,7 +325,6 @@
 							<span>Guardar e sair</span>
 						</button>
 					</div>
-					<div class="col-md-1 linha_branco">0</div>
 					<div class="col-md-2 ">
 						<button id="cancelar" class="buttons-center hollow-button">
 							<img src="/bundles/app/images/close.png" alt="">

@@ -530,7 +530,7 @@ class TAmostrasAdminCustomController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Atualizar'));
+        $form->add('submit', 'submit', array('label' => 'Atualizar','attr'=> array('class'=>'celso')));
 
         return $form;
     }
