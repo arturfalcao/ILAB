@@ -205,19 +205,21 @@
 }
 
 .buttons-center .hollow-button:hover, .buttons-center .hollow-button:active, .buttons-center .hollow-button:focus {
-    background-color: #65c0b2;
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    /*-khtml-opacity: 0.8;*/
-    -moz-opacity: 0.8;
+    background-color: white!important;
+    color: #65c0b2!important;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
 }
+
 
 #alt_password
 {
     height: 2.5rem !important;
     width: 100%;
     outline: none!important;
+    background-color: white;
 }
 
 #data_dia:focus{
@@ -492,12 +494,14 @@
 #g_sair{
     outline: none!important;
     padding:10px;
+    background-color: white;
 }
 
 
 #cancelar {
     outline: none!important;
     padding:10px;
+    background-color: white;
 }
 
 .hollow-button span, .hollow-button img {
@@ -639,6 +643,7 @@
     padding-right: 5px;
     padding-left: 5px;
     outline: none!important;
+    background-color: white;
 }
 
 #fecha_botao {
@@ -648,6 +653,9 @@
 
 #fecha_botao:hover, #fecha_botao:focus {
     opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
 }
 
 #cancelar_1
@@ -656,6 +664,7 @@
     padding-right: 5px;
     padding-left: 5px;
     outline: none!important;
+    background-color: white;
 }
 
 
@@ -689,26 +698,41 @@
 #alt_password:hover, #alt_password:focus{
     color: #65c0b2!important;
     opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
 }
 
 #g_sair_1:hover, #g_sair_1:focus{
     color: #65c0b2!important;
     opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
 }
 
 #g_sair:hover, #g_sair:focus{
     color: #65c0b2!important;
     opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
 }
 
 #cancelar:hover, #cancelar:focus{
     color: #65c0b2!important;
     opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
 }
 
 #cancelar_1:hover, #cancelar_1:focus{
     color: #65c0b2!important;
     opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
 }
 
 .linha_branco{

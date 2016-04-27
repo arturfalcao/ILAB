@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/chat_agenda.css') }}" />
+
 {% endstylesheets %}
  
 {% block javascripts %}
@@ -27,6 +29,9 @@
 {% endblock %}
 
 <link rel="stylesheet" type="text/css" href="/bundles/app/css/calendario.css" />
+
+
+<link rel="stylesheet" type="text/css" href="/bundles/app/css/chat_agenda.css" />
 
 {% block scripts -%}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
@@ -73,53 +78,8 @@
                                 </div>
 
                                 {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
-                                <style>
-                                    .fc-row.fc-widget-header{
-                                        border-right-width: 0!important;
-                                    }
 
-                                    .fc-row.fc-week.fc-widget-content{
-                                        border-color: #eee!important;
-                                    }
 
-                                    .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active{
-                                        z-index: 0!important;
-                                    }
-
-                                    #tab_sidebar a
-                                    {
-                                        cursor: pointer!important;
-                                        color: black;
-                                        text-decoration: none!important;
-                                        background-color: white!important;
-                                    }
-
-                                    #tab_sidebar a:hover{
-                                        background-color: transparent!important;
-                                        -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-                                        -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-                                        box-shadow: inset 0 -2px 0 #139c9b!important;
-                                        color: #139c9b!important;
-                                    }
-
-                                    #tab_sidebar a:focus{
-                                        background-color: transparent!important;
-                                        -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-                                        -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-                                        box-shadow: inset 0 -2px 0 #139c9b!important;
-                                        color: #139c9b!important;
-                                    }
-
-                                    .loading
-                                    {
-                                        margin-top: 10px!important;
-                                    }
-
-                                    p.agenda {
-                                        margin-left: 35px !important;
-                                        color: black;
-                                    }
-                                </style>
 
                             </div>
                         </div>
@@ -135,57 +95,6 @@
         overflow: hidden;
     }
 </style>
-{#<div class="container">
-
-    <div class="col-md-12">{% include 'default/menu.html.twig' %}</div>
-
-    <div class=" large-15 columns">
-        <div class="row">
-            <div class="large-16 columns">
-                {% include 'default/topheader.html.twig' %}
-            </div>
-            </div>
-        </div>#}
-    {#<div class="row">
-        <div class="large-1 columns " style="z-index:5;height: auto;box-shadow: 1px 1px 10px #888888;">
-            {% include 'default/menu.html.twig' %}
-        </div>
-        <div class=" large-15 columns">
-            <div class="row">
-                <div class="large-16 columns">
-                    {% include 'default/topheader.html.twig' %}
-                    <style>
-
-
-
-
-                    </style>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-15 columns no-padding" style="margin-top:120px;">
-                    {% block body%}
-                        <!-- a minha Angular App -->
-                        <div ng-app="CalendarModule">
-                            <div ng-controller="CalendarCtrl" >
-                                <div id="cal_new_event" style="display: none;">
-                                    {{ render(controller('AppBundle:Agenda:newshort')) }}
-                                </div>
-                                {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
-                            </div>
-                        </div>
-                    {% endblock %}
-                </div>
-                <div class="large-0 sidebarright columns ">
-
-                </div>
-            </div>
-        </div>
-    </div>#}
-{#</div>#}
-
-
 
 
 <script>

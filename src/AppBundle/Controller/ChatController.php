@@ -295,7 +295,6 @@ class ChatController extends Controller
 
         $info = [];
         $i = 0;
-        $conn = $em->getConnection();
         $repository = $this->getDoctrine()->getRepository('AppBundle:FosUserUser');
 
         foreach ($dql as $histchat) {
@@ -337,19 +336,18 @@ class ChatController extends Controller
         $n_lida = 1;
 
         $histchat = new HistChat();
-      $histchat->setIdEmissor($id_emissor);
-      $histchat->setIdReceptor($id_receptor);
-      $histchat->setDataEscritaMensagem($data_mensagem);
-      $histchat->setLida($n_lida);
-      $histchat->setMensagem($mensagem);
+        $histchat->setIdEmissor($id_emissor);
+        $histchat->setIdReceptor($id_receptor);
+        $histchat->setDataEscritaMensagem($data_mensagem);
+        $histchat->setLida($n_lida);
+        $histchat->setMensagem($mensagem);
 
-      $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-      $em->persist($histchat);
+        $em->persist($histchat);
 
-      $em->flush();
-
-
+        $em->flush();
+        
     return new Response(json_encode($mensagem));
     }
 

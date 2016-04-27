@@ -9801,3 +9801,152 @@ th.hide-for-touch {
   vertical-align: middle;
   margin-right: 0.625rem;
 }
+
+input[type="text"]{
+    height: 2.5rem!important;
+    width: 100%;
+}
+
+.select2-container{
+    width: 100%;
+}
+
+.select2-container .select2-choice{
+    height: 2.5rem!important;
+}
+
+.select2-drop{
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    border-radius: 0 0 2px 2px;
+}
+
+.select2-container .select2-choice > .select2-chosen{
+    padding-top: 5px;
+}
+
+.select2-container .select2-choice abbr{
+    top: 11px;
+}
+
+.select2-container .select2-choice{
+    background-image: none!important;
+
+}
+
+.select2-drop-active{
+    border:1px solid #9993a3!important;
+}
+
+.select2-container .select2-choice .select2-arrow{
+    top: 4px !important;
+    background: white none !important;
+    border-left:none!important;
+}
+
+.select2-container-active .select2-choice,
+.select2-container-active .select2-choices
+{
+    border: 1px solid #9993a3!important;
+    background-color: white!important;
+    box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+}
+
+select{
+  background: url('/bundles/app/images/select-arrow.png') no-repeat 97% 50%!important;
+  outline: none!important;
+  height: 2.5rem!important;
+  border: 1px solid #9993a3!important;
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: none!important;
+}
+
+.form-control:focus {
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+}
+
+
+button{
+  padding: 10px 35px 10px 25px;
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid #65c0b2;
+  color: #65c0b2!important;
+  border-radius: 2px;
+}
+
+button:hover, button:focus{
+  color: #65c0b2!important;
+  background: rgba(255, 255, 255, 0);
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  -moz-opacity: 0.7;
+}
+
+
+table thead{
+    background: white;
+    border: none;
+}
+
+.table-bordered>thead>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td{
+    border:none;
+    border-top: none!important;
+}
+
+.table-bordered{
+    border: none;
+}
+
+.table-bordered>tbody>tr>td{
+    border-top:1px solid #DFDFDF!important;
+}
+
+table tr th, table tr td{
+    color:#263238;
+    font-size: 0.75rem;
+
+}
+
+.table>tbody>tr>td{
+    padding: 22px 7px 14px 0;
+}
+
+.btn{
+    margin-top: -10px;
+}
+
+.btn-default{
+    background-color: transparent!important;
+    border:none!important;
+    outline: none;
+}
+
+.btn-default:hover{
+    background-color: transparent!important;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    -moz-opacity: 0.7;
+}
+
+.icheckbox_minimal{
+    margin-left:14px;
+}
+
+.bottom-buttons > a{
+    text-decoration: none;
+}
+
+table tr.even, table tr.alt, table tr:nth-of-type(even) {
+    background: #FFFFFF;
+}
+
+::selection{
+    background: #4cc3b8;
+    color:white;
+}

@@ -59,6 +59,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/chat_agenda.css') }}" />
 {% endblock %}
 
 <div class="container-fluid">
@@ -67,45 +68,12 @@
         <div class="large-1 columns no-padding" style="height:100vh;border: 1px solid #DFDFDF;z-index: 5;padding: 0">
         {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
+        <div class=" large-15 columns no-padding">
             <div class="row">
-                <div class="large-16 columns">
+                <div class="large-16 columns ">
 
                     {% include 'default/topheader_ent_resultados.html.twig' %}
-                    <style>
-                        #tab_sidebar a
-                        {
-                            cursor: pointer!important;
-                            color: black;
-                            text-decoration: none!important;
-                            background-color: white!important;
-                        }
 
-                        #tab_sidebar a:hover{
-                            background-color: transparent!important;
-                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            box-shadow: inset 0 -2px 0 #139c9b!important;
-                            color: #139c9b!important;
-                        }
-
-                        #tab_sidebar a:focus{
-                            background-color: transparent!important;
-                            -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-                            box-shadow: inset 0 -2px 0 #139c9b!important;
-                            color: #139c9b!important;
-                        }
-
-                        .loading
-                        {
-                            margin-top: 10px!important;
-                        }
-
-                        #chat_tab{
-                            margin-right: 0!important;
-                        }
-                    </style>
                 </div>
             </div>
 
@@ -113,17 +81,19 @@
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
-
+            <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row">
 
-                <div class="large-13 columns" style="">
+                <div class="large-16 columns no-padding" >
 
                     {% block actions %}
-                        <div class="form-group">
+
+
+                        <div class="form-group large-12 push-1">
                             <label for="inputdefault">ID Amostra</label>
                             <input class="form-control" id="Amostra_id" type="text">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group large-12 push-1">
                             <label for="parametro_ent_resultados">Parametro</label>
                             <select class="parametro_ent_resultados" data-placeholder="Seleccione um Parametro" >
                                 <option></option>
@@ -132,10 +102,19 @@
                                 {% endfor %}
                             </select>
                         </div>
-                        <div class="form-group">
-                            <a href="#" onclick="getdata()" class="button right">Pesquisar</a>
-                            <a href="#" onclick="savedata()" class="button right">Salvar</a>
+
+                        <div class="row linha_branco"><div class="col-md-12">0</div></div>
+                        <div class="row linha_branco"><div class="col-md-12">0</div></div>
+                        <div class="row" style="border-bottom: 1px solid #dfdfdf"></div>
+                        <div class="row linha_branco"><div class="col-md-12">0</div></div>
+
+                        <div class="bottom-buttons buttons-center">
+                            <a href="#" onclick="getdata()" class="hollow-button">Pesquisar</a>
+                            <a href="#" onclick="savedata()" class="hollow-button">Salvar</a>
                         </div>
+
+                        <div class="row linha_branco"><div class="col-md-12">0</div></div>
+                        <div class="row linha_branco"><div class="col-md-12">0</div></div>
                     {% endblock %}
                     {% block tab_menu %}
                     {% endblock %}
@@ -145,14 +124,13 @@
                     {% endblock %}
 
                     {% block list_table %}
-                        <div id="tablecontent"></div>
+                        <div id="tablecontent" class="push-1"></div>
 
                     {% endblock %}
                     {% block list_filters %}
                     {% endblock %}
                 </div>
-                <div class="large-3 columns">
-                </div>
+
             </div>
         </div>
     </div>

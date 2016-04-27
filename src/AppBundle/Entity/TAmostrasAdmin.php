@@ -75,22 +75,24 @@ class TAmostrasAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+        /* QUAL CONCLUSÂO REMOVER*/
         $listMapper
-            ->add('fnId')
-            ->add('ftEstado')
-            ->add('fbRelatorioemitido')
-            ->add('serie')
-            ->add('fnProduto')
-            ->add('fdColheita')
-            ->add('fdConclusao')
-            ->add('fnCliente')
-            ->add('fnLocalcolheita')
-            ->add('ftConclusao')
+            ->add('fnId','bigint',array('label' => 'ID'))
+            ->add('ftEstado',null,array('label' => 'Estado'))
+            ->add('fbRelatorioemitido','boolean', array('label' => 'Relatório') )
+            ->add('serie','string',array('label' => 'Série'))
+            ->add('fnProduto',null,array('label' => 'Produto'))
+            ->add('fdColheita','datetime',array('label' => 'Colheita'))
+            //->add('fdConclusao','datetime',array('label' => 'Conclusão'))
+            ->add('fnCliente',null,array('label' => 'Cliente'))
+            ->add('fnLocalcolheita',null,array('label' => 'Local da Colheita'))
+            ->add('ftConclusao','string',array('label' => 'Conclusão'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
+
                 )
             ))
         ;

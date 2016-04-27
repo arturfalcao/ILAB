@@ -66,7 +66,8 @@ $( document ).ready(function() {
       var html;
       var ok;
       var m;
-      $('#tabs-1').append("<div class='loading'></div>");
+      var tabs_1 = $('#tabs-1');
+      tabs_1.append("<div class='loading' style='margin-top:10px;'></div>");
       $('.loading').show();
       // INICIO AJAX - responsável por buscar os eventos associados da agenda e da tamostras
       $.ajax({
@@ -75,7 +76,7 @@ $( document ).ready(function() {
           data: {},
           success: function(data) {
               var arr = $.parseJSON(data);
-              $( "#tabs-1" ).html('');
+              tabs_1.html('');
               
               
               if(arr.length != 0)
@@ -94,8 +95,8 @@ $( document ).ready(function() {
                         ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                         html += ok; 
                         html += "</div>";
-                        html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';                                    
-                        $('#tabs-1').append(html);
+                        html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';
+                          tabs_1.append(html);
                         if(value.done==1)
                         {
                           m = 'label[for="' + value.id +'"]';
@@ -111,8 +112,8 @@ $( document ).ready(function() {
                         ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                         html += ok; 
                         html += "</div>";
-                        html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';                       
-                        $('#tabs-1').append(html);
+                        html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';
+                          tabs_1.append(html);
                         if(value.done==1)
                         {
                           m = 'label[for="' + value.id +'"]';

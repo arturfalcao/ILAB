@@ -327,9 +327,9 @@ class TAmostrasAdminCustomController extends Controller
 
                     }
                 }
-                $texto = "Importação realizada com sucesso";
+                $texto = "ImportaÃ§Ã£o realizada com sucesso";
             } catch (Exception $e) {
-                $texto = "Falha na importação por favor valide os dados";
+                $texto = "Falha na importaÃ§Ã£o por favor valide os dados";
             }
         }
         return $this->render(
@@ -474,15 +474,11 @@ class TAmostrasAdminCustomController extends Controller
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
         $entity = $em->getRepository('AppBundle:TAmostras')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find TAmostras entity.');
         }
-
         $deleteForm = $this->createDeleteForm($id);
-
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
@@ -499,9 +495,7 @@ class TAmostrasAdminCustomController extends Controller
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-
         $entity = $em->getRepository('AppBundle:TAmostras')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find TAmostras entity.');
         }
@@ -559,9 +553,6 @@ class TAmostrasAdminCustomController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('tamostras_edit', array('id' => $id)));
         }
-
-
-
         return array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
