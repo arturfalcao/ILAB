@@ -200,28 +200,23 @@ section.login p {
 }
 
 .sonata-ba-filter .select2-container{
-    width: 100px !important;
+    width: 100% !important;
     float: left;
 }
 
 .sonata-ba-filter input{
-    width: 100px !important;
+    width: 100% !important;
     float: left;
 }
 
 .sonata-ba-filter label{
-    width: 100px !important;
+    width: 100% !important;
     float: left;
 }
 
 .sonata-ba-filter .form-group{
     float: left;
 }
-.sonata-ba-filter label{
-    width: 100px !important;
-    float: left;
-}
-
 
 
 .mainmenu, .submenu {
@@ -511,9 +506,7 @@ section.login p {
     display: none;
 }
 
-.select2-container {
-    min-width: 300px;
-}
+
 
 .mce-tinymce {
     float: left !important;
@@ -599,9 +592,7 @@ section.login p {
     border-top-left-radius: 2px!important;
 }
 
-.select2-container {
-    min-width: 200px;
-}
+
 
 .input-group-addon{
     background-color: transparent;

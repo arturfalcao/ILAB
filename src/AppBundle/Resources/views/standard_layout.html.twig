@@ -167,7 +167,7 @@ file that was distributed with this source code.
 
                 {% endblock sonata_header %}
             </div>
-            <div class="large-15 columns ">
+            <div class="large-15 columns no-padding ">
                 {% block sonata_wrapper %}
                     <div class=" ">
                         <aside class="">
@@ -201,17 +201,22 @@ file that was distributed with this source code.
                                             <div class="sonata-ba-form">{{ _form|raw }}</div>
                                         {% endif %}
 
-                                        {% if _list_table is not empty or _list_filters is not empty %}
+                                        {% if _list_filters is not empty %}
+                                           <div class="row">
+                                               {% if _list_filters|trim %}
+                                                   <div class="sonata-ba-filter col-md-16">
+                                                       {{ _list_filters|raw }}
+                                                   </div>
+                                               {% endif %}
+                                           </div>
+                                        {% endif %}
+
+                                        {% if _list_table is not empty%}
                                             <div class="row">
-                                                <div class="sonata-ba-list {% if _list_filters|trim %}col-md-10{% else %}col-md-12{% endif %}">
+                                                <div class="sonata-ba-list col-md-16 " style="padding:0 20px">
                                                     {{ _list_table|raw }}
                                                 </div>
 
-                                                {% if _list_filters|trim %}
-                                                    <div class="sonata-ba-filter col-md-2">
-                                                        {{ _list_filters|raw }}
-                                                    </div>
-                                                {% endif %}
                                             </div>
                                         {% endif %}
                                     {% endblock sonata_admin_content %}
