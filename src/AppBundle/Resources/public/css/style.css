@@ -293,10 +293,12 @@ section.login p {
 
 }
 
+/*
 #logo{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+*/
 
 
 .mainmenu a.menu_planeamento{
@@ -578,11 +580,13 @@ section.login p {
 #Novo_Planeamento_submit{
     color: #65c0b2!important;
     background: white!important;
+    outline: none;
 }
 
 #form_submit{
     color: #65c0b2!important;
     background: white!important;
+    outline:none;
 }
 
 #datetimepicker1 > input, #datetimepicker2 > input{
@@ -591,8 +595,6 @@ section.login p {
     border-bottom-left-radius: 2px!important;
     border-top-left-radius: 2px!important;
 }
-
-
 
 .input-group-addon{
     background-color: transparent;

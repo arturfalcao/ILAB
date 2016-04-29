@@ -14,12 +14,13 @@
         <link href="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.css') }}" rel="stylesheet">
         <script>
             $(function() {
-                $( "#tabs_Amostra" ).tabs( { active: 0 });
-                $( "#tabs2" ).tabs();
+                $( "#tabs_Amostra" ).tabs( { active: 2 });
+                $( "#tabs2" ).tabs({ active: 2 });
 
             });
         </script>
         <script>
+
             var rowIds = [];
             var selectedRows = [];
             var _lastSelectedRow = 0;
@@ -513,11 +514,21 @@
                 GetAllTecnica();
             });
         </script>
+
+
+        <style>
+
+        </style>
+
+
+
+
         <div id="tabs_Amostra">
             <ul>
-                <li><a href="#tabs-1">Identificação</a></li>
-                <li><a href="#tabs-2">Parâmetros</a></li>
                 <li><a href="#tabs-3">Ciclo de Vida</a></li>
+                <li><a href="#tabs-2">Parâmetros</a></li>
+                <li><a href="#tabs-1">Identificação</a></li>
+
             </ul>
             <div id="tabs-1">
                 <form class=""
@@ -539,7 +550,7 @@
                         {% block sonata_tab_content %}
                             {% set has_tab = ((admin.formtabs|length == 1 and admin.formtabs|keys[0] != 'default') or admin.formtabs|length > 1 ) %}
 
-                            <div class="col-md-12">
+                            <div class="col-md-13">
                                 {% if has_tab %}
                                     <div class="nav-tabs-custom">
                                         <ul class="nav nav-tabs" role="tablist">
@@ -547,6 +558,7 @@
                                                 <li{% if loop.index == 1 %} class="active"{% endif %}><a href="#tab_{{ loop.index }}" data-toggle="tab"><span class="glyphicon glyphicon-exclamation-sign has-errors hide"></span> {{ admin.trans(name, {}, form_tab.translation_domain) }}</a></li>
                                             {% endfor %}
                                         </ul>
+
                                         <div class="tab-content">
                                             {% for code, form_tab in admin.formtabs %}
                                                 <div class="tab-pane fade{% if loop.first %} in active{% endif %}" id="tab_{{ loop.index }}">
@@ -563,6 +575,9 @@
                                                 </div>
                                             {% endfor %}
                                         </div>
+
+
+
                                     </div>
                                 {% else %}
 
@@ -577,7 +592,7 @@
                     {{ form_rest(form) }}
 
                     {% block formactions %}
-                        <div class="well well-small form-actions">
+                        <div class="well well-small form-actions text-center">
                             {% if app.request.isxmlhttprequest %}
                                 {% if admin.id(object) is not null %}
 
@@ -597,21 +612,22 @@
 
                                     <button type="submit" class="btn btn-success" name="btn_update_and_edit"><i class="fa fa-save"></i> {{ 'btn_update_and_edit_again'|trans({}, 'SonataAdminBundle') }}</button>
                                     {% if admin.hasroute('list') and admin.isGranted('LIST') %}
-                                        <button type="submit" class="btn btn-success" name="btn_update_and_list"><i class="fa fa-save"></i> <i class="fa fa-list"></i> {{ 'btn_update_and_return_to_list'|trans({}, 'SonataAdminBundle') }}</button>
+                                        <button type="submit" class="btn btn-success" name="btn_update_and_list"><i class="fa fa-chevron-circle-left"></i> {{ 'btn_update_and_return_to_list'|trans({}, 'SonataAdminBundle') }}</button>
                                     {% endif %}
 
                                     {% if admin.hasroute('delete') and admin.isGranted('DELETE', object) %}
-                                        <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
 
                                         {% set currentPath = path(app.request.attributes.get('_route'),
                                         app.request.attributes.get('_route_params')) %}
 
-                                        <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Gerar lista de trabalho</a>
-                                        <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Autorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Desautorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Cancelar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-minus-circle"></i> Emitir Relatorio </a>
-                                        <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-minus-circle"></i> Notificar Cliente </a>
+                                        <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-list"></i> Gerar lista de trabalho</a>
+                                        <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-check-circle"></i> Autorizar </a>
+                                        <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
+                                        <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-ban"></i> Cancelar </a>
+                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-file-text"></i> Emitir Relatorio </a>
+                                        <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-envelope"></i> Notificar Cliente </a>
+
+                                        <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
 
 
                                     {% endif %}
@@ -624,7 +640,7 @@
                                         <button class="btn btn-success" type="submit" name="btn_create_and_edit"><i class="fa fa-save"></i> {{ 'btn_create_and_edit_again'|trans({}, 'SonataAdminBundle') }}</button>
                                     {% endif %}
                                     {% if admin.hasroute('list') and admin.isGranted('LIST') %}
-                                        <button type="submit" class="btn btn-success" name="btn_create_and_list"><i class="fa fa-save"></i> <i class="fa fa-list"></i> {{ 'btn_create_and_return_to_list'|trans({}, 'SonataAdminBundle') }}</button>
+                                        <button type="submit" class="btn btn-success" name="btn_create_and_list"><i class="fa fa-chevron-circle-left"></i> {{ 'btn_create_and_return_to_list'|trans({}, 'SonataAdminBundle') }}</button>
                                     {% endif %}
                                     <button class="btn btn-success" type="submit" name="btn_create_and_create"><i class="fa fa-plus-circle"></i> {{ 'btn_create_and_create_a_new_one'|trans({}, 'SonataAdminBundle') }}</button>
                                 {% endif %}
@@ -657,13 +673,13 @@
                     <div class="col-md-6">
                         <div id="tabs2">
                             <ul>
-                                <li><a href="#tabs-4">{{ "Geral"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
-                                <li><a href="#tabs-5">{{ "Resultado"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
-                                <li><a href="#tabs-6">{{ "Ciclo de Vida"|convert_encoding('UTF-8', ' iso-8859-1') }}</a></li>
+                                <li><a href="#tabs-6">Ciclo de Vida</a></li>
+                                <li><a href="#tabs-5">Resultado</a></li>
+                                <li><a href="#tabs-4">Geral</a></li>
                             </ul>
                             <div id="tabs-4">
 
-                                <h3>Execução:</h3>
+                                <p>Execução:</p>
                                 <div class="form-group">
                                     <label for="_nomeparametro">ID</label>
                                     <input type="text" class="form-control" id="_idparametroData" disabled>
@@ -678,7 +694,7 @@
                                     <div class="familiadiv"></div>
                                 </div>
 
-                                <h3>Execução:</h3>
+                                <p>Execução:</p>
                                 <div class="form-group">
                                     <label for="laboratoriodiv">Laboratorio</label>
                                     <div class="laboratoriodiv"></div>
@@ -697,7 +713,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h3>Preço:</h3>
+                                    <p>Preço:</p>
                                     <label for="_compra">Compra</label>
                                     <input type="text" class="form-control" id="_compra" >
                                     <label for="_venda">Venda</label>
@@ -706,14 +722,14 @@
                                     <input type="text" class="form-control" id="_fator" >
                                 </div>
                                 <div class="form-group">
-                                    <h3>Acreditação Amostragem:</h3>
+                                    <p>Acreditação Amostragem:</p>
                                     <label for="_confirmacao">Ambito Interno</label>
                                     <input type="checkbox" class="form-control" id="_ambinterno" >
                                     <label for="_contraanalise">Ambito Externo</label>
                                     <input type="checkbox" class="form-control" id="_ambexterno" >
                                 </div>
                                 <div class="form-group">
-                                    <h3>Acreditação Determinação:</h3>
+                                    <p>Acreditação Determinação:</p>
                                     <label for="_confirmacao">Ambito Interno</label>
                                     <input type="checkbox" class="form-control" id="_deterinterno" >
                                     <label for="_contraanalise">Ambito Externo</label>
@@ -727,7 +743,7 @@
 
                             </div>
                             <div id="tabs-5">
-                                <h3>Resultado:</h3>
+                                <p>Resultado:</p>
                                 <div class="checkbox disabled">
                                     <label>
                                         <input type="checkbox" id="_incluirelatorio" value="" disabled>
@@ -781,7 +797,7 @@
             </div>
             <div id="tabs-3">
                 <div class="table-padding">
-                    <table class="hover table_ciclo">
+                    <table class="hover table_ciclo large-15">
                         <thead>
                         <tr>
                             <th width="100">Estado</th>
@@ -798,10 +814,16 @@
         </div>
 
 
+    <style>
 
+
+    </style>
 
     {% endif%}
 
     {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}
 
+
+
 {% endblock %}
+
