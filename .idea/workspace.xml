@@ -2,41 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/public/images/ipac.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/public/images/logopimenta.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_edit_form.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_edit_form_macro.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_filter_field.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/EntradaResultados/EntradaResultados.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/EntradaResultados/EntradaResultados.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasalimentosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasalimentosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TClientesAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TClientesAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosamostraAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosamostraAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/base_edit_form.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/base_edit_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/RegrasFormatacao/base_edit_form.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/RegrasFormatacao/base_edit_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_list.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_list.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/SONATA/base_list.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/SONATA/base_list.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/edit.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/importacao.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/importacao.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/perfil.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/perfil.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/teste.html" afterPath="$PROJECT_DIR$/web/teste.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -991,7 +960,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="22" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17738095" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
