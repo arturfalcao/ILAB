@@ -2,40 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/chat_agenda.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/images/logopimenta.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AppKernel.php" afterPath="$PROJECT_DIR$/app/AppKernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/EntradaResultados/EntradaResultados.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/EntradaResultados/EntradaResultados.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ILAB.iml" afterPath="$PROJECT_DIR$/.idea/ILAB.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/TAmostrasType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/TAmostrasType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/calendario.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/calendario.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/edit.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/new.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/perfil.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/perfil.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_importacao.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_importacao.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,36 +37,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="156" column="46" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="46" />
+              <caret line="156" column="35" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="35" />
               <folding>
-                <marker date="1461198004907" expanded="true" signature="1590:1639" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="1902:3131" placeholder="INSERT INTO ..." />
-                <marker date="1461198004907" expanded="true" signature="2420:3131" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="3305:3470" placeholder="UPDATE t_par..." />
-                <marker date="1461198004907" expanded="true" signature="4482:4531" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="4732:5961" placeholder="INSERT INTO ..." />
-                <marker date="1461198004907" expanded="true" signature="5250:5961" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="6135:6300" placeholder="UPDATE t_par..." />
-                <marker date="1461198004907" expanded="true" signature="7691:7740" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="7941:9170" placeholder="INSERT INTO ..." />
-                <marker date="1461198004907" expanded="true" signature="8459:9170" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="9344:9509" placeholder="UPDATE t_par..." />
-                <marker date="1461198004907" expanded="true" signature="13430:14736" placeholder="INSERT INTO ..." />
-                <marker date="1461198004907" expanded="true" signature="14026:14736" placeholder="SELECT aa.fn..t_parametros..." />
-                <marker date="1461198004907" expanded="true" signature="14956:16087" placeholder="INSERT INTO ..." />
-                <marker date="1461198004907" expanded="true" signature="15474:16087" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-                <marker date="1461198004907" expanded="true" signature="16239:16313" placeholder="UPDATE t_par..." />
-                <marker date="1461198004907" expanded="true" signature="16510:16703" placeholder="UPDATE t_par..." />
-                <marker date="1461198004907" expanded="true" signature="18191:18288" placeholder="UPDATE t_res..." />
-                <marker date="1461198004907" expanded="true" signature="19066:19115" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="19332:20514" placeholder="INSERT INTO ..." />
-                <marker date="1461198004907" expanded="true" signature="19850:20514" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1461198004907" expanded="true" signature="20689:20885" placeholder="UPDATE t_par..." />
-                <marker date="1461198004907" expanded="true" signature="30162:30259" placeholder="UPDATE t_res..." />
+                <marker date="1461796266717" expanded="true" signature="1590:1639" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="1902:3131" placeholder="INSERT INTO ..." />
+                <marker date="1461796266717" expanded="true" signature="2420:3131" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="3305:3470" placeholder="UPDATE t_par..." />
+                <marker date="1461796266717" expanded="true" signature="4482:4531" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="4732:5961" placeholder="INSERT INTO ..." />
+                <marker date="1461796266717" expanded="true" signature="5250:5961" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="6135:6300" placeholder="UPDATE t_par..." />
+                <marker date="1461796266717" expanded="true" signature="7691:7740" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="7941:9170" placeholder="INSERT INTO ..." />
+                <marker date="1461796266717" expanded="true" signature="8459:9170" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="9344:9509" placeholder="UPDATE t_par..." />
+                <marker date="1461796266717" expanded="true" signature="13433:14739" placeholder="INSERT INTO ..." />
+                <marker date="1461796266717" expanded="true" signature="14029:14739" placeholder="SELECT aa.fn..t_parametros..." />
+                <marker date="1461796266717" expanded="true" signature="14959:16090" placeholder="INSERT INTO ..." />
+                <marker date="1461796266717" expanded="true" signature="15477:16090" placeholder="SELECT aa.fn..t_parametrosamostra..." />
+                <marker date="1461796266717" expanded="true" signature="16242:16316" placeholder="UPDATE t_par..." />
+                <marker date="1461796266717" expanded="true" signature="16513:16706" placeholder="UPDATE t_par..." />
+                <marker date="1461796266717" expanded="true" signature="18194:18291" placeholder="UPDATE t_res..." />
+                <marker date="1461796266717" expanded="true" signature="19069:19118" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="19335:20517" placeholder="INSERT INTO ..." />
+                <marker date="1461796266717" expanded="true" signature="19853:20517" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+                <marker date="1461796266717" expanded="true" signature="20692:20888" placeholder="UPDATE t_par..." />
+                <marker date="1461796266717" expanded="true" signature="30165:30262" placeholder="UPDATE t_res..." />
               </folding>
             </state>
           </provider>
@@ -134,16 +108,16 @@
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="30" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="30" />
+              <caret line="170" column="13" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28555432">
+            <state vertical-scroll-proportion="0.0">
               <caret line="490" column="66" selection-start-line="490" selection-start-column="66" selection-end-line="490" selection-end-column="66" />
               <folding>
                 <marker date="1461756908974" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
@@ -243,14 +217,14 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/DependencyInjection/Configuration.php" />
         <option value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/edit.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
       </list>
     </option>
   </component>
@@ -267,10 +241,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1912" />
+    <option name="y" value="22" />
+    <option name="width" value="1696" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -299,6 +273,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,6 +302,86 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -370,8 +425,30 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,55 +474,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="TAmostrasAdminCustom" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -549,7 +582,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -578,10 +610,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\images" />
       <recent name="C:\wamp\www\lab\ILAB\app\Resources\public\images" />
       <recent name="C:\wamp\www\lab\ILAB\vendor\tecnickcom\tcpdf\examples\images" />
       <recent name="C:\wamp\www\lab\ILAB\app\Resources\SonataAdminBundle\views\CRUD" />
-      <recent name="C:\wamp\www\lab\ILAB\src\AppBundle\Resources\public\images" />
       <recent name="C:\wamp\www\lab\ILAB\app\Resources\views\default" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -647,13 +679,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="22" width="1696" height="1026" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17738095" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -663,6 +694,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -963,13 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.615385">
-          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/DependencyInjection/Configuration.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3128621">
@@ -996,39 +1021,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="156" column="46" selection-start-line="156" selection-start-column="46" selection-end-line="156" selection-end-column="46" />
-          <folding>
-            <marker date="1461198004907" expanded="true" signature="1590:1639" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="1902:3131" placeholder="INSERT INTO ..." />
-            <marker date="1461198004907" expanded="true" signature="2420:3131" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="3305:3470" placeholder="UPDATE t_par..." />
-            <marker date="1461198004907" expanded="true" signature="4482:4531" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="4732:5961" placeholder="INSERT INTO ..." />
-            <marker date="1461198004907" expanded="true" signature="5250:5961" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="6135:6300" placeholder="UPDATE t_par..." />
-            <marker date="1461198004907" expanded="true" signature="7691:7740" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="7941:9170" placeholder="INSERT INTO ..." />
-            <marker date="1461198004907" expanded="true" signature="8459:9170" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="9344:9509" placeholder="UPDATE t_par..." />
-            <marker date="1461198004907" expanded="true" signature="13430:14736" placeholder="INSERT INTO ..." />
-            <marker date="1461198004907" expanded="true" signature="14026:14736" placeholder="SELECT aa.fn..t_parametros..." />
-            <marker date="1461198004907" expanded="true" signature="14956:16087" placeholder="INSERT INTO ..." />
-            <marker date="1461198004907" expanded="true" signature="15474:16087" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-            <marker date="1461198004907" expanded="true" signature="16239:16313" placeholder="UPDATE t_par..." />
-            <marker date="1461198004907" expanded="true" signature="16510:16703" placeholder="UPDATE t_par..." />
-            <marker date="1461198004907" expanded="true" signature="18191:18288" placeholder="UPDATE t_res..." />
-            <marker date="1461198004907" expanded="true" signature="19066:19115" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="19332:20514" placeholder="INSERT INTO ..." />
-            <marker date="1461198004907" expanded="true" signature="19850:20514" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1461198004907" expanded="true" signature="20689:20885" placeholder="UPDATE t_par..." />
-            <marker date="1461198004907" expanded="true" signature="30162:30259" placeholder="UPDATE t_res..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1047,14 +1039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1070,9 +1054,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73464656">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="170" column="13" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28555432">
+        <state vertical-scroll-proportion="0.0">
           <caret line="490" column="66" selection-start-line="490" selection-start-column="66" selection-end-line="490" selection-end-column="66" />
           <folding>
             <marker date="1461756908974" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
@@ -1092,6 +1091,39 @@
             <marker date="1461756908974" expanded="true" signature="20553:20625" placeholder="UPDATE t_par..." />
             <marker date="1461756908974" expanded="true" signature="20815:20985" placeholder="UPDATE t_par..." />
             <marker date="1461756908974" expanded="true" signature="22457:22554" placeholder="UPDATE t_res..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="156" column="35" selection-start-line="156" selection-start-column="35" selection-end-line="156" selection-end-column="35" />
+          <folding>
+            <marker date="1461796266717" expanded="true" signature="1590:1639" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="1902:3131" placeholder="INSERT INTO ..." />
+            <marker date="1461796266717" expanded="true" signature="2420:3131" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="3305:3470" placeholder="UPDATE t_par..." />
+            <marker date="1461796266717" expanded="true" signature="4482:4531" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="4732:5961" placeholder="INSERT INTO ..." />
+            <marker date="1461796266717" expanded="true" signature="5250:5961" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="6135:6300" placeholder="UPDATE t_par..." />
+            <marker date="1461796266717" expanded="true" signature="7691:7740" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="7941:9170" placeholder="INSERT INTO ..." />
+            <marker date="1461796266717" expanded="true" signature="8459:9170" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="9344:9509" placeholder="UPDATE t_par..." />
+            <marker date="1461796266717" expanded="true" signature="13433:14739" placeholder="INSERT INTO ..." />
+            <marker date="1461796266717" expanded="true" signature="14029:14739" placeholder="SELECT aa.fn..t_parametros..." />
+            <marker date="1461796266717" expanded="true" signature="14959:16090" placeholder="INSERT INTO ..." />
+            <marker date="1461796266717" expanded="true" signature="15477:16090" placeholder="SELECT aa.fn..t_parametrosamostra..." />
+            <marker date="1461796266717" expanded="true" signature="16242:16316" placeholder="UPDATE t_par..." />
+            <marker date="1461796266717" expanded="true" signature="16513:16706" placeholder="UPDATE t_par..." />
+            <marker date="1461796266717" expanded="true" signature="18194:18291" placeholder="UPDATE t_res..." />
+            <marker date="1461796266717" expanded="true" signature="19069:19118" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="19335:20517" placeholder="INSERT INTO ..." />
+            <marker date="1461796266717" expanded="true" signature="19853:20517" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1461796266717" expanded="true" signature="20692:20888" placeholder="UPDATE t_par..." />
+            <marker date="1461796266717" expanded="true" signature="30165:30262" placeholder="UPDATE t_res..." />
           </folding>
         </state>
       </provider>

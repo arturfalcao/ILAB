@@ -154,7 +154,7 @@ class WorkListCTRLController extends Controller
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-        $pdf->SetHeaderData('logo_lab.png', 24, PDF_HEADER_TITLE.' 010', PDF_HEADER_STRING);
+        $pdf->SetHeaderData('logopimenta.png', 24, PDF_HEADER_TITLE.' 010', PDF_HEADER_STRING);
 
 // set header and footer fonts
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
