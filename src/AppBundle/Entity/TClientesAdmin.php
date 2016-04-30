@@ -17,15 +17,15 @@ class TClientesAdmin extends Admin
     {
         $datagridMapper
             ->add('fnId',null, array('label' => 'ID'))
-            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftCodigo',null, array('label' => 'Código'))
             ->add('ftNome',null, array('label' => 'Nome'))
-            ->add('ftAlias',null, array('label' => 'Alias'))
+            //->add('ftAlias',null, array('label' => 'Alias'))
             ->add('ftMorada',null, array('label' => 'Morada'))
             ->add('ftCodpostal',null, array('label' => 'Codigo Postal'))
             ->add('ftLocalidade',null, array('label' => 'Localidade'))
-            ->add('ftPais',null, array('label' => 'Pais'))
+            //->add('ftPais',null, array('label' => 'Pais'))
             ->add('ftTelefone',null, array('label' => 'Telefone'))
-            ->add('ftFax',null, array('label' => 'Fax'))
+            //->add('ftFax',null, array('label' => 'Fax'))
             ->add('ftEmail',null, array('label' => 'Email'))
         ;
     }

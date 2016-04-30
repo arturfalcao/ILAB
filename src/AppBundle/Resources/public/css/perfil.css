@@ -183,6 +183,7 @@
 
 .buttons-center {
     text-align: center;
+    outline: none;
 }
 
 .buttons-center .hollow-button {

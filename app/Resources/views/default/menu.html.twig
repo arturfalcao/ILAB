@@ -3,12 +3,28 @@
 {% endstylesheets %}
 
 
-
+<style>
+    .menu_hover{
+        display: none;
+    }
+    .menu_principal > ul > li:hover .menu_hover{
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color:#4cc3b8;
+        width: 3px;
+    }
+    
+</style>
 <div style="height:96.5%;">
     <a href="/app_dev.php/calendar" class=""><img id="logo" src="{{ asset('bundles/app/images/logo.png') }}" alt="ilab" /></a>
     <nav class="navigation menu_principal">
         <ul class="mainmenu">
-            <li><a href="" class="menu_planeamento"></a>
+            <li>
+                <div class="menu_hover"></div>
+                <a href="" class="menu_planeamento"></a>
                 <ul class="submenu">
                     <div class="subtitle">Planeamento de amostras</div>
                     <li><a href="{{path('calendar') }}" >
@@ -19,7 +35,9 @@
                     <li><a href="/app_dev.php/NovoPlaneamento/new">Adicionar Planeamento</a></li>
                 </ul>
             </li>
-            <li><a href="" class="menu_amostras"></a>
+            <li>
+                <div class="menu_hover"></div>
+                <a href="" class="menu_amostras"></a>
                 <ul class="submenu">
                     <div class="subtitle">Amostras</div>
                     <li><a href="{{path('admin_app_tamostras_list') }}" >Lista de Amostras</a></li>
@@ -29,13 +47,18 @@
                     <li><a href="{{ path('importacaoamostra') }}">Importação de Amostras</a></li>
                 </ul>
             </li>
-            <li><a href="" class="menu_resultados"></a>
+            <li>
+                <div class="menu_hover"></div>
+                <a href="" class="menu_resultados"></a>
                 <ul class="submenu">
                     <div class="subtitle">Resultados</div>
-                    <li><a href="{{ path('EntradaResultados') }}">Entrada de Resultados</a></li>
+                    <li>
+                        <a href="{{ path('EntradaResultados') }}">Entrada de Resultados</a>
+                    </li>
                 </ul>
             </li>
-            <li><a href="" class="menu_configuracoes"></a>
+            <li>
+                <div class="menu_hover"></div><a href="" class="menu_configuracoes"></a>
                 <ul class="submenu">
                     <div class="subtitle">Configurações</div>
                     <li><a href="{{path('admin_app_tclientes_list') }}" >Clientes</a></li>
@@ -51,7 +74,8 @@
 
                 </ul>
             </li>
-            <li><a href="" class="menu_listagens"></a>
+            <li>
+                <div class="menu_hover"></div><a href="" class="menu_listagens"></a>
                 <ul class="submenu">
                     <div class="subtitle">Listas de Trabalho</div>
                     <li><a href="{{path('admin_app_modeloslistas_list') }}" >Modelos de Listas</a></li>
@@ -59,6 +83,7 @@
                 </ul>
             </li>
             <li>
+                <div class="menu_hover"></div>
                 <a href="" class="menu_cartas"></a>
                 <ul class="submenu">
                     <div class="subtitle">Administração</div>

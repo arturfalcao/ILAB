@@ -16,12 +16,12 @@ class TAmostrasalimentosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
-            ->add('ftLote')
-            ->add('ftAcondicionamento')
-            ->add('ftValidade')
-            ->add('ftTemperatura')
-            ->add('ftFaseprocesso')
+            ->add('fnId',null,array('label'=>'ID'))
+            ->add('ftLote',null,array('label'=>'Lote'))
+            ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
+            ->add('ftValidade',null,array('label'=>'Validade'))
+            ->add('ftTemperatura',null,array('label'=>'Temperatura'))
+            ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
         ;
     }
 
@@ -31,12 +31,12 @@ class TAmostrasalimentosAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
-            ->add('ftLote')
-            ->add('ftAcondicionamento')
-            ->add('ftValidade')
-            ->add('ftTemperatura')
-            ->add('ftFaseprocesso')
+            ->add('fnId',null,array('label'=>'ID'))
+            ->add('ftLote',null,array('label'=>'Lote'))
+            ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
+            ->add('ftValidade',null,array('label'=>'Validade'))
+            ->add('ftTemperatura',null,array('label'=>'Temperatura'))
+            ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -53,12 +53,12 @@ class TAmostrasalimentosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnId')
-            ->add('ftLote')
-            ->add('ftAcondicionamento')
-            ->add('ftValidade')
-            ->add('ftTemperatura')
-            ->add('ftFaseprocesso')
+            ->add('fnId',null,array('label'=>'ID'))
+            ->add('ftLote',null,array('label'=>'Lote'))
+            ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
+            ->add('ftValidade',null,array('label'=>'Validade'))
+            ->add('ftTemperatura',null,array('label'=>'Temperatura'))
+            ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
         ;
     }
 
@@ -68,12 +68,12 @@ class TAmostrasalimentosAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('fnId')
-            ->add('ftLote')
-            ->add('ftAcondicionamento')
-            ->add('ftValidade')
-            ->add('ftTemperatura')
-            ->add('ftFaseprocesso')
+            ->add('fnId',null,array('label'=>'ID'))
+            ->add('ftLote',null,array('label'=>'Lote'))
+            ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
+            ->add('ftValidade',null,array('label'=>'Validade'))
+            ->add('ftTemperatura',null,array('label'=>'Temperatura'))
+            ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
         ;
     }
 }

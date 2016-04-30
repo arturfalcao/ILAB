@@ -19,8 +19,8 @@ class TModelosamostraAdmin extends Admin
             ->add('fnId',null, array('label' => 'ID'))
             ->add('fbActivo',null, array('label' => 'Activo'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
-            ->add('fnLimitedias',null, array('label' => 'Limite de Dias'))
-            ->add('fnIdOrcamento',null, array('label' => 'Orçamento'))
+            //->add('fnLimitedias',null, array('label' => 'Limite de Dias'))
+            //->add('fnIdOrcamento',null, array('label' => 'Orçamento'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
         ;
     }

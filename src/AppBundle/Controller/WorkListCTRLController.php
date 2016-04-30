@@ -22,6 +22,7 @@ use WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle;
  *
  * @Route("/generateworklist")
  */
+
 class WorkListCTRLController extends Controller
 {
 
@@ -136,44 +137,136 @@ class WorkListCTRLController extends Controller
         return new Response("ok");
     }
 
+
+
     public function EmitRelatorioAction($slug){
+
+
 
         $pdf = $this->container->get("white_october.tcpdf")->create(
             'P',
             'mm',
             'A4',
-            true,
-            'UTF-8',
+            false,
+            'ISO-8859-1',
             false
         );
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Nicola Asuni');
-        $pdf->SetTitle('TCPDF Example 010');
+        $pdf->SetTitle('CELSO');
         $pdf->SetSubject('TCPDF Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-        $pdf->SetHeaderData('logopimenta.png', 24, PDF_HEADER_TITLE.' 010', PDF_HEADER_STRING);
+        $pdf->SetMargins(PDF_MARGIN_LEFT, 40, PDF_MARGIN_RIGHT);
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+
+        $pdf->SetHeaderData('logopimenta.png', 60, 'RELATÓRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
 
 // set header and footer fonts
-        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
-        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+
+        $pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
+
+        $pdf->AddPage();
+
+        $html = <<<EOF
+        <style type="text/css">
+    .info_amostra{
+
+        font-size: 11px;
+    }
+    h3{
+        text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;
+    }
+    .info_amostra div{
+        float: left;
+    }
+    .info_amostra div div{
+        width: 100%;
+        float: left;
+        padding-left: 5px;
+    }
+</style>
+<table class="first"  cellspacing="1" cellpadding="1">
+    <tr>
+        <td  align="left" width="200">
+            <table cellspacing="1" cellpadding="2">
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
+                </tr>
+                <tr>
+                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
+                </tr>
+                 <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td>
+                </tr>
+                <tr>
+                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
+                </tr>
+                 <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
+                </tr>
+                <tr>
+                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
+                </tr>
+                 <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Referência:</td>
+                </tr>
+                <tr>
+                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
+                </tr>
+            </table>
+        </td>
+        <td  align="left" width="90"></td>
+        <td  align="left" width="220">
+            <table cellspacing="1" cellpadding="2">
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Ecofirma - gestão do ambiente, S.A</td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Av. Imaculada Conceição, º 409 - adaufe</td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">4750-013- Braga</td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                </tr>
+                <tr>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                </tr>
+            </table>
+        </td>
+ </tr>
+
+</table>
+EOF;
+
+// output the HTML content
+        $pdf->writeHTML($html, true, false, true, false, '');
+        $pdf->lastPage();
 
 // set default monospaced font
-        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
 
 // set margins
-        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
 
 // set auto page breaks
-        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
 
 // set image scale factor
-        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
-
 
         $pdf->Output("example.pdf", 'I');
 

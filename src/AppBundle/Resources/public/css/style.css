@@ -200,28 +200,23 @@ section.login p {
 }
 
 .sonata-ba-filter .select2-container{
-    width: 100px !important;
+    width: 100% !important;
     float: left;
 }
 
 .sonata-ba-filter input{
-    width: 100px !important;
+    width: 100% !important;
     float: left;
 }
 
 .sonata-ba-filter label{
-    width: 100px !important;
+    width: 100% !important;
     float: left;
 }
 
 .sonata-ba-filter .form-group{
     float: left;
 }
-.sonata-ba-filter label{
-    width: 100px !important;
-    float: left;
-}
-
 
 
 .mainmenu, .submenu {
@@ -298,10 +293,12 @@ section.login p {
 
 }
 
+/*
 #logo{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+*/
 
 
 .mainmenu a.menu_planeamento{
@@ -422,7 +419,7 @@ section.login p {
 .menu_principal > ul > li > a:active {
     color: #171f2e;
     background-color: #faf9fa!important;
-    border-left: 3px solid #4cc3b8;
+    /*border-left: 3px solid #4cc3b8;*/
 
 }
 
@@ -511,9 +508,7 @@ section.login p {
     display: none;
 }
 
-.select2-container {
-    min-width: 300px;
-}
+
 
 .mce-tinymce {
     float: left !important;
@@ -585,11 +580,13 @@ section.login p {
 #Novo_Planeamento_submit{
     color: #65c0b2!important;
     background: white!important;
+    outline: none;
 }
 
 #form_submit{
     color: #65c0b2!important;
     background: white!important;
+    outline:none;
 }
 
 #datetimepicker1 > input, #datetimepicker2 > input{
@@ -597,10 +594,6 @@ section.login p {
     border-radius: 0!important;
     border-bottom-left-radius: 2px!important;
     border-top-left-radius: 2px!important;
-}
-
-.select2-container {
-    min-width: 200px;
 }
 
 .input-group-addon{
