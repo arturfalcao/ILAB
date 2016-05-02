@@ -392,11 +392,11 @@ file that was distributed with this source code.
 
                                 {% set foo = form.children['_page'].setRendered() %}
                                 {{ form_rest(form) }}
-                                <div class="large-16 form-group visivel text-center" style="margin-right: 20px;">
-                                    <button type="submit" class="botao_filtro bottom-buttons buttons-center visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
+                                <div class="well well-small form-actions large-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
+                                    <button type="submit" class="btn btn-success visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
 
-                                    <div class="bottom-buttons buttons-center">
-                                        <a class="hollow-button" href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">{{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}</a>
+                                    <div class="btn btn-success">
+                                        <a href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">{{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}</a>
 
                                     </div>
 
