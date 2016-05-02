@@ -101,25 +101,7 @@ file that was distributed with this source code.
 
 
 <style>
-    .container-fluid {
-        margin:0!important;
-        padding: 0!important;
-        /* margin-left: auto; */
-        /* padding-left: 15px; */
-        /* padding-right: 15px; */
-    }
 
-    .content{
-        background: white;
-    }
-
-    .box.box-primary {
-        border-top-color: transparent;
-    }
-
-    .box{
-        box-shadow: none;
-    }
 </style>
 
 {% if is_granted("ROLE_USER") %}
@@ -135,8 +117,13 @@ file that was distributed with this source code.
                     {% include 'default/topheader_geral.html.twig' %}
 
                     <style>
-                        .botao_enviar {
+                        /*.botao_enviar {
                             margin-top: -100px!important;
+                        }*/
+
+                        .botao_enviar {
+                            margin-top: -5px!important;
+                            margin-left: 15px;
                         }
                     </style>
 

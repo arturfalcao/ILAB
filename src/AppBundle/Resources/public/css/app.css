@@ -9961,15 +9961,29 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 }
 
 
+.container-fluid {
+    margin:0!important;
+    padding: 0!important;
+
+}
 
 .content{
   padding: 0!important;
+  background: white;
 }
 
 .box .box-header {
   padding-top: 5px;
   padding-bottom: 0;
   padding-left: 10px;
+}
+
+.box.box-primary {
+    border-top-color: transparent;
+}
+
+.box{
+    box-shadow: none;
 }
 
 .table.table-bordered.table-striped > thead > tr > th{

@@ -231,8 +231,11 @@ function histMens(element)
                         TextoMensagensNaoLidas();
 
                         tabs_2.append("<p class='sms_n_lidas'></p>");
-                        tabs_2.append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' ></div>");
-                        tabs_2.append("<div id='insere'><img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t +  "' x='" + username +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+                        tabs_2.append("<div id='insere'>" +
+                                "<input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' >" +
+                                "<img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t +  "' x='" + username +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'>"  +
+                                "</div>");
+
                     }
                     else{
 
@@ -271,8 +274,10 @@ function histMens(element)
                                 TextoMensagensNaoLidas();
 
                                 tabs_2.append("<p class='sms_n_lidas'></p>");
-                                tabs_2.append("<div id='insere'><input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' ></div>");
-                                tabs_2.append("<div id='insere'><img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + imagem +  "' x='" + p_n +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'></i></div>");
+                                tabs_2.append("<div id='insere'>" +
+                                        "<input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' >" +
+                                        "<img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t +  "' x='" + username +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'>"  +
+                                        "</div>");
 
 
                             }

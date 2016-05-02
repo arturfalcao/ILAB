@@ -39,6 +39,7 @@ section.login form label, section.login form a, section.login p {
     font-family: 'montserratlight', sans-serif;
     font-weight: normal;
     font-style: normal;
+    font-size: 14px;
 }
 
 body {
@@ -56,8 +57,8 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 
 /* line 27, ../scss/style.scss */
 input[type="text"], input[type="password"] {
-    min-height: 2.5rem;
-    height: 3.125rem;
+    min-height: 2.5rem!important;
+    height: 2.5rem!important;
 }
 
 /* line 32, ../scss/style.scss */
@@ -421,6 +422,20 @@ section.login p {
     background-color: #faf9fa!important;
     /*border-left: 3px solid #4cc3b8;*/
 
+}
+
+.menu_hover{
+    display: none;
+}
+
+.menu_principal > ul > li:hover .menu_hover{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color:#4cc3b8;
+    width: 3px;
 }
 
 .mainmenu a.menu_amostras{

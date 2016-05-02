@@ -72,7 +72,7 @@ body .fc { /* extra precedence to overcome jqui */
 
 
 .fc-unthemed .fc-today {
-	background: rgba(76,195,184,0.3);
+	background: transparent;
 }
 
 .fc-highlight { /* when user is selecting cells */
@@ -1108,9 +1108,12 @@ be a descendant of the grid when it is being dragged.
 }
 
 .fc-bg, .fc-content{
-  background: rgba(76,195,184,1) !important;
   color: #fff;
   opacity: 1 !important;
+}
+
+.fc-content{
+    background: rgba(76,195,184,1);
 }
 
 /* new event */

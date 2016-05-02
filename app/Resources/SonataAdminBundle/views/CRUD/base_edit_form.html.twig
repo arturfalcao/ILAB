@@ -28,7 +28,7 @@
                 {% block sonata_tab_content %}
                     {% set has_tab = ((admin.formtabs|length == 1 and admin.formtabs|keys[0] != 'default') or admin.formtabs|length > 1 ) %}
 
-                    <div class="col-md-12 push-4">
+                    <div class="col-md-12">
                         {% if has_tab %}
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -113,7 +113,8 @@
 
     <script>
         $( document ).ready(function() {
-
+            $(".sonata-ba-collapsed-fields>p").remove();
+            //$('.well.well-small.form-actions.text-center button[name="btn_update_and_edit"]').nextAll().empty();
         })
     </script>
 {% endblock %}

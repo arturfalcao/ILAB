@@ -38,7 +38,7 @@
                 <input type="submit" id="_submit" name="_submit" class="button expand" value="{{ 'Entrar'|trans({}, 'FOSUserBundle') }}" />
 
                 <input id="keep-session" type="checkbox">
-                <label for="keep-session">Manter sessão aberta</label>
+                <label for="keep-session">{{ "Manter sessão aberta"|convert_encoding('UTF-8', 'iso-8859-1') }}</label>
                 <input type="hidden" name="_target_path" value="/calendar" />
                 <a href="#" class="right">Esqueceu a sua password?</a>
 
