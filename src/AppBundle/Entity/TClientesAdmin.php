@@ -61,11 +61,11 @@ class TClientesAdmin extends Admin
 
 
         $formMapper
-            ->with('grupo_1',array('description' => 'X','class' => 'Cliente_grupo_1 col-md-6'))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
             ->add('ftCodigo', 'text', array('required' => true,'label' => 'Código'))
             ->add('ftNome', 'text', array('required' => true,'label' => 'Nome'))
             ->add('ftMorada', 'text', array('required' => true,'label' => 'Morada'))
-            ->add('ftCodpostal', 'text', array('required' => true,'label' => 'Codigo Postal'))
+            ->add('ftCodpostal', 'text', array('required' => true,'label' => 'Código Postal'))
             ->add('ftLocalidade', 'text', array('required' => true,'label' => 'Localidade'))
             ->add('ftPais', 'text', array('required' => true,'label' => 'País'))
             ->add('ftTelefone', 'integer', array('required' => true,'label' => 'Telefone'))
@@ -74,7 +74,7 @@ class TClientesAdmin extends Admin
 
 
         $formMapper
-            ->with('grupo_2',array('description' => 'Y','class' => 'Cliente_grupo_1 col-md-6'))
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
             ->add('ftNomeUtilizador', 'text', array('required' => false,'label' => 'Nome de Utilizador'))
             ->add('ftEmail', 'text', array('required' => true,'label' => 'Email'))
             ->add('ftpassword', 'text', array('required' => false,'label' => 'Password'))

@@ -16,11 +16,11 @@ class TUnidadesmedidaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->add('fnId',null,array('label'=>'ID'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
         ;
     }
 
@@ -30,11 +30,11 @@ class TUnidadesmedidaAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->add('fnId',null,array('label' => 'ID'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição' ))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -51,11 +51,15 @@ class TUnidadesmedidaAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
+            ->add('fnId' , null, array('label' => 'ID'))
+            ->add('ftCodigo', null, array('label' => 'Código'))
+            ->add('ftDescricao', null, array('label' => 'Descrição') )
+            ->end()
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
+            ->add('ftAlias', null, array('label' => 'Acrónimo'))
+            ->add('ftObservacao', null, array('label' => 'Observação'))
+            ->end()
         ;
     }
 

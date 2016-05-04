@@ -161,7 +161,7 @@ class TAmostrasAdmin extends Admin
             ->with('Cliente',array('description' => 'Cliente','class' => $x . ' Cliente_amostra'))
                 ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente', 'by_reference' => false))
             ->end()
-                ->add('fdColheita', 'datetime', array('label'=>'Data/hora Colheita','date_widget' => "single_text", 'time_widget' => "single_text"))
+                ->add('fdColheita','sonata_type_datetime_picker', array('label' => 'Data/hora Colheita'))
                 ->add('fnOperador',null,array('label'=>'Operador'))
                 ->add('ftResponsavelcolheita', 'choice',  array('label'=>'Responsável da Colheita','multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
             ->end()

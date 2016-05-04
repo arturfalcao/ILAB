@@ -16,8 +16,8 @@ class ModelosListasAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('tablejson')
-            ->add('idParametro')
+            ->add('tablejson',null,array('label' => 'Estrutura Lista de Trabalho'))
+            ->add('idParametro',null,array('label' => 'ID Parâmetro'))
         ;
     }
 
@@ -29,7 +29,7 @@ class ModelosListasAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('idParametro')
+            ->add('idParametro',null,array('label' => 'ID Parâmetro'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -46,7 +46,7 @@ class ModelosListasAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('idParametro')
+            ->add('idParametro',null,array('label' => 'ID Parâmetro'))
             ->add('tablejson', 'text', array('label'=>'Estrutura Lista de Trabalho'))
         ;
     }

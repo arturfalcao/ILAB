@@ -23,6 +23,8 @@
       <h6 class="title"> Edição - {{  admin.label }} </h6>
       {% elseif 'create' in admin.request.pathInfo%}
       <h6 class="title"> Criação - {{  admin.label }} </h6>
+      {% elseif 'dashboard' in admin.request.pathInfo%}
+          <h6 class="title"> Dashboard </h6>
       {% endif %}
     </div>
     {% if 'list' in admin.request.pathInfo %}

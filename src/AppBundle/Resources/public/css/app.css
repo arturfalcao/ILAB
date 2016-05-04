@@ -4514,7 +4514,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   color: #9993a3;
   display: block;
   font-family: inherit;
-  font-size: 0.9375rem;
+  font-size: 14px;
   height: 2.375rem;
   margin: 0 0 1rem 0;
   padding: 0.5rem;
@@ -4661,7 +4661,7 @@ select {
   border: 1px solid #9993a3;
   color: #9993a3;
   font-family: inherit;
-  font-size: 0.9375rem;
+  font-size: 14px;
   line-height: normal;
   padding: 0.5rem;
   height: 2.375rem;
@@ -8199,7 +8199,7 @@ a {
 }
 /* line 222, ../bower_components/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #0078a0;
+  color: #4cc3b8;
 }
 /* line 230, ../bower_components/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -9809,6 +9809,7 @@ input[type="text"]{
 
 .select2-container{
     width: 100%;
+    font-size: 14px;
 }
 
 .select2-container .select2-choice{
@@ -9851,6 +9852,30 @@ input[type="text"]{
     background-color: white!important;
     box-shadow: none!important;
     -webkit-box-shadow: none!important;
+}
+
+.select2-results{
+    font-size: 14px;
+    padding: 0;
+}
+
+.select2-results .select2-highlighted{
+    background: #4cc3b8;
+}
+
+
+.select2-container-multi .select2-choices{
+    border-radius: 2px;
+    background-image: none!important;
+}
+
+.select2-container-multi .select2-choices .select2-search-choice{
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    padding: 5px 5px 5px 18px;
+    background-color: #c3ece7;
+    background-image: none!important;
+    font-size: 14px;
 }
 
 select{
@@ -10240,3 +10265,23 @@ tbody > tr > td span.label{
 .table_ciclo > tbody > tr > td {
     border-top: 1px solid #dfdfdf;
 }
+
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+  border-bottom: 1px solid #ddd!important;
+}
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+  background-color: #4cc3b8!important;
+  border-color: #4cc3b8!important;
+}
+
+.pagination > li > a {
+  -webkit-box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  box-shadow: none!important;
+}
+
+#mce_0_ifr{
+    height: 200px!important;
+}
+

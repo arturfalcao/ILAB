@@ -101,7 +101,7 @@
             {{ form_rest(form) }}
 
             {% block formactions %}
-                <div class="well well-small form-actions">
+                <div class="well well-small form-actions text-center">
                     {% if app.request.isxmlhttprequest %}
                         {% if admin.id(object) is not null %}
                             <button type="submit" class="btn btn-success" name="btn_update"><i class="fa fa-save"></i> {{ 'btn_update'|trans({}, 'SonataAdminBundle') }}</button>
@@ -123,7 +123,6 @@
                             {% endif %}
 
                             {% if admin.hasroute('delete') and admin.isGranted('DELETE', object) %}
-                                {{ 'delete_or'|trans({}, 'SonataAdminBundle') }}
                                 <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
                             {% endif %}
 

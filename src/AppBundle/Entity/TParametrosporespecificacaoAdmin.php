@@ -16,7 +16,7 @@ class TParametrosporespecificacaoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
+            ->add('fnId',null,array('label' => 'ID'))
 
         ;
     }
@@ -44,10 +44,10 @@ class TParametrosporespecificacaoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnIdFamiliaparametro', 'sonata_type_model', array('label' => 'Parametros', 'by_reference' => false))
-            ->add('fnMaximo', 'text', array('label' => 'Maximo'))
-            ->add('fnMinimo', 'text', array('label' => 'Minimo'))
-            ->add('ftTextoRelatorio', 'text', array('label' => 'Texto no Relatorio'));
+            ->add('fnIdFamiliaparametro', 'sonata_type_model', array('label' => 'Parâmetros', 'by_reference' => false))
+            ->add('fnMaximo', 'text', array('label' => 'Máximo'))
+            ->add('fnMinimo', 'text', array('label' => 'Mínimo'))
+            ->add('ftTextoRelatorio', 'text', array('label' => 'Texto no Relatório'));
 
     }
 

@@ -16,12 +16,12 @@ class TGruposparametrosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnIdProduto')
-            ->add('ftObservacao')
+            ->add('fnId',null,array('label' => 'ID'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('fnIdProduto',null,array('label' => 'ID Produto'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
         ;
     }
 
@@ -31,12 +31,12 @@ class TGruposparametrosAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnIdProduto')
-            ->add('ftObservacao')
+            ->add('fnId',null,array('label' => 'ID'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('fnIdProduto',null,array('label' => 'ID Produto'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -53,11 +53,15 @@ class TGruposparametrosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('ftCodigo')
-            ->add('fnParametros', 'sonata_type_model', array('multiple' => true,  'property' => 'ftDescricao'))
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
+            ->add('ftCodigo' ,null,array('label' => 'Código'))
+            ->add('fnParametros', 'sonata_type_model', array('label' => 'Parâmetros','multiple' => true,  'property' => 'ftDescricao'))
+            ->end()
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->end()
         ;
     }
 
