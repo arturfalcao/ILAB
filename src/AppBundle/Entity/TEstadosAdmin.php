@@ -16,9 +16,9 @@ class TEstadosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('ftId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
+            ->add('ftId',null,array('label' => 'ID'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
         ;
     }
 
@@ -28,9 +28,9 @@ class TEstadosAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('ftId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
+            ->add('ftId',null,array('label' => 'ID'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,9 +47,13 @@ class TEstadosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('ftId')
-            ->add('ftCodigo')
-            ->add('ftDescricao')
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
+            ->add('ftId',null,array('label' => 'ID'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->end()
+            ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->end()
         ;
     }
 

@@ -19,8 +19,8 @@ class TModelosamostraAdmin extends Admin
             ->add('fnId',null, array('label' => 'ID'))
             ->add('fbActivo',null, array('label' => 'Activo'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
-            //->add('fnLimitedias',null, array('label' => 'Limite de Dias'))
-            //->add('fnIdOrcamento',null, array('label' => 'Orçamento'))
+            ->add('fnLimitedias',null, array('label' => 'Limite de Dias'))
+            ->add('fnIdOrcamento',null, array('label' => 'Orçamento'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
         ;
     }
@@ -48,9 +48,12 @@ class TModelosamostraAdmin extends Admin
     /**
      * @param FormMapper $formMapper
      */
+    
     protected function configureFormFields(FormMapper $formMapper)
     {
+
         $formMapper
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
             ->add('fbActivo', 'checkbox', array('required' => true,'label' => 'Activo'))
             ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
             ->add('fnLimitedias', 'checkbox', array('required' => true,'label' => 'Limite de Dias'))
@@ -58,11 +61,16 @@ class TModelosamostraAdmin extends Admin
             ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observação'))
             ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente','by_reference' => false))
             ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo Aprovação','by_reference' => false))
+            ->end();
+
+        $formMapper
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
             ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto','by_reference' => false))
             ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação','by_reference' => false))
             ->add('fnTipoamostra', 'sonata_type_model', array('label' => 'Tipo Amostra','by_reference' => false))
             ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo Controlo','by_reference' => false))
-            ->add('fnGrupoparametros', 'sonata_type_model', array('label' => 'Grupo Parametros','by_reference' => false))
+            ->add('fnGrupoparametros', 'sonata_type_model', array('label' => 'Grupo Parâmetros','by_reference' => false))
+            ->end()
         ;
     }
 

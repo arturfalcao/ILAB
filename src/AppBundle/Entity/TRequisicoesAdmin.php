@@ -16,15 +16,15 @@ class TRequisicoesAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
-            ->add('fnIdLaboratorio')
-            ->add('fdUltimaemissao')
-            ->add('ftObservacao')
-            ->add('ftUltimoutilizador')
-            ->add('fbAnulada')
-            ->add('fnDesconto')
-            ->add('ftTipopagamento')
-            ->add('ftPrazoentrega')
+            ->add('fnId',null,array('label' => 'ID'))
+            ->add('fnIdLaboratorio',null,array('label' => 'ID Laboratório'))
+            ->add('fdUltimaemissao',null,array('label' => 'Última emissão'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->add('ftUltimoutilizador',null,array('label' => 'Último Utilizador'))
+            ->add('fbAnulada',null,array('label' => 'Anulada'))
+            ->add('fnDesconto',null,array('label' => 'Desconto'))
+            ->add('ftTipopagamento',null,array('label' => 'Tipo de Pagamento'))
+            ->add('ftPrazoentrega',null,array('label' => 'Prazo de entrega'))
         ;
     }
 
@@ -34,15 +34,15 @@ class TRequisicoesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnId')
-            ->add('fnIdLaboratorio')
-            ->add('fdUltimaemissao')
-            ->add('ftObservacao')
-            ->add('ftUltimoutilizador')
-            ->add('fbAnulada')
-            ->add('fnDesconto')
-            ->add('ftTipopagamento')
-            ->add('ftPrazoentrega')
+            ->add('fnId',null,array('label' => 'ID'))
+            ->add('fnIdLaboratorio',null,array('label' => 'ID Laboratório'))
+            ->add('fdUltimaemissao',null,array('label' => 'Última emissão'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->add('ftUltimoutilizador',null,array('label' => 'Último utilizador'))
+            ->add('fbAnulada',null,array('label' => 'Anulada'))
+            ->add('fnDesconto',null,array('label' => 'Desconto'))
+            ->add('ftTipopagamento',null,array('label' => 'Tipo de pagamento'))
+            ->add('ftPrazoentrega',null,array('label' => 'Prazo de entrega'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -59,15 +59,19 @@ class TRequisicoesAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnId')
-            ->add('fnIdLaboratorio')
-            ->add('fdUltimaemissao')
-            ->add('ftObservacao')
-            ->add('ftUltimoutilizador')
-            ->add('fbAnulada')
-            ->add('fnDesconto')
-            ->add('ftTipopagamento')
-            ->add('ftPrazoentrega')
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fnId',null,array('label' => 'ID'))
+            ->add('fnIdLaboratorio',null,array('label' => 'ID Laboratório'))
+            ->add('fdUltimaemissao','sonata_type_datetime_picker', array('label' => 'Última emissão'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->add('ftUltimoutilizador',null,array('label' => 'Último utilizador'))
+            ->end()
+            ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fbAnulada',null,array('label' => 'Anulada'))
+            ->add('fnDesconto',null,array('label' => 'Desconto'))
+            ->add('ftTipopagamento',null,array('label' => 'Tipo de pagamento'))
+            ->add('ftPrazoentrega',null,array('label' => 'Prazo de entrega'))
+            ->end()
         ;
     }
 

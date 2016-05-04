@@ -79,6 +79,7 @@
 a
 {
     cursor: pointer!important;
+    text-decoration: none!important;
 }
 
 #nova_entidade{

@@ -26,7 +26,7 @@ class TProdutosespecificacoes
      *
      * @ORM\Column(name="fb_master", type="boolean", nullable=true)
      */
-    private $fbMaster = '0';
+    private $fbMaster = false;
 
     /**
      * @var integer

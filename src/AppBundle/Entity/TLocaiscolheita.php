@@ -82,7 +82,7 @@ class TLocaiscolheita
      *
      * @ORM\Column(name="fb_activo", type="boolean", nullable=false)
      */
-    private $fbActivo = '1';
+    private $fbActivo = true;
 
 
     public function __toString()

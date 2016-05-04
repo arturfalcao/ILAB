@@ -16,7 +16,7 @@ class TParametrosporespecificacaoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnId')
+            ->add('fnId',null,array('label' => 'ID'))
 
         ;
     }
@@ -27,7 +27,7 @@ class TParametrosporespecificacaoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-
+            ->add('fnId',null,array('label' => 'ID'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -41,13 +41,19 @@ class TParametrosporespecificacaoAdmin extends Admin
     /**
      * @param FormMapper $formMapper
      */
+    
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnIdFamiliaparametro', 'sonata_type_model', array('label' => 'Parametros', 'by_reference' => false))
-            ->add('fnMaximo', 'text', array('label' => 'Maximo'))
-            ->add('fnMinimo', 'text', array('label' => 'Minimo'))
-            ->add('ftTextoRelatorio', 'text', array('label' => 'Texto no Relatorio'));
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fnIdFamiliaparametro', 'sonata_type_model', array('label' => 'ID Família Parâmetros', 'by_reference' => false))
+            ->add('fnMaximo', 'text', array('label' => 'Máximo'))
+            ->end()
+            ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fnMinimo', 'text', array('label' => 'Mínimo'))
+            ->add('ftTextoRelatorio', 'text', array('label' => 'Texto no Relatório'))
+            ->end()
+        ;
 
     }
 

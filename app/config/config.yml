@@ -10,6 +10,7 @@ imports:
 parameters:
     locale: pt
 
+
 assetic:
     filters:
         less:
@@ -65,6 +66,9 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     charset:          'ISO-8859-1'
+    form:
+        resources:
+            - 'SonataCoreBundle:Form:datepicker.html.twig'
 
 
 

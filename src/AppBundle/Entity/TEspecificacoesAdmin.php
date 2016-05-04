@@ -27,9 +27,9 @@ class TEspecificacoesAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftCodigo',null, array('label' => 'Código'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
-            ->add('ftAlias',null, array('label' => 'Alias'))
+            ->add('ftAlias',null, array('label' => 'Acrónimo'))
             ->add('ftMensagemUtilizador',null, array('label' => 'MSG Utilizador'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
             ->add('ftSiglavl',null, array('label' => 'SiglaVL'))
@@ -43,7 +43,7 @@ class TEspecificacoesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftCodigo',null, array('label' => 'Código'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             ->add('ftObservacao',null, array('label' => 'Observações'))
             ->add('ftSiglavl',null, array('label' => 'SiglaVL'))
@@ -62,37 +62,39 @@ class TEspecificacoesAdmin extends Admin
     /**
      * @param FormMapper $formMapper
      */
+    
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('ftCodigo', 'text', array('required' => true,'label' => 'Codigo'))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-3'))
+            ->add('ftCodigo', 'text', array('required' => true,'label' => 'Código'))
+            ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
+            ->add('ftAlias', 'text', array('required' => false,'label' => 'Acrónimo'))
+            ->add('ftMensagemUtilizador', 'text', array('required' => false,'label' => 'MSG Utilizador'))
+            ->add('ftTextoQdPassaP', 'text', array('required' => false,'label' => 'Texto quando passa Pârametro'))
+            ->add('ftTextoQdNaoPassaP', 'text', array('required' => false,'label' => 'Texto quando não passa Pârametro'))
+            ->add('ftTextoQdCumpreA', 'text', array('required' => false,'label' => 'Texto quando Cumpre Amostra'))
+            ->end()
+            ->with('grupo_3',array('description' => 'Z','class' => 'col-md-3'))
+            ->add('ftTextoQdNaoCumpreA', 'text', array('required' => false,'label' => 'Texto quando não cumpre Amostra'))
+            ->add('fbEmissaoDeRelatorio', 'checkbox', array('required' => true,'label' => 'Emissão de relatório'))
+            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
+            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observações'))
+            ->add('ftSiglavl', 'text', array('required' => false,'label' => 'SiglaVL'))
+            ->add('ftLegendavl', 'text', array('required' => false,'label' => 'LegendaVL'))
+            ->add('fbActivo', 'checkbox', array('required' => false,'label' => 'Activo'))
+            ->end()
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
             ->add('fnParametros', 'sonata_type_collection', array(
                 'cascade_validation' => true,
-                'label' => 'Parametros',
+                'label' => 'Parâmetros',
             ), array(
                     'edit'              => 'inline',
                     'inline'            => 'table',
                     'sortable'          => 'position',
                 )
             )
-
-            ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
-            ->add('ftAlias', 'text', array('required' => false,'label' => 'Alias'))
-            ->add('ftMensagemUtilizador', 'text', array('required' => false,'label' => 'MSG Utilizador'))
-            ->add('ftTextoQdPassaP', 'text', array('required' => false,'label' => 'Texto quando passa Parametro'))
-            ->add('ftTextoQdNaoPassaP', 'text', array('required' => false,'label' => 'Texto quando não passa Parametro'))
-            ->add('ftTextoQdCumpreA', 'text', array('required' => false,'label' => 'Texto quando Cumpre Amostra'))
-            ->add('ftTextoQdNaoCumpreA', 'text', array('required' => false,'label' => 'Texto quando não cumpre Amostra'))
-            ->add('fbEmissaoDeRelatorio', 'checkbox', array('required' => true,'label' => 'Emissão de relatorio'))
-            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
-            ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observações'))
-            ->add('ftSiglavl', 'text', array('required' => false,'label' => 'SiglaVL'))
-            ->add('ftLegendavl', 'text', array('required' => false,'label' => 'LegendaVL'))
-            ->add('fbActivo', 'checkbox', array('required' => false,'label' => 'Activo'))
-
-
-
-    ;
+            ->end();
     }
 
     /**

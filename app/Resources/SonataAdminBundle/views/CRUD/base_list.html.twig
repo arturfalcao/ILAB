@@ -210,11 +210,18 @@ file that was distributed with this source code.
                             <div class="large-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
                                 {% for filter in admin.datagrid.filters %}
 
-                                    {% if(filter.formName in admin.list.elements|keys) %}
 
 
-                                        {% if filter.formName == 'fnId' or filter.formName == 'ftCodigo'
-                                        or filter.formName == 'fbActivo'%}
+                                        {% if filter.formName == 'fnId' or filter.formName == 'ftId' or filter.formName == 'ftCodigo'
+                                        or filter.formName == 'fbActivo' or filter.formName == 'ftFormulaquimica'
+                                        or filter.formName == 'fbIncluirnorelatorio'
+                                        or filter.formName == 'fnAreaensaio' or filter.formName == 'fnLaboratorio'
+                                         or filter.formName == 'ftEstado' or filter.formName == 'fnEspecificacoes' or
+                                         filter.formName == 'ftMensagemUtilizador' or filter.formName == 'idParametro'
+                                        or filter.formName == 'tablejson' or filter.formName == 'fnIdGrupo'
+                                        or filter.formName == 'fnIdModeloparametro' or filter.formName == 'fnIdLaboratorio'
+                                        or filter.formName == 'fnValor' or filter.formName == 'ftLote'
+                                        or filter.formName == 'id' or filter.formName == ''%}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -234,18 +241,21 @@ file that was distributed with this source code.
                                         {% endif %}
 
 
-                                    {% endif %}
+
                                 {% endfor %}
                             </div>
 
                             <div class="large-3 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
-                                    {% if(filter.formName in admin.list.elements|keys) %}
-
 
                                         {% if filter.formName == 'ftNome' or filter.formName == 'ftEmail'
-                                         or filter.formName == 'ftDescricao' or filter.formName == 'ftObservacao'%}
+                                         or filter.formName == 'ftDescricao' or filter.formName == 'ftObservacao'
+                                            or filter.formName == 'fdUltimaemissao' or filter.formName == 'fdDatarequisicao'
+                                         or filter.formName == 'fnModeloparametro' or filter.formName == 'fnFamiliaparametro'
+                                            or filter.formName == 'ftOriginal' or filter.formName == 'ftAcondicionamento'
+                                             or filter.formName == 'ftValidade'
+                                         %}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -265,17 +275,24 @@ file that was distributed with this source code.
                                         {% endif %}
 
 
-                                    {% endif %}
+
                                 {% endfor %}
                             </div>
 
                             <div class="large-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
-                                    {% if(filter.formName in admin.list.elements|keys) %}
 
-
-                                        {% if filter.formName == 'ftLocalidade' or filter.formName == 'ftMorada' %}
+                                        {% if filter.formName == 'ftMorada'
+                                        or filter.formName == 'ftCodpostal' or filter.formName== 'fnLimitedias'
+                                         or filter.formName == 'fnIdOrcamento' or filter.formName == 'fnPrecocompra'
+                                         or filter.formName == 'fnPrecovenda' or filter.formName == 'fnMaximo'
+                                        or filter.formName == 'fnMinimo' or filter.formName == 'fnMetodo' or
+                                            filter.formName == 'fnTecnica' or filter.formName == 'ftCumpreespecificacao'
+                                        or filter.formName == 'fnFrasco' or filter.formName == 'ftUltimoutilizador'
+                                            or filter.formName == 'fbAnulada' or filter.formName == 'fnCalculado'
+                                            or filter.formName == 'ftTemperatura' or filter.formName == 'ftFaseprocesso'
+                                        %}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -295,44 +312,22 @@ file that was distributed with this source code.
                                         {% endif %}
 
 
-                                    {% endif %}
+
                                 {% endfor %}
                             </div>
 
                             <div class="large-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
-                                    {% if(filter.formName in admin.list.elements|keys) %}
 
-
-                                        {% if filter.formName == 'ftTelefone' %}
-
-                                            {% if filter.label is not same as(false) %}
-                                                <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
-
-                                            {% endif %}
-
-                                            {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
-                                            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
-
-                                            <div>
-                                                {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
-                                            </div>
-
-                                            <div>
-                                                {{ form_widget(form.children[filter.formName].children['value']) }}
-                                            </div>
-                                        {% endif %}
-
-
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-
-                            <div class="invisivel">
-                                {% for filter in admin.datagrid.filters %}
-
-                                    {% if(filter.formName not in admin.list.elements|keys) %}
+                                    {% if filter.formName == 'ftPais' or filter.formName == 'ftLocalidade'
+                                    or filter.name == 'fnFactorcorreccao' or filter.formName == 'fnNrdiasparaexecucao'
+                                    or filter.formName == 'fbGamavalores'
+                                    or filter.formName == 'ftMensagemutilizador'
+                                      or filter.formName == 'fdCriacao' or filter.formName == 'fdConclusao'
+                                        or filter.formName == 'fnDesconto' or filter.formName == 'ftTipopagamento'
+                                        or filter.formName == 'ftFormatado'
+                                    %}
 
                                         {% if filter.label is not same as(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -349,29 +344,207 @@ file that was distributed with this source code.
                                         <div>
                                             {{ form_widget(form.children[filter.formName].children['value']) }}
                                         </div>
-
                                     {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                    {% if filter.formName == 'fdAutorizacao' or filter.formName == 'fdLimiterealizacao'
+                                    or filter.formName == 'fbContraanalise' or filter.formName == 'ftPrazoentrega'
+                                    or filter.formName == 'ftPrefixo' %}
+
+                                        {% if filter.label is not same as(false) %}
+                                            <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                        {% endif %}
+
+                                        {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                        </div>
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    {% endif %}
+
+
+
                                 {% endfor %}
 
 
+
                             </div>
+
+                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                        {% if filter.formName == 'ftTelefone' or filter.formName == 'ftFax'
+                                         or filter.formName == 'fbAcreditado' or filter.formName == 'fnVolumeminimo'
+                                        or filter.formName == 'fnLimitequantificacao' or filter.formName == 'ftConclusao'
+                                          or filter.formName == 'fbAcreditado'
+                                        or filter.formName == 'fbConfirmacao' or filter.formName == 'fnParametro'%}
+
+                                            {% if filter.label is not same as(false) %}
+                                                <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                            {% endif %}
+
+                                            {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                            <div>
+                                                {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                            </div>
+
+                                            <div>
+                                                {{ form_widget(form.children[filter.formName].children['value']) }}
+                                            </div>
+                                        {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                    {% if filter.formName == 'ftAlias' or filter.formName == 'fnIdProduto'
+                                    or filter.formName == 'fnFamiliaproduto' or filter.formName == 'ftSiglavl'
+                                    or filter.formName == 'fnIdConcelho' %}
+
+                                        {% if filter.label is not same as(false) %}
+                                            <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                        {% endif %}
+
+                                        {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                        </div>
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                    {% if filter.formName == 'fnLegislacao' or filter.formName == 'ftLegendavl' %}
+
+                                        {% if filter.label is not same as(false) %}
+                                            <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                        {% endif %}
+
+                                        {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                        </div>
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                    {% if filter.formName == 'fnIdTipoLocalcolheita' or filter.formName == 'fnIdSistemaabastecimento' %}
+
+                                        {% if filter.label is not same as(false) %}
+                                            <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                        {% endif %}
+
+                                        {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                        </div>
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                    {% if filter.formName == 'fnIdCliente' or filter.formName == 'fbActiva'%}
+
+                                        {% if filter.label is not same as(false) %}
+                                            <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                        {% endif %}
+
+                                        {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                        </div>
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
 
 
                             <input type="hidden" name="filter[_page]" id="filter__page" value="1">
 
                             {% set foo = form.children['_page'].setRendered() %}
                             {{ form_rest(form) }}
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
-                                <button type="submit" class="botao_filtro bottom-buttons buttons-center visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
+                            <div class="well well-small form-actions large-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
+                                <button type="submit" class="btn btn-success visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
 
-                                <div class="bottom-buttons buttons-center">
-                                    <a class="hollow-button" href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">{{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}</a>
+                                <div class="btn btn-success">
+                                    <a href="{{ admin.generateUrl('list', {filters: 'reset'}) }}">{{ 'link_reset_filter'|trans({}, 'SonataAdminBundle') }}</a>
 
                                 </div>
-
-
-
                             </div>
+
                             <hr id="rod_filtros" >
                         </div>
                     </div>
@@ -388,14 +561,18 @@ file that was distributed with this source code.
     <script>
         $( document ).ready(function() {
 
-
-
-
             $('.invisivel').hide();
             $('.visivel').hide();
             $('#rod_filtros').hide();
-            $("label[for='filter_fdColheita_value_start']").html('Data inicio');
-            $("label[for='filter_fdColheita_value_end']").html('Data fim');
+
+            $("label[for='filter_fdCriacao_value_start']").html('Data de Criação de');
+            $("label[for='filter_fdCriacao_value_end']").html('até');
+
+            $("label[for='filter_fdConclusao_value_start']").html('Data de Conclusão de');
+            $("label[for='filter_fdConclusao_value_end']").html('até');
+
+            $("label[for='filter_fdAutorizacao_value_start']").html('Data Autorização de');
+            $("label[for='filter_fdAutorizacao_value_end']").html('até');
 
 
             $(".datepicker").datepicker({

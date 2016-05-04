@@ -26,13 +26,13 @@ class TProdutosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnEspecificacoes')
-            ->add('fnFamiliaproduto')
-            ->add('fnLegislacao')
-            ->add('ftObservacao')
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('fnEspecificacoes',null,array('label' => 'Especificações'))
+            ->add('fnFamiliaproduto',null,array('label' => 'Família do Produto'))
+            ->add('fnLegislacao',null,array('label' => 'Legislação'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
 
         ;
     }
@@ -44,14 +44,14 @@ class TProdutosAdmin extends Admin
     {
         $listMapper
 
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnFamiliaproduto')
-            ->add('fnLegislacao')
-            ->add('fnEspecificacoes')
-            ->add('ftObservacao')
-            ->add('fbActivo')
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('fnFamiliaproduto',null,array('label' => 'Família do Produto'))
+            ->add('fnLegislacao',null,array('label' => 'Legislação'))
+            ->add('fnEspecificacoes',null,array('label' => 'Especificações'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->add('fbActivo',null,array('label' => 'Activo'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -68,14 +68,17 @@ class TProdutosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnFamiliaproduto', 'sonata_type_model', array('label' => 'Familia do Produto', 'by_reference' => false))
-            ->add('fnEspecificacoes', 'sonata_type_model', array('btn_add' => false,'multiple' => true, 'by_reference' => false))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('fnFamiliaproduto', 'sonata_type_model', array('label' => 'Família do Produto', 'by_reference' => false))
+            ->end()
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
+            ->add('fnEspecificacoes', 'sonata_type_model', array('label' => 'Especificações','btn_add' => false,'multiple' => true, 'by_reference' => false))
             ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
             ->add('ftObservacao', 'text', array('label' => 'Observações', 'by_reference' => false))
+            ->end()
         ;
 
     }

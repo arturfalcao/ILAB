@@ -29,10 +29,10 @@ class TModelosresultadosAdmin extends Admin
     {
         $datagridMapper
             ->add('fbActivo',null, array('label' => 'Activo'))
-            ->add('fbIncluirnorelatorio',null, array('label' => 'Incluir Relatorio'))
+            ->add('fbIncluirnorelatorio',null, array('label' => 'Incluir Relatório'))
             ->add('fbGamavalores',null, array('label' => 'Gama de Valores'))
-            ->add('fnMaximo',null, array('label' => 'Maximo'))
-            ->add('fnMinimo',null, array('label' => 'Minimo'))
+            ->add('fnMaximo',null, array('label' => 'Máximo'))
+            ->add('fnMinimo',null, array('label' => 'Mínimo'))
             ->add('ftMensagemutilizador',null, array('label' => 'MSG Utilizador'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             ->add('fnLimitequantificacao',null, array('label' => 'Limite'))
@@ -52,7 +52,7 @@ class TModelosresultadosAdmin extends Admin
             ->add('ftDescricao','text', array('label' => 'Nome'))
             ->add('fnUnidade','text', array('label' => 'Unidades'))
             ->add('fnLimitequantificacao','text', array('label' => 'Quantificação'))
-            ->add('fbGamavalores',null, array('label' => 'Gama'))
+            ->add('fbGamavalores',null, array('label' => 'Gama de Valores'))
             ->add('fnMaximo','number', array('label' => 'Máximo'))
             ->add('fnMinimo','number', array('label' => 'Mínimo'))
             ->add('_action', 'actions', array(
@@ -71,23 +71,21 @@ class TModelosresultadosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Novo Modelo',array('class'=> 'col_esq',))
+            ->with('Novo Modelo',array('class'=> 'col-md-6'))
                 ->add('fbActivo',null, array('label' => 'Activo'))
                 ->add('ftDescricao','text', array('label' => 'Descrição'))
                 ->add('fnUnidade', 'sonata_type_model', array('label' => 'Unidade de Medida', 'by_reference' => false))
                 ->add('fnTipoarredondamento', 'sonata_type_model', array('label' => 'Tipo de Arredondamento','by_reference' => false))
                 ->add('ftObservacao','text', array('label' => 'Observação'))
-            ->end()
-            ->with('',array('class'=> 'col_esq',))
-                ->add('fbGamavalores')
-                ->add('fbIncluirnorelatorio','checkbox', array('label' => 'Incluir no Relatorio'))
-                ->add('fnMaximo','number', array('label' => 'Maximo'))
-                ->add('fnMinimo','number', array('label' => 'Minimo'))
+                ->add('fbGamavalores',null,array('label' => 'Gama de Valores'))
+                ->add('fbIncluirnorelatorio','checkbox', array('label' => 'Incluir no Relatório'))
+                ->add('fnMaximo','number', array('label' => 'Máximo'))
+                ->add('fnMinimo','number', array('label' => 'Mínimo'))
                 ->add('ftMensagemutilizador','text', array('label' => 'Mensagem Utilizador'))
                 ->add('fnLimitequantificacao','integer', array('label' => 'Limite Quantificação'))
-
             ->end()
-            ->with('Gallery')
+
+            ->with('Gallery',array('class'=> 'col-md-6'))
             ->add('RegasFormatacao', 'sonata_type_collection', array(
                 'cascade_validation' => true,
                 'label' => 'Regras de Formatação',

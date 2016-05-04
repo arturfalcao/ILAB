@@ -22,6 +22,11 @@ file that was distributed with this source code.
 <!DOCTYPE html>
 <html {% block html_attributes %}class="no-js"{% endblock %}>
 <head>
+    <script>
+        setTimeout(function(){
+            $(".splash_screen").hide();
+        }, 2000);
+    </script>
     {% block meta_tags %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -99,28 +104,11 @@ file that was distributed with this source code.
 
 <body {% block body_attributes %}class="sonata-bc skin-black"{% endblock %}>
 
+<div class="splash_screen">
 
-<style>
-    .container-fluid {
-        margin:0!important;
-        padding: 0!important;
-        /* margin-left: auto; */
-        /* padding-left: 15px; */
-        /* padding-right: 15px; */
-    }
+</div>
 
-    .content{
-        background: white;
-    }
 
-    .box.box-primary {
-        border-top-color: transparent;
-    }
-
-    .box{
-        box-shadow: none;
-    }
-</style>
 
 {% if is_granted("ROLE_USER") %}
 
@@ -136,7 +124,8 @@ file that was distributed with this source code.
 
                     <style>
                         .botao_enviar {
-                            margin-top: -100px!important;
+                            margin-top: -5px!important;
+                            margin-left: 15px;
                         }
                     </style>
 
@@ -237,9 +226,24 @@ file that was distributed with this source code.
 
 
 {% endif %}
+
 </body>
+<style>
+    .splash_screen{
+        position: absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        z-index:10;
+    }
+</style>
 <script>
+
     $( document ).ready(function() {
+
+
         $('.sonata-ba-list-field-header-actions').html('Ações');
 
     })

@@ -48,10 +48,10 @@ class TAmostrasAdmin extends Admin
             ->add('ftSerie',null,array('label' => 'Série'))
             ->add('fdCriacao',null,array('label' => 'Criação'))
             ->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data Colheita','widget' => 'single_text','attr' => array('class' => 'datepicker')))
-            ->add('fdRecepcao',null,array('label' => 'Criação'))
+            ->add('fdRecepcao',null,array('label' => 'Recepção'))
             ->add('fdConclusao',null,array('label' => 'Conclusão'))
             ->add('fdLimite',null,array('label' => 'Limite'))
-            ->add('ftResponsavelcolheita',null,array('label' => 'Responsável da colheita'))
+            ->add('ftResponsavelcolheita',null,array('label' => 'Responsável'))
             ->add('fnLocalcolheita',null,array('label' => 'Local da colheita'))
             ->add('fnOperador',null,array('label' => 'Operador'))
             ->add('fnCliente',null,array('label' => 'Cliente'))
@@ -60,7 +60,7 @@ class TAmostrasAdmin extends Admin
             ->add('fdAutorizacao',null,array('label' => 'Autorização'))
             ->add('fnProduto',null,array('label' => 'Produto'))
             ->add('fnTipocontrolo',null,array('label' => 'Tipo de controlo'))
-            ->add('fnIdOrcamento',null,array('label' => 'ID do Orçamento'))
+            ->add('fnIdOrcamento',null,array('label' => 'ID Orçamento'))
             ->add('ftEstado',null,array('label' => 'Estado'))
             ->add('fnEspecificacao',null,array('label' => 'Especificação'))
             ->add('ftCumpreespecificacao',null,array('label' => 'Cumpre especificação'))
@@ -83,7 +83,7 @@ class TAmostrasAdmin extends Admin
             ->add('ftSerie','string',array('label' => 'Série'))
             ->add('fnProduto',null,array('label' => 'Produto'))
             ->add('fdColheita','datetime',array('label' => 'Colheita'))
-            //->add('fdConclusao','datetime',array('label' => 'Conclusão'))
+            ->add('fdConclusao','datetime',array('label' => 'Data da Conclusão'))
             ->add('fnCliente',null,array('label' => 'Cliente'))
             ->add('fnLocalcolheita',null,array('label' => 'Local da Colheita'))
             ->add('ftConclusao','string',array('label' => 'Conclusão'))
@@ -98,34 +98,6 @@ class TAmostrasAdmin extends Admin
         ;
 
 
-        /*
-            ->add('fnNumero')
-            ->add('ftSerie')
-            ->add('fdCriacao')
-            ->add('fdRecepcao')
-
-            ->add('fdLimite')
-            ->add('ftResponsavelcolheita')
-            ->add('fnIdOperador')
-            ->add('fnModelo')
-            ->add('fnTipoaprovacao')
-            ->add('fdAutorizacao')
-            ->add('ftOrigem')
-            ->add('ftGrupoparametros')
-            ->add('fnLegislacao')
-            ->add('ftTipoemissaorelatorio')
-            ->add('fdEmissaorelatorio')
-            ->add('fnTipo')
-            ->add('ftRefexterna')
-            ->add('ftObs')
-            ->add('fnTipocontrolo')
-            ->add('fnIdOrcamento')
-
-            ->add('fnEspecificacao')
-            ->add('ftCumpreespecificacao')
-            ->add('fdInicioanalise')
-            ->add('fbFacturada')
-            ->add('fnRequisicaocliente')*/
     }
 
     /**
@@ -161,7 +133,7 @@ class TAmostrasAdmin extends Admin
             ->with('Cliente',array('description' => 'Cliente','class' => $x . ' Cliente_amostra'))
                 ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente', 'by_reference' => false))
             ->end()
-                ->add('fdColheita', 'datetime', array('label'=>'Data/hora Colheita','date_widget' => "single_text", 'time_widget' => "single_text"))
+                ->add('fdColheita','sonata_type_datetime_picker', array('label' => 'Data/hora Colheita'))
                 ->add('fnOperador',null,array('label'=>'Operador'))
                 ->add('ftResponsavelcolheita', 'choice',  array('label'=>'Responsável da Colheita','multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
             ->end()
