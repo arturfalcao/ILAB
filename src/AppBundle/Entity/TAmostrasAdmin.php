@@ -98,34 +98,6 @@ class TAmostrasAdmin extends Admin
         ;
 
 
-        /*
-            ->add('fnNumero')
-            ->add('ftSerie')
-            ->add('fdCriacao')
-            ->add('fdRecepcao')
-
-            ->add('fdLimite')
-            ->add('ftResponsavelcolheita')
-            ->add('fnIdOperador')
-            ->add('fnModelo')
-            ->add('fnTipoaprovacao')
-            ->add('fdAutorizacao')
-            ->add('ftOrigem')
-            ->add('ftGrupoparametros')
-            ->add('fnLegislacao')
-            ->add('ftTipoemissaorelatorio')
-            ->add('fdEmissaorelatorio')
-            ->add('fnTipo')
-            ->add('ftRefexterna')
-            ->add('ftObs')
-            ->add('fnTipocontrolo')
-            ->add('fnIdOrcamento')
-
-            ->add('fnEspecificacao')
-            ->add('ftCumpreespecificacao')
-            ->add('fdInicioanalise')
-            ->add('fbFacturada')
-            ->add('fnRequisicaocliente')*/
     }
 
     /**

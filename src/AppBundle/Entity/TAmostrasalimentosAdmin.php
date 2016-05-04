@@ -53,12 +53,16 @@ class TAmostrasalimentosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
             ->add('fnId',null,array('label'=>'ID'))
             ->add('ftLote',null,array('label'=>'Lote'))
             ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
+            ->end()
+            ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
             ->add('ftValidade',null,array('label'=>'Validade'))
             ->add('ftTemperatura',null,array('label'=>'Temperatura'))
             ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
+            ->end()
         ;
     }
 

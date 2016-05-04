@@ -16,14 +16,14 @@ class TFrascosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
-            ->add('fnCapacidade')
-            ->add('fnIdTipomaterial')
-            ->add('fbEsteril')
-            ->add('fnIdAditivo')
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->add('fnCapacidade',null,array('label' => 'Capacidade'))
+            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de material'))
+            ->add('fbEsteril',null,array('label' => 'Estéril'))
+            ->add('fnIdAditivo',null,array('label' => 'ID Aditivo'))
         ;
     }
 
@@ -33,14 +33,14 @@ class TFrascosAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
-            ->add('fnCapacidade')
-            ->add('fnIdTipomaterial')
-            ->add('fbEsteril')
-            ->add('fnIdAditivo')
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->add('fnCapacidade',null,array('label' => 'Capacidade'))
+            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de material'))
+            ->add('fbEsteril',null,array('label' => 'Estéril'))
+            ->add('fnIdAditivo',null,array('label' => 'ID Aditivo'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -57,14 +57,18 @@ class TFrascosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
-            ->add('fnCapacidade')
-            ->add('fnIdTipomaterial')
-            ->add('fbEsteril')
-            ->add('fnIdAditivo')
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->end()
+            ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fnCapacidade',null,array('label' => 'Capacidade'))
+            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de material'))
+            ->add('fbEsteril',null,array('label' => 'Estéril'))
+            ->add('fnIdAditivo',null,array('label' => 'ID Aditivo'))
+            ->end()
         ;
     }
 

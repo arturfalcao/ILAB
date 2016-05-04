@@ -16,8 +16,8 @@ class TModelosparametrosgrupoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('fnIdGrupo')
-            ->add('fnIdModeloparametro')
+            ->add('fnIdGrupo',null,array('label' => 'ID Grupo'))
+            ->add('fnIdModeloparametro',null,array('label' => 'ID Modelo Parâmetro'))
         ;
     }
 
@@ -27,8 +27,8 @@ class TModelosparametrosgrupoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('fnIdGrupo')
-            ->add('fnIdModeloparametro')
+            ->add('fnIdGrupo',null,array('label' => 'ID Grupo'))
+            ->add('fnIdModeloparametro',null,array('label' => 'ID Modelo parâmetro'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -45,8 +45,8 @@ class TModelosparametrosgrupoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('fnIdGrupo')
-            ->add('fnIdModeloparametro')
+            ->add('fnIdGrupo',null,array('label' => 'ID'))
+            ->add('fnIdModeloparametro',null,array('label' => 'ID Modelo parâmetro'))
         ;
     }
 

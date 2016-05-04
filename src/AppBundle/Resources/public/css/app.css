@@ -9841,7 +9841,7 @@ input[type="text"]{
 
 .select2-container .select2-choice .select2-arrow{
     top: 4px !important;
-    background: white none !important;
+    background: transparent !important;
     border-left:none!important;
 }
 
@@ -10215,13 +10215,14 @@ tbody > tr > td span.label{
     -moz-opacity: 0.7;
 }
 
+
 .Lancamento_amostra
 {
-    margin-top:-180px;
+    margin-top:-45px;
 }
 
 .Lote_amostra{
-    margin-top: -1015px;
+    margin-top: -890px;
 }
 
 .btn.generateworklist{
@@ -10285,3 +10286,6 @@ tbody > tr > td span.label{
     height: 200px!important;
 }
 
+td.sonata-ba-list-field.sonata-ba-list-field-currency, td.sonata-ba-list-field.sonata-ba-list-field-percent, td.sonata-ba-list-field.sonata-ba-list-field-integer {
+  text-align: left!important;
+}

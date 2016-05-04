@@ -16,10 +16,10 @@ class TFamiliasparametrosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
         ;
     }
 
@@ -29,10 +29,10 @@ class TFamiliasparametrosAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -49,10 +49,14 @@ class TFamiliasparametrosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('ftObservacao')
+            ->with('grupo_1',array('description' => 'Lançamento','class' => 'col-md-6'))
+            ->add('ftCodigo',null,array('label' => 'Código'))
+            ->add('ftDescricao',null,array('label' => 'Descrição'))
+            ->end()
+            ->with('grupo_2',array('description' => 'Lançamento','class' => 'col-md-6'))
+            ->add('ftAlias',null,array('label' => 'Acrónimo'))
+            ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->end()
         ;
     }
 

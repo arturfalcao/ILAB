@@ -16,15 +16,15 @@ class TLocaiscolheitaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnIdConcelho')
-            ->add('fnIdTipoLocalcolheita')
-            ->add('fnIdSistemaabastecimento')
-            ->add('fnIdCliente')
-            ->add('ftObservacao')
-            ->add('fbActivo')
+            ->add('ftCodigo' ,null,array('label' => 'Código'))
+            ->add('ftDescricao' ,null,array('label' => 'Descrição'))
+            ->add('ftAlias' ,null,array('label' => 'Acrónimo'))
+            ->add('fnIdConcelho' ,null,array('label' => 'ID Concelho'))
+            ->add('fnIdTipoLocalcolheita' ,null,array('label' => 'ID Tipo local de colheita'))
+            ->add('fnIdSistemaabastecimento' ,null,array('label' => 'ID Sistema de abastecimento'))
+            ->add('fnIdCliente' ,null,array('label' => 'ID Cliente'))
+            ->add('ftObservacao' ,null,array('label' => 'Observação'))
+            ->add('fbActivo' ,null,array('label' => 'Activo'))
         ;
     }
 
@@ -34,15 +34,15 @@ class TLocaiscolheitaAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnIdConcelho')
-            ->add('fnIdTipoLocalcolheita')
-            ->add('fnIdSistemaabastecimento')
-            ->add('fnIdCliente')
-            ->add('ftObservacao')
-            ->add('fbActivo')
+            ->add('ftCodigo' ,null,array('label' => 'Código'))
+            ->add('ftDescricao' ,null,array('label' => 'Descrição'))
+            ->add('ftAlias' ,null,array('label' => 'Acrónimo'))
+            ->add('fnIdConcelho' ,null,array('label' => 'ID Concelho'))
+            ->add('fnIdTipoLocalcolheita' ,null,array('label' => 'ID Tipo local de colheita'))
+            ->add('fnIdSistemaabastecimento' ,null,array('label' => 'ID Sistema de abastecimento'))
+            ->add('fnIdCliente' ,null,array('label' => 'ID Cliente'))
+            ->add('ftObservacao' ,null,array('label' => 'Observação'))
+            ->add('fbActivo' ,null,array('label' => 'Activo'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -59,15 +59,19 @@ class TLocaiscolheitaAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('ftCodigo')
-            ->add('ftDescricao')
-            ->add('ftAlias')
-            ->add('fnIdConcelho')
-            ->add('fnIdTipoLocalcolheita')
-            ->add('fnIdSistemaabastecimento')
-            ->add('fnIdCliente')
-            ->add('ftObservacao')
-            ->add('fbActivo')
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
+            ->add('ftCodigo' ,null,array('label' => 'Código'))
+            ->add('ftDescricao' ,null,array('label' => 'Descrição'))
+            ->add('ftAlias' ,null,array('label' => 'Acrónimo'))
+            ->add('fnIdConcelho' ,null,array('label' => 'ID Concelho'))
+            ->add('fnIdTipoLocalcolheita' ,null,array('label' => 'ID Local de colheita'))
+            ->end()
+            ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fnIdSistemaabastecimento' ,null,array('label' => 'ID Sistema de abastecimento'))
+            ->add('fnIdCliente' ,null,array('label' => 'ID Cliente'))
+            ->add('ftObservacao' ,null,array('label' => 'Observação'))
+            ->add('fbActivo' ,null,array('label' => 'Activo'))
+            ->end()
         ;
     }
 

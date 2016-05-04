@@ -212,13 +212,16 @@ file that was distributed with this source code.
 
 
 
-                                        {% if filter.formName == 'fnId' or filter.formName == 'ftCodigo'
+                                        {% if filter.formName == 'fnId' or filter.formName == 'ftId' or filter.formName == 'ftCodigo'
                                         or filter.formName == 'fbActivo' or filter.formName == 'ftFormulaquimica'
                                         or filter.formName == 'fbIncluirnorelatorio'
                                         or filter.formName == 'fnAreaensaio' or filter.formName == 'fnLaboratorio'
                                          or filter.formName == 'ftEstado' or filter.formName == 'fnEspecificacoes' or
                                          filter.formName == 'ftMensagemUtilizador' or filter.formName == 'idParametro'
-                                        or filter.formName == 'tablejson'%}
+                                        or filter.formName == 'tablejson' or filter.formName == 'fnIdGrupo'
+                                        or filter.formName == 'fnIdModeloparametro' or filter.formName == 'fnIdLaboratorio'
+                                        or filter.formName == 'fnValor' or filter.formName == 'ftLote'
+                                        or filter.formName == 'id' or filter.formName == ''%}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -248,7 +251,10 @@ file that was distributed with this source code.
 
                                         {% if filter.formName == 'ftNome' or filter.formName == 'ftEmail'
                                          or filter.formName == 'ftDescricao' or filter.formName == 'ftObservacao'
+                                            or filter.formName == 'fdUltimaemissao' or filter.formName == 'fdDatarequisicao'
                                          or filter.formName == 'fnModeloparametro' or filter.formName == 'fnFamiliaparametro'
+                                            or filter.formName == 'ftOriginal' or filter.formName == 'ftAcondicionamento'
+                                             or filter.formName == 'ftValidade'
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -283,7 +289,9 @@ file that was distributed with this source code.
                                          or filter.formName == 'fnPrecovenda' or filter.formName == 'fnMaximo'
                                         or filter.formName == 'fnMinimo' or filter.formName == 'fnMetodo' or
                                             filter.formName == 'fnTecnica' or filter.formName == 'ftCumpreespecificacao'
-                                        or filter.formName == 'fnFrasco'
+                                        or filter.formName == 'fnFrasco' or filter.formName == 'ftUltimoutilizador'
+                                            or filter.formName == 'fbAnulada' or filter.formName == 'fnCalculado'
+                                            or filter.formName == 'ftTemperatura' or filter.formName == 'ftFaseprocesso'
                                         %}
 
                                             {% if filter.label is not same as(false) %}
@@ -317,6 +325,8 @@ file that was distributed with this source code.
                                     or filter.formName == 'fbGamavalores'
                                     or filter.formName == 'ftMensagemutilizador'
                                       or filter.formName == 'fdCriacao' or filter.formName == 'fdConclusao'
+                                        or filter.formName == 'fnDesconto' or filter.formName == 'ftTipopagamento'
+                                        or filter.formName == 'ftFormatado'
                                     %}
 
                                         {% if filter.label is not same as(false) %}
@@ -346,7 +356,8 @@ file that was distributed with this source code.
 
 
                                     {% if filter.formName == 'fdAutorizacao' or filter.formName == 'fdLimiterealizacao'
-                                    or filter.formName == 'fbContraanalise'%}
+                                    or filter.formName == 'fbContraanalise' or filter.formName == 'ftPrazoentrega'
+                                    or filter.formName == 'ftPrefixo' %}
 
                                         {% if filter.label is not same as(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -373,7 +384,7 @@ file that was distributed with this source code.
 
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -381,7 +392,7 @@ file that was distributed with this source code.
                                          or filter.formName == 'fbAcreditado' or filter.formName == 'fnVolumeminimo'
                                         or filter.formName == 'fnLimitequantificacao' or filter.formName == 'ftConclusao'
                                           or filter.formName == 'fbAcreditado'
-                                        or filter.formName == 'fbConfirmacao' %}
+                                        or filter.formName == 'fbConfirmacao' or filter.formName == 'fnParametro'%}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -410,7 +421,8 @@ file that was distributed with this source code.
 
 
                                     {% if filter.formName == 'ftAlias' or filter.formName == 'fnIdProduto'
-                                    or filter.formName == 'fnFamiliaproduto' or filter.formName == 'ftSiglavl' %}
+                                    or filter.formName == 'fnFamiliaproduto' or filter.formName == 'ftSiglavl'
+                                    or filter.formName == 'fnIdConcelho' %}
 
                                         {% if filter.label is not same as(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -439,6 +451,62 @@ file that was distributed with this source code.
 
 
                                     {% if filter.formName == 'fnLegislacao' or filter.formName == 'ftLegendavl' %}
+
+                                        {% if filter.label is not same as(false) %}
+                                            <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                        {% endif %}
+
+                                        {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                        </div>
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                    {% if filter.formName == 'fnIdTipoLocalcolheita' or filter.formName == 'fnIdSistemaabastecimento' %}
+
+                                        {% if filter.label is not same as(false) %}
+                                            <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
+
+                                        {% endif %}
+
+                                        {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
+                                        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
+                                        </div>
+
+                                        <div>
+                                            {{ form_widget(form.children[filter.formName].children['value']) }}
+                                        </div>
+                                    {% endif %}
+
+
+
+                                {% endfor %}
+                            </div>
+
+                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                                {% for filter in admin.datagrid.filters %}
+
+
+                                    {% if filter.formName == 'fnIdCliente' or filter.formName == 'fbActiva'%}
 
                                         {% if filter.label is not same as(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>

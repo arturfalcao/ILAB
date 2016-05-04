@@ -16,9 +16,9 @@ class TProdutosespecificacoesAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
-            ->add('fbMaster')
-            ->add('fnOrdem')
+            ->add('id',null,array('label' => 'ID'))
+            ->add('fbMaster',null,array('label' => 'Mestre'))
+            ->add('fnOrdem',null,array('label' => 'Ordem'))
         ;
     }
 
@@ -28,9 +28,9 @@ class TProdutosespecificacoesAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('fbMaster')
-            ->add('fnOrdem')
+            ->add('id',null,array('label' => 'ID'))
+            ->add('fbMaster',null,array('label' => 'Mestre'))
+            ->add('fnOrdem',null,array('label' => 'Ordem'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,9 +47,13 @@ class TProdutosespecificacoesAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
-            ->add('fbMaster')
-            ->add('fnOrdem')
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
+            ->add('id',null,array('label' => 'ID'))
+            ->add('fbMaster',null,array('label' => 'Mestre'))
+            ->end()
+            ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fnOrdem',null,array('label' => 'Ordem'))
+            ->end()
         ;
     }
 
