@@ -23,9 +23,11 @@
     <script type="text/javascript" src="{{ asset('bundles/app/js/lang-all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/jquery.timepicker.js') }}"></script>
 {% endblock %}
 
 <link rel="stylesheet" type="text/css" href="/bundles/app/css/calendario.css" />
+<link rel="stylesheet" type="text/css" href="/bundles/app/css/jquery.timepicker.css" />
 
 {% block scripts -%}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
@@ -175,6 +177,32 @@
         $('#cancelar').on('click', function(e)  {
             window.location.href = '/app_dev.php/NovoPlaneamento';
             e.preventDefault();
+        });
+
+
+        $(".Novo_Planeamento_startdatetime").datepicker({
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+            nextText: 'Próximo',
+            prevText: 'Anterior'
+        });
+
+        $('#Novo_Planeamento_startdatetime_time').timepicker({ 'timeFormat': 'H:i', 'step': 10 });
+        $('#Novo_Planeamento_enddatetime_time').timepicker({ 'timeFormat': 'H:i' , 'step': 10});
+
+        $(".Novo_Planeamento_enddatetime_date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+            nextText: 'Próximo',
+            prevText: 'Anterior'
         });
 
     });
