@@ -10139,7 +10139,7 @@ tbody > tr > td span.label{
 }
 
 .ui-tabs .ui-tabs-nav li.ui-tabs-active{
-    border-bottom: 1px solid #4cc3b8;
+    border-bottom: 1px solid #4cc3b8!important;
 }
 
 .box.box-success{

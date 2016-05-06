@@ -99,7 +99,7 @@ a
 
 #tab_sidebar .ui-state-default
 {
-    border: none !important; background: white !important;
+    background: white !important;
 }
 
 .loading
@@ -144,6 +144,7 @@ a
 
 #tab_sidebar .material-tabs.nav-tabs > li > a, #tab_sidebar .material-tabs.nav-tabs > li > a:focus {
     margin-right: 0;
+    font-weight:normal;
     border: none;
     /*-webkit-box-shadow: inset 0 -1px 0 #dddddd;
     -moz-box-shadow: inset 0 -1px 0 #dddddd;
@@ -204,6 +205,10 @@ a:active, a:focus {
     margin-right: 5px;
     height: 30px;
     width: 30px;
+}
+
+.circle_image:hover, .circle_image:active {
+    border: 2px solid #4cc3b8;
 }
 
 .roundedOne {
@@ -298,14 +303,14 @@ p.agenda
 
 .imagem_direita {
     margin-top: 15px;
-    margin-left: 220px;
+    margin-left: 275px;
 }
 
 #texto_imp {
     margin-left: 15px;
     margin-bottom: 15px;
     height: 40px;
-    width: 216px;
+    width: 250px;
     min-height: 0 !important;
     display: initial !important;
     background-color: #f6f6f6;
@@ -318,11 +323,11 @@ p.agenda
 
 .botao_enviar {
     margin-top: -50px;
-    margin-left: 250px;
+    margin-left: 275px;
 }
 
 .triangle-isosceles.dir {
-    margin-left: 38px;
+    margin-left: 20px;
     background: #E6E6E6;
     margin-top: -45px;
     margin-bottom: 3px;
@@ -330,7 +335,7 @@ p.agenda
 }
 
 .triangle-isosceles.esq {
-    margin-left: 70px;
+    margin-left: 55px;
     background: #9ED9CF;
     margin-top: -45px;
     margin-bottom: 14px;
@@ -343,7 +348,7 @@ p.agenda
     color: #000;
     font-size: 13px;
     background: #139c9b;
-    width: 153px;
+    width: 240px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -363,18 +368,18 @@ p.agenda
 
 .triangle-isosceles.esq:after {
     top: 20px;
-    left: -16px;
+    left: -9px;
     bottom: auto;
-    border-width: 6px 16px 5px 0;
+    border-width: 5px 10px 5px 0;
     border-color: transparent #9ED9CF;
 }
 
 .triangle-isosceles.dir:after {
     top: 19px;
-    right: -16px;
+    right: -9px;
     bottom: auto;
     left: auto;
-    border-width: 6px 0 5px 16px;
+    border-width: 5px 0 5px 10px;
     border-color: transparent #E6E6E6;
 }
 
@@ -429,12 +434,12 @@ p.quebra{
     padding: 0 0 !important;
 }
 
-#tab_sidebar .ui-tabs, #tab_sidebar .ui-tabs-nav, #tab_sidebar .ui-tabs-anchor {
+/*#tab_sidebar .ui-tabs, #tab_sidebar .ui-tabs-nav, #tab_sidebar .ui-tabs-anchor {
     padding: 0.5em 25px !important;
-}
+}*/
 
 #tab_sidebar .ui-state-default a, #tab_sidebar .ui-state-default a:link, #tab_sidebar .ui-state-default a:visited{
-        color: black;
+        color: #535353;
 }
 
 .h6{
