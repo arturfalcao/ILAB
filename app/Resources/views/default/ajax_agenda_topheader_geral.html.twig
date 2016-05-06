@@ -68,7 +68,11 @@ $( document ).ready(function() {
       var m;
       var tabs_1 = $('#tabs-1');
       tabs_1.append("<div class='loading' style='margin-top:20px;'></div>");
+
       $('.loading').show();
+
+      $(".agenda_hoje").remove();
+
       // INICIO AJAX - responsável por buscar os eventos associados da agenda e da tamostras
       $.ajax({
           type: "POST",

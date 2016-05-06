@@ -105,13 +105,13 @@
 
 
                         <div class="bottom-buttons buttons-center">
-                            <button type="submit" id="g_sair" class="hollow-button">
-                                <img src="/bundles/app/images/icon-button-2.png" alt="">
+                            <button type="submit" id="g_sair" class="btn-success">
+                                <i class="fa fa-save"></i>
                                 <span>Guardar</span>
                             </button>
 
-                            <button id="cancelar" class="hollow-button">
-                                <img src="/bundles/app/images/close.png" alt="">
+                            <button id="cancelar" class="btn-danger">
+                                <i class="fa fa-times-circle"></i>
                                 <span>Cancelar</span>
                             </button>
                         </div>
@@ -189,7 +189,7 @@
 
 <script>
     $( document ).ready(function() {
-        $("#Novo_Planeamento_submit").hide();
+        $("#Novo_Planeamento_submit").remove();
         $('#cancelar').on('click', function(e)  {
             window.location.href = '/app_dev.php/NovoPlaneamento';
             e.preventDefault();
