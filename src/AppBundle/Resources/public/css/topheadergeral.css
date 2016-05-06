@@ -195,7 +195,6 @@ a:active, a:focus {
     display: -webkit-flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    margin-bottom:30px;
     height:72px;
 
 }

@@ -181,7 +181,7 @@ function histMens(element)
                 data: {id: nid, id2: user},
                 success: function(data) {
                 	var arr = $.parseJSON(data);
-                	tabs_2.append("<div id='chat'>");
+                	tabs_2.append("<div id='chat' style='border-top:1px solid #DFDFDF;padding-top: 23px;'>");
                 	if(arr.length != 0)
                     {
                         chat = $("#chat");

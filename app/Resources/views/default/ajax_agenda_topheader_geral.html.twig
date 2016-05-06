@@ -90,12 +90,16 @@ $( document ).ready(function() {
                       if(value.am_ag == 0)
                       {
                         info = data_format + ' - '+ value.observacao;
-                        html =  "<div class='roundedOne'>";
+                        html = "<div class='agenda_hoje'>";
+
+
+                          html +=  "<div class='roundedOne'>";
                         
                         ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                         html += ok; 
                         html += "</div>";
                         html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';
+                        html += "</div>";
                           tabs_1.append(html);
                         if(value.done==1)
                         {
@@ -107,12 +111,14 @@ $( document ).ready(function() {
                       else if(value.am_ag == 1)
                       {
                         info = value.observacao;
-                        html =  "<div class='roundedOne'>";
+                        html = "<div class='agenda_hoje'>";
+                        html +=  "<div class='roundedOne'>";
                         
                         ok = '<input class="esconde" type="checkbox" onclick="changeDone(this)" id="' + value.id +'" name="check" /><label for="' + value.id +'"></label>';
                         html += ok; 
                         html += "</div>";
                         html += '<p class="agenda" id="' + value.id + '">' + info + '</p>';
+                          html += "</div>";
                           tabs_1.append(html);
                         if(value.done==1)
                         {

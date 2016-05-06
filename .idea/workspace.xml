@@ -11,8 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
     </list>
@@ -55,18 +53,18 @@
       <file leaf-file-name="topheadergeral.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="312" column="14" selection-start-line="312" selection-start-column="14" selection-end-line="312" selection-end-column="14" />
+            <state relative-caret-position="289">
+              <caret line="197" column="4" selection-start-line="197" selection-start-column="4" selection-end-line="197" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="standard_layout.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="standard_layout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="201">
-              <caret line="128" column="28" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
+              <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -92,42 +90,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topheader_geral.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="688">
-              <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
-              <folding>
-                <element signature="e#3014#3085#0#HTML" expanded="true" />
-                <element signature="e#3122#3141#0#HTML" expanded="true" />
-                <element signature="e#3455#3492#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_chat_topheader_geral.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="354" column="75" selection-start-line="354" selection-start-column="75" selection-end-line="354" selection-end-column="75" />
-              <folding>
-                <marker date="1462549625254" expanded="true" signature="12155:12182" placeholder="..." />
-                <marker date="1462549625254" expanded="true" signature="12593:12609" placeholder="..." />
-                <marker date="1462549625254" expanded="true" signature="13509:13520" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_agenda_topheader_geral_calendar.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ajax_agenda_topheader_geral_calendar.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="69" column="71" selection-start-line="69" selection-start-column="71" selection-end-line="69" selection-end-column="71" />
+            <state relative-caret-position="556">
+              <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
               <folding>
-                <marker date="1462549625160" expanded="true" signature="1718:1733" placeholder="..." />
-                <marker date="1462549625160" expanded="true" signature="2227:2243" placeholder="..." />
+                <marker date="1462552619060" expanded="true" signature="1718:1733" placeholder="..." />
+                <marker date="1462552619060" expanded="true" signature="2227:2243" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -136,10 +106,10 @@
       <file leaf-file-name="ajax_agenda_topheader_geral.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="69" column="61" selection-start-line="69" selection-start-column="61" selection-end-line="69" selection-end-column="61" />
+            <state relative-caret-position="243">
+              <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
               <folding>
-                <marker date="1462549624749" expanded="true" signature="1461:1477" placeholder="..." />
+                <marker date="1462552619008" expanded="true" signature="1461:1477" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -150,6 +120,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topheader_geral.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -223,11 +203,11 @@
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Block/block_admin_list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig" />
       </list>
     </option>
   </component>
@@ -323,54 +303,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -489,12 +421,12 @@
       <workItem from="1462368366978" duration="14143000" />
       <workItem from="1462437584152" duration="11957000" />
       <workItem from="1462454361790" duration="14962000" />
-      <workItem from="1462541850029" duration="9133000" />
+      <workItem from="1462541850029" duration="10268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91784000" />
+    <option name="totallyTimeSpent" value="92919000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -506,7 +438,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26251897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -895,51 +827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="354" column="75" selection-start-line="354" selection-start-column="75" selection-end-line="354" selection-end-column="75" />
-          <folding>
-            <marker date="1462549625254" expanded="true" signature="12155:12182" placeholder="..." />
-            <marker date="1462549625254" expanded="true" signature="12593:12609" placeholder="..." />
-            <marker date="1462549625254" expanded="true" signature="13509:13520" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="69" column="71" selection-start-line="69" selection-start-column="71" selection-end-line="69" selection-end-column="71" />
-          <folding>
-            <marker date="1462549625160" expanded="true" signature="1718:1733" placeholder="..." />
-            <marker date="1462549625160" expanded="true" signature="2227:2243" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="69" column="61" selection-start-line="69" selection-start-column="61" selection-end-line="69" selection-end-column="61" />
-          <folding>
-            <marker date="1462549624749" expanded="true" signature="1461:1477" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
-          <folding>
-            <element signature="e#3014#3085#0#HTML" expanded="true" />
-            <element signature="e#3122#3141#0#HTML" expanded="true" />
-            <element signature="e#3455#3492#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-867">
@@ -956,19 +843,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="312" column="14" selection-start-line="312" selection-start-column="14" selection-end-line="312" selection-end-column="14" />
+        <state relative-caret-position="201">
+          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="128" column="28" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
+        <state relative-caret-position="280">
+          <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="197" column="4" selection-start-line="197" selection-start-column="4" selection-end-line="197" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1097">
+          <caret line="182" column="48" selection-start-line="182" selection-start-column="48" selection-end-line="182" selection-end-column="48" />
+          <folding>
+            <marker date="1462551907071" expanded="true" signature="5585:5613" placeholder="..." />
+            <marker date="1462551907071" expanded="true" signature="5585:5632" placeholder="..." />
+            <marker date="1462551907071" expanded="true" signature="12211:12238" placeholder="..." />
+            <marker date="1462551907071" expanded="true" signature="12649:12665" placeholder="..." />
+            <marker date="1462551907071" expanded="true" signature="13565:13576" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="114" column="30" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+          <folding>
+            <marker date="1462552619008" expanded="true" signature="1461:1477" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral_calendar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
+          <folding>
+            <marker date="1462552619060" expanded="true" signature="1718:1733" placeholder="..." />
+            <marker date="1462552619060" expanded="true" signature="2227:2243" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
