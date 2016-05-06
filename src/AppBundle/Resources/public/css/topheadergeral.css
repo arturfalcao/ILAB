@@ -131,29 +131,23 @@ a
 
 #tab_sidebar .material-tabs.nav-tabs > li.active > a:hover, #tab_sidebar .material-tabs.nav-tabs > li.active > a:focus:hover {
     border: none;
-    color: #139c9b;
+    color: #4cc3b8;
 }
 #tab_sidebar .material-tabs.nav-tabs > li.active > a, #tab_sidebar .material-tabs.nav-tabs > li.active > a:focus {
     border: none;
-    -webkit-box-shadow: inset 0 -2px 0 #139c9b;
-    -moz-box-shadow: inset 0 -2px 0 #139c9b;
-    box-shadow: inset 0 -2px 0 #139c9b;
-    color: #139c9b;
+    color: #4cc3b8;
 }
 #tab_sidebar .material-tabs.nav-tabs > li > a:hover, #tab_sidebar .material-tabs.nav-tabs > li > a:focus:hover {
     background-color: transparent;
-    -webkit-box-shadow: inset 0 -2px 0 #139c9b;
-    -moz-box-shadow: inset 0 -2px 0 #139c9b;
-    box-shadow: inset 0 -2px 0 #139c9b;
-    color: #139c9b;
+    color: #4cc3b8;
 }
 
 #tab_sidebar .material-tabs.nav-tabs > li > a, #tab_sidebar .material-tabs.nav-tabs > li > a:focus {
     margin-right: 0;
     border: none;
-    -webkit-box-shadow: inset 0 -1px 0 #dddddd;
+    /*-webkit-box-shadow: inset 0 -1px 0 #dddddd;
     -moz-box-shadow: inset 0 -1px 0 #dddddd;
-    box-shadow: inset 0 -1px 0 #dddddd;
+    box-shadow: inset 0 -1px 0 #dddddd;*/
     -webkit-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s;
@@ -260,11 +254,11 @@ a:active, a:focus {
     height: 20px;
     background: #00bf00;
 
-    background: -webkit-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: -moz-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: -o-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: -ms-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
+    background: -webkit-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: -moz-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: -o-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: -ms-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
 
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
