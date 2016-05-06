@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="large-3 push-1 form-group">
-                        {{ form_label(form.startdatetime, 'Data de inicio', { 'attr': {'class': 'datepicker'} }) }}
+                        {{ form_label(form.startdatetime, 'Data de início') }}
                         {{ form_widget(form.startdatetime) }}
                         </div>
 
@@ -182,6 +182,20 @@
         });
     });
 </script>
+
+<style>
+    input[type=date]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+    input[type=time]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+
+</style>
 
 <script>
     $( document ).ready(function() {

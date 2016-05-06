@@ -624,7 +624,7 @@
                                         <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-check-circle"></i> Autorizar </a>
                                         <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
                                         <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-ban"></i> Cancelar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-file-text"></i> Emitir Relatorio </a>
+                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-file-text"></i> Emitir Relatório </a>
                                         <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-envelope"></i> Notificar Cliente </a>
 
                                         <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
@@ -667,7 +667,7 @@
                         </table>
 
                         <div class="NewParaDiv"></div>
-                        <a target="_blank" class="btn generateworklist" onclick="AddParaActions()"><i class="fa fa-minus-circle"></i> Adicionar </a>
+                        <a target="_blank" class="btn generateworklist" onclick="AddParaActions()"><i class="fa fa-plus-circle"></i> Adicionar </a>
 
                     </div>
                     <div class="col-md-6">
@@ -679,8 +679,8 @@
                             </ul>
                             <div id="tabs-4">
 
-                                <p>Execução:</p>
-                                <div class="form-group">
+                                <p style="padding-left: 14px;padding-top: 30px;">Execução:</p>
+                                <div class="form-group col-md-6">
                                     <label for="_nomeparametro">ID</label>
                                     <input type="text" class="form-control" id="_idparametroData" disabled>
                                     <label for="_nomeparametro">Nome</label>
@@ -688,31 +688,30 @@
                                     <label for="_idmodeloparametro">Modelo</label>
                                     <input type="text" class="form-control" id="_idmodeloparametro" disabled>
                                     <input type="text" class="form-control" id="_modeloparametro" disabled>
-                                    <label for="_formulaquimica">Formula Quimica</label>
+                                    <label for="_formulaquimica">Fórmula Química</label>
                                     <input type="text" class="form-control" id="_formulaquimica" >
-                                    <label for="_valororiginal">Familia</label>
+                                    <label for="_valororiginal">Família</label>
                                     <div class="familiadiv"></div>
                                 </div>
 
-                                <p>Execução:</p>
-                                <div class="form-group">
-                                    <label for="laboratoriodiv">Laboratorio</label>
-                                    <div class="laboratoriodiv"></div>
-                                    <label for="areaensaiodiv">Area de ensaio</label>
-                                    <div class="areaensaiodiv"></div>
-                                    <label for="metododiv">Metodo</label>
-                                    <div class="metododiv"></div>
-                                    <label for="tecnicadiv">Tecnica</label>
-                                    <div class="tecnicadiv"></div>
+                                <div class="form-group col-md-6">
+                                    <label for="laboratoriodiv">Laboratório</label>
+                                    <div class="laboratoriodiv" style="margin-bottom: 25px!important;"></div>
+                                    <label for="areaensaiodiv">Área de ensaio</label>
+                                    <div class="areaensaiodiv" style="margin-bottom: 25px!important;"></div>
+                                    <label for="metododiv">Método</label>
+                                    <div class="metododiv" style="margin-bottom: 25px!important;"></div>
+                                    <label for="tecnicadiv" >Técnica</label>
+                                    <div class="tecnicadiv" style="margin-bottom: 25px!important;"></div>
 
                                     <label for="_confirmacao">Confirmação</label>
                                     <input type="checkbox" class="form-control" id="_confirmacao" >
-                                    <label for="_contraanalise">Contra Analise</label>
+                                    <label for="_contraanalise">Contra Análise</label>
                                     <input type="checkbox" class="form-control" id="_contraanalise" >
 
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <p>Preço:</p>
                                     <label for="_compra">Compra</label>
                                     <input type="text" class="form-control" id="_compra" >
@@ -721,33 +720,36 @@
                                     <label for="_fator">Fator</label>
                                     <input type="text" class="form-control" id="_fator" >
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <p>Acreditação Amostragem:</p>
-                                    <label for="_confirmacao">Ambito Interno</label>
+                                    <label for="_confirmacao">Âmbito Interno</label>
                                     <input type="checkbox" class="form-control" id="_ambinterno" >
-                                    <label for="_contraanalise">Ambito Externo</label>
+                                    <label for="_contraanalise">Âmbito Externo</label>
                                     <input type="checkbox" class="form-control" id="_ambexterno" >
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <p>Acreditação Determinação:</p>
-                                    <label for="_confirmacao">Ambito Interno</label>
+                                    <label for="_confirmacao">Âmbito Interno</label>
                                     <input type="checkbox" class="form-control" id="_deterinterno" >
-                                    <label for="_contraanalise">Ambito Externo</label>
+                                    <label for="_contraanalise">Âmbito Externo</label>
                                     <input type="checkbox" class="form-control" id="_deterexterno" >
                                 </div>
 
-                                <label for="_fator">Conclusão</label>
-                                <input type="text" class="form-control" id="_conclusao" >
-                                <label for="_fator">Observações</label>
-                                <input type="text" class="form-control" id="_observacoes" >
-
+                                <div class="form-group col-md-6">
+                                    <label for="_fator">Conclusão</label>
+                                    <input type="text" class="form-control" id="_conclusao" >
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="_fator">Observações</label>
+                                    <input type="text" class="form-control" id="_observacoes" >
+                                </div>
                             </div>
                             <div id="tabs-5">
                                 <p>Resultado:</p>
                                 <div class="checkbox disabled">
                                     <label>
                                         <input type="checkbox" id="_incluirelatorio" value="" disabled>
-                                        Incluir no relatorio
+                                        Incluir no relatório
                                     </label>
                                 </div>
 
@@ -764,7 +766,7 @@
 
                                     <label for="_valororiginal">Original</label>
                                     <input type="text" class="form-control" id="_valororiginal" >
-                                    <label for="_valorformatado">formatado</label>
+                                    <label for="_valorformatado">Formatado</label>
                                     <input type="text" class="form-control" id="_valorformatado" disabled>
                                     <label for="_conclusao">Conclusão</label>
                                     <input type="text" class="form-control" id="_conclusao" disabled>
@@ -788,11 +790,12 @@
                     </div>
                 </div>
                 </div>
-                <div class="row">
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-minus-circle"></i> Autorizar </a>
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-minus-circle"></i> Desautorizar </a>
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
-                    <a target="_blank" class="btn generateworklist" onclick="Savedata()"><i class="fa fa-minus-circle"></i> Guardar</a>
+                <div class="well well-small form-actions large-16 form-group visivel text-center">
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-check-circle"></i> Autorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="Savedata()"><i class="fa fa-save"></i> Guardar</a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
+                    <a target="_blank" class="btn btn-danger" onclick="UpdateParaActions('/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
+
                 </div>
             </div>
             <div id="tabs-3">
@@ -815,7 +818,9 @@
 
 
     <style>
-
+        #parametros_grid{
+            margin-top: 18px;
+        }
 
     </style>
 

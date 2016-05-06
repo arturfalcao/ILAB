@@ -104,6 +104,7 @@ file that was distributed with this source code.
 
 <body {% block body_attributes %}class="sonata-bc skin-black"{% endblock %}>
 
+{# AQUI VER ISTO#}
 <div class="splash_screen">
 
 </div>
@@ -178,6 +179,7 @@ file that was distributed with this source code.
                                             <div class="sonata-ba-preview">{{ _preview|raw }}</div>
                                         {% endif %}
 
+                                        {# AQUI#}
                                         {% if _content is not empty %}
                                             <div class="sonata-ba-content">{{ _content|raw }}</div>
                                         {% endif %}
@@ -238,6 +240,10 @@ file that was distributed with this source code.
         background-color: white;
         z-index:10;
     }
+
+    .box {
+        border-top: none;
+    }
 </style>
 <script>
 
@@ -245,6 +251,9 @@ file that was distributed with this source code.
 
 
         $('.sonata-ba-list-field-header-actions').html('Ações');
+
+
+        $('.sonata-ba-content>.row>div').removeClass('col-md-6').addClass('col-md-7 push-3');
 
     })
 </script>

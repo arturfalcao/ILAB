@@ -81,7 +81,7 @@
                         </div>
 
                         <div class="large-6 push-1 form-group">
-                            {{ form_label(form.ftGrupoparametros, 'Grupo de Parametros') }}
+                            {{ form_label(form.ftGrupoparametros, 'Grupo de Parâmetros') }}
                             {{ form_widget(form.ftGrupoparametros) }}
                         </div>
 
@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="large-3 push-1 form-group">
-                            {{ form_label(form.startdatetime, 'Data de inicio') }}
+                            {{ form_label(form.startdatetime, 'Data de início') }}
                             {{ form_widget(form.startdatetime) }}
                         </div>
 
@@ -130,6 +130,22 @@
         </div>
     </div>
 </div>
+
+<style>
+    input[type=date]::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+         display: none;
+     }
+
+    input[type=time]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+
+
+
+</style>
 
 <script>
     function sendForm(form, callback) {

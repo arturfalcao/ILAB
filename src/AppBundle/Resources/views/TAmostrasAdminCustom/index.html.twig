@@ -156,14 +156,16 @@
                                     </div>
                                 </div>
 
+                                <div class="well well-small form-actions large-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
+                                    <button type="submit" class="btn btn-success visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
 
+                                    <div class="btn btn-success">
+                                        <a href="/app_dev.php/NovoPlaneamento?filters=reset">Redefinir</a>
 
-                                <div class="col-md-6 columns nopadding text-center visivel">
-                                    <button type="submit" style="width: 200px;" class="bottom-buttons buttons-center ">
-                                        <span>Filtrar</span>
-                                    </button>
-
+                                    </div>
                                 </div>
+
+
                                 <hr id="rod_filtros" >
                             </form>
                         </div>
@@ -176,7 +178,7 @@
 
                     {% block body -%}
 
-                        <div class="sonata-ba-list col-md-16">
+                        <div class="sonata-ba-list col-md-12">
                         <div class="box box-primary">
                             <div class="box-body table-responsive no-padding" style="height: 800px;max-height: 800px;">
                            <table class="records_list table table-bordered table-striped">
@@ -299,20 +301,6 @@
                                     $("#cab_filtros").toggle("hide");
                                     $("#rod_filtros").toggle("show");
                                 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                             });
