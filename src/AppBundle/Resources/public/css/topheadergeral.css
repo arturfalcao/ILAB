@@ -215,22 +215,12 @@ a:active, a:focus {
     width: 15px;
     height: 15px;
     background: #fcfff4;
-
-    background: -webkit-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: -moz-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: -o-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: -ms-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: linear-gradient(top, white 0%, white 40%, white 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
     margin: 20px auto;
 
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-
-    -webkit-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    border: 1px solid #DFDFDF;
     position: relative;
 }
 
@@ -281,7 +271,7 @@ a:active, a:focus {
 p.agenda
 {
     font-size: 13px;
-    margin-top: -38px !important;
+    margin-top: -36px !important;
     margin-left: 30px !important;
 }
 
@@ -582,5 +572,9 @@ p.quebra{
     border: 2px solid #fff;
     right: -2px;
     top: 0;
+}
+.agenda_hoje{
+    padding: 0 20px;
+    border-bottom: 1px solid #DFDFDF;
 }
 
