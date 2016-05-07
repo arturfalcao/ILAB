@@ -99,7 +99,7 @@ a
 
 #tab_sidebar .ui-state-default
 {
-    border: none !important; background: white !important;
+    background: white !important;
 }
 
 .loading
@@ -113,6 +113,7 @@ a
 
 
 .sideBarRight {
+    padding: 0;
     border: 1px solid #E6E6E6!important;
     margin-top: 19px;
     width: 330px;
@@ -130,29 +131,24 @@ a
 
 #tab_sidebar .material-tabs.nav-tabs > li.active > a:hover, #tab_sidebar .material-tabs.nav-tabs > li.active > a:focus:hover {
     border: none;
-    color: #139c9b;
+    color: #4cc3b8;
 }
 #tab_sidebar .material-tabs.nav-tabs > li.active > a, #tab_sidebar .material-tabs.nav-tabs > li.active > a:focus {
     border: none;
-    -webkit-box-shadow: inset 0 -2px 0 #139c9b;
-    -moz-box-shadow: inset 0 -2px 0 #139c9b;
-    box-shadow: inset 0 -2px 0 #139c9b;
-    color: #139c9b;
+    color: #4cc3b8;
 }
 #tab_sidebar .material-tabs.nav-tabs > li > a:hover, #tab_sidebar .material-tabs.nav-tabs > li > a:focus:hover {
     background-color: transparent;
-    -webkit-box-shadow: inset 0 -2px 0 #139c9b;
-    -moz-box-shadow: inset 0 -2px 0 #139c9b;
-    box-shadow: inset 0 -2px 0 #139c9b;
-    color: #139c9b;
+    color: #4cc3b8;
 }
 
 #tab_sidebar .material-tabs.nav-tabs > li > a, #tab_sidebar .material-tabs.nav-tabs > li > a:focus {
     margin-right: 0;
+    font-weight:normal;
     border: none;
-    -webkit-box-shadow: inset 0 -1px 0 #dddddd;
+    /*-webkit-box-shadow: inset 0 -1px 0 #dddddd;
     -moz-box-shadow: inset 0 -1px 0 #dddddd;
-    box-shadow: inset 0 -1px 0 #dddddd;
+    box-shadow: inset 0 -1px 0 #dddddd;*/
     -webkit-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s;
@@ -199,7 +195,6 @@ a:active, a:focus {
     display: -webkit-flex;
     overflow-x: scroll;
     overflow-y: hidden;
-    margin-bottom:30px;
     height:72px;
 
 }
@@ -211,27 +206,21 @@ a:active, a:focus {
     width: 30px;
 }
 
+.circle_image:hover, .circle_image:active {
+    border: 2px solid #4cc3b8;
+}
+
 .roundedOne {
     left: -135px;
     width: 15px;
     height: 15px;
     background: #fcfff4;
-
-    background: -webkit-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: -moz-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: -o-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: -ms-linear-gradient(top, white 0%, white 40%, white 100%);
-    background: linear-gradient(top, white 0%, white 40%, white 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
     margin: 20px auto;
 
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-
-    -webkit-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+    border: 1px solid #DFDFDF;
     position: relative;
 }
 
@@ -259,11 +248,11 @@ a:active, a:focus {
     height: 20px;
     background: #00bf00;
 
-    background: -webkit-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: -moz-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: -o-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: -ms-linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
-    background: linear-gradient(top, rgb(76, 195, 184) 0%, rgb(76, 195, 184) 100%);
+    background: -webkit-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: -moz-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: -o-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: -ms-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
+    background: linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
 
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -282,7 +271,7 @@ a:active, a:focus {
 p.agenda
 {
     font-size: 13px;
-    margin-top: -38px !important;
+    margin-top: -36px !important;
     margin-left: 30px !important;
 }
 
@@ -303,14 +292,14 @@ p.agenda
 
 .imagem_direita {
     margin-top: 15px;
-    margin-left: 220px;
+    margin-left: 275px;
 }
 
 #texto_imp {
     margin-left: 15px;
     margin-bottom: 15px;
     height: 40px;
-    width: 216px;
+    width: 250px;
     min-height: 0 !important;
     display: initial !important;
     background-color: #f6f6f6;
@@ -323,11 +312,11 @@ p.agenda
 
 .botao_enviar {
     margin-top: -50px;
-    margin-left: 250px;
+    margin-left: 275px;
 }
 
 .triangle-isosceles.dir {
-    margin-left: 38px;
+    margin-left: 20px;
     background: #E6E6E6;
     margin-top: -45px;
     margin-bottom: 3px;
@@ -335,7 +324,7 @@ p.agenda
 }
 
 .triangle-isosceles.esq {
-    margin-left: 70px;
+    margin-left: 55px;
     background: #9ED9CF;
     margin-top: -45px;
     margin-bottom: 14px;
@@ -348,7 +337,7 @@ p.agenda
     color: #000;
     font-size: 13px;
     background: #139c9b;
-    width: 153px;
+    width: 240px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -368,18 +357,18 @@ p.agenda
 
 .triangle-isosceles.esq:after {
     top: 20px;
-    left: -16px;
+    left: -9px;
     bottom: auto;
-    border-width: 6px 16px 5px 0;
+    border-width: 5px 10px 5px 0;
     border-color: transparent #9ED9CF;
 }
 
 .triangle-isosceles.dir:after {
     top: 19px;
-    right: -16px;
+    right: -9px;
     bottom: auto;
     left: auto;
-    border-width: 6px 0 5px 16px;
+    border-width: 5px 0 5px 10px;
     border-color: transparent #E6E6E6;
 }
 
@@ -434,12 +423,12 @@ p.quebra{
     padding: 0 0 !important;
 }
 
-#tab_sidebar .ui-tabs, #tab_sidebar .ui-tabs-nav, #tab_sidebar .ui-tabs-anchor {
+/*#tab_sidebar .ui-tabs, #tab_sidebar .ui-tabs-nav, #tab_sidebar .ui-tabs-anchor {
     padding: 0.5em 25px !important;
-}
+}*/
 
 #tab_sidebar .ui-state-default a, #tab_sidebar .ui-state-default a:link, #tab_sidebar .ui-state-default a:visited{
-        color: black;
+        color: #535353;
 }
 
 .h6{
@@ -583,5 +572,9 @@ p.quebra{
     border: 2px solid #fff;
     right: -2px;
     top: 0;
+}
+.agenda_hoje{
+    padding: 0 20px;
+    border-bottom: 1px solid #DFDFDF;
 }
 

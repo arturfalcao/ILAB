@@ -359,35 +359,6 @@ file that was distributed with this source code.
 
 
 
-
-                                {#<div class="invisivel">
-                                    {% for filter in admin.datagrid.filters %}
-
-                                        {% if(filter.formName not in admin.list.elements|keys) %}
-
-                                                {% if filter.label is not same as(false) %}
-                                                    <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
-
-                                                {% endif %}
-
-                                                {% set attr = form.children[filter.formName].children['type'].vars.attr|default({}) %}
-                                                {% set attr = attr|merge({'class': (attr.class|default('') ~ ' sonata-filter-option')|trim}) %}
-
-                                                <div>
-                                                    {{ form_widget(form.children[filter.formName].children['type'], {'attr':  attr}) }}
-                                                </div>
-
-                                                <div>
-                                                    {{ form_widget(form.children[filter.formName].children['value']) }}
-                                                </div>
-
-                                        {% endif %}
-                                    {% endfor %}
-
-
-                                </div>#}
-
-
                                 <input type="hidden" name="filter[_page]" id="filter__page" value="1">
 
                                 {% set foo = form.children['_page'].setRendered() %}
@@ -419,8 +390,8 @@ file that was distributed with this source code.
             $('.invisivel').hide();
             $('.visivel').hide();
             $('#rod_filtros').hide();
-            $("label[for='filter_fdColheita_value_start']").html('Data inicio');
-            $("label[for='filter_fdColheita_value_end']").html('Data fim');
+            $("label[for='filter_fdColheita_value_start']").html('Data de início');
+            $("label[for='filter_fdColheita_value_end']").html('Data de fim');
 
 
             $(".datepicker").datepicker({

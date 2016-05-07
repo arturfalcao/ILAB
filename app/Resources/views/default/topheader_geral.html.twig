@@ -16,13 +16,29 @@
       {% if 'list' in admin.request.pathInfo%}
           {% if 'Legislacao' == admin.label %}
           <h6 class="title"> Listagem de Legislações </h6>
-          {% else %}  
+          {% elseif 'users'  == admin.label%}
+              <h6 class="title"> Listagem de Utilizadores </h6>
+          {% elseif 'groups'  == admin.label%}
+              <h6 class="title"> Listagem de Grupos </h6>
+          {% else %}
           <h6 class="title"> Listagem de {{  admin.label ~ (admin.label|last == 's' ? '' : 's') }} </h6>
           {% endif %}
       {% elseif 'edit' in admin.request.pathInfo%}
-      <h6 class="title"> Edição - {{  admin.label }} </h6>
-      {% elseif 'create' in admin.request.pathInfo%}
-      <h6 class="title"> Criação - {{  admin.label }} </h6>
+        {% if 'users'  == admin.label%}
+          <h6 class="title"> Edição - Utilizadores </h6>
+        {% elseif 'groups'  == admin.label%}
+          <h6 class="title"> Edição - Grupos </h6>
+        {% else %}
+          <h6 class="title"> Edição - {{  admin.label }} </h6>
+         {% endif %}
+        {% elseif 'create' in admin.request.pathInfo%}
+          {% if 'users' == admin.label %}
+          <h6 class="title"> Criação - Utilizadores </h6>
+          {% elseif 'groups' == admin.label %}
+          <h6 class="title"> Criação - Grupos </h6>
+          {% else %}
+            <h6 class="title"> Criação - {{  admin.label }} </h6>
+          {% endif %}
       {% elseif 'dashboard' in admin.request.pathInfo%}
           <h6 class="title"> Dashboard </h6>
       {% endif %}
@@ -62,13 +78,13 @@
     <div id="tab_sidebar" class="sideBarRight" style="display: none;">
 
 
-        <ul class="nav nav-tabs material-tabs" role="tablist">
-            <li  class="li_agenda" style="float: left;margin-left: -20px;margin-right: 10px;">
-            <a id="chat_tab" class="tabulador" href="#tabs-1" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="false">Agenda de hoje</a>
+        <ul class="nav nav-tabs material-tabs" role="tablist" style="padding: 0!important;border-bottom:1px solid #dfdfdf!important;">
+            <li  class="li_agenda" style="float: left">
+            <a id="chat_tab" style="padding: 10px 18px!important;" class="tabulador" href="#tabs-1" aria-controls="notifications" role="tab" data-toggle="tab" aria-expanded="false">Agenda de hoje</a>
             
             </li>
             
-            <li class="li_chat"><a class="tabulador" href="#tabs-2" aria-controls="message" role="tab" data-toggle="tab" aria-expanded="true">Chat</a>
+            <li class="li_chat"><a class="tabulador" href="#tabs-2" style="padding: 10px 60px!important;" aria-controls="message" role="tab" data-toggle="tab" aria-expanded="true">Chat</a>
             </li>
         
         </ul>
@@ -76,7 +92,7 @@
                 
         </div>
         
-        <div id="tabs-1">
+        <div id="tabs-1" style="padding-top: 15px!important;">
             
         </div>
         
@@ -87,4 +103,5 @@
 
   </header>
 </div>
+
 {% endif %}

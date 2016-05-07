@@ -64,7 +64,7 @@ class TAmostrasAdmin extends Admin
             ->add('ftEstado',null,array('label' => 'Estado'))
             ->add('fnEspecificacao',null,array('label' => 'Especificação'))
             ->add('ftCumpreespecificacao',null,array('label' => 'Cumpre especificação'))
-            ->add('fdInicioanalise',null,array('label' => 'Inicio análise'))
+            ->add('fdInicioanalise',null,array('label' => 'Início da análise'))
             ->add('fbFacturada',null,array('label' => 'Faturada'))
             ->add('fnRequisicaocliente',null,array('label' => 'Requisição cliente'))
         ;

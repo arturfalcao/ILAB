@@ -23,9 +23,11 @@
     <script type="text/javascript" src="{{ asset('bundles/app/js/lang-all.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/jquery.timepicker.js') }}"></script>
 {% endblock %}
 
 <link rel="stylesheet" type="text/css" href="/bundles/app/css/calendario.css" />
+<link rel="stylesheet" type="text/css" href="/bundles/app/css/jquery.timepicker.css" />
 
 {% block scripts -%}
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
@@ -79,7 +81,7 @@
                         </div>
 
                         <div class="large-6 push-1 form-group">
-                            {{ form_label(form.ftGrupoparametros, 'Grupo de Parametros') }}
+                            {{ form_label(form.ftGrupoparametros, 'Grupo de Parâmetros') }}
                             {{ form_widget(form.ftGrupoparametros) }}
                         </div>
 
@@ -89,7 +91,7 @@
                         </div>
 
                         <div class="large-3 push-1 form-group">
-                            {{ form_label(form.startdatetime, 'Data de inicio') }}
+                            {{ form_label(form.startdatetime, 'Data de início') }}
                             {{ form_widget(form.startdatetime) }}
                         </div>
 
@@ -103,13 +105,13 @@
 
 
                         <div class="bottom-buttons buttons-center">
-                            <button type="submit" id="g_sair" class="hollow-button">
-                                <img src="/bundles/app/images/icon-button-2.png" alt="">
+                            <button type="submit" id="g_sair" class="btn-success">
+                                <i class="fa fa-save"></i>
                                 <span>Guardar</span>
                             </button>
 
-                            <button id="cancelar" class="hollow-button">
-                                <img src="/bundles/app/images/close.png" alt="">
+                            <button id="cancelar" class="btn-danger">
+                                <i class="fa fa-times-circle"></i>
                                 <span>Cancelar</span>
                             </button>
                         </div>
@@ -128,6 +130,22 @@
         </div>
     </div>
 </div>
+
+<style>
+    input[type=date]::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+         display: none;
+     }
+
+    input[type=time]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+
+
+
+</style>
 
 <script>
     function sendForm(form, callback) {
@@ -171,10 +189,36 @@
 
 <script>
     $( document ).ready(function() {
-        $("#Novo_Planeamento_submit").hide();
+        $("#Novo_Planeamento_submit").remove();
         $('#cancelar').on('click', function(e)  {
             window.location.href = '/app_dev.php/NovoPlaneamento';
             e.preventDefault();
+        });
+
+
+        $(".Novo_Planeamento_startdatetime").datepicker({
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+            nextText: 'Próximo',
+            prevText: 'Anterior'
+        });
+
+        $('#Novo_Planeamento_startdatetime_time').timepicker({ 'timeFormat': 'H:i', 'step': 10 });
+        $('#Novo_Planeamento_enddatetime_time').timepicker({ 'timeFormat': 'H:i' , 'step': 10});
+
+        $(".Novo_Planeamento_enddatetime_date").datepicker({
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+            nextText: 'Próximo',
+            prevText: 'Anterior'
         });
 
     });

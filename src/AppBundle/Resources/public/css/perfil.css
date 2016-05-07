@@ -187,8 +187,8 @@
 }
 
 .buttons-center .hollow-button {
-    padding: 10px 35px 10px 25px;
-    margin-right: 0.9375rem;
+    padding: 10px 25px 10px 25px;
+
 }
 
 .hollow-button {
@@ -493,6 +493,7 @@
 }
 
 #g_sair{
+    border: 1px solid #4cc3b8!important;
     outline: none!important;
     padding:10px;
     background-color: white;
@@ -500,9 +501,11 @@
 
 
 #cancelar {
+    border: 1px solid #f4543c!important;
     outline: none!important;
     padding:10px;
     background-color: white;
+    color: #f4543c!important;
 }
 
 .hollow-button span, .hollow-button img {
@@ -640,6 +643,8 @@
 }
 
 #g_sair_1 {
+    border: 1px solid #4cc3b8!important;
+    color: #4cc3b8!important;
     margin-left: 180px;
     padding-right: 5px;
     padding-left: 5px;
@@ -661,11 +666,13 @@
 
 #cancelar_1
 {
+    border: 1px solid #f4543c!important;
     margin-left: 10px;
     padding-right: 5px;
     padding-left: 5px;
     outline: none!important;
     background-color: white;
+    color: #f4543c!important;
 }
 
 
@@ -705,7 +712,6 @@
 }
 
 #g_sair_1:hover, #g_sair_1:focus{
-    color: #65c0b2!important;
     opacity: 0.7;
     filter: alpha(opacity=70);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
@@ -713,7 +719,6 @@
 }
 
 #g_sair:hover, #g_sair:focus{
-    color: #65c0b2!important;
     opacity: 0.7;
     filter: alpha(opacity=70);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
@@ -721,7 +726,6 @@
 }
 
 #cancelar:hover, #cancelar:focus{
-    color: #65c0b2!important;
     opacity: 0.7;
     filter: alpha(opacity=70);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
@@ -729,7 +733,6 @@
 }
 
 #cancelar_1:hover, #cancelar_1:focus{
-    color: #65c0b2!important;
     opacity: 0.7;
     filter: alpha(opacity=70);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";

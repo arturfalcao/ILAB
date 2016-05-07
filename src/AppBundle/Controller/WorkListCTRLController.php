@@ -159,10 +159,10 @@ class WorkListCTRLController extends Controller
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-        $pdf->SetMargins(PDF_MARGIN_LEFT, 40, PDF_MARGIN_RIGHT);
+        $pdf->SetMargins(7, 35, 7);
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
-        $pdf->SetHeaderData('logopimenta.png', 60, 'RELATÓRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
+        $pdf->SetHeaderData('logopimenta.png', 50, 'RELATÓRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
 
 // set header and footer fonts
 
@@ -196,6 +196,40 @@ class WorkListCTRLController extends Controller
         background-color: gray;
         padding-left: 10px;
     }
+
+    .table_parametros_tecnica{
+        font-size:7px;
+        font-weight: normal;
+    }
+    .table_resultados .resultados_one{
+
+        font-size:9px;
+        font-weight: normal;
+    }
+     .table_resultados td{
+        margin-top: 5px !important;
+    }
+    .table_resultados span{
+        width:100%;
+    }
+    .table_resultados{
+        padding-top:10px;
+    }
+    .table_parametros td{
+        border:none;
+        font-size:9px;
+        font-weight: bold;
+        padding-top: 8px;
+    }
+    .table_parametros td span{
+        display:block;
+    }
+    .table_parametros {
+        padding-top:5px;
+        border-top :1px solid #000;
+        border-bottom :1px solid #000;
+    }
+
 
     .info_amostra div div{
         width: 100%;
@@ -276,11 +310,39 @@ class WorkListCTRLController extends Controller
         <td class="table_colheita_info_data">28-09-2016</td>
     </tr>
 </table>
+<table class="table_parametros" >
+    <tr style="margin-top 5px;">
+        <td colspan="2">
+           <span>Parâmetros Microbiologicos     </span><br />
+            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
+        </td>
+        <td class="table_parametros_data"></td>
+        <td>Unidades</td>
+        <td class="table_parametros_data"></td>
+        <td></td>
+        <td class="table_parametros_data"></td>
+    </tr>
+</table>
+<table class="table_resultados">
+    <tr style="margin-top 5px;">
+        <td colspan="2" class="resultados_one" style="border-spacing:6px 12px;padding:10px 4px 10px 4px">
+           Parâmetros Microbiologicos<br />
+            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
+        </td>
+        <td class="">0</td>
+        <td>ufc/100ml</td>
+        <td class="table_parametros_data"></td>
+        <td></td>
+        <td class="table_parametros_data"></td>
+    </tr>
+</table>
 EOF;
 
+        $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
+        $pdf->setHtmlVSpace($tagvs);
 
 // output the HTML content
-        $pdf->writeHTML($html, true, false, true, false, '');
+        $pdf->writeHTML($html, true, true, true, true, '');
 
 
         $pdf->lastPage();

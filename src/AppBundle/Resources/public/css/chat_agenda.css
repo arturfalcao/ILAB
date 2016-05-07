@@ -8,17 +8,11 @@
 
 #tab_sidebar a:hover{
     background-color: transparent!important;
-    -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-    -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-    box-shadow: inset 0 -2px 0 #139c9b!important;
     color: #139c9b!important;
 }
 
 #tab_sidebar a:focus{
     background-color: transparent!important;
-    -webkit-box-shadow: inset 0 -2px 0 #139c9b!important;
-    -moz-box-shadow: inset 0 -2px 0 #139c9b!important;
-    box-shadow: inset 0 -2px 0 #139c9b!important;
     color: #139c9b!important;
 }
 
