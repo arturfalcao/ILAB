@@ -73,10 +73,8 @@
                     <div class="subtitle">Administração</div>
                     <li><a href="{{path('sonata_admin_dashboard') }}" >Gestão de Utilizadores</a></li>
                 </ul>
-
             </li>
         </ul>
-
         {%if app.user %}
             <div class="new-bottom-section">
                 <input type="hidden" id="util" name="util" value="{{app.user.id}}">
@@ -91,11 +89,8 @@
                 </a>
             </div>
         {%endif%}
-
     </nav>
-
     <style>
-
     </style>
 
     <script>
