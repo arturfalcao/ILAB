@@ -183,6 +183,20 @@ class WorkListCTRLController extends Controller
     .info_amostra div{
         float: left;
     }
+    .table_colheita_info td{
+        border:none;
+        font-size:8px;
+        padding: 2px;
+    }
+    .table_colheita_info {
+        border-top :1px solid #000;
+        border-bottom :1px solid #000;
+    }
+    .table_colheita_info .table_colheita_info_data{
+        background-color: gray;
+        padding-left: 10px;
+    }
+
     .info_amostra div div{
         width: 100%;
         float: left;
@@ -249,12 +263,26 @@ class WorkListCTRLController extends Controller
             </table>
         </td>
  </tr>
-
+</table>
+<table class="table_colheita_info" cellspacing="0" cellpadding="1">
+    <tr>
+        <td>Colheita:</td>
+        <td class="table_colheita_info_data">28-09-2016</td>
+        <td>Recepção:</td>
+        <td class="table_colheita_info_data">28-09-2016</td>
+        <td>Inicio ensaios:</td>
+        <td class="table_colheita_info_data">28-09-2016</td>
+        <td>Fim dos ensaios:</td>
+        <td class="table_colheita_info_data">28-09-2016</td>
+    </tr>
 </table>
 EOF;
 
+
 // output the HTML content
         $pdf->writeHTML($html, true, false, true, false, '');
+
+
         $pdf->lastPage();
 
 // set default monospaced font
