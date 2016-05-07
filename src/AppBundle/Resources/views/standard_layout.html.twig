@@ -21,12 +21,17 @@ file that was distributed with this source code.
 {% set _navbar_title = block('navbar_title') %}
 <!DOCTYPE html>
 <html {% block html_attributes %}class="no-js"{% endblock %}>
+<div class="splash_screen">
+</div>
+<script>
+    setTimeout(function(){
+        $(".splash_screen").hide();
+    }, 2000);
+</script>
+
 <head>
-    <script>
-        setTimeout(function(){
-            $(".splash_screen").hide();
-        }, 2000);
-    </script>
+
+
     {% block meta_tags %}
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -102,12 +107,11 @@ file that was distributed with this source code.
     </title>
 </head>
 
+
+
 <body {% block body_attributes %}class="sonata-bc skin-black"{% endblock %}>
 
-{# AQUI VER ISTO#}
-<div class="splash_screen">
 
-</div>
 
 
 
@@ -127,6 +131,10 @@ file that was distributed with this source code.
                         .botao_enviar {
                             margin-top: -105px!important;
 
+                        }
+
+                        a.sonata-action-element{
+                            display: none;
                         }
                     </style>
 
@@ -231,14 +239,14 @@ file that was distributed with this source code.
 
 </body>
 <style>
-    .splash_screen{
+    .splash_screen {
+
         position: absolute;
-        top:0;
-        left:0;
-        width: 100%;
+        z-index: 1000;
         height: 100%;
-        background-color: white;
-        z-index:10;
+        width:  100%;
+        background: white url('/bundles/app/images/ring-alt.gif') 50% 50% no-repeat;
+
     }
 
     .box {
