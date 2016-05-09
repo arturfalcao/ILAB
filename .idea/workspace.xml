@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/images/ring-alt.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/cache" afterPath="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/common" afterPath="$PROJECT_DIR$/vendor/doctrine/common" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ILAB.iws" />
@@ -45,61 +39,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="592" column="16" selection-start-line="592" selection-start-column="16" selection-end-line="592" selection-end-column="16" />
-              <folding>
-                <marker date="1462811083172" expanded="true" signature="1591:1640" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="1903:3132" placeholder="INSERT INTO ..." />
-                <marker date="1462811083172" expanded="true" signature="2421:3132" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="3306:3471" placeholder="UPDATE t_par..." />
-                <marker date="1462811083172" expanded="true" signature="4483:4532" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="4733:5962" placeholder="INSERT INTO ..." />
-                <marker date="1462811083172" expanded="true" signature="5251:5962" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="6136:6301" placeholder="UPDATE t_par..." />
-                <marker date="1462811083172" expanded="true" signature="7692:7741" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="7942:9171" placeholder="INSERT INTO ..." />
-                <marker date="1462811083172" expanded="true" signature="8460:9171" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="9345:9510" placeholder="UPDATE t_par..." />
-                <marker date="1462811083172" expanded="true" signature="20012:21318" placeholder="INSERT INTO ..." />
-                <marker date="1462811083172" expanded="true" signature="20608:21318" placeholder="SELECT aa.fn..t_parametros..." />
-                <marker date="1462811083172" expanded="true" signature="21538:22669" placeholder="INSERT INTO ..." />
-                <marker date="1462811083172" expanded="true" signature="22056:22669" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-                <marker date="1462811083172" expanded="true" signature="22821:22895" placeholder="UPDATE t_par..." />
-                <marker date="1462811083172" expanded="true" signature="23092:23285" placeholder="UPDATE t_par..." />
-                <marker date="1462811083172" expanded="true" signature="24773:24870" placeholder="UPDATE t_res..." />
-                <marker date="1462811083172" expanded="true" signature="25648:25697" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="25914:27096" placeholder="INSERT INTO ..." />
-                <marker date="1462811083172" expanded="true" signature="26432:27096" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-                <marker date="1462811083172" expanded="true" signature="27271:27467" placeholder="UPDATE t_par..." />
-                <marker date="1462811083172" expanded="true" signature="36740:36837" placeholder="UPDATE t_res..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TAreasensaioAdmin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TAreasensaioAdmin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TParametrosAdmin.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.461538">
-              <caret line="74" column="31" selection-start-line="74" selection-start-column="23" selection-end-line="74" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TParametros.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,11 +49,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TParametrospormetodo.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TParametrospormetodo.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49246815">
-              <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+            <state vertical-scroll-proportion="-17.653847">
+              <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TMetodos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="12" column="14" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -133,8 +82,58 @@
       <file leaf-file-name="TEspecificacoes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TEspecificacoes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.5">
-              <caret line="130" column="21" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="21" />
+            <state vertical-scroll-proportion="-25.538462">
+              <caret line="120" column="6" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="standard_layout.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.0545454">
+              <caret line="167" column="29" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topheader.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.576923">
+              <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topheader_geral.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.4727273">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7514061">
+              <caret line="627" column="39" selection-start-line="627" selection-start-column="39" selection-end-line="627" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -162,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TModelosamostraAdmin.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TModelosparametro.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TModelosparametroAdmin.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TModelosresultadosAdmin.php" />
@@ -179,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Form/TAmostrasType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/Indisponivel.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/admin.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
@@ -204,15 +201,17 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/MyTCPDFClass.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/Controller/TCPDFController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/menu.html.twig" />
         <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/base_edit_form.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_edit_form.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
         <option value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" />
       </list>
     </option>
   </component>
@@ -480,7 +479,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -517,6 +550,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -775,34 +834,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/list__action_edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846">
-          <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/list_inner_row.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/base_list_inner_row.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846">
-          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/base_list_flat_field.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/base_list_field.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1025,13 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="437" column="0" selection-start-line="437" selection-start-column="0" selection-end-line="437" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/menu.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1067,13 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30695444">
-          <caret line="161" column="42" selection-start-line="161" selection-start-column="42" selection-end-line="161" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1089,30 +1106,30 @@
         <state vertical-scroll-proportion="-0.0">
           <caret line="592" column="16" selection-start-line="592" selection-start-column="16" selection-end-line="592" selection-end-column="16" />
           <folding>
-            <marker date="1462811083172" expanded="true" signature="1591:1640" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="1903:3132" placeholder="INSERT INTO ..." />
-            <marker date="1462811083172" expanded="true" signature="2421:3132" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="3306:3471" placeholder="UPDATE t_par..." />
-            <marker date="1462811083172" expanded="true" signature="4483:4532" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="4733:5962" placeholder="INSERT INTO ..." />
-            <marker date="1462811083172" expanded="true" signature="5251:5962" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="6136:6301" placeholder="UPDATE t_par..." />
-            <marker date="1462811083172" expanded="true" signature="7692:7741" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="7942:9171" placeholder="INSERT INTO ..." />
-            <marker date="1462811083172" expanded="true" signature="8460:9171" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="9345:9510" placeholder="UPDATE t_par..." />
-            <marker date="1462811083172" expanded="true" signature="20012:21318" placeholder="INSERT INTO ..." />
-            <marker date="1462811083172" expanded="true" signature="20608:21318" placeholder="SELECT aa.fn..t_parametros..." />
-            <marker date="1462811083172" expanded="true" signature="21538:22669" placeholder="INSERT INTO ..." />
-            <marker date="1462811083172" expanded="true" signature="22056:22669" placeholder="SELECT aa.fn..t_parametrosamostra..." />
-            <marker date="1462811083172" expanded="true" signature="22821:22895" placeholder="UPDATE t_par..." />
-            <marker date="1462811083172" expanded="true" signature="23092:23285" placeholder="UPDATE t_par..." />
-            <marker date="1462811083172" expanded="true" signature="24773:24870" placeholder="UPDATE t_res..." />
-            <marker date="1462811083172" expanded="true" signature="25648:25697" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="25914:27096" placeholder="INSERT INTO ..." />
-            <marker date="1462811083172" expanded="true" signature="26432:27096" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
-            <marker date="1462811083172" expanded="true" signature="27271:27467" placeholder="UPDATE t_par..." />
-            <marker date="1462811083172" expanded="true" signature="36740:36837" placeholder="UPDATE t_res..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_par..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_par..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_par..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT aa.fn..t_parametros..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT aa.fn..t_parametrosamostra..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_par..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_par..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_res..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT MAX(i..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="SELECT aa.fn..t_parametrosamostra_log..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_par..." />
+            <marker date="1462811083172" expanded="true" signature="-1:-1" placeholder="UPDATE t_res..." />
           </folding>
         </state>
       </provider>
@@ -1121,22 +1138,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TEspecificacoesAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.923077">
-          <caret line="87" column="31" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TEspecificacoes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.5">
-          <caret line="130" column="21" selection-start-line="130" selection-start-column="12" selection-end-line="130" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -1157,10 +1158,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49246815">
-          <caret line="34" column="47" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+        <state vertical-scroll-proportion="-17.653847">
+          <caret line="35" column="41" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TEspecificacoesAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.923077">
+          <caret line="87" column="31" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TEspecificacoes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-25.538462">
+          <caret line="120" column="6" selection-start-line="120" selection-start-column="6" selection-end-line="120" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0545454">
+          <caret line="167" column="29" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4727273">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7514061">
+          <caret line="627" column="39" selection-start-line="627" selection-start-column="39" selection-end-line="627" selection-end-column="39" />
           <folding />
         </state>
       </provider>

@@ -32,8 +32,8 @@ class TParametrospormetodo
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="TParametros", inversedBy="fnParametros")
-     * @ORM\JoinColumn(name="fn_id_especificacao", referencedColumnName="fn_id")
+     * @ORM\ManyToOne(targetEntity="TTMetodos", inversedBy="fnParametros")
+     * @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
      */
     private $fnIdEspecificacao;
 
