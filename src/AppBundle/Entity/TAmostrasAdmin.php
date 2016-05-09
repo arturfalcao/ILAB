@@ -75,7 +75,6 @@ class TAmostrasAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
-        /* QUAL CONCLUSÂO REMOVER*/
         $listMapper
             ->add('fnId','bigint',array('label' => 'ID'))
             ->add('ftEstado',null,array('label' => 'Estado'))
@@ -133,32 +132,40 @@ class TAmostrasAdmin extends Admin
             ->with('Cliente',array('description' => 'Cliente','class' => $x . ' Cliente_amostra'))
                 ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente', 'by_reference' => false))
             ->end()
-                ->add('fdColheita','sonata_type_datetime_picker', array('label' => 'Data/hora Colheita'))
-                ->add('fnOperador',null,array('label'=>'Operador'))
-                ->add('ftResponsavelcolheita', 'choice',  array('label'=>'Responsável da Colheita','multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
+
             ->end()
+
+            ->with('Caracterização',array('description' => 'Caracterização','class' => 'Caracterizacao_amostra'))
+            ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto', 'by_reference' => false))
+            ->add('ftOrigem', 'text', array('label' => 'Origem', 'by_reference' => false))
+            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
+            ->add('fnEspecificacao', 'sonata_type_model', array('label' => 'Especificação', 'by_reference' => false))
+            ->add('fnRequisicaocliente', 'sonata_type_model', array('label' => 'Requisição do cliente', 'by_reference' => false))
+            ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo de Controlo', 'by_reference' => false))
+            ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
+            ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo de Aprovação', 'by_reference' => false))
+            ->add('ftConclusao', 'text', array('label' => 'Conclusão'))
+            ->add('ftObs', 'text', array('label' => 'Observações'))
+            ->end()
+
+
             ->with('Lancamento',array('description' => 'Lançamento','class' => 'Lancamento_amostra'))
                 ->add('fnModelo', 'sonata_type_model', array('label' => 'Modelo', 'by_reference' => false))
                 ->add('ftGrupoparametros', 'sonata_type_model', array('label' => 'Grupo de parâmetros', 'by_reference' => false,'disabled'  => true))
 
                 //->add('ftOrigem', 'text', array('label' => 'Ponto de Amostragem'))
             ->end()
-            ->with('Caracterização',array('description' => 'Caracterização','class' => 'Caracterizacao_amostra'))
-                ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto', 'by_reference' => false))
-                ->add('ftOrigem', 'text', array('label' => 'Origem', 'by_reference' => false))
-                ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
-                ->add('fnEspecificacao', 'sonata_type_model', array('label' => 'Especificação', 'by_reference' => false))
-                ->add('fnRequisicaocliente', 'sonata_type_model', array('label' => 'Requisição do cliente', 'by_reference' => false))
-                ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo de Controlo', 'by_reference' => false))
-                ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
-                ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo de Aprovação', 'by_reference' => false))
-                ->add('ftConclusao', 'text', array('label' => 'Conclusão'))
-                ->add('ftObs', 'text', array('label' => 'Observações'))
-            ->end()
+
             ->with('Lote',array('description' => 'Lote','class' => 'Lote_amostra'))
             ->add('fnAmostrasalimentos', 'sonata_type_admin',array(
                 'btn_add' => false,'delete' => false,'label' => 'Amostras de alimentos'
             ))
+            ->end()
+
+            ->with('x',array('description' => 'Dados da colheita','class' => ' Dados_amostra'))
+            ->add('fdColheita','sonata_type_datetime_picker', array('label' => 'Data/hora Colheita'))
+            ->add('fnOperador',null,array('label'=>'Operador'))
+            ->add('ftResponsavelcolheita', 'choice',  array('label'=>'Responsável Colheita','multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratorio','Outro' => 'Outro')))
             ->end();
 
              if ($this->id($this->getSubject())) {

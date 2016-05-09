@@ -4515,7 +4515,7 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   display: block;
   font-family: inherit;
   font-size: 14px;
-  height: 2.375rem;
+  height: 2.5rem;
   margin: 0 0 1rem 0;
   padding: 0.5rem;
   width: 100%;
@@ -9941,8 +9941,12 @@ table tr th, table tr td{
     padding: 22px 7px 14px 0;
 }
 
-.btn{
+/*.btn{
     margin-top: 10px;
+}*/
+
+.btn{
+    margin-top: 0!important;
 }
 
 .btn-default{
@@ -10216,13 +10220,48 @@ tbody > tr > td span.label{
 }
 
 
-.Lancamento_amostra
+.Lote_amostra .sonata-ba-collapsed-fields
 {
-    margin-top:-45px;
+  padding:20px;
+  background-color: #f4f4f4;
 }
 
-.Lote_amostra{
-    margin-top: -890px;
+.Lote_amostra > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group{
+  margin-bottom: 0;
+}
+
+
+.Caracterizacao_amostra{
+  margin-top: 0 !important;
+}
+
+.Dados_amostra{
+  margin-top: -155px;
+}
+
+.Lancamento_amostra{
+  margin-top: -707px !important;
+}
+
+.Lote_amostra {
+  margin-top: -490px!important;
+}
+
+.Dados_amostra > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group
+{
+  padding-left: 0;
+}
+
+.Cliente_amostra .select2-container{
+  width: 85% !important;
+}
+
+.Caracterizacao_amostra .select2-container{
+  width: 85% !important;
+}
+
+.Lancamento_amostra .select2-container{
+  width: 85% !important;
 }
 
 .btn.generateworklist{
@@ -10292,4 +10331,33 @@ td.sonata-ba-list-field.sonata-ba-list-field-currency, td.sonata-ba-list-field.s
 
 .form-group button{
   text-transform: none!important;
+}
+
+.testgrid{
+  border-collapse: collapse;
+}
+
+.testgrid > tbody tr {
+  border-top: 1px solid #DFDFDF;
+}
+
+.largura{
+    width: 85%!important;
+}
+
+.largura_2{
+    width: 68% !important;
+}
+
+.largura_3{
+    width: 70% !important;
+}
+
+.largura_4{
+    width: 77% !important;
+}
+
+.table-bordered>tfoot>tr>th{
+    border-left: none!important;
+    border-right: none!important;
 }

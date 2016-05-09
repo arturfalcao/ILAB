@@ -233,6 +233,31 @@
 
     });
 
+
+
+    $('#Agenda_descricao').attr('required',false);
+    $('#Agenda_enddatetime_date').attr('required',false);
+    $('#Agenda_enddatetime_time').attr('required',false);
+    $('#Agenda_allDay').attr('required',false);
+
+    $('#g_sair').on('click', function(e)  {
+
+        if($("#Agenda_allDay").is( ':checked') == false)
+        {
+            $('#Agenda_enddatetime_date').attr('required',true);
+            $('#Agenda_enddatetime_time').attr('required',true);
+            e.preventDefault();
+        }
+
+        if($("#Agenda_allDay").is( ':checked') == true || ( $('#Agenda_enddatetime_date').val().length != 0
+                && $('#Agenda_enddatetime_time').val().length != 0 ))
+
+                $( "form" ).submit();
+
+    });
+
+
+
 </script>
 
 

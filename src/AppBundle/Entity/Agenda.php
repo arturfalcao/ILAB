@@ -19,7 +19,7 @@ class Agenda
      * @ORM\Column(name="fn_done", type="integer")
      */
 
-    private $fnDone;
+    private $fnDone=0;
 
     /**
      * Set done

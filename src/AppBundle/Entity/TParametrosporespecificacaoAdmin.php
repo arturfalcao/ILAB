@@ -46,7 +46,7 @@ class TParametrosporespecificacaoAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnIdFamiliaparametro', 'sonata_type_model', array('label' => 'ID Família Parâmetros', 'by_reference' => false))
+            ->add('fnIdFamiliaparametro', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'ID Família Parâmetros', 'by_reference' => false))
             ->add('fnMaximo', 'text', array('label' => 'Máximo'))
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))

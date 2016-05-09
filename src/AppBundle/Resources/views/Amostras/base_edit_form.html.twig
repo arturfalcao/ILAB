@@ -520,7 +520,17 @@
 
         </style>
 
+        <script>
+            $( document ).ready(function() {
 
+                $( ".Lote_amostra .form-group .form-group" ).each(function() {
+                    $( this ).addClass( "col-md-4" );
+                });
+
+                $( ".Dados_amostra > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group" ).addClass( "col-md-4" );
+
+            })
+        </script>
 
 
         <div id="tabs_Amostra">
@@ -828,6 +838,15 @@
 
     {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}
 
+    <style>
+        {% if 'edit' in admin.request.pathInfo %}
+        .Cliente_amostra .select2-container{
+            width: 78% !important;
+        }
+        {% endif %}
+
+
+    </style>
 
 
 {% endblock %}

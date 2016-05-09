@@ -263,6 +263,65 @@ file that was distributed with this source code.
 
         $('.sonata-ba-content>.row>div').removeClass('col-md-6').addClass('col-md-7 push-3');
 
+
+        $( ".Modelosresultados > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group" ).each(function( index ) {
+
+            if(index == 1 ) {
+                $(this).addClass('col-md-6');
+                $( this ).css("padding-left",0);
+            }
+            else if(index == 2)
+            {
+                $(this).addClass('col-md-6');
+            }
+            else if(index == 3)
+            {
+                $( this ).addClass('col-md-6');
+                $( this ).css("padding-left",0);
+            }
+            else if (index == 4)
+            {
+                $( this ).addClass('col-md-6');
+                $( this ).css("padding-right",0);
+            }
+            else if (index == 5)
+            {
+                $(this).addClass('col-md-6');
+                $(this).css("padding-left", 0);
+            }
+            else if (index == 6)
+                $( this ).addClass('col-md-6');
+
+            else if (index == 7)
+            {
+                $(this).addClass('col-md-6');
+                $(this).css("padding-left", 0);
+            }
+            else if (index == 8)
+                $( this ).addClass('col-md-6');
+
+            else if (index == 9)
+            {
+                $(this).addClass('col-md-6');
+                $(this).css("padding-left", 0);
+            }
+            else if (index == 10)
+                $( this ).addClass('col-md-6');
+
+        });
+
+
+
     })
 </script>
+
+<style>
+    .TabelaModeloresultados  a{
+         margin-top: 10px!important;
+     }
+
+    .GrupoParametros a{
+        margin-top: 10px!important;
+    }
+</style>
 </html>
