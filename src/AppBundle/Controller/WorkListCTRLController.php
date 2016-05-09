@@ -598,12 +598,8 @@ EOF;
                             $tipo_modelo = 'Agua';
                         }
                     }
-
             }
         }
-
-
-
         foreach ($samples as &$slug) {
             $data_inicio ="";
             $em = $this->getDoctrine()->getManager();

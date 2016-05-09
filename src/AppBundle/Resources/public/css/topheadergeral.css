@@ -187,7 +187,6 @@ a:active, a:focus {
 
 .tabulador{
     font-size: 14px;
-    font-weight: bold;
 }
 
 .img_block{
@@ -206,7 +205,7 @@ a:active, a:focus {
     width: 30px;
 }
 
-.circle_image:hover, .circle_image:active {
+.img_align:hover, .img_align:active {
     border: 2px solid #4cc3b8;
 }
 
@@ -220,7 +219,7 @@ a:active, a:focus {
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
-    border: 1px solid #DFDFDF;
+
     position: relative;
 }
 
@@ -229,7 +228,7 @@ a:active, a:focus {
     position: absolute;
     width: 15px;
     height: 15px;
-
+    border: 1px solid #DFDFDF;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
@@ -248,19 +247,11 @@ a:active, a:focus {
     height: 20px;
     background: #00bf00;
 
-    background: -webkit-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
-    background: -moz-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
-    background: -o-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
-    background: -ms-linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
-    background: linear-gradient(top, #4cc3b8 0%, #4cc3b8 100%);
-
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
 
-    -webkit-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
-    box-shadow: inset 0 1px 1px white, 0 1px 3px rgba(0,0,0,0.5);
+
 }
 
 .esconde {
@@ -271,7 +262,7 @@ a:active, a:focus {
 p.agenda
 {
     font-size: 13px;
-    margin-top: -36px !important;
+    margin-top: -37px !important;
     margin-left: 30px !important;
 }
 
@@ -394,7 +385,7 @@ p.quebra{
     padding: 1px;
     color: white;
     font-size: 9px;
-    background: rgba(76,195,184,1);
+    background: #4cc3b8;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -409,7 +400,7 @@ p.quebra{
     text-align: center;
     border-width: 4px 4px 0;
     border-style: solid;
-    border-color: rgba(76,195,184,1) transparent;
+    border-color: #4cc3b8 transparent;
     display: block;
     width: 0;
 }
