@@ -620,3 +620,16 @@ section.login p {
     border: 1px solid #9993a3;
     border-radius: 2px;
 }
+
+/* media querys*/
+@media all and (max-width: 1025px) and (min-width: 960px){
+    .menu_direita {
+        position: relative;
+        border-left: 1px solid #DFDFDF;
+        height: 70px!important;
+        width: 70px!important;
+    }
+    .header{
+        height: 70px;
+    }
+}
