@@ -56,13 +56,13 @@
 
 <div class="container-fluid new_cal_element">
     <div class="row">
-        <div class="large-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;">
+        <div class="large-1 medium-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
+        <div class=" large-15 medium-15 columns">
             <div class="row">
 
-                <div class="large-16 columns" >
+                <div class="large-16 medium-16 columns" >
                     {% include 'default/topheader_agenda_new.html.twig' %}
 
                     <link rel="stylesheet" type="text/css" href="/bundles/app/css/chat_agenda.css" />
@@ -74,39 +74,39 @@
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row">
-                <div class="large-16 columns no-padding" >
+                <div class="large-16 medium-16 columns no-padding" >
 
                     {% block body -%}
 
                         {{ form_start(form) }}
                         <div class="row linha_branco">0</div>
                         <div class="row linha_branco">0</div>
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_label(form.title, 'Nome do Evento') }}
                         {{ form_widget(form.title) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_label(form.morada, 'Onde') }}
                         {{ form_widget(form.morada) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_label(form.descricao, 'Descrição') }}
                         {{ form_widget(form.descricao) }}
                         </div>
 
-                        <div class="large-3 push-1 form-group">
+                        <div class="large-3 medium-3 push-1 form-group">
                         {{ form_label(form.startdatetime, 'Data de início') }}
                         {{ form_widget(form.startdatetime) }}
                         </div>
 
-                        <div class="large-3 push-1 form-group">
+                        <div class="large-3 medium-3 push-1 form-group">
                         {{ form_label(form.enddatetime, 'Data de fim') }}
                         {{ form_widget(form.enddatetime) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_widget(form.allDay) }}
                         {{ form_label(form.allDay, 'Todo o dia?') }}
 
@@ -117,7 +117,7 @@
 
 
                         <div class="bottom-buttons buttons-center">
-                            <button type="submit" id="g_sair" class="btn-sucess">
+                            <button type="submit" id="g_sair" class="btn-success">
                                 <i class="fa fa-save" ></i>
                                 <span>Guardar</span>
                             </button>

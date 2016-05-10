@@ -8237,7 +8237,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   line-height: 1.4;
   margin-bottom: 0.5rem;
-  margin-top: 0.2rem;
   text-rendering: optimizeLegibility;
 }
 /* line 262, ../bower_components/foundation/scss/foundation/components/_type.scss */
@@ -10012,7 +10011,6 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 }
 
 .box .box-header {
-  padding-top: 5px;
   padding-bottom: 0;
   padding-left: 10px;
 }

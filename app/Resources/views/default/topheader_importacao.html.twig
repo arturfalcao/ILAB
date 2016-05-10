@@ -8,19 +8,19 @@
     {% endblock %}
 
     <div class="row full-width-row">
-        <header class="large-15 columns header push-1" >
+        <header class="large-15 medium-15 columns header push-1" >
             {% if app.user %}
                 <input type="hidden" id="logged" value="{{app.user.id}}">
                 <input type="hidden" id="logged_username" value="{{app.user.username}}">
             {% endif %}
 
-            <div class="large-6 columns">
+            <div class="large-6 medium-6 columns">
                 <h6 class="title"> Importação de Amostras </h6>
             </div>
-            <div class="large-8 columns">
+            <div class="large-8 medium-8 columns">
                 <a class="button right inactiveLink bg_color"></a>
             </div>
-            <div class="large-1 columns">
+            <div class="large-1 medium-1 columns">
                 <div class="menu_direita" >
                     <div id="menu_direita_circulo"></div></div>
             </div>

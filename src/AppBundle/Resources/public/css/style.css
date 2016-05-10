@@ -623,13 +623,23 @@ section.login p {
 
 /* media querys*/
 @media all and (max-width: 1025px) and (min-width: 960px){
-    .menu_direita {
+    body .menu_direita {
         position: relative;
         border-left: 1px solid #DFDFDF;
         height: 70px!important;
-        width: 70px!important;
+        width: 60px!important;
     }
-    .header{
+    body .header{
         height: 70px;
     }
+
+    body h6.title{
+        padding: 19px 0 0 1.5625rem !important;
+    }
+
+    body .button{
+        margin-top: 11px!important;
+    }
+
+
 }

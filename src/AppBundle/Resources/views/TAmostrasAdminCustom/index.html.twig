@@ -71,13 +71,13 @@
 <div class="new_cal_element">
 
     <div class="row" >
-        <div class="large-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;padding: 0;">
+        <div class="large-1 medium-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;padding: 0;">
             {% include 'default/menu.html.twig' %}
         </div>
 
-        <div class="large-15 columns">
+        <div class="large-15 medium-15 columns">
             <div class="row">
-                <div class="large-15 columns no-padding">
+                <div class="large-15 medium-15 columns no-padding">
                     {% include 'default/topheader_planeamento.html.twig' %}
                 </div>
             </div>
@@ -109,7 +109,7 @@
                             <hr id="cab_filtros">
                             <form class="sonata-filter-form "  style="float: left;margin: 0;width:100%" action="{{ path('tamostras_planeamento') }}" method="GET" role="form">
 
-                                <div class="large-3 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
+                                <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
                                     <label for="filter_fnOperador_value">Cliente</label>
                                     <select id="cliente" name="cliente" title="Cliente">
                                         <option value=""></option>
@@ -127,7 +127,7 @@
                                     </select>
                                 </div>
 
-                                <div class="large-3 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
+                                <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
                                     <label for="filter_fnOperador_value">Grupo Parâmetros</label>
                                     <select id="grupo" name="grupo" title="Grupo">
                                         <option value=""></option>
@@ -138,7 +138,7 @@
                                 </div>
 
 
-                                <div class="large-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
+                                <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
                                     <label for="datetimepicker1">Data de início</label>
                                     <div class='input-group date datepickers'  id='datetimepicker1'>
                                         <input type='text' name="dataini" class="form-control" />
@@ -156,7 +156,7 @@
                                     </div>
                                 </div>
 
-                                <div class="well well-small form-actions large-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
+                                <div class="well well-small form-actions large-16 medium-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
                                     <button type="submit" class="btn btn-success visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
 
                                     <div class="btn btn-success">

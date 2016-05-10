@@ -205,12 +205,10 @@ file that was distributed with this source code.
                     {{ form_errors(form) }}
                     <div class="filter_container {{ admin.datagrid.hasActiveFilters ? 'active' : 'inactive' }}">
 
-                        <div class="large-16 columns no-padding">
+                        <div class="large-16 medium-16 columns no-padding">
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
                                 {% for filter in admin.datagrid.filters %}
-
-
 
                                         {% if filter.formName == 'fnId' or filter.formName == 'ftId' or filter.formName == 'ftCodigo'
                                         or filter.formName == 'fbActivo' or filter.formName == 'ftFormulaquimica'
@@ -247,7 +245,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -281,7 +279,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -320,7 +318,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -356,7 +354,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -390,7 +388,7 @@ file that was distributed with this source code.
 
                             </div>
 
-                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -425,7 +423,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -456,7 +454,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -485,7 +483,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -513,7 +511,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -547,7 +545,7 @@ file that was distributed with this source code.
 
                             {% set foo = form.children['_page'].setRendered() %}
                             {{ form_rest(form) }}
-                            <div class="well well-small form-actions large-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
+                            <div class="well well-small form-actions large-16 medium-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
                                 <button type="submit" class="btn btn-success visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
 
                                 <div class="btn btn-success">

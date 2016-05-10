@@ -62,14 +62,14 @@
 
 <div class="container-fluid new_cal_element">
     <div class="row">
-        <div class="large-1 columns no-padding" style="position:fixed;border: 1px solid #DFDFDF;height: 100%;z-index: 5;">
+        <div class="large-1 medium-1 columns no-padding" style="position:fixed;border: 1px solid #DFDFDF;height: 100%;z-index: 5;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
+        <div class=" large-15 medium-15 columns">
             <div class="row">
 
 
-                <div class="large-16 columns">
+                <div class="large-16 medium-16 columns">
                     {% include 'default/topheader_planeamento_edit.html.twig' %}
 
                 </div>
@@ -80,36 +80,36 @@
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row">
-                <div class="large-16 columns no-padding">
+                <div class="large-16 medium-16 columns no-padding">
 
                     {% block body -%}
                         {{ form_start(edit_form) }}
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                             {{ form_label(edit_form.fnCliente, 'Cliente') }}
                             {{ form_widget(edit_form.fnCliente) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                             {{ form_label(edit_form.ftRefexterna, 'Local de Recolha') }}
                             {{ form_widget(edit_form.ftRefexterna) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                             {{ form_label(edit_form.ftGrupoparametros, 'Grupo de Parâmetros') }}
                             {{ form_widget(edit_form.ftGrupoparametros) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                             {{ form_label(edit_form.fnProduto, 'Produto') }}
                             {{ form_widget(edit_form.fnProduto) }}
                         </div>
 
-                        <div class="large-3 push-1 form-group">
+                        <div class="large-3 medium-3 push-1 form-group">
                             {{ form_label(edit_form.startdatetime, 'Data de início') }}
                             {{ form_widget(edit_form.startdatetime) }}
                         </div>
 
-                        <div class="large-3 push-1 form-group">
+                        <div class="large-3 medium-3 push-1 form-group">
                             {{ form_label(edit_form.enddatetime, 'Data de fim') }}
                             {{ form_widget(edit_form.enddatetime) }}
                         </div>
