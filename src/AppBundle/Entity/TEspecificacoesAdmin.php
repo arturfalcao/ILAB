@@ -78,7 +78,7 @@ class TEspecificacoesAdmin extends Admin
             ->with('grupo_3',array('description' => 'Z','class' => 'col-md-3'))
             ->add('ftTextoQdNaoCumpreA', 'text', array('required' => false,'label' => 'Texto quando não cumpre Amostra'))
             ->add('fbEmissaoDeRelatorio', 'checkbox', array('required' => true,'label' => 'Emissão de relatório'))
-            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
+            ->add('fnLegislacao', 'sonata_type_model', array('attr'=> array('class'=>'largura_2'),'label' => 'Legislação', 'by_reference' => false))
             ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observações'))
             ->add('ftSiglavl', 'text', array('required' => false,'label' => 'SiglaVL'))
             ->add('ftLegendavl', 'text', array('required' => false,'label' => 'LegendaVL'))

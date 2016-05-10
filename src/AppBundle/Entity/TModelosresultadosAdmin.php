@@ -71,12 +71,13 @@ class TModelosresultadosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Novo Modelo',array('class'=> 'col-md-6'))
+            ->with('x',array('class' => 'Modelosresultados col-md-6'))
                 ->add('fbActivo',null, array('label' => 'Activo'))
                 ->add('ftDescricao','text', array('label' => 'Descrição'))
-                ->add('fnUnidade', 'sonata_type_model', array('label' => 'Unidade de Medida', 'by_reference' => false))
-                ->add('fnTipoarredondamento', 'sonata_type_model', array('label' => 'Tipo de Arredondamento','by_reference' => false))
                 ->add('ftObservacao','text', array('label' => 'Observação'))
+                ->add('fnUnidade', 'sonata_type_model', array('attr'=> array('class'=>'largura_3'), 'label' => 'Unidade de Medida', 'by_reference' => false))
+                ->add('fnTipoarredondamento', 'sonata_type_model', array('attr'=> array('class'=>'largura_3'),'label' => 'Tipo de Arredondamento','by_reference' => false))
+                
                 ->add('fbGamavalores',null,array('label' => 'Gama de Valores'))
                 ->add('fbIncluirnorelatorio','checkbox', array('label' => 'Incluir no Relatório'))
                 ->add('fnMaximo','number', array('label' => 'Máximo'))
@@ -85,7 +86,7 @@ class TModelosresultadosAdmin extends Admin
                 ->add('fnLimitequantificacao','integer', array('label' => 'Limite Quantificação'))
             ->end()
 
-            ->with('Gallery',array('class'=> 'col-md-6'))
+            ->with('Gallery',array('class'=> 'TabelaModeloresultados col-md-6'))
             ->add('RegasFormatacao', 'sonata_type_collection', array(
                 'cascade_validation' => true,
                 'label' => 'Regras de Formatação',

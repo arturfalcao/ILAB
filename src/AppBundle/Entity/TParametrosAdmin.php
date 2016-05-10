@@ -69,36 +69,31 @@ class TParametrosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
-                ->add('ftDescricao',null, array('label' => 'Descrição'))
-                //->add('fnMetodo',null, array('label' => 'Método'))
-                ->add('fnMetodo', 'sonata_type_collection', array(
-                    'cascade_validation' => true,
-                    'label' => 'Metodo',
-                ), array(
-                        'edit'              => 'inline',
-                        'inline'            => 'table',
-                        'sortable'          => 'position',
-                    )
-                )
-                ->add('fnTecnica',null, array('label' => 'Técnica'))
-                ->add('fnAreaensaio',null, array('label' => 'Área de Ensaio'))
-                ->add('fdLimiterealizacao','sonata_type_datetime_picker', array('label' => 'Limite de Realização'))
-                ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre especificação'))
-                ->add('ftConclusao',null, array('label' => 'Conclusão'))
-                ->add('fnModeloparametro',null, array('label' => 'Modelo Parâmetro'))
-                ->add('ftObservacao',null, array('label' => 'Observação'))
-                ->add('fdCriacao','sonata_type_datetime_picker', array('label' => 'Data de Criação'))
-                ->add('fdRealizacao','sonata_type_datetime_picker', array('label' => 'Data de realização'))
-                ->add('fdConclusao','sonata_type_datetime_picker', array('label' => 'Data de conclusão'))
-                ->add('fdAutorizacao','sonata_type_datetime_picker', array('label' => 'Autorização'))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-4'))
+            ->add('ftDescricao',null, array('label' => 'Descrição'))
+            ->add('fnMetodo',null, array('label' => 'Método'))
+            ->add('fnTecnica',null, array('label' => 'Técnica'))
+            ->add('fnAreaensaio',null, array('label' => 'Área de Ensaio'))
+            ->add('fdLimiterealizacao','sonata_type_datetime_picker', array('label' => 'Limite de Realização'))
+            ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre especificação'))
+            ->add('ftConclusao',null, array('label' => 'Conclusão'))
+            ->add('fnModeloparametro',null, array('label' => 'Modelo Parâmetro'))
+            ->add('ftObservacao',null, array('label' => 'Observação'))
+
             ->end()
-            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
-                ->add('fnLaboratorio',null, array('label' => 'Laboratório'))
-                ->add('fnPrecocompra',null, array('label' => 'Preço de Compra'))
-                ->add('fnPrecovenda',null, array('label' => 'Preço de venda'))
-                ->add('fnFactorcorreccao',null, array('label' => 'Factor de correcção'))
-                ->add('fbAcreditado',null, array('label' => 'Acreditado'))
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-4'))
+            ->add('fdCriacao','sonata_type_datetime_picker', array('label' => 'Data de Criação'))
+            ->add('fdRealizacao','sonata_type_datetime_picker', array('label' => 'Data de realização'))
+            ->add('fdConclusao','sonata_type_datetime_picker', array('label' => 'Data de conclusão'))
+            ->add('fdAutorizacao','sonata_type_datetime_picker', array('label' => 'Autorização'))
+            ->add('fnLaboratorio',null, array('label' => 'Laboratório'))
+            ->add('fnPrecocompra',null, array('label' => 'Preço de Compra'))
+            ->add('fnPrecovenda',null, array('label' => 'Preço de venda'))
+            ->add('fnFactorcorreccao',null, array('label' => 'Factor de correcção'))
+            ->add('fbAcreditado',null, array('label' => 'Acreditado'))
+
+            ->end()
+            ->with('grupo_3',array('description' => 'X','class' => 'col-md-4'))
                 ->add('fnLimitelegal',null, array('label' => 'Limite legal'))
                 ->add('fnFamiliaparametro',null, array('label' => 'Família Parâmetro'))
                 ->add('ftFormulaquimica',null, array('label' => 'Fórmula Química'))

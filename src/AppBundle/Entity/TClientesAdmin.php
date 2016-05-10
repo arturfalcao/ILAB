@@ -61,24 +61,29 @@ class TClientesAdmin extends Admin
 
 
         $formMapper
-            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-4'))
             ->add('ftCodigo', 'text', array('required' => true,'label' => 'Código'))
             ->add('ftNome', 'text', array('required' => true,'label' => 'Nome'))
             ->add('ftMorada', 'text', array('required' => true,'label' => 'Morada'))
             ->add('ftCodpostal', 'text', array('required' => true,'label' => 'Código Postal'))
             ->add('ftLocalidade', 'text', array('required' => true,'label' => 'Localidade'))
             ->add('ftPais', 'text', array('required' => true,'label' => 'País'))
-            ->add('ftTelefone', 'integer', array('required' => true,'label' => 'Telefone'))
-            ->add('ftFax', 'integer', array('required' => false,'label' => 'Fax'))
+
             ->end();
 
 
         $formMapper
-            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-4'))
+            ->add('ftTelefone', 'integer', array('required' => true,'label' => 'Telefone'))
+            ->add('ftFax', 'integer', array('required' => false,'label' => 'Fax'))
             ->add('ftNomeUtilizador', 'text', array('required' => false,'label' => 'Nome de Utilizador'))
             ->add('ftEmail', 'text', array('required' => true,'label' => 'Email'))
             ->add('ftpassword', 'text', array('required' => false,'label' => 'Password'))
             ->add('ftNomecontacto', 'text', array('required' => false,'label' => 'Nome do Contacto'))
+            ->end();
+
+        $formMapper
+            ->with('grupo_3',array('description' => 'Y','class' => 'col-md-4'))
             ->add('ftTelefonecontacto', 'integer', array('required' => false,'label' => 'Telefone Contacto'))
             ->add('ftEmailcontacto', 'text', array('required' => false,'label' => 'Email Contacto'))
             ->add('ftAlias', 'text', array('required' => false,'label' => 'Acrónimo'))

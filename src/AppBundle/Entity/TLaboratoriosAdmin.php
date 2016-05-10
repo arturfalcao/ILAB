@@ -71,24 +71,28 @@ class TLaboratoriosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
+            ->with('grupo_1',array('description' => 'x','class' => 'col-md-4'))
             ->add('ftNclaboratorio',null,array('label' => 'Nc Laboratório'))
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->add('ftNome',null,array('label' => 'Nome'))
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('ftMorada',null,array('label' => 'Morada'))
+
+            ->end()
+            ->with('grupo_2',array('description' => 'y','class' => 'col-md-4'))
             ->add('ftCodpostal',null,array('label' => 'Código Postal'))
             ->add('ftLocalidade',null,array('label' => 'Localidade'))
             ->add('ftPais',null,array('label' => 'País'))
-            ->end()
-            ->with('grupo_2',array('description' => 'y','class' => 'col-md-6'))
             ->add('ftTelefone',null,array('label' => 'Telefone'))
             ->add('ftFax',null,array('label' => 'Fax'))
+            ->end()
+            ->with('grupo_3',array('description' => 'y','class' => 'col-md-4'))
             ->add('ftEmail',null,array('label' => 'Email'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('ftNomecontacto',null,array('label' => 'Nome do contacto'))
             ->add('ftTelefonecontacto',null,array('label' => 'Telefone do contacto'))
             ->add('ftEmailcontacto',null,array('label' => 'Email do contacto'))
+
             ->end()
         ;
     }

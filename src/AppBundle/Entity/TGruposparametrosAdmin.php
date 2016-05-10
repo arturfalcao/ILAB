@@ -54,7 +54,7 @@ class TGruposparametrosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-6 GrupoParametros'))
             ->add('ftCodigo' ,null,array('label' => 'Código'))
             ->add('fnParametros', 'sonata_type_model', array('label' => 'Parâmetros','multiple' => true,  'property' => 'ftDescricao'))
             ->end()
