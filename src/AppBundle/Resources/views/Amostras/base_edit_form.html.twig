@@ -26,20 +26,26 @@
             var _lastSelectedRow = 0;
             var _ParaData = [];
             var _oldoriginalvalue = 0;
+
             function AddParaActions(){
                 if(typeof $('.NewPara').select2('data').id != 'undefined' && $('.NewPara').select2('data').id != ""){
-                    $.ajax({
-                        type: "POST",
-                        url: '/app_dev.php/addpara',
-                        data: {idpara: $('.NewPara').select2('data').id , idamostra : {{ admin.id(object)  }}},
-                        contentType: "application/json",
-                        success: function(data) {
-                            alert(data);
-                            $("#parametros_grid").bootgrid("destroy");
-                            GetParametros();
 
-                        }
-                    });
+
+                        $.ajax({
+                            type: "POST",
+                            url: '/app_dev.php/addpara',
+                            data: {idpara: $('.NewPara').select2('data').id,
+                                idamostra: {{ admin.id(object) is null ? 0 : admin.id(object)}}},
+                            contentType: "application/json",
+                            success: function (data) {
+                                alert(data);
+                                $("#parametros_grid").bootgrid("destroy");
+                                GetParametros();
+
+                            }
+                        });
+
+
                 }
             }
             function UpdateParaActions(URL){
@@ -91,7 +97,7 @@
                 $.ajax({
                     type: "POST",
                     url: '{{path('AmostrasGetParametros')}}',
-                    data: {data: {{ admin.id(object)  }} },
+                    data: {data: {{ admin.id(object) is null ? 0 : admin.id(object)}} },
                     success: function(data) {
 
                         var grid_para = $("#parametros_grid").bootgrid({
@@ -462,7 +468,7 @@
                 $.ajax({
                     type: "POST",
                     url: '{{path('AmostrasGetCicloVida')}}',
-                    data: {data: {{ admin.id(object)  }} },
+                    data: {data: {{ admin.id(object) is null ? 0 : admin.id(object)}} },
                     success: function(data) {
                         var obj = $.parseJSON(data);
                         if (obj.length != 0) {
@@ -473,6 +479,7 @@
                                 if(value.ft_id_estado == 'I'){
                                     estado = 'Indisponivel';
                                     bullet = "bullet-gray";
+
                                 }
                                 if(value.ft_id_estado == 'V'){
                                     estado = 'Disponivel';
@@ -485,6 +492,7 @@
                                 if(value.ft_id_estado == 'P'){
                                     estado = 'Planeada';
                                     bullet = "bullet-blue";
+
                                 }
                                 if(value.ft_id_estado == 'C'){
                                     estado = 'Completo';
@@ -520,8 +528,22 @@
 
         </style>
 
+        {% if admin.id(object) is null or ( admin.id(object) is not null and (object.ftEstado.ftId == 'P'
+        or object.ftEstado.ftId == 'I')) %}
+
+            <script>
+                $( document ).ready(function() {
+                    $( "#tabs_Amostra" ).tabs( "option","disabled", [1]);
+                });
+            </script>
+        {% endif %}
+
+
         <script>
             $( document ).ready(function() {
+
+
+
 
                 $( ".Lote_amostra .form-group .form-group" ).each(function() {
                     $( this ).addClass( "col-md-4" );
@@ -659,7 +681,7 @@
                     {% endblock formactions %}
                 </form>
             </div>
-            <div id="tabs-2">
+            <div id="tabs-2" >
                 <div class="row">
                     <div class="col-md-6">
                         <table id="parametros_grid" class="table table-condensed table-hover table-striped">
@@ -677,7 +699,7 @@
                         </table>
 
                         <div class="NewParaDiv"></div>
-                        <a target="_blank" class="btn generateworklist" onclick="AddParaActions()"><i class="fa fa-plus-circle"></i> Adicionar </a>
+                        <a target="_blank" class="btn generateworklist" style="margin-top: 10px!important;" onclick="AddParaActions()"><i class="fa fa-plus-circle"></i> Adicionar </a>
 
                     </div>
                     <div class="col-md-6">
@@ -772,7 +794,7 @@
                                 <div class="form-group">
                                     <input type="hidden"  id="_idresultado" >
                                     <input type="hidden"  id="_idparametro" >
-                                    <input type="hidden"  id="_amostra" value="{{ admin.id(object)  }}" >
+                                    <input type="hidden"  id="_amostra" value="{{ admin.id(object) is null ? 0 : admin.id(object)}}" >
 
                                     <label for="_valororiginal">Original</label>
                                     <input type="text" class="form-control" id="_valororiginal" >
