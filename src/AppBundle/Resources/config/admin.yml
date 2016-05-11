@@ -190,6 +190,12 @@ services:
         calls:
             - [ setTemplate, [edit, AppBundle:ModelosListas:edit.html.twig]]
 
+    app.admin.t_tipoparametro:
+        class: AppBundle\Entity\TTipoparametroAdmin
+        arguments: [~, AppBundle\Entity\TTipoparametro, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Tipo de Parametro}
+
     app.admin.t_produtosespecificacoes:
         class: AppBundle\Entity\TProdutosespecificacoesAdmin
         arguments: [~, AppBundle\Entity\TProdutosespecificacoes, SonataAdminBundle:CRUD]

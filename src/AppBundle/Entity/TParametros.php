@@ -20,15 +20,17 @@ class TParametros
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $fnId;
+
+
     /**
-     * @var \TMetodos
-     *
-     * @ORM\ManyToOne(targetEntity="TMetodos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
-     * })
+     * @ORM\ManyToMany(targetEntity="TMetodos")
+     * @ORM\JoinTable(name="t_parametrospormetodo",
+     *      joinColumns={@ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")}
+     *      )
      */
-    private $fnMetodo;
+    public $fnMetodo;
+
 
     /**
      * @var \TAreasensaio
@@ -39,6 +41,17 @@ class TParametros
      * })
      */
     private $fnAreaensaio;
+
+
+    /**
+     * @var \TTipoparametro
+     *
+     * @ORM\ManyToOne(targetEntity="TTipoparametro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoparametro", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoparametro;
 
     /**
      * @var \TModelosparametro
@@ -87,6 +100,14 @@ class TParametros
      * @ORM\Column(name="ft_descricao", type="string", length=100, nullable=false)
      */
     private $ftDescricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ft_metodo_texto", type="string", length=100, nullable=true)
+     */
+    private $ftMetodotexto;
+
 
     /**
      * @var integer
@@ -487,6 +508,30 @@ class TParametros
         $this->ftDescricao = $ftDescricao;
 
         return $this;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftMetodotexto
+     * @return TParametros
+     */
+    public function setFtMetodotexto($ftMetodotexto)
+    {
+        $this->ftMetodotexto= $ftMetodotexto;
+
+        return $this;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftMetodotexto
+     * @return TParametros
+     */
+    public function getFtMetodotexto()
+    {
+        return $this->ftMetodotexto;
     }
 
     /**
@@ -1178,19 +1223,38 @@ class TParametros
         return $this->especificacoes;
     }
 
+
+
+
     /**
-     * Set fnMetodo
+     * Add projectMedia
      *
-     * @param \AppBundle\Entity\TMetodos $fnMetodo
+     * @param \AppBundle\Entity\TParametros
      * @return TParametros
      */
-    public function setFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo = null)
+    public function addFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo)
     {
-        $this->fnMetodo = $fnMetodo;
-
+        $this->fnMetodo[] = $fnMetodo;
         return $this;
     }
-
+    public function removeFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo)
+    {
+        $this->fnMetodo->remove($fnMetodo);
+    }
+    /**
+     * Set projectMedia
+     *
+     * @param array
+     * @return TParametros
+     */
+    public function setFnMetodo($fnMetodo)
+    {
+        $this->$fnMetodo = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach ($fnMetodo as $m) {
+            $this->addFnMetodo($m);
+        }
+        return $this;
+    }
     /**
      * Get fnMetodo
      *
@@ -1200,6 +1264,30 @@ class TParametros
     {
         return $this->fnMetodo;
     }
+
+    /**
+     * Set fnAreaensaio
+     *
+     * @param \AppBundle\Entity\TTipoparametro $fnAreaensaio
+     * @return TParametros
+     */
+    public function setFnTipoparametro(\AppBundle\Entity\TTipoparametro $fnTipoparametro = null)
+    {
+        $this->fnTipoparametro = $fnTipoparametro;
+
+        return $this;
+    }
+
+    /**
+     * Get fnAreaensaio
+     *
+     * @return \AppBundle\Entity\TTipoparametro
+     */
+    public function getFnTipoparametro()
+    {
+        return $this->fnTipoparametro;
+    }
+
 
     /**
      * Set fnAreaensaio

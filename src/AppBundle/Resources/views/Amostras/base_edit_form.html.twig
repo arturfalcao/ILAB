@@ -99,6 +99,8 @@
                     url: '{{path('AmostrasGetParametros')}}',
                     data: {data: {{ admin.id(object) is null ? 0 : admin.id(object)}} },
                     success: function(data) {
+                        
+                        $("#parametros_grid").bootgrid("destroy");
 
                         var grid_para = $("#parametros_grid").bootgrid({
                             navigation:0,
@@ -127,6 +129,7 @@
                         }).on("click.rs.jquery.bootgrid", function (e,rows,row)
                         {
 
+                            GetAllMetodo(row.idparametro);
                             GetCicloPorParametro(row.idparametro);
                             GetResultadoPorParametro(row.idparametro);
                             GetParametroData(row.idparametro);
@@ -229,12 +232,17 @@
                 });
             }
             //get metodo
-            function GetAllMetodo(){
+            function GetAllMetodo(_idpara){
+
+
                 $.ajax({
                     type: "POST",
                     url: "{{ path('GetAllMetodo') }}",
-                    dataType: 'json',
+                    data: {data: _idpara  },
                     success: function(data) {
+                        $(".metodo").select2('destroy');
+                        $(".metododiv .metodo").remove();
+                        data  = JSON.parse(data);
                         $('.metododiv').append("<select  class='metodo'></select>");
                         $.each(data, function(index, value) {
                             $('.metodo').append(
@@ -353,7 +361,7 @@
                             $(".laboratirio").select2("val", obj[0].fn_id_laboratorio);
                             $(".areaensaio").select2("val", obj[0].fn_id_areaensaio);
                             $(".metodo").select2("val", obj[0].fn_id_metodo);
-                            $(".tecnica").select2("val", obj[0].fn_id_tecnica);
+                            //$(".tecnicadiv").val("val", obj[0].fn_id_tecnica);
 
                             $("#_compra").val(obj[0].fn_precocompra);
                             $("#_venda").val(obj[0].fn_precovenda);
@@ -518,8 +526,8 @@
                 GetAllFamilias();
                 GetAllLaboratorios();
                 GetAllEnsaio();
-                GetAllMetodo();
-                GetAllTecnica();
+                //GetAllMetodo();
+                //GetAllTecnica();
             });
         </script>
 
@@ -734,7 +742,9 @@
                                     <label for="metododiv">Método</label>
                                     <div class="metododiv" style="margin-bottom: 25px!important;"></div>
                                     <label for="tecnicadiv" >Técnica</label>
-                                    <div class="tecnicadiv" style="margin-bottom: 25px!important;"></div>
+                                    <input type="text" class="form-control" class="tecnicadiv" readonly>
+
+                                    <!--<div read-only class="tecnicadiv" style="margin-bottom: 25px!important;"></div>-->
 
                                     <label for="_confirmacao">Confirmação</label>
                                     <input type="checkbox" class="form-control" id="_confirmacao" >

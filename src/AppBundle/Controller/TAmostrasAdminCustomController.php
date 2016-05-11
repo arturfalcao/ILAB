@@ -248,9 +248,46 @@ class TAmostrasAdminCustomController extends Controller
     }
     public function GetAllMetodoAction()
     {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+
         $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder();
-        $queryBuilder->select('u.ftDescricao','u.fnId' )->from('AppBundle:TMetodos','u');
+        $queryBuilder1 = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $queryBuilder->select('u.fnId' )->from('AppBundle:TParametrosamostra','u')->where('u.id=:cp')->setParameter('cp', $arr2[1]);
         // consider using ->getArrayResult() to use less memory
+
+        if($queryBuilder->getQuery()->getResult()[0]['fnId'] !== null){
+
+
+            $sql = "SELECT * from t_parametrospormetodo where fn_id_metodo = ". $queryBuilder->getQuery()->getResult()[0]['fnId'] ." " ;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+            $result = $activeDate->fetchAll();
+            $where ="";
+            foreach ($result as &$value) {
+
+                if($where  == ""){
+                    $where .= "fn_id = " . $value['fn_id_parametro']  . "" ;
+                }else{
+                    $where .= " or fn_id = " . $value['fn_id_parametro']  . "" ;
+                }
+            }
+            if( count($result) != 0){
+            $sql = "SELECT ft_descricao as ftDescricao , fn_id as fnId from t_metodos where ". $where ." " ;
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+            $result = $activeDate->fetchAll();
+                return new Response(json_encode($result));
+
+            }else{
+                $queryBuilder->select('c.ftDescricao','c.fnId' )->from('AppBundle:TMetodos','c');
+            }
+
+        }else{
+            $queryBuilder->select('u.ftDescricao','u.fnId' )->from('AppBundle:TMetodos','u');
+
+        }
+
         return new Response(json_encode($queryBuilder->getQuery()->getResult()));
     }
     public function GetAllTecnicaAction()

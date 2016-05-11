@@ -35,6 +35,8 @@ class TMetodosAdmin extends Admin
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
+            ->add('fnTecnica',null, array('label' => 'Técnica'))
+
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -52,11 +54,12 @@ class TMetodosAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnId',null,array('label' => 'ID'))
+            //->add('fnId',null,array('label' => 'ID'))
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
+            ->add('fnTecnica',null, array('label' => 'Técnica'))
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->end()
