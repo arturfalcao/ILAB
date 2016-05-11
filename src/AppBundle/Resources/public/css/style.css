@@ -641,5 +641,36 @@ section.login p {
         margin-top: 11px!important;
     }
 
+    body .Cliente_amostra .select2-container{
+        width: 69%!important;
+    }
+
+    body .Caracterizacao_amostra .select2-container{
+        width: 80%!important;
+    }
+
+    body .Lancamento_amostra .select2-container{
+        width: 80%!important;
+    }
+
+    body .form-group{
+        margin-bottom: 0!important;
+    }
+
+    body .Lote_amostra .sonata-ba-collapsed-fields{
+        padding: 10px !important;
+    }
+
+    body .Lancamento_amostra{
+        margin-top: -786px!important;
+    }
+
+    body .Lote_amostra{
+        margin-top: -530px!important;
+    }
+
+    body .Dados_amostra{
+        margin-top: -190px!important;
+    }
 
 }

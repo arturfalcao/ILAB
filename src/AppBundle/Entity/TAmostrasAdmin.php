@@ -164,7 +164,7 @@ class TAmostrasAdmin extends Admin
 
             ->with('x',array('description' => 'Dados da colheita','class' => ' Dados_amostra'))
             ->add('fdColheita','sonata_type_datetime_picker', array('label' => 'Data/hora Colheita'))
-            ->add('fnOperador',null,array('label'=>'Operador'))
+            ->add('fnOperador',null,array('label'=>'Nome do Operador'))
             ->add('ftResponsavelcolheita', 'choice',  array('label'=>'Responsável Colheita','multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratório','Outro' => 'Outro')))
             ->end();
 
