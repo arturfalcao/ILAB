@@ -10377,6 +10377,7 @@ td.sonata-ba-list-field.sonata-ba-list-field-currency, td.sonata-ba-list-field.s
     border-right: none!important;
 }
 
+
 .TabelaModeloresultados  a{
   margin-top: 10px!important;
 }
@@ -10393,4 +10394,12 @@ input[type=date]::-webkit-inner-spin-button {
 input[type=time]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     display: none;
+}
+
+.sonata-ba-list-row-selected td{
+    background-color: #eefffd!important;
+}
+
+.table>thead>tr>td.active, .table>tbody>tr>td.active, .table>tfoot>tr>td.active, .table>thead>tr>th.active, .table>tbody>tr>th.active, .table>tfoot>tr>th.active, .table>thead>tr.active>td, .table>tbody>tr.active>td, .table>tfoot>tr.active>td, .table>thead>tr.active>th, .table>tbody>tr.active>th, .table>tfoot>tr.active>th {
+    background-color: #eefffd!important;
 }

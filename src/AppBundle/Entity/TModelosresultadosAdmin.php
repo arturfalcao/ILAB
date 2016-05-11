@@ -29,11 +29,11 @@ class TModelosresultadosAdmin extends Admin
     {
         $datagridMapper
             ->add('fbActivo',null, array('label' => 'Activo'))
-            ->add('fbIncluirnorelatorio',null, array('label' => 'Incluir Relatório'))
-            ->add('fbGamavalores',null, array('label' => 'Gama de Valores'))
+            ->add('fbIncluirnorelatorio',null, array('label' => 'Incluir relatório'))
+            ->add('fbGamavalores',null, array('label' => 'Gama de valores'))
             ->add('fnMaximo',null, array('label' => 'Máximo'))
             ->add('fnMinimo',null, array('label' => 'Mínimo'))
-            ->add('ftMensagemutilizador',null, array('label' => 'MSG Utilizador'))
+            ->add('ftMensagemutilizador',null, array('label' => 'MSG utilizador'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             ->add('fnLimitequantificacao',null, array('label' => 'Limite'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
@@ -52,7 +52,7 @@ class TModelosresultadosAdmin extends Admin
             ->add('ftDescricao','text', array('label' => 'Nome'))
             ->add('fnUnidade','text', array('label' => 'Unidades'))
             ->add('fnLimitequantificacao','text', array('label' => 'Quantificação'))
-            ->add('fbGamavalores',null, array('label' => 'Gama de Valores'))
+            ->add('fbGamavalores',null, array('label' => 'Gama de valores'))
             ->add('fnMaximo','number', array('label' => 'Máximo'))
             ->add('fnMinimo','number', array('label' => 'Mínimo'))
             ->add('_action', 'actions', array(
@@ -79,11 +79,11 @@ class TModelosresultadosAdmin extends Admin
                 ->add('fnTipoarredondamento', 'sonata_type_model', array('attr'=> array('class'=>'largura_3'),'label' => 'Tipo de Arredondamento','by_reference' => false))
                 
                 ->add('fbGamavalores',null,array('label' => 'Gama de Valores'))
-                ->add('fbIncluirnorelatorio','checkbox', array('label' => 'Incluir no Relatório'))
+                ->add('fbIncluirnorelatorio','checkbox', array('label' => 'Incluir no relatório'))
                 ->add('fnMaximo','number', array('label' => 'Máximo'))
                 ->add('fnMinimo','number', array('label' => 'Mínimo'))
-                ->add('ftMensagemutilizador','text', array('label' => 'Mensagem Utilizador'))
-                ->add('fnLimitequantificacao','integer', array('label' => 'Limite Quantificação'))
+                ->add('ftMensagemutilizador','text', array('label' => 'Mensagem utilizador'))
+                ->add('fnLimitequantificacao','integer', array('label' => 'Limite quantificação'))
             ->end()
 
             ->with('Gallery',array('class'=> 'TabelaModeloresultados col-md-6'))

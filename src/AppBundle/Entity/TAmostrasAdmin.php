@@ -47,7 +47,7 @@ class TAmostrasAdmin extends Admin
             ->add('fnNumero',null,array('label' => 'Número'))
             ->add('ftSerie',null,array('label' => 'Série'))
             ->add('fdCriacao',null,array('label' => 'Criação'))
-            ->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data Colheita','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data colheita','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('fdRecepcao',null,array('label' => 'Recepção'))
             ->add('fdConclusao',null,array('label' => 'Conclusão'))
             ->add('fdLimite',null,array('label' => 'Limite'))
@@ -60,7 +60,7 @@ class TAmostrasAdmin extends Admin
             ->add('fdAutorizacao',null,array('label' => 'Autorização'))
             ->add('fnProduto',null,array('label' => 'Produto'))
             ->add('fnTipocontrolo',null,array('label' => 'Tipo de controlo'))
-            ->add('fnIdOrcamento',null,array('label' => 'ID Orçamento'))
+            ->add('fnIdOrcamento',null,array('label' => 'ID orçamento'))
             ->add('ftEstado',null,array('label' => 'Estado'))
             ->add('fnEspecificacao',null,array('label' => 'Especificação'))
             ->add('ftCumpreespecificacao',null,array('label' => 'Cumpre especificação'))
@@ -82,9 +82,9 @@ class TAmostrasAdmin extends Admin
             ->add('ftSerie','string',array('label' => 'Série'))
             ->add('fnProduto',null,array('label' => 'Produto'))
             ->add('fdColheita','datetime',array('label' => 'Colheita'))
-            ->add('fdConclusao','datetime',array('label' => 'Data da Conclusão'))
+            ->add('fdConclusao','datetime',array('label' => 'Data da conclusão'))
             ->add('fnCliente',null,array('label' => 'Cliente'))
-            ->add('fnLocalcolheita',null,array('label' => 'Local da Colheita'))
+            ->add('fnLocalcolheita',null,array('label' => 'Local da colheita'))
             ->add('ftConclusao','string',array('label' => 'Conclusão'))
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -143,7 +143,7 @@ class TAmostrasAdmin extends Admin
             ->add('fnRequisicaocliente', 'sonata_type_model', array('label' => 'Requisição do cliente', 'by_reference' => false))
             ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo de Controlo', 'by_reference' => false))
             ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
-            ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo de Aprovação', 'by_reference' => false))
+            ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo de aprovação', 'by_reference' => false))
             ->add('ftConclusao', 'text', array('label' => 'Conclusão'))
             ->add('ftObs', 'text', array('label' => 'Observações'))
             ->end()
@@ -164,9 +164,9 @@ class TAmostrasAdmin extends Admin
             ->end()
 
             ->with('x',array('description' => 'Dados da colheita','class' => ' Dados_amostra'))
-            ->add('fdColheita','sonata_type_datetime_picker', array('label' => 'Data/hora Colheita'))
-            ->add('fnOperador',null,array('label'=>'Nome do Operador'))
-            ->add('ftResponsavelcolheita', 'choice',  array('label'=>'Responsável Colheita','multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratório','Outro' => 'Outro')))
+            ->add('fdColheita','sonata_type_datetime_picker', array('label' => 'Data/hora colheita'))
+            ->add('fnOperador',null,array('label'=>'Nome do operador'))
+            ->add('ftResponsavelcolheita', 'choice',  array('label'=>'Responsável colheita','multiple' => false,'choices' => array('Cliente' => 'Cliente','Laboratorio' => 'Laboratório','Outro' => 'Outro')))
             ->end();
 
              if ($this->id($this->getSubject())) {

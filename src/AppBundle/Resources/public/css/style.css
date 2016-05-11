@@ -698,4 +698,8 @@ section.login p {
         max-width: 110px;
     }
 
+    body .TabelaModeloresultados{
+        overflow-x: scroll!important;
+    }
+
 }

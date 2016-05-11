@@ -21,9 +21,9 @@ class TFrascosAdmin extends Admin
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('fnCapacidade',null,array('label' => 'Capacidade'))
-            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de mat.'))
+            ->add('fnIdTipomaterial',null,array('label' => 'ID tipo de mat.'))
             ->add('fbEsteril',null,array('label' => 'Estéril'))
-            ->add('fnIdAditivo',null,array('label' => 'ID Aditivo'))
+            ->add('fnIdAditivo',null,array('label' => 'ID aditivo'))
         ;
     }
 
@@ -38,9 +38,9 @@ class TFrascosAdmin extends Admin
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('fnCapacidade',null,array('label' => 'Capacidade'))
-            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de material'))
+            ->add('fnIdTipomaterial',null,array('label' => 'ID tipo de material'))
             ->add('fbEsteril',null,array('label' => 'Estéril'))
-            ->add('fnIdAditivo',null,array('label' => 'ID Aditivo'))
+            ->add('fnIdAditivo',null,array('label' => 'ID aditivo'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -65,9 +65,9 @@ class TFrascosAdmin extends Admin
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
             ->add('fnCapacidade',null,array('label' => 'Capacidade'))
-            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de material'))
+            ->add('fnIdTipomaterial',null,array('label' => 'ID tipo de material'))
             ->add('fbEsteril',null,array('label' => 'Estéril'))
-            ->add('fnIdAditivo',null,array('label' => 'ID Aditivo'))
+            ->add('fnIdAditivo',null,array('label' => 'ID aditivo'))
             ->end()
         ;
     }

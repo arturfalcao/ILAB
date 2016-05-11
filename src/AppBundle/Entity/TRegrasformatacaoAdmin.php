@@ -21,9 +21,9 @@ class TRegrasformatacaoAdmin extends Admin
             ->add('fnLimiteinferior',null,array('label' => 'Limite inferior'))
             ->add('fnLimitesuperior',null,array('label' => 'Limite superior'))
             ->add('fnCasasdecimais',null,array('label' => 'Casas decimais'))
-            ->add('fbFormatoexponencial',null,array('label' => 'Formato Exp.'))
-            ->add('fbFormatoutilizador',null,array('label' => 'Formato Util.'))
-            ->add('ftExpressaoutilizador',null,array('label' => 'Expressão Util.'))
+            ->add('fbFormatoexponencial',null,array('label' => 'Formato exp.'))
+            ->add('fbFormatoutilizador',null,array('label' => 'Formato util.'))
+            ->add('ftExpressaoutilizador',null,array('label' => 'Expressão util.'))
         ;
     }
 
@@ -38,9 +38,9 @@ class TRegrasformatacaoAdmin extends Admin
             ->add('fnLimiteinferior',null,array('label' => 'Limite inferior'))
             ->add('fnLimitesuperior',null,array('label' => 'Limite Superior'))
             ->add('fnCasasdecimais',null,array('label' => 'Casas decimais'))
-            ->add('fbFormatoexponencial',null,array('label' => 'Formato Exponencial'))
-            ->add('fbFormatoutilizador',null,array('label' => 'Formato Utilizador'))
-            ->add('ftExpressaoutilizador',null,array('label' => 'Expressão Utilizador'))
+            ->add('fbFormatoexponencial',null,array('label' => 'Formato exponencial'))
+            ->add('fbFormatoutilizador',null,array('label' => 'Formato utilizador'))
+            ->add('ftExpressaoutilizador',null,array('label' => 'Expressão utilizador'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -66,8 +66,8 @@ class TRegrasformatacaoAdmin extends Admin
             ->with('grupo_2',array('description' => 'Cliente','class' => 'col-md-6'))
             ->add('fbFormatoexponencial','checkbox', array('required' => false,'label' => 'Exponencial','attr' => array('class' => "regra_exp")))
             ->add('fbFormatoutilizador','checkbox', array('required' => false,'label' => 'Normal','attr' => array('class' => "regra_normal")))
-            ->add('fnCasasdecimais','number', array('required' => false,'label' => 'Casas Decimais','attr' => array('class' => "casasdecimais")))
-            ->add('ftExpressaoutilizador','text', array('required' => false,'label' => 'Expressão Utilizador','attr' => array('class' => "expre_utilizador"),))
+            ->add('fnCasasdecimais','number', array('required' => false,'label' => 'Casas decimais','attr' => array('class' => "casasdecimais")))
+            ->add('ftExpressaoutilizador','text', array('required' => false,'label' => 'Expressão utilizador','attr' => array('class' => "expre_utilizador"),))
             ->end()
         ;
 

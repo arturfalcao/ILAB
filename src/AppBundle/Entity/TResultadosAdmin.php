@@ -45,10 +45,10 @@ class TResultadosAdmin extends Admin
             ->add('fdCriacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data de criação','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('fdConclusao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data de conclusão','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('fdAutorizacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Autorização','widget' => 'single_text','attr' => array('class' => 'datepicker')))
-            ->add('fbIncluirnorelatorio',null,array('label' => 'Incluir no relatório'))
+            ->add('fbIncluirnorelatorio',null,array('label' => 'Incluir no relat.'))
             ->add('fnMaximo',null,array('label' => 'Máximo'))
             ->add('fnMinimo',null,array('label' => 'Mínimo'))
-            ->add('fnLimitequantificacao',null,array('label' => 'Limite de Quantificação'))
+            ->add('fnLimitequantificacao',null,array('label' => 'Limite de quant.'))
         ;
     }
 
@@ -75,7 +75,7 @@ class TResultadosAdmin extends Admin
             ->add('fbIncluirnorelatorio',null,array('label' => 'Incluir no relatório'))
             ->add('fnMaximo',null,array('label' => 'Máximo'))
             ->add('fnMinimo',null,array('label' => 'Mínimo'))
-            ->add('fnLimitequantificacao',null,array('label' => 'Limite de Quantificação'))
+            ->add('fnLimitequantificacao',null,array('label' => 'Limite de quantificação'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
