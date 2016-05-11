@@ -21,7 +21,7 @@ class TLocaiscolheitaAdmin extends Admin
             ->add('ftAlias' ,null,array('label' => 'Acrónimo'))
             ->add('fnIdConcelho' ,null,array('label' => 'ID Concelho'))
             ->add('fnIdTipoLocalcolheita' ,null,array('label' => 'ID Tipo local de colheita'))
-            ->add('fnIdSistemaabastecimento' ,null,array('label' => 'ID Sistema de abastecimento'))
+            ->add('fnIdSistemaabastecimento' ,null,array('label' => 'ID Sistema de abast.'))
             ->add('fnIdCliente' ,null,array('label' => 'ID Cliente'))
             ->add('ftObservacao' ,null,array('label' => 'Observação'))
             ->add('fbActivo' ,null,array('label' => 'Activo'))

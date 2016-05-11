@@ -10271,6 +10271,10 @@ tbody > tr > td span.label{
   width: 85% !important;
 }
 
+.Especificacoes a{
+  margin-top: 10px!important;
+}
+
 .Lancamento_amostra .select2-container{
   width: 85% !important;
 }
@@ -10379,4 +10383,14 @@ td.sonata-ba-list-field.sonata-ba-list-field-currency, td.sonata-ba-list-field.s
 
 .GrupoParametros a{
   margin-top: 10px!important;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+input[type=time]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
 }

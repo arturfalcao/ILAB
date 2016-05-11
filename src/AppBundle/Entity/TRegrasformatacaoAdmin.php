@@ -21,9 +21,9 @@ class TRegrasformatacaoAdmin extends Admin
             ->add('fnLimiteinferior',null,array('label' => 'Limite inferior'))
             ->add('fnLimitesuperior',null,array('label' => 'Limite superior'))
             ->add('fnCasasdecimais',null,array('label' => 'Casas decimais'))
-            ->add('fbFormatoexponencial',null,array('label' => 'Formato Exponencial'))
-            ->add('fbFormatoutilizador',null,array('label' => 'Formato Utilizador'))
-            ->add('ftExpressaoutilizador',null,array('label' => 'Expressão Utilizador'))
+            ->add('fbFormatoexponencial',null,array('label' => 'Formato Exp.'))
+            ->add('fbFormatoutilizador',null,array('label' => 'Formato Util.'))
+            ->add('ftExpressaoutilizador',null,array('label' => 'Expressão Util.'))
         ;
     }
 

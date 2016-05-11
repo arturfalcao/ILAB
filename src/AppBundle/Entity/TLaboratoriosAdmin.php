@@ -28,9 +28,9 @@ class TLaboratoriosAdmin extends Admin
             ->add('ftFax',null,array('label' => 'Fax'))
             ->add('ftEmail',null,array('label' => 'Email'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
-            ->add('ftNomecontacto',null,array('label' => 'Nome do contacto'))
-            ->add('ftTelefonecontacto',null,array('label' => 'Telefone do contacto'))
-            ->add('ftEmailcontacto',null,array('label' => 'Email do contacto'))
+            ->add('ftNomecontacto',null,array('label' => 'Nome do cont.'))
+            ->add('ftTelefonecontacto',null,array('label' => 'Telef. do cont.'))
+            ->add('ftEmailcontacto',null,array('label' => 'Email do cont.'))
         ;
     }
 

@@ -30,7 +30,7 @@ class TProdutosAdmin extends Admin
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('fnEspecificacoes',null,array('label' => 'Especificações'))
-            ->add('fnFamiliaproduto',null,array('label' => 'Família do Produto'))
+            ->add('fnFamiliaproduto',null,array('label' => 'Família do Prod.'))
             ->add('fnLegislacao',null,array('label' => 'Legislação'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
 

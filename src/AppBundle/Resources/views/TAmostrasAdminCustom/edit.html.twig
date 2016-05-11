@@ -119,21 +119,22 @@
                                 <div class="col-md-2 col-md-offset-4">
 
                                     {{ form_row(edit_form.submit, { 'label': 'Atualizar',
-                                        'attr': {'class': 'btn generateworklist'} }) }}
+                                        'attr': {'class': ' btn generateworklist'} }) }}
                                 </div>
                                 {{ form_end(edit_form) }}
 
                                 <div class="col-md-2">
                                     {{ form_start(delete_form) }}
                                     {{ form_row(delete_form.submit,
-                                    { 'label': 'Apagar', 'attr': {'class': 'btn btn-danger'} }) }}
+                                    { 'label': 'Apagar', 'attr': {'class': ' btn btn-danger'} }) }}
 
                                     {{ form_end(delete_form) }}
                                 </div>
                             </div>
 
-
                     {% endblock %}
+
+
 
                 </div>
 
@@ -144,15 +145,7 @@
 </div>
 
 <style>
-    input[type=date]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        display: none;
-    }
 
-    input[type=time]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        display: none;
-    }
 
     #form_submit{
         color: #f4543c!important;
@@ -164,6 +157,8 @@
 
 <script>
     $( document ).ready(function() {
+        $("#Novo_Planeamento_submit").prepend('<i style="padding-right: 8px" class="fa fa-save"></i>');
+        $("#form_submit").prepend('<i style="padding-right: 8px" class="fa fa-times-circle"></i>');
 
         var novo_planeamento = $("#Novo_Planeamento_submit");
         var form_submit = $("#form_submit");

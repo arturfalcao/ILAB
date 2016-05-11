@@ -22,7 +22,7 @@ class TParametrosAdmin extends Admin
             ->add('fnTecnica',null, array('label' => 'Técnica'))
             ->add('fnAreaensaio',null, array('label' => 'Área Ensaio'))
             ->add('fdLimiterealizacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Limite de Realização','widget' => 'single_text','attr' => array('class' => 'datepicker')))
-            ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre Especificação'))
+            ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre Especif.'))
             ->add('ftConclusao',null, array('label' => 'Conclusão'))
             ->add('fnModeloparametro',null, array('label' => 'Modelo de Parâmetro'))
             ->add('ftObservacao',null, array('label' => 'Observação'))

@@ -674,4 +674,28 @@ section.login p {
         margin-top: -190px!important;
     }
 
+    body .largura{
+        width: 80%!important;
+    }
+
+    body .largura_2 {
+        width: 55% !important;
+    }
+
+    body .largura_3 {
+        width: 58% !important;
+    }
+
+    body .largura_4 {
+        width: 68% !important;
+    }
+
+    body .mainmenu a{
+        height: 58px!important;
+    }
+
+    body .select2-container .select2-choice > .select2-chosen{
+        max-width: 110px;
+    }
+
 }

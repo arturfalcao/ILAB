@@ -21,7 +21,7 @@ class TFrascosAdmin extends Admin
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('fnCapacidade',null,array('label' => 'Capacidade'))
-            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de material'))
+            ->add('fnIdTipomaterial',null,array('label' => 'ID Tipo de mat.'))
             ->add('fbEsteril',null,array('label' => 'Estéril'))
             ->add('fnIdAditivo',null,array('label' => 'ID Aditivo'))
         ;

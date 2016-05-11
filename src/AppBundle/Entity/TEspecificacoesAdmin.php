@@ -84,7 +84,7 @@ class TEspecificacoesAdmin extends Admin
             ->add('ftLegendavl', 'text', array('required' => false,'label' => 'LegendaVL'))
             ->add('fbActivo', 'checkbox', array('required' => false,'label' => 'Activo'))
             ->end()
-            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
+            ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6 Especificacoes'))
             ->add('fnParametros', 'sonata_type_collection', array(
                 'cascade_validation' => true,
                 'label' => 'Parâmetros',
