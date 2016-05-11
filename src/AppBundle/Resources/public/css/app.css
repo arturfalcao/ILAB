@@ -10234,6 +10234,7 @@ tbody > tr > td span.label{
 {
   padding:20px;
   background-color: #f4f4f4;
+  padding-bottom: 0!important;
 }
 
 .Lote_amostra > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group{
@@ -10246,7 +10247,7 @@ tbody > tr > td span.label{
 }
 
 .Dados_amostra{
-  margin-top: -155px;
+  margin-top: -95px;
 }
 
 .Lancamento_amostra{

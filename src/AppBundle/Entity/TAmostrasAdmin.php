@@ -158,7 +158,8 @@ class TAmostrasAdmin extends Admin
 
             ->with('Lote',array('description' => 'Lote','class' => 'Lote_amostra'))
             ->add('fnAmostrasalimentos', 'sonata_type_admin',array(
-                'btn_add' => false,'delete' => false,'label' => 'Amostras de alimentos'
+                'btn_add' => false,'delete' => false,'label' => 'Amostras de alimentos',
+                'label_attr' => array('class' => 'L_AA'),
             ))
             ->end()
 

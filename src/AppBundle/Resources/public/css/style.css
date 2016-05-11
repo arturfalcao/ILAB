@@ -659,6 +659,7 @@ section.login p {
 
     body .Lote_amostra .sonata-ba-collapsed-fields{
         padding: 10px !important;
+        padding-bottom: 0!important;
     }
 
     body .Lancamento_amostra{
