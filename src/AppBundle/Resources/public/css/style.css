@@ -694,6 +694,10 @@ section.login p {
         height: 58px!important;
     }
 
+    body .submenu{
+        left: 63px!important;
+    }
+
     body .select2-container .select2-choice > .select2-chosen{
         max-width: 110px;
     }
@@ -704,6 +708,16 @@ section.login p {
 
     body .sideBarRight{
         margin-top: 9px!important;
+    }
+
+    body .big{
+        margin-top: -190px!important;
+    }
+
+    body .submenu a{
+        padding-top:5px!important;
+        padding-bottom:5px!important;
+        height:40px!important;
     }
 
 }

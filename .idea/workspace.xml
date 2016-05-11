@@ -9,7 +9,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="689" column="30" selection-start-line="689" selection-start-column="30" selection-end-line="689" selection-end-column="30" />
+            <state relative-caret-position="498">
+              <caret line="719" column="30" selection-start-line="719" selection-start-column="30" selection-end-line="719" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -69,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topheadergeral.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="topheadergeral.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
@@ -150,8 +149,8 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TRequisicoesAdmin.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TRequisicoesclienteAdmin.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -472,12 +471,12 @@
       <workItem from="1462887801625" duration="10827000" />
       <workItem from="1462955754509" duration="10701000" />
       <workItem from="1462973457670" duration="53000" />
-      <workItem from="1462973644080" duration="7565000" />
+      <workItem from="1462973644080" duration="8816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174557000" />
+    <option name="totallyTimeSpent" value="175808000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -919,18 +918,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="689" column="30" selection-start-line="689" selection-start-column="30" selection-end-line="689" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="175" column="28" selection-start-line="175" selection-start-column="28" selection-end-line="175" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="719" column="30" selection-start-line="719" selection-start-column="30" selection-end-line="719" selection-end-column="30" />
           <folding />
         </state>
       </provider>
