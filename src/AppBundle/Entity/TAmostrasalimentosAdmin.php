@@ -21,7 +21,7 @@ class TAmostrasalimentosAdmin extends Admin
             ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
             ->add('ftValidade',null,array('label'=>'Validade'))
             ->add('ftTemperatura',null,array('label'=>'Temperatura'))
-            ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
+            ->add('ftFaseprocesso',null,array('label'=>'Fase do proc.'))
         ;
     }
 

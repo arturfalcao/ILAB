@@ -641,5 +641,83 @@ section.login p {
         margin-top: 11px!important;
     }
 
+    body .Cliente_amostra .select2-container{
+        width: 69%!important;
+    }
+
+    body .Caracterizacao_amostra .select2-container{
+        width: 80%!important;
+    }
+
+    body .Lancamento_amostra .select2-container{
+        width: 80%!important;
+    }
+
+    body .form-group{
+        margin-bottom: 0!important;
+    }
+
+    body .Lote_amostra .sonata-ba-collapsed-fields{
+        padding: 10px !important;
+        padding-bottom: 0!important;
+    }
+
+    body .Lancamento_amostra{
+        margin-top: -786px!important;
+    }
+
+    body .Lote_amostra{
+        margin-top: -530px!important;
+    }
+
+    body .Dados_amostra{
+        margin-top: -190px!important;
+    }
+
+    body .largura{
+        width: 80%!important;
+    }
+
+    body .largura_2 {
+        width: 55% !important;
+    }
+
+    body .largura_3 {
+        width: 58% !important;
+    }
+
+    body .largura_4 {
+        width: 68% !important;
+    }
+
+    body .mainmenu a{
+        height: 58px!important;
+    }
+
+    body .submenu{
+        left: 63px!important;
+    }
+
+    body .select2-container .select2-choice > .select2-chosen{
+        max-width: 110px;
+    }
+
+    body .TabelaModeloresultados{
+        overflow-x: scroll!important;
+    }
+
+    body .sideBarRight{
+        margin-top: 9px!important;
+    }
+
+    body .big{
+        margin-top: -190px!important;
+    }
+
+    body .submenu a{
+        padding-top:5px!important;
+        padding-bottom:5px!important;
+        height:40px!important;
+    }
 
 }

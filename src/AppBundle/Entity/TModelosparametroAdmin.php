@@ -18,11 +18,11 @@ class TModelosparametroAdmin extends Admin
         $datagridMapper
             ->add('fbActivo',null, array('label' => 'Activo'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
-            ->add('ftFormulaquimica',null, array('label' => 'Fórmula Química'))
+            ->add('ftFormulaquimica',null, array('label' => 'Fórmula Q.'))
             ->add('fnPrecocompra',null, array('label' => 'Preço Compra'))
             ->add('fnPrecovenda',null, array('label' => 'Preço Venda'))
             ->add('fnFactorcorreccao',null, array('label' => 'Factor correcção'))
-            ->add('fnNrdiasparaexecucao',null, array('label' => 'Dias para Execução'))
+            ->add('fnNrdiasparaexecucao',null, array('label' => 'Dias para Exec.'))
             ->add('fbAcreditado',null, array('label' => 'Acreditado'))
             ->add('fnVolumeminimo',null, array('label' => 'Volume mínimo'))
             ->add('ftObservacao',null, array('label' => 'Observação'))

@@ -173,7 +173,7 @@ a
 
 #tab_sidebar .nav > li > a:hover, #tab_sidebar .nav > li > a:focus {
     text-decoration: none;
-    background-color: #eeeeee;
+    background-color: white;
 }
 
 #tab_sidebar .nav > li > a {
@@ -406,7 +406,7 @@ p.quebra{
 }
 
 .img_align{
-    margin-top: 23px;
+    margin-top: 15px;
     margin-left: 9px;
 }
 
@@ -427,6 +427,7 @@ p.quebra{
     margin-bottom: 20px;
     font-size: 17px;
     font-weight: bold;
+    font-family: "montserratregular", Helvetica, Roboto, Arial, sans-serif!important;
 
 }
 

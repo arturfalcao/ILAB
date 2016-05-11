@@ -20,7 +20,7 @@ class TGruposparametrosAdmin extends Admin
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
-            ->add('fnIdProduto',null,array('label' => 'ID Produto'))
+            ->add('fnIdProduto',null,array('label' => 'ID produto'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
         ;
     }
@@ -35,7 +35,7 @@ class TGruposparametrosAdmin extends Admin
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
-            ->add('fnIdProduto',null,array('label' => 'ID Produto'))
+            ->add('fnIdProduto',null,array('label' => 'ID produto'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('_action', 'actions', array(
                 'actions' => array(

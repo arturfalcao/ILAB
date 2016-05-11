@@ -19,7 +19,7 @@ class TModelosamostraAdmin extends Admin
             ->add('fnId',null, array('label' => 'ID'))
             ->add('fbActivo',null, array('label' => 'Activo'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
-            ->add('fnLimitedias',null, array('label' => 'Limite de Dias'))
+            ->add('fnLimitedias',null, array('label' => 'Limite de dias'))
             ->add('fnIdOrcamento',null, array('label' => 'Orçamento'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
         ;
@@ -56,20 +56,20 @@ class TModelosamostraAdmin extends Admin
             ->with('grupo_1',array('description' => 'X','class' => 'col-md-6'))
             ->add('fbActivo', 'checkbox', array('required' => true,'label' => 'Activo'))
             ->add('ftDescricao', 'text', array('required' => true,'label' => 'Descrição'))
-            ->add('fnLimitedias', 'checkbox', array('required' => true,'label' => 'Limite de Dias'))
+            ->add('fnLimitedias', 'checkbox', array('required' => true,'label' => 'Limite de dias'))
             ->add('fnIdOrcamento', 'text', array('required' => false,'label' => 'Orçamento'))
             ->add('ftObservacao', 'text', array('required' => false,'label' => 'Observação'))
             ->add('fnCliente', 'sonata_type_model', array('attr'=> array('class'=>'largura'), 'label' => 'Cliente','by_reference' => false))
-            ->add('fnTipoaprovacao', 'sonata_type_model', array('attr'=> array('class'=>'largura'), 'label' => 'Tipo Aprovação','by_reference' => false))
+            ->add('fnTipoaprovacao', 'sonata_type_model', array('attr'=> array('class'=>'largura'), 'label' => 'Tipo aprovação','by_reference' => false))
             ->end();
 
         $formMapper
             ->with('grupo_2',array('description' => 'Y','class' => 'col-md-6'))
             ->add('fnProduto', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Produto','by_reference' => false))
             ->add('fnLegislacao', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Legislação','by_reference' => false))
-            ->add('fnTipoamostra', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Tipo Amostra','by_reference' => false))
-            ->add('fnTipocontrolo', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Tipo Controlo','by_reference' => false))
-            ->add('fnGrupoparametros', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Grupo Parâmetros','by_reference' => false))
+            ->add('fnTipoamostra', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Tipo amostra','by_reference' => false))
+            ->add('fnTipocontrolo', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Tipo controlo','by_reference' => false))
+            ->add('fnGrupoparametros', 'sonata_type_model', array('attr'=> array('class'=>'largura'),'label' => 'Grupo parâmetros','by_reference' => false))
             ->end()
         ;
     }

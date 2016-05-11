@@ -17,14 +17,16 @@
     <input type="hidden" id="logged_username" value="{{app.user.username}}">
   {% endif %}
     
-    <div class="large-6 medium-6 columns">
+    <div class="large-8 medium-8 columns">
       {% if 'list' in admin.request.pathInfo%}
           {% if 'Legislacao' == admin.label %}
-          <h6 class="title"> Listagem de Legislações </h6>
+          <h6 class="title"> Listagem de Legislacoes </h6>
           {% elseif 'users'  == admin.label%}
               <h6 class="title"> Listagem de Utilizadores </h6>
           {% elseif 'groups'  == admin.label%}
               <h6 class="title"> Listagem de Grupos </h6>
+          {% elseif 'Regras formatacao'  == admin.label%}
+              <h6 class="title"> Listagem de Regras formatacoes </h6>
           {% else %}
           <h6 class="title"> Listagem de {{  admin.label ~ (admin.label|last == 's' ? '' : 's') }} </h6>
           {% endif %}
@@ -49,7 +51,7 @@
       {% endif %}
     </div>
     {% if 'list' in admin.request.pathInfo %}
-      <div class="large-8 medium-8 columns">
+      <div class="large-6 medium-6 columns">
           <a  id="nova_entidade" href="#" class="button right">Adicionar Novo</a>
       </div>
       <div class="large-1 medium-1 columns">
@@ -58,7 +60,7 @@
         </div>
       </div> 
     {% else %}
-       <div class="large-8 medium-8 columns">
+       <div class="large-6 medium-6 columns">
           <a class="button right inactiveLink bg_color"></a> 
        </div>
        <div class="large-1 medium-1 columns">

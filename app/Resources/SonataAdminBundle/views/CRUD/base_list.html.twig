@@ -207,7 +207,7 @@ file that was distributed with this source code.
 
                         <div class="large-16 medium-16 columns no-padding">
 
-                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
+                            <div class="large-2 vazio medium-2 form-group visivel" style="margin-left: 35px;margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
                                         {% if filter.formName == 'fnId' or filter.formName == 'ftId' or filter.formName == 'ftCodigo'
@@ -245,7 +245,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-3 vazio_1 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -388,7 +388,7 @@ file that was distributed with this source code.
 
                             </div>
 
-                            <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -574,23 +574,32 @@ file that was distributed with this source code.
             $('.visivel').hide();
             $('#rod_filtros').hide();
 
-            $("label[for='filter_fdCriacao_value_start']").html('Data de Criação de');
+            $("label[for='filter_fdCriacao_value_start']").html('Data Criação de');
             $("label[for='filter_fdCriacao_value_end']").html('até');
 
-            $("label[for='filter_fdConclusao_value_start']").html('Data de Conclusão de');
+            $("label[for='filter_fdConclusao_value_start']").html('Data Conc. de');
             $("label[for='filter_fdConclusao_value_end']").html('até');
 
-            $("label[for='filter_fdAutorizacao_value_start']").html('Data Autorização de');
+            $("label[for='filter_fdAutorizacao_value_start']").html('Data Autor. de');
             $("label[for='filter_fdAutorizacao_value_end']").html('até');
 
-            $("label[for='filter_fdLimiterealizacao_value_start']").html('Limite Realização de');
+            $("label[for='filter_fdLimiterealizacao_value_start']").html('Limite Real. de');
             $("label[for='filter_fdLimiterealizacao_value_end']").html('até');
 
-            $("label[for='filter_fdDatarequisicao_value_start']").html('Data da Requisição de');
+            $("label[for='filter_fdDatarequisicao_value_start']").html('Data Req. de');
             $("label[for='filter_fdDatarequisicao_value_end']").html('até');
 
-            $("label[for='filter_fdUltimaemissao_value_start']").html('Data da Requisição de');
+            $("label[for='filter_fdUltimaemissao_value_start']").html('Data Req. de');
             $("label[for='filter_fdUltimaemissao_value_end']").html('até');
+
+
+            var prim = $(".vazio");
+
+            var texto = prim.text().trim();
+            if(texto.length == 0)
+                $(".vazio_1").css("padding-left","35px");
+
+
 
 
             $(".datepicker").datepicker({
