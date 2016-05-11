@@ -702,4 +702,8 @@ section.login p {
         overflow-x: scroll!important;
     }
 
+    body .sideBarRight{
+        margin-top: 9px!important;
+    }
+
 }
