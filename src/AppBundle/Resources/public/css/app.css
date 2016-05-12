@@ -10412,10 +10412,38 @@ input[type=time]::-webkit-inner-spin-button {
 }
 
 .ui-tabs .ui-tabs-nav {
-    padding: 0em 0em 0!important;
+    padding: 0 0 0!important;
 }
 
 .icheckbox_minimal {
     border: 1px solid #9993a3;
 
+}
+
+.x1 .icheckbox_minimal{
+  float: right;
+  border: 1px solid #9993a3;
+
+}
+
+.x2 .icheckbox_minimal{
+  float: right;
+  border: 1px solid #9993a3;
+
+}
+
+.x3 .icheckbox_minimal{
+  float: right;
+  border: 1px solid #9993a3;
+
+}
+
+.Lote_amostra p{
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+.L_AA{
+  padding-left: 15px;
+  padding-bottom: 10px;
 }

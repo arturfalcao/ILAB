@@ -37,11 +37,26 @@
                 <input placeholder="Palavra-Chave" type="password" id="password" name="_password" required="required" />
                 <input type="submit" id="_submit" name="_submit" class="button expand" value="{{ 'Entrar'|trans({}, 'FOSUserBundle') }}" />
 
-                <input id="keep-session" type="checkbox">
-                <label for="keep-session">{{ "Manter sessão aberta"|convert_encoding('UTF-8', 'iso-8859-1') }}</label>
+                <input id="keep-session" type="checkbox" style="display: inherit!important;">
+                <label for="keep-session" style="padding-left:15px;margin-right: 0;margin-top: -33px;">{{ "Manter sessão aberta"|convert_encoding('UTF-8', 'iso-8859-1') }}</label>
                 <input type="hidden" name="_target_path" value="/calendar" />
-                <a href="#" class="right">Esqueceu a sua password?</a>
+                <a href="#" class="right" style="margin-top: -33px;" >Esqueceu a sua password?</a>
 
+
+                <style>
+                    input[type="checkbox"]:not(:checked) + label:before, [type="checkbox"]:checked + label:before {
+                        content: none;
+                        position: absolute;
+                        left: 0;
+                        top: 2px;
+                        width: 17px;
+                        height: 17px;
+                        border: 1px solid #9993a3;
+                        background: #fff;
+                        border-radius: 2px;
+                        margin-left: 0;
+                    }
+                </style>
 
             </form>
 

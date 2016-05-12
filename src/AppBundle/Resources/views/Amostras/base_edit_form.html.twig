@@ -532,9 +532,6 @@
         </script>
 
 
-        <style>
-
-        </style>
 
         {% if admin.id(object) is null or ( admin.id(object) is not null and (object.ftEstado.ftId == 'P'
         or object.ftEstado.ftId == 'I')) %}
@@ -782,39 +779,6 @@
                                     <input type="text" class="form-control" id="_observacoes" >
                                 </div>
 
-                                <style>
-                                    .x1 .icheckbox_minimal{
-                                        float: right;
-                                        border: 1px solid #9993a3;
-                                        background: transparent;
-                                    }
-
-                                    .x2 .icheckbox_minimal{
-                                        float: right;
-                                        border: 1px solid #9993a3;
-                                        background: transparent;
-                                    }
-
-                                    .x3 .icheckbox_minimal{
-                                        float: right;
-                                        border: 1px solid #9993a3;
-                                        background: transparent;
-                                    }
-
-                                    .Lote_amostra p{
-                                        padding-left: 15px;
-                                        margin-bottom: 10px;
-                                    }
-
-                                    .L_AA{
-                                        padding-left: 15px;
-                                        padding-bottom: 10px;
-                                    }
-
-
-                                </style>
-
-
 
                             </div>
                             <div id="tabs-5">
@@ -895,21 +859,17 @@
             margin-top: 18px;
         }
 
-    </style>
-
-    {% endif%}
-
-    {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}
-
-    <style>
         {% if 'edit' in admin.request.pathInfo %}
         .Cliente_amostra .select2-container{
             width: 78% !important;
         }
         {% endif %}
 
-
     </style>
+
+    {% endif%}
+
+    {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}
 
 
 {% endblock %}

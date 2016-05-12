@@ -235,9 +235,7 @@ section.login p {
     color: #000;
 }
 
-/* add hover behaviour */
-.mainmenu a:hover {
-}
+
 
 
 /* when hovering over a .mainmenu item,
@@ -533,6 +531,7 @@ section.login p {
     float: left !important;
     width: 100% !important;
 }
+
 .display_none{
     display: none;
 }
@@ -542,16 +541,6 @@ section.login p {
     height: 67px;
     float: left;
 }
-
-/*.sidebarright{
-    width: 300px;
-    position: absolute;
-    right: 0;
-    height: 87%;
-    background: blue;
-    z-index: 999;
-    display: none;
-}*/
 
 .amostra_content{
     float: left;
