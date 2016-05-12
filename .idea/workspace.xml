@@ -2,137 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController_old.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController_old.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/bmatzner/jquery-bundle/Bmatzner/JQueryBundle/Resources/public/js/jquery-2.1.1.min.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/LICENSE.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/composer.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/phpunit.xml.dist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/ComponentInstallerPlugin.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Installer.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Process/BuildJsProcess.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Process/CopyProcess.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Process/Process.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Process/ProcessInterface.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Process/RequireCssProcess.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Process/RequireJsProcess.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Resources/require.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/ComponentInstaller/Util/Filesystem.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/src/bootstrap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/InstallerTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Process/CopyProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Process/ProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Process/RequireCssProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Process/RequireJsProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/img.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/img2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/subdir/img.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/subdir/img3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/subdir/subdir2/img4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/test.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/test2.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Resources/test2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/ComponentInstaller/Test/Util/FilesystemTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/robloach/component-installer/tests/bootstrap.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/meta/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/meta/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Tests/Functional/app/Resources/fragment.html.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/meta/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/meta/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/meta/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/translations/validators.nb.xlf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/currencies/ne_IN.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/currencies/sh_BA.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/currencies/sr_BA.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/currencies/sr_Cyrl_BA.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/currencies/sr_Latn_BA.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/ar_AE.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/bn_IN.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/en_GB.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/es_419.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/ne_IN.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/nl_BE.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/ru_UA.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/zh_Hans_HK.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/zh_Hans_MO.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/zh_Hans_SG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/languages/zh_SG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/bn_IN.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/en_AU.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/en_GB.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/es_419.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/nl_BE.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/zh_Hans_HK.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/zh_Hans_MO.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/locales/zh_Hans_SG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/bn_IN.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/en_AU.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/en_GB.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/es_419.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/nl_BE.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/sv_FI.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/zh_Hans_HK.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/zh_Hans_MO.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/zh_Hans_SG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/regions/zh_SG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/bn_IN.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/en_AU.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/en_GB.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/es_419.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/sv_FI.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/zh_Hans_HK.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/zh_Hans_MO.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/zh_Hans_SG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Intl/Resources/data/scripts/zh_SG.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Process/Tests/AbstractProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Process/Tests/ProcessInSigchildEnvironment.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Process/Tests/SigchildDisabledProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Process/Tests/SigchildEnabledProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Process/Tests/SimpleProcessTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Tests/Util/SecureRandomTest.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.nb.xlf" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle" afterPath="$PROJECT_DIR$/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/cocur/slugify" afterPath="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/cache" afterPath="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/common" afterPath="$PROJECT_DIR$/vendor/doctrine/common" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/dbal" afterPath="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" afterPath="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" afterPath="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/monolog/monolog" afterPath="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle" afterPath="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle" afterPath="$PROJECT_DIR$/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" afterPath="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/core-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/core-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/assetic-bundle" afterPath="$PROJECT_DIR$/vendor/symfony/assetic-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/monolog-bundle" afterPath="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" afterPath="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ILAB.iml" afterPath="$PROJECT_DIR$/.idea/ILAB.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_edit.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_new.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Admin/UserAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Admin/UserAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/ModelosListasAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/ModelosListasAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasalimentosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasalimentosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TClientesAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TClientesAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TEspecificacoesAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TEspecificacoesAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TFrascosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TFrascosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TGruposparametrosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TGruposparametrosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TLaboratoriosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TLaboratoriosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TLocaiscolheitaAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TLocaiscolheitaAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosamostraAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosamostraAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosparametroAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosparametroAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosresultadosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TModelosresultadosAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/profile.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/profile.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.yml" afterPath="$PROJECT_DIR$/app/config/config.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosporespecificacaoAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosporespecificacaoAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TProdutosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TProdutosAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TRegrasformatacaoAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TRegrasformatacaoAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TRequisicoesAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TRequisicoesAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TRequisicoesclienteAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TRequisicoesclienteAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TResultadosAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TResultadosAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/edit.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/EntradaResultados/EntradaResultados.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/EntradaResultados/EntradaResultados.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/edit.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/edit.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/new.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/new.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -160,115 +70,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TParametrosAdmin.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TParametrosAdmin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="96" selection-end-column="19" />
+            <state relative-caret-position="1173">
+              <caret line="73" column="87" selection-start-line="73" selection-start-column="77" selection-end-line="73" selection-end-column="87" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostras/edit.html.twig">
+      <file leaf-file-name="base_list.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_edit.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="266" column="25" selection-start-line="266" selection-start-column="25" selection-end-line="266" selection-end-column="25" />
+            <state relative-caret-position="9367">
+              <caret line="800" column="64" selection-start-line="799" selection-start-column="40" selection-end-line="800" selection-end-column="64" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4770">
-              <caret line="278" column="46" selection-start-line="278" selection-start-column="46" selection-end-line="278" selection-end-column="46" />
-              <folding>
-                <marker date="1462977906846" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1462977906846" expanded="true" signature="3785:4941" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1462977906846" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1462977906846" expanded="true" signature="5117:5314" placeholder="UPDATE t_par... " />
-                <marker date="1462977906846" expanded="true" signature="5636:5793" placeholder="update t_amo... " />
-                <marker date="1462977906846" expanded="true" signature="6229:6280" placeholder="SELECT * FRO... t_amostras_logs" />
-                <marker date="1462977906846" expanded="true" signature="6685:6765" placeholder="SELECT * FRO... t_parametrosamostra_log" />
-                <marker date="1462977906846" expanded="true" signature="7153:8006" placeholder="SELECT para.... t_parametrosamostra" />
-                <marker date="1462977906846" expanded="true" signature="8411:8462" placeholder="SELECT * FRO... t_resultados" />
-                <marker date="1462977906846" expanded="true" signature="12848:12890" placeholder="SELECT * fro... t_parametrospormetodo" />
-                <marker date="1462977906846" expanded="true" signature="12848:12905" placeholder="SELECT * fro... t_parametrospormetodo" />
-                <marker date="1462977906846" expanded="true" signature="13516:13523" placeholder="SELECT DISTI... t_resultados" />
-                <marker date="1462977906846" expanded="true" signature="13516:13576" placeholder="SELECT * fro... t_me" />
-                <marker date="1462977906846" expanded="true" signature="13516:13587" placeholder="SELECT * fro... t_metodos" />
-                <marker date="1462977906846" expanded="true" signature="13516:13588" placeholder="SELECT * fro... t_metodos" />
-                <marker date="1462977906846" expanded="true" signature="14720:15506" placeholder="SELECT DISTI... t_resultados" />
-                <marker date="1462977906846" expanded="true" signature="19258:20554" placeholder="INSERT INTO t_parametrosamostra... " />
-                <marker date="1462977906846" expanded="true" signature="19855:20554" placeholder="SELECT aa.fn... t_parametros" />
-                <marker date="1462977906846" expanded="true" signature="20812:21943" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1462977906846" expanded="true" signature="21330:21943" placeholder="SELECT aa.fn... t_parametrosamostra" />
-                <marker date="1462977906846" expanded="true" signature="22106:22178" placeholder="UPDATE t_par... " />
-                <marker date="1462977906846" expanded="true" signature="22368:22538" placeholder="UPDATE t_par... " />
-                <marker date="1462977906846" expanded="true" signature="24010:24107" placeholder="UPDATE t_res... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TParametrosamostra.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="39" column="21" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TParametrospormetodo.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1566">
-              <caret line="87" column="33" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TTipoparametro.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TTipoparametro.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="16" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TParametros.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="399">
+              <caret line="10419" column="0" selection-start-line="10419" selection-start-column="0" selection-end-line="10419" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -296,11 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TModelosparametroAdmin.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TClientesAdmin.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TResultadosAdmin.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosporespecificacaoAdmin.php" />
-        <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Block/block_admin_list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Pager/base_results.html.twig" />
@@ -326,15 +157,12 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/Indisponivel.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/SONATA/base_edit.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/TModelosresultados/edit.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig" />
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/web/.htaccess" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TMetodos.php" />
@@ -345,25 +173,34 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/profile.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css" />
+        <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpServers">
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1985" />
-    <option name="y" value="24" />
-    <option name="width" value="1615" />
-    <option name="height" value="1026" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1378" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -393,7 +230,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -408,7 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
+              <option name="myItemId" value="ILAB" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -418,285 +254,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
+              <option name="myItemId" value="ILAB" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TAmostras" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Amostras" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lab" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -813,11 +382,13 @@
       <workItem from="1462929204372" duration="1260000" />
       <workItem from="1462930682588" duration="7650000" />
       <workItem from="1462980192057" duration="1460000" />
+      <workItem from="1462983640452" duration="4168000" />
+      <workItem from="1463059921839" duration="101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171453000" />
+    <option name="totallyTimeSpent" value="175722000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,10 +400,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1985" y="24" width="1615" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22910216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23596358" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -848,7 +419,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" show_stripe_button="true" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="115" y="51" width="1482" height="800" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" show_stripe_button="true" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="466" y="152" width="429" height="424" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -871,104 +442,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TModelosresultados/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TModelosresultados/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TModelosresultados/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TRegrasformatacao/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TRegrasformatacao/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TRegrasformatacao/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TRegrasformatacao/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TTiposarredondamento/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TTiposarredondamento/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TTiposarredondamento/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TTiposarredondamento/show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/Indisponivel.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Block/block_admin_list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Pager/base_results.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1018,13 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4176">
-          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1032,24 +498,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1081,7 +533,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Tparametrosgrupo.php">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosgrupo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-54">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1155,7 +607,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,86 +628,180 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="266" column="25" selection-start-line="266" selection-start-column="25" selection-end-line="266" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4770">
+        <state relative-caret-position="4505">
           <caret line="278" column="46" selection-start-line="278" selection-start-column="46" selection-end-line="278" selection-end-column="46" />
-          <folding>
-            <marker date="1462977906846" expanded="true" signature="3519:3568" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1462977906846" expanded="true" signature="3785:4941" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1462977906846" expanded="true" signature="4303:4941" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1462977906846" expanded="true" signature="5117:5314" placeholder="UPDATE t_par... " />
-            <marker date="1462977906846" expanded="true" signature="5636:5793" placeholder="update t_amo... " />
-            <marker date="1462977906846" expanded="true" signature="6229:6280" placeholder="SELECT * FRO... t_amostras_logs" />
-            <marker date="1462977906846" expanded="true" signature="6685:6765" placeholder="SELECT * FRO... t_parametrosamostra_log" />
-            <marker date="1462977906846" expanded="true" signature="7153:8006" placeholder="SELECT para.... t_parametrosamostra" />
-            <marker date="1462977906846" expanded="true" signature="8411:8462" placeholder="SELECT * FRO... t_resultados" />
-            <marker date="1462977906846" expanded="true" signature="12848:12890" placeholder="SELECT * fro... t_parametrospormetodo" />
-            <marker date="1462977906846" expanded="true" signature="12848:12905" placeholder="SELECT * fro... t_parametrospormetodo" />
-            <marker date="1462977906846" expanded="true" signature="13516:13523" placeholder="SELECT DISTI... t_resultados" />
-            <marker date="1462977906846" expanded="true" signature="13516:13576" placeholder="SELECT * fro... t_me" />
-            <marker date="1462977906846" expanded="true" signature="13516:13587" placeholder="SELECT * fro... t_metodos" />
-            <marker date="1462977906846" expanded="true" signature="13516:13588" placeholder="SELECT * fro... t_metodos" />
-            <marker date="1462977906846" expanded="true" signature="14720:15506" placeholder="SELECT DISTI... t_resultados" />
-            <marker date="1462977906846" expanded="true" signature="19258:20554" placeholder="INSERT INTO t_parametrosamostra... " />
-            <marker date="1462977906846" expanded="true" signature="19855:20554" placeholder="SELECT aa.fn... t_parametros" />
-            <marker date="1462977906846" expanded="true" signature="20812:21943" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1462977906846" expanded="true" signature="21330:21943" placeholder="SELECT aa.fn... t_parametrosamostra" />
-            <marker date="1462977906846" expanded="true" signature="22106:22178" placeholder="UPDATE t_par... " />
-            <marker date="1462977906846" expanded="true" signature="22368:22538" placeholder="UPDATE t_par... " />
-            <marker date="1462977906846" expanded="true" signature="24010:24107" placeholder="UPDATE t_res... " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
+        <state relative-caret-position="663">
           <caret line="39" column="21" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrospormetodo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
+        <state relative-caret-position="1479">
           <caret line="87" column="33" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TTipoparametro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="204">
           <caret line="12" column="16" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="204">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11858">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/show_profile.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1326">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_agenda_edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="53" column="65" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901">
+          <caret line="4" column="80" selection-start-line="4" selection-start-column="75" selection-end-line="4" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/profile.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="39" column="136" selection-start-line="39" selection-start-column="136" selection-end-line="39" selection-end-column="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/ajax_chat_topheader_geral.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="183" column="110" selection-start-line="183" selection-start-column="110" selection-end-line="183" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/topheadergeral.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="285" column="20" selection-start-line="285" selection-start-column="20" selection-end-line="285" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="296" column="82" selection-start-line="296" selection-start-column="82" selection-end-line="296" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="96" selection-end-column="19" />
+        <state relative-caret-position="1173">
+          <caret line="73" column="87" selection-start-line="73" selection-start-column="77" selection-end-line="73" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/adesigns/calendar-bundle/ADesigns/CalendarBundle/Resources/config/routing.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/calendar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="66" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="10419" column="0" selection-start-line="10419" selection-start-column="0" selection-end-line="10419" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9367">
+          <caret line="800" column="64" selection-start-line="799" selection-start-column="40" selection-end-line="800" selection-end-column="64" />
           <folding />
         </state>
       </provider>

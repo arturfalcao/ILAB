@@ -71,7 +71,7 @@ class TParametrosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('grupo_1',array('description' => 'X','class' => 'col-md-4'))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-4 Parametros'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             //->add('fnMetodo',null, array('label' => 'Método'))
             ->add('fnMetodo', 'sonata_type_model', array('label' => 'Método','multiple' => true,  'property' => 'ftDescricao'))
