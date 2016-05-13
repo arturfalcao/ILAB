@@ -54,7 +54,6 @@ class TAmostrasalimentosAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnId',null,array('label'=>'ID'))
             ->add('ftLote',null,array('label'=>'Lote'))
             ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
             ->end()

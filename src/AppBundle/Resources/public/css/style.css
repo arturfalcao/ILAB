@@ -292,14 +292,6 @@ section.login p {
 
 }
 
-/*
-#logo{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-*/
-
-
 .mainmenu a.menu_planeamento{
     background: url(../images/planeamento.png) no-repeat center center;
     width: 50px;
@@ -422,7 +414,6 @@ section.login p {
 .menu_principal > ul > li > a:active {
     color: #171f2e;
     background-color: #faf9fa!important;
-    /*border-left: 3px solid #4cc3b8;*/
 
 }
 
@@ -495,9 +486,6 @@ section.login p {
     text-decoration: none!important;
 }
 /* fim*/
-
-
-
 
 .new_cal_element form{
     margin-top: 41px;
@@ -592,7 +580,7 @@ section.login p {
 }
 
 #form_submit{
-    color: #65c0b2!important;
+    color: #f4543c!important;
     background: white!important;
     outline:none;
 }
@@ -652,15 +640,16 @@ section.login p {
     }
 
     body .Lancamento_amostra{
-        margin-top: -786px!important;
+        margin-top: -626px!important;
     }
 
     body .Lote_amostra{
-        margin-top: -530px!important;
+        margin-top: -450px!important;
     }
 
     body .Dados_amostra{
-        margin-top: -190px!important;
+        margin-top: -105px!important;
+        margin-bottom: 20px!important;
     }
 
     body .largura{

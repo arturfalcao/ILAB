@@ -110,6 +110,7 @@ class UserAdmin extends BaseUserAdmin
             ->add('gender', 'sonata_user_gender', array(
                 'label' => 'Género' ,
                 'required' => true,
+                'attr'=> array('class'=>'t_generos'),
                 'translation_domain' => $this->getTranslationDomain()
             ))
             ->add('locale', 'locale', array('label' => 'Nacionalidade' ,'required' => false))

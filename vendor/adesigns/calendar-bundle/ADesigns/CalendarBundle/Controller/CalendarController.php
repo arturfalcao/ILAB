@@ -18,10 +18,11 @@ class CalendarController extends Controller
     public function loadCalendarAction(Request $request)
     {
         $startDatetime = new \DateTime();
-        $startDatetime->setTimestamp($request->get('start'));
+
+        $startDatetime->setTimestamp($request->get('startDatetime'));
         
         $endDatetime = new \DateTime();
-        $endDatetime->setTimestamp($request->get('end'));
+        $endDatetime->setTimestamp($request->get('endDatetime'));
         
         $events = $this->container->get('event_dispatcher')->dispatch(CalendarEvent::CONFIGURE, new CalendarEvent($startDatetime, $endDatetime, $request))->getEvents();
         

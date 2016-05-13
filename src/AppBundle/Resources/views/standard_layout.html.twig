@@ -133,23 +133,6 @@ file that was distributed with this source code.
 
                         }
 
-                        a.sonata-action-element{
-                            display: none;
-                        }
-
-                        .splash_screen {
-
-                            position: absolute;
-                            z-index: 1000;
-                            height: 100%;
-                            width:  100%;
-                            background: white url('/bundles/app/images/ring-alt.gif') 50% 50% no-repeat;
-
-                        }
-
-                        .box {
-                            border-top: none;
-                        }
                     </style>
 
                 </div>
@@ -309,6 +292,11 @@ file that was distributed with this source code.
                 $( this ).addClass('col-md-6');
 
         });
+
+        $(".select2-container.t_generos .select2-choice .select2-chosen").text('Masculino');
+        $(".t_generos option[value='u']").text('Desconhecido');
+        $(".t_generos option[value='f']").text('Feminino');
+        $(".t_generos option[value='m']").text('Masculino');
 
 
 

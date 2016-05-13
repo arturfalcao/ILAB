@@ -59,8 +59,9 @@ class EventEntity
      */
     protected $otherFields = array();
     
-    public function __construct($title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = false)
+    public function __construct($id,$title, \DateTime $startDatetime, \DateTime $endDatetime = null, $allDay = false)
     {
+        $this->id = $id;
         $this->title = $title;
         $this->startDatetime = $startDatetime;
         $this->setAllDay($allDay);

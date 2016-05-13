@@ -60,9 +60,11 @@ class TRequisicoesAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnId',null,array('label' => 'ID'))
             ->add('fnIdLaboratorio',null,array('label' => 'ID laboratório'))
-            ->add('fdUltimaemissao','sonata_type_datetime_picker', array('label' => 'Última emissão'))
+            ->add('fdUltimaemissao','sonata_type_datetime_picker', array('label' => 'Última emissão','format' => 'dd-MM-yyyy',
+                'attr' => array(
+        'data-date-format' => 'DD-MM-YYYY',
+    )))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('ftUltimoutilizador',null,array('label' => 'Último utilizador'))
             ->end()

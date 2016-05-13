@@ -48,7 +48,6 @@ class TTipoaprovacaoAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnId',null,array('label' => 'ID'))
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))

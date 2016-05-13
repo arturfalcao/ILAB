@@ -226,7 +226,7 @@ class TEspecificacoes
     /**
      * Get fnId
      *
-     * @return integer 
+     * @return integer
      */
     public function getFnId()
     {
@@ -261,7 +261,7 @@ class TEspecificacoes
     /**
      * Get ftCodigo
      *
-     * @return string 
+     * @return string
      */
     public function getFtCodigo()
     {
@@ -284,7 +284,7 @@ class TEspecificacoes
     /**
      * Get ftDescricao
      *
-     * @return string 
+     * @return string
      */
     public function getFtDescricao()
     {
@@ -307,7 +307,7 @@ class TEspecificacoes
     /**
      * Get ftAlias
      *
-     * @return string 
+     * @return string
      */
     public function getFtAlias()
     {
@@ -330,7 +330,7 @@ class TEspecificacoes
     /**
      * Get ftMensagemUtilizador
      *
-     * @return string 
+     * @return string
      */
     public function getFtMensagemUtilizador()
     {
@@ -353,7 +353,7 @@ class TEspecificacoes
     /**
      * Get ftTextoQdPassaP
      *
-     * @return string 
+     * @return string
      */
     public function getFtTextoQdPassaP()
     {
@@ -376,7 +376,7 @@ class TEspecificacoes
     /**
      * Get ftTextoQdNaoPassaP
      *
-     * @return string 
+     * @return string
      */
     public function getFtTextoQdNaoPassaP()
     {
@@ -399,7 +399,7 @@ class TEspecificacoes
     /**
      * Get ftTextoQdCumpreA
      *
-     * @return string 
+     * @return string
      */
     public function getFtTextoQdCumpreA()
     {
@@ -422,7 +422,7 @@ class TEspecificacoes
     /**
      * Get ftTextoQdNaoCumpreA
      *
-     * @return string 
+     * @return string
      */
     public function getFtTextoQdNaoCumpreA()
     {
@@ -445,7 +445,7 @@ class TEspecificacoes
     /**
      * Get fbEmissaoDeRelatorio
      *
-     * @return integer 
+     * @return integer
      */
     public function getFbEmissaoDeRelatorio()
     {
@@ -468,7 +468,7 @@ class TEspecificacoes
     /**
      * Get ftObservacao
      *
-     * @return string 
+     * @return string
      */
     public function getFtObservacao()
     {
@@ -491,7 +491,7 @@ class TEspecificacoes
     /**
      * Get ftSiglavl
      *
-     * @return string 
+     * @return string
      */
     public function getFtSiglavl()
     {
@@ -514,7 +514,7 @@ class TEspecificacoes
     /**
      * Get ftLegendavl
      *
-     * @return string 
+     * @return string
      */
     public function getFtLegendavl()
     {
@@ -537,7 +537,7 @@ class TEspecificacoes
     /**
      * Get fbActivo
      *
-     * @return integer 
+     * @return integer
      */
     public function getFbActivo()
     {
@@ -560,7 +560,7 @@ class TEspecificacoes
     /**
      * Get fnLegislacao
      *
-     * @return \AppBundle\Entity\TLegislacao 
+     * @return \AppBundle\Entity\TLegislacao
      */
     public function getFnLegislacao()
     {
@@ -593,7 +593,7 @@ class TEspecificacoes
     /**
      * Get parametros
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getParametros()
     {
