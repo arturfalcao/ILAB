@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\ORM\EntityManager;
 /**
  * TAmostras
  *
@@ -1334,6 +1334,7 @@ class TAmostras
     {
         return $this->fnLegislacao;
     }
+
 
     /**
      * Set fnModelo

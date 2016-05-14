@@ -98,6 +98,13 @@ class TParametrosamostra
     private $ftDescricao;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="ft_custommethod", type="string", length=100, nullable=false)
+     */
+    private $ftCustomMethod;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="fn_id_metodo", type="bigint", nullable=false)
@@ -506,6 +513,25 @@ class TParametrosamostra
         $this->ftDescricao = $ftDescricao;
 
         return $this;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftDescricao
+     * @return TParametros
+     */
+    public function setFtCustomMethod($ftCustomMethod)
+    {
+        $this->ftCustomMethod = $ftCustomMethod;
+
+        return $this;
+    }
+
+
+    public function getFtCustomMethod()
+    {
+        return $this->ftCustomMethod ;
     }
 
     /**

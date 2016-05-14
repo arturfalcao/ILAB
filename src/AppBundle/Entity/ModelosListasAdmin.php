@@ -47,7 +47,8 @@ class ModelosListasAdmin extends Admin
     {
         $formMapper
             ->add('idParametro',null,array('label' => 'ID parâmetro'))
-            ->add('tablejson', 'text', array('label'=>'Estrutura lista de trabalho'))
+            ->add('tablejson', 'text', array('attr' => array('class' => 'tabela'),'label'=>'Estrutura lista de trabalho'))
+            ->add('cabecalhojson', 'text', array('attr' => array('class' => 'header'),'label'=>''))
         ;
     }
 

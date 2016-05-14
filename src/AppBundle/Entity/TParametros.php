@@ -109,12 +109,7 @@ class TParametros
     private $ftMetodotexto;
 
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_metodo", type="bigint", nullable=false)
-     */
-    private $fnIdMetodo;
+
 
     /**
      * @var integer
@@ -590,28 +585,7 @@ class TParametros
         return $this->fnTecnica;
     }
 
-    /**
-     * Set fnIdMetodo
-     *
-     * @param integer $fnIdMetodo
-     * @return TParametros
-     */
-    public function setFnIdMetodo($fnIdMetodo)
-    {
-        $this->fnIdMetodo = $fnIdMetodo;
 
-        return $this;
-    }
-
-    /**
-     * Get fnIdMetodo
-     *
-     * @return integer 
-     */
-    public function getFnIdMetodo()
-    {
-        return $this->fnIdMetodo;
-    }
 
     /**
      * Set fnIdTecnica

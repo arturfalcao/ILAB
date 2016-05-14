@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TParametrosporespecificacao
+ * TParametrosgrupo
  *
  * @ORM\Table(name="t_parametrosgrupo")
  * @ORM\Entity
@@ -47,7 +47,7 @@ class TParametrosgrupo
     /**
      * Get fnIdEspecificacao
      *
-     * @return integer 
+     * @return integer
      */
     public function getTparametro()
     {
@@ -70,7 +70,7 @@ class TParametrosgrupo
     /**
      * Get fnIdFamiliaparametro
      *
-     * @return integer 
+     * @return integer
      */
     public function getTgrupo()
     {

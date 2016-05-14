@@ -58,15 +58,25 @@
                         <script>
 
                             tinymce.init({
-                                selector:'textarea',
+                                selector:'.text_tabela',
                                 plugins: "table",
                                 tools: "inserttable"
                             });
-                            var _content = $('.modeloslistas_form input[type="text"]').val();
-                            $('.modeloslistas_form input[type="text"]').val("-");
-                            setTimeout( function(){
-                                $(tinymce.activeEditor.getBody()).html(_content);
+                            tinymce.init({
+                                selector:'.text_header',
+                                plugins: "table",
+                                tools: "inserttable"
+                            });
 
+                            var _content = $('.modeloslistas_form .tabela').val();
+                            $('.modeloslistas_form .tabela').val("-");
+
+                            var _content2 = $('.modeloslistas_form .header').val();
+                            $('.modeloslistas_form .header').val("-");
+
+                            setTimeout( function(){
+                                $(tinymce.editors[0].getBody()).html(_content);
+                                $(tinymce.editors[1].getBody()).html(_content2);
                                 //tinyMCE.activeEditor.setContent(_content);
                                 tinyMCE.execCommand('mceRepaint');
                             }  , 2000 );
@@ -74,13 +84,16 @@
                             jQuery(".modeloslistas_form").submit(function(e) {
                                 var self = this;
                                 e.preventDefault();
-                                $('.modeloslistas_form input[type="text"]').val(tinyMCE.activeEditor.getContent());
+                                $('.modeloslistas_form .tabela').val(tinyMCE.editors[0].getContent());
+                                $('.modeloslistas_form .header').val(tinyMCE.editors[1].getContent());
                                 self.submit();
 
                                 return false; //is superfluous, but I put it here as a fallback
                             });
                         </script>
-                        <textarea></textarea>
+                        <textarea class="text_tabela"></textarea>
+                        <label class="control-label required" for="">Estrutura do cabeçalho da lista</label>
+                        <textarea class="text_header"></textarea>
 
 
                     {% endif %}

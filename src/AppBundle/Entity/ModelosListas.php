@@ -29,6 +29,12 @@ class ModelosListas
     private $tablejson;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="cabecalhojson", type="string", length=100000, nullable=false)
+     */
+    private $cabecalhojson;
+    /** 
      * @var \TParametros
      *
      * @ORM\ManyToOne(targetEntity="TParametros")
@@ -71,6 +77,29 @@ class ModelosListas
     public function getTablejson()
     {
         return $this->tablejson;
+    }
+
+    /**
+     * Set tablejson
+     *
+     * @param string $cabecalhojson
+     * @return ModelosListas
+     */
+    public function setCabecalhojson($cabecalhojson)
+    {
+        $this->cabecalhojson = $cabecalhojson;
+
+        return $this;
+    }
+
+    /**
+     * Get tablejson
+     *
+     * @return string
+     */
+    public function getCabecalhojson()
+    {
+        return $this->cabecalhojson;
     }
 
     /**

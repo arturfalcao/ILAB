@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\TAmostrasParametros;
+use AppBundle\Entity\TParametrosgrupo;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -162,7 +164,7 @@ class WorkListCTRLController extends Controller
         $pdf->SetMargins(7, 35, 7);
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
-        $pdf->SetHeaderData('logopimenta.png', 50, 'RELATÓRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
+        $pdf->SetHeaderData('logopimenta.png', 50, 'RELATï¿½RIO DE ENSAIO Nï¿½, 50267' , PDF_HEADER_STRING);
 
 // set header and footer fonts
 
@@ -260,7 +262,7 @@ class WorkListCTRLController extends Controller
                     <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
                 </tr>
                  <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Referência:</td>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Referï¿½ncia:</td>
                 </tr>
                 <tr>
                     <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
@@ -274,10 +276,10 @@ class WorkListCTRLController extends Controller
                     <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                 </tr>
                 <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Ecofirma - gestão do ambiente, S.A</td>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Ecofirma - gestï¿½o do ambiente, S.A</td>
                 </tr>
                 <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Av. Imaculada Conceição, º 409 - adaufe</td>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Av. Imaculada Conceiï¿½ï¿½o, ï¿½ 409 - adaufe</td>
                 </tr>
                 <tr>
                     <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">4750-013- Braga</td>
@@ -302,7 +304,7 @@ class WorkListCTRLController extends Controller
     <tr>
         <td>Colheita:</td>
         <td class="table_colheita_info_data">28-09-2016</td>
-        <td>Recepção:</td>
+        <td>Recepï¿½ï¿½o:</td>
         <td class="table_colheita_info_data">28-09-2016</td>
         <td>Inicio ensaios:</td>
         <td class="table_colheita_info_data">28-09-2016</td>
@@ -313,8 +315,8 @@ class WorkListCTRLController extends Controller
 <table class="table_parametros" >
     <tr style="margin-top 5px;">
         <td colspan="2">
-           <span>Parâmetros Microbiologicos     </span><br />
-            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
+           <span>Parï¿½metros Microbiologicos     </span><br />
+            <span class="table_parametros_tecnica">Mï¿½todo de ensaio / Tï¿½cnica analï¿½tica</span>
         </td>
         <td class="table_parametros_data"></td>
         <td>Unidades</td>
@@ -326,8 +328,8 @@ class WorkListCTRLController extends Controller
 <table class="table_resultados">
     <tr style="margin-top 5px;">
         <td colspan="2" class="resultados_one" style="border-spacing:6px 12px;padding:10px 4px 10px 4px">
-           Parâmetros Microbiologicos<br />
-            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
+           Parï¿½metros Microbiologicos<br />
+            <span class="table_parametros_tecnica">Mï¿½todo de ensaio / Tï¿½cnica analï¿½tica</span>
         </td>
         <td class="">0</td>
         <td>ufc/100ml</td>
@@ -368,7 +370,7 @@ EOF;
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
         if($amostra->getFtEstado()->getFtCodigo() == 'P'){
-            return new Response("Amostra Não Disponivel");
+            return new Response("Amostra Nï¿½o Disponivel");
         }
         $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'C'));
         $amostra->setFtEstado($estado);
@@ -382,7 +384,7 @@ EOF;
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
         if($amostra->getFtEstado()->getFtCodigo() == 'P'){
-            return new Response("Amostra Não Disponivel");
+            return new Response("Amostra Nï¿½o Disponivel");
         }
         $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'D'));
         $amostra->setFtEstado($estado);
@@ -399,6 +401,51 @@ EOF;
         $em->persist($amostra);
         $em->flush();
         return new Response("ok");
+    }
+
+    //get all sample with the selected parameter
+    public function  GetparameterbysampleAction(){
+        $id_parameter = $this->get("request")->getContent();
+        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 'V' or t_amostras.ft_id_estado = 'D' or t_amostras.ft_id_estado = 'C' or t_amostras.ft_id_estado = 'A') and t_parametrosamostra.fn_id = ". $id_parameter ;
+
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $result = $activeDate->fetchAll();
+        if(count($result) != 0){
+            $response = array("data" => $result);
+        }else{
+            $response = "NoData";
+        }
+
+
+        return new Response(json_encode($response));
+        
+    }
+   // get parameters by sample for worklist groped by parameter
+    public function  GetparameterbysampleForParameterAction(){
+        $id_parameter = $this->get("request")->getContent();
+
+        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 'D' or t_amostras.ft_id_estado = 'V') and t_parametrosamostra.fn_id = ". $id_parameter ;
+
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $result = $activeDate->fetchAll();
+        if(count($result) != 0){
+            $response = array("data" => $result);
+        }else{
+            $response = "NoData";
+        }
+
+
+        return new Response(json_encode($result));
+
+    }
+    //SelecÃ§Ã£o de parametro por lista de amostra
+    public function EmiteListaporParametroAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $parameters = $em->getRepository('AppBundle:TParametros')->findAll();
+        return $this->render('AppBundle:ModelosListas:listaporparametro.html.twig',array('data' => $parameters));
     }
 
     //TODO : notificar cliente de amostra completa
@@ -488,9 +535,7 @@ EOF;
 
        return "ok";
     }
-
-
-
+    //generate worklist by sample
     public function GenerateworklistAction($slug)
     {
         error_reporting(0);
@@ -502,6 +547,7 @@ EOF;
         $info2 = "";
         $flag = 0;
         $resultflag = 0;
+
         foreach ($samples as &$slug) {
             $em = $this->getDoctrine()->getManager();
             $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($slug);
@@ -529,7 +575,7 @@ EOF;
             }
 
             if($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X' && $amostra->getFtEstado()->getFtCodigo() != 'P' ){
-                $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($amostra->getFnModelo()->getFnGrupoparametros()->getFnId());
+                $arr = $em->getRepository('AppBundle\Entity\TParametrosgrupo')->findBytgrupo($amostra->getFnModelo()->getFnGrupoparametros()->getFnId());
             }else{
                 $arr = $em->getRepository('AppBundle:TAmostrasParametros')->findByIdamostra($slug);
                 $flag = 1;
@@ -631,7 +677,7 @@ EOF;
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
 
-            //crio novo parametro associado a amostra em questão
+            //crio novo parametro associado a amostra em questï¿½o
             $arr = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
             foreach ($arr as $value) {
 
@@ -682,6 +728,103 @@ EOF;
         return $this->render('AppBundle:ModelosListas:modelo.html.twig', array(
             'par_container' => $par_container,'tipo_de_amostra' => $tipo_modelo
         ));
+    }
+
+    //generate worklist by parameter
+    public function GenerateworklistbyParameterAction(){
+
+
+        //get os id de parametros
+        $response = $this->get("request")->getContent();
+
+        $arr2 = explode("&", $response);
+        $amostra = explode("=", $arr2[0]);
+        $amostra = explode("%2C", $amostra[1]);
+        $para =explode("=", $arr2[1]);
+        $para =$para[1];
+
+
+        //get all html from modelos lista
+        $em = $this->getDoctrine()->getManager();
+
+
+        $repo = $this->getDoctrine()->getRepository('AppBundle:ModelosListas');
+
+        $users = $repo->createQueryBuilder('q')
+            ->Where('q.idParametro = '. $para)
+            ->getQuery()
+            ->getArrayResult();
+
+
+        //generate pdf with html
+
+            $pdf = $this->container->get("white_october.tcpdf")->create(
+                'P',
+                'mm',
+                'A4',
+                false,
+                'ISO-8859-1',
+                false
+            );
+            // set document information
+            $pdf->SetCreator(PDF_CREATOR);
+            $pdf->SetAuthor('Nicola Asuni');
+            $pdf->SetTitle('CELSO');
+            $pdf->SetSubject('TCPDF Tutorial');
+            $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+            $tagvs = array('p' => array(0 => array('h' => 0, 'n' => 0), 1 => array('h' => 0, 'n'
+            => 0)));
+            $pdf->setHtmlVSpace($tagvs);
+
+// set default header data
+
+            $pdf->SetMargins(7, 35, 7);
+            $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+
+            $pdf->SetHeaderData('logopimenta.png', 50, 'RELAToRIO DE ENSAIO NÂº, 50267' , PDF_HEADER_STRING);
+
+// set header and footer fonts
+
+
+            $pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
+
+            $pdf->AddPage();
+
+       
+            $html = "<style>div{padding: 0px;margin: 0px;}</style>" . $users[0]["cabecalhojson"] . "";
+            foreach ($amostra as &$value) {
+                $html = $html . "" . $users[0]["tablejson"] . "";
+            }
+        $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
+        $pdf->setHtmlVSpace($tagvs);
+
+// output the HTML content
+            $pdf->writeHTML($html, true, false, true,false, '');
+
+
+            $pdf->lastPage();
+
+// set default monospaced font
+
+
+// set margins
+
+
+// set auto page breaks
+
+
+// set image scale factor
+
+            $filelocation = "/var/www/html/lab/app/listas";
+            $fileNL = $filelocation."/celso1.pdf"; //Linux
+            $pdf->Output($fileNL , 'F');
+
+        //change all sample to state on progress
+
+        //change all parameter to state on progress
+        return new Response(json_encode($html));
+
+
     }
 
 }

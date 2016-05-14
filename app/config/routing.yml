@@ -83,7 +83,6 @@ EntradaResultados:
 EntradaResultadosGetByParameter:
   pattern:  /EntradaResultados/para
   defaults: { _controller: AppBundle:EntResultados:getByParameter }
-
 EntradaResultadosGetByAmostra:
     pattern:  /EntradaResultados/amostra
     defaults: { _controller: AppBundle:EntResultados:getByAmostra }
@@ -133,9 +132,15 @@ GetAllArea:
 GetAllMetodo:
     pattern:  /GetAllMetodo
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllMetodo}
+GetGrupoByModelo:
+    pattern:  /GetGrupoByModelo
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetGrupoByModelo}
 GetAllTecnica:
     pattern:  /GetAllTecnica
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllTecnica}
+GetTecnicaByMetodo:
+    pattern:  /GetTecnicaByMetodo
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetTecnicaByMetodo}
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
@@ -171,6 +176,20 @@ adesigns_calendar:
 EmitRelatorio:
     path:     /relatorio/emit/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:EmitRelatorio }
+EmiteListaporParametro:
+    path:     /listaporparametro
+    defaults: { _controller: AppBundle:WorkListCTRL:EmiteListaporParametro }
+Getparameterbysample:
+  pattern:  /Getparameterbysample
+  defaults: { _controller: AppBundle:WorkListCTRL:Getparameterbysample }
+GetparameterbysampleForParameter:
+  pattern:  /parametroslista
+  defaults: { _controller: AppBundle:WorkListCTRL:GetparameterbysampleForParameter}
+GenerateworklistbyParameter:
+  pattern:  /getlistaporparametro
+  defaults: { _controller: AppBundle:WorkListCTRL:GenerateworklistbyParameter}
+
+
 #Jose
 sucesso:
     path:     /sucesso

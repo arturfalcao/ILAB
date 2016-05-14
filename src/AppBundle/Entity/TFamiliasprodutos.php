@@ -63,6 +63,12 @@ class TFamiliasprodutos
     {
         return $this->fnId;
     }
+    public function setFnId($fnId)
+    {
+        $this->fnId = $fnId;
+
+        return $this;
+    }
 
     /**
      * Set ftCodigo

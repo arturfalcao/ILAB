@@ -154,14 +154,17 @@
                     url: "/app_dev.php/GetAllPara",
                     dataType: 'json',
                     success: function(data) {
-                        $('.NewParaDiv').append("<select  class='NewPara'></select>");
+                        $('.NewParaDiv').append("<select  class='NewPara'><option></option></select>");
 
                         $.each(data, function(index, value) {
                             $('.NewPara').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".NewPara").select2();
+                        $(".NewPara").select2({
+                            placeholder: "Seleccione um parametros a adicionar",
+                            allowClear: true
+                        });
                     }
                 });
             }
@@ -171,13 +174,17 @@
                     url: "{{ path('GetAllUnidadesMedida') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.NewUnidadesDiv').append("<select  class='NewUnidades'></select>");
+                        $('.NewUnidadesDiv').append("<select  class='NewUnidades'><option></option></select>");
+
                         $.each(data, function(index, value) {
                             $('.NewUnidades').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".NewUnidades").select2();
+                        $(".NewUnidades").select2({
+                            placeholder: "Seleccione uma unidade de medida",
+                            allowClear: true
+                        });
                     }
                 });
             }
@@ -187,13 +194,17 @@
                     url: "{{ path('GetAllFamilias') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.familiadiv').append("<select  class='familia'></select>");
+                        $('.familiadiv').append("<select  class='familia'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.familia').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".familia").select2();
+
+                        $(".familia").select2({
+                            placeholder: "Seleccione uma Familia",
+                            allowClear: true
+                        });
                     }
                 });
             }
@@ -204,13 +215,16 @@
                     url: "{{ path('GetAllLaboratorios') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.laboratoriodiv').append("<select  class='laboratirio'></select>");
+                        $('.laboratoriodiv').append("<select  class='laboratirio'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.laboratirio').append(
                                     '<option value="' + value.fnId + '">' + value.ftNome + '</option>'
                             );
                         });
-                        $(".laboratirio").select2();
+                        $(".laboratirio").select2({
+                            placeholder: "Seleccione um laboratorio",
+                            allowClear: true
+                        });
                     }
                 });
             }
@@ -221,20 +235,22 @@
                     url: "{{ path('GetAllArea') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.areaensaiodiv').append("<select  class='areaensaio'></select>");
+                        $('.areaensaiodiv').append("<select  class='areaensaio'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.areaensaio').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".areaensaio").select2();
+
+                        $(".areaensaio").select2({
+                            placeholder: "Seleccione uma area de ensaio",
+                            allowClear: true
+                        });
                     }
                 });
             }
             //get metodo
             function GetAllMetodo(_idpara){
-
-
                 $.ajax({
                     type: "POST",
                     url: "{{ path('GetAllMetodo') }}",
@@ -243,13 +259,47 @@
                         $(".metodo").select2('destroy');
                         $(".metododiv .metodo").remove();
                         data  = JSON.parse(data);
-                        $('.metododiv').append("<select  class='metodo'></select>");
+                        $('.metododiv').append("<select  class='metodo'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.metodo').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".metodo").select2();
+                        $(".metodo").select2({
+                            placeholder: "Seleccione um metodo",
+                            allowClear: true
+                        }).on("change", function(e) {
+                            GetTecnicaByMetodo(e.val);
+                        });
+                    }
+                });
+            }
+            //get grupo by modelo selection
+            //get metodo
+            function GetGrupoByModelo(_modelo){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetGrupoByModelo') }}",
+                    data: {data: _modelo  },
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        $("._grupoparametros").select2("val", data[0].fnId);
+
+                    }
+                });
+            }
+            function GetTecnicaByMetodo(_idmetodo){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetTecnicaByMetodo') }}",
+                    data: {data: _idmetodo  },
+                    dataType: 'json',
+                    success: function(data) {
+                        if(data.length != 0){
+                            $(".tecnica").select2("val", data[0].tecnica);
+                            $('.tecnica').select2("enable",false);
+                        }
+
                     }
                 });
             }
@@ -350,7 +400,27 @@
                         if (obj.length != 0) {
 
                             $("#_nomeparametro").val(obj[0].ft_descricao);
+
                             $(".familia").select2("val", obj[0].fn_id_familiaparametro);
+
+
+                            $("#_custommethod").val(obj[0].ft_custommethod);
+                            if(obj[0].ft_custommethod != null && obj[0].ft_custommethod != ""){
+                                $("#_custommethod").show();
+                                $(".metododiv").hide();
+                                $(".tecnicadiv").hide();
+                                $(".labelformetododiv").hide();
+                                $(".labelfortecnicadiv").hide();
+                                $('#_outrometodo').iCheck('check');
+                                $("#_outrometodo").prop('checked', true);
+                            }else{
+                                $(".metododiv").show();
+                                $(".tecnicadiv").show();
+                                $(".labelformetododiv").show();
+                                $(".labelfortecnicadiv").show();
+                                $('#_outrometodo').iCheck('uncheck');
+                                $("#_outrometodo").prop('checked', false);
+                            }
 
                             $("#_modeloparametro").val(obj[0].modelodepara);
                             $("#_formulaquimica").val(obj[0].ft_formulaquimica);
@@ -359,8 +429,14 @@
 
 
                             $(".laboratirio").select2("val", obj[0].fn_id_laboratorio);
+
+
                             $(".areaensaio").select2("val", obj[0].fn_id_areaensaio);
+
+
                             $(".metodo").select2("val", obj[0].fn_id_metodo);
+
+                            GetTecnicaByMetodo(obj[0].fn_id_metodo);
                             //$(".tecnicadiv").val("val", obj[0].fn_id_tecnica);
 
                             $("#_compra").val(obj[0].fn_precocompra);
@@ -373,38 +449,68 @@
                             if(obj[0].fb_confirmacao == 1){
                                 $('#_confirmacao').iCheck('check');
                                 $("#_confirmacao").prop('checked', true);
+                            }else{
+                                $('#_confirmacao').iCheck('uncheck');
+                                $("#_confirmacao").prop('checked', false);
                             }
                             if(obj[0].fb_contraanalise == 1){
                                 $('#_contraanalise').iCheck('check');
                                 $("#_contraanalise").prop('checked', true);
+                            }else{
+                                $('#_contraanalise').iCheck('uncheck');
+                                $("#_contraanalise").prop('checked', false);
                             }
                             if(obj[0].fb_amostraexterno == 1){
                                 $('#_ambexterno').iCheck('check');
                                 $("#_ambexterno").prop('checked', true);
+                            }else{
+                                $('#_ambexterno').iCheck('uncheck');
+                                $("#_ambexterno").prop('checked', false);
                             }
                             if(obj[0].fb_amostrainterno == 1){
                                 $('#_ambinterno').iCheck('check');
                                 $("#_ambinterno").prop('checked', true);
+                            }else{
+                                $('#_ambinterno').iCheck('uncheck');
+                                $("#_ambinterno").prop('checked', false);
                             }
                             if(obj[0].fb_determinacaoexterno == 1){
                                 $('#_deterexterno').iCheck('check');
                                 $("#_deterexterno").prop('checked', true);
+                            }else{
+                                $('#_deterexterno').iCheck('uncheck');
+                                $("#_deterexterno").prop('checked', false);
                             }
                             if(obj[0].fb_determinacaointerno == 1){
                                 $('#_deterinterno').iCheck('check');
                                 $("#_deterinterno").prop('checked', true);
+                            }else{
+                                $('#_deterinterno').iCheck('uncheck');
+                                $("#_deterinterno").prop('checked', false);
                             }
 
                             if(obj[0].fb_incluirnorelatorio != null){
                                 $("#_incluirelatorio").prop('checked', true);
+                            }else{
+                                $("#_incluirelatorio").prop('checked', false);
                             }
                         }
                     }
                 });
             }
             function Savedata(){
+                var atLeastOneIsChecked = $('#_outrometodo:checkbox:checked').length;
+                var _metodo = null;
+                var _tecnica = null;
+                if(atLeastOneIsChecked == 0){
+                    $("#_custommethod ").val("");
+                    _metodo = $(".metodo").select2('data').id;
+                    _tecnica = $(".tecnica").select2('data').id;
+                }else{
+
+                }
                 var arr = [$("#_amostra").val(),$("#_idparametro").val() , $("#_valorformatado").val() , $("#_valororiginal").val(), $(".NewUnidades").select2('data').id];
-                var arr2 = [ $("#_idparametro").val(),$("#_formulaquimica").val(), $(".familia").select2('data').id,$(".laboratirio").select2('data').id, $(".areaensaio").select2('data').id , $(".metodo").select2('data').id , $(".tecnica").select2('data').id , $('#_confirmacao:checkbox:checked').length > 0 ? 1 : 0, $('#_contraanalise:checkbox:checked').length > 0 ? 1 : 0,  $('#_compra').val(), $('#_venda').val() , $('#_fator').val(), $('#_conclusao').val() , $('#_observacoes').val() ,$('#_ambexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_ambinterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterinterno:checkbox:checked').length > 0 ? 1 : 0  ];
+                var arr2 = [ $("#_idparametro").val(),$("#_formulaquimica").val(), $(".familia").select2('data').id,$(".laboratirio").select2('data').id, $(".areaensaio").select2('data').id , _metodo , _tecnica, $('#_confirmacao:checkbox:checked').length > 0 ? 1 : 0, $('#_contraanalise:checkbox:checked').length > 0 ? 1 : 0,  $('#_compra').val(), $('#_venda').val() , $('#_fator').val(), $('#_conclusao').val() , $('#_observacoes').val() ,$('#_ambexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_ambinterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterinterno:checkbox:checked').length > 0 ? 1 : 0 ,$("#_custommethod ").val()];
 
                 $.ajax({
                     type: "POST",
@@ -435,6 +541,26 @@
 
             }
             $( document ).ready(function() {
+
+
+                $('#_outrometodo').on('ifChecked',
+                        function(event){
+                            $("#_custommethod").show();
+                            $(".metododiv").hide();
+                            $(".tecnicadiv").hide();
+                            $(".labelformetododiv").hide();
+                            $(".labelfortecnicadiv").hide();
+
+                        }).on('ifUnchecked',
+                        function(event){
+                            $("#_custommethod").hide();
+                            $(".metododiv").show();
+                            $(".tecnicadiv").show();
+                            $(".labelformetododiv").show();
+                            $(".labelfortecnicadiv").show();
+                        });
+
+
 
                 //valor original do resultado altera
                 $('#_valororiginal').focus(function() {
@@ -526,8 +652,8 @@
                 GetAllFamilias();
                 GetAllLaboratorios();
                 GetAllEnsaio();
-                //GetAllMetodo();
-                //GetAllTecnica();
+                GetAllMetodo();
+                GetAllTecnica();
             });
         </script>
 
@@ -541,15 +667,17 @@
 
             <script>
                 $( document ).ready(function() {
+
                     $( "#tabs_Amostra" ).tabs( "option","disabled", [1]);
                 });
+
+
             </script>
         {% endif %}
 
 
         <script>
             $( document ).ready(function() {
-
 
 
 
@@ -736,12 +864,16 @@
                                     <div class="laboratoriodiv" style="margin-bottom: 25px!important;"></div>
                                     <label for="areaensaiodiv" >Área de ensaio</label>
                                     <div class="areaensaiodiv" style="margin-bottom: 25px!important;"></div>
-                                    <label for="metododiv" >Método</label>
-                                    <div class="metododiv" style="margin-bottom: 25px!important;"></div>
-                                    <label for="tecnicadiv" >Técnica</label>
-                                    <input type="text" class="form-control" class="tecnicadiv" readonly>
 
-                                    <!--<div read-only class="tecnicadiv" style="margin-bottom: 25px!important;"></div>-->
+                                    <label for="_outrometodo" class="" style="float: left;width: 90%;margin-bottom: 15px;">Outro Metodo</label>
+                                    <input type="checkbox" class="form-control" id="_outrometodo" >
+
+                                    <input style="display: none;" type="text" class="form-control" id="_custommethod">
+
+                                    <label for="metododiv" class="labelformetododiv">Método</label>
+                                    <div class="metododiv" style="margin-bottom: 25px!important;"></div>
+                                    <label for="tecnicadiv" class="labelfortecnicadiv">Técnica</label>
+                                    <div class="tecnicadiv" style="margin-bottom: 25px!important;"></div>
 
                                     <label for="_confirmacao" class="col-md-7 no-padding">Confirmação</label>
                                     <input type="checkbox" class="form-control" id="_confirmacao" >
@@ -890,6 +1022,20 @@
         }
 
     </style>
+<script>
+
+    $( document ).ready(function() {
+
+        $("._grupoparametros").on('select2-loaded', function (e) {
+            $('._grupoparametros').select2('disable');
+
+        });
+        $('._modeloamostra').on("select2-selecting", function(e) {
+            GetGrupoByModelo(e.val);
+        });
+
+    });
+</script>
 
     {% endif%}
 
