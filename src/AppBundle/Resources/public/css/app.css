@@ -4448,7 +4448,7 @@ label small {
 /* Adjust padding, alignment and radius if pre/post element is a button */
 /* line 408, ../bower_components/foundation/scss/foundation/components/_forms.scss */
 .postfix.button {
-  border-color: true;
+  /*border-color: true;*/
 }
 
 /* line 409, ../bower_components/foundation/scss/foundation/components/_forms.scss */
@@ -6709,6 +6709,7 @@ ul.pagination li {
   margin-left: 0;
   margin-right: 0;
 }
+
 /* line 88, ../bower_components/foundation/scss/foundation/components/_switches.scss */
 .switch label:after {
   background: #FFFFFF;
@@ -6721,7 +6722,7 @@ ul.pagination li {
   width: 1.5rem;
   -webkit-transition: left 0.15s ease-out;
   -moz-transition: left 0.15s ease-out;
-  -o-transition: translate3d(0, 0, 0);
+  -o-transition: left 0.15s ease-out;/*translate3d(0, 0, 0);*/
   transition: left 0.15s ease-out;
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -7308,7 +7309,7 @@ meta.foundation-mq-topbar {
 }
 /* line 162, ../bower_components/foundation/scss/foundation/components/_global.scss */
 .top-bar .toggle-topbar.menu-icon a span:hover:after {
-  box-shadow: 0 0 0 1px "", 0 7px 0 1px "", 0 14px 0 1px "";
+  /*box-shadow: 0 0 0 1px "", 0 7px 0 1px "", 0 14px 0 1px "";*/
 }
 /* line 268, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar.expanded {
@@ -7731,7 +7732,7 @@ meta.foundation-mq-topbar {
 
   /* line 528, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section {
-    transition: none 0 0;
+    transition: none 0s;
     left: 0 !important;
   }
   /* line 532, ../bower_components/foundation/scss/foundation/components/_top-bar.scss */
@@ -9936,13 +9937,13 @@ table tr th, table tr td{
 
 }
 
-.table>tbody>tr>td{
+/*.table>tbody>tr>td{
     padding: 22px 7px 14px 0;
-}
-
-/*.btn{
-    margin-top: 10px;
 }*/
+
+.table>tbody>tr>td {
+    padding: 22px 7px 22px 0;
+}
 
 .btn{
     margin-top: 0!important;
@@ -10011,8 +10012,12 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 }
 
 .box .box-header {
-  padding-bottom: 0;
-  padding-left: 10px;
+  padding-bottom: 0!important;
+  padding-left: 10px!important;
+}
+
+.box-header{
+    padding: 0!important;
 }
 
 .box.box-primary {
@@ -10161,9 +10166,6 @@ tbody > tr > td span.label{
 
 }
 
-/*.btn-group>.btn:first-child {
-    margin-top: 10px;
-}*/
 
 .btn.btn-outline{
     color:#4cc3b8;
@@ -10215,7 +10217,7 @@ tbody > tr > td span.label{
     padding: 8px 12px 9px;
     background-color: white;
     border-color: #f4543c;
-    color:#f4543c;
+    color: #f4543c!important;
     height: 2.5rem;
 }
 
@@ -10258,6 +10260,8 @@ tbody > tr > td span.label{
   margin-top: -490px!important;
 }
 
+
+
 .Dados_amostra > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group
 {
   padding-left: 0;
@@ -10271,8 +10275,13 @@ tbody > tr > td span.label{
   width: 85% !important;
 }
 
-.Especificacoes a{
+.Especificacoes .btn.btn-success.btn-sm.btn-outline.sonata-ba-action{
   margin-top: 10px!important;
+}
+
+
+.Parametros .btn.btn-success.btn-sm.btn-outline.sonata-ba-action{
+    margin-top: 10px!important;
 }
 
 .Lancamento_amostra .select2-container{
@@ -10378,11 +10387,11 @@ td.sonata-ba-list-field.sonata-ba-list-field-currency, td.sonata-ba-list-field.s
 }
 
 
-.TabelaModeloresultados  a{
+.TabelaModeloresultados .btn.btn-success.btn-sm.btn-outline.sonata-ba-action{
   margin-top: 10px!important;
 }
 
-.GrupoParametros a{
+.GrupoParametros .btn.btn-success.btn-sm.btn-outline.sonata-ba-action{
   margin-top: 10px!important;
 }
 
@@ -10402,4 +10411,72 @@ input[type=time]::-webkit-inner-spin-button {
 
 .table>thead>tr>td.active, .table>tbody>tr>td.active, .table>tfoot>tr>td.active, .table>thead>tr>th.active, .table>tbody>tr>th.active, .table>tfoot>tr>th.active, .table>thead>tr.active>td, .table>tbody>tr.active>td, .table>tfoot>tr.active>td, .table>thead>tr.active>th, .table>tbody>tr.active>th, .table>tfoot>tr.active>th {
     background-color: #eefffd!important;
+}
+
+.ui-tabs .ui-tabs-nav {
+    padding: 0 0 0!important;
+}
+
+.icheckbox_minimal {
+    border: 1px solid #9993a3;
+
+}
+
+.x1 .icheckbox_minimal{
+  float: right;
+  border: 1px solid #9993a3;
+
+}
+
+.x2 .icheckbox_minimal{
+  float: right;
+  border: 1px solid #9993a3;
+
+}
+
+.x3 .icheckbox_minimal{
+  float: right;
+  border: 1px solid #9993a3;
+
+}
+
+.Lote_amostra p{
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+.L_AA{
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+
+#parametros_grid{
+    margin-top: 18px;
+}
+
+.testgrid tbody td:nth-child(5){
+    display:none !important;
+}
+
+.testgrid thead th:nth-child(5){
+    display:none !important;
+}
+
+a.sonata-action-element{
+    display: none!important;
+}
+
+.box {
+    border-top: none;
+}
+
+.splash_screen {
+
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    width:  100%;
+    background: white url('/bundles/app/images/ring-alt.gif') 50% 50% no-repeat;
+
 }

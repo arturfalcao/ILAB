@@ -54,13 +54,15 @@ class TRequisicoesclienteAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'Lançamento','class' => 'col-md-6'))
-            ->add('fnId',null,array('label' => 'ID'))
             ->add('fnIdCliente',null,array('label' => 'ID cliente'))
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->end()
             ->with('grupo_2',array('description' => 'Lançamento','class' => 'col-md-6'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
-            ->add('fdDatarequisicao','sonata_type_datetime_picker', array('label' => 'Data da requisição'))
+            ->add('fdDatarequisicao','sonata_type_datetime_picker', array('label' => 'Data da requisição','format' => 'dd-MM-yyyy',
+                'attr' => array(
+        'data-date-format' => 'DD-MM-YYYY',
+    )))
             ->add('fbActiva',null,array('label' => 'Activa'))
             ->end()
         ;

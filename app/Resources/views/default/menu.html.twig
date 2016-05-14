@@ -67,6 +67,8 @@
 
                 </ul>
             </li>
+
+            {% if is_granted('ROLE_TECNICO_SUPERIOR') %}
             <li>
                 <div class="menu_hover"></div>
                 <a href="" class="menu_cartas"></a>
@@ -75,6 +77,8 @@
                     <li><a href="{{path('sonata_admin_dashboard') }}" >Gestão de Utilizadores</a></li>
                 </ul>
             </li>
+            {% endif %}
+
         </ul>
         {%if app.user %}
             <div class="new-bottom-section">
@@ -91,8 +95,6 @@
             </div>
         {%endif%}
     </nav>
-    <style>
-    </style>
 
     <script>
         $( document ).ready(function() {

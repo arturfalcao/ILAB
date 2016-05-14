@@ -1184,3 +1184,8 @@ a.edit:hover, a.remove:hover{
     z-index: 0!important;
     outline:none!important;
 }
+
+.fc-day-grid-container{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}

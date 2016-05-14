@@ -49,6 +49,7 @@ class ModelosListasAdmin extends Admin
             ->add('idParametro',null,array('label' => 'ID parâmetro'))
             ->add('tablejson', 'text', array('attr' => array('class' => 'tabela'),'label'=>'Estrutura lista de trabalho'))
             ->add('cabecalhojson', 'text', array('attr' => array('class' => 'header'),'label'=>''))
+
         ;
     }
 

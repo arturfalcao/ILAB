@@ -164,7 +164,8 @@ class WorkListCTRLController extends Controller
         $pdf->SetMargins(7, 35, 7);
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
-        $pdf->SetHeaderData('logopimenta.png', 50, 'RELAT�RIO DE ENSAIO N�, 50267' , PDF_HEADER_STRING);
+
+        $pdf->SetHeaderData('logopimenta.png', 50, 'RELATÓRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
 
 // set header and footer fonts
 
@@ -262,10 +263,11 @@ class WorkListCTRLController extends Controller
                     <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
                 </tr>
                  <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Refer�ncia:</td>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Referência:</td>
+
                 </tr>
                 <tr>
-                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
+                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humAno</td>
                 </tr>
             </table>
         </td>
@@ -276,10 +278,11 @@ class WorkListCTRLController extends Controller
                     <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                 </tr>
                 <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Ecofirma - gest�o do ambiente, S.A</td>
+
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Ecofirma - gestão do ambiente, S.A</td>
                 </tr>
                 <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Av. Imaculada Concei��o, � 409 - adaufe</td>
+                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Av. Imaculada Conceicão, nº 409 - adaufe</td>
                 </tr>
                 <tr>
                     <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">4750-013- Braga</td>
@@ -304,7 +307,8 @@ class WorkListCTRLController extends Controller
     <tr>
         <td>Colheita:</td>
         <td class="table_colheita_info_data">28-09-2016</td>
-        <td>Recep��o:</td>
+
+        <td>Recepção:</td>
         <td class="table_colheita_info_data">28-09-2016</td>
         <td>Inicio ensaios:</td>
         <td class="table_colheita_info_data">28-09-2016</td>
@@ -315,8 +319,9 @@ class WorkListCTRLController extends Controller
 <table class="table_parametros" >
     <tr style="margin-top 5px;">
         <td colspan="2">
-           <span>Par�metros Microbiologicos     </span><br />
-            <span class="table_parametros_tecnica">M�todo de ensaio / T�cnica anal�tica</span>
+
+           <span>Parâmetros Microbiologicos     </span><br />
+            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
         </td>
         <td class="table_parametros_data"></td>
         <td>Unidades</td>
@@ -328,8 +333,9 @@ class WorkListCTRLController extends Controller
 <table class="table_resultados">
     <tr style="margin-top 5px;">
         <td colspan="2" class="resultados_one" style="border-spacing:6px 12px;padding:10px 4px 10px 4px">
-           Par�metros Microbiologicos<br />
-            <span class="table_parametros_tecnica">M�todo de ensaio / T�cnica anal�tica</span>
+
+           Parâmetros Microbiologicos<br />
+            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
         </td>
         <td class="">0</td>
         <td>ufc/100ml</td>
@@ -370,7 +376,8 @@ EOF;
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
         if($amostra->getFtEstado()->getFtCodigo() == 'P'){
-            return new Response("Amostra N�o Disponivel");
+
+            return new Response("Amostra Não Disponivel");
         }
         $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'C'));
         $amostra->setFtEstado($estado);
@@ -384,7 +391,8 @@ EOF;
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
         if($amostra->getFtEstado()->getFtCodigo() == 'P'){
-            return new Response("Amostra N�o Disponivel");
+
+            return new Response("Amostra Não Disponivel");
         }
         $estado = $em->getRepository('AppBundle:TEstados')->findOneBy(array('ftCodigo' => 'D'));
         $amostra->setFtEstado($estado);
@@ -450,8 +458,14 @@ EOF;
 
     //TODO : notificar cliente de amostra completa
     public function NotifysampleAction($slug){
-
+    return new Response("ok");
     }
+
+    public function RelatoriosampleAction(){
+        return new Response("ok");
+    }
+
+    
 
     public function AddNewparaAction($idsample,$idpara)
     {
@@ -677,7 +691,8 @@ EOF;
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
 
-            //crio novo parametro associado a amostra em quest�o
+
+            //crio novo parametro associado a amostra em questão
             $arr = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
             foreach ($arr as $value) {
 

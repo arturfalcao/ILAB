@@ -93,22 +93,29 @@ class TResultadosAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-4'))
-            ->add('fnId',null,array('label' => 'ID'))
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->add('ftFormatado',null,array('label' => 'Formatado'))
             ->add('ftOriginal',null,array('label' => 'Original'))
             ->add('ftPrefixo',null,array('label' => 'Prefixo'))
-
+            ->add('fnValor',null,array('label' => 'Valor'))
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-4'))
-            ->add('fnValor',null,array('label' => 'Valor'))
             ->add('fnCalculado',null,array('label' => 'Calculado'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
-            ->add('fdCriacao','sonata_type_datetime_picker', array('label' => 'Data de criação'))
-            ->add('fdConclusao','sonata_type_datetime_picker', array('label' => 'Data de conclusão'))
+            ->add('fdCriacao','sonata_type_datetime_picker', array('label' => 'Data de criação','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            ->add('fdConclusao','sonata_type_datetime_picker', array('label' => 'Data de conclusão','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            ->add('fdAutorizacao','sonata_type_datetime_picker', array('label' => 'Autorização','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
             ->end()
             ->with('grupo_3',array('description' => 'x','class' => 'col-md-4'))
-            ->add('fdAutorizacao','sonata_type_datetime_picker', array('label' => 'Autorização'))
             ->add('fbIncluirnorelatorio',null,array('label' => 'Incluir no relatório'))
             ->add('fnMaximo',null,array('label' => 'Máximo'))
             ->add('fnMinimo',null,array('label' => 'Mínimo'))

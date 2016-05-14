@@ -142,11 +142,7 @@ class TClientes
     private $fbuserativo;
 
 
-    /**
-     * Get fnId
-     *
-     * @return integer 
-     */
+    
     public function __toString()
     {
         return $this->ftNome;
@@ -159,7 +155,7 @@ class TClientes
     /**
      * Set fnId
      *
-     * @param string $fnId
+     * @param boolean $fbuserativo
      * @return TClientes
      */
     public function setFbuserativo($fbuserativo)
@@ -176,7 +172,7 @@ class TClientes
     /**
      * Set fnId
      *
-     * @param string $fnId
+     * @param integer $fnId
      * @return TClientes
      */
     public function setFnId($fnId)
