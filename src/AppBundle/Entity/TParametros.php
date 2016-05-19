@@ -419,7 +419,7 @@ class TParametros
     /**
      * @ORM\ManyToMany(targetEntity="TEspecificacoes", mappedBy="fnEspecificacoes")
      */
-    private $especificacoes;
+    //private $especificacoes;
 
 
     /**
