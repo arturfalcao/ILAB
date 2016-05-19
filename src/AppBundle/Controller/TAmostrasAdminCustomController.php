@@ -359,7 +359,7 @@ class TAmostrasAdminCustomController extends Controller
 
         return new Response(json_encode($info));
     }
-
+ 
     public function GetEspecificacaoByProdutoAction()
     {
         $parameter = $this->get("request")->getContent();

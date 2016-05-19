@@ -3,28 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/cocur/slugify" afterPath="$PROJECT_DIR$/vendor/cocur/slugify" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/cache" afterPath="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/common" afterPath="$PROJECT_DIR$/vendor/doctrine/common" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/dbal" afterPath="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" afterPath="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" afterPath="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle" afterPath="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/monolog/monolog" afterPath="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle" afterPath="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle/Nelmio/ApiDocBundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle" afterPath="$PROJECT_DIR$/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" afterPath="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/core-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/core-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" afterPath="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/assetic-bundle" afterPath="$PROJECT_DIR$/vendor/symfony/assetic-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/monolog-bundle" afterPath="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" afterPath="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ILAB.iml" afterPath="$PROJECT_DIR$/.idea/ILAB.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,30 +38,30 @@
       <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="399" column="644" selection-start-line="399" selection-start-column="644" selection-end-line="399" selection-end-column="644" />
+            <state relative-caret-position="81">
+              <caret line="361" column="1" selection-start-line="361" selection-start-column="1" selection-end-line="361" selection-end-column="1" />
               <folding>
-                <marker date="1463665988821" expanded="true" signature="3553:3602" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1463665988821" expanded="true" signature="3819:4975" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1463665988821" expanded="true" signature="4337:4975" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1463665988821" expanded="true" signature="5151:5404" placeholder="UPDATE t_par... " />
-                <marker date="1463665988821" expanded="true" signature="5726:5939" placeholder="update t_amo... " />
-                <marker date="1463665988821" expanded="true" signature="6375:6426" placeholder="SELECT * FRO... t_amostras_logs" />
-                <marker date="1463665988821" expanded="true" signature="6831:6911" placeholder="SELECT * FRO... t_parametrosamostra_log" />
-                <marker date="1463665988821" expanded="true" signature="7299:8174" placeholder="SELECT para.... t_parametrosamostra" />
-                <marker date="1463665988821" expanded="true" signature="8579:8630" placeholder="SELECT * FRO... t_resultados" />
-                <marker date="1463665988821" expanded="true" signature="14277:14334" placeholder="SELECT * fro... t_parametrospormetodo" />
-                <marker date="1463665988821" expanded="true" signature="15001:15089" placeholder="SELECT ft_de... t_metodos" />
-                <marker date="1463665988821" expanded="true" signature="16706:16893" placeholder="SELECT DISTI... t_produtos" />
-                <marker date="1463665988821" expanded="true" signature="17639:17984" placeholder="SELECT DISTI... t_produtosespecificacoes" />
-                <marker date="1463665988821" expanded="true" signature="18582:19334" placeholder="SELECT DISTI... t_resultados" />
-                <marker date="1463665988821" expanded="true" signature="22748:24100" placeholder="INSERT INTO t_parametrosamostra... " />
-                <marker date="1463665988821" expanded="true" signature="23345:24100" placeholder="SELECT aa.fn... t_parametros" />
-                <marker date="1463665988821" expanded="true" signature="24358:25545" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1463665988821" expanded="true" signature="24876:25545" placeholder="SELECT aa.fn... t_parametrosamostra" />
-                <marker date="1463665988821" expanded="true" signature="25708:25780" placeholder="UPDATE t_par... " />
-                <marker date="1463665988821" expanded="true" signature="25970:26140" placeholder="UPDATE t_par... " />
-                <marker date="1463665988821" expanded="true" signature="27566:27663" placeholder="UPDATE t_res... " />
+                <marker date="1463667603237" expanded="true" signature="3553:3602" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1463667603237" expanded="true" signature="3819:4975" placeholder="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1463667603237" expanded="true" signature="4337:4975" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1463667603237" expanded="true" signature="5151:5404" placeholder="UPDATE t_par... " />
+                <marker date="1463667603237" expanded="true" signature="5726:5939" placeholder="update t_amo... " />
+                <marker date="1463667603237" expanded="true" signature="6375:6426" placeholder="SELECT * FRO... t_amostras_logs" />
+                <marker date="1463667603237" expanded="true" signature="6831:6911" placeholder="SELECT * FRO... t_parametrosamostra_log" />
+                <marker date="1463667603237" expanded="true" signature="7299:8174" placeholder="SELECT para.... t_parametrosamostra" />
+                <marker date="1463667603237" expanded="true" signature="8579:8630" placeholder="SELECT * FRO... t_resultados" />
+                <marker date="1463667603237" expanded="true" signature="14277:14334" placeholder="SELECT * fro... t_parametrospormetodo" />
+                <marker date="1463667603237" expanded="true" signature="15001:15089" placeholder="SELECT ft_de... t_metodos" />
+                <marker date="1463667603237" expanded="true" signature="16706:16893" placeholder="SELECT DISTI... t_produtos" />
+                <marker date="1463667603237" expanded="true" signature="17640:17985" placeholder="SELECT DISTI... t_produtosespecificacoes" />
+                <marker date="1463667603237" expanded="true" signature="18583:19335" placeholder="SELECT DISTI... t_resultados" />
+                <marker date="1463667603237" expanded="true" signature="22749:24101" placeholder="INSERT INTO t_parametrosamostra... " />
+                <marker date="1463667603237" expanded="true" signature="23346:24101" placeholder="SELECT aa.fn... t_parametros" />
+                <marker date="1463667603237" expanded="true" signature="24359:25546" placeholder="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1463667603237" expanded="true" signature="24877:25546" placeholder="SELECT aa.fn... t_parametrosamostra" />
+                <marker date="1463667603237" expanded="true" signature="25709:25781" placeholder="UPDATE t_par... " />
+                <marker date="1463667603237" expanded="true" signature="25971:26141" placeholder="UPDATE t_par... " />
+                <marker date="1463667603237" expanded="true" signature="27567:27664" placeholder="UPDATE t_res... " />
               </folding>
             </state>
           </provider>
@@ -202,8 +185,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/topheader_ent_resultados.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/profile.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
       </list>
     </option>
   </component>
@@ -533,12 +516,12 @@
       <workItem from="1463561558460" duration="7298000" />
       <workItem from="1463578916498" duration="8067000" />
       <workItem from="1463647784488" duration="6812000" />
-      <workItem from="1463664842143" duration="2049000" />
+      <workItem from="1463664842143" duration="2362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292780000" />
+    <option name="totallyTimeSpent" value="293093000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -551,13 +534,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39074355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52730376" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52730376" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3397762" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -979,30 +962,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="399" column="644" selection-start-line="399" selection-start-column="644" selection-end-line="399" selection-end-column="644" />
+        <state relative-caret-position="81">
+          <caret line="361" column="1" selection-start-line="361" selection-start-column="1" selection-end-line="361" selection-end-column="1" />
           <folding>
-            <marker date="1463665988821" expanded="true" signature="3553:3602" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1463665988821" expanded="true" signature="3819:4975" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1463665988821" expanded="true" signature="4337:4975" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1463665988821" expanded="true" signature="5151:5404" placeholder="UPDATE t_par... " />
-            <marker date="1463665988821" expanded="true" signature="5726:5939" placeholder="update t_amo... " />
-            <marker date="1463665988821" expanded="true" signature="6375:6426" placeholder="SELECT * FRO... t_amostras_logs" />
-            <marker date="1463665988821" expanded="true" signature="6831:6911" placeholder="SELECT * FRO... t_parametrosamostra_log" />
-            <marker date="1463665988821" expanded="true" signature="7299:8174" placeholder="SELECT para.... t_parametrosamostra" />
-            <marker date="1463665988821" expanded="true" signature="8579:8630" placeholder="SELECT * FRO... t_resultados" />
-            <marker date="1463665988821" expanded="true" signature="14277:14334" placeholder="SELECT * fro... t_parametrospormetodo" />
-            <marker date="1463665988821" expanded="true" signature="15001:15089" placeholder="SELECT ft_de... t_metodos" />
-            <marker date="1463665988821" expanded="true" signature="16706:16893" placeholder="SELECT DISTI... t_produtos" />
-            <marker date="1463665988821" expanded="true" signature="17639:17984" placeholder="SELECT DISTI... t_produtosespecificacoes" />
-            <marker date="1463665988821" expanded="true" signature="18582:19334" placeholder="SELECT DISTI... t_resultados" />
-            <marker date="1463665988821" expanded="true" signature="22748:24100" placeholder="INSERT INTO t_parametrosamostra... " />
-            <marker date="1463665988821" expanded="true" signature="23345:24100" placeholder="SELECT aa.fn... t_parametros" />
-            <marker date="1463665988821" expanded="true" signature="24358:25545" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1463665988821" expanded="true" signature="24876:25545" placeholder="SELECT aa.fn... t_parametrosamostra" />
-            <marker date="1463665988821" expanded="true" signature="25708:25780" placeholder="UPDATE t_par... " />
-            <marker date="1463665988821" expanded="true" signature="25970:26140" placeholder="UPDATE t_par... " />
-            <marker date="1463665988821" expanded="true" signature="27566:27663" placeholder="UPDATE t_res... " />
+            <marker date="1463667603237" expanded="true" signature="3553:3602" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1463667603237" expanded="true" signature="3819:4975" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1463667603237" expanded="true" signature="4337:4975" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1463667603237" expanded="true" signature="5151:5404" placeholder="UPDATE t_par... " />
+            <marker date="1463667603237" expanded="true" signature="5726:5939" placeholder="update t_amo... " />
+            <marker date="1463667603237" expanded="true" signature="6375:6426" placeholder="SELECT * FRO... t_amostras_logs" />
+            <marker date="1463667603237" expanded="true" signature="6831:6911" placeholder="SELECT * FRO... t_parametrosamostra_log" />
+            <marker date="1463667603237" expanded="true" signature="7299:8174" placeholder="SELECT para.... t_parametrosamostra" />
+            <marker date="1463667603237" expanded="true" signature="8579:8630" placeholder="SELECT * FRO... t_resultados" />
+            <marker date="1463667603237" expanded="true" signature="14277:14334" placeholder="SELECT * fro... t_parametrospormetodo" />
+            <marker date="1463667603237" expanded="true" signature="15001:15089" placeholder="SELECT ft_de... t_metodos" />
+            <marker date="1463667603237" expanded="true" signature="16706:16893" placeholder="SELECT DISTI... t_produtos" />
+            <marker date="1463667603237" expanded="true" signature="17640:17985" placeholder="SELECT DISTI... t_produtosespecificacoes" />
+            <marker date="1463667603237" expanded="true" signature="18583:19335" placeholder="SELECT DISTI... t_resultados" />
+            <marker date="1463667603237" expanded="true" signature="22749:24101" placeholder="INSERT INTO t_parametrosamostra... " />
+            <marker date="1463667603237" expanded="true" signature="23346:24101" placeholder="SELECT aa.fn... t_parametros" />
+            <marker date="1463667603237" expanded="true" signature="24359:25546" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1463667603237" expanded="true" signature="24877:25546" placeholder="SELECT aa.fn... t_parametrosamostra" />
+            <marker date="1463667603237" expanded="true" signature="25709:25781" placeholder="UPDATE t_par... " />
+            <marker date="1463667603237" expanded="true" signature="25971:26141" placeholder="UPDATE t_par... " />
+            <marker date="1463667603237" expanded="true" signature="27567:27664" placeholder="UPDATE t_res... " />
           </folding>
         </state>
       </provider>
