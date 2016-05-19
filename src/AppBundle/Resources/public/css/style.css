@@ -406,8 +406,8 @@ section.login p {
     left: 85px!important;
 }
 
-.big{
-    margin-top: -170px;
+.grande_big{
+    margin-top: -180px;
 }
 
 .menu_principal > ul > li > a:hover, .menu_principal > ul > li > a:active, .menu_principal > ul > li > a:focus,
@@ -637,6 +637,7 @@ section.login p {
     body .Lote_amostra .sonata-ba-collapsed-fields{
         padding: 10px !important;
         padding-bottom: 0!important;
+        height: 325px!important;
     }
 
     body .Lancamento_amostra{
@@ -688,7 +689,7 @@ section.login p {
         margin-top: 9px!important;
     }
 
-    body .big{
+    body .grande_big{
         margin-top: -190px!important;
     }
 
@@ -696,6 +697,11 @@ section.login p {
         padding-top:5px!important;
         padding-bottom:5px!important;
         height:40px!important;
+    }
+
+    body .circulo_menu_direita{
+        margin-left: 40px!important;
+        margin-top: 18px!important;
     }
 
 }

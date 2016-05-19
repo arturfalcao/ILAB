@@ -12,6 +12,12 @@
     {% else %}
         <script type="text/javascript" src="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.js') }}"></script>
         <link href="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.css') }}" rel="stylesheet">
+
+        <script type="text/javascript" src="{{ asset('bundles/app/js/toastr.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/toastr.css') }}" />
+
+        <div class="ecra" style="display: none;"></div>
+
         <script>
             $(function() {
                 $( "#tabs_Amostra" ).tabs( { active: 2 });
@@ -19,6 +25,8 @@
 
             });
         </script>
+
+
         <script>
 
             var rowIds = [];
@@ -38,7 +46,7 @@
                                 idamostra: {{ admin.id(object) is null ? 0 : admin.id(object)}}},
                             contentType: "application/json",
                             success: function (data) {
-                                alert(data);
+                                //alert(data);
                                 $("#parametros_grid").bootgrid("destroy");
                                 GetParametros();
 
@@ -48,7 +56,9 @@
 
                 }
             }
+
             function UpdateParaActions(URL){
+
                 var _old = rowIds.slice(0);
                 $.each(_ParaData, function( index, value ) {
                     $.each(rowIds, function( index1, value1 ) {
@@ -77,6 +87,7 @@
                 });
 
                 if(rowIds.length != 0){
+                    $(".ecra").show();
                     $.ajax({
                         type: "POST",
                         url: URL,
@@ -85,10 +96,25 @@
                         success: function(data) {
                             $("#parametros_grid").bootgrid("destroy");
                             rowIds.length = 0;
+
                             GetParametros();
 
+                            if(URL == '/completepara')
+                            {toastr.info('Autorizado');
+
+                            }
+                            else if(URL == '/reopenpara')
+                            {toastr.info('Desautorizado');
+
+
+                            }
+                            else if(URL == '/cancelpara')
+                            {toastr.info('Eliminado');
+
+                            }
                         }
                     });
+
                 }
                 rowIds = _old;
 
@@ -99,7 +125,7 @@
                     url: '{{path('AmostrasGetParametros')}}',
                     data: {data: {{ admin.id(object) is null ? 0 : admin.id(object)}} },
                     success: function(data) {
-                        
+                        $('.ecra').hide();
                         $("#parametros_grid").bootgrid("destroy");
 
                         var grid_para = $("#parametros_grid").bootgrid({
@@ -114,6 +140,7 @@
                             {
                                 rowIds.push(rows[i].id);
                             }
+
                         }).on("deselected.rs.jquery.bootgrid", function(e, rows)
                         {
                             for (var i = 0; i < rows.length; i++)
@@ -137,8 +164,10 @@
                         });
                         var obj = $.parseJSON(data);
                         _ParaData= obj;
+
                         if (obj.length != 0) {
                             grid_para.bootgrid("append",obj );
+
                             $.each(obj, function (key, value) {
 
                             });
@@ -147,6 +176,8 @@
                         }
                     }
                 });
+
+
             }
             function GetAllPara(){
                 $.ajax({
@@ -162,7 +193,7 @@
                             );
                         });
                         $(".NewPara").select2({
-                            placeholder: "Seleccione um parametros a adicionar",
+                            placeholder: "Selecione um parâmetro a adicionar",
                             allowClear: true
                         });
                     }
@@ -182,7 +213,7 @@
                             );
                         });
                         $(".NewUnidades").select2({
-                            placeholder: "Seleccione uma unidade de medida",
+                            placeholder: "Selecione uma unidade de medida",
                             allowClear: true
                         });
                     }
@@ -202,7 +233,7 @@
                         });
 
                         $(".familia").select2({
-                            placeholder: "Seleccione uma Familia",
+                            placeholder: "Selecione uma Família",
                             allowClear: true
                         });
                     }
@@ -222,7 +253,7 @@
                             );
                         });
                         $(".laboratirio").select2({
-                            placeholder: "Seleccione um laboratorio",
+                            placeholder: "Selecione um laboratório",
                             allowClear: true
                         });
                     }
@@ -243,7 +274,7 @@
                         });
 
                         $(".areaensaio").select2({
-                            placeholder: "Seleccione uma area de ensaio",
+                            placeholder: "Selecione uma área de ensaio",
                             allowClear: true
                         });
                     }
@@ -266,7 +297,7 @@
                             );
                         });
                         $(".metodo").select2({
-                            placeholder: "Seleccione um metodo",
+                            placeholder: "Selecione um método",
                             allowClear: true
                         }).on("change", function(e) {
                             GetTecnicaByMetodo(e.val);
@@ -288,6 +319,50 @@
                     }
                 });
             }
+
+
+            function GetLegislacaoByProduto(_produto){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetLegislacaoByProduto') }}",
+                    data: {data: _produto  },
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        if(data.length!=0)
+                        {
+                            $("._legislacao.select2-offscreen").select2("val", data[0].id_legislacao);
+                        }
+
+                    }
+                });
+            }
+
+            function GetEspecificacaoByProduto(_produto){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetEspecificacaoByProduto') }}",
+                    data: {data: _produto  },
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        if(data.length != 0)
+                        {
+
+                            $('._especificacao.select2-offscreen').html('');
+                            //$('._especificacao').append("<select  class='especificacao'></select>");
+                            $.each(data, function(index, value) {
+                                $('._especificacao.select2-offscreen').append(
+                                        '<option value="' + value.id_especificacao + '">' + value.descricao + '</option>'
+                                );
+                            });
+                            $("._especificacao.select2-offscreen").select2("val", data[0].id_especificacao);
+
+                        }
+
+                    }
+                });
+            }
+
+
             function GetTecnicaByMetodo(_idmetodo){
                 $.ajax({
                     type: "POST",
@@ -499,6 +574,7 @@
                 });
             }
             function Savedata(){
+
                 var atLeastOneIsChecked = $('#_outrometodo:checkbox:checked').length;
                 var _metodo = null;
                 var _tecnica = null;
@@ -512,16 +588,17 @@
                 var arr = [$("#_amostra").val(),$("#_idparametro").val() , $("#_valorformatado").val() , $("#_valororiginal").val(), $(".NewUnidades").select2('data').id];
                 var arr2 = [ $("#_idparametro").val(),$("#_formulaquimica").val(), $(".familia").select2('data').id,$(".laboratirio").select2('data').id, $(".areaensaio").select2('data').id , _metodo , _tecnica, $('#_confirmacao:checkbox:checked').length > 0 ? 1 : 0, $('#_contraanalise:checkbox:checked').length > 0 ? 1 : 0,  $('#_compra').val(), $('#_venda').val() , $('#_fator').val(), $('#_conclusao').val() , $('#_observacoes').val() ,$('#_ambexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_ambinterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterinterno:checkbox:checked').length > 0 ? 1 : 0 ,$("#_custommethod ").val()];
 
+                $(".ecra").show();
                 $.ajax({
                     type: "POST",
                     url: '{{path('EntradaResultadossetByRegrasFormatacaoAmostra')}}',
                     data: JSON.stringify(arr),
                     success: function(data) {
                         if(data > 0){
-                            alert("Resultados Guardados com sucesso");
+                            toastr.info('Resultados guardados com sucesso');
                             GetParametros();
                         }else{
-                            alert("Resultado não guardado");
+                            toastr.info('Resultados não guardados');
                         }
                     }
                 });
@@ -531,10 +608,12 @@
                     data: JSON.stringify(arr2),
                     success: function(data) {
                         if(data > 0){
-                            alert("Resultados Guardados com sucesso");
+                            toastr.info('Resultados guardados com sucesso');
                             GetParametros();
+                            $(".ecra").hide();
                         }else{
-                            alert("Resultado não guardado");
+                            $(".ecra").hide();
+                            toastr.info('Resultados não guardados');
                         }
                     }
                 });
@@ -683,6 +762,7 @@
                 });
 
                 $( ".Dados_amostra > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group" ).addClass( "col-md-4" );
+
 
             })
         </script>
@@ -862,7 +942,7 @@
                                     <label for="areaensaiodiv" >Área de ensaio</label>
                                     <div class="areaensaiodiv" style="margin-bottom: 25px!important;"></div>
 
-                                    <label for="_outrometodo" class="" style="float: left;width: 90%;margin-bottom: 15px;">Outro Metodo</label>
+                                    <label for="_outrometodo" class="" style="float: left;width: 90%;margin-bottom: 15px;">Outro Método</label>
                                     <input type="checkbox" class="form-control" id="_outrometodo" >
 
                                     <input style="display: none;" type="text" class="form-control" id="_custommethod">
@@ -1005,18 +1085,27 @@
             GetGrupoByModelo(e.val);
         });
 
+        $('._produto').on("select2-selecting", function(e) {
+            GetLegislacaoByProduto(e.val);
+            GetEspecificacaoByProduto(e.val);
+        });
+
+
+
+
     });
 </script>
 
 
-
+<style>
         {% if 'edit' in admin.request.pathInfo %}
+
         .Cliente_amostra .select2-container{
             width: 78% !important;
         }
         {% endif %}
 
-    </style>
+</style>
 
     {% endif%}
 

@@ -46,7 +46,7 @@ class ModelosListasAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('idParametro',null,array('label' => 'ID parâmetro'))
+            ->add('idParametro',null,array('required'=>true,'label' => 'ID parâmetro'))
             ->add('tablejson', 'text', array('attr' => array('class' => 'tabela'),'label'=>'Estrutura lista de trabalho'))
             ->add('cabecalhojson', 'text', array('attr' => array('class' => 'header'),'label'=>''))
 

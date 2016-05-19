@@ -49,7 +49,7 @@ class AgendaController extends Controller
     /**
      * Obter todas as amostras do dia de hoje.
      *
-     * @Route("calendar/geteventos", name="eventos_planeados")
+     * @Route("/calendar/geteventos", name="eventos_planeados")
      */
     
     public function geteventosAction()
@@ -64,34 +64,40 @@ class AgendaController extends Controller
         $data_inicio = \DateTime::createFromFormat("Y-m-d H:i:s",$inicio);
         $data_fim = \DateTime::createFromFormat("Y-m-d H:i:s",$fim);
         
-        $ft_estado = 'P';
         $em = $this->getDoctrine()->getManager();
-        
+
+
+        $estado = $em->getRepository('AppBundle:TEstados')->findOneByftCodigo('P');
+
         $result = $em->createQueryBuilder();
-        
-        $dql = $result->select('a')
-                      ->from('AppBundle:TAmostras', 'a')
-                      ->where('a.startdatetime >= :data_inicio')
-                      ->setParameter('data_inicio', $data_inicio)
-                      ->andWhere('a.startdatetime <= :data_fim')
-                      ->setParameter('data_fim', $data_fim)
-                      ->andWhere('a.ftEstado = :ft_estado')
-                      ->setParameter('ft_estado', $ft_estado)
-                      ->orderBy('a.startdatetime', 'ASC')
-                      ->getQuery()
-                      ->getResult();
-        
         $info = [];
         $i = 0;
+        if($estado) {
+            $dql = $result->select('a')
+                ->from('AppBundle:TAmostras', 'a')
+                ->where('a.startdatetime >= :data_inicio')
+                ->setParameter('data_inicio', $data_inicio)
+                ->andWhere('a.startdatetime <= :data_fim')
+                ->setParameter('data_fim', $data_fim)
+                ->andWhere('a.ftEstado = :ft_estado')
+                ->setParameter('ft_estado', intval($estado->getFnId()))
+                ->orderBy('a.startdatetime', 'ASC')
+                ->getQuery()
+                ->getResult();
 
-        foreach ($dql as $amostra) {
 
-            $info[$i]['tempo'] = $amostra->getStartdatetime();
-            $info[$i]['observacao'] = $amostra->getFtObs(); 
-            $info[$i]['am_ag'] = 1;
-            $info[$i]['id'] = 'am_' . $amostra->getFnId();
-            $info[$i]['done'] = $amostra->getFnDone();
-            $i++;
+
+
+            foreach ($dql as $amostra) {
+
+                $info[$i]['tempo'] = $amostra->getStartdatetime();
+                $info[$i]['observacao'] = $amostra->getFtObs();
+                $info[$i]['am_ag'] = 1;
+                $info[$i]['id'] = 'am_' . $amostra->getFnId();
+                $info[$i]['done'] = $amostra->getFnDone();
+                $i++;
+            }
+
         }
 
         $em_2 = $this->getDoctrine()->getManager();
@@ -117,7 +123,7 @@ class AgendaController extends Controller
             $info[$i]['id'] = 'ag_' . $agenda->getId();
             $info[$i]['done'] = $agenda->getFnDone();
             $i++;
-        }              
+        }
 
         return new Response(json_encode($info));
     }
@@ -382,7 +388,6 @@ class AgendaController extends Controller
      */
     public function newshortAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
         $entity = new Agenda();
 
         $form = $this->createFormBuilder($entity)
@@ -433,14 +438,10 @@ class AgendaController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $request = $this->getRequest();
-        $AJAXresponse = array();
-
+        
         if(isset($slug)){
             $myEntity = $em->getRepository('AppBundle:Agenda')->find($slug);
         }
-
-
-        $defaultData = array('message' => 'Type your message here');
 
 
         if ($request->getMethod() == 'PUT') {
