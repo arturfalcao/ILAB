@@ -329,7 +329,6 @@ class TAmostrasAdminCustomController extends Controller
         // consider using ->getArrayResult() to use less memory
         return new Response(json_encode($queryBuilder->getQuery()->getResult()));
     }
-<<<<<<< HEAD
 
 
 
@@ -394,9 +393,6 @@ class TAmostrasAdminCustomController extends Controller
 
 
 
-
-=======
->>>>>>> parent of 47c5642... amostras
     public function AmostrasGetParametrosAction()
     {
         $arr = $this->get("request")->getContent();
