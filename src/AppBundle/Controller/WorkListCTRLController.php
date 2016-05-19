@@ -748,57 +748,66 @@ EOF;
             $pdf->SetTitle('CELSO');
             $pdf->SetSubject('TCPDF Tutorial');
             $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-            $tagvs = array('p' => array(0 => array('h' => 0, 'n' => 0), 1 => array('h' => 0, 'n'
-            => 0)));
-            $pdf->setHtmlVSpace($tagvs);
 
-// set default header data
+            // set default header data
 
             $pdf->SetMargins(7, 35, 7);
             $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
             $pdf->SetHeaderData('logopimenta.png', 50, 'RELATÓRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
 
-// set header and footer fonts
+            // set header and footer fonts
 
 
             $pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
 
             $pdf->AddPage();
 
-       
-            $html = "<style>div{padding: 0px;margin: 0px;}</style>" . $users[0]["cabecalhojson"] . "";
+            $html = '<table cellspacing="1" cellpadding="1">';
+            $body="";
+            $body = $body .  "<tr><td colspan='1'></td><td colspan='4'>" . $users[0]['cabecalhojson'] . "</td></tr>";
+            //$pdf->writeHTMLCell(0, 0, '', '', $html, 'LRTB', 1, 0, true, 'L', true);
+            //$html="";
             foreach ($amostra as &$value) {
-                $html = $html . "" . $users[0]["tablejson"] . "";
-            }
-        $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
-        $pdf->setHtmlVSpace($tagvs);
+                $body= $body. "<tr><td colspan='1'></td><td colspan='4'>" . $users[0]["tablejson"] . "</td></tr>";
+                //$pdf->writeHTMLCell(0, 0, '', '', $html, 'LRTB', 1, 0, true, 'L', true);
 
-// output the HTML content
-            $pdf->writeHTML($html, true, false, true,false, '');
+            }
+        $html = $html . $body ."</table>";
+        try {
+
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        // output the HTML content
+        //$pdf->writeHTML($html, true, false, true,false, '');
 
 
             $pdf->lastPage();
 
-// set default monospaced font
+        // set default monospaced font
 
 
-// set margins
+        // set margins
 
 
-// set auto page breaks
+        // set auto page breaks
 
 
-// set image scale factor
+        // set image scale factor
 
-            $filelocation = "/var/www/html/lab/app/listas";
-            $fileNL = $filelocation."/celso1.pdf"; //Linux
-            $pdf->Output($fileNL , 'F');
+        $filelocation = "/var/www/html/lab/app/listas";
+        $fileNL = $filelocation."/celso1.pdf"; //Linux
+        $pdf->Output($fileNL , 'F');
 
         //change all sample to state on progress
 
         //change all parameter to state on progress
-        return new Response(json_encode($html));
+        } catch (Exception $e) {
+            return new Response(json_encode($e->getMessage()));
+
+        }
+            return new Response(json_encode($html));
 
 
     }
