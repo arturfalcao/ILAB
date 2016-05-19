@@ -165,7 +165,7 @@ class TResultados
      *
      * @ORM\ManyToOne(targetEntity="TEstados")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="fn_id")
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
      * })
      */
     private $ftEstado;

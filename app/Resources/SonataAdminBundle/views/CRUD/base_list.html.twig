@@ -210,7 +210,7 @@ file that was distributed with this source code.
                             <div class="large-2 vazio medium-2 form-group visivel" style="margin-left: 35px;margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
-                                        {% if filter.formName == 'fnId'  or filter.formName == 'ftCodigo'
+                                        {% if filter.formName == 'fnId' or filter.formName == 'ftId' or filter.formName == 'ftCodigo'
                                         or filter.formName == 'fbActivo' or filter.formName == 'ftFormulaquimica'
                                         or filter.formName == 'fbIncluirnorelatorio'
                                         or filter.formName == 'fnAreaensaio' or filter.formName == 'fnLaboratorio'
@@ -254,7 +254,7 @@ file that was distributed with this source code.
                                          or filter.formName == 'fnModeloparametro' or filter.formName == 'fnFamiliaparametro'
                                             or filter.formName == 'ftOriginal' or filter.formName == 'ftAcondicionamento'
                                              or filter.formName == 'ftValidade' or filter.formName == 'name'
-                                        or filter.formName == 'fnOrdem' or filter.formName == 'ftId'
+                                        or filter.formName == 'fnOrdem'
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -292,7 +292,7 @@ file that was distributed with this source code.
                                         or filter.formName == 'fnFrasco' or filter.formName == 'ftUltimoutilizador'
                                             or filter.formName == 'fbAnulada' or filter.formName == 'fnCalculado'
                                             or filter.formName == 'ftTemperatura' or filter.formName == 'ftFaseprocesso'
-
+                                             or filter.formName == 'ftTelefonecontacto'
                                         or filter.formName == 'fnLimiteinferior' or filter.formName == 'fnLimitesuperior'
                                             or filter.formName == 'fnTipoparametro'
                                          %}
@@ -393,7 +393,7 @@ file that was distributed with this source code.
                                 {% for filter in admin.datagrid.filters %}
 
 
-                                        {% if filter.formName == 'ftTelefone' or filter.formName == 'ftTelefonecontacto'
+                                        {% if filter.formName == 'ftTelefone' or filter.formName == 'ftFax'
                                          or filter.formName == 'fbAcreditado' or filter.formName == 'fnVolumeminimo'
                                         or filter.formName == 'fnLimitequantificacao' or filter.formName == 'ftConclusao'
                                           or filter.formName == 'fbAcreditado' or filter.formName == 'fbContraanalise'

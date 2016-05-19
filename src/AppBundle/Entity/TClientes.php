@@ -95,6 +95,13 @@ class TClientes
     /**
      * @var string
      *
+     * @ORM\Column(name="ft_fax", type="string", length=20, nullable=false)
+     */
+    private $ftFax;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="ft_email", type="string", length=50, nullable=false)
      */
     private $ftEmail;
@@ -401,7 +408,30 @@ class TClientes
     {
         return $this->ftTelefone;
     }
-    
+
+    /**
+     * Set ftFax
+     *
+     * @param string $ftFax
+     * @return TClientes
+     */
+    public function setFtFax($ftFax)
+    {
+        $this->ftFax = $ftFax;
+
+        return $this;
+    }
+
+    /**
+     * Get ftFax
+     *
+     * @return string 
+     */
+    public function getFtFax()
+    {
+        return $this->ftFax;
+    }
+
     /**
      * Set ftEmail
      *

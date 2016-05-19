@@ -151,6 +151,10 @@ class TProdutos
     }
 
 
+
+
+
+
     public function __toString()
     {
         return $this->ftDescricao;

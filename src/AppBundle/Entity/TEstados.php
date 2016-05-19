@@ -12,22 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TEstados
 {
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-     private $fnId;
-
     /**
      * @var string
      *
      * @ORM\Column(name="ft_id", type="string", length=1, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-
     private $ftId;
 
     /**
@@ -50,16 +41,6 @@ class TEstados
     }
 
     /**
-     * Get fnId
-     *
-     * @return string
-     */
-    public function getFnId()
-    {
-        return $this->fnId;
-    }
-
-    /**
      * Get ftId
      *
      * @return string 
@@ -76,7 +57,6 @@ class TEstados
      */
     public function setFtId($ftId)
     {
-
         $this->ftId = $ftId;
 
         return $this;

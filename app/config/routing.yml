@@ -149,16 +149,6 @@ GetTecnicaByMetodo:
     pattern:  /GetTecnicaByMetodo
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetTecnicaByMetodo}
 
-
-GetLegislacaoByProduto:
-    pattern:  /GetLegislacaoByProduto
-    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetLegislacaoByProduto}
-
-GetEspecificacaoByProduto:
-    pattern:  /GetEspecificacaoByProduto
-    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetEspecificacaoByProduto}
-
-
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 

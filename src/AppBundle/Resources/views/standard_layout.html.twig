@@ -21,9 +21,13 @@ file that was distributed with this source code.
 {% set _navbar_title = block('navbar_title') %}
 <!DOCTYPE html>
 <html {% block html_attributes %}class="no-js"{% endblock %}>
-<div class="splash_screen" style="display: none;">
+<div class="splash_screen">
 </div>
-
+<script>
+    setTimeout(function(){
+        $(".splash_screen").hide();
+    }, 2000);
+</script>
 
 <head>
 
@@ -79,9 +83,6 @@ file that was distributed with this source code.
 
     {% endblock %}
 
-    <script>
-        $(".splash_screen").show();
-    </script>
     <title>
         {% block sonata_head_title %}
             {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
@@ -298,7 +299,7 @@ file that was distributed with this source code.
         $(".t_generos option[value='m']").text('Masculino');
 
 
-        $(".splash_screen").hide();
+
     })
 </script>
 

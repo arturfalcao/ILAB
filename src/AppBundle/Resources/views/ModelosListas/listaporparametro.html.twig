@@ -64,7 +64,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/chat_agenda.css') }}" />
 {% endblock %}
 
 <div class="container-fluid">
@@ -184,6 +184,9 @@
 
     function getdata(){
 
+
+
+
         if( $('.parametro_ent_resultados').select2('data') != null){
             _parametro = $('.parametro_ent_resultados').select2('data').id;
             $.ajax({
@@ -249,12 +252,6 @@
     });
 
 </script>
-
-<style>
-    .circulo{
-        margin-left: 250px!important;
-    }
-</style>
 
 </body>
 </html>

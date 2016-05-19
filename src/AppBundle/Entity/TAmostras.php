@@ -13,41 +13,6 @@ use Doctrine\ORM\EntityManager;
  */
 class TAmostras
 {
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_done", type="integer")
-     */
-
-    private $fnDone=0;
-
-    /**
-     * Set done
-     *
-     * @param integer $done
-     * @return Agenda
-     */
-    public function setFnDone($done)
-    {
-        $this->fnDone = $done;
-
-        return $this;
-    }
-
-    /**
-     * Get done
-     *
-     * @return integer
-     */
-    public function getFnDone()
-    {
-        return $this->fnDone;
-    }
-
-
-
-
     /**
      * @var string $createdBy
      *
@@ -410,7 +375,7 @@ class TAmostras
      *
      * @ORM\ManyToOne(targetEntity="TEstados")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="fn_id")
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
      * })
      */
     private $ftEstado;

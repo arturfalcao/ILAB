@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
     <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/vendor/select2/select2.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/toastr.css') }}" />
 
 
     {% block javascripts %}
@@ -40,7 +39,6 @@
         <script type="text/javascript" src="{{ asset('bundles/app/js/calendar-settings.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
         <script type="text/javascript" src="{{ asset('bundles/sonataadmin/vendor/select2/select2.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/app/js/toastr.min.js') }}"></script>
 
     {% endblock %}
 </head>
@@ -175,22 +173,19 @@
     }
 
     var condi;
-    function savedata() {
-        if (editableGrid.data.length != 0) {
-            $.ajax({
-                type: "POST",
-                url: '{{ path('EntradaResultadossetByRegrasFormatacao') }}',
-                data: JSON.stringify(editableGrid.data),
-                success: function (data) {
-                    if (data > 0) {
-                        toastr.info("Resultados Guardados com sucesso");
-                    } else {
-                        toastr.info("Resultados não guardados");
-                    }
+    function savedata(){
+        $.ajax({
+            type: "POST",
+            url: '{{path('EntradaResultadossetByRegrasFormatacao')}}',
+            data: JSON.stringify(editableGrid.data),
+            success: function(data) {
+                if(data > 0){
+                    alert("Resultados Guardados com sucesso");
+                }else{
+                    alert("Resultado não guardado");
                 }
-            });
-
-        }
+            }
+        });
     }
 
     function getdata(){
@@ -235,7 +230,7 @@
                             hidden: true
                         });
                         var obj = $.parseJSON(data);
-                        if(obj.data && obj.data.length !=0){
+                        if(obj.data.length !=0){
                             var data2 = [];
                             var tt =1;
                             $.each( obj.data, function( key, value ) {
@@ -250,7 +245,7 @@
                         editableGrid.load({"metadata": metadata, "data": data2});
                         editableGrid.renderGrid("tablecontent", "testgrid");
                     }else{
-                        toastr.info("Não foram encontrados resultados para o seu pedido.")
+                        alert("Não foram encontrados resultados para o seu pedido.")
                     }
                 }
             });
@@ -317,7 +312,7 @@
                             editableGrid.renderGrid("tablecontent", "testgrid");
 
                         } else {
-                            toastr.info("Não foram encontrados resultados para o seu pedido.")
+                            alert("Não foram encontrados resultados para o seu pedido.")
                         }
                     }
                 });

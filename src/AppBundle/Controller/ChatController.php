@@ -119,6 +119,7 @@ class ChatController extends Controller
           $uploadedFile = $ficheiro->getClientOriginalName();
           $target_dir = $this->container->getParameter('kernel.root_dir') . "\Resources\public\images\\";
           $target_file = $target_dir . basename($uploadedFile);
+          $uploadOk = 1;
           $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
           // Check if image file is a actual image or fake image
           $check = getimagesize($ficheiro->getPathname());
@@ -408,7 +409,7 @@ class ChatController extends Controller
         $arr2 = explode("=", $parameter[1]);
 
         $user_clicado = intval($arr2[1]);
-
+        $conta = 0;
         if($user_clicado == 0)
         {
           $em = $this->getDoctrine()->getManager();
