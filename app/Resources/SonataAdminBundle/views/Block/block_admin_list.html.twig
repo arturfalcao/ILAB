@@ -28,7 +28,8 @@ file that was distributed with this source code.
                         <tbody>
                         {% for admin in group.items %}
                             {% if admin.hasroute('create') and admin.isGranted('CREATE') or admin.hasroute('list') and admin.isGranted('LIST') %}
-                                {% if admin.label != 'Produtos especificacoes' and admin.label != 'Modelos parametros grupo'%}
+                                {% if admin.label != 'Produtos especificacoes' and admin.label != 'Modelos parametros grupo'
+                                and admin.label != 'Parametros amostra'%}
 
                             <tr>
                                     <td class="sonata-ba-list-label" width="70%" style=" font-size: 14px;font-weight: normal;

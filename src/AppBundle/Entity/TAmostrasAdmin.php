@@ -215,10 +215,10 @@ class TAmostrasAdmin extends Admin
             ->end()
 
             ->with('Caracterização',array('description' => 'Caracterização','class' => 'Caracterizacao_amostra'))
-            ->add('fnProduto', 'sonata_type_model', array('label' => 'Produto', 'by_reference' => false))
+            ->add('fnProduto', 'sonata_type_model', array('attr'=> array('class'=>'_produto'),'label' => 'Produto', 'by_reference' => false))
             ->add('ftOrigem', 'text', array('label' => 'Origem', 'by_reference' => false))
-            ->add('fnLegislacao', 'sonata_type_model', array('label' => 'Legislação', 'by_reference' => false))
-            ->add('fnEspecificacao', 'sonata_type_model', array('label' => 'Especificação', 'by_reference' => false))
+            ->add('fnLegislacao', 'sonata_type_model', array('attr'=> array('class'=>'_legislacao'),'label' => 'Legislação', 'by_reference' => false))
+            ->add('fnEspecificacao', 'sonata_type_model', array('attr'=> array('class'=>'_especificacao'),'label' => 'Especificação', 'by_reference' => false))
             ->add('fnRequisicaocliente', 'sonata_type_model', array('label' => 'Requisição do cliente', 'by_reference' => false))
             ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo de Controlo', 'by_reference' => false))
             ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
@@ -259,9 +259,9 @@ class TAmostrasAdmin extends Admin
                  $query = $em->createQueryBuilder('c')
                      ->select('c')
                      ->from('AppBundle:TEstados', 'c')
-                     ->where("c.ftId = 'I'");
+                     ->where("c.ftId = 'V' or c.ftId = 'I'");
                  $formMapper ->with('Addresses', array('class' => 'display_none'))
-                     ->add('ftEstado','sonata_type_model', array('attr' => array('class' => 'display_none'),'query' => $query))
+                     ->add('ftEstado','sonata_type_model', array('label'=>'Estado','query' => $query))
                      ->end();
              }
         ;

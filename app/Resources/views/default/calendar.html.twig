@@ -47,6 +47,15 @@
     </script>
 {% endblock %}
 
+<div class="splash_screen" ></div>
+
+<script>
+    function mostra(){
+        $(".splash_screen").hide();
+    }
+    setTimeout(mostra, 3000);
+</script>
+
 <style>
 
     body{
@@ -73,6 +82,7 @@
             <div class="row">
                 <div >
                     {% block body%}
+
                         <!-- a minha Angular App -->
                         <div ng-app="CalendarModule" style="padding-top:8px;">
                             <div ng-controller="CalendarCtrl" >
@@ -82,10 +92,9 @@
 
                                 {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
 
-
-
                             </div>
                         </div>
+
                     {% endblock %}
                 </div>
             </div>
@@ -95,8 +104,8 @@
 </div>
 
 
-
 <script>
+
     function sendForm(form, callback) {
         // Get all form values
         var values = {};
@@ -111,13 +120,16 @@
             type        : 'POST',
             url         : '/app_dev.php/agenda/calendar/newshort',
             data        : values,
-            success     : function(result) { callback( result ); }
+            success     : function(result) { callback( result );  }
         });
+
     }
+
     $(function() {
         $('#submit_short_calendar').on('click', function( e ){
             e.preventDefault();
             $("#cal_new_event").css( {display:"none"});
+
             sendForm( $('#short_calendar'), function( response ){
 
                 var data = JSON.parse(response);
@@ -129,9 +141,14 @@
                         end: data.events.event.enddate,
                         allDay: data.events.event.allday == 1 ? true : false
                     }
+
                 );
-                $('#calendar-holder').fullCalendar('rerenderEvents')
+                $('#calendar-holder').fullCalendar('rerenderEvents');
+
+
             });
         });
     });
+
 </script>
+

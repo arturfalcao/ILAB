@@ -40,9 +40,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}" />
 
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -67,6 +64,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 
 {% endblock %}
+
+<script type="text/javascript" src="{{ asset('/bundles/app/js/toastr.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('/bundles/app/css/toastr.min.css') }}" />
 
 <div class="new_cal_element">
 
@@ -235,13 +235,14 @@
 
                         <script>
                             $( document ).ready(function() {
+
+
                                 $('input[type="checkbox"]').iCheck({
                                     checkboxClass: 'icheckbox_minimal',
                                     radioClass: 'iradio_minimal',
                                     increaseArea: '20%' // optional
                                 });
                                 $('.lancar_amostras').click(function() {
-
                                     var tt = $('input[type="checkbox"]').iCheck('data');
                                     var send ="";
                                     $.each(tt, function( index, value ) {
@@ -261,11 +262,12 @@
                                             if(data == "ok"){
                                                 location.reload();
                                             }else{
-                                                alert("Não foi possivel atualizar/lançar as amostras");
+                                                toastr.info("Não foi possivel atualizar/lançar as amostras");
                                             }
 
                                         }
                                     });
+
                                 });
                                 $('select').select2();
                                 $('.datepickers').datetimepicker({
@@ -299,7 +301,6 @@
                                     $("#cab_filtros").toggle("hide");
                                     $("#rod_filtros").toggle("show");
                                 });
-
 
                             });
 

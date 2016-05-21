@@ -64,8 +64,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/fontes_awesome.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/chat_agenda.css') }}" />
+
+
 {% endblock %}
+
+
+<script type="text/javascript" src="{{ asset('/bundles/app/js/toastr.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('/bundles/app/css/toastr.min.css') }}" />
 
 <div class="container-fluid">
 
@@ -195,9 +200,6 @@
 
     function getdata(){
 
-
-
-
         if( $('.parametro_ent_resultados').select2('data') != null){
             _parametro = $('.parametro_ent_resultados').select2('data').id;
             _metodo = $('.parametro_metodo').select2('data').id;
@@ -206,7 +208,7 @@
                 url: '{{path('GetparameterbysampleForParameter')}}',
                 data: $('.parametro_ent_resultados').select2('data').id + ',' + $('.parametro_metodo').select2('data').id,
                 success: function(data) {
-                    if(data != "NoData"){
+                    if(data != "[]"){
                         $("#parametros_grid").bootgrid("destroy");
                         var grid_para = $("#parametros_grid").bootgrid({
                             navigation:0,
@@ -241,7 +243,7 @@
 
                         }
                     }else{
-                        alert("Não foram encontrados resultados para o seu pedido.")
+                        toastr.info("Não foram encontrados resultados para o seu pedido.")
                     }
                 }
             });
@@ -268,6 +270,12 @@
     });
 
 </script>
+
+<style>
+    .circulo{
+        margin-left: 250px!important;
+    }
+</style>
 
 </body>
 </html>
