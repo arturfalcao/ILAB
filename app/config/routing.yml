@@ -195,7 +195,9 @@ GetparameterbysampleForParameter:
 GenerateworklistbyParameter:
   pattern:  /getlistaporparametro
   defaults: { _controller: AppBundle:WorkListCTRL:GenerateworklistbyParameter}
-
+GetPDFFile:
+  pattern:  /getpdflista/{slug}
+  defaults: { _controller: AppBundle:WorkListCTRL:GetPDFFile}
 
 #Jose
 sucesso:

@@ -659,8 +659,7 @@
 
 
 
-        {% if admin.id(object) is null or ( admin.id(object) is not null and (object.ftEstado.ftId == 'P'
-        or object.ftEstado.ftId == 'I')) %}
+        {% if admin.id(object) is null  %}
 
             <script>
                 $( document ).ready(function() {
@@ -998,7 +997,7 @@
     $( document ).ready(function() {
 
         $("._grupoparametros").on('select2-loaded', function (e) {
-            $('._grupoparametros').select2('disable');
+            //$('._grupoparametros').select2('disable');
 
         });
         $('._modeloamostra').on("select2-selecting", function(e) {
@@ -1009,7 +1008,7 @@
 </script>
 
 
-
+    <style>
         {% if 'edit' in admin.request.pathInfo %}
         .Cliente_amostra .select2-container{
             width: 78% !important;

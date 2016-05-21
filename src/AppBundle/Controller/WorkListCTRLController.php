@@ -17,7 +17,7 @@ use AppBundle\Entity\TResultados;
 use AppBundle\Entity\TEstados;
 use Symfony\Component\HttpFoundation\Response;
 use WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle;
-
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 /**
  * Agenda controller.
@@ -432,8 +432,12 @@ EOF;
    // get parameters by sample for worklist groped by parameter
     public function  GetparameterbysampleForParameterAction(){
         $id_parameter = $this->get("request")->getContent();
+        $arr2 = explode(",", $id_parameter );
+        $id_parameter  = $arr2[0];
+        $id_metodo = $arr2[1];
 
-        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 'D' or t_amostras.ft_id_estado = 'V') and t_parametrosamostra.fn_id = ". $id_parameter ;
+
+        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 'D' or t_amostras.ft_id_estado = 'V') and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
 
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
@@ -453,7 +457,9 @@ EOF;
 
         $em = $this->getDoctrine()->getManager();
         $parameters = $em->getRepository('AppBundle:TParametros')->findAll();
-        return $this->render('AppBundle:ModelosListas:listaporparametro.html.twig',array('data' => $parameters));
+        $metodos= $em->getRepository('AppBundle:TMetodos')->findAll();
+
+        return $this->render('AppBundle:ModelosListas:listaporparametro.html.twig',array('data' => $parameters,'data_metodos' => $metodos));
     }
 
     //TODO : notificar cliente de amostra completa
@@ -589,7 +595,7 @@ EOF;
             }
 
             if($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X' && $amostra->getFtEstado()->getFtCodigo() != 'P' ){
-                $arr = $em->getRepository('AppBundle\Entity\TParametrosgrupo')->findBytgrupo($amostra->getFnModelo()->getFnGrupoparametros()->getFnId());
+                $arr = $em->getRepository('AppBundle\Entity\TParametrosgrupo')->findBytgrupo($amostra->getFtGrupoparametros());
             }else{
                 $arr = $em->getRepository('AppBundle:TAmostrasParametros')->findByIdamostra($slug);
                 $flag = 1;
@@ -599,13 +605,14 @@ EOF;
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
             foreach ($arr as $value) {
+                
                 if($flag == 0){
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
 
                 }else{
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
-
                 }
+
 /*
                 if($flag == 0){
 
@@ -745,7 +752,13 @@ EOF;
         ));
     }
 
-    //generate worklist by parameter
+    public function GetPDFFileAction($slug)
+    {
+        $slug = str_replace('"', "", $slug);
+        return new BinaryFileResponse('../app/listas/' . $slug);
+    }
+
+//generate worklist by parameter
     public function GenerateworklistbyParameterAction(){
 
 
@@ -757,7 +770,8 @@ EOF;
         $amostra = explode("%2C", $amostra[1]);
         $para =explode("=", $arr2[1]);
         $para =$para[1];
-
+        $metodo ="";
+        $fileNL="";
 
         //get all html from modelos lista
         $em = $this->getDoctrine()->getManager();
@@ -770,8 +784,12 @@ EOF;
             ->getQuery()
             ->getArrayResult();
 
+        try {
+            
 
-        //generate pdf with html
+
+
+            //generate pdf with html
 
             $pdf = $this->container->get("white_october.tcpdf")->create(
                 'P',
@@ -783,60 +801,105 @@ EOF;
             );
             // set document information
             $pdf->SetCreator(PDF_CREATOR);
-            $pdf->SetAuthor('Nicola Asuni');
-            $pdf->SetTitle('CELSO');
-            $pdf->SetSubject('TCPDF Tutorial');
-            $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+            $pdf->SetAuthor('Pimenta do Vale');
+            $pdf->SetTitle('Lista de Trabalho');
+
+
 
             // set default header data
 
             $pdf->SetMargins(7, 35, 7);
             $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+            $enc = mb_detect_encoding("Emissão:", "UTF-8,ISO-8859-1");
 
-            $pdf->SetHeaderData('logopimenta.png', 50, 'RELAToRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
+            $pdf->setAutoPageBreak(true, 30);
 
-            // set header and footer fonts
-
-
-            $pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
-
-            $pdf->AddPage();
-
-            $html = '<table cellspacing="1" cellpadding="1">';
+            $html = '<table border="1" aling="center">';
             $body="";
-            $body = $body .  "<tr><td colspan='1'></td><td colspan='4'>" . $users[0]['cabecalhojson'] . "</td></tr>";
-            //$pdf->writeHTMLCell(0, 0, '', '', $html, 'LRTB', 1, 0, true, 'L', true);
-            //$html="";
-            foreach ($amostra as &$value) {
-                $body= $body. "<tr><td colspan='1'></td><td colspan='4'>" . $users[0]["tablejson"] . "</td></tr>";
-                //$pdf->writeHTMLCell(0, 0, '', '', $html, 'LRTB', 1, 0, true, 'L', true);
+            $header_aux = 0 ;
+            $sql = "SELECT max(fn_id_lista) as max_id_lista from t_parametrosamostra";
+            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+            $activeDate->execute();
+            $result1 = $activeDate->fetchAll();
 
+
+
+            $result1[0]['max_id_lista'] =$result1[0]['max_id_lista'] != null ?$result1[0]['max_id_lista'] : 0;
+            $result1[0]['max_id_lista']++;
+
+            for ($i = 0; $i < 30; $i++) {
+                foreach ($amostra as &$value) {
+
+                    if ($value != "") {
+                        $sql = "SELECT t_parametrosamostra.fn_id_amostra as amostra, t_parametrosamostra.ft_descricao as parametro , t_gruposparametros.ft_codigo as grupo  , t_metodos.ft_descricao as metodo , t_unidadesmedida.ft_descricao as unidade FROM t_parametrosamostra inner join t_amostras on t_parametrosamostra.fn_id_amostra = t_amostras.fn_id inner join t_gruposparametros on t_amostras.ft_grupoparametros = t_gruposparametros.fn_id inner join t_metodos on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id inner join t_resultados on t_parametrosamostra.id = t_resultados.fn_id_parametro inner join t_unidadesmedida on t_resultados.fn_id_unidade = t_unidadesmedida.fn_id where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para . ";";
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+                        $result = $activeDate->fetchAll();
+
+                        $sql = "UPDATE t_parametrosamostra SET fn_id_lista = ".$result1[0]['max_id_lista'] ." where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para;
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+
+                        if ($header_aux == 0) {
+                            $header_aux = 1;
+                            $pdf->SetHeaderData('logopimenta.png', 50, '<table border="0" align="center"><tr><th>Lista de Trabalho</th></tr><tr><th>' . utf8_decode($result[0]["parametro"]) . ' (' . utf8_decode($result[0]["metodo"]) . ')</th></tr><tr><th>' . utf8_decode($result[0]["unidade"]) . '</th></tr><tr><th>Codigo: '.$result1[0]["max_id_lista"].'</th></tr><tr><th>' . utf8_decode("Emissão:") . date("d-m-Y") . '</th></tr></table>', PDF_HEADER_STRING);
+                            $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+
+                            // set header and footer fonts
+
+                            //$pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
+
+                            $pdf->AddPage();
+                            $pdf->SetFont('helvetica', '', 10, '', 'default', true);
+                        }
+
+                        $pdf->SetFont('helvetica', '', 10, '', 'default', true);
+
+                        $body = $body . '<tr style="line-height: 4px;"><th></th></tr><tr><th style="width: 40px;"  >' . $result[0]["grupo"] . '</th><th style="width: 50px;">' . $result[0]["amostra"] . '</th><th style="width: 470px;">' . $users[0]["tablejson"] . '</th></tr>';
+                    }
+
+                }
             }
-        $html = $html . $body ."</table>";
-        try {
 
+            $head=$users[0]['cabecalhojson'];
 
-        $pdf->writeHTML($html, true, false, true, false, '');
+            $html = <<<EOD
+            <style>
+  th {
+    font-size: 8px;
+  }
+  .bold_one{
+    font-weight: bold;
+  }
+  tr {
+    font-size: 8px;
+  }
+</style>
+<table border="0" align="center">
+<tr style="line-height: 4px;"><th></th></tr>
+<tr>
+<th class="bold_one" style="width: 40px;" >Tipo</th>
+<th class="bold_one" style="width: 50px;">Amostra</th>
+<th class="bold_one" style="width: 470px;">{$head}</th>
+</tr>
+{$body}
+</table>
+EOD;
+
+        $pdf->writeHTML($html, true, false, false, false, 'center');
 
         // output the HTML content
         //$pdf->writeHTML($html, true, false, true,false, '');
 
-
             $pdf->lastPage();
 
         // set default monospaced font
-
-
         // set margins
-
-
         // set auto page breaks
-
-
         // set image scale factor
 
         $filelocation = "/var/www/html/lab/app/listas";
-        $fileNL = $filelocation."/celso1.pdf"; //Linux
+        $fileNL = $filelocation."/".$result1[0]['max_id_lista'].".pdf"; //Linux
         $pdf->Output($fileNL , 'F');
 
         //change all sample to state on progress
@@ -846,7 +909,7 @@ EOF;
             return new Response(json_encode($e->getMessage()));
 
         }
-            return new Response(json_encode($html));
+            return new Response(json_encode("" . $result1[0]['max_id_lista'].".pdf"));
 
 
     }
