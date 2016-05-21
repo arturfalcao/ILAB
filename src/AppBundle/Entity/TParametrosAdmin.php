@@ -78,7 +78,7 @@ class TParametrosAdmin extends Admin
 
             //->add('fnTecnica',null, array('label' => 'Técnica'))
             
-            ->add('fnAreaensaio',null, array('label' => 'Área de Ensaio'))
+            ->add('fnAreaensaio',null, array('required'=>true,'label' => 'Área de Ensaio'))
             ->add('fnTipoparametro',null, array('label' => 'Tipo de Parâmetro'))
             ->add('fdLimiterealizacao','sonata_type_datetime_picker', array('label' => 'Limite de Realização','format' => 'dd-MM-yyyy',
                 'attr' => array(
@@ -86,7 +86,7 @@ class TParametrosAdmin extends Admin
                 )))
             ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre especificação'))
             ->add('ftConclusao',null, array('label' => 'Conclusão'))
-            ->add('fnModeloparametro',null, array('label' => 'Modelo Parâmetro'))
+            ->add('fnModeloparametro',null, array('required'=>true,'label' => 'Modelo Parâmetro'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
 
             ->end()
@@ -107,7 +107,7 @@ class TParametrosAdmin extends Admin
                 'attr' => array(
                     'data-date-format' => 'DD-MM-YYYY',
                 )))
-            ->add('fnLaboratorio',null, array('label' => 'Laboratório'))
+            ->add('fnLaboratorio',null, array('required'=>true,'label' => 'Laboratório'))
             ->add('fnPrecocompra',null, array('label' => 'Preço de Compra'))
             ->add('fnPrecovenda',null, array('label' => 'Preço de venda'))
             ->add('fnFactorcorreccao',null, array('label' => 'Factor de correcção'))
@@ -116,7 +116,7 @@ class TParametrosAdmin extends Admin
             ->end()
             ->with('grupo_3',array('description' => 'X','class' => 'col-md-4'))
                 ->add('fnLimitelegal',null, array('label' => 'Limite legal'))
-                ->add('fnFamiliaparametro',null, array('label' => 'Família Parâmetro'))
+                ->add('fnFamiliaparametro',null, array('required'=>true,'label' => 'Família Parâmetro'))
                 ->add('ftFormulaquimica',null, array('label' => 'Fórmula Química'))
                 ->add('fnFrasco',null, array('label' => 'Frasco'))
                 ->add('fnVolumeminimo',null, array('label' => 'Volume mínimo'))
@@ -159,7 +159,7 @@ class TParametrosAdmin extends Admin
             ->add('fnFrasco')
             ->add('fnVolumeminimo')
             ->add('fbConfirmacao')
-            ->add('ftEstado')
+            //->add('ftEstado')
             ->add('fbContraanalise')
             ->add('fdRealizacao')
         ;

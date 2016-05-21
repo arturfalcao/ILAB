@@ -26,7 +26,7 @@ class TFamiliasprodutos
      *
      * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
      */
-    private $ftCodigo = 'x';
+    private $ftCodigo ;
 
     /**
      * @var string

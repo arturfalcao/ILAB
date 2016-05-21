@@ -88,7 +88,7 @@ class TParametros
      *
      * @ORM\ManyToOne(targetEntity="TEstados")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="fn_id")
      * })
      */
     private $ftEstado;
@@ -419,7 +419,7 @@ class TParametros
     /**
      * @ORM\ManyToMany(targetEntity="TEspecificacoes", mappedBy="fnEspecificacoes")
      */
-    private $especificacoes;
+    //private $especificacoes;
 
 
     /**
@@ -462,6 +462,8 @@ class TParametros
      */
     public function setespecificacoes(\AppBundle\Entity\TEspecificacoes $especificacoes = null)
     {
+        var_dump($especificacoes);
+        die;
         $this->especificacoes[] = $especificacoes;
 
     }

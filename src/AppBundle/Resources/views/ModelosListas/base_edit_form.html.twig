@@ -7,6 +7,7 @@
         <div>
             {{ "form_not_available"|trans({}, "SonataAdminBundle") }}
         </div>
+
     {% else %}
         <form class="modeloslistas_form"
               {% if admin_pool.getOption('form_type') == 'horizontal' %}class="form-horizontal"{% endif %}
@@ -55,6 +56,8 @@
                         </div>
                     {% else %}
                         {{ form_helper.render_groups(admin, form, admin.formtabs['default'].groups, has_tab) }}
+
+
                         <script>
 
                             tinymce.init({
@@ -92,9 +95,9 @@
                             });
                         </script>
                         <textarea class="text_tabela"></textarea>
-                        <label class="control-label required" for="">Estrutura do cabeçalho da lista</label>
-                        <textarea class="text_header"></textarea>
 
+                        <label class="control-label required" style="margin-top:270px;" for="">Estrutura do cabeçalho da lista</label>
+                        <textarea class="text_header"></textarea>
 
                     {% endif %}
                 </div>
@@ -153,4 +156,21 @@
 
     {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}
 
+    <script>
+        $( document ).ready(function() {
+            $(".LABELCABJSON").remove();
+        });
+    </script>
+    <style>
+        #mceu_13{
+            margin-bottom: 30px;
+        }
+        #mceu_45{
+            margin-top: 30px;
+        }
+
+        .margem_n20{
+            margin-bottom: -20px;
+        }
+    </style>
 {% endblock %}

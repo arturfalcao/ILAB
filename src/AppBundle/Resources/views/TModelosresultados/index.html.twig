@@ -1,5 +1,8 @@
 {% extends '::base.html.twig' %}
 
+<script type="text/javascript" src="{{ asset('/bundles/app/js/toastr.min.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('/bundles/app/css/toastr.min.css') }}" />
+
 {% block body %}
         <h1>TModelosresultados list</h1>
         <script>
@@ -92,7 +95,7 @@
             }).controller('RegrasFormatacaoCRTL', function($scope, $http) {
                     $scope.openformatacao = function(){
                             if($scope.curid ==""){
-                                alert("Tem de seleccionar um elemento da grelha ou criar um novo");
+                                toastr.info("Tem de seleccionar um elemento da grelha ou criar um novo");
                             }else{
                                 $http.get('/tregrasformatacao/GetAllRegrasFormatacao/'+ $scope.curid).
                                         then(function(response) {
