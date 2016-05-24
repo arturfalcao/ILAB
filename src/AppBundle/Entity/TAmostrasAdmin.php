@@ -224,6 +224,7 @@ class TAmostrasAdmin extends Admin
             ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
             ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo de aprovação', 'by_reference' => false))
             ->add('ftEstado', 'sonata_type_model', array('label' => 'Estado', 'by_reference' => false))
+            ->add('ftRefexterna','text',array('label' => 'Referencia Externa'))
             ->add('ftConclusao', 'text', array('label' => 'Conclusão'))
             ->add('ftObs', 'text', array('label' => 'Observações'))
             ->end()

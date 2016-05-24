@@ -143,8 +143,76 @@ class WorkListCTRLController extends Controller
 
     public function EmitRelatorioAction($slug){
 
+        $em = $this->getDoctrine()->getManager();
+        $arr = $this->get("request")->getContent();
+        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        
+        $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação") .'</td></tr><tr><td class="font8">'.$amostra->getFtConclusao() .'</td></tr></table>';
+        
+        //TODO: ir buscar o tipo de parametros e colocar diretamente na tabela parametrosamostras
 
+        $parametros = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
 
+        foreach ($parametros as &$value) {
+            $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
+            $value->setFnTipoparametro($parametro->getFnTipoparametro());
+
+        }
+        $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Parâmetros Microbiologicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr></table>';
+        $header_fisico=  '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Físico-químicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr></table>';
+        $body_fisico="";
+        $body_micro ="";
+        $microeven = 0;
+        $fisieven = 0;
+        $microevenclass = 0;
+        $fisievenclass = 0;
+        //TODO: melhorar a logica dos parametros
+        foreach ($parametros as &$value) {
+            if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "Microbiologicos"){
+                $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
+
+                if($body_micro == ""){
+                    $body_micro = $header_micro . '<table class="table_resultados" ><tr style=""><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    $microeven++;
+                }else{
+                    $microeven++;
+                    if($microeven % 2 == 0){
+                        $microevenclass = "#d3d3d3";
+                    }else{
+                        $microevenclass = "#ffffff";
+                    }
+                    $body_micro = $body_micro .  '<tr bgcolor="'.$microevenclass.'" style=""><td style="width:15px;">1sad</td><td bgcolor="'.$microevenclass.'" colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="" bgcolor="'.$microevenclass.'">'.$resultado->getFtFormatado() .'</td><td bgcolor="'.$microevenclass.'">'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+
+                }
+            }
+            if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "FisicoQuimicos"){
+                $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
+                if($body_fisico == ""){
+                    $body_fisico = $header_fisico . '<table class="table_resultados" ><tr style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    $fisieven++;
+                }else{
+                    $fisieven++;
+                    if($fisieven % 2 == 0){
+                        $fisievenclass = "#d3d3d3";
+                    }else{
+                        $fisievenclass = "#ffffff";
+                    }
+                    $body_fisico = $body_fisico .  '<tr bgcolor="'.$fisievenclass.'" style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                }
+            }
+        }
+
+        $body_fisico = $body_fisico . '</table></br>';
+        $body_micro = $body_micro  . '</table></br>';
+        $modeloamostra = $em->getRepository('AppBundle:TModelosamostra')->findOneBy(array('fnId' => $amostra->getFnModelo()->getFnId()));
+
+        $amostraalimentos = $em->getRepository('AppBundle:TAmostrasalimentos')->findOneBy(array('fnId' => $amostra->getFnAmostrasalimentos()->getFnId()));
+        $cliente = $em->getRepository('AppBundle:TClientes')->findOneBy(array('fnId' => $amostra->getFnCliente()->getFnId()));
+        if($amostraalimentos->getFtLote() != null || $amostraalimentos->getFtAcondicionamento() != null ||  $amostraalimentos->getFtTemperatura() != null || $amostraalimentos->getFtFaseprocesso() != null  ){
+            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: '.$amostraalimentos->getFtLote().'</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:'.$amostraalimentos->getFtAcondicionamento().'</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: '.$amostraalimentos->getFtValidade().' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:'.$amostraalimentos->getFtFaseprocesso().'</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: '.$amostraalimentos->getFtTemperatura().' </td></tr></table>  </td></tr>';
+        }else{
+            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">'.$amostra->getFtOrigem().'</td></tr>';
+        }
         $pdf = $this->container->get("white_october.tcpdf")->create(
             'P',
             'mm',
@@ -155,16 +223,44 @@ class WorkListCTRLController extends Controller
         );
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Nicola Asuni');
-        $pdf->SetTitle('CELSO');
-        $pdf->SetSubject('TCPDF Tutorial');
-        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        $pdf->SetAuthor('Pimenta do Vale');
+        $pdf->SetTitle('50267');
+
 
 // set default header data
         $pdf->SetMargins(7, 35, 7);
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
-        $pdf->SetHeaderData('logopimenta.png', 50, 'RELATÓRIO DE ENSAIO Nº, 50267' , PDF_HEADER_STRING);
+        $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DE ENSAIO Nº, 50267') , PDF_HEADER_STRING);
+        $pdf->setFooterData(array(date("d-m-Y"), 0, 0), array(1, 0, 0));
+
+        //texto das vars
+        $ref = utf8_decode('Referência');
+        $recepcao = utf8_decode('Recepção');
+        $datacolheita = $amostra->getFdColheita()->format('d-m-Y');
+
+        //date de recepção da amostra
+        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 6 group by ft_id_estado order by fn_id desc";
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $datarecepcao =  $activeDate->fetchAll();
+        $datarecepcao = strtotime($datarecepcao[0]['updated_by_time']);
+        $datarecepcao = date('d-m-Y',$datarecepcao);
+        //date de inicio dos trabalhos
+        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 3 group by ft_id_estado order by fn_id desc";
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $datainicio =  $activeDate->fetchAll();
+        $datainicio = strtotime($datainicio[0]['updated_by_time']);
+        $datainicio = date('d-m-Y',$datainicio);
+        //date de fim dos trabalhos
+        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 2 group by ft_id_estado order by fn_id desc";
+        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+        $activeDate->execute();
+        $datafim =  $activeDate->fetchAll();
+        $datafim  = strtotime($datafim[0]['updated_by_time']);
+        $datafim  = date('d-m-Y',$datafim );
+
 
 // set header and footer fonts
 
@@ -176,11 +272,19 @@ class WorkListCTRLController extends Controller
         $html = <<<EOF
         <style type="text/css">
     .info_amostra{
-
         font-size: 11px;
+    }
+    .odd{
+        background-color: #FFFFAA;
     }
     h3{
         text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;
+    }
+    .table_resultados *{
+    font-size:8px !important;
+    }
+    .font8{
+    font-size:8px !important;
     }
     .info_amostra div{
         float: left;
@@ -208,14 +312,14 @@ class WorkListCTRLController extends Controller
         font-size:9px;
         font-weight: normal;
     }
-     .table_resultados td{
-        margin-top: 5px !important;
+     .table_resultados{
+        
+        border-bottom :2px solid #000;
     }
     .table_resultados span{
         width:100%;
     }
     .table_resultados{
-        padding-top:10px;
     }
     .table_parametros td{
         border:none;
@@ -227,117 +331,95 @@ class WorkListCTRLController extends Controller
         display:block;
     }
     .table_parametros {
-        padding-top:5px;
         border-top :1px solid #000;
         border-bottom :1px solid #000;
     }
-
-
+    .apreciacao{
+        font-size:10px;
+        font-weight: bold;
+        margin-top : 10px;
+        border-bottom :2px solid #000;
+    }
+    .margin{
+        margin-top : 10px;
+    }
     .info_amostra div div{
         width: 100%;
         float: left;
         padding-left: 5px;
     }
 </style>
-<table class="first"  cellspacing="1" cellpadding="1">
-    <tr>
-        <td  align="left" width="200">
-            <table cellspacing="1" cellpadding="2">
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
-                </tr>
-                <tr>
-                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
-                </tr>
-                 <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td>
-                </tr>
-                <tr>
-                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
-                </tr>
-                 <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
-                </tr>
-                <tr>
-                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humeno</td>
-                </tr>
-                 <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Referência:</td>
-                </tr>
-                <tr>
-                    <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">consumo humAno</td>
-                </tr>
-            </table>
-        </td>
-        <td  align="left" width="90"></td>
-        <td  align="left" width="220">
-            <table cellspacing="1" cellpadding="2">
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
-                </tr>
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Ecofirma - gestão do ambiente, S.A</td>
-                </tr>
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">Av. Imaculada Conceicão, nº 409 - adaufe</td>
-                </tr>
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">4750-013- Braga</td>
-                </tr>
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
-                </tr>
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
-                </tr>
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
-                </tr>
-                <tr>
-                    <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
-                </tr>
-            </table>
-        </td>
- </tr>
-</table>
-<table class="table_colheita_info" cellspacing="0" cellpadding="1">
-    <tr>
-        <td>Colheita:</td>
-        <td class="table_colheita_info_data">28-09-2016</td>
-        <td>Recepção:</td>
-        <td class="table_colheita_info_data">28-09-2016</td>
-        <td>Inicio ensaios:</td>
-        <td class="table_colheita_info_data">28-09-2016</td>
-        <td>Fim dos ensaios:</td>
-        <td class="table_colheita_info_data">28-09-2016</td>
-    </tr>
-</table>
-<table class="table_parametros" >
-    <tr style="margin-top 5px;">
-        <td colspan="2">
-           <span>Parâmetros Microbiologicos     </span><br />
-            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
-        </td>
-        <td class="table_parametros_data"></td>
-        <td>Unidades</td>
-        <td class="table_parametros_data"></td>
-        <td></td>
-        <td class="table_parametros_data"></td>
-    </tr>
-</table>
-<table class="table_resultados">
-    <tr style="margin-top 5px;">
-        <td colspan="2" class="resultados_one" style="border-spacing:6px 12px;padding:10px 4px 10px 4px">
-           Parâmetros Microbiologicos<br />
-            <span class="table_parametros_tecnica">Método de ensaio / Técnica analítica</span>
-        </td>
-        <td class="">0</td>
-        <td>ufc/100ml</td>
-        <td class="table_parametros_data"></td>
-        <td></td>
-        <td class="table_parametros_data"></td>
-    </tr>
-</table>
+        <table class="first"  cellspacing="1" cellpadding="1">
+            <tr>
+                <td  align="left" width="280">
+                    <table cellspacing="1" cellpadding="2">
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
+                        </tr>
+                        <tr>
+                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$modeloamostra->getFnTipoamostra()->getFtDescricao()}</td>
+                        </tr>
+                         {$origem}
+                         <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
+                        </tr>
+                        <tr>
+                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtResponsavelcolheita()}</td>
+                        </tr>
+                         <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
+                        </tr>
+                        <tr>
+                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtRefexterna()}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td  align="left" width="10"></td>
+                <td  align="left" width="220">
+                    <table cellspacing="1" cellpadding="2">
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                        </tr>
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtNome()}</td>
+                        </tr>
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtMorada()}</td>
+                        </tr>
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtCodpostal()}- {$cliente->getFtLocalidade()}</td>
+                        </tr>
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
+                        </tr>
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                        </tr>
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                        </tr>
+                        <tr>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                        </tr>
+                    </table>
+                </td>
+         </tr>
+        </table>
+        <table class="table_colheita_info" cellspacing="0" cellpadding="1">
+            <tr>
+                <td>Colheita:</td>
+                <td class="table_colheita_info_data">{$datacolheita}</td>
+                <td>{$recepcao}:</td>
+                <td class="table_colheita_info_data">{$datarecepcao}</td>
+                <td>Inicio ensaios:</td>
+                <td class="table_colheita_info_data">{$datainicio}</td>
+                <td>Fim dos ensaios:</td>
+                <td class="table_colheita_info_data">{$datafim}</td>
+            </tr>
+        </table>
+      {$body_micro}
+      {$body_fisico}
+      {$conclusao}
 EOF;
 
         $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
@@ -345,7 +427,7 @@ EOF;
 
 // output the HTML content
         $pdf->writeHTML($html, true, true, true, true, '');
-
+        $pdf->setAutoPageBreak(true, 30);
 
         $pdf->lastPage();
 
@@ -360,7 +442,11 @@ EOF;
 
 // set image scale factor
 
-        $pdf->Output("example.pdf", 'I');
+        $filelocation = "/var/www/html/lab/app/amostras";
+        $fileNL = $filelocation."/".$slug.".pdf"; //Linux
+        $pdf->Output($fileNL , 'I');
+        
+        
 
     }
 
@@ -458,7 +544,20 @@ EOF;
 
     //TODO : notificar cliente de amostra completa
     public function NotifysampleAction($slug){
-    return new Response("ok");
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        //add new tparametrosamostra
+        $to      = 'celso.s.falcao@gmail.com';
+        $subject = 'the subject';
+        $message = 'hello';
+        $headers = 'From: celso.silva@iwish.solutions' . "\r\n" .
+            'Reply-To: celso.silva@iwish.solutions' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+
+        mail($to, $subject, $message, $headers);
+        return new Response("ok");
     }
 
     public function RelatoriosampleAction(){
@@ -839,7 +938,7 @@ EOF;
                         if ($header_aux == 0) {
                             $header_aux = 1;
                             $pdf->SetHeaderData('logopimenta.png', 50, '<table border="0" align="center"><tr><th>Lista de Trabalho</th></tr><tr><th>' . utf8_decode($result[0]["parametro"]) . ' (' . utf8_decode($result[0]["metodo"]) . ')</th></tr><tr><th>' . utf8_decode($result[0]["unidade"]) . '</th></tr><tr><th>Codigo: '.$result1[0]["max_id_lista"].'</th></tr><tr><th>' . utf8_decode("Emissão:") . date("d-m-Y") . '</th></tr></table>', PDF_HEADER_STRING);
-                            $pdf->setFooterData(array(0, 64, 0), array(0, 64, 128));
+                            $pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
 
                             // set header and footer fonts
 
