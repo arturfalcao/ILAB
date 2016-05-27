@@ -441,10 +441,10 @@ EOF;
 
 
 // set image scale factor
-
-        $filelocation = "/var/www/html/lab/app/amostras";
+        $filelocation = $this->container->getParameter('samplelocal');
         $fileNL = $filelocation."/".$slug.".pdf"; //Linux
-        $pdf->Output($fileNL , 'I');
+
+        $pdf->Output($fileNL , 'FI');
         
         
 

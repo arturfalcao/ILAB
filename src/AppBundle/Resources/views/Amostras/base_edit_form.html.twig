@@ -140,6 +140,10 @@
                             {
                                 rowIds.push(rows[i].id);
                             }
+                            GetAllMetodo(rows[0].idparametro);
+                            GetCicloPorParametro(rows[0].idparametro);
+                            GetResultadoPorParametro(rows[0].idparametro);
+                            GetParametroData(rows[0].idparametro);
 
                         }).on("deselected.rs.jquery.bootgrid", function(e, rows)
                         {
