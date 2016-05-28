@@ -799,7 +799,15 @@ EOF;
             $flag = 0;
             if($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X'){
 
-                $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($amostra2->getFnModelo()->getFnGrupoparametros()->getFnId());
+                if(!empty($amostra2->getFnModelo())){
+                    $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($amostra2->getFnModelo()->getFnGrupoparametros()->getFnId());
+                }else{
+                    $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($amostra2->getFtGrupoparametros());
+                }
+
+
+
+
                 foreach ($arr as $value) {
                     $NewAmostraParametro = new TAmostrasParametros();
                     $NewAmostraParametro->setIdamostra($slug);
