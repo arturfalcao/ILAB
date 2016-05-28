@@ -240,7 +240,7 @@ class WorkListCTRLController extends Controller
         $datacolheita = $amostra->getFdColheita()->format('d-m-Y');
 
         //date de recepção da amostra
-        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 6 group by ft_id_estado order by fn_id desc";
+        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." group by ft_id_estado order by fn_id desc";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $datarecepcao =  $activeDate->fetchAll();
@@ -890,7 +890,7 @@ EOF;
             ->getArrayResult();
 
         try {
-            
+
 
 
 
