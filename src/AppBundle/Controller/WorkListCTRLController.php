@@ -244,22 +244,38 @@ class WorkListCTRLController extends Controller
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $datarecepcao =  $activeDate->fetchAll();
-        $datarecepcao = strtotime($datarecepcao[0]['updated_by_time']);
-        $datarecepcao = date('d-m-Y',$datarecepcao);
+        if(count($datafim) != 0){
+            $datarecepcao = strtotime($datarecepcao[0]['updated_by_time']);
+            $datarecepcao = date('d-m-Y',$datarecepcao);
+        }else{
+            $datarecepcao  ="";
+        }
+
         //date de inicio dos trabalhos
         $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 3 group by ft_id_estado order by fn_id desc";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $datainicio =  $activeDate->fetchAll();
-        $datainicio = strtotime($datainicio[0]['updated_by_time']);
-        $datainicio = date('d-m-Y',$datainicio);
+
+        if(count($datafim) != 0){
+            $datainicio = strtotime($datainicio[0]['updated_by_time']);
+            $datainicio = date('d-m-Y',$datainicio);
+        }else{
+            $datainicio  ="";
+        }
+
         //date de fim dos trabalhos
         $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 2 group by ft_id_estado order by fn_id desc";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $datafim =  $activeDate->fetchAll();
-        $datafim  = strtotime($datafim[0]['updated_by_time']);
-        $datafim  = date('d-m-Y',$datafim );
+        if(count($datafim) != 0){
+            $datafim  = strtotime($datafim[0]['updated_by_time']);
+            $datafim  = date('d-m-Y',$datafim );
+        }else{
+            $datafim  ="";
+        }
+
 
 
 // set header and footer fonts
@@ -441,7 +457,7 @@ EOF;
 
 
 // set image scale factor
-        $filelocation = $this->container->getParameter('samplelocal');
+        $filelocation = "/var/www/html/lab/app/amostras";
         $fileNL = $filelocation."/".$slug.".pdf"; //Linux
 
         $pdf->Output($fileNL , 'FI');
