@@ -121,7 +121,7 @@ class TAmostrasAdminCustomController extends Controller
                 $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                 $activeDate->execute();
 
-                $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 4 , fn_id_amostra = " .$value . " where id_table > " . $last[0]["MAX(id_table)"] ;
+                $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 6 , fn_id_amostra = " .$value . " where id_table > " . $last[0]["MAX(id_table)"] ;
                 $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                 $activeDate->execute();
 
@@ -132,7 +132,7 @@ class TAmostrasAdminCustomController extends Controller
         }
 
         try {
-            $sql = "update t_amostras set ft_id_estado = 4 , updated_by_time = NOW() ,  updated_by = '". $this->get('security.token_storage')->getToken()->getUser() ."' where " . $where;
+            $sql = "update t_amostras set ft_id_estado = 6 , updated_by_time = NOW() ,  updated_by = '". $this->get('security.token_storage')->getToken()->getUser() ."' where " . $where;
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
         } catch (Exception $e) {
