@@ -36,120 +36,120 @@
       <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="250" column="26" selection-start-line="250" selection-start-column="26" selection-end-line="250" selection-end-column="26" />
+            <state relative-caret-position="334">
+              <caret line="246" column="30" selection-start-line="246" selection-start-column="30" selection-end-line="246" selection-end-column="30" />
               <folding>
                 <element signature="e#40#81#0#PHP" expanded="true" />
-                <marker date="1464446445982" expanded="true" signature="1687:1736" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="1999:3226" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1464446445982" expanded="true" signature="2517:3226" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="3400:3563" placeholder="UPDATE t_par... " />
-                <marker date="1464446445982" expanded="true" signature="4575:4624" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="4825:6052" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1464446445982" expanded="true" signature="5343:6052" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="6226:6389" placeholder="UPDATE t_par... " />
-                <marker date="1464446445982" expanded="true" signature="7780:7829" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="8030:9257" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1464446445982" expanded="true" signature="8548:9257" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="9431:9594" placeholder="UPDATE t_par... " />
-                <marker date="1464446445982" expanded="true" signature="10778:11180" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="10790:10805" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="10806:11172" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="10818:10829" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="10851:11024" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="11254:11269" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="11282:11293" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="16523:16637" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="16719:16792" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="16884:16898" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="16884:16911" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="16987:17001" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="16987:17015" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="17123:17137" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="17123:17150" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="17235:17249" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="17235:17262" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="17366:17393" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="17538:17652" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="17734:17807" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="18805:18908" placeholder="select * fro... t_amostras_logs" />
-                <marker date="1464446445982" expanded="true" signature="19363:19487" placeholder="select * fro... t_amostras_logs" />
-                <marker date="1464446445982" expanded="true" signature="19928:20052" placeholder="select * fro... t_amostras_logs" />
-                <marker date="1464446445982" expanded="true" signature="20678:22326" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="20697:20729" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="20787:20901" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="20925:20962" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21032:21060" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21088:21161" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21187:21269" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21320:21387" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21418:21477" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21515:21575" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21598:21653" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21680:21707" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21729:21736" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21761:21865" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21895:21925" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="21948:22030" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="22242:22318" placeholder="{...}" />
-                <marker date="1464446445982" expanded="false" signature="22389:26109" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="22406:26092" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="22453:24147" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="22513:24125" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="22542:22775" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="22584:22698" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="22804:23043" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="22857:22928" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23108:23348" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23150:23264" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23377:23600" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23430:23501" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23630:23853" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23672:23786" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23882:24096" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="23935:24006" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24245:26077" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24305:26055" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24334:24520" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24376:24459" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24549:24747" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24591:24644" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24776:24976" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="24818:24871" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25005:25238" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25047:25100" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25267:25441" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25309:25362" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25470:25626" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25512:25565" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25655:25811" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25697:25750" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25840:26026" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="25882:25965" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="26185:26682" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="26202:26665" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="29588:30176" placeholder="select t_par... t_parametrosamostra" />
-                <marker date="1464446445982" expanded="true" signature="30892:31474" placeholder="select t_par... t_parametrosamostra" />
-                <marker date="1464446445982" expanded="true" signature="33607:34913" placeholder="INSERT INTO t_parametrosamostra... " />
-                <marker date="1464446445982" expanded="true" signature="34203:34913" placeholder="SELECT aa.fn... t_parametros" />
-                <marker date="1464446445982" expanded="true" signature="35133:36262" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1464446445982" expanded="true" signature="35651:36262" placeholder="SELECT aa.fn... t_parametrosamostra" />
-                <marker date="1464446445982" expanded="true" signature="36414:36488" placeholder="UPDATE t_par... " />
-                <marker date="1464446445982" expanded="true" signature="36685:36876" placeholder="UPDATE t_par... " />
-                <marker date="1464446445982" expanded="true" signature="38364:38461" placeholder="UPDATE t_res... " />
-                <marker date="1464446445982" expanded="true" signature="39239:39288" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="39505:40685" placeholder="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1464446445982" expanded="true" signature="40023:40685" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1464446445982" expanded="true" signature="40860:41054" placeholder="UPDATE t_par... " />
-                <marker date="1464446445982" expanded="true" signature="50325:50422" placeholder="UPDATE t_res... " />
-                <marker date="1464446445982" expanded="true" signature="53379:53443" placeholder="SELECT max(f... t_parametrosamostra" />
-                <marker date="1464446445982" expanded="true" signature="53945:54684" placeholder="SELECT t_par... t_parametrosamostra" />
-                <marker date="1464446445982" expanded="true" signature="54947:55114" placeholder="UPDATE t_par... " />
-                <marker date="1464446445982" expanded="true" signature="56798:56909" placeholder="..." />
-                <marker date="1464446445982" expanded="true" signature="56805:56830" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="56842:56870" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="56876:56901" placeholder="{...}" />
-                <marker date="1464446445982" expanded="true" signature="56993:57004" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="1687:1736" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="1999:3226" placeholder="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1464446500422" expanded="true" signature="2517:3226" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="3400:3563" placeholder="UPDATE t_par... " />
+                <marker date="1464446500422" expanded="true" signature="4575:4624" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="4825:6052" placeholder="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1464446500422" expanded="true" signature="5343:6052" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="6226:6389" placeholder="UPDATE t_par... " />
+                <marker date="1464446500422" expanded="true" signature="7780:7829" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="8030:9257" placeholder="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1464446500422" expanded="true" signature="8548:9257" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="9431:9594" placeholder="UPDATE t_par... " />
+                <marker date="1464446500422" expanded="true" signature="10778:11180" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="10790:10805" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="10806:11172" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="10818:10829" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="10851:11024" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="11254:11269" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="11282:11293" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="16523:16637" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="16719:16792" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="16884:16898" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="16884:16911" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="16987:17001" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="16987:17015" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="17123:17137" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="17123:17150" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="17235:17249" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="17235:17262" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="17366:17393" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="17538:17652" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="17734:17807" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="18805:18908" placeholder="select * fro... t_amostras_logs" />
+                <marker date="1464446500422" expanded="true" signature="19368:19492" placeholder="select * fro... t_amostras_logs" />
+                <marker date="1464446500422" expanded="true" signature="19936:20060" placeholder="select * fro... t_amostras_logs" />
+                <marker date="1464446500422" expanded="true" signature="20686:22334" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="20705:20737" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="20795:20909" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="20933:20970" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21040:21068" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21096:21169" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21195:21277" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21328:21395" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21426:21485" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21523:21583" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21606:21661" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21688:21715" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21737:21744" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21769:21873" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21903:21933" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="21956:22038" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="22250:22326" placeholder="{...}" />
+                <marker date="1464446500422" expanded="false" signature="22397:26117" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="22414:26100" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="22461:24155" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="22521:24133" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="22550:22783" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="22592:22706" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="22812:23051" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="22865:22936" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23116:23356" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23158:23272" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23385:23608" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23438:23509" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23638:23861" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23680:23794" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23890:24104" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="23943:24014" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24253:26085" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24313:26063" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24342:24528" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24384:24467" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24557:24755" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24599:24652" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24784:24984" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="24826:24879" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25013:25246" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25055:25108" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25275:25449" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25317:25370" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25478:25634" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25520:25573" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25663:25819" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25705:25758" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25848:26034" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="25890:25973" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="26193:26690" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="26210:26673" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="29596:30184" placeholder="select t_par... t_parametrosamostra" />
+                <marker date="1464446500422" expanded="true" signature="30900:31482" placeholder="select t_par... t_parametrosamostra" />
+                <marker date="1464446500422" expanded="true" signature="33615:34921" placeholder="INSERT INTO t_parametrosamostra... " />
+                <marker date="1464446500422" expanded="true" signature="34211:34921" placeholder="SELECT aa.fn... t_parametros" />
+                <marker date="1464446500422" expanded="true" signature="35141:36270" placeholder="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1464446500422" expanded="true" signature="35659:36270" placeholder="SELECT aa.fn... t_parametrosamostra" />
+                <marker date="1464446500422" expanded="true" signature="36422:36496" placeholder="UPDATE t_par... " />
+                <marker date="1464446500422" expanded="true" signature="36693:36884" placeholder="UPDATE t_par... " />
+                <marker date="1464446500422" expanded="true" signature="38372:38469" placeholder="UPDATE t_res... " />
+                <marker date="1464446500422" expanded="true" signature="39247:39296" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="39513:40693" placeholder="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1464446500422" expanded="true" signature="40031:40693" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1464446500422" expanded="true" signature="40868:41062" placeholder="UPDATE t_par... " />
+                <marker date="1464446500422" expanded="true" signature="50333:50430" placeholder="UPDATE t_res... " />
+                <marker date="1464446500422" expanded="true" signature="53387:53451" placeholder="SELECT max(f... t_parametrosamostra" />
+                <marker date="1464446500422" expanded="true" signature="53953:54692" placeholder="SELECT t_par... t_parametrosamostra" />
+                <marker date="1464446500422" expanded="true" signature="54955:55122" placeholder="UPDATE t_par... " />
+                <marker date="1464446500422" expanded="true" signature="56806:56917" placeholder="..." />
+                <marker date="1464446500422" expanded="true" signature="56813:56838" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="56850:56878" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="56884:56909" placeholder="{...}" />
+                <marker date="1464446500422" expanded="true" signature="57001:57012" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -793,12 +793,12 @@
       <workItem from="1464227873611" duration="798000" />
       <workItem from="1464230945335" duration="522000" />
       <workItem from="1464388533297" duration="2559000" />
-      <workItem from="1464444419323" duration="2001000" />
+      <workItem from="1464444419323" duration="2058000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361868000" />
+    <option name="totallyTimeSpent" value="361925000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1265,120 +1265,120 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="250" column="26" selection-start-line="250" selection-start-column="26" selection-end-line="250" selection-end-column="26" />
+        <state relative-caret-position="334">
+          <caret line="246" column="30" selection-start-line="246" selection-start-column="30" selection-end-line="246" selection-end-column="30" />
           <folding>
             <element signature="e#40#81#0#PHP" expanded="true" />
-            <marker date="1464446445982" expanded="true" signature="1687:1736" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="1999:3226" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1464446445982" expanded="true" signature="2517:3226" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="3400:3563" placeholder="UPDATE t_par... " />
-            <marker date="1464446445982" expanded="true" signature="4575:4624" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="4825:6052" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1464446445982" expanded="true" signature="5343:6052" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="6226:6389" placeholder="UPDATE t_par... " />
-            <marker date="1464446445982" expanded="true" signature="7780:7829" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="8030:9257" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1464446445982" expanded="true" signature="8548:9257" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="9431:9594" placeholder="UPDATE t_par... " />
-            <marker date="1464446445982" expanded="true" signature="10778:11180" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="10790:10805" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="10806:11172" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="10818:10829" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="10851:11024" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="11254:11269" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="11282:11293" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="16523:16637" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="16719:16792" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="16884:16898" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="16884:16911" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="16987:17001" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="16987:17015" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="17123:17137" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="17123:17150" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="17235:17249" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="17235:17262" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="17366:17393" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="17538:17652" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="17734:17807" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="18805:18908" placeholder="select * fro... t_amostras_logs" />
-            <marker date="1464446445982" expanded="true" signature="19363:19487" placeholder="select * fro... t_amostras_logs" />
-            <marker date="1464446445982" expanded="true" signature="19928:20052" placeholder="select * fro... t_amostras_logs" />
-            <marker date="1464446445982" expanded="true" signature="20678:22326" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="20697:20729" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="20787:20901" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="20925:20962" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21032:21060" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21088:21161" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21187:21269" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21320:21387" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21418:21477" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21515:21575" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21598:21653" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21680:21707" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21729:21736" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21761:21865" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21895:21925" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="21948:22030" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="22242:22318" placeholder="{...}" />
-            <marker date="1464446445982" expanded="false" signature="22389:26109" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="22406:26092" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="22453:24147" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="22513:24125" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="22542:22775" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="22584:22698" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="22804:23043" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="22857:22928" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23108:23348" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23150:23264" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23377:23600" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23430:23501" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23630:23853" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23672:23786" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23882:24096" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="23935:24006" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24245:26077" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24305:26055" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24334:24520" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24376:24459" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24549:24747" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24591:24644" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24776:24976" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="24818:24871" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25005:25238" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25047:25100" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25267:25441" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25309:25362" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25470:25626" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25512:25565" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25655:25811" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25697:25750" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25840:26026" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="25882:25965" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="26185:26682" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="26202:26665" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="29588:30176" placeholder="select t_par... t_parametrosamostra" />
-            <marker date="1464446445982" expanded="true" signature="30892:31474" placeholder="select t_par... t_parametrosamostra" />
-            <marker date="1464446445982" expanded="true" signature="33607:34913" placeholder="INSERT INTO t_parametrosamostra... " />
-            <marker date="1464446445982" expanded="true" signature="34203:34913" placeholder="SELECT aa.fn... t_parametros" />
-            <marker date="1464446445982" expanded="true" signature="35133:36262" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1464446445982" expanded="true" signature="35651:36262" placeholder="SELECT aa.fn... t_parametrosamostra" />
-            <marker date="1464446445982" expanded="true" signature="36414:36488" placeholder="UPDATE t_par... " />
-            <marker date="1464446445982" expanded="true" signature="36685:36876" placeholder="UPDATE t_par... " />
-            <marker date="1464446445982" expanded="true" signature="38364:38461" placeholder="UPDATE t_res... " />
-            <marker date="1464446445982" expanded="true" signature="39239:39288" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="39505:40685" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1464446445982" expanded="true" signature="40023:40685" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1464446445982" expanded="true" signature="40860:41054" placeholder="UPDATE t_par... " />
-            <marker date="1464446445982" expanded="true" signature="50325:50422" placeholder="UPDATE t_res... " />
-            <marker date="1464446445982" expanded="true" signature="53379:53443" placeholder="SELECT max(f... t_parametrosamostra" />
-            <marker date="1464446445982" expanded="true" signature="53945:54684" placeholder="SELECT t_par... t_parametrosamostra" />
-            <marker date="1464446445982" expanded="true" signature="54947:55114" placeholder="UPDATE t_par... " />
-            <marker date="1464446445982" expanded="true" signature="56798:56909" placeholder="..." />
-            <marker date="1464446445982" expanded="true" signature="56805:56830" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="56842:56870" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="56876:56901" placeholder="{...}" />
-            <marker date="1464446445982" expanded="true" signature="56993:57004" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="1687:1736" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="1999:3226" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1464446500422" expanded="true" signature="2517:3226" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="3400:3563" placeholder="UPDATE t_par... " />
+            <marker date="1464446500422" expanded="true" signature="4575:4624" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="4825:6052" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1464446500422" expanded="true" signature="5343:6052" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="6226:6389" placeholder="UPDATE t_par... " />
+            <marker date="1464446500422" expanded="true" signature="7780:7829" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="8030:9257" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1464446500422" expanded="true" signature="8548:9257" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="9431:9594" placeholder="UPDATE t_par... " />
+            <marker date="1464446500422" expanded="true" signature="10778:11180" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="10790:10805" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="10806:11172" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="10818:10829" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="10851:11024" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="11254:11269" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="11282:11293" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="16523:16637" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="16719:16792" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="16884:16898" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="16884:16911" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="16987:17001" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="16987:17015" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="17123:17137" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="17123:17150" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="17235:17249" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="17235:17262" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="17366:17393" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="17538:17652" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="17734:17807" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="18805:18908" placeholder="select * fro... t_amostras_logs" />
+            <marker date="1464446500422" expanded="true" signature="19368:19492" placeholder="select * fro... t_amostras_logs" />
+            <marker date="1464446500422" expanded="true" signature="19936:20060" placeholder="select * fro... t_amostras_logs" />
+            <marker date="1464446500422" expanded="true" signature="20686:22334" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="20705:20737" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="20795:20909" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="20933:20970" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21040:21068" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21096:21169" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21195:21277" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21328:21395" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21426:21485" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21523:21583" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21606:21661" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21688:21715" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21737:21744" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21769:21873" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21903:21933" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="21956:22038" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="22250:22326" placeholder="{...}" />
+            <marker date="1464446500422" expanded="false" signature="22397:26117" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="22414:26100" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="22461:24155" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="22521:24133" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="22550:22783" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="22592:22706" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="22812:23051" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="22865:22936" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23116:23356" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23158:23272" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23385:23608" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23438:23509" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23638:23861" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23680:23794" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23890:24104" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="23943:24014" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24253:26085" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24313:26063" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24342:24528" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24384:24467" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24557:24755" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24599:24652" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24784:24984" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="24826:24879" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25013:25246" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25055:25108" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25275:25449" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25317:25370" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25478:25634" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25520:25573" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25663:25819" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25705:25758" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25848:26034" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="25890:25973" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="26193:26690" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="26210:26673" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="29596:30184" placeholder="select t_par... t_parametrosamostra" />
+            <marker date="1464446500422" expanded="true" signature="30900:31482" placeholder="select t_par... t_parametrosamostra" />
+            <marker date="1464446500422" expanded="true" signature="33615:34921" placeholder="INSERT INTO t_parametrosamostra... " />
+            <marker date="1464446500422" expanded="true" signature="34211:34921" placeholder="SELECT aa.fn... t_parametros" />
+            <marker date="1464446500422" expanded="true" signature="35141:36270" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1464446500422" expanded="true" signature="35659:36270" placeholder="SELECT aa.fn... t_parametrosamostra" />
+            <marker date="1464446500422" expanded="true" signature="36422:36496" placeholder="UPDATE t_par... " />
+            <marker date="1464446500422" expanded="true" signature="36693:36884" placeholder="UPDATE t_par... " />
+            <marker date="1464446500422" expanded="true" signature="38372:38469" placeholder="UPDATE t_res... " />
+            <marker date="1464446500422" expanded="true" signature="39247:39296" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="39513:40693" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1464446500422" expanded="true" signature="40031:40693" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1464446500422" expanded="true" signature="40868:41062" placeholder="UPDATE t_par... " />
+            <marker date="1464446500422" expanded="true" signature="50333:50430" placeholder="UPDATE t_res... " />
+            <marker date="1464446500422" expanded="true" signature="53387:53451" placeholder="SELECT max(f... t_parametrosamostra" />
+            <marker date="1464446500422" expanded="true" signature="53953:54692" placeholder="SELECT t_par... t_parametrosamostra" />
+            <marker date="1464446500422" expanded="true" signature="54955:55122" placeholder="UPDATE t_par... " />
+            <marker date="1464446500422" expanded="true" signature="56806:56917" placeholder="..." />
+            <marker date="1464446500422" expanded="true" signature="56813:56838" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="56850:56878" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="56884:56909" placeholder="{...}" />
+            <marker date="1464446500422" expanded="true" signature="57001:57012" placeholder="..." />
           </folding>
         </state>
       </provider>

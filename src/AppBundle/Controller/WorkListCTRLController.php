@@ -244,7 +244,7 @@ class WorkListCTRLController extends Controller
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $datarecepcao =  $activeDate->fetchAll();
-        if(count($datafim) != 0){
+        if(count($datarecepcao) != 0){
             $datarecepcao = strtotime($datarecepcao[0]['updated_by_time']);
             $datarecepcao = date('d-m-Y',$datarecepcao);
         }else{
@@ -257,7 +257,7 @@ class WorkListCTRLController extends Controller
         $activeDate->execute();
         $datainicio =  $activeDate->fetchAll();
 
-        if(count($datafim) != 0){
+        if(count($datainicio) != 0){
             $datainicio = strtotime($datainicio[0]['updated_by_time']);
             $datainicio = date('d-m-Y',$datainicio);
         }else{
