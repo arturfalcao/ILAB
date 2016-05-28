@@ -450,6 +450,18 @@ EOF;
 
     }
 
+    //Get relatorio
+    public function GetRelatorioAction($slug){
+
+        $file = '/var/www/html/lab/app/amostras/87.pdf';
+        $filename = 'filename.pdf';
+        header('Content-type: application/pdf');
+        header('Content-Disposition: inline; filename="' . $filename . '"');
+        header('Content-Transfer-Encoding: binary');
+        header('Accept-Ranges: bytes');
+        @readfile($file);
+    }
+
     //Sample actions
     public function CompletesampleAction($slug){
         error_reporting(0);
