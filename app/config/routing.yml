@@ -134,7 +134,9 @@ GetAllUnidadesMedida:
 GetAllFamilias:
     pattern:  /GetAllFamilias
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllFamilias}
-
+GetRel:
+    pattern:  /getrelatorio/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:GetRelatorio}
 GetAllLaboratorios:
     pattern:  /GetAllLaboratorios
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllLaboratorios}
@@ -210,7 +212,9 @@ GetparameterbysampleForParameter:
 GenerateworklistbyParameter:
   pattern:  /getlistaporparametro
   defaults: { _controller: AppBundle:WorkListCTRL:GenerateworklistbyParameter}
-
+GetPDFFile:
+  pattern:  /getpdflista/{slug}
+  defaults: { _controller: AppBundle:WorkListCTRL:GetPDFFile}
 
 #Jose
 sucesso:

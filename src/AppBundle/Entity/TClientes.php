@@ -211,6 +211,8 @@ class TClientes
 
         return $this;
     }
+
+
     /**
      * Set ftNomeUtilizador
      *
@@ -261,7 +263,7 @@ class TClientes
      */
     public function getFtNome()
     {
-        return $this->ftNome;
+        return utf8_decode($this->ftNome);
     }
 
     /**
@@ -284,7 +286,7 @@ class TClientes
      */
     public function getFtAlias()
     {
-        return $this->ftAlias;
+        return utf8_decode($this->ftAlias);
     }
 
     /**
@@ -307,7 +309,7 @@ class TClientes
      */
     public function getFtMorada()
     {
-        return $this->ftMorada;
+        return utf8_decode($this->ftMorada);
     }
 
     /**
@@ -353,7 +355,7 @@ class TClientes
      */
     public function getFtLocalidade()
     {
-        return $this->ftLocalidade;
+        return utf8_decode($this->ftLocalidade);
     }
 
     /**
@@ -376,7 +378,7 @@ class TClientes
      */
     public function getFtPais()
     {
-        return $this->ftPais;
+        return utf8_decode($this->ftPais);
     }
 
     /**

@@ -122,6 +122,15 @@
                                 {% endfor %}
                             </select>
                         </div>
+                        <div class="form-group large-12 medium-12 push-1">
+                            <label for="parametro_metodo">Parâmetro</label>
+                            <select class="parametro_metodo" data-placeholder="Selecione um Metodo" >
+                                <option></option>
+                                {% for parameter in data_metodos %}
+                                    <option value="{{ parameter.fnId }}">{{ parameter.ftDescricao }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
                         <div class="row linha_branco"><div class="col-md-12">0</div></div>
                         <div class="row linha_branco"><div class="col-md-12">0</div></div>
@@ -177,6 +186,7 @@
     var _oldoriginalvalue = 0;
     var _parametro = 0;
     var _amostras = "";
+    var _metodo ="";
     var condi;
 
     function getlist(){
@@ -189,10 +199,11 @@
         $.ajax({
             type: "POST",
             url: '{{path('GenerateworklistbyParameter')}}',
-            data: {amostras : _amostras, parametro : _parametro },
+            data: {amostras : _amostras, parametro : _parametro , metodo : _metodo},
             success: function(data) {
-                if(data > 0){
-
+                if(data != ""){
+                    data = data.replace(/['"]+/g, '');
+                    window.open("/app_dev.php/getpdflista/" + data);
                 }else{
                     
                 }
@@ -204,10 +215,11 @@
 
         if( $('.parametro_ent_resultados').select2('data') != null){
             _parametro = $('.parametro_ent_resultados').select2('data').id;
+            _metodo = $('.parametro_metodo').select2('data').id;
             $.ajax({
                 type: "POST",
                 url: '{{path('GetparameterbysampleForParameter')}}',
-                data: $('.parametro_ent_resultados').select2('data').id,
+                data: $('.parametro_ent_resultados').select2('data').id + ',' + $('.parametro_metodo').select2('data').id,
                 success: function(data) {
                     if(data != "[]"){
                         $("#parametros_grid").bootgrid("destroy");
@@ -258,6 +270,10 @@
 
     $(document).ready(function() {
         $(".parametro_ent_resultados").select2({
+            allowClear: true,
+            placeholder: "Selecione uma opção"
+        });
+        $(".parametro_metodo").select2({
             allowClear: true,
             placeholder: "Selecione uma opção"
         });

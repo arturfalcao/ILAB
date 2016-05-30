@@ -20,6 +20,22 @@ class TParametrosamostra
     private $fnId;
 
     /**
+     * @var \TTipoparametro
+     *
+     * @ORM\ManyToOne(targetEntity="TTipoparametro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoparametro", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoparametro;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_lista", type="bigint", nullable=false)
+     */
+    private $fnIdlista;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="bigint", nullable=false)
@@ -442,7 +458,15 @@ class TParametrosamostra
     {
         $this->especificacoes = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
 
     /**
@@ -455,13 +479,22 @@ class TParametrosamostra
         $this->fnId = $fnId;
         return $this;
     }
+    /**
+     * Get fnId
+     *
+     * @return integer
+     */
+    public function setFnIdlista($fnIdlista)
+    {
+        $this->fnIdlista = $fnIdlista;
+        return $this;
+    }
 
 
-
-    public function getId()
+    public function getFnIdlista()
     {
 
-        return $this->id ;
+        return $this->fnIdlista ;
     }
 
 
@@ -602,7 +635,28 @@ class TParametrosamostra
 
         return $this;
     }
+    /**
+     * Set fnAreaensaio
+     *
+     * @param \AppBundle\Entity\TTipoparametro $fnAreaensaio
+     * @return TParametros
+     */
+    public function setFnTipoparametro(\AppBundle\Entity\TTipoparametro $fnTipoparametro = null)
+    {
+        $this->fnTipoparametro = $fnTipoparametro;
 
+        return $this;
+    }
+
+    /**
+     * Get fnAreaensaio
+     *
+     * @return \AppBundle\Entity\TTipoparametro
+     */
+    public function getFnTipoparametro()
+    {
+        return $this->fnTipoparametro;
+    }
     /**
      * Get fnIdMetodo
      *
