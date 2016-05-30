@@ -48,6 +48,8 @@ class TTipoparametroAdmin extends Admin
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
             ->add('ftCodigo',null,array('label' => 'Código'))
+            ->end()
+            ->with('grupo_2',array('description' => 'y','class' => 'col-md-6'))
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->end()
 

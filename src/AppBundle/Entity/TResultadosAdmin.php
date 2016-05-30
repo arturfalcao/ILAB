@@ -17,15 +17,15 @@ class TResultadosAdmin extends Admin
 
         $originalObject = $em->getUnitOfWork()->getOriginalEntityData($user);
 
-        if ($user->getSomeField() !== $originalObject['fieldName']) {
+        /*if ($user->getSomeField() !== $originalObject['fieldName']) {
             // Field has been changed
-        }
+        }*/
     }
 
     public function postUpdate($user)
     {
-       var_dump($user);
-        die;
+       /*var_dump($user);
+        die;*/
     }
     /**
      * @param DatagridMapper $datagridMapper
