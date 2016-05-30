@@ -417,9 +417,13 @@
                             var estado = "";
                             var bullet = "";
                             $.each(obj, function (key, value) {
-<<<<<<< HEAD
+
                                 if(value.ft_id_estado == 7){
                                     estado = 'Indisponivel';
+                                    bullet = "bullet-gray";
+                                }
+                                if(value.ft_id_estado == 1){
+                                    estado = 'Aprovado';
                                     bullet = "bullet-gray";
                                 }
                                 if(value.ft_id_estado == 4){
@@ -439,33 +443,6 @@
                                     bullet = "bullet-green";
                                 }
                                 if(value.ft_id_estado == 2){
-=======
-                                if(value.ft_id_estado == '4'){
-                                    estado = 'Indisponivel';
-                                    bullet = "bullet-gray";
-                                }
-                                if(value.ft_id_estado == '1'){
-                                    estado = 'Aprovado';
-                                    bullet = "bullet-gray";
-                                }
-                                if(value.ft_id_estado == '6'){
-                                    estado = 'Disponivel';
-                                    bullet = "bullet-gray";
-                                }
-                                if(value.ft_id_estado == '3'){
-                                    estado = 'Em Progresso';
-                                    bullet = "bullet-yellow";
-                                }
-                                if(value.ft_id_estado == '5'){
-                                    estado = 'Planeada';
-                                    bullet = "bullet-blue";
-                                }
-                                if(value.ft_id_estado == '2'){
-                                    estado = 'Completo';
-                                    bullet = "bullet-green";
-                                }
-                                if(value.ft_id_estado == '7'){
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
                                     estado = 'Cancelada';
                                     bullet = "bullet-pink";
                                 }
@@ -725,15 +702,15 @@
                             var estado = "";
                             var bullet = "";
                             $.each(obj, function (key, value) {
-<<<<<<< HEAD
+
                                 if(value.ft_id_estado == 7){
-=======
-                                if(value.ft_id_estado == '4'){
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
                                     estado = 'Indisponivel';
                                     bullet = "bullet-gray";
                                 }
-<<<<<<< HEAD
+                                if(value.ft_id_estado == 1){
+                                    estado = 'Aprovado';
+                                    bullet = "bullet-gray";
+                                }
                                 if(value.ft_id_estado == 4){
                                     estado = 'Disponivel';
                                     bullet = "bullet-gray";
@@ -743,37 +720,14 @@
                                     bullet = "bullet-yellow";
                                 }
                                 if(value.ft_id_estado == 8){
-=======
-                                if(value.ft_id_estado == '1'){
-                                    estado = 'Aprovado';
-                                    bullet = "bullet-gray";
-                                }
-                                if(value.ft_id_estado == '6'){
-                                    estado = 'Disponivel';
-                                    bullet = "bullet-gray";
-                                }
-                                if(value.ft_id_estado == '3'){
-                                    estado = 'Em Progresso';
-                                    bullet = "bullet-yellow";
-                                }
-                                if(value.ft_id_estado == '5'){
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
                                     estado = 'Planeada';
                                     bullet = "bullet-blue";
                                 }
-<<<<<<< HEAD
                                 if(value.ft_id_estado == 3){
                                     estado = 'Completo';
                                     bullet = "bullet-green";
                                 }
                                 if(value.ft_id_estado == 2){
-=======
-                                if(value.ft_id_estado == '2'){
-                                    estado = 'Completo';
-                                    bullet = "bullet-green";
-                                }
-                                if(value.ft_id_estado == '7'){
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
                                     estado = 'Cancelada';
                                     bullet = "bullet-pink";
                                 }

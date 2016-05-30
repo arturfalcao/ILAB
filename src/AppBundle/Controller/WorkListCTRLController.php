@@ -147,10 +147,6 @@ class WorkListCTRLController extends Controller
     }
 
 
-<<<<<<< HEAD
-    public function EmitRelatorioAction($slug)
-    {
-=======
 
     public function EmitRelatorioAction($slug){
 
@@ -212,7 +208,6 @@ class WorkListCTRLController extends Controller
                 }
             }
         }
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
         $body_fisico = $body_fisico . '</table></br>';
         $body_micro = $body_micro  . '</table></br>';
@@ -243,9 +238,7 @@ class WorkListCTRLController extends Controller
         $pdf->SetMargins(7, 35, 7);
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
-<<<<<<< HEAD
-        $pdf->SetHeaderData('logopimenta.png', 50, '', PDF_HEADER_STRING);
-=======
+
         $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DE ENSAIO Nº, 50267') , PDF_HEADER_STRING);
         $pdf->setFooterData(array(date("d-m-Y"), 0, 0), array(1, 0, 0));
 
@@ -292,7 +285,7 @@ class WorkListCTRLController extends Controller
         }
 
 
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
+
 
 // set header and footer fonts
 
@@ -569,10 +562,7 @@ EOF;
 
         $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 6 or t_amostras.ft_id_estado = 4) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
 
-<<<<<<< HEAD
-        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 6 or t_amostras.ft_id_estado = 4) and t_parametrosamostra.fn_id = " . $id_parameter;
-=======
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
+
 
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
@@ -584,7 +574,7 @@ EOF;
         }
 
 
-        return new Response(json_encode($result));
+        return new Response(json_encode($response));
 
     }
 
@@ -594,14 +584,7 @@ EOF;
 
         $em = $this->getDoctrine()->getManager();
         $parameters = $em->getRepository('AppBundle:TParametros')->findAll();
-<<<<<<< HEAD
-        return $this->render('AppBundle:ModelosListas:listaporparametro.html.twig', array('data' => $parameters));
-    }
 
-    //TODO : notificar cliente de amostra completa
-    public function NotifysampleAction($slug)
-    {
-=======
         $metodos= $em->getRepository('AppBundle:TMetodos')->findAll();
 
         return $this->render('AppBundle:ModelosListas:listaporparametro.html.twig',array('data' => $parameters,'data_metodos' => $metodos));
@@ -622,7 +605,6 @@ EOF;
             'X-Mailer: PHP/' . phpversion();
 
         mail($to, $subject, $message, $headers);
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
         return new Response("ok");
     }
 
@@ -752,15 +734,10 @@ EOF;
                 return $this->render('AppBundle:ModelosListas:Indisponivel.html.twig');
             }
 
-<<<<<<< HEAD
-            if ($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X' && $amostra->getFtEstado()->getFtCodigo() != 'P') {
-                $arr = $em->getRepository('AppBundle\Entity\TParametrosgrupo')->findBytgrupo($amostra->getFnModelo()->getFnGrupoparametros()->getFnId());
-            } else {
-=======
+
             if($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X' && $amostra->getFtEstado()->getFtCodigo() != 'P' ){
                 $arr = $em->getRepository('AppBundle\Entity\TParametrosgrupo')->findBytgrupo($amostra->getFtGrupoparametros());
             }else{
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
                 $arr = $em->getRepository('AppBundle:TAmostrasParametros')->findByIdamostra($slug);
                 $flag = 1;
             }
@@ -769,13 +746,7 @@ EOF;
             $nome_produto = $amostra->getFnProduto()->getFtCodigo();
 
             foreach ($arr as $value) {
-<<<<<<< HEAD
-                if ($flag == 0) {
-                    $value2 = $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
 
-                } else {
-                    $value2 = $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
-=======
                 
                 if($flag == 0){
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
@@ -809,7 +780,6 @@ EOF;
                     $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                     $activeDate->execute();
 
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
                 }else{
                     $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
@@ -931,9 +901,13 @@ EOF;
         ));
     }
 
-<<<<<<< HEAD
+ public function GetPDFFileAction($slug)
+    {
+        $slug = str_replace('"', "", $slug);
+        return new BinaryFileResponse('../app/listas/' . $slug);
+    }
 
-    public function GenerateworklistaltAction($slug)
+ public function GenerateworklistaltAction($slug)
     {
         $repo_0 = $this->getDoctrine()->getRepository('AppBundle:TAmostras');
         $repo_1 = $this->getDoctrine()->getRepository('AppBundle:TParametrosamostra');
@@ -1216,16 +1190,7 @@ EOF;
     //generate worklist by parameter
     public function GenerateworklistbyParameterAction()
     {
-=======
-    public function GetPDFFileAction($slug)
-    {
-        $slug = str_replace('"', "", $slug);
-        return new BinaryFileResponse('../app/listas/' . $slug);
-    }
 
-//generate worklist by parameter
-    public function GenerateworklistbyParameterAction(){
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
 
         //get os id de parametros
@@ -1234,16 +1199,11 @@ EOF;
         $arr2 = explode("&", $response);
         $amostra = explode("=", $arr2[0]);
         $amostra = explode("%2C", $amostra[1]);
-<<<<<<< HEAD
-        $para = explode("=", $arr2[1]);
-        $para = $para[1];
 
-=======
         $para =explode("=", $arr2[1]);
         $para =$para[1];
         $metodo ="";
         $fileNL="";
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
         //get all html from modelos lista
         $em = $this->getDoctrine()->getManager();
@@ -1263,22 +1223,7 @@ EOF;
 
             //generate pdf with html
 
-<<<<<<< HEAD
-        $pdf = $this->container->get("white_october.tcpdf")->create(
-            'P',
-            'mm',
-            'A4',
-            false,
-            'ISO-8859-1',
-            false
-        );
-        // set document information
-        $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Nicola Asuni');
-        $pdf->SetTitle('CELSO');
-        $pdf->SetSubject('TCPDF Tutorial');
-        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-=======
+
             $pdf = $this->container->get("white_october.tcpdf")->create(
                 'P',
                 'mm',
@@ -1293,36 +1238,10 @@ EOF;
             $pdf->SetTitle('Lista de Trabalho');
 
 
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
         // set default header data
 
-<<<<<<< HEAD
-        $pdf->SetMargins(7, 35, 7);
-        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
-        $pdf->SetHeaderData('logopimenta.png', 50, 'RELATÓRIO DE ENSAIO Nº, 50267', PDF_HEADER_STRING);
-
-        // set header and footer fonts
-
-
-        $pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
-
-        $pdf->AddPage();
-
-        $html = '<table cellspacing="1" cellpadding="1">';
-        $body = "";
-        $body = $body . "<tr><td colspan='1'></td><td colspan='4'>" . $users[0]['cabecalhojson'] . "</td></tr>";
-        //$pdf->writeHTMLCell(0, 0, '', '', $html, 'LRTB', 1, 0, true, 'L', true);
-        //$html="";
-        foreach ($amostra as &$value) {
-            $body = $body . "<tr><td colspan='1'></td><td colspan='4'>" . $users[0]["tablejson"] . "</td></tr>";
-            //$pdf->writeHTMLCell(0, 0, '', '', $html, 'LRTB', 1, 0, true, 'L', true);
-
-        }
-        $html = $html . $body . "</table>";
-        try {
-=======
             $pdf->SetMargins(7, 35, 7);
             $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
             $enc = mb_detect_encoding("Emissão:", "UTF-8,ISO-8859-1");
@@ -1343,17 +1262,11 @@ EOF;
 
             $result1[0]['max_id_lista'] =$result1[0]['max_id_lista'] != null ?$result1[0]['max_id_lista'] : 0;
             $result1[0]['max_id_lista']++;
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
             for ($i = 0; $i < 30; $i++) {
                 foreach ($amostra as &$value) {
 
-<<<<<<< HEAD
-            $pdf->writeHTML($html, true, false, true, false, '');
 
-            // output the HTML content
-            //$pdf->writeHTML($html, true, false, true,false, '');
-=======
                     if ($value != "") {
                         $sql = "SELECT t_parametrosamostra.fn_id_amostra as amostra, t_parametrosamostra.ft_descricao as parametro , t_gruposparametros.ft_codigo as grupo  , t_metodos.ft_descricao as metodo , t_unidadesmedida.ft_descricao as unidade FROM t_parametrosamostra inner join t_amostras on t_parametrosamostra.fn_id_amostra = t_amostras.fn_id inner join t_gruposparametros on t_amostras.ft_grupoparametros = t_gruposparametros.fn_id inner join t_metodos on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id inner join t_resultados on t_parametrosamostra.id = t_resultados.fn_id_parametro inner join t_unidadesmedida on t_resultados.fn_id_unidade = t_unidadesmedida.fn_id where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para . ";";
                         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
@@ -1363,7 +1276,6 @@ EOF;
                         $sql = "UPDATE t_parametrosamostra SET fn_id_lista = ".$result1[0]['max_id_lista'] ." where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para;
                         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                         $activeDate->execute();
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
                         if ($header_aux == 0) {
                             $header_aux = 1;
@@ -1372,28 +1284,20 @@ EOF;
 
                             // set header and footer fonts
 
-<<<<<<< HEAD
-            // set default monospaced font
-=======
+
                             //$pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
                             $pdf->AddPage();
                             $pdf->SetFont('helvetica', '', 10, '', 'default', true);
                         }
 
-<<<<<<< HEAD
-            // set margins
-=======
+
                         $pdf->SetFont('helvetica', '', 10, '', 'default', true);
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
                         $body = $body . '<tr style="line-height: 4px;"><th></th></tr><tr><th style="width: 40px;"  >' . $result[0]["grupo"] . '</th><th style="width: 50px;">' . $result[0]["amostra"] . '</th><th style="width: 470px;">' . $users[0]["tablejson"] . '</th></tr>';
                     }
 
-<<<<<<< HEAD
-            // set auto page breaks
-=======
+
                 }
             }
 
@@ -1421,17 +1325,10 @@ EOF;
 {$body}
 </table>
 EOD;
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
         $pdf->writeHTML($html, true, false, false, false, 'center');
 
-<<<<<<< HEAD
-            // set image scale factor
 
-            $filelocation = "/var/www/html/lab/app/listas";
-            $fileNL = $filelocation . "/celso1.pdf"; //Linux
-            $pdf->Output($fileNL, 'F');
-=======
         // output the HTML content
         //$pdf->writeHTML($html, true, false, true,false, '');
 
@@ -1445,7 +1342,6 @@ EOD;
         $filelocation = "/var/www/html/lab/app/listas";
         $fileNL = $filelocation."/".$result1[0]['max_id_lista'].".pdf"; //Linux
         $pdf->Output($fileNL , 'F');
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
 
             //change all sample to state on progress
 
@@ -1454,11 +1350,9 @@ EOD;
             return new Response(json_encode($e->getMessage()));
 
         }
-<<<<<<< HEAD
-=======
+
             return new Response(json_encode("" . $result1[0]['max_id_lista'].".pdf"));
 
 
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
     }
 }
