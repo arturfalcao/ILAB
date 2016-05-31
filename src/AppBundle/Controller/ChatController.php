@@ -63,7 +63,7 @@ class ChatController extends Controller
 
 
     /**
-     * Todos os utilizadores diferentes do utilizador autenticado
+     * Dados  do utilizador autenticado
      *
      * @Route("chat/getdusers", name="utilizadores")
      */
@@ -249,6 +249,7 @@ class ChatController extends Controller
             $utilizador = $repository->find($nid);
             $info[$i]['firstname'] = $utilizador->getFirstname();
             $info[$i]['imagem'] = $utilizador->getImagem();
+            $info[$i]['ident'] = $histchat->getId();
             $i++;
         }
 
@@ -303,6 +304,7 @@ class ChatController extends Controller
             $utilizador = $repository->find($nid);
             $info[$i]['firstname'] = $utilizador->getFirstname();
             $info[$i]['imagem'] = $utilizador->getImagem();
+            $info[$i]['ident'] = $histchat->getId();
             $i++;
         }
 
@@ -440,7 +442,7 @@ class ChatController extends Controller
                         ->getResult();
           $mens_nao_lidas = count($dql2);
 
-
+            
           $em2 = $this->getDoctrine()->getEntityManager();
           $connection = $em2->getConnection();
           $statement = $connection->prepare('SELECT COUNT(DISTINCT id_emissor) AS utilizadores

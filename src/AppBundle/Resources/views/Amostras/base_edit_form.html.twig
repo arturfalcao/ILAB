@@ -46,7 +46,6 @@
                                 idamostra: {{ admin.id(object) is null ? 0 : admin.id(object)}}},
                             contentType: "application/json",
                             success: function (data) {
-                                //alert(data);
                                 $("#parametros_grid").bootgrid("destroy");
                                 GetParametros();
 
@@ -140,6 +139,11 @@
                             {
                                 rowIds.push(rows[i].id);
                             }
+                            GetAllMetodo(rows[0].idparametro);
+                            GetCicloPorParametro(rows[0].idparametro);
+                            GetResultadoPorParametro(rows[0].idparametro);
+                            GetParametroData(rows[0].idparametro);
+
                             GetAllMetodo(rows[0].idparametro);
                             GetCicloPorParametro(rows[0].idparametro);
                             GetResultadoPorParametro(rows[0].idparametro);
@@ -413,31 +417,32 @@
                             var estado = "";
                             var bullet = "";
                             $.each(obj, function (key, value) {
-                                if(value.ft_id_estado == '4'){
+
+                                if(value.ft_id_estado == 7){
                                     estado = 'Indisponivel';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == '1'){
+                                if(value.ft_id_estado == 1){
                                     estado = 'Aprovado';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == '6'){
+                                if(value.ft_id_estado == 4){
                                     estado = 'Disponivel';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == '3'){
+                                if(value.ft_id_estado == 6){
                                     estado = 'Em Progresso';
                                     bullet = "bullet-yellow";
                                 }
-                                if(value.ft_id_estado == '5'){
+                                if(value.ft_id_estado == 8){
                                     estado = 'Planeada';
                                     bullet = "bullet-blue";
                                 }
-                                if(value.ft_id_estado == '2'){
+                                if(value.ft_id_estado == 3){
                                     estado = 'Completo';
                                     bullet = "bullet-green";
                                 }
-                                if(value.ft_id_estado == '7'){
+                                if(value.ft_id_estado == 2){
                                     estado = 'Cancelada';
                                     bullet = "bullet-pink";
                                 }
@@ -697,31 +702,32 @@
                             var estado = "";
                             var bullet = "";
                             $.each(obj, function (key, value) {
-                                if(value.ft_id_estado == '4'){
+
+                                if(value.ft_id_estado == 7){
                                     estado = 'Indisponivel';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == '1'){
+                                if(value.ft_id_estado == 1){
                                     estado = 'Aprovado';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == '6'){
+                                if(value.ft_id_estado == 4){
                                     estado = 'Disponivel';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == '3'){
+                                if(value.ft_id_estado == 6){
                                     estado = 'Em Progresso';
                                     bullet = "bullet-yellow";
                                 }
-                                if(value.ft_id_estado == '5'){
+                                if(value.ft_id_estado == 8){
                                     estado = 'Planeada';
                                     bullet = "bullet-blue";
                                 }
-                                if(value.ft_id_estado == '2'){
+                                if(value.ft_id_estado == 3){
                                     estado = 'Completo';
                                     bullet = "bullet-green";
                                 }
-                                if(value.ft_id_estado == '7'){
+                                if(value.ft_id_estado == 2){
                                     estado = 'Cancelada';
                                     bullet = "bullet-pink";
                                 }
@@ -875,14 +881,80 @@
                                         app.request.attributes.get('_route_params')) %}
 
                                         <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-list"></i> Gerar lista de trabalho</a>
+<<<<<<< HEAD
+                                        <a target="_blank" class="btn generateworklist" id="completa_amostra" href="#"><i class="fa fa-check-circle"></i> Autorizar </a>
+                                        <a target="_blank" class="btn generateworklist" id="abre_amostra" href="#"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
+                                        <a target="_blank" class="btn generateworklist" id="cancela_amostra" href="#"><i class="fa fa-ban"></i> Cancelar </a>
+                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-file-text"></i> Emitir Relatório </a>
+                                        <a target="_blank" class="btn generateworklist" href="/generateworklistalt/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Relatório de alterações </a>
+=======
                                         <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-check-circle"></i> Autorizar </a>
                                         <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
                                         <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-ban"></i> Cancelar </a>
                                         <a target="_blank" class="btn generateworklist" href="/relatorio/emit/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Emitir Relatório </a>
+>>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
                                         <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-envelope"></i> Notificar Cliente </a>
 
                                         <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
 
+
+                                        <script>
+
+                                            $( document ).ready(function() {
+
+                                                $( "#completa_amostra" ).click(function( event ) {
+                                                    event.preventDefault();
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: '/completesample/{{ admin.id(object) }}',
+                                                        data: {},
+                                                        success: function(data) {
+                                                            $("._estado.select2-offscreen").select2("val",data);
+                                                            toastr.info('Autorizada');
+                                                            //alert('');
+
+                                                        }
+                                                    });
+
+                                                });
+
+                                                $( "#abre_amostra" ).click(function( event ) {
+                                                    event.preventDefault();
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: '/reopensample/{{ admin.id(object) }}',
+                                                        data: {},
+                                                        success: function(data) {
+                                                            $("._estado.select2-offscreen").select2("val",data);
+                                                            toastr.info('Desautorizada');
+                                                            //alert('');
+
+                                                        }
+                                                    });
+
+                                                });
+
+                                                $( "#cancela_amostra" ).click(function( event ) {
+                                                    event.preventDefault();
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: '/cancelsample/{{ admin.id(object)  }}',
+                                                        data: {},
+                                                        success: function(data) {
+                                                            $("._estado.select2-offscreen").select2("val",data);
+                                                            toastr.info('Cancelada');
+                                                            //alert('');
+
+                                                        }
+                                                    });
+                                                });
+
+
+
+
+                                            });
+
+                                        </script>
 
                                     {% endif %}
 

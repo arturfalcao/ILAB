@@ -10499,3 +10499,40 @@ a.sonata-action-element{
 
 }
 
+/*Aqui*/
+
+div.connection div input.big {
+    font-size: 14px!important;
+
+}
+
+div.connection{
+    box-shadow: none!important;
+    border:none!important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+#_submit {
+    font-size: 1.0625rem;
+    text-transform: uppercase;
+    color: #fff!important;
+    background: #4cc3b8!important;
+}
+
+#_submit:hover{
+    opacity: 0.9;
+}
+
+#mceu_13{
+    margin-bottom: 30px;
+}
+
+#mceu_45{
+    margin-top: 30px;
+}
+
+.margem_n20{
+    margin-bottom: -20px;
+}

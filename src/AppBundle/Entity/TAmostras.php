@@ -1466,7 +1466,7 @@ class TAmostras
 
 
     /**
-     * Set ftEstado
+     * Set setFnAmostrasalimentos
      *
      * @param \AppBundle\Entity\TAmostrasalimentos $fnAmostrasalimentos
      * @return TAmostras
@@ -1479,7 +1479,7 @@ class TAmostras
     }
 
     /**
-     * Get ftEstado
+     * Get getFnAmostrasalimentos
      *
      * @return \AppBundle\Entity\TEstados
      */

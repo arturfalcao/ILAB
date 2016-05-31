@@ -183,17 +183,6 @@ class TAmostrasAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        if ($this->id($this->getSubject())) {
-
-
-        }
-        else {
-            $em = $this->modelManager->getEntityManager('AppBundle:TEstados');
-            $query = $em->createQueryBuilder('c')
-                ->select('c')
-                ->from('AppBundle:TEstados', 'c')
-                ->where("c.ftId = 'I'");
-        }
         $x= 'col-md-6';
         if ($this->id($this->getSubject())) {
             $formMapper
@@ -203,10 +192,7 @@ class TAmostrasAdmin extends Admin
 
                 $x = 'col-md-4';
         }
-        else {
-
-        }
-
+        
         $formMapper
             ->with('Cliente',array('description' => 'Cliente','class' => $x . ' Cliente_amostra'))
                 ->add('fnCliente', 'sonata_type_model', array('label' => 'Cliente', 'by_reference' => false))
@@ -223,8 +209,7 @@ class TAmostrasAdmin extends Admin
             ->add('fnTipocontrolo', 'sonata_type_model', array('label' => 'Tipo de Controlo', 'by_reference' => false))
             ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
             ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo de aprovação', 'by_reference' => false))
-            ->add('ftEstado', 'sonata_type_model', array('label' => 'Estado', 'by_reference' => false))
-            ->add('ftRefexterna','text',array('label' => 'Referencia Externa'))
+            ->add('ftEstado', 'sonata_type_model', array('attr'=> array('class'=>'_estado'),'label' => 'Estado', 'by_reference' => false))
             ->add('ftConclusao', 'text', array('label' => 'Conclusão'))
             ->add('ftObs', 'text', array('label' => 'Observações'))
             ->end()

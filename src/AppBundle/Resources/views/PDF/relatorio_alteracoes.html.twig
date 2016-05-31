@@ -1,0 +1,64 @@
+<style>
+.pdf_cabecalho{
+
+}
+
+.hsd{
+    color:#4cc3b8;
+    font-size: 24px;
+
+}
+.hid{
+    font-size: 16px;
+}
+
+.cabecalho{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.alinhamento{text-align: center}
+
+
+
+</style>
+<header class="pdf_cabecalho">
+    <img src="/bundles/app/images/logo_il.png" alt="" >
+    <p class="hsd">  {{ h_s_d }}</p>
+    <p class="hid">  {{ h_i_d }} </p>
+</header>
+
+<body>
+<table border="1">
+    <tr class="cabecalho alinhamento">
+        <th>Parâmetro</th>
+        <th>Produto</th>
+        <th>Grupo de Parâmetros</th>
+        <th>Modelo</th>
+        <th>R. Original</th>
+        <th>Data modificação</th>
+        <th>Técnico</th>
+    </tr>
+
+
+        {% for entrada in amostras_log %}
+            <tr class="alinhamento">
+            <th>{{  entrada[0].ftDescricao }}</th>
+            <th>{{  entrada[1].ftDescricao }}</th>
+            <th>{{  entrada[2].ftDescricao }}</th>
+            <th>{{  entrada[3].ftDescricao }}</th>
+            <th>{{  entrada[4].ftOriginal }}</th>
+            <th>{{  entrada[5] }}</th>
+            <th>{{  entrada[6] }}</th>
+            </tr>
+        {% endfor %}
+
+
+
+
+</table>
+
+
+</body>
+
+
