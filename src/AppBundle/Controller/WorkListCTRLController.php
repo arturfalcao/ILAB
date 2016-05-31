@@ -146,7 +146,8 @@ class WorkListCTRLController extends Controller
         $em = $this->getDoctrine()->getManager();
         $arr = $this->get("request")->getContent();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
-        
+        $especificacao = $em->getRepository('AppBundle:TEspecificacoes')->findOneBy(array('fnId' => $amostra->getFnEspecificacao()));
+
         $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação") .'</td></tr><tr><td class="font8">'.$amostra->getFtConclusao() .'</td></tr></table>';
         
         //TODO: ir buscar o tipo de parametros e colocar diretamente na tabela parametrosamostras
@@ -156,10 +157,10 @@ class WorkListCTRLController extends Controller
         foreach ($parametros as &$value) {
             $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
             $value->setFnTipoparametro($parametro->getFnTipoparametro());
-
         }
-        $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Parâmetros Microbiologicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr></table>';
-        $header_fisico=  '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Físico-químicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr></table>';
+
+        $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Parâmetros Microbiologicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">'. $especificacao->getFtSiglavl().'</td><td></td><td class="table_parametros_data"></td></tr></table>';
+        $header_fisico=  '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Físico-químicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">'. $especificacao->getFtSiglavl().'</td><td></td><td class="table_parametros_data"></td></tr></table>';
         $body_fisico="";
         $body_micro ="";
         $microeven = 0;
@@ -170,9 +171,17 @@ class WorkListCTRLController extends Controller
         foreach ($parametros as &$value) {
             if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "Microbiologicos"){
                 $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
+                $espe_texto = "";
+
+                foreach ($especificacao->getfnParametros() as &$para_espe) {
+                    if($para_espe->getFnId() == $value->getFnId()){
+                        $espe_texto
+                    }
+                }
+
 
                 if($body_micro == ""){
-                    $body_micro = $header_micro . '<table class="table_resultados" ><tr style=""><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    $body_micro = $header_micro . '<table class="table_resultados" ><tr style=""><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">sdaasd</td><td></td><td class="table_parametros_data"></td></tr>';
                     $microeven++;
                 }else{
                     $microeven++;
@@ -457,7 +466,7 @@ EOF;
 
 
 // set image scale factor
-        $filelocation = "/var/www/lab.iwish.solutions/app/amostras";
+        $filelocation = "/var/www/html/lab/app/amostras";
         $fileNL = $filelocation."/".$slug.".pdf"; //Linux
 
         $pdf->Output($fileNL , 'FI');
