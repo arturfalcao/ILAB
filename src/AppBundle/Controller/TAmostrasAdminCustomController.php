@@ -187,31 +187,35 @@ class TAmostrasAdminCustomController extends Controller
     {
         $arr1 = json_decode($this->get("request")->getContent(),true);
 
-        $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $p = 0;
 
-        $q = $qb->update('AppBundle\Entity\TParametrosamostra', 'u')
-            ->set('u.ftFormulaquimica', $qb->expr()->literal($arr1[1]))
-            ->set('u.fnFamiliaparametro', $qb->expr()->literal($arr1[2]))
-            ->set('u.fnLaboratorio', $qb->expr()->literal($arr1[3]))
-            ->set('u.fnAreaensaio', $qb->expr()->literal($arr1[4]))
-            ->set('u.fnMetodo', $qb->expr()->literal($arr1[5]))
-            ->set('u.fnTecnica', $qb->expr()->literal($arr1[6]))
-            ->set('u.fbConfirmacao', $qb->expr()->literal($arr1[7]))
-            ->set('u.fbContraanalise', $qb->expr()->literal($arr1[8]))
-            ->set('u.fnPrecocompra', $qb->expr()->literal($arr1[9]))
-            ->set('u.fnPrecovenda', $qb->expr()->literal($arr1[10]))
-            ->set('u.fnFactorcorreccao', $qb->expr()->literal($arr1[11]))
-            ->set('u.ftConclusao', $qb->expr()->literal($arr1[12]))
-            ->set('u.ftObservacao', $qb->expr()->literal($arr1[13]))
-            ->set('u.fbAmostraexterno', $qb->expr()->literal($arr1[14]))
-            ->set('u.fbAmostrainterno', $qb->expr()->literal($arr1[15]))
-            ->set('u.fbDeterminacaoexterno', $qb->expr()->literal($arr1[16]))
-            ->set('u.fbDeterminacaointerno', $qb->expr()->literal($arr1[17]))
-            ->set('u.ftCustomMethod', $qb->expr()->literal($arr1[18]))
-            ->where('u.id  = :idpara')
-            ->setParameter('idpara', ($arr1[0]))
-            ->getQuery();
-        $p = $q->execute();
+        foreach ($arr1 as $i => $value) {
+            $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
+            $q = $qb->update('AppBundle\Entity\TParametrosamostra', 'u')
+                ->set('u.ftFormulaquimica', $qb->expr()->literal($arr1[$i]["FQ"]))
+                ->set('u.fnFamiliaparametro', $qb->expr()->literal($arr1[$i]["FA"]))
+                ->set('u.fnLaboratorio', $qb->expr()->literal($arr1[$i]["LA"]))
+                ->set('u.fnAreaensaio', $qb->expr()->literal($arr1[$i]["AE"]))
+                ->set('u.fnMetodo', $qb->expr()->literal($arr1[$i]["ME"]))
+                ->set('u.fnTecnica', $qb->expr()->literal($arr1[$i]["TE"]))
+                ->set('u.fbConfirmacao', $qb->expr()->literal($arr1[$i]["CO"]))
+                ->set('u.fbContraanalise', $qb->expr()->literal($arr1[$i]["CA"]))
+                ->set('u.fnPrecocompra', $qb->expr()->literal($arr1[$i]["CM"]))
+                ->set('u.fnPrecovenda', $qb->expr()->literal($arr1[$i]["VE"]))
+                ->set('u.fnFactorcorreccao', $qb->expr()->literal($arr1[$i]["FT"]))
+                ->set('u.ftConclusao', $qb->expr()->literal($arr1[$i]["CL"]))
+                ->set('u.ftObservacao', $qb->expr()->literal($arr1[$i]["OB"]))
+                ->set('u.fbAmostraexterno', $qb->expr()->literal($arr1[$i]["AM"]))
+                ->set('u.fbAmostrainterno', $qb->expr()->literal($arr1[$i]["AI"]))
+                ->set('u.fbDeterminacaoexterno', $qb->expr()->literal($arr1[$i]["DE"]))
+                ->set('u.fbDeterminacaointerno', $qb->expr()->literal($arr1[$i]["DI"]))
+                ->set('u.ftCustomMethod', $qb->expr()->literal($arr1[$i]["CD"]))
+                ->where('u.id  = :idpara')
+                ->setParameter('idpara', ($i))
+                ->getQuery();
+            $p = $q->execute();
+        }
+
         return new Response(json_encode($p));
     }
 

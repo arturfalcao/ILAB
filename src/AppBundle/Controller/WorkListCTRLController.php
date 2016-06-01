@@ -919,8 +919,6 @@ EOF;
 
         $amostra = $repo_0->find($slug);
 
-        // PROCESSO DE AMOSTRAGEM -- OBTER DA BD OU NÃO ?
-
         $header_inferior_direito = 'Processo de amostragem. Colheita ' . $amostra->getFdColheita()->format('d/m/Y')
             . ' - ' . $amostra->getFnCliente()->getFtNome();
 
@@ -940,7 +938,7 @@ EOF;
 
         $header_superior_direito = 'AMOSTRA ' . $ano . "-" . $slug;
 
-        $html = "<style>
+        /*$html = "<style>
                     table {
                     width:100%;
                 }
@@ -976,7 +974,7 @@ EOF;
                         <th>R. Original</th>
                         <th>Data modificação</th>
                         <th>Técnico</th>
-                     </tr>";
+                     </tr>";*/
 
 
 
@@ -1007,29 +1005,34 @@ EOF;
 
             $pamostra = $repo_1->findOneBy(array('fnId' => $parametro->getFnId(),
                 'fnIdAmostra' => $amostra->getFnId()));
-            $tresultado = $repo_2->findOneBy(array('fnParametro' => $pamostra->getId()));
+
+            if($pamostra)
+                $tresultado = $repo_2->findOneBy(array('fnParametro' => $pamostra->getId()));
+            else
+                $tresultado = null;
 
             $sql = "SELECT * FROM t_parametrosamostra_log WHERE id = " . $amostra_log->getId() ;
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
             $data = $activeDate->fetchAll();
 
-            $data_registo = $data[0]['date'];
-            $tecnico = $data[0]['user'];
+            $conta = count($data);
+            if($conta != 0){
 
-            $pos = strrpos ($data_registo,':');
+                $data_registo = $data[0]['date'];
+                $tecnico = $data[0]['user'];
 
-            $data_ultima_alteracao = '';
-            if($pos !== false)
-            {
-                $data_ultima_alteracao = substr ( $data_registo , 0 , $pos);
-
-                $data_ultima_alteracao = new \DateTime($data_ultima_alteracao);
+                $data_ultima_alteracao = new \DateTime($data_registo);
                 $data_ultima_alteracao = $data_ultima_alteracao->format('d/m/Y H:i');
 
                 $data_ultima_alteracao .= 'h';
-            }
 
+            }
+            else{
+                $data_ultima_alteracao = null;
+                $tecnico = null;
+            }
+            
             array_push ( $array , array($parametro,$produto,$grupoparametro,$modelo,$tresultado,$data_ultima_alteracao,$tecnico));
 
         }

@@ -19,6 +19,7 @@
         <div class="ecra" style="display: none;"></div>
 
         <script>
+            var dicionario = {};
             $(function() {
                 $( "#tabs_Amostra" ).tabs( { active: 2 });
                 $( "#tabs2" ).tabs({ active: 2 });
@@ -28,6 +29,67 @@
 
 
         <script>
+
+            function removeNulos(mydict)
+            {
+                for (var key in mydict) {
+                    if(key === null || key === undefined)
+                    {
+                    }
+                    else{
+                        if(mydict[key]["AE"] === null ||  mydict[key]["AE"] === undefined)
+                        {mydict[key]["AE"] = "";}
+
+                        if(mydict[key]["CD"] === null ||  mydict[key]["CD"] === undefined)
+                        {mydict[key]["CD"] = "";}
+
+                        if(mydict[key]["CL"] === null ||  mydict[key]["CL"] === undefined)
+                        {mydict[key]["CL"] = "";}
+
+                        if(mydict[key]["CM"] === null ||  mydict[key]["CM"] === undefined)
+                        {mydict[key]["CM"] = "";}
+
+                        if(mydict[key]["FA"] === null ||  mydict[key]["FA"] === undefined)
+                        {mydict[key]["FA"] = "";}
+
+                        if(mydict[key]["FO"] === null ||  mydict[key]["FO"] === undefined)
+                        {mydict[key]["FO"] = "";}
+
+                        if(mydict[key]["FQ"] === null ||  mydict[key]["FQ"] === undefined)
+                        {mydict[key]["FQ"] = "";}
+
+                        if(mydict[key]["FT"] === null ||  mydict[key]["FT"] === undefined)
+                        {mydict[key]["FT"] = "";}
+
+                        if(mydict[key]["IA"] === null ||  mydict[key]["IA"] === undefined)
+                        {mydict[key]["IA"] = "";}
+
+                        if(mydict[key]["LA"] === null ||  mydict[key]["LA"] === undefined)
+                        {mydict[key]["LA"] = "";}
+
+                        if(mydict[key]["ME"] === null ||  mydict[key]["ME"] === undefined)
+                        {mydict[key]["ME"] = "";}
+
+                        if(mydict[key]["OB"] === null ||  mydict[key]["OB"] === undefined)
+                        {mydict[key]["OB"] = "";}
+
+                        if(mydict[key]["OR"] === null ||  mydict[key]["OR"] === undefined)
+                        {mydict[key]["OR"] = "";}
+
+                        if(mydict[key]["TE"] === null ||  mydict[key]["TE"] === undefined)
+                        {mydict[key]["TE"] = "";}
+
+                        if(mydict[key]["UM"] === null ||  mydict[key]["UM"] === undefined)
+                        {mydict[key]["UM"] = "";}
+
+                        if(mydict[key]["VE"] === null ||  mydict[key]["VE"] === undefined)
+                        {mydict[key]["VE"] = "";}
+
+                    }
+                }
+                return mydict;
+            }
+
 
             var rowIds = [];
             var selectedRows = [];
@@ -139,15 +201,15 @@
                             {
                                 rowIds.push(rows[i].id);
                             }
+                            if(!dicionario[rows[0].idparametro]) {
+                                dicionario[rows[0].idparametro] = {};
+                                dicionario[rows[0].idparametro]["IA"] = $("#_amostra").val();
+                            }
                             GetAllMetodo(rows[0].idparametro);
                             GetCicloPorParametro(rows[0].idparametro);
                             GetResultadoPorParametro(rows[0].idparametro);
                             GetParametroData(rows[0].idparametro);
 
-                            GetAllMetodo(rows[0].idparametro);
-                            GetCicloPorParametro(rows[0].idparametro);
-                            GetResultadoPorParametro(rows[0].idparametro);
-                            GetParametroData(rows[0].idparametro);
 
                         }).on("deselected.rs.jquery.bootgrid", function(e, rows)
                         {
@@ -169,10 +231,10 @@
                             GetResultadoPorParametro(row.idparametro);
                             GetParametroData(row.idparametro);
                             selectedRows = rows;
+
                         });
                         var obj = $.parseJSON(data);
                         _ParaData= obj;
-
                         if (obj.length != 0) {
                             grid_para.bootgrid("append",obj );
 
@@ -182,6 +244,12 @@
                         } else {
 
                         }
+
+
+
+
+
+
                     }
                 });
 
@@ -246,6 +314,8 @@
                         });
                     }
                 });
+
+
             }
             //get laboratorios
             function GetAllLaboratorios(){
@@ -308,7 +378,7 @@
                             placeholder: "Selecione um método",
                             allowClear: true
                         }).on("change", function(e) {
-                            GetTecnicaByMetodo(e.val);
+                            GetTecnicaByMetodo(e.val,_idpara);
                         });
                     }
                 });
@@ -356,7 +426,6 @@
                         {
 
                             $('._especificacao.select2-offscreen').html('');
-                            //$('._especificacao').append("<select  class='especificacao'></select>");
                             $.each(data, function(index, value) {
                                 $('._especificacao.select2-offscreen').append(
                                         '<option value="' + value.id_especificacao + '">' + value.descricao + '</option>'
@@ -371,7 +440,9 @@
             }
 
 
-            function GetTecnicaByMetodo(_idmetodo){
+            function GetTecnicaByMetodo(_idmetodo,_id_Para){
+
+
                 $.ajax({
                     type: "POST",
                     url: "{{ path('GetTecnicaByMetodo') }}",
@@ -381,6 +452,8 @@
                         if(data.length != 0){
                             $(".tecnica").select2("val", data[0].tecnica);
                             $('.tecnica').select2("enable",false);
+                            dicionario[_id_Para]["ME"] = _idmetodo;
+                            dicionario[_id_Para]["TE"] = data[0].tecnica;
                         }
 
                     }
@@ -469,10 +542,23 @@
                             $("#_valorformatado").val(obj[0].ft_formatado);
                             $("#_idresultado").val(obj[0].fn_id);
                             $("#_idparametro").val(obj[0].fn_id_parametro);
+                            // ??? $("#_conclusao_2").val(obj[0].ft_conclusao);
 
+                            dicionario[_id_Para]["UM"] = obj[0].fn_id_unidade;
+                            dicionario[_id_Para]["OR"] = obj[0].ft_original;
+                            dicionario[_id_Para]["FO"] = obj[0].ft_formatado;
 
-                            if(obj[0].fb_incluirnorelatorio != null){
+                            if(obj[0].fb_incluirnorelatorio != "0"){
+                                $('#_incluirelatorio').iCheck('check');
                                 $("#_incluirelatorio").prop('checked', true);
+                                dicionario[_id_Para]["IR"] = 1;
+                                $('#_incluirelatorio').iCheck('disable');
+                            }
+                            else{
+                                $('#_incluirelatorio').iCheck('check');
+                                $("#_incluirelatorio").prop('checked', false);
+                                dicionario[_id_Para]["IR"] = 0;
+                                $('#_incluirelatorio').iCheck('disable');
                             }
                         }
                     }
@@ -486,6 +572,7 @@
                     success: function(data) {
                         var obj = $.parseJSON(data);
                         if (obj.length != 0) {
+                            $("#_idparametroData").val(_id_Para);
 
                             $("#_nomeparametro").val(obj[0].ft_descricao);
 
@@ -493,6 +580,9 @@
 
 
                             $("#_custommethod").val(obj[0].ft_custommethod);
+
+                            dicionario[_id_Para]["FA"] = obj[0].fn_id_familiaparametro;
+
                             if(obj[0].ft_custommethod != null && obj[0].ft_custommethod != ""){
                                 $("#_custommethod").show();
                                 $(".metododiv").hide();
@@ -501,6 +591,10 @@
                                 $(".labelfortecnicadiv").hide();
                                 $('#_outrometodo').iCheck('check');
                                 $("#_outrometodo").prop('checked', true);
+
+                                dicionario[_id_Para]["OM"] = 1;
+                                dicionario[_id_Para]["CD"] = obj[0].ft_custommethod;
+
                             }else{
                                 $(".metododiv").show();
                                 $(".tecnicadiv").show();
@@ -508,12 +602,15 @@
                                 $(".labelfortecnicadiv").show();
                                 $('#_outrometodo').iCheck('uncheck');
                                 $("#_outrometodo").prop('checked', false);
+
+                                dicionario[_id_Para]["OM"] = 0;
+                                dicionario[_id_Para]["CD"] = obj[0].ft_custommethod;
                             }
 
                             $("#_modeloparametro").val(obj[0].modelodepara);
                             $("#_formulaquimica").val(obj[0].ft_formulaquimica);
                             $("#_idmodeloparametro").val(obj[0].fn_id_modeloparametro);
-                            $("#_idparametroData").val(obj[0].id);
+                            //$("#_idparametroData").val(obj[0].id);
 
 
                             $(".laboratirio").select2("val", obj[0].fn_id_laboratorio);
@@ -524,8 +621,7 @@
 
                             $(".metodo").select2("val", obj[0].fn_id_metodo);
 
-                            GetTecnicaByMetodo(obj[0].fn_id_metodo);
-                            //$(".tecnicadiv").val("val", obj[0].fn_id_tecnica);
+                            GetTecnicaByMetodo(obj[0].fn_id_metodo,_id_Para);
 
                             $("#_compra").val(obj[0].fn_precocompra);
                             $("#_venda").val(obj[0].fn_precovenda);
@@ -534,78 +630,107 @@
                             $("#_conclusao").val(obj[0].ft_conclusao);
                             $("#_observacoes").val(obj[0].ft_observacao);
 
+                            dicionario[_id_Para]["FQ"] = obj[0].ft_formulaquimica;
+                            dicionario[_id_Para]["LA"] = obj[0].fn_id_laboratorio;
+                            dicionario[_id_Para]["AE"] = obj[0].fn_id_areaensaio;
+                            dicionario[_id_Para]["ME"] = obj[0].fn_id_metodo;
+                            dicionario[_id_Para]["CM"] = obj[0].fn_precocompra;
+                            dicionario[_id_Para]["VE"] = obj[0].fn_precovenda;
+                            dicionario[_id_Para]["FT"] = obj[0].fn_factorcorreccao;
+                            dicionario[_id_Para]["CL"] = obj[0].ft_conclusao;
+                            dicionario[_id_Para]["OB"] = obj[0].ft_observacao;
+
                             if(obj[0].fb_confirmacao == 1){
                                 $('#_confirmacao').iCheck('check');
                                 $("#_confirmacao").prop('checked', true);
+                                dicionario[_id_Para] ["CO"] = 1;
+
                             }else{
                                 $('#_confirmacao').iCheck('uncheck');
                                 $("#_confirmacao").prop('checked', false);
+                                dicionario[_id_Para]["CO"] = 0;
+
                             }
                             if(obj[0].fb_contraanalise == 1){
                                 $('#_contraanalise').iCheck('check');
                                 $("#_contraanalise").prop('checked', true);
+                                dicionario[_id_Para]["CA"] = 1;
                             }else{
                                 $('#_contraanalise').iCheck('uncheck');
                                 $("#_contraanalise").prop('checked', false);
+                                dicionario[_id_Para]["CA"] = 0;
                             }
                             if(obj[0].fb_amostraexterno == 1){
                                 $('#_ambexterno').iCheck('check');
                                 $("#_ambexterno").prop('checked', true);
+                                dicionario[_id_Para]["AM"] = 1;
                             }else{
                                 $('#_ambexterno').iCheck('uncheck');
                                 $("#_ambexterno").prop('checked', false);
+                                dicionario[_id_Para]["AM"] = 0;
                             }
                             if(obj[0].fb_amostrainterno == 1){
                                 $('#_ambinterno').iCheck('check');
                                 $("#_ambinterno").prop('checked', true);
+                                dicionario[_id_Para]["AI"] = 1;
                             }else{
                                 $('#_ambinterno').iCheck('uncheck');
                                 $("#_ambinterno").prop('checked', false);
+                                dicionario[_id_Para]["AI"] = 0;
                             }
                             if(obj[0].fb_determinacaoexterno == 1){
                                 $('#_deterexterno').iCheck('check');
                                 $("#_deterexterno").prop('checked', true);
+                                dicionario[_id_Para]["DE"] = 1;
                             }else{
                                 $('#_deterexterno').iCheck('uncheck');
                                 $("#_deterexterno").prop('checked', false);
+                                dicionario[_id_Para]["DE"] = 0;
                             }
                             if(obj[0].fb_determinacaointerno == 1){
                                 $('#_deterinterno').iCheck('check');
                                 $("#_deterinterno").prop('checked', true);
+                                dicionario[_id_Para]["DI"] = 1;
                             }else{
                                 $('#_deterinterno').iCheck('uncheck');
                                 $("#_deterinterno").prop('checked', false);
+                                dicionario[_id_Para]["DI"] = 0;
                             }
 
-                            if(obj[0].fb_incluirnorelatorio != null){
-                                $("#_incluirelatorio").prop('checked', true);
-                            }else{
-                                $("#_incluirelatorio").prop('checked', false);
-                            }
                         }
                     }
                 });
+
+                $('.familia').on('change', function(){
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["FA"] = $(this).val();
+                });
+
+                $('.laboratirio').on('change', function(){
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["LA"] = $(this).val();
+                });
+
+                $('.areaensaio').on('change', function(){
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["AE"] = $(this).val();
+                });
+
+                $(".NewUnidades").on("change", function() {
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["UM"] = $(this).val();
+                });
+
             }
             function Savedata(){
 
-                var atLeastOneIsChecked = $('#_outrometodo:checkbox:checked').length;
-                var _metodo = null;
-                var _tecnica = null;
-                if(atLeastOneIsChecked == 0){
-                    $("#_custommethod ").val("");
-                    _metodo = $(".metodo").select2('data').id;
-                    _tecnica = $(".tecnica").select2('data').id;
-                }else{
-
-                }
-                var arr = [$("#_amostra").val(),$("#_idparametro").val() , $("#_valorformatado").val() , $("#_valororiginal").val(), $(".NewUnidades").select2('data').id];
-                var arr2 = [ $("#_idparametro").val(),$("#_formulaquimica").val(), $(".familia").select2('data').id,$(".laboratirio").select2('data').id, $(".areaensaio").select2('data').id , _metodo , _tecnica, $('#_confirmacao:checkbox:checked').length > 0 ? 1 : 0, $('#_contraanalise:checkbox:checked').length > 0 ? 1 : 0,  $('#_compra').val(), $('#_venda').val() , $('#_fator').val(), $('#_conclusao').val() , $('#_observacoes').val() ,$('#_ambexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_ambinterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterinterno:checkbox:checked').length > 0 ? 1 : 0 ,$("#_custommethod ").val()];
+                dicionario = removeNulos(dicionario);
 
                 $(".ecra").show();
                 $.ajax({
                     type: "POST",
                     url: '{{path('EntradaResultadossetByRegrasFormatacaoAmostra')}}',
-                    data: JSON.stringify(arr),
+                    data: JSON.stringify(dicionario),
                     success: function(data) {
                         if(data > 0){
                             toastr.info('Resultados guardados com sucesso');
@@ -618,7 +743,7 @@
                 $.ajax({
                     type: "POST",
                     url: '{{path('SaveParaporAmostra')}}',
-                    data: JSON.stringify(arr2),
+                    data: JSON.stringify(dicionario),
                     success: function(data) {
                         if(data > 0){
                             toastr.info('Resultados guardados com sucesso');
@@ -881,18 +1006,12 @@
                                         app.request.attributes.get('_route_params')) %}
 
                                         <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-list"></i> Gerar lista de trabalho</a>
-<<<<<<< HEAD
                                         <a target="_blank" class="btn generateworklist" id="completa_amostra" href="#"><i class="fa fa-check-circle"></i> Autorizar </a>
                                         <a target="_blank" class="btn generateworklist" id="abre_amostra" href="#"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
                                         <a target="_blank" class="btn generateworklist" id="cancela_amostra" href="#"><i class="fa fa-ban"></i> Cancelar </a>
                                         <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-file-text"></i> Emitir Relatório </a>
                                         <a target="_blank" class="btn generateworklist" href="/generateworklistalt/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Relatório de alterações </a>
-=======
-                                        <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-check-circle"></i> Autorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-ban"></i> Cancelar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Emitir Relatório </a>
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
+
                                         <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-envelope"></i> Notificar Cliente </a>
 
                                         <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
@@ -911,7 +1030,6 @@
                                                         success: function(data) {
                                                             $("._estado.select2-offscreen").select2("val",data);
                                                             toastr.info('Autorizada');
-                                                            //alert('');
 
                                                         }
                                                     });
@@ -927,7 +1045,6 @@
                                                         success: function(data) {
                                                             $("._estado.select2-offscreen").select2("val",data);
                                                             toastr.info('Desautorizada');
-                                                            //alert('');
 
                                                         }
                                                     });
@@ -943,7 +1060,6 @@
                                                         success: function(data) {
                                                             $("._estado.select2-offscreen").select2("val",data);
                                                             toastr.info('Cancelada');
-                                                            //alert('');
 
                                                         }
                                                     });
@@ -1076,9 +1192,9 @@
                             </div>
                             <div id="tabs-5">
                                 <p style="padding-top: 22px;">Resultado:</p>
-                                <div class="checkbox disabled">
+                                <div class="checkbox ">
                                     <label>
-                                        <input type="checkbox" id="_incluirelatorio" value="" disabled>
+                                        <input type="checkbox" id="_incluirelatorio" value="" >
                                         Incluir no relatório
                                     </label>
                                 </div>
@@ -1098,8 +1214,8 @@
                                     <input type="text" class="form-control" id="_valororiginal" >
                                     <label for="_valorformatado">Formatado</label>
                                     <input type="text" class="form-control" id="_valorformatado" disabled>
-                                    <label for="_conclusao">Conclusão</label>
-                                    <input type="text" class="form-control" id="_conclusao" disabled>
+                                    <label for="_conclusao_2">Conclusão</label>
+                                    <input type="text" class="form-control" id="_conclusao_2" disabled>
                                 </div>
                             </div>
                             <div id="tabs-6">
@@ -1158,10 +1274,6 @@
 
     $( document ).ready(function() {
 
-        $("._grupoparametros").on('select2-loaded', function (e) {
-            //$('._grupoparametros').select2('disable');
-
-        });
         $('._modeloamostra').on("select2-selecting", function(e) {
             GetGrupoByModelo(e.val);
         });
@@ -1177,9 +1289,144 @@
     });
 </script>
 
+<script>
+    $( document ).ready(function() {
 
 
-    <style>
+        $("#_formulaquimica").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["FQ"] = $("#_formulaquimica").val();
+        });
+
+        $("#_outrometodo").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["OM"] = 1;
+        });
+
+        $("#_outrometodo").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp] ["OM"] = 0;
+            $("#_custommethod").val("");
+            dicionario[idp]["CD"] = "";
+        });
+
+
+
+        $("#_custommethod").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CD"] = $("#_custommethod").val();
+        });
+
+
+
+        $("#_confirmacao").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CO"] = 1;
+
+        });
+
+        $("#_confirmacao").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp] ["CO"] = 0;
+        });
+
+
+        $("#_contraanalise").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CA"] = 1;
+
+        });
+
+        $("#_contraanalise").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp] ["CA"] = 0;
+        });
+
+        $("#_compra").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CM"] = $("#_compra").val();
+        });
+
+        $("#_venda").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["VE"] = $("#_venda").val();
+        });
+
+        $("#_fator").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["FT"] = $("#_fator").val();
+        });
+
+
+
+        $("#_ambinterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AI"] = 1;
+
+        });
+
+        $("#_ambinterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AI"] = 0;
+        });
+
+
+        $("#_ambexterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AM"] = 1;
+
+        });
+
+        $("#_ambexterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AM"] = 0;
+        });
+
+
+        $("#_deterinterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DI"] = 1;
+
+        });
+
+        $("#_deterinterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DI"] = 0;
+        });
+
+        $("#_deterexterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DE"] = 1;
+
+        });
+
+        $("#_deterexterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DE"] = 0;
+        });
+
+
+        $("#_conclusao").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CL"] = $("#_conclusao").val();
+        });
+
+        $("#_observacoes").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["OB"] = $("#_observacoes").val();
+
+        });
+
+        $("#_valororiginal").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["OR"] = $("#_valororiginal").val();
+            dicionario[idp]["FO"] = $("#_valororiginal").val();
+        });
+
+    });
+</script>
+
+<style>
         {% if 'edit' in admin.request.pathInfo %}
 
         .Cliente_amostra .select2-container{

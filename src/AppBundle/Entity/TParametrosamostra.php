@@ -31,7 +31,7 @@ class TParametrosamostra
     /**
      * @var integer
      *
-     * @ORM\Column(name="fn_id_lista", type="bigint", nullable=false)
+     * @ORM\Column(name="listatrabalho_id", type="bigint", nullable=false)
      */
     private $fnIdlista;
 
