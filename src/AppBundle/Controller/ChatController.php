@@ -120,7 +120,7 @@ class ChatController extends Controller
           $target_dir = $this->container->getParameter('kernel.root_dir') . "\Resources\public\images\\";
           $target_file = $target_dir . basename($uploadedFile);
           $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-          // Check if image file is a actual image or fake image
+          // Verificar se a imagem é verdadeira
           $check = getimagesize($ficheiro->getPathname());
 
           if($check !== false) {
@@ -128,17 +128,17 @@ class ChatController extends Controller
           } else {
               $uploadOk = 0;
           }
-          // Check if file already exists
+          // Verificar se o ficheiro existe
           if (file_exists($target_file)) {
               $uploadOk = 0;
           }
 
-          // Allow certain file formats
+          // Permitir alguns formatos
           if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
           && $imageFileType != "gif" ) {
               $uploadOk = 0;
           }
-          // Check if $uploadOk is set to 0 by an error
+          // Ocorreu algum erro nos testes
           if ($uploadOk == 0) {
           } else {
               if (move_uploaded_file($ficheiro->getPathname(), $target_file)) {
@@ -472,7 +472,7 @@ class ChatController extends Controller
 
 
     /**
-     * Todos os utilizadores diferentes do utilizador autenticado
+     * Obter imagem associado ao utilizador logado
      *
      * @Route("chat/getimagem", name="imagens")
      */
@@ -493,7 +493,7 @@ class ChatController extends Controller
     }
 
     /**
-     * Todos os utilizadores diferentes do utilizador autenticado
+     * Validar a password associado ao utilizador logado
      *
      * @Route("chat/chat_validapass", name="vpass")
      */
@@ -516,8 +516,7 @@ class ChatController extends Controller
 
         $encoder = $this->container->get('security.encoder_factory')->getEncoder($utilizador);
         $ok = $encoder->isPasswordValid($utilizador->getPassword(), $pass, $utilizador->getSalt());
-        //$ok = $encoder->encodePassword($pass, $utilizador->getSalt());
-
+        
         if($ok){
           $ok=1;
         }
@@ -530,9 +529,9 @@ class ChatController extends Controller
 
 
     /**
-     * Todos os utilizadores diferentes do utilizador autenticado
+     * Mudar a password associada ao utilizador
      *
-     * @Route("chat/chat_validapass", name="vpass")
+     * @Route("/chat/chat_mudapass", name="mpass")
      */
     public function chat_mudapassAction()
     {

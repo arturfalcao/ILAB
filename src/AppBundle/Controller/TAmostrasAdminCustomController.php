@@ -183,6 +183,10 @@ class TAmostrasAdminCustomController extends Controller
         return new Response(json_encode($result));
     }
 
+    /**
+     * Atualização relativa aos Parametrosamostra associados à amostra e parâmetros em questão
+     * 
+     */
     public function SaveParaporAmostraAction()
     {
         $arr1 = json_decode($this->get("request")->getContent(),true);
@@ -334,7 +338,10 @@ class TAmostrasAdminCustomController extends Controller
     }
 
 
-
+    /**
+     * Obter legislação associada ao produto
+     *
+     */
     public function GetLegislacaoByProdutoAction()
     {
         $parameter = $this->get("request")->getContent();
@@ -363,7 +370,11 @@ class TAmostrasAdminCustomController extends Controller
 
         return new Response(json_encode($info));
     }
- 
+
+    /**
+     * Obter especificações associadas ao produto
+     *
+     */
     public function GetEspecificacaoByProdutoAction()
     {
         $parameter = $this->get("request")->getContent();
@@ -416,6 +427,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/importacao", name="importacaoamostra")
      * @Method("POST")
      * @Template("AppBundle:TAmostrasAdminCustom:importacao.html.twig")
+     * @param Request $request
+     * @return Response
      */
     public function importacaoAction(Request $request)
     {
@@ -472,7 +485,6 @@ class TAmostrasAdminCustomController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($sample);
-        $arr= [];
 
         $paraGroupID  = $em->getRepository('AppBundle:TGruposparametros')->findByftCodigo($paraGroup);
         $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($paraGroupID);
@@ -535,6 +547,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento/new", name="tamostras_create")
      * @Method("GET")
      * @Template("AppBundle:TAmostrasAdminCustom:new.html.twig")
+     * @param Request $request
+     * @return array
      */
     public function createAction(Request $request)
     {
@@ -690,11 +704,15 @@ class TAmostrasAdminCustomController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a TAmostras entity.
      *
      * @Route("/NovoPlaneamento/{id}", name="tamostras_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {

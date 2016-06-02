@@ -174,6 +174,8 @@ class AgendaController extends Controller
      * @Route("/calendario", name="agenda_create")
      * @Method("POST")
      * @Template("AppBundle:Agenda:new.html.twig")
+     * @param Request $request
+     * @return array
      */
     public function createAction(Request $request)
     {
@@ -335,11 +337,15 @@ class AgendaController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a Agenda entity.
      *
      * @Route("calendar/{id}", name="agenda_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {
@@ -438,7 +444,7 @@ class AgendaController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
         $request = $this->getRequest();
-        
+        $myEntity = 0;
         if(isset($slug)){
             $myEntity = $em->getRepository('AppBundle:Agenda')->find($slug);
         }
@@ -479,7 +485,7 @@ class AgendaController extends Controller
                 $em->remove($myEntity);
                 $em->flush();
 
-                return new Response('' + $myEntity->getId());
+                return new Response('' . $myEntity->getId());
 
             }else{
                 return new Response('Alguma coisa correu mal');

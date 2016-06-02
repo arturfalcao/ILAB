@@ -14,18 +14,6 @@ class AgendaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        // 'attr'   =>  array('class'   => 'c4')
-
-        /*$builder->add($builder->create('1', 'form', array('virtual' => true, 'attr' => array('class'   => 'c4')))
-            ->add('title','text', array('label' => 'Nome do Evento'))
-            ->add('morada','text', array('label' => 'Onde'))
-            ->add('startdatetime', 'datetime', array('label'=>'Data de inicio','date_widget' => "single_text", 'time_widget' => "single_text"))
-            ->add('enddatetime', 'datetime', array('label'=>'Data de fim','date_widget' => "single_text", 'time_widget' => "single_text"))
-            ->add('descricao','textarea', array('label' => 'Descrição'))
-            ->add('allDay','checkbox', array('label' => 'Todo o dia?'))
-            ->add('save', 'submit', array('label' => 'Gravar'))
-        );*/
-        //->add('title','text', array('label' => 'Nome do Evento','label_attr' => array('class' => 'MYCLASSFOR_LABEL'),'attr' => array('class' => 'c4')))
         $builder
             ->add('title','text', array('label' => 'Nome do Evento'))
             ->add('morada','text', array('label' => 'Onde'))
@@ -36,7 +24,7 @@ class AgendaType extends AbstractType
 
 
             ->add('allDay','checkbox', array('label' => 'Todo o dia?'))
-//            ->add('save', 'submit', array('attr' => array('class' => 'c4'),'label' => 'Gravar'))
+
         ;
     }
 
