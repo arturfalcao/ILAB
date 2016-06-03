@@ -602,6 +602,7 @@
 
                             if(obj[0].ft_custommethod != null && obj[0].ft_custommethod != ""){
                                 $("#_custommethod").show();
+                                $("#_custommethod").attr('required',true);
                                 $(".metododiv").hide();
                                 $(".tecnicadiv").hide();
                                 $(".labelformetododiv").hide();
@@ -638,18 +639,6 @@
                             $(".metodo").select2("val", obj[0].fn_id_metodo);
 
                             GetTecnicaByMetodo(obj[0].fn_id_metodo,_id_Para);
-
-                            /*$('.metodo').on('change', function(){
-                                var idp = $("#_idparametroData").val();
-                                var mt = $(this).val();
-
-                                if(mt.length==0)
-                                {
-
-                                }
-
-
-                            });*/
 
                             $("#_compra").val(obj[0].fn_precocompra);
                             $("#_venda").val(obj[0].fn_precovenda);
@@ -790,6 +779,7 @@
                 $('#_outrometodo').on('ifChecked',
                         function(){
                             $("#_custommethod").show();
+                            $("#_custommethod").attr('required',true);
                             $(".metododiv").hide();
                             $(".tecnicadiv").hide();
                             $(".labelformetododiv").hide();
@@ -802,6 +792,7 @@
                         }).on('ifUnchecked',
                         function(){
                             $("#_custommethod").hide();
+                            $("#_custommethod").attr('required',false);
                             $(".metododiv").show();
                             $(".tecnicadiv").show();
                             $(".labelformetododiv").show();
