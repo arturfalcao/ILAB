@@ -225,13 +225,13 @@
                             }
                         }).on("click.rs.jquery.bootgrid", function (e,rows,row)
                         {
-
-                            GetAllMetodo(row.idparametro);
-                            GetCicloPorParametro(row.idparametro);
-                            GetResultadoPorParametro(row.idparametro);
-                            GetParametroData(row.idparametro);
-                            selectedRows = rows;
-
+                            if(rows) {
+                                GetAllMetodo(row.idparametro);
+                                GetCicloPorParametro(row.idparametro);
+                                GetResultadoPorParametro(row.idparametro);
+                                GetParametroData(row.idparametro);
+                                selectedRows = rows;
+                            }
                         });
                         var obj = $.parseJSON(data);
                         _ParaData= obj;
@@ -449,11 +449,28 @@
                     data: {data: _idmetodo  },
                     dataType: 'json',
                     success: function(data) {
-                        if(data.length != 0){
+                        if(_idmetodo.length == 0)
+                        {
+                            dicionario[_id_Para]["ME"] = "";
+                            dicionario[_id_Para]["TE"] = "";
+                            $(".tecnica").select2("val", "");
+                            dicionario[_id_Para]["OM"] = 1;
+                            $('#_outrometodo').iCheck('check');
+                            $("#_outrometodo").prop('checked', true);
+                        }
+
+                        if(data.length != 0 && _idmetodo.length != 0){
+                            $(".metodo").select2("val", _idmetodo);
                             $(".tecnica").select2("val", data[0].tecnica);
                             $('.tecnica').select2("enable",false);
                             dicionario[_id_Para]["ME"] = _idmetodo;
                             dicionario[_id_Para]["TE"] = data[0].tecnica;
+
+                            dicionario[_id_Para]["OM"] = 0;
+                            dicionario[_id_Para]["CD"] = "";
+                            $('#_outrometodo').iCheck('uncheck');
+                            $("#_outrometodo").prop('checked', false);
+                            $("#_custommethod").val("");
                         }
 
                     }
@@ -610,7 +627,6 @@
                             $("#_modeloparametro").val(obj[0].modelodepara);
                             $("#_formulaquimica").val(obj[0].ft_formulaquimica);
                             $("#_idmodeloparametro").val(obj[0].fn_id_modeloparametro);
-                            //$("#_idparametroData").val(obj[0].id);
 
 
                             $(".laboratirio").select2("val", obj[0].fn_id_laboratorio);
@@ -623,6 +639,18 @@
 
                             GetTecnicaByMetodo(obj[0].fn_id_metodo,_id_Para);
 
+                            /*$('.metodo').on('change', function(){
+                                var idp = $("#_idparametroData").val();
+                                var mt = $(this).val();
+
+                                if(mt.length==0)
+                                {
+
+                                }
+
+
+                            });*/
+
                             $("#_compra").val(obj[0].fn_precocompra);
                             $("#_venda").val(obj[0].fn_precovenda);
                             $("#_fator").val(obj[0].fn_factorcorreccao);
@@ -633,7 +661,6 @@
                             dicionario[_id_Para]["FQ"] = obj[0].ft_formulaquimica;
                             dicionario[_id_Para]["LA"] = obj[0].fn_id_laboratorio;
                             dicionario[_id_Para]["AE"] = obj[0].fn_id_areaensaio;
-                            dicionario[_id_Para]["ME"] = obj[0].fn_id_metodo;
                             dicionario[_id_Para]["CM"] = obj[0].fn_precocompra;
                             dicionario[_id_Para]["VE"] = obj[0].fn_precovenda;
                             dicionario[_id_Para]["FT"] = obj[0].fn_factorcorreccao;
@@ -761,20 +788,29 @@
 
 
                 $('#_outrometodo').on('ifChecked',
-                        function(event){
+                        function(){
                             $("#_custommethod").show();
                             $(".metododiv").hide();
                             $(".tecnicadiv").hide();
                             $(".labelformetododiv").hide();
                             $(".labelfortecnicadiv").hide();
 
+                            var idp = $("#_idparametroData").val();
+                            dicionario[idp]["ME"] = "";
+                            dicionario[idp]["TE"] = "";
+
                         }).on('ifUnchecked',
-                        function(event){
+                        function(){
                             $("#_custommethod").hide();
                             $(".metododiv").show();
                             $(".tecnicadiv").show();
                             $(".labelformetododiv").show();
                             $(".labelfortecnicadiv").show();
+
+                            var idp = $("#_idparametroData").val();
+                            var pri = $(".metodo option").eq(1).val();
+                            $(".metodo").select2("val",pri);
+                            GetTecnicaByMetodo(pri,idp);
                         });
 
 
