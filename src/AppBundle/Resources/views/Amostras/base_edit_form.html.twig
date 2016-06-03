@@ -90,6 +90,20 @@
                 return mydict;
             }
 
+            function outrometodoVazio(mydict){
+                var omv=0;
+                for (var key in mydict) {
+                    if(key === null || key === undefined)
+                    {
+                    }
+                    else{
+                        if(mydict[key]["OM"] === 1 &&  mydict[key]["CD"] == "")
+                        {omv=1;break;}
+                    }
+                }
+                return omv;
+            }
+
 
             var rowIds = [];
             var selectedRows = [];
@@ -741,37 +755,38 @@
             function Savedata(){
 
                 dicionario = removeNulos(dicionario);
-
-                $(".ecra").show();
-                $.ajax({
-                    type: "POST",
-                    url: '{{path('EntradaResultadossetByRegrasFormatacaoAmostra')}}',
-                    data: JSON.stringify(dicionario),
-                    success: function(data) {
-                        if(data > 0){
-                            toastr.info('Resultados guardados com sucesso');
-                            GetParametros();
-                        }else{
-                            toastr.info('Resultados não guardados');
+                var OMV = outrometodoVazio(dicionario);
+                if(OMV == 0) {
+                    $(".ecra").show();
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('EntradaResultadossetByRegrasFormatacaoAmostra') }}',
+                        data: JSON.stringify(dicionario),
+                        success: function (data) {
+                            if (data > 0) {
+                                toastr.info('Resultados guardados com sucesso');
+                                GetParametros();
+                            } else {
+                                toastr.info('Resultados não guardados');
+                            }
                         }
-                    }
-                });
-                $.ajax({
-                    type: "POST",
-                    url: '{{path('SaveParaporAmostra')}}',
-                    data: JSON.stringify(dicionario),
-                    success: function(data) {
-                        if(data > 0){
-                            toastr.info('Resultados guardados com sucesso');
-                            GetParametros();
-                            $(".ecra").hide();
-                        }else{
-                            $(".ecra").hide();
-                            toastr.info('Resultados não guardados');
+                    });
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('SaveParaporAmostra') }}',
+                        data: JSON.stringify(dicionario),
+                        success: function (data) {
+                            if (data > 0) {
+                                toastr.info('Resultados guardados com sucesso');
+                                GetParametros();
+                                $(".ecra").hide();
+                            } else {
+                                $(".ecra").hide();
+                                toastr.info('Resultados não guardados');
+                            }
                         }
-                    }
-                });
-
+                    });
+                }
             }
             $( document ).ready(function() {
 
