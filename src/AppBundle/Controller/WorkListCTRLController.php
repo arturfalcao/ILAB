@@ -577,7 +577,7 @@ EOF;
 
 
 // set image scale factor
-        $filelocation = "/var/www/html/lab/app/amostras";
+        $filelocation = "/var/www/html/lab.iwish.solutions/app/amostras";
         $fileNL = $filelocation."/".$slug.".pdf"; //Linux
 
         $pdf->Output($fileNL , 'F');
