@@ -1152,7 +1152,6 @@ EOF;
             $result1[0]['max_id_lista'] =$result1[0]['max_id_lista'] != null ?$result1[0]['max_id_lista'] : 0;
             $result1[0]['max_id_lista']++;
 
-            for ($i = 0; $i < 30; $i++) {
                 foreach ($amostra as &$value) {
 
 
@@ -1188,7 +1187,7 @@ EOF;
 
 
                 }
-            }
+            
 
             $head=$users[0]['cabecalhojson'];
 
