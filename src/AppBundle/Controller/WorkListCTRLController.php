@@ -580,7 +580,7 @@ EOF;
         $filelocation = "/var/www/lab.iwish.solutions/app/amostras";
         $fileNL = $filelocation."/".$slug.".pdf"; //Linux
 
-        $pdf->Output($fileNL , 'F');
+        $pdf->Output($fileNL , 'FI');
 
 
 
