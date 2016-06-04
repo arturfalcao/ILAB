@@ -1065,9 +1065,9 @@ EOF;
         }
 
         $pdf = $this->container->get("white_october.tcpdf")->create(
-            $orientation='P',
+            $orientation='L',
             $unit='mm',
-            $format='A4',
+            $format='A3',
             $unicode=true,
             $encoding='UTF-8',
             $diskcache=false, $pdfa=false
