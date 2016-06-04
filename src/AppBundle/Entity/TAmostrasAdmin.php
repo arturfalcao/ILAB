@@ -16,13 +16,12 @@ class TAmostrasAdmin extends Admin
         $em = $this->getConfigurationPool()->getContainer()->get('Doctrine')->getManager();
         $sample = $user->getFnId();
 
-        $paraGroup = $user->getFtGrupoparametros()->getFnId();
-
+        if($user->getFtGrupoparametros())
+            $paraGroup = $user->getFtGrupoparametros()->getFnId();
+        else
+            $paraGroup = 0;
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($sample);
-        $arr= [];
-
-        //$paraGroupID = $em->getRepository('AppBundle:TGruposparametros')->findOneByFnId($paraGroup);
-
+        
         $sql = "select * from t_parametrosgrupo where t_grupo = " . $paraGroup;
 
         $activeDate = $em->getConnection()->prepare($sql);
@@ -41,8 +40,6 @@ class TAmostrasAdmin extends Admin
         foreach ($arr as $value) {
 
 
-            $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value['t_parametro']);
-            $conn = $em->getConnection();
             $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao ,fb_amostrainterno ,fb_amostraexterno ,fb_determinacaoexterno ,fb_determinacaointerno) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 6 , aa.fb_contraanalise, aa.fd_Realizacao ,aa.fb_amostrainterno ,aa.fb_amostraexterno ,aa.fb_determinacaoexterno ,aa.fb_determinacaointerno FROM t_parametros AS aa WHERE aa.fn_id = " . $value['t_parametro'];
             $activeDate = $em->getConnection();
             $activeDate->prepare($sql)->execute();
@@ -73,7 +70,6 @@ class TAmostrasAdmin extends Admin
         foreach ($arr as $value) {
 
             $value2= $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $value->getId()));
-            $info = $value2->getFtDescricao();
             if(!$em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value2->getFnId(),'fnAmostra' => $amostra->getFnId()))){
 
                 $result = new TResultados();

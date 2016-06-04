@@ -43,13 +43,42 @@
 
         {% for entrada in amostras_log %}
             <tr class="alinhamento">
+            {% if entrada[0] %}
             <th>{{  entrada[0].ftDescricao }}</th>
-            <th>{{  entrada[1].ftDescricao }}</th>
-            <th>{{  entrada[2].ftDescricao }}</th>
-            <th>{{  entrada[3].ftDescricao }}</th>
+            {% else %}
+            <th></th>
+            {% endif %}
+            {% if entrada[1] %}
+                <th>{{  entrada[1].ftDescricao }}</th>
+            {% else %}
+                <th></th>
+            {% endif %}
+            {% if entrada[2] %}
+                <th>{{  entrada[2].ftDescricao }}</th>
+            {% else %}
+                <th></th>
+            {% endif %}
+            {% if entrada[3] %}
+                <th>{{  entrada[3].ftDescricao }}</th>
+            {% else %}
+                <th></th>
+            {% endif %}
+            {% if entrada[4] %}
             <th>{{  entrada[4].ftOriginal }}</th>
+            {% else %}
+            <th></th>
+            {% endif %}
+            {% if entrada[5] %}
             <th>{{  entrada[5] }}</th>
-            <th>{{  entrada[6] }}</th>
+            {% else %}
+            <th></th>
+            {% endif %}
+            {% if entrada[6] %}
+                <th>{{  entrada[6] }}</th>
+            {% else %}
+                <th></th>
+            {% endif %}
+
             </tr>
         {% endfor %}
 
@@ -57,7 +86,6 @@
 
 
 </table>
-
 
 </body>
 

@@ -13,9 +13,9 @@ class TResultadosAdmin extends Admin
 
     public function preUpdate($user)
     {
-        $em = $this->getModelManager()->getEntityManager($this->getClass());
+        //$em = $this->getModelManager()->getEntityManager($this->getClass());
 
-        $originalObject = $em->getUnitOfWork()->getOriginalEntityData($user);
+        //$originalObject = $em->getUnitOfWork()->getOriginalEntityData($user);
 
         /*if ($user->getSomeField() !== $originalObject['fieldName']) {
             // Field has been changed

@@ -173,6 +173,8 @@ class TModelosresultadosController extends Controller
      * @Route("/{id}/edit", name="tmodelosresultados_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {
@@ -245,11 +247,15 @@ class TModelosresultadosController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a TModelosresultados entity.
      *
      * @Route("/{id}", name="tmodelosresultados_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {
