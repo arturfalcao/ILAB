@@ -149,13 +149,13 @@ class WorkListCTRLController extends Controller
 
 
     public function EmitRelatorioAction($slug){
-
+        $cumpre = true;
         $em = $this->getDoctrine()->getManager();
         $arr = $this->get("request")->getContent();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
         $especificacao = $em->getRepository('AppBundle:TEspecificacoes')->findOneBy(array('fnId' => $amostra->getFnEspecificacao()));
 
-        $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação") .'</td></tr><tr><td class="font8">'.$amostra->getFtConclusao() .'</td></tr></table>';
+
         
         //TODO: ir buscar o tipo de parametros e colocar diretamente na tabela parametrosamostras
 
@@ -165,6 +165,8 @@ class WorkListCTRLController extends Controller
             $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
             $value->setFnTipoparametro($parametro->getFnTipoparametro());
         }
+
+
 
         $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Parâmetros Microbiologicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">'. $especificacao->getFtSiglavl().'</td><td></td><td class="table_parametros_data"></td></tr></table>';
         $header_fisico=  '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Físico-químicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">'. $especificacao->getFtSiglavl().'</td><td></td><td class="table_parametros_data"></td></tr></table>';
@@ -179,16 +181,29 @@ class WorkListCTRLController extends Controller
             if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "Microbiologicos"){
                 $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
                 $espe_texto = "";
-
                 foreach ($especificacao->getfnParametros() as &$para_espe) {
-                    if($para_espe->getFnId() == $value->getFnId()){
-                        $espe_texto
+
+                    if($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()){
+
+                        $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = ". $para_espe->getFnIdFamiliaparametro()->getFnId() ." and fn_id_especificacao = ". $amostra->getFnEspecificacao()->getFnId() . " ";
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+                        $last = $activeDate->fetchAll();
+                        $original = floatval ($resultado->getFtOriginal());
+                        $max = floatval ( $last[0]['fn_maximo'] );
+                        $min = floatval ( $last[0]['fn_minimo'] );
+                        if($original < $max && $original > $min){
+                            $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
+                        }else{
+                            $cumpre = false;
+                            $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
+                        }
                     }
                 }
 
-
+                
                 if($body_micro == ""){
-                    $body_micro = $header_micro . '<table class="table_resultados" ><tr style=""><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">sdaasd</td><td></td><td class="table_parametros_data"></td></tr>';
+                    $body_micro = $header_micro . '<table class="table_resultados" ><tr style=""><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
                     $microeven++;
                 }else{
                     $microeven++;
@@ -197,14 +212,36 @@ class WorkListCTRLController extends Controller
                     }else{
                         $microevenclass = "#ffffff";
                     }
-                    $body_micro = $body_micro .  '<tr bgcolor="'.$microevenclass.'" style=""><td style="width:15px;">1sad</td><td bgcolor="'.$microevenclass.'" colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="" bgcolor="'.$microevenclass.'">'.$resultado->getFtFormatado() .'</td><td bgcolor="'.$microevenclass.'">'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    $body_micro = $body_micro .  '<tr bgcolor="'.$microevenclass.'" style=""><td style="width:15px;">1sad</td><td bgcolor="'.$microevenclass.'" colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="" bgcolor="'.$microevenclass.'">'.$resultado->getFtFormatado() .'</td><td bgcolor="'.$microevenclass.'">'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
 
                 }
             }
             if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "FisicoQuimicos"){
                 $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
+                $espe_texto = "";
+                foreach ($especificacao->getfnParametros() as &$para_espe) {
+
+                    if($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()){
+
+                        $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = ". $para_espe->getFnIdFamiliaparametro()->getFnId() ." and fn_id_especificacao = ". $amostra->getFnEspecificacao()->getFnId() . " ";
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+                        $last = $activeDate->fetchAll();
+                        $original = floatval ($resultado->getFtOriginal());
+                        $max = floatval ( $last[0]['fn_maximo'] );
+                        $min = floatval ( $last[0]['fn_minimo'] );
+                        if($original < $max && $original > $min){
+                            $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
+                        }else{
+                            $cumpre = false;
+                            $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
+                        }
+
+
+                    }
+                }
                 if($body_fisico == ""){
-                    $body_fisico = $header_fisico . '<table class="table_resultados" ><tr style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    $body_fisico = $header_fisico . '<table class="table_resultados" ><tr style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
                     $fisieven++;
                 }else{
                     $fisieven++;
@@ -213,11 +250,16 @@ class WorkListCTRLController extends Controller
                     }else{
                         $fisievenclass = "#ffffff";
                     }
-                    $body_fisico = $body_fisico .  '<tr bgcolor="'.$fisievenclass.'" style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    $body_fisico = $body_fisico .  '<tr bgcolor="'.$fisievenclass.'" style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
                 }
             }
         }
 
+        if($cumpre){
+            $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação") .'</td></tr><tr><td class="font8">'.utf8_decode($especificacao->getFtTextoQdCumpreA()) .'</td></tr></table>';
+        }else{
+            $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação") .'</td></tr><tr><td class="font8">'.utf8_decode($especificacao->getFtTextoQdNaoCumpreA()) .'</td></tr></table>';
+        }
         $body_fisico = $body_fisico . '</table></br>';
         $body_micro = $body_micro  . '</table></br>';
         $modeloamostra = $em->getRepository('AppBundle:TModelosamostra')->findOneBy(array('fnId' => $amostra->getFnModelo()->getFnId()));
@@ -293,7 +335,7 @@ class WorkListCTRLController extends Controller
             $datafim  ="";
         }
 
-
+        $ref_ext = utf8_decode($amostra->getFtRefexterna());
 
 
 // set header and footer fonts
@@ -404,7 +446,7 @@ class WorkListCTRLController extends Controller
                             <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtRefexterna()}</td>
+                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$ref_ext}</td>
                         </tr>
                     </table>
                 </td>
@@ -455,7 +497,6 @@ class WorkListCTRLController extends Controller
       {$body_fisico}
       {$conclusao}
 EOF;
-
         $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
         $pdf->setHtmlVSpace($tagvs);
 

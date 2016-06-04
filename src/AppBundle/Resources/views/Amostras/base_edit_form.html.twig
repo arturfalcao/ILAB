@@ -144,10 +144,6 @@
                             GetResultadoPorParametro(rows[0].idparametro);
                             GetParametroData(rows[0].idparametro);
 
-                            GetAllMetodo(rows[0].idparametro);
-                            GetCicloPorParametro(rows[0].idparametro);
-                            GetResultadoPorParametro(rows[0].idparametro);
-                            GetParametroData(rows[0].idparametro);
 
                         }).on("deselected.rs.jquery.bootgrid", function(e, rows)
                         {
@@ -881,18 +877,11 @@
                                         app.request.attributes.get('_route_params')) %}
 
                                         <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-list"></i> Gerar lista de trabalho</a>
-<<<<<<< HEAD
                                         <a target="_blank" class="btn generateworklist" id="completa_amostra" href="#"><i class="fa fa-check-circle"></i> Autorizar </a>
                                         <a target="_blank" class="btn generateworklist" id="abre_amostra" href="#"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
                                         <a target="_blank" class="btn generateworklist" id="cancela_amostra" href="#"><i class="fa fa-ban"></i> Cancelar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-file-text"></i> Emitir Relatório </a>
-                                        <a target="_blank" class="btn generateworklist" href="/generateworklistalt/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Relatório de alterações </a>
-=======
-                                        <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-check-circle"></i> Autorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-ban"></i> Cancelar </a>
                                         <a target="_blank" class="btn generateworklist" href="/relatorio/emit/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Emitir Relatório </a>
->>>>>>> 7f1c3c7f671f5b58c6c95404703d9cf032c869b1
+                                        <a target="_blank" class="btn generateworklist" href="/generateworklistalt/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Relatório de alterações </a>
                                         <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-envelope"></i> Notificar Cliente </a>
 
                                         <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
