@@ -1228,7 +1228,7 @@ EOD;
         // set auto page breaks
         // set image scale factor
 
-        $filelocation = "/var/www/html/lab/app/listas";
+        $filelocation = "/var/www/lab.iwish.solutions/app/listas";
         $fileNL = $filelocation."/".$result1[0]['max_id_lista'].".pdf"; //Linux
         $pdf->Output($fileNL , 'F');
 
