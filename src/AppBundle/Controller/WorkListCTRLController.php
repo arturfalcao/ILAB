@@ -671,7 +671,7 @@ EOF;
 
 
 
-        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 6 or t_amostras.ft_id_estado = 4) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
+        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 6 or t_amostras.ft_id_estado = 3) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
 
 
 

@@ -73,6 +73,9 @@ class AgendaController extends Controller
         $info = [];
         $i = 0;
         if($estado) {
+            $data_inicio =  date_format($data_inicio,"Y-m-d H:i:s");
+           $data_fim =  date_format($data_fim,"Y-m-d H:i:s");
+
             $dql = $result->select('a')
                 ->from('AppBundle:TAmostras', 'a')
                 ->where('a.startdatetime >= :data_inicio')
@@ -86,10 +89,8 @@ class AgendaController extends Controller
                 ->getResult();
 
 
-
-
             foreach ($dql as $amostra) {
-
+    
                 $info[$i]['tempo'] = $amostra->getStartdatetime();
                 $info[$i]['observacao'] = $amostra->getFtObs();
                 $info[$i]['am_ag'] = 1;
@@ -97,6 +98,7 @@ class AgendaController extends Controller
                 $info[$i]['done'] = $amostra->getFnDone();
                 $i++;
             }
+            
 
         }
 
