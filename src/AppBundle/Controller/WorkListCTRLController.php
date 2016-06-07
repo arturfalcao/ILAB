@@ -1286,7 +1286,7 @@ EOF;
 
 
             if ($amostra->getFtEstado()->getFtCodigo() == 'P') {
-                return $this->render('AppBundle:ModelosListas:Indisponivel.html.twig');
+                return $this->render('AppBundle:ModelosListas:Indisponivel.html.twig', array('amostra' => $amostra->getFnId()));
             }
 
 
