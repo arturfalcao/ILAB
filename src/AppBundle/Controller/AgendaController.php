@@ -195,6 +195,8 @@ class AgendaController extends Controller
         if ($form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
+            $user = $this->get('security.token_storage')->getToken()->getUser();
+            $entity->setFnIdUtilizador($user);
             $em->persist($entity);
             $em->flush();
 
@@ -405,11 +407,11 @@ class AgendaController extends Controller
     public function newshortAction(Request $request)
     {
         $entity = new Agenda();
-
         $form = $this->createFormBuilder($entity)
             ->add('title',null,array('label' => 'O que'))
             ->add('startdatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'start_date_short'),'label' => false))
             ->add('enddatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'end_date_short'),'label' => false))
+            ->add('FnIdUtilizador','hidden',array('label'=>'Utilizador'))
             ->add('submit','submit')
             ->getForm();
         $form->handleRequest($request);

@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Resources/public/relatorios/relatorio_amostra.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Resources/public/relatorios/relatorio_amostras.pdf" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/public/relatorios/relatorio_amostra_85.pdf" afterPath="$PROJECT_DIR$/app/Resources/public/relatorios/relatorio_amostra_85.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="596" column="124" selection-start-line="596" selection-start-column="124" selection-end-line="596" selection-end-column="124" />
+            <state relative-caret-position="77">
+              <caret line="1050" column="58" selection-start-line="1050" selection-start-column="58" selection-end-line="1050" selection-end-column="58" />
               <folding>
                 <element signature="e#6643#6976#0#PHP" expanded="false" />
                 <element signature="e#6982#9803#0#PHP" expanded="false" />
@@ -132,6 +129,96 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AgendaController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="413" column="33" selection-start-line="413" selection-start-column="19" selection-end-line="413" selection-end-column="33" />
+              <folding>
+                <element signature="e#1152#4145#0#PHP" expanded="false" />
+                <element signature="e#4151#4285#0#PHP" expanded="false" />
+                <element signature="e#4291#5216#0#PHP" expanded="false" />
+                <element signature="e#5222#5453#0#PHP" expanded="false" />
+                <element signature="e#5458#6040#0#PHP" expanded="false" />
+                <element signature="e#6218#6475#0#PHP" expanded="false" />
+                <element signature="e#6648#6883#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newshort.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="193" column="36" selection-start-line="193" selection-start-column="4" selection-end-line="193" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AgendaType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="24" column="73" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Agenda.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="152" column="39" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="148" column="146" selection-start-line="148" selection-start-column="87" selection-end-line="148" selection-end-column="146" />
+              <folding>
+                <marker date="1465300295189" expanded="true" signature="4204:4253" ph="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1465300295189" expanded="true" signature="4470:5626" ph="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1465300295189" expanded="true" signature="4988:5626" ph="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1465300295189" expanded="true" signature="5802:5997" ph="UPDATE t_par... " />
+                <marker date="1465300295189" expanded="true" signature="6319:6474" ph="update t_amo... " />
+                <marker date="1465300295189" expanded="true" signature="6910:6961" ph="SELECT * FRO... t_amostras_logs" />
+                <marker date="1465300295189" expanded="true" signature="7366:7446" ph="SELECT * FRO... t_parametrosamostra_log" />
+                <marker date="1465300295189" expanded="true" signature="7834:8709" ph="SELECT para.... t_parametrosamostra" />
+                <marker date="1465300295189" expanded="true" signature="9114:9165" ph="SELECT * FRO... t_resultados" />
+                <marker date="1465300295189" expanded="true" signature="15206:15263" ph="SELECT * fro... t_parametrospormetodo" />
+                <marker date="1465300295189" expanded="true" signature="15930:16018" ph="SELECT ft_de... t_metodos" />
+                <marker date="1465300295189" expanded="true" signature="17702:17889" ph="SELECT DISTI... t_produtos" />
+                <marker date="1465300295189" expanded="true" signature="18708:19053" ph="SELECT DISTI... t_produtosespecificacoes" />
+                <marker date="1465300295189" expanded="true" signature="19651:20345" ph="SELECT DISTI... t_resultados" />
+                <marker date="1465300295189" expanded="true" signature="23765:25059" ph="INSERT INTO t_parametrosamostra... " />
+                <marker date="1465300295189" expanded="true" signature="24362:25059" ph="SELECT aa.fn... t_parametros" />
+                <marker date="1465300295189" expanded="true" signature="25329:26458" ph="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1465300295189" expanded="true" signature="25847:26458" ph="SELECT aa.fn... t_parametrosamostra" />
+                <marker date="1465300295189" expanded="true" signature="26621:26693" ph="UPDATE t_par... " />
+                <marker date="1465300295189" expanded="true" signature="26883:27053" ph="UPDATE t_par... " />
+                <marker date="1465300295189" expanded="true" signature="28479:28576" ph="UPDATE t_res... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
@@ -184,7 +271,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/PDF.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/PDF/relatorio.alteracoes.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TResultadosAdmin.php" />
@@ -215,7 +301,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/ajax_agenda_topheader_geral.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig" />
@@ -235,6 +320,8 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/topheader_mod_ind.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig" />
       </list>
     </option>
   </component>
@@ -312,7 +399,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -326,37 +413,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="relatorios" />
+              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -370,15 +431,15 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -554,12 +615,12 @@
       <workItem from="1465288457028" duration="7682000" />
       <workItem from="1465300207247" duration="36000" />
       <workItem from="1465300335735" duration="580000" />
-      <workItem from="1465306348928" duration="10923000" />
+      <workItem from="1465306348928" duration="12875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="546981000" />
+    <option name="totallyTimeSpent" value="548933000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -572,9 +633,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33358547" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33358547" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32764506" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -608,39 +669,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_planeamento_new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/show_profile.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/profile.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="62" selection-start-line="26" selection-start-column="62" selection-end-line="26" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TGruposparametros.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2465">
@@ -705,33 +738,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="131" column="31" selection-start-line="131" selection-start-column="17" selection-end-line="131" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TTiposcontrolo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="21" column="18" selection-start-line="14" selection-start-column="4" selection-end-line="21" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1181">
-          <caret line="195" column="33" selection-start-line="195" selection-start-column="33" selection-end-line="195" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -746,13 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="117" column="41" selection-start-line="117" selection-start-column="41" selection-end-line="117" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -818,13 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1539">
           <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -984,10 +980,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/tcpdf/examples/example_001.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/tcpdf/examples/example_002.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/tcpdf/examples/example_003.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="148" column="146" selection-start-line="148" selection-start-column="87" selection-end-line="148" selection-end-column="146" />
+          <folding>
+            <marker date="1465300295189" expanded="true" signature="4204:4253" ph="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1465300295189" expanded="true" signature="4470:5626" ph="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1465300295189" expanded="true" signature="4988:5626" ph="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1465300295189" expanded="true" signature="5802:5997" ph="UPDATE t_par... " />
+            <marker date="1465300295189" expanded="true" signature="6319:6474" ph="update t_amo... " />
+            <marker date="1465300295189" expanded="true" signature="6910:6961" ph="SELECT * FRO... t_amostras_logs" />
+            <marker date="1465300295189" expanded="true" signature="7366:7446" ph="SELECT * FRO... t_parametrosamostra_log" />
+            <marker date="1465300295189" expanded="true" signature="7834:8709" ph="SELECT para.... t_parametrosamostra" />
+            <marker date="1465300295189" expanded="true" signature="9114:9165" ph="SELECT * FRO... t_resultados" />
+            <marker date="1465300295189" expanded="true" signature="15206:15263" ph="SELECT * fro... t_parametrospormetodo" />
+            <marker date="1465300295189" expanded="true" signature="15930:16018" ph="SELECT ft_de... t_metodos" />
+            <marker date="1465300295189" expanded="true" signature="17702:17889" ph="SELECT DISTI... t_produtos" />
+            <marker date="1465300295189" expanded="true" signature="18708:19053" ph="SELECT DISTI... t_produtosespecificacoes" />
+            <marker date="1465300295189" expanded="true" signature="19651:20345" ph="SELECT DISTI... t_resultados" />
+            <marker date="1465300295189" expanded="true" signature="23765:25059" ph="INSERT INTO t_parametrosamostra... " />
+            <marker date="1465300295189" expanded="true" signature="24362:25059" ph="SELECT aa.fn... t_parametros" />
+            <marker date="1465300295189" expanded="true" signature="25329:26458" ph="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1465300295189" expanded="true" signature="25847:26458" ph="SELECT aa.fn... t_parametrosamostra" />
+            <marker date="1465300295189" expanded="true" signature="26621:26693" ph="UPDATE t_par... " />
+            <marker date="1465300295189" expanded="true" signature="26883:27053" ph="UPDATE t_par... " />
+            <marker date="1465300295189" expanded="true" signature="28479:28576" ph="UPDATE t_res... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="596" column="124" selection-start-line="596" selection-start-column="124" selection-end-line="596" selection-end-column="124" />
+        <state relative-caret-position="77">
+          <caret line="1050" column="58" selection-start-line="1050" selection-start-column="58" selection-end-line="1050" selection-end-column="58" />
           <folding>
             <element signature="e#6643#6976#0#PHP" expanded="false" />
             <element signature="e#6982#9803#0#PHP" expanded="false" />
@@ -1072,6 +1122,54 @@
             <marker date="1465317534443" expanded="true" signature="90651:90663" ph="..." />
             <marker date="1465317534443" expanded="true" signature="90706:90719" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="152" column="39" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/AgendaType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="73" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="413" column="33" selection-start-line="413" selection-start-column="19" selection-end-line="413" selection-end-column="33" />
+          <folding>
+            <element signature="e#1152#4145#0#PHP" expanded="false" />
+            <element signature="e#4151#4285#0#PHP" expanded="false" />
+            <element signature="e#4291#5216#0#PHP" expanded="false" />
+            <element signature="e#5222#5453#0#PHP" expanded="false" />
+            <element signature="e#5458#6040#0#PHP" expanded="false" />
+            <element signature="e#6218#6475#0#PHP" expanded="false" />
+            <element signature="e#6648#6883#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="193" column="36" selection-start-line="193" selection-start-column="4" selection-end-line="193" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
