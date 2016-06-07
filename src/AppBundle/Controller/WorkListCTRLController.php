@@ -149,6 +149,7 @@ class WorkListCTRLController extends Controller
 
         error_reporting(0);
         $samples = explode(",", $slug);
+        $conta = count($samples);
         $pdf = $this->container->get("white_october.tcpdf")->create(
             'P',
             'mm',
@@ -590,7 +591,10 @@ EOF;
 
 
 // set image scale factor
-        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra.pdf";
+        if($conta > 1)
+            $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostras.pdf";
+        else
+            $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_" . $samples[0] .".pdf";
         $pdf->Output($fileNL , 'FI');
     }
 
