@@ -88,11 +88,6 @@ notifysample:
     path:     /notifysample/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Notifysample }
 
-relatoriosample:
-    path: /relatorio/emit
-    defaults: { _controller: AppBundle:WorkListCTRL:Relatoriosample }
-
-
 EntradaResultados:
     path:     /EntradaResultados
     defaults: { _controller: AppBundle:EntResultados:EntradaResultados }

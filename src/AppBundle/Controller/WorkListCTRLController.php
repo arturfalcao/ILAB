@@ -146,6 +146,7 @@ class WorkListCTRLController extends Controller
     }
 
     public function EmitirRelatorioAction($slug){
+
         error_reporting(0);
         $samples = explode(",", $slug);
         $pdf = $this->container->get("white_october.tcpdf")->create(
@@ -167,84 +168,201 @@ class WorkListCTRLController extends Controller
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
 
-        $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DE AMOSTRAS') , PDF_HEADER_STRING);
+
         $pdf->setFooterData(array(date("d-m-Y"), 0, 0), array(1, 0, 0));
+
+        //TODO: ir buscar o tipo de parametros e colocar diretamente na tabela parametrosamostras
         foreach ($samples as &$slug) {
+            $cumpre = true;
             $em = $this->getDoctrine()->getManager();
             $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
-            $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação")
-                .'</td></tr><tr><td class="font8">'.$amostra->getFtConclusao() .'</td></tr></table>';
+            $especificacao = $em->getRepository('AppBundle:TEspecificacoes')->findOneBy(array('fnId' => $amostra->getFnEspecificacao()));
+
             $parametros = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
+
             foreach ($parametros as &$value) {
                 $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
                 $value->setFnTipoparametro($parametro->getFnTipoparametro());
-
             }
-            $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Parâmetros Microbiologicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr></table>';
-            $header_fisico=  '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Físico-químicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr></table>';
-            $body_fisico="";
-            $body_micro ="";
+            $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Parâmetros Microbiologicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
+            $header_fisico = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Físico-químicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
+            $body_fisico = "";
+            $body_micro = "";
             $microeven = 0;
             $fisieven = 0;
+            //valida se nesta amostra existe algum parametro que tenha certificaçao, caso tenha coloca a imagem do ipac no header caso contrario não coloca
+            $ipac_cert = false;
+            foreach ($parametros as &$value) {
+                if ($value->getFbAmostraexterno() || $value->getFbAmostrainterno() || $value->getFbDeterminacaoexterno() || $value->getFbDeterminacaointerno()) {
+                    $ipac_cert = true;
+                    $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DE AMOSTRAS') , $ipac_cert);
+                }
+            }
+            if($ipac_cert==false)
+                $pdf->SetPrintHeader(false);
+
             //TODO: melhorar a logica dos parametros
             foreach ($parametros as &$value) {
-                if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "Microbiologicos"){
+                $label = "";
+                if ($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "Microbiologicos") {
                     $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
+                    $espe_texto = "";
+                    foreach ($especificacao->getfnParametros() as &$para_espe) {
+                        if ($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()) {
+                            $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = " . $para_espe->getFnIdFamiliaparametro()->getFnId() . " and fn_id_especificacao = " . $amostra->getFnEspecificacao()->getFnId() . " ";
+                            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                            $activeDate->execute();
+                            $last = $activeDate->fetchAll();
+                            $original = floatval($resultado->getFtOriginal());
+                            $max = floatval($last[0]['fn_maximo']);
+                            $min = floatval($last[0]['fn_minimo']);
+                            if ($original < $max && $original > $min) {
+                                $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
+                            } else {
+                                $cumpre = false;
+                                $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
+                            }
+                        }
+                    }
 
-                    if($body_micro == ""){
-                        $body_micro = $header_micro . '<table class="table_resultados" ><tr style=""><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    if ($value->getFbAmostrainterno() || $value->getFbDeterminacaointerno() || $ipac_cert == false) {
+                        if (!$value->getFbAmostrainterno()) {
+                            $label = $label . "(4)";
+                        }
+                        if (!$value->getFbDeterminacaointerno()) {
+                            $label = $label . "(1)";
+                        }
+                    } else {
+                        if ($value->getFbAmostraexterno() || $value->getFbDeterminacaoexterno()) {
+                            if (!$value->getFbAmostraexterno()) {
+                                $label = $label . "(5)";
+                            }
+                            if (!$value->getFbDeterminacaoexterno()) {
+                                $label = $label . "(2)";
+                            }
+                        } else {
+                            if (!$value->getFbAmostrainterno()) {
+                                $label = $label . "(4)";
+                            }
+                            if (!$value->getFbDeterminacaointerno()) {
+                                $label = $label . "(1)";
+                            }
+                            if ($value->getFbAmostraexterno()) {
+                                $label = $label . "(6)";
+                            }
+                            if ($value->getFbDeterminacaoexterno()) {
+                                $label = $label . "(3)";
+                            }
+
+                        }
+                    }
+                    if ($body_micro == "") {
+                        if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                        {
+                            $body_micro = $header_micro . '<table class="table_resultados"><tr style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+                            $microeven++;
+                        }
+                    } else {
                         $microeven++;
-                    }else{
-                        $microeven++;
-                        if($microeven % 2 == 0){
+                        if ($microeven % 2 == 0) {
                             $microevenclass = "#d3d3d3";
-                        }else{
+                        } else {
                             $microevenclass = "#ffffff";
                         }
-                        if($value->getFnFamiliaparametro() && $value->getFnMetodo() &&  $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
-                            $body_micro = $body_micro .  '<tr bgcolor="'.$microevenclass.'" style=""><td style="width:15px;">1sad</td><td bgcolor="'.$microevenclass.'" colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="" bgcolor="'.$microevenclass.'">'.$resultado->getFtFormatado() .'</td><td bgcolor="'.$microevenclass.'">'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                        if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                            $body_micro = $body_micro . '<tr bgcolor="' . $microevenclass . '" style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td bgcolor="' . $microevenclass . '" colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="" bgcolor="' . $microevenclass . '">' . $resultado->getFtFormatado() . '</td><td bgcolor="' . $microevenclass . '">' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
 
                     }
                 }
-                if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "FisicoQuimicos"){
+                if ($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "FisicoQuimicos") {
                     $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
-                    if($body_fisico == ""){
-                        if($value->getFnFamiliaparametro() && $value->getFnMetodo() &&  $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
-                            $body_fisico = $header_fisico . '<table class="table_resultados" ><tr style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                    $espe_texto = "";
+                    foreach ($especificacao->getfnParametros() as &$para_espe) {
+
+                        if ($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()) {
+
+                            $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = " . $para_espe->getFnIdFamiliaparametro()->getFnId() . " and fn_id_especificacao = " . $amostra->getFnEspecificacao()->getFnId() . " ";
+                            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                            $activeDate->execute();
+                            $last = $activeDate->fetchAll();
+                            $original = floatval($resultado->getFtOriginal());
+                            $max = floatval($last[0]['fn_maximo']);
+                            $min = floatval($last[0]['fn_minimo']);
+                            if ($original < $max && $original > $min) {
+                                $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
+                            } else {
+                                $cumpre = false;
+                                $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
+                            }
+
+
+                        }
+                    }
+                    if ($value->getFbAmostrainterno() || $value->getFbDeterminacaointerno() || $ipac_cert == false) {
+                        if (!$value->getFbAmostrainterno()) {
+                            $label = $label . "(4)";
+                        }
+                        if (!$value->getFbDeterminacaointerno()) {
+                            $label = $label . "(1)";
+                        }
+                    } else {
+                        if ($value->getFbAmostraexterno() || $value->getFbDeterminacaoexterno()) {
+                            if (!$value->getFbAmostraexterno()) {
+                                $label = $label . "(5)";
+                            }
+                            if (!$value->getFbDeterminacaoexterno()) {
+                                $label = $label . "(2)";
+                            }
+                        } else {
+                            if (!$value->getFbAmostrainterno()) {
+                                $label = $label . "(4)";
+                            }
+                            if (!$value->getFbDeterminacaointerno()) {
+                                $label = $label . "(1)";
+                            }
+                            if ($value->getFbAmostraexterno()) {
+                                $label = $label . "(6)";
+                            }
+                            if ($value->getFbDeterminacaoexterno()) {
+                                $label = $label . "(3)";
+                            }
+
+                        }
+                    }
+                    if ($body_fisico == "") {
+                        if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                        {
+                            $body_fisico = $header_fisico . '<table class="table_resultados" ><tr style="margin-top 0px;"><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+                            $fisieven++;
+                        }
+                    } else {
                         $fisieven++;
-                    }else{
-                        $fisieven++;
-                        if($fisieven % 2 == 0){
+                        if ($fisieven % 2 == 0) {
                             $fisievenclass = "#d3d3d3";
-                        }else{
+                        } else {
                             $fisievenclass = "#ffffff";
                         }
-                        if($value->getFnFamiliaparametro() && $value->getFnMetodo() &&  $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
-                            $body_fisico = $body_fisico .  '<tr bgcolor="'.$fisievenclass.'" style="margin-top 0px;"><td style="width:15px;">dsa1</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data"></td><td></td><td class="table_parametros_data"></td></tr>';
+                        if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                            $body_fisico = $body_fisico . '<tr bgcolor="' . $fisievenclass . '" style="margin-top 0px;"><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
                     }
                 }
             }
 
+            if ($cumpre) {
+                $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdCumpreA()) . '</td></tr></table>';
+            } else {
+                $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdNaoCumpreA()) . '</td></tr></table>';
+            }
             $body_fisico = $body_fisico . '</table></br>';
-            $body_micro = $body_micro  . '</table></br>';
+            $body_micro = $body_micro . '</table></br>';
             $modeloamostra = $em->getRepository('AppBundle:TModelosamostra')->findOneBy(array('fnId' => $amostra->getFnModelo()->getFnId()));
 
             $amostraalimentos = $em->getRepository('AppBundle:TAmostrasalimentos')->findOneBy(array('fnId' => $amostra->getFnAmostrasalimentos()->getFnId()));
             $cliente = $em->getRepository('AppBundle:TClientes')->findOneBy(array('fnId' => $amostra->getFnCliente()->getFnId()));
-            if($amostraalimentos->getFtLote() != null || $amostraalimentos->getFtAcondicionamento() != null ||  $amostraalimentos->getFtTemperatura() != null || $amostraalimentos->getFtFaseprocesso() != null  ){
-                $origem = '<tr><td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" 
-                           style="font-size: 10px;text-align:left;padding-left: 10px;width: 100%;margin: 0;" 
-                           class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" 
-                           style="font-size:8px;width: 140px;" >Lote: '.$amostraalimentos->getFtLote().'</td>
-                           <td class="bold_one" style="font-size:8px;width:  140px;" >
-                           Acondicionamento:'.$amostraalimentos->getFtAcondicionamento().'</td></tr><tr>
-                           <td class="bold_one" style="font-size:8px;width: 140px;" >Validade: '.$amostraalimentos->getFtValidade().' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:'.$amostraalimentos->getFtFaseprocesso().'</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: '.$amostraalimentos->getFtTemperatura().' </td></tr></table>  </td></tr>';
-            }else{
-                $origem = '<tr><td  style="font-size: 10px;text-align:left;padding: 0;font-weight: 
-                            bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">
-                            Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;
-                            text-align:left;padding-left: 10px;width: 100%;margin: 0;" 
-                            class="tit_info_amostra">'.$amostra->getFtOrigem().'</td></tr>';
+            if ($amostraalimentos->getFtLote() != null || $amostraalimentos->getFtAcondicionamento() != null || $amostraalimentos->getFtTemperatura() != null || $amostraalimentos->getFtFaseprocesso() != null) {
+                $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: ' . $amostraalimentos->getFtLote() . '</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:' . $amostraalimentos->getFtAcondicionamento() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: ' . $amostraalimentos->getFtValidade() . ' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:' . $amostraalimentos->getFtFaseprocesso() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: ' . $amostraalimentos->getFtTemperatura() . ' </td></tr></table>  </td></tr>';
+            } else {
+                $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">' . $amostra->getFtOrigem() . '</td></tr>';
             }
 
             //texto das vars
@@ -253,43 +371,43 @@ class WorkListCTRLController extends Controller
             $datacolheita = $amostra->getFdColheita()->format('d-m-Y');
 
             //date de recepção da amostra
-            $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." group by ft_id_estado order by fn_id desc";
+            $sql = "select * from t_amostras_logs where fn_id_amostra = " . $slug . " group by ft_id_estado order by fn_id desc";
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
-            $datarecepcao =  $activeDate->fetchAll();
-            if(count($datarecepcao) != 0){
+            $datarecepcao = $activeDate->fetchAll();
+            if (count($datarecepcao) != 0) {
                 $datarecepcao = strtotime($datarecepcao[0]['updated_by_time']);
-                $datarecepcao = date('d-m-Y',$datarecepcao);
-            }else{
-                $datarecepcao  ="";
+                $datarecepcao = date('d-m-Y', $datarecepcao);
+            } else {
+                $datarecepcao = "";
             }
 
             //date de inicio dos trabalhos
-            $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 3 group by ft_id_estado order by fn_id desc";
+            $sql = "select * from t_amostras_logs where fn_id_amostra = " . $slug . " and ft_id_estado = 3 group by ft_id_estado order by fn_id desc";
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
-            $datainicio =  $activeDate->fetchAll();
+            $datainicio = $activeDate->fetchAll();
 
-            if(count($datainicio) != 0){
+            if (count($datainicio) != 0) {
                 $datainicio = strtotime($datainicio[0]['updated_by_time']);
-                $datainicio = date('d-m-Y',$datainicio);
-            }else{
-                $datainicio  ="";
+                $datainicio = date('d-m-Y', $datainicio);
+            } else {
+                $datainicio = "";
             }
 
             //date de fim dos trabalhos
-            $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 2 group by ft_id_estado order by fn_id desc";
+            $sql = "select * from t_amostras_logs where fn_id_amostra = " . $slug . " and ft_id_estado = 2 group by ft_id_estado order by fn_id desc";
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
-            $datafim =  $activeDate->fetchAll();
-            if(count($datafim) != 0){
-                $datafim  = strtotime($datafim[0]['updated_by_time']);
-                $datafim  = date('d-m-Y',$datafim );
-            }else{
-                $datafim  ="";
+            $datafim = $activeDate->fetchAll();
+            if (count($datafim) != 0) {
+                $datafim = strtotime($datafim[0]['updated_by_time']);
+                $datafim = date('d-m-Y', $datafim);
+            } else {
+                $datafim = "";
             }
 
-
+            $ref_ext = utf8_decode($amostra->getFtRefexterna());
 
 
 // set header and footer fonts
@@ -298,6 +416,7 @@ class WorkListCTRLController extends Controller
             $pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
 
             $pdf->AddPage();
+
 
             $html = <<<EOF
         <style type="text/css">
@@ -384,23 +503,23 @@ class WorkListCTRLController extends Controller
                 <td  align="left" width="280">
                     <table cellspacing="1" cellpadding="2">
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$modeloamostra->getFnTipoamostra()->getFtDescricao()}</td>
+                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$modeloamostra->getFnTipoamostra()->getFtDescricao()}</td>
                         </tr>
                          {$origem}
                          <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtResponsavelcolheita()}</td>
+                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtResponsavelcolheita()}</td>
                         </tr>
                          <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtRefexterna()}</td>
+                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$ref_ext}</td>
                         </tr>
                     </table>
                 </td>
@@ -408,28 +527,28 @@ class WorkListCTRLController extends Controller
                 <td  align="left" width="220">
                     <table cellspacing="1" cellpadding="2">
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtNome()}</td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtNome()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtMorada()}</td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtMorada()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtCodpostal()}- {$cliente->getFtLocalidade()}</td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtCodpostal()}- {$cliente->getFtLocalidade()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                     </table>
                 </td>
@@ -451,211 +570,34 @@ class WorkListCTRLController extends Controller
       {$body_fisico}
       {$conclusao}
 EOF;
-
             $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
             $pdf->setHtmlVSpace($tagvs);
 
 // output the HTML content
             $pdf->writeHTML($html, true, true, true, true, '');
             $pdf->setAutoPageBreak(true, 30);
-
-
         }
 
         $pdf->lastPage();
-        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostras.pdf";
-        
 
+// set default monospaced font
+
+
+// set margins
+
+
+// set auto page breaks
+
+
+// set image scale factor
+        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_2.pdf";
         $pdf->Output($fileNL , 'FI');
-
-        return new Response("ok");
     }
 
+
     public function EmitRelatorioAction($slug){
-        $cumpre = true;
-        $em = $this->getDoctrine()->getManager();
-        $arr = $this->get("request")->getContent();
-        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
-        $especificacao = $em->getRepository('AppBundle:TEspecificacoes')->findOneBy(array('fnId' => $amostra->getFnEspecificacao()));
 
-
-        
-        //TODO: ir buscar o tipo de parametros e colocar diretamente na tabela parametrosamostras
-
-        $parametros = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
-
-        foreach ($parametros as &$value) {
-            $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
-            $value->setFnTipoparametro($parametro->getFnTipoparametro());
-        }
-        $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Parâmetros Microbiologicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">'. $especificacao->getFtSiglavl().'</td><td></td><td class="table_parametros_data"></td></tr></table>';
-        $header_fisico=  '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>'. utf8_decode("Físico-químicos") .'</span><br/><span class="table_parametros_tecnica">'. utf8_decode("Método de ensaio / Técnica analítica") .'</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">'. $especificacao->getFtSiglavl().'</td><td></td><td class="table_parametros_data"></td></tr></table>';
-        $body_fisico="";
-        $body_micro ="";
-        $microeven = 0;
-        $fisieven = 0;
-        //valida se nesta amostra existe algum parametro que tenha certificaçao, caso tenha coloca a imagem do ipac no header caso contrario não coloca
-        $ipac_cert = false;
-         foreach ($parametros as &$value) {
-            if($value->getFbAmostraexterno() || $value->getFbAmostrainterno() || $value->getFbDeterminacaoexterno() ||$value->getFbDeterminacaointerno()){
-                $ipac_cert = true;
-            }
-        }
-        //TODO: melhorar a logica dos parametros
-        foreach ($parametros as &$value) {
-            $label ="";
-            if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "Microbiologicos"){
-                $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
-                $espe_texto = "";
-                foreach ($especificacao->getfnParametros() as &$para_espe) {
-                    if($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()){
-                        $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = ". $para_espe->getFnIdFamiliaparametro()->getFnId() ." and fn_id_especificacao = ". $amostra->getFnEspecificacao()->getFnId() . " ";
-                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
-                        $activeDate->execute();
-                        $last = $activeDate->fetchAll();
-                        $original = floatval ($resultado->getFtOriginal());
-                        $max = floatval ( $last[0]['fn_maximo'] );
-                        $min = floatval ( $last[0]['fn_minimo'] );
-                        if($original < $max && $original > $min){
-                            $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
-                        }else{
-                            $cumpre = false;
-                            $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
-                        }
-                    }
-                }
-                    
-                if( $value->getFbAmostrainterno() || $value->getFbDeterminacaointerno() || $ipac_cert == false){
-                    if(!$value->getFbAmostrainterno()){
-                        $label = $label . "(4)";
-                    }
-                    if(!$value->getFbDeterminacaointerno()){
-                        $label = $label . "(1)";
-                    }
-                }else{
-                    if( $value->getFbAmostraexterno() || $value->getFbDeterminacaoexterno()){
-                        if(!$value->getFbAmostraexterno()){
-                            $label = $label . "(5)";
-                        }
-                        if(!$value->getFbDeterminacaoexterno()){
-                            $label = $label . "(2)";
-                        }
-                    }else{
-                         if(!$value->getFbAmostrainterno()){
-                            $label = $label . "(4)";
-                        }
-                        if(!$value->getFbDeterminacaointerno()){
-                            $label = $label . "(1)";
-                        }   
-                        if($value->getFbAmostraexterno()){
-                            $label = $label . "(6)";
-                        }
-                        if($value->getFbDeterminacaoexterno()){
-                            $label = $label . "(3)";
-                        }
-
-                    }
-                }    
-                if($body_micro == ""){
-                    $body_micro = $header_micro . '<table class="table_resultados"><tr style=""><td style="width:18px;font-size:5px;">'. $label .'</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
-                    $microeven++;
-                }else{
-                    $microeven++;
-                    if($microeven % 2 == 0){
-                        $microevenclass = "#d3d3d3";
-                    }else{
-                        $microevenclass = "#ffffff";
-                    }
-                    $body_micro = $body_micro .  '<tr bgcolor="'.$microevenclass.'" style=""><td style="width:18px;font-size:5px;">'. $label .'</td><td bgcolor="'.$microevenclass.'" colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="" bgcolor="'.$microevenclass.'">'.$resultado->getFtFormatado() .'</td><td bgcolor="'.$microevenclass.'">'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
-
-                }
-            }
-            if($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "FisicoQuimicos"){
-                $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
-                $espe_texto = "";
-                foreach ($especificacao->getfnParametros() as &$para_espe) {
-
-                    if($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()){
-
-                        $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = ". $para_espe->getFnIdFamiliaparametro()->getFnId() ." and fn_id_especificacao = ". $amostra->getFnEspecificacao()->getFnId() . " ";
-                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
-                        $activeDate->execute();
-                        $last = $activeDate->fetchAll();
-                        $original = floatval ($resultado->getFtOriginal());
-                        $max = floatval ( $last[0]['fn_maximo'] );
-                        $min = floatval ( $last[0]['fn_minimo'] );
-                        if($original < $max && $original > $min){
-                            $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
-                        }else{
-                            $cumpre = false;
-                            $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
-                        }
-
-
-                    }
-                }
-                 if( $value->getFbAmostrainterno() || $value->getFbDeterminacaointerno() || $ipac_cert == false){
-                    if(!$value->getFbAmostrainterno()){
-                        $label = $label . "(4)";
-                    }
-                    if(!$value->getFbDeterminacaointerno()){
-                        $label = $label . "(1)";
-                    }
-                }else{
-                    if( $value->getFbAmostraexterno() || $value->getFbDeterminacaoexterno()){
-                        if(!$value->getFbAmostraexterno()){
-                            $label = $label . "(5)";
-                        }
-                        if(!$value->getFbDeterminacaoexterno()){
-                            $label = $label . "(2)";
-                        }
-                    }else{
-                         if(!$value->getFbAmostrainterno()){
-                            $label = $label . "(4)";
-                        }
-                        if(!$value->getFbDeterminacaointerno()){
-                            $label = $label . "(1)";
-                        }   
-                        if($value->getFbAmostraexterno()){
-                            $label = $label . "(6)";
-                        }
-                        if($value->getFbDeterminacaoexterno()){
-                            $label = $label . "(3)";
-                        }
-
-                    }
-                }    
-                if($body_fisico == ""){
-                    $body_fisico = $header_fisico . '<table class="table_resultados" ><tr style="margin-top 0px;"><td style="width:18px;font-size:5px;">'. $label .'</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
-                    $fisieven++;
-                }else{
-                    $fisieven++;
-                    if($fisieven % 2 == 0){
-                        $fisievenclass = "#d3d3d3";
-                    }else{
-                        $fisievenclass = "#ffffff";
-                    }
-                    $body_fisico = $body_fisico .  '<tr bgcolor="'.$fisievenclass.'" style="margin-top 0px;"><td style="width:18px;font-size:5px;">'. $label .'</td><td colspan="4" class="resultados_one" style="">'. utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) .' <br /><span class="table_parametros_tecnica">'. utf8_decode($value->getFnMetodo()->getFtDescricao()).'/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() .'</span></td><td class="">'.$resultado->getFtFormatado() .'</td><td>'. $resultado->getFnUnidade()->getFtDescricao() .'</td><td class="table_parametros_data">'.$espe_texto.'</td><td></td><td class="table_parametros_data"></td></tr>';
-                }
-            }
-        }
-
-        if($cumpre){
-            $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação") .'</td></tr><tr><td class="font8">'.utf8_decode($especificacao->getFtTextoQdCumpreA()) .'</td></tr></table>';
-        }else{
-            $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">'. utf8_decode("(*)Apreciação") .'</td></tr><tr><td class="font8">'.utf8_decode($especificacao->getFtTextoQdNaoCumpreA()) .'</td></tr></table>';
-        }
-        $body_fisico = $body_fisico . '</table></br>';
-        $body_micro = $body_micro  . '</table></br>';
-        $modeloamostra = $em->getRepository('AppBundle:TModelosamostra')->findOneBy(array('fnId' => $amostra->getFnModelo()->getFnId()));
-
-        $amostraalimentos = $em->getRepository('AppBundle:TAmostrasalimentos')->findOneBy(array('fnId' => $amostra->getFnAmostrasalimentos()->getFnId()));
-        $cliente = $em->getRepository('AppBundle:TClientes')->findOneBy(array('fnId' => $amostra->getFnCliente()->getFnId()));
-        if($amostraalimentos->getFtLote() != null || $amostraalimentos->getFtAcondicionamento() != null ||  $amostraalimentos->getFtTemperatura() != null || $amostraalimentos->getFtFaseprocesso() != null  ){
-            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: '.$amostraalimentos->getFtLote().'</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:'.$amostraalimentos->getFtAcondicionamento().'</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: '.$amostraalimentos->getFtValidade().' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:'.$amostraalimentos->getFtFaseprocesso().'</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: '.$amostraalimentos->getFtTemperatura().' </td></tr></table>  </td></tr>';
-        }else{
-            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">'.$amostra->getFtOrigem().'</td></tr>';
-        }
+        error_reporting(0);
         $pdf = $this->container->get("white_october.tcpdf")->create(
             'P',
             'mm',
@@ -667,7 +609,7 @@ EOF;
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Pimenta do Vale');
-        $pdf->SetTitle($slug);
+        $pdf->SetTitle('RELATÓRIO DE AMOSTRAS');
 
 
 // set default header data
@@ -675,8 +617,202 @@ EOF;
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
 
-        $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DE ENSAIO Nº, 50267') , $ipac_cert);
         $pdf->setFooterData(array(date("d-m-Y"), 0, 0), array(1, 0, 0));
+
+        //TODO: ir buscar o tipo de parametros e colocar diretamente na tabela parametrosamostras
+        $cumpre = true;
+        $em = $this->getDoctrine()->getManager();
+        $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        $especificacao = $em->getRepository('AppBundle:TEspecificacoes')->findOneBy(array('fnId' => $amostra->getFnEspecificacao()));
+
+        $parametros = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
+
+        foreach ($parametros as &$value) {
+            $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
+            $value->setFnTipoparametro($parametro->getFnTipoparametro());
+        }
+        $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Parâmetros Microbiologicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
+        $header_fisico = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Físico-químicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
+        $body_fisico = "";
+        $body_micro = "";
+        $microeven = 0;
+        $fisieven = 0;
+        //valida se nesta amostra existe algum parametro que tenha certificaçao, caso tenha coloca a imagem do ipac no header caso contrario não coloca
+        $ipac_cert = false;
+        foreach ($parametros as &$value) {
+            if ($value->getFbAmostraexterno() || $value->getFbAmostrainterno() || $value->getFbDeterminacaoexterno() || $value->getFbDeterminacaointerno()) {
+                $ipac_cert = true;
+                $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DE AMOSTRAS'),PDF_HEADER_STRING);
+            }
+        }
+
+        if($ipac_cert==false)
+            $pdf->SetPrintHeader(false);
+
+
+        //TODO: melhorar a logica dos parametros
+        foreach ($parametros as &$value) {
+            $label = "";
+            if ($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "Microbiologicos") {
+                $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
+                $espe_texto = "";
+                foreach ($especificacao->getfnParametros() as &$para_espe) {
+                    if ($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()) {
+                        $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = " . $para_espe->getFnIdFamiliaparametro()->getFnId() . " and fn_id_especificacao = " . $amostra->getFnEspecificacao()->getFnId() . " ";
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+                        $last = $activeDate->fetchAll();
+                        $original = floatval($resultado->getFtOriginal());
+                        $max = floatval($last[0]['fn_maximo']);
+                        $min = floatval($last[0]['fn_minimo']);
+                        if ($original < $max && $original > $min) {
+                            $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
+                        } else {
+                            $cumpre = false;
+                            $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
+                        }
+                    }
+                }
+
+                if ($value->getFbAmostrainterno() || $value->getFbDeterminacaointerno() || $ipac_cert == false) {
+                    if (!$value->getFbAmostrainterno()) {
+                        $label = $label . "(4)";
+                    }
+                    if (!$value->getFbDeterminacaointerno()) {
+                        $label = $label . "(1)";
+                    }
+                } else {
+                    if ($value->getFbAmostraexterno() || $value->getFbDeterminacaoexterno()) {
+                        if (!$value->getFbAmostraexterno()) {
+                            $label = $label . "(5)";
+                        }
+                        if (!$value->getFbDeterminacaoexterno()) {
+                            $label = $label . "(2)";
+                        }
+                    } else {
+                        if (!$value->getFbAmostrainterno()) {
+                            $label = $label . "(4)";
+                        }
+                        if (!$value->getFbDeterminacaointerno()) {
+                            $label = $label . "(1)";
+                        }
+                        if ($value->getFbAmostraexterno()) {
+                            $label = $label . "(6)";
+                        }
+                        if ($value->getFbDeterminacaoexterno()) {
+                            $label = $label . "(3)";
+                        }
+
+                    }
+                }
+                if ($body_micro == "") {
+                    if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                    {
+                        $body_micro = $header_micro . '<table class="table_resultados"><tr style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+                        $microeven++;
+                    }
+                } else {
+                    $microeven++;
+                    if ($microeven % 2 == 0) {
+                        $microevenclass = "#d3d3d3";
+                    } else {
+                        $microevenclass = "#ffffff";
+                    }
+                    if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                        $body_micro = $body_micro . '<tr bgcolor="' . $microevenclass . '" style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td bgcolor="' . $microevenclass . '" colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="" bgcolor="' . $microevenclass . '">' . $resultado->getFtFormatado() . '</td><td bgcolor="' . $microevenclass . '">' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+
+                }
+            }
+            if ($value->getFnTipoparametro() != null && $value->getFnTipoparametro()->getFtCodigo() == "FisicoQuimicos") {
+                $resultado = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value->getId()));
+                $espe_texto = "";
+                foreach ($especificacao->getfnParametros() as &$para_espe) {
+
+                    if ($para_espe->getFnIdFamiliaparametro()->getFnId() == $value->getFnId()) {
+
+                        $sql = "SELECT * FROM t_parametrosporespecificacao where fn_id_familiaparametro = " . $para_espe->getFnIdFamiliaparametro()->getFnId() . " and fn_id_especificacao = " . $amostra->getFnEspecificacao()->getFnId() . " ";
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+                        $last = $activeDate->fetchAll();
+                        $original = floatval($resultado->getFtOriginal());
+                        $max = floatval($last[0]['fn_maximo']);
+                        $min = floatval($last[0]['fn_minimo']);
+                        if ($original < $max && $original > $min) {
+                            $espe_texto = utf8_decode($last[0]['ft_texto_relatorio']);
+                        } else {
+                            $cumpre = false;
+                            $espe_texto = utf8_decode($especificacao->getFtTextoQdNaoPassaP());
+                        }
+
+
+                    }
+                }
+                if ($value->getFbAmostrainterno() || $value->getFbDeterminacaointerno() || $ipac_cert == false) {
+                    if (!$value->getFbAmostrainterno()) {
+                        $label = $label . "(4)";
+                    }
+                    if (!$value->getFbDeterminacaointerno()) {
+                        $label = $label . "(1)";
+                    }
+                } else {
+                    if ($value->getFbAmostraexterno() || $value->getFbDeterminacaoexterno()) {
+                        if (!$value->getFbAmostraexterno()) {
+                            $label = $label . "(5)";
+                        }
+                        if (!$value->getFbDeterminacaoexterno()) {
+                            $label = $label . "(2)";
+                        }
+                    } else {
+                        if (!$value->getFbAmostrainterno()) {
+                            $label = $label . "(4)";
+                        }
+                        if (!$value->getFbDeterminacaointerno()) {
+                            $label = $label . "(1)";
+                        }
+                        if ($value->getFbAmostraexterno()) {
+                            $label = $label . "(6)";
+                        }
+                        if ($value->getFbDeterminacaoexterno()) {
+                            $label = $label . "(3)";
+                        }
+
+                    }
+                }
+                if ($body_fisico == "") {
+                    if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                    {
+                        $body_fisico = $header_fisico . '<table class="table_resultados" ><tr style="margin-top 0px;"><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+                        $fisieven++;
+                    }
+                } else {
+                    $fisieven++;
+                    if ($fisieven % 2 == 0) {
+                        $fisievenclass = "#d3d3d3";
+                    } else {
+                        $fisievenclass = "#ffffff";
+                    }
+                    if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
+                        $body_fisico = $body_fisico . '<tr bgcolor="' . $fisievenclass . '" style="margin-top 0px;"><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+                }
+            }
+        }
+
+        if ($cumpre) {
+            $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdCumpreA()) . '</td></tr></table>';
+        } else {
+            $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdNaoCumpreA()) . '</td></tr></table>';
+        }
+        $body_fisico = $body_fisico . '</table></br>';
+        $body_micro = $body_micro . '</table></br>';
+        $modeloamostra = $em->getRepository('AppBundle:TModelosamostra')->findOneBy(array('fnId' => $amostra->getFnModelo()->getFnId()));
+
+        $amostraalimentos = $em->getRepository('AppBundle:TAmostrasalimentos')->findOneBy(array('fnId' => $amostra->getFnAmostrasalimentos()->getFnId()));
+        $cliente = $em->getRepository('AppBundle:TClientes')->findOneBy(array('fnId' => $amostra->getFnCliente()->getFnId()));
+        if ($amostraalimentos->getFtLote() != null || $amostraalimentos->getFtAcondicionamento() != null || $amostraalimentos->getFtTemperatura() != null || $amostraalimentos->getFtFaseprocesso() != null) {
+            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: ' . $amostraalimentos->getFtLote() . '</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:' . $amostraalimentos->getFtAcondicionamento() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: ' . $amostraalimentos->getFtValidade() . ' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:' . $amostraalimentos->getFtFaseprocesso() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: ' . $amostraalimentos->getFtTemperatura() . ' </td></tr></table>  </td></tr>';
+        } else {
+            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">' . $amostra->getFtOrigem() . '</td></tr>';
+        }
 
         //texto das vars
         $ref = utf8_decode('Referência');
@@ -684,40 +820,40 @@ EOF;
         $datacolheita = $amostra->getFdColheita()->format('d-m-Y');
 
         //date de recepção da amostra
-        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." group by ft_id_estado order by fn_id desc";
+        $sql = "select * from t_amostras_logs where fn_id_amostra = " . $slug . " group by ft_id_estado order by fn_id desc";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
-        $datarecepcao =  $activeDate->fetchAll();
-        if(count($datarecepcao) != 0){
+        $datarecepcao = $activeDate->fetchAll();
+        if (count($datarecepcao) != 0) {
             $datarecepcao = strtotime($datarecepcao[0]['updated_by_time']);
-            $datarecepcao = date('d-m-Y',$datarecepcao);
-        }else{
-            $datarecepcao  ="";
+            $datarecepcao = date('d-m-Y', $datarecepcao);
+        } else {
+            $datarecepcao = "";
         }
 
         //date de inicio dos trabalhos
-        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 3 group by ft_id_estado order by fn_id desc";
+        $sql = "select * from t_amostras_logs where fn_id_amostra = " . $slug . " and ft_id_estado = 3 group by ft_id_estado order by fn_id desc";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
-        $datainicio =  $activeDate->fetchAll();
+        $datainicio = $activeDate->fetchAll();
 
-        if(count($datainicio) != 0){
+        if (count($datainicio) != 0) {
             $datainicio = strtotime($datainicio[0]['updated_by_time']);
-            $datainicio = date('d-m-Y',$datainicio);
-        }else{
-            $datainicio  ="";
+            $datainicio = date('d-m-Y', $datainicio);
+        } else {
+            $datainicio = "";
         }
 
         //date de fim dos trabalhos
-        $sql = "select * from t_amostras_logs where fn_id_amostra = ".$slug." and ft_id_estado = 2 group by ft_id_estado order by fn_id desc";
+        $sql = "select * from t_amostras_logs where fn_id_amostra = " . $slug . " and ft_id_estado = 2 group by ft_id_estado order by fn_id desc";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
-        $datafim =  $activeDate->fetchAll();
-        if(count($datafim) != 0){
-            $datafim  = strtotime($datafim[0]['updated_by_time']);
-            $datafim  = date('d-m-Y',$datafim );
-        }else{
-            $datafim  ="";
+        $datafim = $activeDate->fetchAll();
+        if (count($datafim) != 0) {
+            $datafim = strtotime($datafim[0]['updated_by_time']);
+            $datafim = date('d-m-Y', $datafim);
+        } else {
+            $datafim = "";
         }
 
         $ref_ext = utf8_decode($amostra->getFtRefexterna());
@@ -882,14 +1018,14 @@ EOF;
       {$body_fisico}
       {$conclusao}
 EOF;
-        $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
-        $pdf->setHtmlVSpace($tagvs);
+    $tagvs = array('p' => array(1 => array('h' => 0.0001, 'n' => 1)), 'ul' => array(0 => array('h' => 0.0001, 'n' => 1)));
+    $pdf->setHtmlVSpace($tagvs);
 
 // output the HTML content
-        $pdf->writeHTML($html, true, true, true, true, '');
-        $pdf->setAutoPageBreak(true, 30);
+    $pdf->writeHTML($html, true, true, true, true, '');
+    $pdf->setAutoPageBreak(true, 30);
 
-        $pdf->lastPage();
+    $pdf->lastPage();
 
 // set default monospaced font
 
@@ -901,13 +1037,8 @@ EOF;
 
 
 // set image scale factor
-        //$filelocation = "/var/www/lab.iwish.solutions/app/amostras";
-        //$fileNL = $filelocation."/".$slug.".pdf"; //Linux
-        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_" . $slug .".pdf";
+        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_" . $slug . ".pdf";
         $pdf->Output($fileNL , 'FI');
-
-
-
     }
 
     //Get relatorio
@@ -1127,7 +1258,6 @@ EOF;
         $samples = explode(",", $slug);
         $par_container = [];
         $tipo_modelo = '';
-        $flag = 0;
         $resultflag = 0;
         foreach ($samples as &$slug) {
             $em = $this->getDoctrine()->getManager();
@@ -1162,6 +1292,7 @@ EOF;
 
             if($amostra->getFtEstado()->getFtCodigo() != 'D' && $amostra->getFtEstado()->getFtCodigo() != 'C' && $amostra->getFtEstado()->getFtCodigo() != 'A' && $amostra->getFtEstado()->getFtCodigo() != 'X' && $amostra->getFtEstado()->getFtCodigo() != 'P' ){
                 $arr = $em->getRepository('AppBundle\Entity\TParametrosgrupo')->findBytgrupo($amostra->getFtGrupoparametros());
+                $flag = 0;
             }else{
                 $arr = $em->getRepository('AppBundle:TAmostrasParametros')->findByIdamostra($slug);
                 $flag = 1;
@@ -1170,17 +1301,16 @@ EOF;
 
             foreach ($arr as $value) {
 
-                
-                if($flag == 0){
-                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
 
-                }else{
-                    $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
+                if ($flag == 0) {
+                    $value2 = $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
+
+                } else {
+                    $value2 = $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getIdparametro());
                 }
-
-                $info = $value2->getFnIdAreaensaio();
-                $info2 = $em->getRepository('AppBundle:TAreasensaio')->findOneByFnId($info);
-
+                if ($value2) {
+                    $info = $value2->getFnIdAreaensaio();
+                    $info2 = $em->getRepository('AppBundle:TAreasensaio')->findOneByFnId($info);
 
                 if (strpos($info2->getFtDescricao(), 'Alimentos') !== false) {
 
@@ -1197,6 +1327,7 @@ EOF;
                     } else {
                         $tipo_modelo = 'Agua';
                     }
+                }
                 }
             }
         }
