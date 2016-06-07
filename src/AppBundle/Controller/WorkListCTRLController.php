@@ -590,7 +590,7 @@ EOF;
 
 
 // set image scale factor
-        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_2.pdf";
+        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra.pdf";
         $pdf->Output($fileNL , 'FI');
     }
 
@@ -1043,8 +1043,8 @@ EOF;
 
     //Get relatorio
     public function GetRelatorioAction($slug){
-
-        $file = '/var/www/html/lab/app/amostras/87.pdf';
+        $file = $this->container->getParameter('kernel.root_dir') . "\\amostras\\87.pdf" .
+        //$file = '/var/www/html/lab/app/amostras/87.pdf';
         $filename = 'filename.pdf';
         header('Content-type: application/pdf');
         header('Content-Disposition: inline; filename="' . $filename . '"');
@@ -1623,7 +1623,7 @@ EOF;
 
                         if ($header_aux == 0) {
                             $header_aux = 1;
-                            $pdf->SetHeaderData('logopimenta.png', 50, '<table border="0" align="center"><tr><th>Lista de Trabalho</th></tr><tr><th>' . utf8_decode($result[0]["parametro"]) . ' (' . utf8_decode($result[0]["metodo"]) . ')</th></tr><tr><th>' . utf8_decode($result[0]["unidade"]) . '</th></tr><tr><th>Codigo: '.$result1[0]["max_id_lista"].'</th></tr><tr><th>' . utf8_decode("Emissão:") . date("d-m-Y") . '</th></tr></table>', PDF_HEADER_STRING);
+                            $pdf->SetHeaderData('logopimenta.png', 50, '', PDF_HEADER_STRING);
                             $pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
 
                             // set header and footer fonts
@@ -1683,8 +1683,8 @@ EOD;
         // set auto page breaks
         // set image scale factor
 
-        $filelocation = "/var/www/lab.iwish.solutions/app/listas";
-        $fileNL = $filelocation."/".$result1[0]['max_id_lista'].".pdf"; //Linux
+        $fileNL = $this->container->getParameter('kernel.root_dir') . "\listas\\" . $result1[0]['max_id_lista'].".pdf";
+            //"/var/www/lab.iwish.solutions/app/listas";
         $pdf->Output($fileNL , 'F');
 
             //change all sample to state on progress
