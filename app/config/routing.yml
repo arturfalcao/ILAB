@@ -50,6 +50,10 @@ generateworklist:
     path:     /generateworklist/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Generateworklist }
 
+emitirrel:
+    path:     /emitirrelatorio/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:EmitirRelatorio }
+
 generateworklistalt:
     path:     /generateworklistalt/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Generateworklistalt }

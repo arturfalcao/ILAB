@@ -68,6 +68,7 @@ $( document ).ready(function() {
       var ok;
       var m;
       var tabs_1 = $('#tabs-1');
+      var user = Number($('#logged').val());
       tabs_1.append("<div class='loading' style='margin-top:20px!important;'></div>");
 
       $('.loading').show();
@@ -78,23 +79,27 @@ $( document ).ready(function() {
       $.ajax({
           type: "POST",
           url: '{{path('calendar_geteventos')}}',
-          data: {},
+          data: {user},
           success: function(data) {
               var arr = $.parseJSON(data);
               tabs_1.html('');
-              
-              
               if(arr.length != 0)
               {
                 $.each(arr, function(index,value) {
                     var data = new Date(value.tempo.date);
-                    var data_format = (data.getHours() < 10 ? ('0' + data.getHours()) : data.getHours()) 
+                    var data_format = (data.getHours() < 10 ? ('0' + data.getHours()) : data.getHours())
                     + ':' + (data.getMinutes() < 10 ? ('0' + data.getMinutes()) : data.getMinutes()) +'h';
-                    if(value.observacao)
+                    var obs = value.observacao;
+                    if(!obs)
                     {
+                        var ident = value.id;
+                        ident = ident.slice(3);
+                        obs = "Amostra planeada com o ID " + ident;
+                    }
+
                       if(value.am_ag == 0)
                       {
-                        info = data_format + ' - '+ value.observacao;
+                        info = data_format + ' - '+ obs;
                         html = "<div class='agenda_hoje'>";
 
 
@@ -115,7 +120,7 @@ $( document ).ready(function() {
                       } 
                       else if(value.am_ag == 1)
                       {
-                        info = value.observacao;
+                        info = obs;
                         html = "<div class='agenda_hoje'>";
                         html +=  "<div class='roundedOne'>";
                         
@@ -133,7 +138,7 @@ $( document ).ready(function() {
                       }
 
                        
-                    }
+
 
                 });
               }

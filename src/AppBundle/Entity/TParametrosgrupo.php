@@ -34,7 +34,7 @@ class TParametrosgrupo
     /**
      * Set fnIdEspecificacao
      *
-     * @param integer $fnIdEspecificacao
+     * @param integer $tparametro
      * @return TParametrosporespecificacao
      */
     public function setTparametro($tparametro)
@@ -57,7 +57,7 @@ class TParametrosgrupo
     /**
      * Set fnIdFamiliaparametro
      *
-     * @param integer $t_grupo
+     * @param integer $tgrupo
      * @return TParametrosporespecificacao
      */
     public function setTgrupo($tgrupo)

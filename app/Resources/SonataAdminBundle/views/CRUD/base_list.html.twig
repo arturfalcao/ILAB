@@ -221,7 +221,7 @@ file that was distributed with this source code.
                                         or filter.formName == 'fnValor' or filter.formName == 'ftLote'
                                         or filter.formName == 'id' or filter.formName == 'username'
                                         or filter.formName == 'fnCapacidade' or filter.formName == 'ftNclaboratorio'
-                                        or filter.formName == 'ftNomecontacto' %}
+                                        or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'%}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -400,7 +400,7 @@ file that was distributed with this source code.
                                         or filter.formName == 'fbConfirmacao' or filter.formName == 'fnParametro'
                                         or filter.formName == 'groups' or filter.formName == 'email' or filter.formName == 'ftFormatado'
                                         or filter.formName == 'fdDatarequisicao'
-                                        or filter.formName == 'fdUltimaemissao' %}
+                                        or filter.formName == 'fdUltimaemissao' or filter.formName == 'fnIncerteza' %}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>

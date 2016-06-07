@@ -193,6 +193,8 @@
 <script>
     $( document ).ready(function() {
 
+        $("#Agenda_FnIdUtilizador").val("{{app.user.id}}");
+
         $('#cancelar').on('click', function(e)  {
             window.location.href = '/app_dev.php/calendar';
             e.preventDefault();
@@ -228,7 +230,6 @@
 
 
 
-    $('#Agenda_descricao').attr('required',false);
     $('#Agenda_enddatetime_date').attr('required',false);
     $('#Agenda_enddatetime_time').attr('required',false);
     $('#Agenda_allDay').attr('required',false);
@@ -245,7 +246,31 @@
         if($("#Agenda_allDay").is( ':checked') == true || ( $('#Agenda_enddatetime_date').val().length != 0
                 && $('#Agenda_enddatetime_time').val().length != 0 ))
 
-                $( "form" ).submit();
+
+
+                if($('#Agenda_enddatetime_date').val().length != 0 && $('#Agenda_enddatetime_time').val().length != 0)
+                {
+                    var data_ini = $("#Agenda_startdatetime_date").val();
+                    var data_ini_temp = $('#Agenda_startdatetime_time').val();
+
+                    var data_fim = $('#Agenda_enddatetime_date').val();
+                    var data_fim_temp = $('#Agenda_enddatetime_time').val();
+
+                    if (data_ini < data_fim) {
+                        $("form").submit();
+                    }
+                    else if (data_ini == data_fim && data_ini_temp < data_fim_temp) {
+                        $("form").submit();
+                    }
+                    else
+                    {
+                        e.preventDefault();
+                    }
+                }
+            else{
+                    $("form").submit();
+                }
+
 
     });
 

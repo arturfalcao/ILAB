@@ -50,12 +50,22 @@ class TModelosresultados
      */
     private $fnMaximo;
 
+
+
     /**
      * @var string
      *
      * @ORM\Column(name="fn_minimo", type="decimal", precision=10, scale=5, nullable=true)
      */
     private $fnMinimo;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fn_incerteza", type="decimal", precision=10, scale=5, nullable=true)
+     */
+    private $fnIncerteza;
 
     /**
      * @var string
@@ -310,6 +320,32 @@ class TModelosresultados
     {
         return $this->fnMinimo;
     }
+
+    /**
+     * Set fnIncerteza
+     *
+     * @param string $fnIncerteza
+     * @return TModelosresultados
+     */
+    public function setFnIncerteza($fnIncerteza)
+    {
+        $this->fnIncerteza = $fnIncerteza;
+
+        return $this;
+    }
+
+    /**
+     * Get fnIncerteza
+     *
+     * @return string
+     */
+    public function getFnIncerteza()
+    {
+        return $this->fnIncerteza;
+    }
+    
+
+
 
     /**
      * Set ftMensagemutilizador

@@ -30,6 +30,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento", name="tamostras")
      * @Method("GET")
      * @Template()
+     * @param Request $request
+     * @return array
      */
     public function indexAction(Request $request)
     {
@@ -77,16 +79,39 @@ class TAmostrasAdminCustomController extends Controller
             }
         }
 
+        $limit = $request->query->get('limit');
+        if(empty($limit) ){
+            $limit = 50;
+        }
+
+
+        $offset = $request->query->get('offset');
+        if(!empty($offset) ){
+            $offset = $offset+$limit+1;
+            $query->andWhere("s.fnId < " . $offset . "");
+            $limit = $limit + 50;
+        }
+        else{
+            $offset=0;
+        }
+
+        $qb->setMaxResults($limit);
+
         $entities =  $query->getQuery()->getResult();
 
+        foreach ($entities as $entidade){
+                $offset = intval($entidade->getFnId());
+        }
+
+        $offset+=1;
 
         $clientes = $em->getRepository('AppBundle:TClientes')->findAll();
         $produtos = $em->getRepository('AppBundle:TProdutos')->findAll();
         $grupos = $em->getRepository('AppBundle:TGruposparametros')->findAll();
 
-
         return array(
             'entities' => $entities,'clientes' => $clientes,'produtos' => $produtos,'grupos' => $grupos,
+            'offset' => $offset, 'limit' => $limit
         );
     }
 
@@ -185,7 +210,7 @@ class TAmostrasAdminCustomController extends Controller
 
     /**
      * Atualização relativa aos Parametrosamostra associados à amostra e parâmetros em questão
-     * 
+     *
      */
     public function SaveParaporAmostraAction()
     {

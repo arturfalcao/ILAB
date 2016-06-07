@@ -319,7 +319,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbAmostrainterno
      * @return TParametros
      */
     public function setFbAmostrainterno($fbAmostrainterno)
@@ -342,7 +342,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbAmostraexterno
      * @return TParametros
      */
     public function setFbAmostraexterno($fbAmostraexterno)
@@ -366,7 +366,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbDeterminacaoexterno
      * @return TParametros
      */
     public function setFbDeterminacaoexterno($fbDeterminacaoexterno)
@@ -390,7 +390,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbDeterminacaointerno
      * @return TParametros
      */
     public function setFbDeterminacaointerno($fbDeterminacaointerno)
@@ -441,11 +441,11 @@ class TParametros
     }
 
 
-
     /**
      * Get fnId
      *
-     * @return integer
+     * @param $fnId
+     * @return int
      */
     public function setFnId($fnId)
     {
@@ -458,12 +458,12 @@ class TParametros
     /**
      * Add fnEspecificacoes
      *
-     * @param \AppBundle\Entity\TEspecificacoes $fnProdutos
+     * @param \AppBundle\Entity\TEspecificacoes $especificacoes
      */
     public function setespecificacoes(\AppBundle\Entity\TEspecificacoes $especificacoes = null)
     {
-        var_dump($especificacoes);
-        die;
+        /*var_dump($especificacoes);
+        die;*/
         $this->especificacoes[] = $especificacoes;
 
     }

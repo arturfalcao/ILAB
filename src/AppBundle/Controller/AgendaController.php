@@ -54,7 +54,11 @@ class AgendaController extends Controller
     
     public function geteventosAction()
     {
-        
+        $parameter = $this->get("request")->getContent();
+        $parameter = explode("&", $parameter);
+        $arr1 = explode("=", $parameter[0]);
+        $user = intval($arr1[1]);
+
         $t = \date('Y-m-d');
         
         $inicio = $t . " 00:00:00";
@@ -80,7 +84,7 @@ class AgendaController extends Controller
                 ->andWhere('a.startdatetime <= :data_fim')
                 ->setParameter('data_fim', $data_fim)
                 ->andWhere('a.ftEstado = :ft_estado')
-                ->setParameter('ft_estado', intval($estado->getFnId()))
+                ->setParameter('ft_estado', $estado->getFnId())
                 ->orderBy('a.startdatetime', 'ASC')
                 ->getQuery()
                 ->getResult();
@@ -111,6 +115,8 @@ class AgendaController extends Controller
                            ->setParameter('data_inicio', $data_inicio)
                            ->andWhere('ag.startdatetime <= :data_fim')
                            ->setParameter('data_fim', $data_fim)
+                           ->andWhere('ag.FnIdUtilizador = :user')
+                           ->setParameter('user', $user)
                            ->orderBy('ag.startdatetime', 'ASC')
                            ->getQuery()
                            ->getResult();
@@ -267,6 +273,8 @@ class AgendaController extends Controller
      * @Route("calendar/{id}/edit", name="agenda_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {

@@ -197,6 +197,7 @@ class TAmostrasAdmin extends Admin
             ->end()
 
             ->with('Caracterização',array('description' => 'Caracterização','class' => 'Caracterizacao_amostra'))
+            ->add('fbFacturada','checkbox',array('required'=> false,'label' => 'Faturada?'))
             ->add('fnProduto', 'sonata_type_model', array('attr'=> array('class'=>'_produto'),'label' => 'Produto', 'by_reference' => false))
             ->add('ftOrigem', 'text', array('label' => 'Origem', 'by_reference' => false))
             ->add('fnLegislacao', 'sonata_type_model', array('attr'=> array('class'=>'_legislacao'),'label' => 'Legislação', 'by_reference' => false))
@@ -213,7 +214,7 @@ class TAmostrasAdmin extends Admin
 
             ->with('Lancamento',array('description' => 'Lançamento','class' => 'Lancamento_amostra'))
                 ->add('fnModelo', 'sonata_type_model', array('btn_add' => false,'required' => true,'attr'=> array('class'=>'_modeloamostra'),'label' => 'Modelo Amostra', 'by_reference' => false))
-                ->add('ftGrupoparametros', 'sonata_type_model', array( 'btn_add' => false,'required' => false,'attr'=> array('class'=>'_grupoparametros'),'label' => 'Grupo de parâmetros', 'by_reference' => true,'disabled'  => false))
+                ->add('ftGrupoparametros', 'sonata_type_model', array( 'btn_add' => false,'required' => true,'attr'=> array('class'=>'_grupoparametros'),'label' => 'Grupo de parâmetros', 'by_reference' => true,'disabled'  => false))
 
                 //->add('ftOrigem', 'text', array('label' => 'Ponto de Amostragem'))
             ->end()
