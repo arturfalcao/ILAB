@@ -123,8 +123,8 @@
                             </select>
                         </div>
                         <div class="form-group large-12 medium-12 push-1">
-                            <label for="parametro_metodo">Parâmetro</label>
-                            <select class="parametro_metodo" data-placeholder="Selecione um Metodo" >
+                            <label for="parametro_metodo">Método</label>
+                            <select class="parametro_metodo" data-placeholder="Selecione um Método" >
                                 <option></option>
                                 {% for parameter in data_metodos %}
                                     <option value="{{ parameter.fnId }}">{{ parameter.ftDescricao }}</option>
@@ -195,7 +195,6 @@
         {
             _amostras = rowIds[i] + "," + _amostras;
         }
-
         $.ajax({
             type: "POST",
             url: '{{path('GenerateworklistbyParameter')}}',
