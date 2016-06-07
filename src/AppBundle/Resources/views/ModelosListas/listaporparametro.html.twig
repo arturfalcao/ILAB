@@ -203,7 +203,7 @@
             success: function(data) {
                 if(data != ""){
                     data = data.replace(/['"]+/g, '');
-                    window.open("/app_dev.php/getpdflista/" + data);
+                    window.open("/app_dev.php/getpdflista/" + data,"_blank");
                 }else{
                     
                 }
@@ -251,7 +251,7 @@
                         var obj = $.parseJSON(data);
 
                         if (obj.length != 0) {
-                            grid_para.bootgrid("append",obj );
+                            grid_para.bootgrid("append",obj.data );
                         } else {
 
                         }

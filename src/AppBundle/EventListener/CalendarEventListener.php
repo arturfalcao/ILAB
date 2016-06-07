@@ -48,6 +48,7 @@ class CalendarEventListener
             if ($companyEvent->getAllDay() === false) {
                 $eventEntity = new EventEntity($companyEvent->getId(),$companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
             } else {
+                
                 $eventEntity = new EventEntity($companyEvent->getId(),$companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime(), $companyEvent->getAllDay());
             }
             $calendarEvent->addEvent($eventEntity);

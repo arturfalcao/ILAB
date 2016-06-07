@@ -523,32 +523,36 @@
                             $.each(obj, function (key, value) {
 
                                 if(value.ft_id_estado == 7){
-                                    estado = 'Indisponivel';
-                                    bullet = "bullet-gray";
+                                    estado = 'Cancelada';
+                                    bullet = "bullet-red";
                                 }
                                 if(value.ft_id_estado == 1){
                                     estado = 'Aprovado';
-                                    bullet = "bullet-gray";
+                                    bullet = "bullet-green";
                                 }
                                 if(value.ft_id_estado == 4){
-                                    estado = 'Disponivel';
+                                    estado = 'Indisponivel';
+                                    bullet = "bullet-gray";
+                                }
+                                if(value.ft_id_estado == 5){
+                                    estado = 'Planeado';
                                     bullet = "bullet-gray";
                                 }
                                 if(value.ft_id_estado == 6){
+                                    estado = 'Disponivel';
+                                    bullet = "bullet-blue";
+                                }
+                                if(value.ft_id_estado == 8){
+                                    estado = 'Parcial';
+                                    bullet = "bullet-yellow";
+                                }
+                                if(value.ft_id_estado == 3){
                                     estado = 'Em Progresso';
                                     bullet = "bullet-yellow";
                                 }
-                                if(value.ft_id_estado == 8){
-                                    estado = 'Planeada';
-                                    bullet = "bullet-blue";
-                                }
-                                if(value.ft_id_estado == 3){
+                                if(value.ft_id_estado == 2){
                                     estado = 'Completo';
                                     bullet = "bullet-green";
-                                }
-                                if(value.ft_id_estado == 2){
-                                    estado = 'Cancelada';
-                                    bullet = "bullet-pink";
                                 }
                                 html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
 
@@ -870,33 +874,37 @@
                             var bullet = "";
                             $.each(obj, function (key, value) {
 
-                                if(value.ft_id_estado == 7){
-                                    estado = 'Indisponivel';
-                                    bullet = "bullet-gray";
+                             if(value.ft_id_estado == 7){
+                                    estado = 'Cancelada';
+                                    bullet = "bullet-red";
                                 }
                                 if(value.ft_id_estado == 1){
                                     estado = 'Aprovado';
-                                    bullet = "bullet-gray";
+                                    bullet = "bullet-green";
                                 }
                                 if(value.ft_id_estado == 4){
-                                    estado = 'Disponivel';
+                                    estado = 'Indisponivel';
+                                    bullet = "bullet-gray";
+                                }
+                                if(value.ft_id_estado == 5){
+                                    estado = 'Planeado';
                                     bullet = "bullet-gray";
                                 }
                                 if(value.ft_id_estado == 6){
+                                    estado = 'Disponivel';
+                                    bullet = "bullet-blue";
+                                }
+                                if(value.ft_id_estado == 8){
+                                    estado = 'Parcial';
+                                    bullet = "bullet-yellow";
+                                }
+                                if(value.ft_id_estado == 3){
                                     estado = 'Em Progresso';
                                     bullet = "bullet-yellow";
                                 }
-                                if(value.ft_id_estado == 8){
-                                    estado = 'Planeada';
-                                    bullet = "bullet-blue";
-                                }
-                                if(value.ft_id_estado == 3){
+                                if(value.ft_id_estado == 2){
                                     estado = 'Completo';
                                     bullet = "bullet-green";
-                                }
-                                if(value.ft_id_estado == 2){
-                                    estado = 'Cancelada';
-                                    bullet = "bullet-pink";
                                 }
                                 html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.updated_by_time +'</td><td>'+value.updated_by +'</td></tr>'
 
