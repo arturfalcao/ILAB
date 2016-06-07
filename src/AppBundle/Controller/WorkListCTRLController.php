@@ -471,7 +471,6 @@ EOF;
         return new Response("ok");
     }
 
-    //ESTE AQUI E PARA USAR
     public function EmitRelatorioAction($slug){
 
         $em = $this->getDoctrine()->getManager();
@@ -553,7 +552,7 @@ EOF;
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('Pimenta do Vale');
-        $pdf->SetTitle('50267');
+        $pdf->SetTitle($slug);
 
 
 // set default header data
@@ -561,7 +560,7 @@ EOF;
         $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 
 
-        $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DE ENSAIO Nº, 50267') , PDF_HEADER_STRING);
+        $pdf->SetHeaderData('logopimenta.png', 50, utf8_decode('RELATÓRIO DA AMOSTRA') , PDF_HEADER_STRING);
         $pdf->setFooterData(array(date("d-m-Y"), 0, 0), array(1, 0, 0));
 
         //texto das vars
@@ -788,9 +787,9 @@ EOF;
 
 
 // set image scale factor
-        $filelocation = "/var/www/lab.iwish.solutions/app/amostras";
-        $fileNL = $filelocation."/".$slug.".pdf"; //Linux
-
+        //$filelocation = "/var/www/lab.iwish.solutions/app/amostras";
+        //$fileNL = $filelocation."/".$slug.".pdf"; //Linux
+        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_" . $slug .".pdf";
         $pdf->Output($fileNL , 'FI');
 
 
