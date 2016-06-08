@@ -108,6 +108,8 @@ class ChatController extends Controller
      * Mensagens novas do utilizado clicado para o utilizador autenticado
      *
      * @Route("/sucesso", name="sucesso")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
 
   public function profilehandlerAction(Request $request)

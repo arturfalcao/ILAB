@@ -37,12 +37,15 @@ class TRegrasformatacaoController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new TRegrasformatacao entity.
      *
      * @Route("/", name="tregrasformatacao_create")
      * @Method("POST")
      * @Template("AppBundle:TRegrasformatacao:new.html.twig")
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createAction(Request $request)
     {
@@ -106,6 +109,8 @@ class TRegrasformatacaoController extends Controller
      * @Route("/{id}", name="tregrasformatacao_show")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function showAction($id)
     {

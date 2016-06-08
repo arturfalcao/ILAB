@@ -640,6 +640,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento/{id}", name="tamostras_show")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function showAction($id)
     {
@@ -661,6 +663,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento/{id}/edit", name="tamostras_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {
@@ -698,12 +702,16 @@ class TAmostrasAdminCustomController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing TAmostras entity.
      *
      * @Route("/NovoPlaneamento/{id}", name="tamostras_update")
      * @Method("PUT")
      * @Template("AppBundle:TAmostras:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {

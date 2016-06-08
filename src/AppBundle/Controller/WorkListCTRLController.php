@@ -29,7 +29,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 class WorkListCTRLController extends Controller
 {
 
-    //parametres actions
+    //parameters actions
     public function CompleteparaAction()
     {
         error_reporting(0);

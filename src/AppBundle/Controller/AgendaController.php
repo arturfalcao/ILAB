@@ -313,12 +313,16 @@ class AgendaController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Agenda entity.
      *
      * @Route("calendar/{id}", name="agenda_update")
      * @Method("PUT")
      * @Template("AppBundle:Agenda:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {
@@ -394,12 +398,13 @@ class AgendaController extends Controller
     }
 
 
-
     /**
      * Creates a new Agenda entity.
      *
      * @Route("/calendar/newshort", name="agenda_create_short")
      * @Method("POST")
+     * @param Request $request
+     * @return Response
      */
     public function newshortAction(Request $request)
     {
@@ -448,6 +453,8 @@ class AgendaController extends Controller
      *
      * @Route("/calendar/newshort/{slug}", name="agenda_update_short")
      * @Method({"PUT", "DELETE"})
+     * @param $slug
+     * @return Response
      */
     public function updatenewshortAction($slug)
     {
