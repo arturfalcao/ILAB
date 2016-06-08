@@ -136,35 +136,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AgendaController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/show.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AgendaController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="410" column="71" selection-start-line="410" selection-start-column="71" selection-end-line="410" selection-end-column="71" />
+            <state relative-caret-position="221">
+              <caret line="458" column="22" selection-start-line="458" selection-start-column="22" selection-end-line="458" selection-end-column="22" />
               <folding>
                 <element signature="e#40#85#0#PHP" expanded="true" />
-                <marker date="1465385247243" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
+                <marker date="1465386805293" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="157" column="49" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Agenda.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="395" column="5" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -221,7 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TResultadosAdmin.php" />
         <option value="$PROJECT_DIR$/src/Application/Sonata/UserBundle/Resources/views/Security/login.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/PDF/relatorio_alteracoes.html.twig" />
@@ -270,6 +269,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TRegrasformatacaoController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
       </list>
@@ -622,12 +622,12 @@
       <workItem from="1465300207247" duration="36000" />
       <workItem from="1465300335735" duration="580000" />
       <workItem from="1465306348928" duration="13431000" />
-      <workItem from="1465375233344" duration="6750000" />
+      <workItem from="1465375233344" duration="8237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="556239000" />
+    <option name="totallyTimeSpent" value="557726000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -681,27 +681,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/menu.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1539">
-          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="296" column="66" selection-start-line="296" selection-start-column="63" selection-end-line="296" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3128">
@@ -1170,6 +1149,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1258">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="157" column="49" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/show.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/newshort.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1180,20 +1191,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="410" column="71" selection-start-line="410" selection-start-column="71" selection-end-line="410" selection-end-column="71" />
+        <state relative-caret-position="221">
+          <caret line="458" column="22" selection-start-line="458" selection-start-column="22" selection-end-line="458" selection-end-column="22" />
           <folding>
             <element signature="e#40#85#0#PHP" expanded="true" />
-            <marker date="1465385247243" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
+            <marker date="1465386805293" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Agenda/new.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="157" column="49" selection-start-line="157" selection-start-column="49" selection-end-line="157" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>

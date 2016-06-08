@@ -394,12 +394,13 @@ class AgendaController extends Controller
     }
 
 
-
     /**
      * Creates a new Agenda entity.
      *
      * @Route("/calendar/newshort", name="agenda_create_short")
      * @Method("POST")
+     * @param Request $request
+     * @return Response
      */
     public function newshortAction(Request $request)
     {
@@ -448,6 +449,8 @@ class AgendaController extends Controller
      *
      * @Route("/calendar/newshort/{slug}", name="agenda_update_short")
      * @Method({"PUT", "DELETE"})
+     * @param $slug
+     * @return Response
      */
     public function updatenewshortAction($slug)
     {
