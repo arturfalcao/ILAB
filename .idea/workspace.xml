@@ -7,7 +7,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php" />
     </list>
     <ignored path="ILAB.iws" />
@@ -159,11 +158,11 @@
       <file leaf-file-name="AgendaController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="458" column="22" selection-start-line="458" selection-start-column="22" selection-end-line="458" selection-end-column="22" />
+            <state relative-caret-position="3315">
+              <caret line="326" column="38" selection-start-line="326" selection-start-column="38" selection-end-line="326" selection-end-column="38" />
               <folding>
                 <element signature="e#40#85#0#PHP" expanded="true" />
-                <marker date="1465386805293" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
+                <marker date="1465386940596" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
               </folding>
             </state>
           </provider>
@@ -622,12 +621,12 @@
       <workItem from="1465300207247" duration="36000" />
       <workItem from="1465300335735" duration="580000" />
       <workItem from="1465306348928" duration="13431000" />
-      <workItem from="1465375233344" duration="8237000" />
+      <workItem from="1465375233344" duration="8416000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="557726000" />
+    <option name="totallyTimeSpent" value="557905000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1191,11 +1190,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/AgendaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="458" column="22" selection-start-line="458" selection-start-column="22" selection-end-line="458" selection-end-column="22" />
+        <state relative-caret-position="3315">
+          <caret line="326" column="38" selection-start-line="326" selection-start-column="38" selection-end-line="326" selection-end-column="38" />
           <folding>
             <element signature="e#40#85#0#PHP" expanded="true" />
-            <marker date="1465386805293" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
+            <marker date="1465386940596" expanded="false" signature="5225:5451" ph=" Creates a new Agenda entity. ..." />
           </folding>
         </state>
       </provider>

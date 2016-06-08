@@ -313,12 +313,16 @@ class AgendaController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Agenda entity.
      *
      * @Route("calendar/{id}", name="agenda_update")
      * @Method("PUT")
      * @Template("AppBundle:Agenda:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {
