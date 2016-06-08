@@ -197,7 +197,7 @@ class TAmostrasAdmin extends Admin
             ->end()
 
             ->with('Caracterização',array('description' => 'Caracterização','class' => 'Caracterizacao_amostra'))
-            ->add('fbFacturada','checkbox',array('required'=> false,'label' => 'Faturada?'))
+            ->add('fbFacturada','checkbox',array('required'=> false,'label' => 'Faturada'))
             ->add('fnProduto', 'sonata_type_model', array('attr'=> array('class'=>'_produto'),'label' => 'Produto', 'by_reference' => false))
             ->add('ftOrigem', 'text', array('label' => 'Origem', 'by_reference' => false))
             ->add('fnLegislacao', 'sonata_type_model', array('attr'=> array('class'=>'_legislacao'),'label' => 'Legislação', 'by_reference' => false))

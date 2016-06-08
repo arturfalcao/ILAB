@@ -592,9 +592,9 @@ EOF;
 
 // set image scale factor
         if($conta > 1)
-            $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostras.pdf";
+            $fileNL = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_amostras.pdf";
         else
-            $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_" . $samples[0] .".pdf";
+            $fileNL = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_amostra_" . $samples[0] .".pdf";
         $pdf->Output($fileNL , 'FI');
     }
 
@@ -1041,7 +1041,7 @@ EOF;
 
 
 // set image scale factor
-        $fileNL = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_amostra_" . $slug . ".pdf";
+        $fileNL = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_amostra_" . $slug . ".pdf";
         $pdf->Output($fileNL , 'FI');
     }
 
@@ -1547,7 +1547,7 @@ EOF;
         $pdf->writeHTML($html, true, false, true, false, '');
         
         $pdf->lastPage();
-        $target_dir = $this->container->getParameter('kernel.root_dir') . "\Resources\public\\relatorios\\relatorio_alteracoes.pdf";
+        $target_dir = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_alteracoes.pdf";
         $response = new Response($pdf->Output($target_dir,'FI'));
         
         return $response;
