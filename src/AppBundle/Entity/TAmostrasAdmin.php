@@ -215,8 +215,6 @@ class TAmostrasAdmin extends Admin
             ->with('Lancamento',array('description' => 'Lançamento','class' => 'Lancamento_amostra'))
                 ->add('fnModelo', 'sonata_type_model', array('btn_add' => false,'required' => true,'attr'=> array('class'=>'_modeloamostra'),'label' => 'Modelo Amostra', 'by_reference' => false))
                 ->add('ftGrupoparametros', 'sonata_type_model', array( 'btn_add' => false,'required' => true,'attr'=> array('class'=>'_grupoparametros'),'label' => 'Grupo de parâmetros', 'by_reference' => true,'disabled'  => false))
-
-                //->add('ftOrigem', 'text', array('label' => 'Ponto de Amostragem'))
             ->end()
 
             ->with('Lote',array('description' => 'Lote','class' => 'Lote_amostra'))
