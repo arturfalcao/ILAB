@@ -175,71 +175,70 @@ function histMens(element)
 	    $("#insere").remove();
 	    chat.remove();
 
-	    $.ajax({
+        $.ajax({
                 type: "POST",
                 url: '{{path('chat_gethistorico')}}',
                 data: {id: nid, id2: user},
                 success: function(data) {
                 	var arr = $.parseJSON(data);
-                	tabs_2.append("<div id='chat' style='max-height:300px;overflow-y:scroll;overflow-x:hidden;border-top:1px solid #DFDFDF;padding-top:23px;'>");
+                    if(tabs_2.find("#chat").length == 0)
+                        tabs_2.append("<div id='chat' style='max-height:300px;overflow-y:scroll;overflow-x:hidden;border-top:1px solid #DFDFDF;padding-top:23px;'>");
                 	if(arr.length != 0)
                     {
                         chat = $("#chat");
-                        chat.append("<h6 class='h6' align='center'>" + nome_user + "</h6>" );
-                      $.each(arr, function(index,value) {
-                          var firstname = value.firstname;
-                          imagem = value.imagem;
+                        if(chat.find("h6").length == 0) {
+                            chat.append("<h6 class='h6' align='center'>" + nome_user + "</h6>");
+                            $.each(arr, function (index, value) {
+                                var firstname = value.firstname;
+                                imagem = value.imagem;
 
-                          if(imagem)
-                          {
-                            imagem = imagem.replace('"','');
-                            imagem = imagem.replace('"','');
-                            imagem = imagem.replace(/\\/g,'');
-                          }
-                          else {
-                            imagem = '';
-                          }
-
-                          if(!firstname)
-                          {
-                            firstname = '';
-                          }
-
-                          if(value.id_emissor == user)
-                      		{
-                                username=firstname;
-                                t=imagem;
-                                chat.append("<div>");
-                                if($("#hc_" + value.ident).length == 0) {
-                                    imagem = '<img class="circle_image imagem_direita" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
-                                    chat.append(imagem);
-                                    chat.append("<p  class='triangle-isosceles dir quebra' id='hc_" + value.ident + "'>" + value.mensagem + "</p>");
-
+                                if (imagem) {
+                                    imagem = imagem.replace('"', '');
+                                    imagem = imagem.replace('"', '');
+                                    imagem = imagem.replace(/\\/g, '');
                                 }
-                                chat.append("</div>");
-                      		}
-                          else{
-                                chat.append("<div>");
-                              if($("#hc_" + value.ident).length == 0) {
-                                  imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
-                                  chat.append(imagem);
-                                  chat.append("<p class='triangle-isosceles esq quebra' id='hc_" + value.ident + "'>" + value.mensagem + "</p>");
-                                  chat.append("</div>");
-                              }
-                          }
-                      });
+                                else {
+                                    imagem = '';
+                                }
 
-                        tabs_2.append("</div>");
-                        tabs_2.append('<input type="hidden" id="clicked_user" value="' + nid + '">');
-                        novasMensagensUtilizador();
-                        TextoMensagensNaoLidas();
+                                if (!firstname) {
+                                    firstname = '';
+                                }
 
-                        tabs_2.append("<p class='sms_n_lidas'></p>");
-                        tabs_2.append("<div id='insere'>" +
-                                "<input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' >" +
-                                "<img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t +  "' x='" + username +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'>"  +
-                                "</div>");
+                                if (value.id_emissor == user) {
+                                    username = firstname;
+                                    t = imagem;
+                                    chat.append("<div>");
+                                    if ($("#hc_" + value.ident).length == 0) {
+                                        imagem = '<img class="circle_image imagem_direita" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
+                                        chat.append(imagem);
+                                        chat.append("<p  class='triangle-isosceles dir quebra' id='hc_" + value.ident + "'>" + value.mensagem + "</p>");
 
+                                    }
+                                    chat.append("</div>");
+                                }
+                                else {
+                                    chat.append("<div>");
+                                    if ($("#hc_" + value.ident).length == 0) {
+                                        imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
+                                        chat.append(imagem);
+                                        chat.append("<p class='triangle-isosceles esq quebra' id='hc_" + value.ident + "'>" + value.mensagem + "</p>");
+                                        chat.append("</div>");
+                                    }
+                                }
+                            });
+
+                            tabs_2.append("</div>");
+                            tabs_2.append('<input type="hidden" id="clicked_user" value="' + nid + '">');
+                            novasMensagensUtilizador();
+                            TextoMensagensNaoLidas();
+
+                            tabs_2.append("<p class='sms_n_lidas'></p>");
+                            tabs_2.append("<div id='insere'>" +
+                                    "<input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid + "' >" +
+                                    "<img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t + "' x='" + username + "' onclick='sendMessage(this);' id='b_" + user + "_" + nid + "'>" +
+                                    "</div>");
+                        }
                     }
                     else{
 

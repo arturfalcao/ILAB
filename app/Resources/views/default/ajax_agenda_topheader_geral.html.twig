@@ -55,13 +55,13 @@ $( document ).ready(function() {
   
   //INICIO CLICK MENU_DIREITA
   $( ".menu_direita" ).click(function() {
-    
+      $('#tabs-1').html('');
+      $('#tabs-2').html('');
+
 
 
   $('.sideBarRight').toggle("show");
 
-  MensagensNaoLidas();
-  
   $('.li_agenda, .li_agenda a').click(function(){
       var info;
       var html;
