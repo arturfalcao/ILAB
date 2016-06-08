@@ -592,9 +592,9 @@ EOF;
 
 // set image scale factor
         if($conta > 1)
-            $fileNL = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_amostras.pdf";
+            $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR ."relatorios" . DIRECTORY_SEPARATOR ."relatorio_amostras.pdf";
         else
-            $fileNL = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_amostra_" . $samples[0] .".pdf";
+            $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_amostra_" . $samples[0] .".pdf";
         $pdf->Output($fileNL , 'FI');
     }
 
@@ -1041,13 +1041,13 @@ EOF;
 
 
 // set image scale factor
-        $fileNL = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_amostra_" . $slug . ".pdf";
+        $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_amostra_" . $slug . ".pdf";
         $pdf->Output($fileNL , 'FI');
     }
 
     //Get relatorio
     public function GetRelatorioAction($slug){
-        $file = $this->container->getParameter('kernel.root_dir') . "\\amostras\\87.pdf" .
+        $file = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "amostras" . DIRECTORY_SEPARATOR ."87.pdf" .
         //$file = '/var/www/html/lab/app/amostras/87.pdf';
         $filename = 'filename.pdf';
         header('Content-type: application/pdf');
@@ -1547,7 +1547,7 @@ EOF;
         $pdf->writeHTML($html, true, false, true, false, '');
         
         $pdf->lastPage();
-        $target_dir = $this->container->getParameter('kernel.root_dir') . "\\relatorios\\relatorio_alteracoes.pdf";
+        $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_alteracoes.pdf";
         $response = new Response($pdf->Output($target_dir,'FI'));
         
         return $response;
@@ -1687,7 +1687,7 @@ EOD;
         // set auto page breaks
         // set image scale factor
 
-        $fileNL = $this->container->getParameter('kernel.root_dir') . "\listas\\" . $result1[0]['max_id_lista'].".pdf";
+        $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . $result1[0]['max_id_lista'].".pdf";
             //"/var/www/lab.iwish.solutions/app/listas";
         $pdf->Output($fileNL , 'F');
 
