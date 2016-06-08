@@ -9997,6 +9997,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 
 #filtros
 {
+  width: 71px;
   margin-left: 35px;
   font-size: 17px;
   color: #4cc3b8;
