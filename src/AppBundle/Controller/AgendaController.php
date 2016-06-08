@@ -193,10 +193,7 @@ class AgendaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
             $em = $this->getDoctrine()->getManager();
-            $user = $this->get('security.token_storage')->getToken()->getUser();
-            $entity->setFnIdUtilizador($user);
             $em->persist($entity);
             $em->flush();
 
