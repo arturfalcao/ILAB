@@ -195,6 +195,8 @@
         {
             _amostras = rowIds[i] + "," + _amostras;
         }
+        if(_amostras.charAt(_amostras.length-1)== ',')
+            _amostras = _amostras.slice(0,_amostras.length-1);
         $.ajax({
             type: "POST",
             url: '{{path('GenerateworklistbyParameter')}}',
@@ -220,7 +222,7 @@
                 url: '{{path('GetparameterbysampleForParameter')}}',
                 data: $('.parametro_ent_resultados').select2('data').id + ',' + $('.parametro_metodo').select2('data').id,
                 success: function(data) {
-                    if(data != "[]"){
+                    if(data != "null"){
                         $("#parametros_grid").bootgrid("destroy");
                         var grid_para = $("#parametros_grid").bootgrid({
                             navigation:0,

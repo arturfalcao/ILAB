@@ -191,6 +191,24 @@
                     });
 
                 }
+
+                if(rowIds.length != 0){
+                    //$(".ecra").show();
+                    if(URL=='/completepara')
+                    $.ajax({
+                        type: "POST",
+                        url: '/updateworklist',
+                        data: JSON.stringify(rowIds),
+                        success: function(data) {
+                            if(data.length > 0)
+                            {toastr.info(data);}
+                        }
+                    });
+
+                }
+
+
+
                 rowIds = _old;
 
             }

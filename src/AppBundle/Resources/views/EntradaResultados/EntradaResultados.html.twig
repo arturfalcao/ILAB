@@ -213,7 +213,7 @@
                 url: '{{path('EntradaResultadosGetByParameter')}}',
                 data: $('.parametro_ent_resultados').select2('data').id,
                 success: function(data) {
-                    if(data != "NoData"){
+                    if(data != "null"){
                         var metadata = [];
                         metadata.push({name: "ft_id_estado", label: "E", datatype: "string", editable: false});
                         metadata.push({
@@ -274,7 +274,7 @@
                     url: '{{path('EntradaResultadosGetByAmostra')}}',
                     data: $('#Amostra_id').val(),
                     success: function(data) {
-                        if (data != "NoData") {
+                        if (data != "null") {
                             var metadata = [];
                             metadata.push({name: "ft_id_estado", label: "E", datatype: "string", editable: false});
                             metadata.push({

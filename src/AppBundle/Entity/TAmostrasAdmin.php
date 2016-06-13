@@ -29,12 +29,12 @@ class TAmostrasAdmin extends Admin
         $arr =  $activeDate->fetchAll();
 
 
-        $sql = "SELECT max(fn_id_lista) as max_id_lista from t_parametrosamostra";
+        /*$sql = "SELECT max(fn_id_lista) as max_id_lista from t_parametrosamostra";
         $activeDate =$em->getConnection()->prepare($sql);
         $activeDate->execute();
         $result1 = $activeDate->fetchAll();
         $result1[0]['max_id_lista'] =$result1[0]['max_id_lista'] != null ?$result1[0]['max_id_lista'] : 0;
-        $result1[0]['max_id_lista']++;
+        $result1[0]['max_id_lista']++;*/
 
         // Cria os parametros e gera os primeiros log
         foreach ($arr as $value) {
@@ -52,9 +52,9 @@ class TAmostrasAdmin extends Admin
 
 
 
-            $sql = "UPDATE t_parametrosamostra SET fn_id_lista = ". $result1[0]['max_id_lista'] . " , fn_id_amostra = " . $sample . " where id=" .$last;
+            /*$sql = "UPDATE t_parametrosamostra SET fn_id_lista = ". $result1[0]['max_id_lista'] . " , fn_id_amostra = " . $sample . " where id=" .$last;
             $activeDate = $em->getConnection()->prepare($sql);
-            $activeDate->execute();
+            $activeDate->execute();*/
 
             //log parametros
             $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser() ."' , fn_id_amostra = " . $sample . " where id=" . $last;

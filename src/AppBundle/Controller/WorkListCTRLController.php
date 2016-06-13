@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\ListaTrabalhos;
 use AppBundle\Entity\TAmostrasParametros;
 use AppBundle\Entity\TParametrosgrupo;
 
@@ -64,6 +65,74 @@ class WorkListCTRLController extends Controller
         }
 
         return new Response($envia);
+    }
+
+
+    public function AtualizaListaTrabalhoAction()
+    {
+        error_reporting(0);
+        $em = $this->getDoctrine()->getManager();
+        $arr = $this->get("request")->getContent();
+        $arr = json_decode($arr);
+        $envia = array();
+        foreach ($arr as &$value) {
+            $resultados = $em->getRepository('AppBundle:TResultados')->findOneBy(array('fnId' => $value));
+            $amostra = $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $resultados->getFnParametro()));
+
+            $result = $em->createQueryBuilder();
+            if($amostra->getFnIdlista()) {
+                $lista_trab = $em->getRepository('AppBundle:ListaTrabalhos')->findOneBy(array('id' => $amostra->getFnIdlista()));
+
+                $dql = $result->select('tpa')
+                    ->from('AppBundle:TParametrosamostra', 'tpa')
+                    ->where('tpa.fnIdlista = :lista')
+                    ->setParameter('lista', $lista_trab->getId())
+                    ->getQuery()
+                    ->getResult();
+
+                $conta_completo = 0;
+                $nelem = count($dql);
+
+                foreach ($dql as $pa) {
+                    if($pa->getFtIdEstado() == 3){
+                        $conta_completo++;
+                    }
+                }
+
+                if($conta_completo == $nelem)
+                {
+                    $lista_trab->setDatafecho(new \DateTime());
+                    $lista_trab->setConcluido(1);
+                    $em->flush();
+                    array_push($envia,$lista_trab->getId());
+                }
+
+            }
+        }
+
+        $narray = count($envia);
+        $id_lista="";
+        if($narray != 0)
+        {
+            $envia = array_unique($envia);
+            $id_lista = "Lista";
+            if($narray > 1)
+            {$id_lista .= "s com os ids";}
+            else{
+             $id_lista .= " com o id";
+            }
+            for($x = 0; $x < count($envia); $x++) {
+             $id_lista .= " " . $envia[$x];
+            }
+
+            if($narray > 1)
+            {$id_lista .= " estão concluída";}
+            else{
+             $id_lista .= " está concluída";
+            }
+        }
+
+        return new Response($id_lista);
     }
 
     public function ReopenparaAction()
@@ -173,10 +242,16 @@ class WorkListCTRLController extends Controller
         $pdf->setFooterData(array(date("d-m-Y"), 0, 0), array(1, 0, 0));
 
         //TODO: ir buscar o tipo de parametros e colocar diretamente na tabela parametrosamostras
+        $ids_file = "";
         foreach ($samples as &$slug) {
             $cumpre = true;
             $em = $this->getDoctrine()->getManager();
             $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+            if(!$amostra->getFnEspecificacao() || !$amostra->getFnModelo() || !$amostra->getFtGrupoparametros())
+            {
+                return new Response("Defina a especificação, o modelo de amostra e o grupo de parâmetros para a amostra com o ID " . $amostra->getFnId());
+            }
+            $ids_file .= "_".$amostra->getFnId();
             $especificacao = $em->getRepository('AppBundle:TEspecificacoes')->findOneBy(array('fnId' => $amostra->getFnEspecificacao()));
 
             $parametros = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
@@ -361,9 +436,9 @@ class WorkListCTRLController extends Controller
             $amostraalimentos = $em->getRepository('AppBundle:TAmostrasalimentos')->findOneBy(array('fnId' => $amostra->getFnAmostrasalimentos()->getFnId()));
             $cliente = $em->getRepository('AppBundle:TClientes')->findOneBy(array('fnId' => $amostra->getFnCliente()->getFnId()));
             if ($amostraalimentos->getFtLote() != null || $amostraalimentos->getFtAcondicionamento() != null || $amostraalimentos->getFtTemperatura() != null || $amostraalimentos->getFtFaseprocesso() != null) {
-                $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: ' . $amostraalimentos->getFtLote() . '</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:' . $amostraalimentos->getFtAcondicionamento() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: ' . $amostraalimentos->getFtValidade() . ' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:' . $amostraalimentos->getFtFaseprocesso() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: ' . $amostraalimentos->getFtTemperatura() . ' </td></tr></table>  </td></tr>';
+                $origem = '<tr><td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-align:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: ' . $amostraalimentos->getFtLote() . '</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:' . $amostraalimentos->getFtAcondicionamento() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: ' . $amostraalimentos->getFtValidade() . ' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:' . $amostraalimentos->getFtFaseprocesso() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: ' . $amostraalimentos->getFtTemperatura() . ' </td></tr></table>  </td></tr>';
             } else {
-                $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">' . $amostra->getFtOrigem() . '</td></tr>';
+                $origem = '<tr><td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-align:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">' . $amostra->getFtOrigem() . '</td></tr>';
             }
 
             //texto das vars
@@ -428,7 +503,7 @@ class WorkListCTRLController extends Controller
         background-color: #FFFFAA;
     }
     h3{
-        text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;
+        text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;
     }
     .table_resultados *{
     font-size:8px !important;
@@ -504,23 +579,23 @@ class WorkListCTRLController extends Controller
                 <td  align="left" width="280">
                     <table cellspacing="1" cellpadding="2">
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$modeloamostra->getFnTipoamostra()->getFtDescricao()}</td>
+                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$modeloamostra->getFnTipoamostra()->getFtDescricao()}</td>
                         </tr>
                          {$origem}
                          <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtResponsavelcolheita()}</td>
+                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtResponsavelcolheita()}</td>
                         </tr>
                          <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$ref_ext}</td>
+                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$ref_ext}</td>
                         </tr>
                     </table>
                 </td>
@@ -528,28 +603,28 @@ class WorkListCTRLController extends Controller
                 <td  align="left" width="220">
                     <table cellspacing="1" cellpadding="2">
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtNome()}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtNome()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtMorada()}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtMorada()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtCodpostal()}- {$cliente->getFtLocalidade()}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtCodpostal()}- {$cliente->getFtLocalidade()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                     </table>
                 </td>
@@ -592,7 +667,7 @@ EOF;
 
 // set image scale factor
         if($conta > 1)
-            $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR ."relatorios" . DIRECTORY_SEPARATOR ."relatorio_amostras.pdf";
+            $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR ."relatorios" . DIRECTORY_SEPARATOR ."relatorio_amostras". $ids_file.".pdf";
         else
             $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_amostra_" . $samples[0] .".pdf";
         $pdf->Output($fileNL , 'FI');
@@ -627,6 +702,10 @@ EOF;
         $cumpre = true;
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $slug));
+        if(!$amostra->getFnEspecificacao() || !$amostra->getFnModelo() || !$amostra->getFtGrupoparametros())
+        {
+            return new Response("Defina a especificação, o modelo de amostra e o grupo de parâmetros para a amostra com o ID " . $amostra->getFnId());
+        }
         $especificacao = $em->getRepository('AppBundle:TEspecificacoes')->findOneBy(array('fnId' => $amostra->getFnEspecificacao()));
 
         $parametros = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($slug);
@@ -813,9 +892,9 @@ EOF;
         $amostraalimentos = $em->getRepository('AppBundle:TAmostrasalimentos')->findOneBy(array('fnId' => $amostra->getFnAmostrasalimentos()->getFnId()));
         $cliente = $em->getRepository('AppBundle:TClientes')->findOneBy(array('fnId' => $amostra->getFnCliente()->getFnId()));
         if ($amostraalimentos->getFtLote() != null || $amostraalimentos->getFtAcondicionamento() != null || $amostraalimentos->getFtTemperatura() != null || $amostraalimentos->getFtFaseprocesso() != null) {
-            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: ' . $amostraalimentos->getFtLote() . '</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:' . $amostraalimentos->getFtAcondicionamento() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: ' . $amostraalimentos->getFtValidade() . ' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:' . $amostraalimentos->getFtFaseprocesso() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: ' . $amostraalimentos->getFtTemperatura() . ' </td></tr></table>  </td></tr>';
+            $origem = '<tr><td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-align:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">  <table border="0" align="left"><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Lote: ' . $amostraalimentos->getFtLote() . '</td><td class="bold_one" style="font-size:8px;width:  140px;" >Acondicionamento:' . $amostraalimentos->getFtAcondicionamento() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Validade: ' . $amostraalimentos->getFtValidade() . ' </td><td class="bold_one" style="font-size:8px;width: 140px;" >Fase do processo:' . $amostraalimentos->getFtFaseprocesso() . '</td></tr><tr><td class="bold_one" style="font-size:8px;width: 140px;" >Temperatura: ' . $amostraalimentos->getFtTemperatura() . ' </td></tr></table>  </td></tr>';
         } else {
-            $origem = '<tr><td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-aling:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">' . $amostra->getFtOrigem() . '</td></tr>';
+            $origem = '<tr><td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Origem da Amostra:</td></tr><tr><td width="100" style="font-size: 10px;text-align:left;padding-left: 10px;width: 100%;margin: 0;" class="tit_info_amostra">' . $amostra->getFtOrigem() . '</td></tr>';
         }
 
         //texto das vars
@@ -879,7 +958,7 @@ EOF;
         background-color: #FFFFAA;
     }
     h3{
-        text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;
+        text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;
     }
     .table_resultados *{
     font-size:8px !important;
@@ -955,23 +1034,23 @@ EOF;
                 <td  align="left" width="280">
                     <table cellspacing="1" cellpadding="2">
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Tipo de Amostra:</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$modeloamostra->getFnTipoamostra()->getFtDescricao()}</td>
+                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$modeloamostra->getFnTipoamostra()->getFtDescricao()}</td>
                         </tr>
                          {$origem}
                          <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">Colheita Realizada por:</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtResponsavelcolheita()}</td>
+                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$amostra->getFtResponsavelcolheita()}</td>
                         </tr>
                          <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;border-bottom: 1px solid black;width: 100%;margin: 0;" class="tit_info_amostra">{$ref}</td>
                         </tr>
                         <tr>
-                            <td width="100" style="font-size: 10px;text-aling:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$ref_ext}</td>
+                            <td width="100" style="font-size: 10px;text-align:left;padding-left: 10;width: 100%;margin: 0;" class="tit_info_amostra">{$ref_ext}</td>
                         </tr>
                     </table>
                 </td>
@@ -979,28 +1058,28 @@ EOF;
                 <td  align="left" width="220">
                     <table cellspacing="1" cellpadding="2">
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtNome()}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtNome()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtMorada()}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;"  bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtMorada()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtCodpostal()}- {$cliente->getFtLocalidade()}</td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra">{$cliente->getFtCodpostal()}- {$cliente->getFtLocalidade()}</td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" bgcolor="#d3d3d3" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                         <tr>
-                            <td  style="font-size: 10px;text-aling:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
+                            <td  style="font-size: 10px;text-align:left;padding: 0;font-weight: bold;width: 100%;margin: 0;" class="tit_info_amostra"></td>
                         </tr>
                     </table>
                 </td>
@@ -1120,7 +1199,7 @@ EOF;
 
     }
 
-    // get parameters by sample for worklist groped by parameter
+    // get parameters by sample for worklist grouped by parameter //AQUI
     public function GetparameterbysampleForParameterAction()
     {
         $id_parameter = $this->get("request")->getContent();
@@ -1130,7 +1209,15 @@ EOF;
 
 
 
-        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , t_parametrosamostra.ft_id_estado , t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id where (t_amostras.ft_id_estado = 6 or t_amostras.ft_id_estado = 3) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
+        $sql = "select t_parametrosamostra.fn_id_amostra , t_parametrosamostra.ft_descricao , 
+                t_parametrosamostra.ft_id_estado , 
+                t_metodos.ft_descricao as metodo, t_tecnicas.ft_descricao as tecnica 
+                from t_parametrosamostra inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra 
+                left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id 
+                left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id 
+                where (t_amostras.ft_id_estado = 4)
+                and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." 
+                and t_parametrosamostra.fn_id = ". $id_parameter ;
 
 
 
@@ -1140,7 +1227,7 @@ EOF;
         if (count($result) != 0) {
             $response = array("data" => $result);
         } else {
-            $response = "NoData";
+            $response = null;
         }
 
 
@@ -1604,16 +1691,18 @@ EOF;
 
             $body="";
             $header_aux = 0 ;
-            $sql = "SELECT max(fn_id_lista) as max_id_lista from t_parametrosamostra";
-            $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
-            $activeDate->execute();
-            $result1 = $activeDate->fetchAll();
 
-            $result1[0]['max_id_lista'] =$result1[0]['max_id_lista'] != null ?$result1[0]['max_id_lista'] : 0;
-            $result1[0]['max_id_lista']++;
+            $lt = new ListaTrabalhos();
+            $lt->setDataemissao(new \DateTime());
 
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($lt);
+
+            $em->flush();
+
+            $ultimo_id = $lt->getId();
                 foreach ($amostra as &$value) {
-
 
                     if ($value != "") {
                         $sql = "SELECT t_parametrosamostra.fn_id_amostra as amostra, t_parametrosamostra.ft_descricao as parametro , t_gruposparametros.ft_codigo as grupo  , t_metodos.ft_descricao as metodo , t_unidadesmedida.ft_descricao as unidade FROM t_parametrosamostra inner join t_amostras on t_parametrosamostra.fn_id_amostra = t_amostras.fn_id inner join t_gruposparametros on t_amostras.ft_grupoparametros = t_gruposparametros.fn_id inner join t_metodos on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id inner join t_resultados on t_parametrosamostra.id = t_resultados.fn_id_parametro inner join t_unidadesmedida on t_resultados.fn_id_unidade = t_unidadesmedida.fn_id where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para . ";";
@@ -1621,7 +1710,7 @@ EOF;
                         $activeDate->execute();
                         $result = $activeDate->fetchAll();
 
-                        $sql = "UPDATE t_parametrosamostra SET fn_id_lista = ".$result1[0]['max_id_lista'] ." where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para;
+                        $sql = "UPDATE t_parametrosamostra SET listatrabalho_id = " . $ultimo_id . " where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para;
                         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                         $activeDate->execute();
 
@@ -1687,7 +1776,7 @@ EOD;
         // set auto page breaks
         // set image scale factor
 
-        $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . $result1[0]['max_id_lista'].".pdf";
+        $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . $ultimo_id.".pdf";
             //"/var/www/lab.iwish.solutions/app/listas";
         $pdf->Output($fileNL , 'F');
 
@@ -1699,7 +1788,7 @@ EOD;
 
         }
 
-            return new Response(json_encode("" . $result1[0]['max_id_lista'].".pdf"));
+            return new Response(json_encode("" . $ultimo_id.".pdf"));
 
 
     }

@@ -64,6 +64,12 @@ completesample:
 completepara:
     path:     /completepara
     defaults: { _controller: AppBundle:WorkListCTRL:Completepara }
+
+updateworklist:
+    path: /updateworklist
+    defaults: { _controller: AppBundle:WorkListCTRL:AtualizaListaTrabalho }
+
+
 reopenpara:
     path:     /reopenpara
     defaults: { _controller: AppBundle:WorkListCTRL:Reopenpara }

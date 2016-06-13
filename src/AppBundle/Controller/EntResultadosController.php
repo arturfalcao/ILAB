@@ -55,7 +55,7 @@ class EntResultadosController extends Controller
                 $response = array("data" => $result);
             }
         } else {
-            $response = "NoData";
+            $response = null;
         }
 
 
@@ -170,7 +170,7 @@ class EntResultadosController extends Controller
                 $response = array("data" => $result);
             }
         } else {
-            $response = "NoData";
+            $response = null;
         }
         return new Response(json_encode($response));
     }
