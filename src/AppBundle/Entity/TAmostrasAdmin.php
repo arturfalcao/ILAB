@@ -10,16 +10,13 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class TAmostrasAdmin extends Admin
 {
-
-    public function postPersist($user)
+   public function postPersist($user)
     {
         $em = $this->getConfigurationPool()->getContainer()->get('Doctrine')->getManager();
         $sample = $user->getFnId();
 
-        if($user->getFtGrupoparametros())
-            $paraGroup = $user->getFtGrupoparametros()->getFnId();
-        else
-            $paraGroup = 0;
+        $paraGroup = $user->getFtGrupoparametros()->getFnId();
+
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($sample);
         
         $sql = "select * from t_parametrosgrupo where t_grupo = " . $paraGroup;
@@ -99,12 +96,14 @@ class TAmostrasAdmin extends Admin
         $user->setUpdatedBy($user1->getUsername());
         $user->setUpdatedByTime(date('Y-m-d H:i:s'));
     }
+
     public function preUpdate($user)
     {
         $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
         $user->setUpdatedBy($user1->getUsername());
         $user->setUpdatedByTime(date('Y-m-d H:i:s'));
     }
+
     public function preRemove($user)
     {
         $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();

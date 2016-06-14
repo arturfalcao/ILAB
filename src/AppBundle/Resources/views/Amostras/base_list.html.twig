@@ -417,9 +417,10 @@ file that was distributed with this source code.
 
             $( "#botao_ok" ).click(function(e) {
                 var accao = $("#action_ok").val();
+                var ids;
                 if(accao == 'emitirrelatorio')
                 {
-                    var ids = "";
+                    ids = "";
                     $('input[name="idx[]"]:checked').each(function() {
                         ids+=$(this).val()+',';
                     });
@@ -435,6 +436,26 @@ file that was distributed with this source code.
                     }
 
                 }
+                else if(accao == 'printworklist')
+                {
+                    ids = "";
+                    $('input[name="idx[]"]:checked').each(function() {
+                        ids+=$(this).val()+',';
+                    });
+                    if(ids.length != 0)
+                    {
+                        ids = ids.slice(0,ids.length-1);
+                        e.preventDefault();
+                        window.open('/app_dev.php/generateworklist/' + ids, '_blank');
+                        //window.location.href = '';
+                    }
+                    else{
+                        e.preventDefault();
+                    }
+                }
+                /*else if(accao == 'delete'){
+                    e.preventDefault();
+                }*/
 
             });
 
