@@ -394,7 +394,6 @@ file that was distributed with this source code.
             $("label[for='filter_fdColheita_value_start']").html('Data de início');
             $("label[for='filter_fdColheita_value_end']").html('Data de fim');
 
-
             $(".datepicker").datepicker({
                 dateFormat: 'dd/mm/yy',
                 dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
@@ -406,9 +405,6 @@ file that was distributed with this source code.
                 prevText: 'Anterior'
             });
 
-
-
-            
             $( "#filtros" ).click(function() {
                 $( ".visivel" ).toggle();
                 $("#cab_filtros").toggle("hide");
@@ -429,7 +425,6 @@ file that was distributed with this source code.
                         ids = ids.slice(0,ids.length-1);
                         e.preventDefault();
                         window.open('/app_dev.php/emitirrelatorio/' + ids, '_blank');
-                        //window.location.href = '';
                     }
                     else{
                         e.preventDefault();
@@ -447,19 +442,13 @@ file that was distributed with this source code.
                         ids = ids.slice(0,ids.length-1);
                         e.preventDefault();
                         window.open('/app_dev.php/generateworklist/' + ids, '_blank');
-                        //window.location.href = '';
                     }
                     else{
                         e.preventDefault();
                     }
                 }
-                /*else if(accao == 'delete'){
-                    e.preventDefault();
-                }*/
 
             });
-
-
         })
     </script>
 {% endblock %}
