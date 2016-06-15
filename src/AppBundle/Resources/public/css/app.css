@@ -9941,13 +9941,18 @@ table tr th, table tr td{
 
 }
 
-/*.table>tbody>tr>td{
-    padding: 22px 7px 14px 0;
-}*/
-
 .table>tbody>tr>td {
     padding: 22px 7px 22px 0;
 }
+
+#parametros_grid>tbody>tr>td {
+  padding: 9px 9px 9px 9px;
+}
+
+#lista_para_grid>tbody>tr>td {
+    padding: 9px 10px 9px 10px;
+}
+
 
 .btn{
     margin-top: 0!important;

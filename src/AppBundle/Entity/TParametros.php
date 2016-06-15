@@ -523,7 +523,7 @@ class TParametros
     /**
      * Set ftDescricao
      *
-     * @param string $ftMetodotexto
+     * 
      * @return TParametros
      */
     public function getFtMetodotexto()
@@ -1244,8 +1244,9 @@ class TParametros
     /**
      * Set fnAreaensaio
      *
-     * @param \AppBundle\Entity\TTipoparametro $fnAreaensaio
+     * @param TTipoparametro $fnTipoparametro
      * @return TParametros
+     * @internal param TTipoparametro $fnAreaensaio
      */
     public function setFnTipoparametro(\AppBundle\Entity\TTipoparametro $fnTipoparametro = null)
     {

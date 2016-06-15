@@ -117,16 +117,22 @@ class WorkListCTRLController extends Controller
             $envia = array_unique($envia);
             $id_lista = "Lista";
             if($narray > 1)
-            {$id_lista .= "s com os ids";}
-            else{
-             $id_lista .= " com o id";
+            {
+                $id_lista .= "s com os ids";
+            }
+            else
+            {
+                $id_lista .= " com o id";
             }
             for($x = 0; $x < count($envia); $x++) {
-             $id_lista .= " " . $envia[$x];
+                 if($x==0)
+                     $id_lista .= " " . $envia[$x];
+                 else
+                     $id_lista .= "," . $envia[$x];
             }
 
             if($narray > 1)
-            {$id_lista .= " estão concluída";}
+            {$id_lista .= " estão concluídas";}
             else{
              $id_lista .= " está concluída";
             }
@@ -1509,6 +1515,10 @@ EOF;
 
     public function GetPDFFileAction($slug)
     {
+        if(substr( $slug, 0, 6 ) === "Defina")
+        {
+            return new Response($slug);
+        }
         $slug = str_replace('"', "", $slug);
         return new BinaryFileResponse('../app/listas/' . $slug);
     }
@@ -1660,7 +1670,12 @@ EOF;
             ->Where('q.idParametro = ' . $para)
             ->getQuery()
             ->getArrayResult();
-
+        $repo_para = $this->getDoctrine()->getRepository('AppBundle:TParametros');
+        if(!$users)
+        {
+            $parametro = $repo_para->find($para);
+            return new Response("Defina o modelo de lista para o parâmetro " . $parametro->getFtDescricao());
+        }
         try {
 
             //generate pdf with html
@@ -1689,75 +1704,82 @@ EOF;
             $body="";
             $header_aux = 0 ;
 
-            $lt = new ListaTrabalhos();
-            $lt->setDataemissao(new \DateTime());
+            if(count($amostra)!=0) {
+                $lt = new ListaTrabalhos();
+                $lt->setDataemissao(new \DateTime());
 
-            $em = $this->getDoctrine()->getManager();
+                $em = $this->getDoctrine()->getManager();
 
-            $em->persist($lt);
+                $em->persist($lt);
 
-            $em->flush();
+                $em->flush();
 
-            $ultimo_id = $lt->getId();
-                foreach ($amostra as &$value) {
+                $ultimo_id = $lt->getId();
+            }
+            else{
+                $ultimo_id = 0;
+            }
 
-                    if ($value != "") {
-                        $sql = "SELECT t_parametrosamostra.fn_id_amostra as amostra, t_parametrosamostra.ft_descricao as parametro , t_gruposparametros.ft_codigo as grupo  , t_metodos.ft_descricao as metodo , t_unidadesmedida.ft_descricao as unidade FROM t_parametrosamostra inner join t_amostras on t_parametrosamostra.fn_id_amostra = t_amostras.fn_id inner join t_gruposparametros on t_amostras.ft_grupoparametros = t_gruposparametros.fn_id inner join t_metodos on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id inner join t_resultados on t_parametrosamostra.id = t_resultados.fn_id_parametro inner join t_unidadesmedida on t_resultados.fn_id_unidade = t_unidadesmedida.fn_id where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para . ";";
-                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
-                        $activeDate->execute();
-                        $result = $activeDate->fetchAll();
+            foreach ($amostra as &$value) {
 
+                if ($value != "") {
+                    $sql = "SELECT t_parametrosamostra.fn_id_amostra as amostra, t_parametrosamostra.ft_descricao as parametro , t_gruposparametros.ft_codigo as grupo  , t_metodos.ft_descricao as metodo , t_unidadesmedida.ft_descricao as unidade FROM t_parametrosamostra inner join t_amostras on t_parametrosamostra.fn_id_amostra = t_amostras.fn_id inner join t_gruposparametros on t_amostras.ft_grupoparametros = t_gruposparametros.fn_id inner join t_metodos on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id inner join t_resultados on t_parametrosamostra.id = t_resultados.fn_id_parametro inner join t_unidadesmedida on t_resultados.fn_id_unidade = t_unidadesmedida.fn_id where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para . ";";
+                    $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                    $activeDate->execute();
+                    $result = $activeDate->fetchAll();
+                    if($ultimo_id != 0) {
                         $sql = "UPDATE t_parametrosamostra SET listatrabalho_id = " . $ultimo_id . " where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para;
                         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                         $activeDate->execute();
+                    }
 
-                        if ($header_aux == 0) {
-                            $header_aux = 1;
-                            $pdf->SetHeaderData('logopimenta.png', 50, '', PDF_HEADER_STRING);
-                            $pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
+                    if ($header_aux == 0) {
+                        $header_aux = 1;
+                        $pdf->SetHeaderData('logopimenta.png', 50, '', PDF_HEADER_STRING);
+                        $pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
 
-                            // set header and footer fonts
-
-
-                            //$pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
-
-                            $pdf->AddPage();
-                            $pdf->SetFont('helvetica', '', 10, '', 'default', true);
-                        }
+                        // set header and footer fonts
 
 
+                        //$pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
+
+                        $pdf->AddPage();
                         $pdf->SetFont('helvetica', '', 10, '', 'default', true);
-
-                        $body = $body . '<tr style="line-height: 4px;"><th></th></tr><tr><th style="width: 40px;"  >' . $result[0]["grupo"] . '</th><th style="width: 50px;">' . $result[0]["amostra"] . '</th><th style="width: 470px;">' . $users[0]["tablejson"] . '</th></tr>';
                     }
 
 
+                    $pdf->SetFont('helvetica', '', 10, '', 'default', true);
+
+                    $body = $body . '<tr style="line-height: 4px;"><th></th></tr><tr><th style="width: 40px;"  >' . $result[0]["grupo"] . '</th><th style="width: 50px;">' . $result[0]["amostra"] . '</th><th style="width: 470px;">' . $users[0]["tablejson"] . '</th></tr>';
                 }
+
+
+            }
             
 
             $head=$users[0]['cabecalhojson'];
 
             $html = <<<EOD
             <style>
-  th {
-    font-size: 8px;
-  }
-  .bold_one{
-    font-weight: bold;
-  }
-  tr {
-    font-size: 8px;
-  }
-</style>
-<table border="0" align="center">
-<tr style="line-height: 4px;"><th></th></tr>
-<tr>
-<th class="bold_one" style="width: 40px;" >Tipo</th>
-<th class="bold_one" style="width: 50px;">Amostra</th>
-<th class="bold_one" style="width: 470px;">{$head}</th>
-</tr>
-{$body}
-</table>
+              th {
+                font-size: 8px;
+              }
+              .bold_one{
+                font-weight: bold;
+              }
+              tr {
+                font-size: 8px;
+              }
+            </style>
+            <table border="0" align="center">
+            <tr style="line-height: 4px;"><th></th></tr>
+            <tr>
+            <th class="bold_one" style="width: 40px;" >Tipo</th>
+            <th class="bold_one" style="width: 50px;">Amostra</th>
+            <th class="bold_one" style="width: 470px;">{$head}</th>
+            </tr>
+            {$body}
+            </table>
 EOD;
 
         $pdf->writeHTML($html, true, false, false, false, 'center');
@@ -1772,11 +1794,11 @@ EOD;
         // set margins
         // set auto page breaks
         // set image scale factor
-
-        $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . $ultimo_id.".pdf";
+        if($ultimo_id != 0) {
+            $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . $ultimo_id . ".pdf";
             //"/var/www/lab.iwish.solutions/app/listas";
-        $pdf->Output($fileNL , 'F');
-
+            $pdf->Output($fileNL, 'F');
+        }
             //change all sample to state on progress
 
             //change all parameter to state on progress

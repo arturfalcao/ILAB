@@ -192,27 +192,27 @@
 
                 }
 
-                if(rowIds.length != 0){
-                    //$(".ecra").show();
-                    if(URL=='/completepara')
-                    $.ajax({
-                        type: "POST",
-                        url: '/updateworklist',
-                        data: JSON.stringify(rowIds),
-                        success: function(data) {
-                            if(data.length > 0)
-                            {toastr.info(data);}
-                        }
-                    });
-
-                }
-
-
-
                 rowIds = _old;
 
             }
+
+            function Atualiza_LT(URL) {
+                if(rowIds.length != 0){
+                    if(URL=='/completepara')
+                        $.ajax({
+                            type: "POST",
+                            url: '/updateworklist',
+                            data: JSON.stringify(rowIds),
+                            success: function(data) {
+                                if(data.length > 0)
+                                {toastr.info(data);}
+                            }
+                        });
+
+                }
+            }
             function GetParametros(){
+
                 $.ajax({
                     type: "POST",
                     url: '{{path('AmostrasGetParametros')}}',
@@ -277,14 +277,8 @@
 
                         }
 
-
-
-
-
-
                     }
                 });
-
 
             }
             function GetAllPara(){
@@ -1305,7 +1299,7 @@
                 </div>
                 </div>
                 <div class="well well-small form-actions large-16 medium-16 form-group visivel text-center">
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-check-circle"></i> Autorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara');Atualiza_LT('/completepara');"><i class="fa fa-check-circle"></i> Autorizar </a>
                     <a target="_blank" class="btn generateworklist" onclick="Savedata()"><i class="fa fa-save"></i> Guardar</a>
                     <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
                     <a target="_blank" class="btn btn-danger" onclick="UpdateParaActions('/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>
