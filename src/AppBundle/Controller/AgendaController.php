@@ -41,11 +41,6 @@ class AgendaController extends Controller
         );
     }
 
-    
-
-
-
-
     /**
      * Obter todas as amostras do dia de hoje.
      *
@@ -194,6 +189,9 @@ class AgendaController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->get('security.token_storage')->getToken()->getUser();
+            $id_user = $user -> getId();
+            $entity->setFnIdUtilizador($id_user);
             $em->persist($entity);
             $em->flush();
 
@@ -413,7 +411,6 @@ class AgendaController extends Controller
             ->add('title',null,array('label' => 'O que'))
             ->add('startdatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'start_date_short'),'label' => false))
             ->add('enddatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'end_date_short'),'label' => false))
-            ->add('FnIdUtilizador','hidden',array('label'=>'Utilizador'))
             ->add('submit','submit')
             ->getForm();
         $form->handleRequest($request);
@@ -424,6 +421,9 @@ class AgendaController extends Controller
                 if($entity->getStartdatetime()->format('Y-m-d H:i:s') == $entity->getEnddatetime()->format('Y-m-d H:i:s')){
                     $entity->setAllDay(true);
                 }
+                $user = $this->get('security.token_storage')->getToken()->getUser();
+                $id_user = $user -> getId();
+                $entity->setFnIdUtilizador($id_user);
                 $em->persist($entity);
                 $em->flush();
                 $data1 = $entity->getStartdatetime()->format('Y-m-d H:i:s');

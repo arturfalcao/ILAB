@@ -1220,7 +1220,7 @@ EOF;
                 inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra 
                 left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id 
                 left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id 
-                where (t_amostras.ft_id_estado = 4) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
+                where (t_amostras.ft_id_estado = 4 or (t_amostras.ft_id_estado = 6 and t_parametrosamostra.listatrabalho_id IS NULL) ) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
 
 
 
@@ -1729,6 +1729,10 @@ EOF;
                     $result = $activeDate->fetchAll();
                     if($ultimo_id != 0) {
                         $sql = "UPDATE t_parametrosamostra SET listatrabalho_id = " . $ultimo_id . " where t_parametrosamostra.fn_id_amostra = " . $value . " and t_parametrosamostra.fn_id = " . $para;
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+
+                        $sql = "UPDATE t_amostras SET ft_id_estado = 6 where t_amostras.fn_id = " . $value;
                         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                         $activeDate->execute();
                     }

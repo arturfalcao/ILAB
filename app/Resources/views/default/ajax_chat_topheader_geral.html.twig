@@ -1,19 +1,4 @@
 <script>
-/*\
-|*|
-|*|  Polyfill which enables the passage of arbitrary arguments to the
-|*|  callback functions of JavaScript timers (HTML5 standard syntax).
-|*|
-|*|  https://developer.mozilla.org/en-US/docs/DOM/window.setInterval
-|*|
-|*|  Syntax:
-|*|  var timeoutID = window.setTimeout(func, delay, [param1, param2, ...]);
-|*|  var timeoutID = window.setTimeout(code, delay);
-|*|  var intervalID = window.setInterval(func, delay[, param1, param2, ...]);
-|*|  var intervalID = window.setInterval(code, delay);
-|*|
-\*/
-
 //Função responsável por verificar se existe mensagens de outros utilizadores
 //para o utilizador autenticado
 function TextoMensagensNaoLidas()
@@ -297,7 +282,7 @@ function histMens(element)
 //Função responsável por enviar mensagem do utilizador logado e o utilizador selecionado
 function sendMessage(element)
 {
-    var texto_imp = $("#texto_imp");
+var texto_imp = $("#texto_imp");
  var nome_user=$(element).attr('x');
  var id_user = texto_imp.attr('x');
  var id_em_re = id_user.slice(2);
@@ -415,5 +400,4 @@ $( document ).ready(function() {
 
 	});
 });
-    // chat
 </script>

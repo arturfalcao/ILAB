@@ -209,7 +209,6 @@ file that was distributed with this source code.
 
                             <div class="large-2 vazio medium-2 form-group visivel" style="margin-left: 35px;margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
-
                                         {% if filter.formName == 'fnId'  or filter.formName == 'ftCodigo'
                                         or filter.formName == 'fbActivo' or filter.formName == 'ftFormulaquimica'
                                         or filter.formName == 'fbIncluirnorelatorio'
@@ -221,7 +220,8 @@ file that was distributed with this source code.
                                         or filter.formName == 'fnValor' or filter.formName == 'ftLote'
                                         or filter.formName == 'id' or filter.formName == 'username'
                                         or filter.formName == 'fnCapacidade' or filter.formName == 'ftNclaboratorio'
-                                        or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'%}
+                                        or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'
+                                        or filter.formName == 'id_parametro_amostra__ftDescricao'%}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -255,6 +255,7 @@ file that was distributed with this source code.
                                             or filter.formName == 'ftOriginal' or filter.formName == 'ftAcondicionamento'
                                              or filter.formName == 'ftValidade' or filter.formName == 'name'
                                         or filter.formName == 'fnOrdem' or filter.formName == 'ftId'
+
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -294,7 +295,8 @@ file that was distributed with this source code.
                                             or filter.formName == 'ftTemperatura' or filter.formName == 'ftFaseprocesso'
 
                                         or filter.formName == 'fnLimiteinferior' or filter.formName == 'fnLimitesuperior'
-                                            or filter.formName == 'fnTipoparametro'
+                                            or filter.formName == 'fnTipoparametro' or filter.formName == 'dataemissao'
+
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -330,7 +332,7 @@ file that was distributed with this source code.
                                       or filter.formName == 'fdCriacao' or filter.formName == 'fdConclusao'
                                         or filter.formName == 'fnDesconto' or filter.formName == 'ftTipopagamento'
                                         or filter.formName == 'fnCasasdecimais' or filter.formName == 'fbFormatoexponencial'
-
+                                    or filter.formName == 'datafecho'
                                     %}
 
                                         {% if filter.label is not same as(false) %}
@@ -362,7 +364,7 @@ file that was distributed with this source code.
                                     {% if filter.formName == 'fdAutorizacao' or filter.formName == 'fdLimiterealizacao'
                                         or filter.formName == 'ftPrazoentrega'
                                         or filter.formName == 'ftPrefixo' or filter.formName == 'fbFormatoutilizador'
-                                     or filter.formName == 'ftExpressaoutilizador'%}
+                                     or filter.formName == 'ftExpressaoutilizador' or filter.formName == 'id_parametro_amostra__fnIdAmostra' %}
 
                                         {% if filter.label is not same as(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -593,6 +595,11 @@ file that was distributed with this source code.
             $("label[for='filter_fdUltimaemissao_value_start']").html('Data Req. de');
             $("label[for='filter_fdUltimaemissao_value_end']").html('até');
 
+            $("label[for='filter_dataemissao_value_start']").html('Data de Emissão de');
+            $("label[for='filter_dataemissao_value_end']").html('até');
+
+            $("label[for='filter_datafecho_value_start']").html('Data de Fecho de');
+            $("label[for='filter_datafecho_value_end']").html('até');
 
             var prim = $(".vazio");
 

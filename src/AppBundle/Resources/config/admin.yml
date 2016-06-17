@@ -217,3 +217,9 @@ services:
         arguments: [~, AppBundle\Entity\TParametrosporespecificacao, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Parametros amostra}
+
+    app.admin.listastrabalhos:
+            class: AppBundle\Entity\ListaTrabalhosAdmin
+            arguments: [~, AppBundle\Entity\ListaTrabalhos, SonataAdminBundle:CRUD]
+            tags:
+                - {name: sonata.admin, manager_type: orm, group: admin, label: Listas de Trabalho}
