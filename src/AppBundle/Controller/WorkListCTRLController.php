@@ -170,6 +170,7 @@ class WorkListCTRLController extends Controller
         $body_micro ="";
         $microeven = 0;
         $fisieven = 0;
+        $tt = 0;
         //valida se nesta amostra existe algum parametro que tenha certificaçao, caso tenha coloca a imagem do ipac no header caso contrario não coloca
         $ipac_cert = false;
          foreach ($parametros as &$value) {
