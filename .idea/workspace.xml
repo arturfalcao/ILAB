@@ -5,9 +5,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/listas/celso.pdf" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/listas/celso1.pdf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle" afterPath="$PROJECT_DIR$/vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +31,18 @@
     <favorites_list name="ILAB" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Agenda.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="140" column="37" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -56,7 +64,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TClientesAdmin.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TLaboratoriosAdmin.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TLaboratorios.php" />
@@ -107,6 +114,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
         <option value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php" />
       </list>
     </option>
   </component>
@@ -510,12 +518,12 @@
       <workItem from="1464713991663" duration="203000" />
       <workItem from="1464999754102" duration="2793000" />
       <workItem from="1465038065712" duration="608000" />
-      <workItem from="1466179301127" duration="161000" />
+      <workItem from="1466179301127" duration="389000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="381381000" />
+    <option name="totallyTimeSpent" value="381609000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -528,9 +536,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1985" y="24" width="1615" height="1026" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19442725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19442725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -569,13 +577,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/standard_layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/resources.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -919,19 +920,18 @@
         <state relative-caret-position="5778">
           <caret line="339" column="17" selection-start-line="339" selection-start-column="17" selection-end-line="339" selection-end-column="17" />
           <folding>
-            <element signature="e#40#81#0#PHP" expanded="true" />
-            <marker date="1465065932578" expanded="true" signature="1693:1742" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1465065932578" expanded="true" signature="2005:3232" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1465065932578" expanded="true" signature="2523:3232" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1465065932578" expanded="true" signature="3406:3571" placeholder="UPDATE t_par... " />
-            <marker date="1465065932578" expanded="true" signature="4610:4659" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1465065932578" expanded="true" signature="4859:6086" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1465065932578" expanded="true" signature="5377:6086" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1465065932578" expanded="true" signature="6260:6425" placeholder="UPDATE t_par... " />
-            <marker date="1465065932578" expanded="true" signature="7777:7826" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1465065932578" expanded="true" signature="8026:9253" placeholder="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1465065932578" expanded="true" signature="8544:9253" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1465065932578" expanded="true" signature="9427:9592" placeholder="UPDATE t_par... " />
+            <marker date="1466179523087" expanded="true" signature="1693:1742" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1466179523087" expanded="true" signature="2005:3232" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466179523087" expanded="true" signature="2523:3232" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1466179523087" expanded="true" signature="3406:3571" placeholder="UPDATE t_par... " />
+            <marker date="1466179523087" expanded="true" signature="4610:4659" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1466179523087" expanded="true" signature="4859:6086" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466179523087" expanded="true" signature="5377:6086" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1466179523087" expanded="true" signature="6260:6425" placeholder="UPDATE t_par... " />
+            <marker date="1466179523087" expanded="true" signature="7777:7826" placeholder="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1466179523087" expanded="true" signature="8026:9253" placeholder="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466179523087" expanded="true" signature="8544:9253" placeholder="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1466179523087" expanded="true" signature="9427:9592" placeholder="UPDATE t_par... " />
           </folding>
         </state>
       </provider>
@@ -968,6 +968,14 @@
             <marker date="1465009234014" expanded="true" signature="114461:114493" placeholder="..." />
             <marker date="1465009234014" expanded="true" signature="114833:114865" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="140" column="37" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
