@@ -191,10 +191,28 @@
                     });
 
                 }
+
                 rowIds = _old;
 
             }
+
+            function Atualiza_LT(URL) {
+                if(rowIds.length != 0){
+                    if(URL=='/completepara')
+                        $.ajax({
+                            type: "POST",
+                            url: '/updateworklist',
+                            data: JSON.stringify(rowIds),
+                            success: function(data) {
+                                if(data.length > 0)
+                                {toastr.info(data);}
+                            }
+                        });
+
+                }
+            }
             function GetParametros(){
+
                 $.ajax({
                     type: "POST",
                     url: '{{path('AmostrasGetParametros')}}',
@@ -259,14 +277,8 @@
 
                         }
 
-
-
-
-
-
                     }
                 });
-
 
             }
             function GetAllPara(){
@@ -1059,7 +1071,6 @@
                                         <a target="_blank" class="btn generateworklist" id="completa_amostra" href="#"><i class="fa fa-check-circle"></i> Autorizar </a>
                                         <a target="_blank" class="btn generateworklist" id="abre_amostra" href="#"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
                                         <a target="_blank" class="btn generateworklist" id="cancela_amostra" href="#"><i class="fa fa-ban"></i> Cancelar </a>
-
                                         <a target="_blank" class="btn generateworklist" href="/relatorio/emit/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Emitir Relatório </a>
                                         <a target="_blank" class="btn generateworklist" href="/generateworklistalt/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Relatório de alterações </a>
 
@@ -1288,7 +1299,7 @@
                 </div>
                 </div>
                 <div class="well well-small form-actions large-16 medium-16 form-group visivel text-center">
-                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-check-circle"></i> Autorizar </a>
+                    <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara');Atualiza_LT('/completepara');"><i class="fa fa-check-circle"></i> Autorizar </a>
                     <a target="_blank" class="btn generateworklist" onclick="Savedata()"><i class="fa fa-save"></i> Guardar</a>
                     <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
                     <a target="_blank" class="btn btn-danger" onclick="UpdateParaActions('/cancelpara')"><i class="fa fa-minus-circle"></i> Eliminar</a>

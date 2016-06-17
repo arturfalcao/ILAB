@@ -60,7 +60,6 @@ file that was distributed with this source code.
             };
         </script>
         <script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/vendor/jquery.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('bundles/app/js/main.js') }}"></script>
 
         {% for javascript in admin_pool.getOption('javascripts', []) %}
         <script src="{{ asset(javascript) }}"></script>
@@ -243,6 +242,7 @@ file that was distributed with this source code.
 
 
         $('.sonata-ba-content>.row>div').removeClass('col-md-6').addClass('col-md-8 push-3');
+        $('.sonata-ba-content>.row>div>.cms-block.cms-block-element>.box>.box-header').remove();
 
 
         $( ".Modelosresultados > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group" ).each(function( index ) {

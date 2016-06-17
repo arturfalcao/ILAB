@@ -22,7 +22,6 @@ class AgendaType extends AbstractType
                 ))
             ->add('enddatetime', 'datetime', array('label'=>'Data de fim','date_widget' => "single_text", 'time_widget' => "single_text"))
 
-
             ->add('allDay','checkbox', array('label' => 'Todo o dia?'))
 
         ;

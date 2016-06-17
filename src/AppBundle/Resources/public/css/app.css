@@ -9941,13 +9941,18 @@ table tr th, table tr td{
 
 }
 
-/*.table>tbody>tr>td{
-    padding: 22px 7px 14px 0;
-}*/
-
 .table>tbody>tr>td {
     padding: 22px 7px 22px 0;
 }
+
+#parametros_grid>tbody>tr>td {
+  padding: 9px 9px 9px 9px;
+}
+
+#lista_para_grid>tbody>tr>td {
+    padding: 9px 10px 9px 10px;
+}
+
 
 .btn{
     margin-top: 0!important;
@@ -9997,6 +10002,7 @@ table tr.even, table tr.alt, table tr:nth-of-type(even) {
 
 #filtros
 {
+  width: 71px;
   margin-left: 35px;
   font-size: 17px;
   color: #4cc3b8;
@@ -10254,15 +10260,15 @@ tbody > tr > td span.label{
 }
 
 .Dados_amostra{
-  margin-top: -95px;
+  margin-top: -150px;
 }
 
 .Lancamento_amostra{
-  margin-top: -707px !important;
+  margin-top: -797px !important;
 }
 
 .Lote_amostra {
-  margin-top: -490px!important;
+  margin-top: -560px!important;
 }
 
 

@@ -41,11 +41,6 @@ class AgendaController extends Controller
         );
     }
 
-    
-
-
-
-
     /**
      * Obter todas as amostras do dia de hoje.
      *
@@ -54,7 +49,11 @@ class AgendaController extends Controller
     
     public function geteventosAction()
     {
-        
+        $parameter = $this->get("request")->getContent();
+        $parameter = explode("&", $parameter);
+        $arr1 = explode("=", $parameter[0]);
+        $user = intval($arr1[1]);
+
         $t = \date('Y-m-d');
         
         $inicio = $t . " 00:00:00";
@@ -83,7 +82,7 @@ class AgendaController extends Controller
                 ->andWhere('a.startdatetime <= :data_fim')
                 ->setParameter('data_fim', $data_fim)
                 ->andWhere('a.ftEstado = :ft_estado')
-                ->setParameter('ft_estado', intval($estado->getFnId()))
+                ->setParameter('ft_estado', $estado->getFnId())
                 ->orderBy('a.startdatetime', 'ASC')
                 ->getQuery()
                 ->getResult();
@@ -113,6 +112,8 @@ class AgendaController extends Controller
                            ->setParameter('data_inicio', $data_inicio)
                            ->andWhere('ag.startdatetime <= :data_fim')
                            ->setParameter('data_fim', $data_fim)
+                           ->andWhere('ag.FnIdUtilizador = :user')
+                           ->setParameter('user', $user)
                            ->orderBy('ag.startdatetime', 'ASC')
                            ->getQuery()
                            ->getResult();
@@ -187,8 +188,10 @@ class AgendaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
             $em = $this->getDoctrine()->getManager();
+            $user = $this->get('security.token_storage')->getToken()->getUser();
+            $id_user = $user -> getId();
+            $entity->setFnIdUtilizador($id_user);
             $em->persist($entity);
             $em->flush();
 
@@ -269,6 +272,8 @@ class AgendaController extends Controller
      * @Route("calendar/{id}/edit", name="agenda_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {
@@ -306,12 +311,16 @@ class AgendaController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Agenda entity.
      *
      * @Route("calendar/{id}", name="agenda_update")
      * @Method("PUT")
      * @Template("AppBundle:Agenda:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {
@@ -387,17 +396,17 @@ class AgendaController extends Controller
     }
 
 
-
     /**
      * Creates a new Agenda entity.
      *
      * @Route("/calendar/newshort", name="agenda_create_short")
      * @Method("POST")
+     * @param Request $request
+     * @return Response
      */
     public function newshortAction(Request $request)
     {
         $entity = new Agenda();
-
         $form = $this->createFormBuilder($entity)
             ->add('title',null,array('label' => 'O que'))
             ->add('startdatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'start_date_short'),'label' => false))
@@ -412,6 +421,9 @@ class AgendaController extends Controller
                 if($entity->getStartdatetime()->format('Y-m-d H:i:s') == $entity->getEnddatetime()->format('Y-m-d H:i:s')){
                     $entity->setAllDay(true);
                 }
+                $user = $this->get('security.token_storage')->getToken()->getUser();
+                $id_user = $user -> getId();
+                $entity->setFnIdUtilizador($id_user);
                 $em->persist($entity);
                 $em->flush();
                 $data1 = $entity->getStartdatetime()->format('Y-m-d H:i:s');
@@ -441,6 +453,8 @@ class AgendaController extends Controller
      *
      * @Route("/calendar/newshort/{slug}", name="agenda_update_short")
      * @Method({"PUT", "DELETE"})
+     * @param $slug
+     * @return Response
      */
     public function updatenewshortAction($slug)
     {

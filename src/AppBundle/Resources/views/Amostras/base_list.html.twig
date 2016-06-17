@@ -120,15 +120,16 @@ file that was distributed with this source code.
                                                                  ({{ admin.datagrid.pager.nbresults }})
                                                             </label>
 
-                                                            <select name="action"  style="width: auto; height: auto" class="form-control">
+                                                            <select id="action_ok" name="action"  style="width: auto; height: auto" class="form-control">
                                                                 <option value="printworklist">Imprimir Lista de Trabalho</option>
+                                                                <option value="emitirrelatorio">Imprimir Relatório</option>
                                                                 {% for action, options in batchactions %}
                                                                     <option value="{{ action }}">{{ options.label }}</option>
                                                                 {% endfor %}
                                                             </select>
                                                         {% endblock %}
 
-                                                        <input type="submit" class="btn btn-small btn-primary" value="{{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}">
+                                                        <input type="submit" id="botao_ok" class="btn btn-small btn-primary" value="{{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}">
                                                     {% endblock %}
                                                 {% endif %}
 
@@ -393,7 +394,6 @@ file that was distributed with this source code.
             $("label[for='filter_fdColheita_value_start']").html('Data de início');
             $("label[for='filter_fdColheita_value_end']").html('Data de fim');
 
-
             $(".datepicker").datepicker({
                 dateFormat: 'dd/mm/yy',
                 dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
@@ -405,16 +405,50 @@ file that was distributed with this source code.
                 prevText: 'Anterior'
             });
 
-
-
-            
             $( "#filtros" ).click(function() {
                 $( ".visivel" ).toggle();
                 $("#cab_filtros").toggle("hide");
                 $("#rod_filtros").toggle("show");
             });
 
+            $( "#botao_ok" ).click(function(e) {
+                var accao = $("#action_ok").val();
+                var ids;
+                if(accao == 'emitirrelatorio')
+                {
+                    ids = "";
+                    $('input[name="idx[]"]:checked').each(function() {
+                        ids+=$(this).val()+',';
+                    });
+                    if(ids.length != 0)
+                    {
+                        ids = ids.slice(0,ids.length-1);
+                        e.preventDefault();
+                        window.open('/app_dev.php/emitirrelatorio/' + ids, '_blank');
+                    }
+                    else{
+                        e.preventDefault();
+                    }
 
+                }
+                else if(accao == 'printworklist')
+                {
+                    ids = "";
+                    $('input[name="idx[]"]:checked').each(function() {
+                        ids+=$(this).val()+',';
+                    });
+                    if(ids.length != 0)
+                    {
+                        ids = ids.slice(0,ids.length-1);
+                        e.preventDefault();
+                        window.open('/app_dev.php/generateworklist/' + ids, '_blank');
+                    }
+                    else{
+                        e.preventDefault();
+                    }
+                }
+
+            });
         })
     </script>
 {% endblock %}

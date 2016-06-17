@@ -37,6 +37,7 @@ class TModelosresultadosAdmin extends Admin
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             ->add('fnLimitequantificacao',null, array('label' => 'Limite'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
+            ->add('fnIncerteza',null, array('label' => 'Incerteza'))
         ;
     }
 
@@ -55,6 +56,7 @@ class TModelosresultadosAdmin extends Admin
             ->add('fbGamavalores',null, array('label' => 'Gama de valores'))
             ->add('fnMaximo','number', array('label' => 'Máximo'))
             ->add('fnMinimo','number', array('label' => 'Mínimo'))
+            ->add('fnIncerteza','number', array('label' => 'Incerteza'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -82,8 +84,10 @@ class TModelosresultadosAdmin extends Admin
                 ->add('fbIncluirnorelatorio','checkbox', array('label' => 'Incluir no relatório'))
                 ->add('fnMaximo','number', array('label' => 'Máximo'))
                 ->add('fnMinimo','number', array('label' => 'Mínimo'))
-                ->add('ftMensagemutilizador','text', array('label' => 'Mensagem utilizador'))
+                ->add('fnIncerteza','number', array('label' => 'Incerteza'))
                 ->add('fnLimitequantificacao','integer', array('label' => 'Limite quantificação'))
+                ->add('ftMensagemutilizador','text', array('label' => 'Mensagem utilizador'))
+
             ->end()
 
             ->with('Gallery',array('class'=> 'TabelaModeloresultados col-md-6'))

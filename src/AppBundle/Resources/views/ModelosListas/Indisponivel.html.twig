@@ -11,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/app.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/menu.css') }}" />
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/topheadergeral.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/net/ui-grid.min.css') }}" />
     {#<link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">#}
 
@@ -52,16 +53,17 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="no-padding large-1 medium-1 columns" style="box-shadow: 1px 1px 10px #888888;z-index: 999;">{% include 'default/menu.html.twig' %}</div>
+        <div class="nopadding large-1 medium-1 columns" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;">{% include 'default/menu.html.twig' %}</div>
         <div class=" large-15 medium-15 columns">
             <div class="row">
                 <div class="large-16 medium-16 columns">
+                    {% include 'default/topheader_mod_ind.html.twig' with { 'amostra': amostra } %}
                 </div>
             </div>
             <div class="row">
 
                 <div class="large-13 medium-13 columns" style="margin-top: 100px">
-                    Selecionou uma amostra que não está disponivel por favor valide a sua selecção
+                    Selecionou uma amostra que não está disponível por favor valide a sua selecção
 
 
                 </div>
