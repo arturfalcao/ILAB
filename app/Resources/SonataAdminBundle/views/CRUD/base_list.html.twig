@@ -221,7 +221,12 @@ file that was distributed with this source code.
                                         or filter.formName == 'id' or filter.formName == 'username'
                                         or filter.formName == 'fnCapacidade' or filter.formName == 'ftNclaboratorio'
                                         or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'
-                                        or filter.formName == 'id_parametro_amostra__ftDescricao'%}
+                                        %}
+                                            <label for="parametro">Parâmetro</label>
+                                            <div class="tecnicadiv"></div>
+                                            {#or filter.formName == 'id_parametro_amostra__ftDescricao'#}
+
+
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -364,7 +369,8 @@ file that was distributed with this source code.
                                     {% if filter.formName == 'fdAutorizacao' or filter.formName == 'fdLimiterealizacao'
                                         or filter.formName == 'ftPrazoentrega'
                                         or filter.formName == 'ftPrefixo' or filter.formName == 'fbFormatoutilizador'
-                                     or filter.formName == 'ftExpressaoutilizador' or filter.formName == 'id_parametro_amostra__fnIdAmostra' %}
+                                     or filter.formName == 'ftExpressaoutilizador' or filter.formName == 'id_parametro_amostra__fnIdAmostra'
+                                    or filter.formName == 'id_parametro_amostra__ftDescricao'%}
 
                                         {% if filter.label is not same as(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -572,6 +578,38 @@ file that was distributed with this source code.
 
     <script>
         $( document ).ready(function() {
+            $("label[for='filter_id_parametro_amostra__ftDescricao_value']").hide();
+            $("input#filter_id_parametro_amostra__ftDescricao_value").hide();
+            function GetAllParametrosAmostra(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllParametroAmostra') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.tecnicadiv').append("<select  class='tecnica'></select>");
+                        $('.tecnica').append(
+                                '<option></option>'
+                        );
+                        $.each(data, function(index, value) {
+                            $('.tecnica').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".tecnica").select2({
+                            placeholder: "Selecione um Pârametro",
+                            allowClear: true
+                        });
+                    }
+                });
+            }
+            GetAllParametrosAmostra();
+
+            $('.tecnicadiv').on("select2-selecting", function(e) {
+                $("input#filter_id_parametro_amostra__ftDescricao_value").val(e.object.text);
+            }).on("change", function(e) {
+                if(!e.val)
+                    $("input#filter_id_parametro_amostra__ftDescricao_value").val('');
+            });
 
             $('.invisivel').hide();
             $('.visivel').hide();
@@ -638,6 +676,25 @@ file that was distributed with this source code.
             });
 
 
+
+
+
         })
     </script>
+    {% if admin is defined %}
+    {% if 'Listas de Trabalho' == admin.label %}
+        <script>
+
+            $( document ).ready(function() {
+                $(".icheckbox_minimal").remove();
+                $("label.checkbox").remove();
+                $(".form-inline>.select2-container.form-control").remove();
+                $("input.btn.btn-small.btn-primary").remove();
+
+
+            })
+        </script>
+    {% endif %}
+    {% endif %}
+
 {% endblock %}
