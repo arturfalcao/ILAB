@@ -266,8 +266,8 @@ class WorkListCTRLController extends Controller
                 $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
                 $value->setFnTipoparametro($parametro->getFnTipoparametro());
             }
-            $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Parâmetros Microbiologicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
-            $header_fisico = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Físico-químicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
+            $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Parâmetros Microbiologicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td>Incerteza</td><td></td><td class="table_parametros_data"></td></tr></table>';
+            $header_fisico = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Físico-químicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td>Incerteza</td><td></td><td class="table_parametros_data"></td></tr></table>';
             $body_fisico = "";
             $body_micro = "";
             $microeven = 0;
@@ -430,11 +430,9 @@ class WorkListCTRLController extends Controller
                 }
             }
 
-            if ($cumpre) {
-                $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdCumpreA()) . '</td></tr></table>';
-            } else {
-                $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdNaoCumpreA()) . '</td></tr></table>';
-            }
+                $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($amostra->getFtConclusao()) . '</td></tr></table>';
+            //    $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdNaoCumpreA()) . '</td></tr></table>';
+
             $body_fisico = $body_fisico . '</table></br>';
             $body_micro = $body_micro . '</table></br>';
             $modeloamostra = $em->getRepository('AppBundle:TModelosamostra')->findOneBy(array('fnId' => $amostra->getFnModelo()->getFnId()));
@@ -720,8 +718,8 @@ EOF;
             $parametro = $em->getRepository('AppBundle:TParametros')->findOneBy(array('fnId' => $value->getFnId()));
             $value->setFnTipoparametro($parametro->getFnTipoparametro());
         }
-        $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Parâmetros Microbiologicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
-        $header_fisico = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Físico-químicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td></td><td class="table_parametros_data"></td></tr></table>';
+        $header_micro = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Parâmetros Microbiologicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td>Incerteza</td><td></td><td class="table_parametros_data"></td></tr></table>';
+        $header_fisico = '<table class="table_parametros" ><tr style="margin-top 5px;"><td style="width:15px;"></td><td colspan="4"><span>' . utf8_decode("Físico-químicos") . '</span><br/><span class="table_parametros_tecnica">' . utf8_decode("Método de ensaio / Técnica analítica") . '</span></td><td class="table_parametros_data"></td><td>Unidades</td><td class="table_parametros_data">' . $especificacao->getFtSiglavl() . '</td><td>Incerteza</td><td></td><td class="table_parametros_data"></td></tr></table>';
         $body_fisico = "";
         $body_micro = "";
         $microeven = 0;
@@ -798,7 +796,7 @@ EOF;
                 if ($body_micro == "") {
                     if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
                     {
-                        $body_micro = $header_micro . '<table class="table_resultados"><tr style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+                        $body_micro = $header_micro . '<table class="table_resultados"><tr style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="">' . $resultado->getFtFormatado() . '</td><td>' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td></td><td class="table_parametros_data"></td></tr>';
                         $microeven++;
                     }
                 } else {
@@ -809,7 +807,7 @@ EOF;
                         $microevenclass = "#ffffff";
                     }
                     if($value->getFnFamiliaparametro() && $value->getFnMetodo() && $value->getFnMetodo()->getFnTecnica() && $resultado->getFnUnidade())
-                        $body_micro = $body_micro . '<tr bgcolor="' . $microevenclass . '" style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td bgcolor="' . $microevenclass . '" colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="" bgcolor="' . $microevenclass . '">' . $resultado->getFtFormatado() . '</td><td bgcolor="' . $microevenclass . '">' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td class="table_parametros_data"></td></tr>';
+                        $body_micro = $body_micro . '<tr bgcolor="' . $microevenclass . '" style=""><td style="width:18px;font-size:5px;">' . $label . '</td><td bgcolor="' . $microevenclass . '" colspan="4" class="resultados_one" style="">' . utf8_decode($value->getFnFamiliaparametro()->getFtDescricao()) . ' <br /><span class="table_parametros_tecnica">' . utf8_decode($value->getFnMetodo()->getFtDescricao()) . '/ ' . $value->getFnMetodo()->getFnTecnica()->getFtDescricao() . '</span></td><td class="" bgcolor="' . $microevenclass . '">' . $resultado->getFtFormatado() . '</td><td bgcolor="' . $microevenclass . '">' . $resultado->getFnUnidade()->getFtDescricao() . '</td><td class="table_parametros_data">' . $espe_texto . '</td><td></td><td></td><td class="table_parametros_data"></td></tr>';
 
                 }
             }
@@ -886,12 +884,13 @@ EOF;
                 }
             }
         }
-
+/*
         if ($cumpre) {
             $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdCumpreA()) . '</td></tr></table>';
         } else {
             $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($especificacao->getFtTextoQdNaoCumpreA()) . '</td></tr></table>';
-        }
+        }*/
+        $conclusao = '<div></div><table class="margin"><tr><td class="apreciacao">' . utf8_decode("(*)Apreciação") . '</td></tr><tr><td class="font8">' . utf8_decode($amostra->getFtConclusao()) . '</td></tr></table>';
         $body_fisico = $body_fisico . '</table></br>';
         $body_micro = $body_micro . '</table></br>';
         $modeloamostra = $em->getRepository('AppBundle:TModelosamostra')->findOneBy(array('fnId' => $amostra->getFnModelo()->getFnId()));

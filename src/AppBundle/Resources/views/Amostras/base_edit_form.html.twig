@@ -779,12 +779,10 @@
                         url: '{{ path('EntradaResultadossetByRegrasFormatacaoAmostra') }}',
                         data: JSON.stringify(dicionario),
                         success: function (data) {
-                            if (data > 0) {
-                                toastr.info('Resultados guardados com sucesso');
-                                GetParametros();
-                            } else {
-                                toastr.info('Resultados não guardados');
-                            }
+                            $('._conclusao').val(data);
+                            toastr.info('Resultados guardados com sucesso');
+                            GetParametros();
+
                         }
                     });
                     $.ajax({

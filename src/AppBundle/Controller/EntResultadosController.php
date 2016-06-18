@@ -96,9 +96,10 @@ class EntResultadosController extends Controller
         $arr1 = json_decode($this->get("request")->getContent(), true);
 
         $p = 0;
-
+        $amostra_id = 0;
         foreach ($arr1 as $i => $value)
         {
+            $amostra_id = $arr1[$i]["IA"];
             $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
             $q = $qb->update('AppBundle\Entity\TResultados', 'u')
                 ->set('u.ftFormatado', $qb->expr()->literal($arr1[$i]["FO"]))
@@ -110,8 +111,37 @@ class EntResultadosController extends Controller
                 ->getQuery();
             $p = $q->execute();
         }
+
+        //validação da especificação
+        $flag = 0;
+        $repository = $this->getDoctrine()->getRepository('AppBundle:TAmostras')->findOneBy(array('fnId' => $amostra_id));
+        $esp = $repository->getFnEspecificacao()->getFnId();
+        $para_esp = $this->getDoctrine()->getRepository('AppBundle:TParametrosporespecificacao')->findBy(array('fnIdEspecificacao' => $esp));
+        $teste = "";
+        foreach ($arr1 as $i => $value){
+
+            $id_para_amostra = $this->getDoctrine()->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $i));
+            foreach ($para_esp as $y => $value1){
+
+                if($value1->getFnIdFamiliaparametro()->getFnId() == $id_para_amostra->getFnId()){
+
+                    if((float) $arr1[$i]['OR'] >= (float) $value1->getFnMaximo() &&  (float) $arr1[$i]['OR'] <= (float) $value1->getFnMinimo()){
+                        $teste .=  $arr1[$i]['OR'] . "--" . $value1->getFnMaximo() . "--" . $arr1[$i]['OR'] . "--" . $value1->getFnMinimo() . "//";
+                    }else{
+                        $flag = 1;
+                    }
+                }
+            }
+        }
+
         
-        return new Response(json_encode($p));
+
+        if($flag == 1){
+            return new Response(json_encode($repository->getFnEspecificacao()->getFtTextoQdNaoCumpreA()));
+        }else{
+            return new Response(json_encode($repository->getFnEspecificacao()->getFtTextoQdCumpreA()));
+        }
+        
     }
     
     public function getByRegrasFormatacaoAction()
