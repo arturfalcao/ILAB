@@ -25,13 +25,6 @@ class TAmostrasAdmin extends Admin
         $activeDate->execute();
         $arr =  $activeDate->fetchAll();
 
-        /*$sql = "SELECT max(fn_id_lista) as max_id_lista from t_parametrosamostra";
-        $activeDate =$em->getConnection()->prepare($sql);
-        $activeDate->execute();
-        $result1 = $activeDate->fetchAll();
-        $result1[0]['max_id_lista'] =$result1[0]['max_id_lista'] != null ?$result1[0]['max_id_lista'] : 0;
-        $result1[0]['max_id_lista']++;*/
-
         // Cria os parametros e gera os primeiros log
         foreach ($arr as $value) {
 
