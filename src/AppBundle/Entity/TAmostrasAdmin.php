@@ -155,7 +155,7 @@ class TAmostrasAdmin extends Admin
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),
-                    'delete' => array(),
+                    
 
                 )
             ))

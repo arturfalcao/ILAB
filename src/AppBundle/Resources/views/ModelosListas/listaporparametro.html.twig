@@ -216,11 +216,14 @@
 
         if( $('.parametro_ent_resultados').select2('data') != null){
             _parametro = $('.parametro_ent_resultados').select2('data').id;
-            _metodo = $('.parametro_metodo').select2('data').id;
+            if( $('.parametro_metodo').select2('data') != null)
+                _metodo = $('.parametro_metodo').select2('data').id;
+            else
+                _metodo = 0;
             $.ajax({
                 type: "POST",
                 url: '{{path('GetparameterbysampleForParameter')}}',
-                data: $('.parametro_ent_resultados').select2('data').id + ',' + $('.parametro_metodo').select2('data').id,
+                data: _parametro + ',' + _metodo,
                 success: function(data) {
                     if(data != "null"){
                         $("#lista_para_grid").bootgrid("destroy");
@@ -270,14 +273,39 @@
     }
 
     $(document).ready(function() {
+
         $(".parametro_ent_resultados").select2({
             allowClear: true,
-            placeholder: "Selecione uma opção"
+            placeholder: "Selecione um Pârametro"
+        }).on("change", function (e) {
+            GetAllMetodo(e.val);
         });
+
         $(".parametro_metodo").select2({
             allowClear: true,
-            placeholder: "Selecione uma opção"
+            placeholder: "Selecione um Método"
         });
+
+        function GetAllMetodo(_idpara){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetMetodoPorParametro') }}",
+                    data: {data: _idpara},
+                    success: function (data) {
+                        $("select.parametro_metodo").html('');
+                        data = JSON.parse(data);
+                        $('select.parametro_metodo').append("<option></option>");
+                       $.each(data, function (index, value) {
+                            $('select.parametro_metodo').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+
+
+                    }
+                });
+
+        }
 
 
 

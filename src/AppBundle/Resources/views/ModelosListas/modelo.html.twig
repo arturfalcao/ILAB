@@ -2,27 +2,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/vendor/jquery.js') }}"></script>
-
 </head>
 <style>
-    @page {
-        size: A4;
-        margin: 10mm;
-    }
-    @media print {
-        html, body {
-            width: 210mm;
-            height: 297mm;
-        }
-        /* ... the rest of the rules ... */
-    }
+
     #content{
         text-align: center ;
         width: 1000px ;
         margin-left: auto ;
         margin-right: auto ;
-        /* float: left; */
         content: "";
         display: table;
         clear: both;
@@ -128,33 +115,6 @@
 <body>
 
 
-<script>
-    $( document ).ready(function() {
-        var altura = 0;
-
-        $( ".amostra_content" ).each(function( index , value) {
-
-            altura = altura + $(value).height();
-
-            if(altura > 1200 && $('#tipo_de_amostra').val() == 'Agua' ){
-                $(this).css('margin-top', '200px');
-                altura = 0;
-            }
-            if(altura > 1200 && $('#tipo_de_amostra').val() == 'Alimentos' ){
-                $(this).css('margin-top', '350px');
-                altura = 0;
-            }
-
-        });
-
-
-
-
-
-    });
-
-</script>
-
 <div id="content">
 
     <input type="hidden" id="tipo_de_amostra" value="{{ tipo_de_amostra }}">
@@ -192,7 +152,7 @@
 
     {% set foo = 0 %}
 
-
+    <br pagebreak="true" />
     {% for item in par_container %}
 
         {% if item.tipo_modelo  == "Alimentos" %}
@@ -236,7 +196,7 @@
 
         {% elseif item.tipo_modelo == "ERROR" %}
 
-        <div class="amostra_content">Por favor seleccione apenas amostras de uma area de ensaio</div>
+        <div class="amostra_content">Por favor seleccione apenas amostras de uma área de ensaio</div>
 
         {% else %}
             <div class="amostra_content">
@@ -249,7 +209,7 @@
                 {% endif %}
 
 
-                <div class="nome_parametro"><span class="bold">Nome Parametro:</span>{{ item.nome_parametro}}</div>
+                <div class="nome_parametro"><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</div>
                 <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo}}</div>
                 <div class="delimiter_list"></div>
                 <div class="table_content">
@@ -264,7 +224,7 @@
 
     </div>
 </div>
-
+<br pagebreak="true" />
 <footer>
     <div class="data_lista">
         <div class="data_border">

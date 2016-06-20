@@ -1214,14 +1214,20 @@ EOF;
         $id_metodo = $arr2[1];
 
 
-
-        $sql = "select t_parametrosamostra.fn_id_amostra,t_parametrosamostra.ft_descricao ,t_parametrosamostra.ft_id_estado,t_metodos.ft_descricao as metodo,t_tecnicas.ft_descricao as tecnica 
-                from t_parametrosamostra 
-                inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra 
-                left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id 
-                left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id 
-                where (t_amostras.ft_id_estado = 4 or (t_amostras.ft_id_estado = 6 and t_parametrosamostra.listatrabalho_id IS NULL) ) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
-
+        if(intval($id_metodo) != 0)
+            $sql = "select t_parametrosamostra.fn_id_amostra,t_parametrosamostra.ft_descricao ,t_parametrosamostra.ft_id_estado,t_metodos.ft_descricao as metodo,t_tecnicas.ft_descricao as tecnica 
+                    from t_parametrosamostra 
+                    inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra 
+                    left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id 
+                    left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id 
+                    where (t_amostras.ft_id_estado = 4 or (t_amostras.ft_id_estado = 6 and t_parametrosamostra.listatrabalho_id IS NULL) ) and t_parametrosamostra.fn_id_metodo = ". $id_metodo ." and t_parametrosamostra.fn_id = ". $id_parameter ;
+        else
+            $sql = "select t_parametrosamostra.fn_id_amostra,t_parametrosamostra.ft_descricao ,t_parametrosamostra.ft_id_estado,t_metodos.ft_descricao as metodo,t_tecnicas.ft_descricao as tecnica 
+                    from t_parametrosamostra 
+                    inner join t_amostras on t_amostras.fn_id = t_parametrosamostra.fn_id_amostra 
+                    left join t_metodos  on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id 
+                    left join t_tecnicas on t_metodos.fn_id_tecnica = t_tecnicas.fn_id 
+                    where (t_amostras.ft_id_estado = 4 or (t_amostras.ft_id_estado = 6 and t_parametrosamostra.listatrabalho_id IS NULL) ) and t_parametrosamostra.fn_id = ". $id_parameter ;
 
 
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
@@ -1353,7 +1359,9 @@ EOF;
         $par_container = [];
         $tipo_modelo = '';
         $resultflag = 0;
+        $ids="";
         foreach ($samples as &$slug) {
+            $ids .= "_" . $slug;
             $em = $this->getDoctrine()->getManager();
             $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($slug);
 
@@ -1507,10 +1515,35 @@ EOF;
             }
         }
 
-
-        return $this->render('AppBundle:ModelosListas:modelo.html.twig', array(
+        $html = $this->render('AppBundle:ModelosListas:modelo.html.twig', array(
             'par_container' => $par_container, 'tipo_de_amostra' => $tipo_modelo
-        ));
+        ))->getContent();
+
+        $pdf = $this->container->get("white_october.tcpdf")->create(
+            $orientation='P',
+            $unit='mm',
+            $format='A3',
+            $unicode=true,
+            $encoding='UTF-8',
+            $diskcache=false,
+            $pdfa=false
+        );
+        $pdf->setPrintFooter(false);
+        $pdf->setPrintHeader(false);
+
+        $pdf->AddPage();
+        $pdf->writeHTML($html, true, false, true, false, '');
+
+        $pdf->lastPage();
+        if(count($amostra) >1)
+            $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . "lista_trabalho_amostras". $ids.".pdf";
+        else
+            $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . "lista_trabalho_amostra". $ids.".pdf";
+
+        $response = new Response($pdf->Output($target_dir,'FI'));
+
+        return $response;
+
     }
 
     public function GetPDFFileAction($slug)
@@ -1520,7 +1553,7 @@ EOF;
             return new Response($slug);
         }
         $slug = str_replace('"', "", $slug);
-        return new BinaryFileResponse('../app/listas/' . $slug);
+        return new BinaryFileResponse('../app/listas/lista_trabalho_parametro_' . $slug);
     }
 
     /**
@@ -1799,7 +1832,7 @@ EOD;
         // set auto page breaks
         // set image scale factor
         if($ultimo_id != 0) {
-            $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . $ultimo_id . ".pdf";
+            $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . "lista_trabalho_parametro_" . $ultimo_id . ".pdf";
             //"/var/www/lab.iwish.solutions/app/listas";
             $pdf->Output($fileNL, 'F');
         }
@@ -1811,7 +1844,7 @@ EOD;
 
         }
 
-            return new Response(json_encode("" . $ultimo_id.".pdf"));
+            return new Response(json_encode("lista_trabalho_parametro_" . $ultimo_id.".pdf"));
 
 
     }

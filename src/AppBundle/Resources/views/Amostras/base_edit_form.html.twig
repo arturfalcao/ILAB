@@ -386,28 +386,33 @@
             }
             //get metodo
             function GetAllMetodo(_idpara){
-                $.ajax({
-                    type: "POST",
-                    url: "{{ path('GetAllMetodo') }}",
-                    data: {data: _idpara  },
-                    success: function(data) {
-                        $(".metodo").select2('destroy');
-                        $(".metododiv .metodo").remove();
-                        data  = JSON.parse(data);
-                        $('.metododiv').append("<select  class='metodo'><option></option></select>");
-                        $.each(data, function(index, value) {
-                            $('.metodo').append(
-                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
-                            );
-                        });
-                        $(".metodo").select2({
-                            placeholder: "Selecione um método",
-                            allowClear: true
-                        }).on("change", function(e) {
-                            GetTecnicaByMetodo(e.val,_idpara);
-                        });
-                    }
-                });
+                var mt;
+                if(_idpara!=0) {
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ path('GetAllMetodo') }}",
+                        data: {data: _idpara},
+                        success: function (data) {
+                            $(".metodo").select2('destroy');
+                            $(".metododiv .metodo").remove();
+                            data = JSON.parse(data);
+                            $('.metododiv').append("<select  class='metodo'><option></option></select>");
+                            $.each(data, function (index, value) {
+                                if (index == 0)
+                                    mt = value.fnId;
+                                $('.metodo').append(
+                                        '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                                );
+                            });
+                            $(".metodo").select2().on("change", function (e) {
+                                GetTecnicaByMetodo(e.val, _idpara);
+                            });
+                            if (!dicionario[_idpara]["ME"])
+                                    GetTecnicaByMetodo(mt, _idpara);
+
+                        }
+                    });
+                }
             }
             //get grupo by modelo selection
             //get metodo
@@ -467,40 +472,39 @@
 
 
             function GetTecnicaByMetodo(_idmetodo,_id_Para){
+                if(_idmetodo) {
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ path('GetTecnicaByMetodo') }}",
+                        data: {data: _idmetodo},
+                        dataType: 'json',
+                        success: function (data) {
+                            if (_idmetodo.length == 0) {
+                                dicionario[_id_Para]["ME"] = "";
+                                dicionario[_id_Para]["TE"] = "";
+                                $(".tecnica").select2("val", "");
+                                dicionario[_id_Para]["OM"] = 1;
+                                $('#_outrometodo').iCheck('check');
+                                $("#_outrometodo").prop('checked', true);
+                            }
 
+                            if (data.length != 0 && _idmetodo.length != 0) {
+                                $(".metodo").select2("val", _idmetodo);
+                                $(".tecnica").select2("val", data[0].tecnica);
+                                $('.tecnica').select2("enable", false);
+                                dicionario[_id_Para]["ME"] = _idmetodo;
+                                dicionario[_id_Para]["TE"] = data[0].tecnica;
 
-                $.ajax({
-                    type: "POST",
-                    url: "{{ path('GetTecnicaByMetodo') }}",
-                    data: {data: _idmetodo  },
-                    dataType: 'json',
-                    success: function(data) {
-                        if(_idmetodo.length == 0)
-                        {
-                            dicionario[_id_Para]["ME"] = "";
-                            dicionario[_id_Para]["TE"] = "";
-                            $(".tecnica").select2("val", "");
-                            dicionario[_id_Para]["OM"] = 1;
-                            $('#_outrometodo').iCheck('check');
-                            $("#_outrometodo").prop('checked', true);
+                                dicionario[_id_Para]["OM"] = 0;
+                                dicionario[_id_Para]["CD"] = "";
+                                $('#_outrometodo').iCheck('uncheck');
+                                $("#_outrometodo").prop('checked', false);
+                                $("#_custommethod").val("");
+                            }
+
                         }
-
-                        if(data.length != 0 && _idmetodo.length != 0){
-                            $(".metodo").select2("val", _idmetodo);
-                            $(".tecnica").select2("val", data[0].tecnica);
-                            $('.tecnica').select2("enable",false);
-                            dicionario[_id_Para]["ME"] = _idmetodo;
-                            dicionario[_id_Para]["TE"] = data[0].tecnica;
-
-                            dicionario[_id_Para]["OM"] = 0;
-                            dicionario[_id_Para]["CD"] = "";
-                            $('#_outrometodo').iCheck('uncheck');
-                            $("#_outrometodo").prop('checked', false);
-                            $("#_custommethod").val("");
-                        }
-
-                    }
-                });
+                    });
+                }
             }
             //get tecnica
             function GetAllTecnica(){
@@ -932,7 +936,7 @@
                 GetAllFamilias();
                 GetAllLaboratorios();
                 GetAllEnsaio();
-                GetAllMetodo();
+                GetAllMetodo(0);
                 GetAllTecnica();
             });
         </script>
@@ -1073,9 +1077,6 @@
                                         <a target="_blank" class="btn generateworklist" href="/generateworklistalt/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Relatório de alterações </a>
 
                                         <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-envelope"></i> Notificar Cliente </a>
-
-                                        <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
-
 
                                         <script>
 

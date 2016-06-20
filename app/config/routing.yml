@@ -305,6 +305,10 @@ GetAllParametroAmostra:
     pattern:  /GetAllParametroAmostra
     defaults: { _controller: AppBundle:ListaTrabalho:GetAllParametroAmostra}
 
+GetMetodoPorParametro:
+    pattern:  /GetMetodoPorParametro
+    defaults: { _controller: AppBundle:ListaTrabalho:GetMetodoPorParametro}
+
 _sonata_admin:
     resource: .
     type: sonata_admin

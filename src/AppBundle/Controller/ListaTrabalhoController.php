@@ -35,6 +35,21 @@ class ListaTrabalhoController extends Controller
         return new Response(json_encode($queryBuilder->getQuery()->getResult()));
     }
 
+    public function GetMetodoPorParametroAction()
+    {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+        $manager = $this->getDoctrine()->getManager();
+        $conn = $manager->getConnection();
+        $sql = 'SELECT t_metodos.fn_id fnId,t_metodos.ft_descricao ftDescricao
+                FROM t_metodos 
+                INNER JOIN t_parametrospormetodo 
+                ON t_parametrospormetodo.fn_id_parametro = t_metodos.fn_id
+                WHERE t_parametrospormetodo.fn_id_metodo = ' . $arr2[1];
+        $result= $conn->query($sql)->fetchAll();
+        return new Response(json_encode($result));
+    }
+
     
 
 

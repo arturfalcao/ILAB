@@ -222,8 +222,12 @@ file that was distributed with this source code.
                                         or filter.formName == 'fnCapacidade' or filter.formName == 'ftNclaboratorio'
                                         or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'
                                         %}
+                                            {% if admin is defined %}
+                                            {% if 'Listas de Trabalho' == admin.label %}
                                             <label for="parametro">Parâmetro</label>
-                                            <div class="tecnicadiv"></div>
+                                            <div class="parametrodiv"></div>
+                                            {% endif %}
+                                            {% endif %}
                                             {#or filter.formName == 'id_parametro_amostra__ftDescricao'#}
 
 
@@ -586,16 +590,16 @@ file that was distributed with this source code.
                     url: "{{ path('GetAllParametroAmostra') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.tecnicadiv').append("<select  class='tecnica'></select>");
-                        $('.tecnica').append(
+                        $('.parametrodiv').append("<select  class='parametro'></select>");
+                        $('.parametro').append(
                                 '<option></option>'
                         );
                         $.each(data, function(index, value) {
-                            $('.tecnica').append(
+                            $('.parametro').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".tecnica").select2({
+                        $(".parametro").select2({
                             placeholder: "Selecione um Pârametro",
                             allowClear: true
                         });
@@ -604,7 +608,7 @@ file that was distributed with this source code.
             }
             GetAllParametrosAmostra();
 
-            $('.tecnicadiv').on("select2-selecting", function(e) {
+            $('.parametrodiv').on("select2-selecting", function(e) {
                 $("input#filter_id_parametro_amostra__ftDescricao_value").val(e.object.text);
             }).on("change", function(e) {
                 if(!e.val)
