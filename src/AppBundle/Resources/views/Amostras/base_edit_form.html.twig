@@ -112,24 +112,25 @@
             var _oldoriginalvalue = 0;
 
             function AddParaActions(){
-                if(typeof $('.NewPara').select2('data').id != 'undefined' && $('.NewPara').select2('data').id != ""){
+                if($('.NewPara').select2('data')!= null)
+                {
+                    $.ajax({
+                        type: "POST",
+                        url: '/app_dev.php/addpara',
+                        data: {idpara: $('.NewPara').select2('data').id,
+                               idamostra: {{ admin.id(object) is null ? 0 : admin.id(object)}}},
+                        contentType: "application/json",
+                        success: function (data) {
+                            alert(data);
+                            $("#parametros_grid").bootgrid("destroy");
+                            GetParametros();
 
-
-                        $.ajax({
-                            type: "POST",
-                            url: '/app_dev.php/addpara',
-                            data: {idpara: $('.NewPara').select2('data').id,
-                                idamostra: {{ admin.id(object) is null ? 0 : admin.id(object)}}},
-                            contentType: "application/json",
-                            success: function (data) {
-                                $("#parametros_grid").bootgrid("destroy");
-                                GetParametros();
-
-                            }
-                        });
-
+                        }
+                    });
 
                 }
+
+
             }
 
             function UpdateParaActions(URL){

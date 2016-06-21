@@ -31,7 +31,16 @@ class EntResultadosController extends Controller
     public function getByParameterAction()
     {
         $id_parameter = $this->get("request")->getContent();
-        $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, t_resultados.ft_formatado , t_resultados.fn_id_parametro  FROM t_resultados INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  WHERE t_parametrosamostra.fn_id =" . $id_parameter . " AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3)";
+        $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,
+                t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, 
+                t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, 
+                t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, 
+                t_resultados.ft_formatado , t_resultados.fn_id_parametro  
+                FROM t_resultados 
+                INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id 
+                INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  
+                WHERE t_parametrosamostra.fn_id =" . $id_parameter . " 
+                AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3)";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
@@ -67,7 +76,17 @@ class EntResultadosController extends Controller
         $arr1 = json_decode($this->get("request")->getContent(), true);
         $p = 0;
         foreach ($arr1 as $arr) {
-            $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, t_resultados.ft_formatado FROM t_resultados INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  WHERE t_resultados.fn_id_amostra =" . $arr['columns'][1] . " AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3) AND t_parametrosamostra.ft_descricao = '" . $arr['columns'][2] . "' ";
+            $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,
+                    t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, 
+                    t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, 
+                    t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, 
+                    t_resultados.ft_formatado 
+                    FROM t_resultados 
+                    INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id 
+                    INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  
+                    WHERE t_resultados.fn_id_amostra =" . $arr['columns'][1] . 
+                    " AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3) 
+                    AND t_parametrosamostra.ft_descricao = '" . $arr['columns'][2] . "' ";
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
             $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
@@ -150,7 +169,16 @@ class EntResultadosController extends Controller
         $arr = explode("&", $arr);
         $arr1 = explode("=", $arr[0]);
         $arr2 = explode("=", $arr[1]);
-        $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, t_resultados.ft_formatado FROM t_resultados INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  WHERE t_resultados.fn_id_amostra =" . $arr1[1] . " AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3) AND t_parametrosamostra.id = " . $arr2[1] . " ";
+        $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,
+                t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, 
+                t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, 
+                t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, t_resultados.ft_formatado 
+                FROM t_resultados 
+                INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id 
+                INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  
+                WHERE t_resultados.fn_id_amostra =" . $arr1[1] . 
+                " AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3) 
+                AND t_parametrosamostra.id = " . $arr2[1] . " ";
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
@@ -174,7 +202,16 @@ class EntResultadosController extends Controller
     public function getByAmostraAction()
     {
         $id_amostra = $this->get("request")->getContent();
-        $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, t_resultados.ft_formatado ,t_resultados.fn_id_parametro FROM t_resultados INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  WHERE t_resultados.fn_id_amostra =" . $id_amostra . " AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3)";
+        $sql = "SELECT t_resultados.ft_observacao , t_resultados.fn_id_modeloresultado ,t_resultados.fd_criacao ,
+                t_resultados.fd_conclusao , t_unidadesmedida.ft_descricao AS medida, 
+                t_parametrosamostra.ft_descricao , t_resultados.ft_id_estado, t_resultados.fn_id_amostra, 
+                t_resultados.fn_calculado,t_resultados.ft_original,t_resultados.ft_prefixo, 
+                t_resultados.ft_formatado ,t_resultados.fn_id_parametro 
+                FROM t_resultados 
+                INNER JOIN t_parametrosamostra ON t_resultados.fn_id_parametro = t_parametrosamostra.id 
+                INNER JOIN t_unidadesmedida ON t_unidadesmedida.fn_id = t_resultados.fn_id_unidade  
+                WHERE t_resultados.fn_id_amostra =" . $id_amostra . 
+                " AND (t_resultados.ft_id_estado = 6 OR t_resultados.ft_id_estado = 3)";
 
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
