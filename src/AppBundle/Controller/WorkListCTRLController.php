@@ -1639,7 +1639,7 @@ EOF;
                         $activeDate->execute();
                         $result = $activeDate->fetchAll();
                         if (count($result) == 0) {
-                            return new Response("Defina o resultado(via entrada de resultados ou na amostra, verificando que os resultados são guardados com sucesso) para o pârametro com o id " . $para .
+                            return new Response("Defina o resultado(via entrada de resultados ou na amostra, verificando que os resultados são guardados com sucesso) para o parâmetro com o id " . $para .
                                 " e para a amostra com o id " . $value);
                         }
                     }
