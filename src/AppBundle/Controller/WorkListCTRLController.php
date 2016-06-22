@@ -134,6 +134,7 @@ class WorkListCTRLController extends Controller
         }
         return new Response($id_lista);
     }
+
     public function ReopenparaAction()
     {
         error_reporting(0);
@@ -179,6 +180,7 @@ class WorkListCTRLController extends Controller
         }
         return new Response($sql);
     }
+
     public function AddparaAction()
     {
         error_reporting(0);
@@ -189,6 +191,7 @@ class WorkListCTRLController extends Controller
         $res=$this->AddNewparaAction($amostra[1], $para[1]);
         return new Response($res);
     }
+
     public function CancelparaAction()
     {
         error_reporting(0);
@@ -233,6 +236,7 @@ class WorkListCTRLController extends Controller
         }
         return new Response("ok");
     }
+
     public function EmitirRelatorioAction($slug){
         error_reporting(0);
         $samples = explode(",", $slug);
@@ -651,6 +655,7 @@ EOF;
             $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_amostra_" . $samples[0] .".pdf";
         $pdf->Output($fileNL , 'FI');
     }
+
     public function EmitRelatorioAction($slug){
         error_reporting(0);
         $pdf = $this->container->get("white_october.tcpdf")->create(
@@ -1064,8 +1069,9 @@ EOF;
 // set auto page breaks
 // set image scale factor
         $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_amostra_" . $slug . ".pdf";
-        $pdf->Output($fileNL , 'FI');
+        return new Response($pdf->Output($fileNL , 'FI'));
     }
+
     //Get relatorio
     public function GetRelatorioAction($slug){
         $file = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "amostras" . DIRECTORY_SEPARATOR ."87.pdf" .
@@ -1077,6 +1083,7 @@ EOF;
         header('Accept-Ranges: bytes');
         @readfile($file);
     }
+
     //Sample actions
     public function CompletesampleAction($slug)
     {
@@ -1092,6 +1099,7 @@ EOF;
         $em->flush();
         return new Response("" . $estado->getFnId());
     }
+
     public function ReopensampleAction($slug)
     {
         error_reporting(0);
@@ -1106,6 +1114,7 @@ EOF;
         $em->flush();
         return new Response("" . $estado->getFnId());
     }
+
     public function CancelsampleAction($slug)
     {
         error_reporting(0);
@@ -1117,6 +1126,7 @@ EOF;
         $em->flush();
         return new Response("" . $estado->getFnId());
     }
+
     //get all sample with the selected parameter
     public function GetparameterbysampleAction()
     {
@@ -1139,6 +1149,7 @@ EOF;
         }
         return new Response(json_encode($response));
     }
+
     // get parameters by sample for worklist grouped by parameter //AQUI
     public function GetparameterbysampleForParameterAction()
     {
@@ -1179,6 +1190,7 @@ EOF;
         }
         return new Response(json_encode($response));
     }
+
     //Selecção de parametro por lista de amostra
     public function EmiteListaporParametroAction()
     {
@@ -1187,6 +1199,7 @@ EOF;
         $metodos= $em->getRepository('AppBundle:TMetodos')->findAll();
         return $this->render('AppBundle:ModelosListas:listaporparametro.html.twig',array('data' => $parameters,'data_metodos' => $metodos));
     }
+
     //TODO : notificar cliente de amostra completa
     public function NotifysampleAction($slug){
         //add new tparametrosamostra
@@ -1199,10 +1212,12 @@ EOF;
         mail($to, $subject, $message, $headers);
         return new Response("ok");
     }
+
     public function RelatoriosampleAction()
     {
         return new Response("ok");
     }
+
     public function AddNewparaAction($idsample, $idpara)
     {
         error_reporting(0);
@@ -1287,6 +1302,7 @@ EOF;
         }
         return $par_am_log_id;
     }
+
     public function GenerateworklistAction($slug)
     {
         error_reporting(0);
@@ -1455,6 +1471,7 @@ EOF;
         $response = new Response($pdf->Output($target_dir,'FI'));
         return $response;
     }
+
     public function GetPDFFileAction($slug)
     {
         if(substr( $slug, 0, 6 ) === "Defina")
@@ -1464,6 +1481,7 @@ EOF;
         $slug = str_replace('"', "", $slug);
         return new BinaryFileResponse('../app/listas/lista_trabalho_parametro_' . $slug);
     }
+
     /**
      * Geração do relatório dos logs associados à amostra e ao parâmetro em questão
      * @param $slug
@@ -1558,6 +1576,7 @@ EOF;
 
         return $response;
     }
+
     //generate worklist by parameter
     public function GenerateworklistbyParameterAction()
     {
