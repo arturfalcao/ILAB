@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/listas/lista_trabalho_amostras_85_87.pdf" afterPath="$PROJECT_DIR$/app/listas/lista_trabalho_amostras_85_87.pdf" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/listas/lista_trabalho_parametro_30.pdf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +40,8 @@
       <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="1684" column="43" selection-start-line="1684" selection-start-column="43" selection-end-line="1684" selection-end-column="43" />
+            <state relative-caret-position="175">
+              <caret line="1682" column="47" selection-start-line="1682" selection-start-column="47" selection-end-line="1682" selection-end-column="47" />
               <folding>
                 <element signature="e#38#74#0#PHP" expanded="true" />
                 <element signature="e#906#4132#0#PHP" expanded="false" />
@@ -152,7 +151,7 @@
       <file leaf-file-name="tcpdf.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
+            <state relative-caret-position="-80">
               <caret line="3415" column="24" selection-start-line="3415" selection-start-column="24" selection-end-line="3415" selection-end-column="24" />
               <folding />
             </state>
@@ -623,12 +622,12 @@
       <workItem from="1466498451092" duration="11864000" />
       <workItem from="1466515593370" duration="14120000" />
       <workItem from="1466584428738" duration="6732000" />
-      <workItem from="1466591687816" duration="13975000" />
+      <workItem from="1466591687816" duration="14367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="466880000" />
+    <option name="totallyTimeSpent" value="467272000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -640,7 +639,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3184569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1048,7 +1047,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
+        <state relative-caret-position="-80">
           <caret line="3415" column="24" selection-start-line="3415" selection-start-column="24" selection-end-line="3415" selection-end-column="24" />
           <folding />
         </state>
@@ -1056,8 +1055,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="1684" column="43" selection-start-line="1684" selection-start-column="43" selection-end-line="1684" selection-end-column="43" />
+        <state relative-caret-position="175">
+          <caret line="1682" column="47" selection-start-line="1682" selection-start-column="47" selection-end-line="1682" selection-end-column="47" />
           <folding>
             <element signature="e#38#74#0#PHP" expanded="true" />
             <element signature="e#906#4132#0#PHP" expanded="false" />
