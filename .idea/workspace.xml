@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/listas/lista_trabalho_amostras_85_87.pdf" afterPath="$PROJECT_DIR$/app/listas/lista_trabalho_amostras_85_87.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
     </list>
     <ignored path="ILAB.iws" />
@@ -39,8 +41,8 @@
       <file leaf-file-name="WorkListCTRLController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="1641" column="192" selection-start-line="1641" selection-start-column="192" selection-end-line="1641" selection-end-column="192" />
+            <state relative-caret-position="209">
+              <caret line="1684" column="43" selection-start-line="1684" selection-start-column="43" selection-end-line="1684" selection-end-column="43" />
               <folding>
                 <element signature="e#38#74#0#PHP" expanded="true" />
                 <element signature="e#906#4132#0#PHP" expanded="false" />
@@ -52,121 +54,157 @@
                 <element signature="e#66858#67440#0#PHP" expanded="false" />
                 <element signature="e#72656#78889#0#PHP" expanded="false" />
                 <element signature="e#78895#89304#0#PHP" expanded="false" />
-                <element signature="e#89310#89603#0#PHP" expanded="false" />
-                <marker date="1466594064431" expanded="true" signature="1722:1771" ph="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="2033:3549" ph="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1466594064431" expanded="true" signature="2677:3549" ph="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="3722:3919" ph="UPDATE t_par... " />
-                <marker date="1466594064431" expanded="true" signature="7339:7388" ph="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="7587:9103" ph="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1466594064431" expanded="true" signature="8231:9103" ph="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="9276:9473" ph="UPDATE t_par... " />
-                <marker date="1466594064431" expanded="true" signature="10827:10876" ph="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="11075:12591" ph="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1466594064431" expanded="true" signature="11719:12591" ph="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="12764:12961" ph="UPDATE t_par... " />
-                <marker date="1466594064431" expanded="true" signature="15171:15186" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="15199:15210" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="15699:15714" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="15727:15738" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="17563:17784" ph="SELECT * FRO... t_parametrosporespecificacao" />
-                <marker date="1466594064431" expanded="true" signature="23026:23247" ph="SELECT * FRO... t_parametrosporespecificacao" />
-                <marker date="1466594064431" expanded="true" signature="29184:29298" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="29380:29453" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="29545:29572" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="29652:29680" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="29792:29819" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="29908:29935" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="30043:30070" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="30229:30343" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="30425:30498" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="30841:30964" ph="select * fro... t_amostras_logs" />
-                <marker date="1466594064431" expanded="true" signature="31471:31615" ph="select * fro... t_amostras_logs" />
-                <marker date="1466594064431" expanded="true" signature="32105:32249" ph="select * fro... t_amostras_logs" />
-                <marker date="1466594064431" expanded="true" signature="41654:41669" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="41682:41693" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="42178:42193" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="42206:42217" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="43972:44185" ph="SELECT * FRO... t_parametrosporespecificacao" />
-                <marker date="1466594064431" expanded="true" signature="49177:49390" ph="SELECT * FRO... t_parametrosporespecificacao" />
-                <marker date="1466594064431" expanded="true" signature="55377:55491" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="55573:55646" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="55738:55765" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="55845:55873" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="55985:56012" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="56101:56128" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="56236:56263" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="56414:56528" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="56610:56683" ph="..." />
-                <marker date="1466594064431" expanded="true" signature="56998:57117" ph="select * fro... t_amostras_logs" />
-                <marker date="1466594064431" expanded="true" signature="57580:57720" ph="select * fro... t_amostras_logs" />
-                <marker date="1466594064431" expanded="true" signature="58166:58306" ph="select * fro... t_amostras_logs" />
-                <marker date="1466594064431" expanded="true" signature="68102:68802" ph="select t_par... t_parametrosamostra" />
-                <marker date="1466594064431" expanded="true" signature="69561:70399" ph="select t_par... t_parametrosamostra" />
-                <marker date="1466594064431" expanded="true" signature="70451:71212" ph="select t_par... t_parametrosamostra" />
-                <marker date="1466594064431" expanded="true" signature="73014:74544" ph="INSERT INTO t_parametrosamostra... " />
-                <marker date="1466594064431" expanded="true" signature="73729:74544" ph="SELECT aa.fn... t_parametros" />
-                <marker date="1466594064431" expanded="true" signature="74768:76081" ph="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1466594064431" expanded="true" signature="75352:76081" ph="SELECT aa.fn... t_parametrosamostra" />
-                <marker date="1466594064431" expanded="true" signature="76235:76298" ph="SELECT max(i... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="76574:76648" ph="UPDATE t_par... " />
-                <marker date="1466594064431" expanded="true" signature="76827:77055" ph="UPDATE t_par... " />
-                <marker date="1466594064431" expanded="true" signature="78550:78667" ph="UPDATE t_res... " />
-                <marker date="1466594064431" expanded="true" signature="79417:79466" ph="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="79681:81186" ph="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1466594064431" expanded="true" signature="80349:81186" ph="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="81360:81616" ph="UPDATE t_par... " />
-                <marker date="1466594064431" expanded="true" signature="87098:87223" ph="UPDATE t_res... " />
-                <marker date="1466594064431" expanded="true" signature="90615:90706" ph="SELECT * FRO... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="92303:92352" ph="SELECT * FRO... t_parametrosamostra_log" />
-                <marker date="1466594064431" expanded="true" signature="95973:96992" ph="SELECT t_par... t_parametrosamostra" />
-                <marker date="1466594064431" expanded="true" signature="98117:99132" ph="SELECT t_par... t_parametrosamostra" />
-                <marker date="1466594064431" expanded="true" signature="99424:99638" ph="UPDATE t_par... " />
-                <marker date="1466594064431" expanded="true" signature="99835:99899" ph="UPDATE t_amo... " />
+                <marker date="1466611306143" expanded="true" signature="1722:1771" ph="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="2033:3549" ph="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1466611306143" expanded="true" signature="2677:3549" ph="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="3722:3919" ph="UPDATE t_par... " />
+                <marker date="1466611306143" expanded="true" signature="7339:7388" ph="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="7587:9103" ph="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1466611306143" expanded="true" signature="8231:9103" ph="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="9276:9473" ph="UPDATE t_par... " />
+                <marker date="1466611306143" expanded="true" signature="10827:10876" ph="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="11075:12591" ph="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1466611306143" expanded="true" signature="11719:12591" ph="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="12764:12961" ph="UPDATE t_par... " />
+                <marker date="1466611306143" expanded="true" signature="15171:15186" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="15199:15210" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="15699:15714" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="15727:15738" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="17563:17784" ph="SELECT * FRO... t_parametrosporespecificacao" />
+                <marker date="1466611306143" expanded="true" signature="23026:23247" ph="SELECT * FRO... t_parametrosporespecificacao" />
+                <marker date="1466611306143" expanded="true" signature="29184:29298" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="29380:29453" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="29545:29572" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="29652:29680" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="29792:29819" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="29908:29935" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="30043:30070" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="30229:30343" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="30425:30498" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="30841:30964" ph="select * fro... t_amostras_logs" />
+                <marker date="1466611306143" expanded="true" signature="31471:31615" ph="select * fro... t_amostras_logs" />
+                <marker date="1466611306143" expanded="true" signature="32105:32249" ph="select * fro... t_amostras_logs" />
+                <marker date="1466611306143" expanded="true" signature="41654:41669" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="41682:41693" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="42178:42193" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="42206:42217" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="43972:44185" ph="SELECT * FRO... t_parametrosporespecificacao" />
+                <marker date="1466611306143" expanded="true" signature="49177:49390" ph="SELECT * FRO... t_parametrosporespecificacao" />
+                <marker date="1466611306143" expanded="true" signature="55377:55491" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="55573:55646" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="55738:55765" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="55845:55873" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="55985:56012" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="56101:56128" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="56236:56263" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="56414:56528" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="56610:56683" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="56998:57117" ph="select * fro... t_amostras_logs" />
+                <marker date="1466611306143" expanded="true" signature="57580:57720" ph="select * fro... t_amostras_logs" />
+                <marker date="1466611306143" expanded="true" signature="58166:58306" ph="select * fro... t_amostras_logs" />
+                <marker date="1466611306143" expanded="true" signature="68102:68802" ph="select t_par... t_parametrosamostra" />
+                <marker date="1466611306143" expanded="true" signature="69561:70399" ph="select t_par... t_parametrosamostra" />
+                <marker date="1466611306143" expanded="true" signature="70451:71212" ph="select t_par... t_parametrosamostra" />
+                <marker date="1466611306143" expanded="true" signature="73014:74544" ph="INSERT INTO t_parametrosamostra... " />
+                <marker date="1466611306143" expanded="true" signature="73729:74544" ph="SELECT aa.fn... t_parametros" />
+                <marker date="1466611306143" expanded="true" signature="74768:76081" ph="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1466611306143" expanded="true" signature="75352:76081" ph="SELECT aa.fn... t_parametrosamostra" />
+                <marker date="1466611306143" expanded="true" signature="76235:76298" ph="SELECT max(i... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="76574:76648" ph="UPDATE t_par... " />
+                <marker date="1466611306143" expanded="true" signature="76827:77055" ph="UPDATE t_par... " />
+                <marker date="1466611306143" expanded="true" signature="78550:78667" ph="UPDATE t_res... " />
+                <marker date="1466611306143" expanded="true" signature="79417:79466" ph="SELECT MAX(i... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="79681:81186" ph="INSERT INTO t_parametrosamostra_log... " />
+                <marker date="1466611306143" expanded="true" signature="80349:81186" ph="SELECT aa.fn... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="81360:81616" ph="UPDATE t_par... " />
+                <marker date="1466611306143" expanded="true" signature="87098:87223" ph="UPDATE t_res... " />
+                <marker date="1466611306143" expanded="true" signature="90615:90706" ph="SELECT * FRO... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="92303:92352" ph="SELECT * FRO... t_parametrosamostra_log" />
+                <marker date="1466611306143" expanded="true" signature="95973:96992" ph="SELECT t_par... t_parametrosamostra" />
+                <marker date="1466611306143" expanded="true" signature="98117:99132" ph="SELECT t_par... t_parametrosamostra" />
+                <marker date="1466611306143" expanded="true" signature="99424:99638" ph="UPDATE t_par... " />
+                <marker date="1466611306143" expanded="true" signature="99835:99899" ph="UPDATE t_amo... " />
+                <marker date="1466611306143" expanded="true" signature="101610:101841" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="101629:101678" ph="{...}" />
+                <marker date="1466611306143" expanded="true" signature="101702:101754" ph="{...}" />
+                <marker date="1466611306143" expanded="true" signature="101772:101821" ph="{...}" />
+                <marker date="1466611306143" expanded="true" signature="101887:102220" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="101912:101929" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="101961:102179" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="102003:102015" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="102068:102080" ph="..." />
+                <marker date="1466611306143" expanded="true" signature="102135:102148" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listaporparametro.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig">
+      <file leaf-file-name="tcpdf.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/tcpdf/tcpdf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="224" column="62" selection-start-line="224" selection-start-column="30" selection-end-line="224" selection-end-column="62" />
+            <state relative-caret-position="177">
+              <caret line="3091" column="286" selection-start-line="3091" selection-start-column="286" selection-end-line="3091" selection-end-column="286" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TAmostrasAdminCustomController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
+      <file leaf-file-name="tcpdf.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7667">
-              <caret line="464" column="41" selection-start-line="464" selection-start-column="20" selection-end-line="464" selection-end-column="41" />
-              <folding>
-                <marker date="1466504384260" expanded="true" signature="4204:4253" ph="SELECT MAX(i... t_parametrosamostra_log" />
-                <marker date="1466504384260" expanded="true" signature="4470:5951" ph="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1466504384260" expanded="true" signature="5138:5951" ph="SELECT aa.fn... t_parametrosamostra_log" />
-                <marker date="1466504384260" expanded="true" signature="6127:6385" ph="UPDATE t_par... " />
-                <marker date="1466504384260" expanded="true" signature="6707:6883" ph="update t_amo... " />
-                <marker date="1466504384260" expanded="true" signature="7319:7370" ph="SELECT * FRO... t_amostras_logs" />
-                <marker date="1466504384260" expanded="true" signature="7775:7855" ph="SELECT * FRO... t_parametrosamostra_log" />
-                <marker date="1466504384260" expanded="true" signature="8243:9288" ph="SELECT para.... t_parametrosamostra" />
-                <marker date="1466504384260" expanded="true" signature="9693:9744" ph="SELECT * FRO... t_resultados" />
-                <marker date="1466504384260" expanded="true" signature="15785:15842" ph="SELECT * fro... t_parametrospormetodo" />
-                <marker date="1466504384260" expanded="true" signature="16534:16622" ph="SELECT ft_de... t_metodos" />
-                <marker date="1466504384260" expanded="true" signature="18335:18522" ph="SELECT DISTI... t_produtos" />
-                <marker date="1466504384260" expanded="true" signature="19341:19686" ph="SELECT DISTI... t_produtosespecificacoes" />
-                <marker date="1466504384260" expanded="true" signature="20284:21165" ph="SELECT DISTI... t_resultados" />
-                <marker date="1466504384260" expanded="true" signature="24585:26194" ph="INSERT INTO t_parametrosamostra... " />
-                <marker date="1466504384260" expanded="true" signature="25329:26194" ph="SELECT aa.fn... t_parametros" />
-                <marker date="1466504384260" expanded="true" signature="26464:27845" ph="INSERT INTO t_parametrosamostra_log... " />
-                <marker date="1466504384260" expanded="true" signature="27108:27845" ph="SELECT aa.fn... t_parametrosamostra" />
-                <marker date="1466504384260" expanded="true" signature="28008:28080" ph="UPDATE t_par... " />
-                <marker date="1466504384260" expanded="true" signature="28270:28333" ph="SELECT max(i... t_parametrosamostra_log" />
-                <marker date="1466504384260" expanded="true" signature="28630:28840" ph="UPDATE t_par... " />
-                <marker date="1466504384260" expanded="true" signature="30275:30400" ph="UPDATE t_res... " />
-              </folding>
+            <state relative-caret-position="73">
+              <caret line="3415" column="24" selection-start-line="3415" selection-start-column="24" selection-end-line="3415" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TCPDFController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/Controller/TCPDFController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WhiteOctoberTCPDFBundle.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/WhiteOctoberTCPDFBundle.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-386">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tcpdf_config_alt.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/tcpdf/examples/config/tcpdf_config_alt.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2885">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Configuration.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/DependencyInjection/Configuration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1080">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WhiteOctoberTCPDFExtension.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/DependencyInjection/WhiteOctoberTCPDFExtension.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-80">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -174,8 +212,8 @@
       <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3213">
-              <caret line="189" column="29" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+            <state relative-caret-position="-5620">
+              <caret line="191" column="23" selection-start-line="191" selection-start-column="23" selection-end-line="191" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -185,7 +223,7 @@
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="237" column="82" selection-start-line="237" selection-start-column="50" selection-end-line="237" selection-end-column="82" />
+              <caret line="120" column="78" selection-start-line="120" selection-start-column="60" selection-end-line="120" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -245,7 +283,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/showRelatorio.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/base_edit_form.html.twig" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TAmostras.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/Indisponivel.html.twig" />
@@ -263,6 +300,7 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/PDF/relatorio_alteracoes.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/modelo.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
+        <option value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
       </list>
     </option>
@@ -340,7 +378,21 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ILAB" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -355,10 +407,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -390,7 +438,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="relatorios" />
+              <option name="myItemId" value="listas" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -575,12 +623,12 @@
       <workItem from="1466498451092" duration="11864000" />
       <workItem from="1466515593370" duration="14120000" />
       <workItem from="1466584428738" duration="6732000" />
-      <workItem from="1466591687816" duration="2364000" />
+      <workItem from="1466591687816" duration="13975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455269000" />
+    <option name="totallyTimeSpent" value="466880000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -593,13 +641,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3184569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3184569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" show_stripe_button="true" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="-80" y="158" width="714" height="424" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" show_stripe_button="true" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="511" y="153" width="708" height="418" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3397762" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -634,55 +682,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TTiposamostra.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="890">
-          <caret line="107" column="34" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasalimentos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3096">
-          <caret line="172" column="36" selection-start-line="172" selection-start-column="20" selection-end-line="172" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TModelosamostra.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasalimentosAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TClientes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6390">
-          <caret line="355" column="35" selection-start-line="355" selection-start-column="20" selection-end-line="355" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TTipoparametro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="74" column="31" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TTecnicas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="108" column="34" selection-start-line="108" selection-start-column="20" selection-end-line="108" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/cache/dev/profiler/00/10/471000" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/showRelatorio.html.twig" />
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/base_edit_form.html.twig">
@@ -775,13 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7208">
           <caret line="426" column="42" selection-start-line="426" selection-start-column="20" selection-end-line="426" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="2922" column="30" selection-start-line="2922" selection-start-column="30" selection-end-line="2922" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -898,31 +890,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TAmostrasAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3536">
           <caret line="212" column="108" selection-start-line="212" selection-start-column="108" selection-end-line="212" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/tcpdf/config/tcpdf_config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="166" column="40" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/tcpdf/tcpdf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30736">
-          <caret line="1874" column="55" selection-start-line="1874" selection-start-column="41" selection-end-line="1874" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -940,10 +911,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="112" column="48" selection-start-line="112" selection-start-column="20" selection-end-line="112" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="120" column="78" selection-start-line="120" selection-start-column="60" selection-end-line="120" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7667">
-          <caret line="464" column="41" selection-start-line="464" selection-start-column="20" selection-end-line="464" selection-end-column="41" />
+        <state relative-caret-position="162">
+          <caret line="251" column="35" selection-start-line="251" selection-start-column="35" selection-end-line="251" selection-end-column="35" />
           <folding>
             <marker date="1466504384260" expanded="true" signature="4204:4253" ph="SELECT MAX(i... t_parametrosamostra_log" />
             <marker date="1466504384260" expanded="true" signature="4470:5951" ph="INSERT INTO t_parametrosamostra_log... " />
@@ -973,32 +960,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3213">
-          <caret line="189" column="29" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+        <state relative-caret-position="-5620">
+          <caret line="191" column="23" selection-start-line="191" selection-start-column="23" selection-end-line="191" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="224" column="62" selection-start-line="224" selection-start-column="30" selection-end-line="224" selection-end-column="62" />
+        <state relative-caret-position="271">
+          <caret line="223" column="29" selection-start-line="223" selection-start-column="29" selection-end-line="223" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+    <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/DependencyInjection/Configuration.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="237" column="82" selection-start-line="237" selection-start-column="50" selection-end-line="237" selection-end-column="82" />
+        <state relative-caret-position="-1080">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/Resources/config/services.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/DependencyInjection/WhiteOctoberTCPDFExtension.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/Controller/TCPDFController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/tcpdf/config/tcpdf_config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-595">
+          <caret line="166" column="40" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle/WhiteOctober/TCPDFBundle/WhiteOctoberTCPDFBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-386">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1692">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/tcpdf/examples/config/tcpdf_config_alt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2885">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/tcpdf/tcpdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="3091" column="286" selection-start-line="3091" selection-start-column="286" selection-end-line="3091" selection-end-column="286" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="3415" column="24" selection-start-line="3415" selection-start-column="24" selection-end-line="3415" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="1641" column="192" selection-start-line="1641" selection-start-column="192" selection-end-line="1641" selection-end-column="192" />
+        <state relative-caret-position="209">
+          <caret line="1684" column="43" selection-start-line="1684" selection-start-column="43" selection-end-line="1684" selection-end-column="43" />
           <folding>
             <element signature="e#38#74#0#PHP" expanded="true" />
             <element signature="e#906#4132#0#PHP" expanded="false" />
@@ -1010,77 +1069,86 @@
             <element signature="e#66858#67440#0#PHP" expanded="false" />
             <element signature="e#72656#78889#0#PHP" expanded="false" />
             <element signature="e#78895#89304#0#PHP" expanded="false" />
-            <element signature="e#89310#89603#0#PHP" expanded="false" />
-            <marker date="1466594064431" expanded="true" signature="1722:1771" ph="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="2033:3549" ph="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1466594064431" expanded="true" signature="2677:3549" ph="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="3722:3919" ph="UPDATE t_par... " />
-            <marker date="1466594064431" expanded="true" signature="7339:7388" ph="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="7587:9103" ph="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1466594064431" expanded="true" signature="8231:9103" ph="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="9276:9473" ph="UPDATE t_par... " />
-            <marker date="1466594064431" expanded="true" signature="10827:10876" ph="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="11075:12591" ph="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1466594064431" expanded="true" signature="11719:12591" ph="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="12764:12961" ph="UPDATE t_par... " />
-            <marker date="1466594064431" expanded="true" signature="15171:15186" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="15199:15210" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="15699:15714" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="15727:15738" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="17563:17784" ph="SELECT * FRO... t_parametrosporespecificacao" />
-            <marker date="1466594064431" expanded="true" signature="23026:23247" ph="SELECT * FRO... t_parametrosporespecificacao" />
-            <marker date="1466594064431" expanded="true" signature="29184:29298" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="29380:29453" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="29545:29572" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="29652:29680" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="29792:29819" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="29908:29935" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="30043:30070" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="30229:30343" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="30425:30498" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="30841:30964" ph="select * fro... t_amostras_logs" />
-            <marker date="1466594064431" expanded="true" signature="31471:31615" ph="select * fro... t_amostras_logs" />
-            <marker date="1466594064431" expanded="true" signature="32105:32249" ph="select * fro... t_amostras_logs" />
-            <marker date="1466594064431" expanded="true" signature="41654:41669" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="41682:41693" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="42178:42193" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="42206:42217" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="43972:44185" ph="SELECT * FRO... t_parametrosporespecificacao" />
-            <marker date="1466594064431" expanded="true" signature="49177:49390" ph="SELECT * FRO... t_parametrosporespecificacao" />
-            <marker date="1466594064431" expanded="true" signature="55377:55491" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="55573:55646" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="55738:55765" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="55845:55873" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="55985:56012" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="56101:56128" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="56236:56263" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="56414:56528" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="56610:56683" ph="..." />
-            <marker date="1466594064431" expanded="true" signature="56998:57117" ph="select * fro... t_amostras_logs" />
-            <marker date="1466594064431" expanded="true" signature="57580:57720" ph="select * fro... t_amostras_logs" />
-            <marker date="1466594064431" expanded="true" signature="58166:58306" ph="select * fro... t_amostras_logs" />
-            <marker date="1466594064431" expanded="true" signature="68102:68802" ph="select t_par... t_parametrosamostra" />
-            <marker date="1466594064431" expanded="true" signature="69561:70399" ph="select t_par... t_parametrosamostra" />
-            <marker date="1466594064431" expanded="true" signature="70451:71212" ph="select t_par... t_parametrosamostra" />
-            <marker date="1466594064431" expanded="true" signature="73014:74544" ph="INSERT INTO t_parametrosamostra... " />
-            <marker date="1466594064431" expanded="true" signature="73729:74544" ph="SELECT aa.fn... t_parametros" />
-            <marker date="1466594064431" expanded="true" signature="74768:76081" ph="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1466594064431" expanded="true" signature="75352:76081" ph="SELECT aa.fn... t_parametrosamostra" />
-            <marker date="1466594064431" expanded="true" signature="76235:76298" ph="SELECT max(i... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="76574:76648" ph="UPDATE t_par... " />
-            <marker date="1466594064431" expanded="true" signature="76827:77055" ph="UPDATE t_par... " />
-            <marker date="1466594064431" expanded="true" signature="78550:78667" ph="UPDATE t_res... " />
-            <marker date="1466594064431" expanded="true" signature="79417:79466" ph="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="79681:81186" ph="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1466594064431" expanded="true" signature="80349:81186" ph="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="81360:81616" ph="UPDATE t_par... " />
-            <marker date="1466594064431" expanded="true" signature="87098:87223" ph="UPDATE t_res... " />
-            <marker date="1466594064431" expanded="true" signature="90615:90706" ph="SELECT * FRO... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="92303:92352" ph="SELECT * FRO... t_parametrosamostra_log" />
-            <marker date="1466594064431" expanded="true" signature="95973:96992" ph="SELECT t_par... t_parametrosamostra" />
-            <marker date="1466594064431" expanded="true" signature="98117:99132" ph="SELECT t_par... t_parametrosamostra" />
-            <marker date="1466594064431" expanded="true" signature="99424:99638" ph="UPDATE t_par... " />
-            <marker date="1466594064431" expanded="true" signature="99835:99899" ph="UPDATE t_amo... " />
+            <marker date="1466611306143" expanded="true" signature="1722:1771" ph="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="2033:3549" ph="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466611306143" expanded="true" signature="2677:3549" ph="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="3722:3919" ph="UPDATE t_par... " />
+            <marker date="1466611306143" expanded="true" signature="7339:7388" ph="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="7587:9103" ph="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466611306143" expanded="true" signature="8231:9103" ph="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="9276:9473" ph="UPDATE t_par... " />
+            <marker date="1466611306143" expanded="true" signature="10827:10876" ph="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="11075:12591" ph="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466611306143" expanded="true" signature="11719:12591" ph="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="12764:12961" ph="UPDATE t_par... " />
+            <marker date="1466611306143" expanded="true" signature="15171:15186" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="15199:15210" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="15699:15714" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="15727:15738" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="17563:17784" ph="SELECT * FRO... t_parametrosporespecificacao" />
+            <marker date="1466611306143" expanded="true" signature="23026:23247" ph="SELECT * FRO... t_parametrosporespecificacao" />
+            <marker date="1466611306143" expanded="true" signature="29184:29298" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="29380:29453" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="29545:29572" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="29652:29680" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="29792:29819" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="29908:29935" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="30043:30070" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="30229:30343" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="30425:30498" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="30841:30964" ph="select * fro... t_amostras_logs" />
+            <marker date="1466611306143" expanded="true" signature="31471:31615" ph="select * fro... t_amostras_logs" />
+            <marker date="1466611306143" expanded="true" signature="32105:32249" ph="select * fro... t_amostras_logs" />
+            <marker date="1466611306143" expanded="true" signature="41654:41669" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="41682:41693" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="42178:42193" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="42206:42217" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="43972:44185" ph="SELECT * FRO... t_parametrosporespecificacao" />
+            <marker date="1466611306143" expanded="true" signature="49177:49390" ph="SELECT * FRO... t_parametrosporespecificacao" />
+            <marker date="1466611306143" expanded="true" signature="55377:55491" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="55573:55646" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="55738:55765" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="55845:55873" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="55985:56012" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="56101:56128" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="56236:56263" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="56414:56528" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="56610:56683" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="56998:57117" ph="select * fro... t_amostras_logs" />
+            <marker date="1466611306143" expanded="true" signature="57580:57720" ph="select * fro... t_amostras_logs" />
+            <marker date="1466611306143" expanded="true" signature="58166:58306" ph="select * fro... t_amostras_logs" />
+            <marker date="1466611306143" expanded="true" signature="68102:68802" ph="select t_par... t_parametrosamostra" />
+            <marker date="1466611306143" expanded="true" signature="69561:70399" ph="select t_par... t_parametrosamostra" />
+            <marker date="1466611306143" expanded="true" signature="70451:71212" ph="select t_par... t_parametrosamostra" />
+            <marker date="1466611306143" expanded="true" signature="73014:74544" ph="INSERT INTO t_parametrosamostra... " />
+            <marker date="1466611306143" expanded="true" signature="73729:74544" ph="SELECT aa.fn... t_parametros" />
+            <marker date="1466611306143" expanded="true" signature="74768:76081" ph="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466611306143" expanded="true" signature="75352:76081" ph="SELECT aa.fn... t_parametrosamostra" />
+            <marker date="1466611306143" expanded="true" signature="76235:76298" ph="SELECT max(i... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="76574:76648" ph="UPDATE t_par... " />
+            <marker date="1466611306143" expanded="true" signature="76827:77055" ph="UPDATE t_par... " />
+            <marker date="1466611306143" expanded="true" signature="78550:78667" ph="UPDATE t_res... " />
+            <marker date="1466611306143" expanded="true" signature="79417:79466" ph="SELECT MAX(i... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="79681:81186" ph="INSERT INTO t_parametrosamostra_log... " />
+            <marker date="1466611306143" expanded="true" signature="80349:81186" ph="SELECT aa.fn... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="81360:81616" ph="UPDATE t_par... " />
+            <marker date="1466611306143" expanded="true" signature="87098:87223" ph="UPDATE t_res... " />
+            <marker date="1466611306143" expanded="true" signature="90615:90706" ph="SELECT * FRO... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="92303:92352" ph="SELECT * FRO... t_parametrosamostra_log" />
+            <marker date="1466611306143" expanded="true" signature="95973:96992" ph="SELECT t_par... t_parametrosamostra" />
+            <marker date="1466611306143" expanded="true" signature="98117:99132" ph="SELECT t_par... t_parametrosamostra" />
+            <marker date="1466611306143" expanded="true" signature="99424:99638" ph="UPDATE t_par... " />
+            <marker date="1466611306143" expanded="true" signature="99835:99899" ph="UPDATE t_amo... " />
+            <marker date="1466611306143" expanded="true" signature="101610:101841" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="101629:101678" ph="{...}" />
+            <marker date="1466611306143" expanded="true" signature="101702:101754" ph="{...}" />
+            <marker date="1466611306143" expanded="true" signature="101772:101821" ph="{...}" />
+            <marker date="1466611306143" expanded="true" signature="101887:102220" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="101912:101929" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="101961:102179" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="102003:102015" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="102068:102080" ph="..." />
+            <marker date="1466611306143" expanded="true" signature="102135:102148" ph="..." />
           </folding>
         </state>
       </provider>

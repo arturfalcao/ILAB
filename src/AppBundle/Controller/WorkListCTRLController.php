@@ -1684,7 +1684,9 @@ EOF;
                     }
                     if ($header_aux == 0) {
                         $header_aux = 1;
-                        $pdf->SetHeaderData('logopimenta.png', 50, '', PDF_HEADER_STRING);
+                        $codigo = utf8_decode("Código");
+                        $x = '<table border="0" align="center"><tr><th>Lista de Trabalho</th></tr><tr><th>' . utf8_decode($result[0]["parametro"]) . ' (' . utf8_decode($result[0]["metodo"]) . ')</th></tr><tr><th>' . utf8_decode($result[0]["unidade"]) . '</th></tr><tr><th>'.$codigo.": ".$ultimo_id.'</th></tr><tr><th>' . utf8_decode("Emissão:") . date("d-m-Y") . '</th></tr></table>';
+                        $pdf->SetHeaderData('logopimenta.png', 50, $x, PDF_HEADER_STRING);
                         $pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
                         // set header and footer fonts
                         //$pdf->SetLineStyle(array('width' => 0.25 / 1, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255)));
