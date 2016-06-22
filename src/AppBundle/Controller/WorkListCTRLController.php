@@ -1652,7 +1652,7 @@ EOF;
         $pdf = $this->container->get("white_october.tcpdf")->create(
             $orientation='P',
             $unit='mm',
-            $format='A3',
+            $format='A4',
             $unicode=true,
             $encoding='UTF-8',
             $diskcache=false,
@@ -1665,7 +1665,7 @@ EOF;
         $pdf->writeHTML($html, true, false, true, false, '');
 
         $pdf->lastPage();
-        if(count($amostra) >1)
+        if(count($samples) > 1)
             $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . "lista_trabalho_amostras". $ids.".pdf";
         else
             $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "listas" . DIRECTORY_SEPARATOR . "lista_trabalho_amostra". $ids.".pdf";
@@ -1804,7 +1804,7 @@ EOF;
         $pdf->writeHTML($html, true, false, true, false, '');
         
         $pdf->lastPage();
-        $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_alteracoes.pdf";
+        $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_alteracoes_amostra_".$slug.".pdf";
         $response = new Response($pdf->Output($target_dir,'FI'));
         
         return $response;
@@ -1868,6 +1868,32 @@ EOF;
             $header_aux = 0 ;
 
             if(count($amostra)!=0) {
+                foreach ($amostra as &$value) {
+                    if ($value != "") {
+                        $sql = "SELECT t_parametrosamostra.fn_id_amostra as amostra, 
+                           t_parametrosamostra.ft_descricao as parametro , t_gruposparametros.ft_codigo as grupo  , 
+                           t_metodos.ft_descricao as metodo , t_unidadesmedida.ft_descricao as unidade 
+                           FROM t_parametrosamostra 
+                           inner join t_amostras on t_parametrosamostra.fn_id_amostra = t_amostras.fn_id 
+                           inner join t_gruposparametros on t_amostras.ft_grupoparametros = t_gruposparametros.fn_id 
+                           inner join t_metodos on t_parametrosamostra.fn_id_metodo = t_metodos.fn_id 
+                           inner join t_resultados on t_parametrosamostra.id = t_resultados.fn_id_parametro 
+                           inner join t_unidadesmedida on t_resultados.fn_id_unidade = t_unidadesmedida.fn_id 
+                           where t_parametrosamostra.fn_id_amostra = " . $value .
+                            " and t_parametrosamostra.fn_id = " . $para . ";";
+                        $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                        $activeDate->execute();
+                        $result = $activeDate->fetchAll();
+                        if (count($result) == 0) {
+                            return new Response("Defina o resultado(via entrada de resultados ou na amostra, verificando que os resultados são guardados com sucesso) para o pârametro com o id " . $para .
+                                " e para a amostra com o id " . $value);
+                        }
+                    }
+
+                }
+            }
+
+            if(count($amostra)!=0) {
                 $lt = new ListaTrabalhos();
                 $lt->setDataemissao(new \DateTime());
 
@@ -1882,6 +1908,8 @@ EOF;
             else{
                 $ultimo_id = 0;
             }
+
+
 
             foreach ($amostra as &$value) {
 
