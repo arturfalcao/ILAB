@@ -1150,7 +1150,7 @@ EOF;
         return new Response(json_encode($response));
     }
 
-    // get parameters by sample for worklist grouped by parameter //AQUI
+    // get parameters by sample for worklist grouped by parameter
     public function GetparameterbysampleForParameterAction()
     {
         $id_parameter = $this->get("request")->getContent();
