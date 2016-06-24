@@ -236,7 +236,7 @@ class WorkListCTRLController extends Controller
         }
         return new Response("ok");
     }
-
+    //AQUI
     public function EmitirRelatorioAction($slug){
         error_reporting(0);
         $samples = explode(",", $slug);
@@ -655,7 +655,7 @@ EOF;
             $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_amostra_" . $samples[0] .".pdf";
         $pdf->Output($fileNL , 'FI');
     }
-
+    //AQUI
     public function EmitRelatorioAction($slug){
         error_reporting(0);
         $pdf = $this->container->get("white_october.tcpdf")->create(
@@ -1685,7 +1685,7 @@ EOF;
                     if ($header_aux == 0) {
                         $header_aux = 1;
                         $codigo = utf8_decode("Código");
-                        $x = '<table border="0" align="center"><tr><th>Lista de Trabalho</th></tr><tr><th>' . utf8_decode($result[0]["parametro"]) . ' (' . utf8_decode($result[0]["metodo"]) . ')</th></tr><tr><th>' . utf8_decode($result[0]["unidade"]) . '</th></tr><tr><th>'.$codigo.": ".$ultimo_id.'</th></tr><tr><th>' . utf8_decode("Emissão:") . date("d-m-Y") . '</th></tr></table>';
+                        $x = '<table border="0" style="font-size:8px;" align="center"><tr><th>Lista de Trabalho</th></tr><tr><th>' . utf8_decode($result[0]["parametro"]) . ' (' . utf8_decode($result[0]["metodo"]) . ')</th></tr><tr><th>' . utf8_decode($result[0]["unidade"]) . '</th></tr><tr><th>'.$codigo.": ".$ultimo_id.'</th></tr><tr><th>' . utf8_decode("Emissão:") . date("d-m-Y") . '</th></tr></table>';
                         $pdf->SetHeaderData('logopimenta.png', 50, $x, PDF_HEADER_STRING);
                         $pdf->setFooterData(array(0, 0, 0), array(0, 0, 0));
                         // set header and footer fonts
