@@ -784,6 +784,7 @@
                         url: '{{ path('EntradaResultadossetByRegrasFormatacaoAmostra') }}',
                         data: JSON.stringify(dicionario),
                         success: function (data) {
+                            data = data.replace('"','');
                             $('._conclusao').val(data);
                             toastr.info('Resultados guardados com sucesso');
                             GetParametros();

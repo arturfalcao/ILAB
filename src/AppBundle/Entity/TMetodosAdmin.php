@@ -59,7 +59,7 @@ class TMetodosAdmin extends Admin
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnTecnica',null, array('label' => 'Técnica'))
+            ->add('fnTecnica',null, array('required'=>true,'label' => 'Técnica'))
             ->add('ftAlias',null,array('label' => 'Acrónimo'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->end()

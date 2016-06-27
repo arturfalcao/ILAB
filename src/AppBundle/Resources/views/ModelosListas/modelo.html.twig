@@ -121,20 +121,21 @@
 
 
     {% if tipo_de_amostra  == "Alimentos" %}
-        <table>
+        <table >
             <tr>
-                <td rowspan="3" style="width:17%;"><img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="80" width="80" ></td>
-                <td style="font-size: 14px;font-weight: bold;text-align: left;">PIMENTA DO VALE</td>
-                <td style="font-size: 10px;font-weight: bold;text-align: left;">
+                <td rowspan="3" style="width:10%;"><img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="40" width="40" ></td>
+                <td style="font-size: 10px;font-weight: bold;text-align: left;">PIMENTA DO VALE</td>
+                <td style="font-size: 11px;font-weight: bold;text-align: left;width:100%;">
                     Lista de Trabalho - Microbiologia Alimentos e Zaragatoas
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12px;text-align: left;">LABORATORIOS, LDA</td>
-                <td style="font-size: 10px;text-align: center;">Data Emissão Lista de Trabalho : {{  "now"|date("d/m/Y") }}</td>
+                <td style="font-size: 8px;text-align: left;">LABORATORIOS, LDA</td>
+                <td style="width:10%;"></td>
+                <td style="font-size: 8px;text-align: center;">Data Emissão Lista de Trabalho : {{  "now"|date("d/m/Y") }}</td>
             </tr>
             <tr>
-                <td style="font-size: 12px;text-align: left;">ANÁLISE DE ÁGUAS E ALIMENTOS</td>
+                <td style="font-size: 8px;text-align: left;">ANÁLISE DE ÁGUAS E ALIMENTOS</td>
 
             </tr>
             <tr>
@@ -157,18 +158,19 @@
     {% else %}
         <table>
             <tr>
-                <td rowspan="3" style="width:17%;"><img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="80" width="80" ></td>
-                <td style="font-size: 14px;font-weight: bold;text-align: left;">PIMENTA DO VALE</td>
-                <td style="font-size: 10px;font-weight: bold;text-align: left;">
+                <td rowspan="3" style="width:10%;"><img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="40" width="40" ></td>
+                <td style="font-size: 10px;font-weight: bold;text-align: left;">PIMENTA DO VALE</td>
+                <td style="font-size: 11px;font-weight: bold;text-align: left;width:100%;">
                     Lista de Trabalho - Microbiologia de águas
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12px;text-align: left;">LABORATORIOS, LDA</td>
-                <td style="font-size: 10px;text-align: center;">Data Emissão Lista de Trabalho : {{  "now"|date("d/m/Y") }}</td>
+                <td style="font-size: 8px;text-align: left;">LABORATORIOS, LDA</td>
+                <td style="width:10%;"></td>
+                <td style="font-size: 8px;text-align: left;">Data Emissão Lista de Trabalho : {{  "now"|date("d/m/Y") }}</td>
             </tr>
             <tr>
-                <td style="font-size: 12px;text-align: left;">ANÁLISE DE ÁGUAS E ALIMENTOS</td>
+                <td style="font-size: 8px;text-align: left;">ANÁLISE DE ÁGUAS E ALIMENTOS</td>
 
             </tr>
             <tr>
@@ -197,27 +199,25 @@
     {% set foo = 0 %}
 
     {% for item in par_container %}
-        <div></div>
         {% if item.tipo_modelo  == "Alimentos" %}
-            <table nobr="true">
+
             <div class="amostra_content">
 
                 {% if foo == item.id_amostra %}
 
                 {% else %}
                     {% set foo = item.id_amostra %}
-                    <div class="id_amostra"><span class="bold">Identificação Amostra :</span>{{ item.id_amostra}} Data de entrada : {{ item.data_inicio |date("d-m-Y") }}</div>
+                    <div class="id_amostra"><span style="font-size:10px;" class="bold">Identificação Amostra : {{ item.id_amostra}} Data de entrada : {{ item.data_inicio |date("d-m-Y") }} </span></div>
+                    <br/>
+
                     <table>
                         <tr>
-                            <div></div>
-                            <td style="">Data de início:_____________</td>
-                            <td style="">Técnico:_____________</td>
+                            <td style="font-size: 8px;font-weight: bold;">Data de início:_____________</td>
+                            <td style="font-size: 8px;font-weight: bold;">Técnico:_____________</td>
+                            <td style="font-size: 8px;font-weight: bold;width:30%;">Data de fim de análise:_____________</td>
+                            <td style="font-size: 8px;font-weight: bold;">Técnico:_____________</td>
                         </tr>
-                        <div></div>
-                        <tr>
-                            <td style="">Data de fim de análise:_____________</td>
-                            <td style="">Técnico:_____________</td>
-                        </tr>
+
                     </table>
                     {#<div class="alimentos_cabecalho">
                         <div class="alimentos_cabecalho1">Data de início :______________</div>
@@ -225,31 +225,29 @@
                         <div class="alimentos_cabecalho1">Data de fim de análise: :______________</div>
                         <div class="alimentos_cabecalho1">Técnico :______________</div>
                     </div>#}
+                    <br/> <br/>
                     <table>
-                        <div></div>
                         <tr>
 
-                            <td style="width: 18%">Tipo de amostra:</td>
+                            <td style="font-size:8px;width: 16%;font-weight: bold;">Tipo de amostra:</td>
                             <td style="width:3%; border: 1px solid black;"></td>
                             <td style="width: 2%;"></td>
-                            <td style="width: 21%">Sól. Bem misturado:</td>
+                            <td style="font-size:8px;width: 19%;font-weight: bold;">Sól. Bem misturado:</td>
+                            <td style="width:3%; border: 1px solid black;font-weight: bold;"></td>
+                            <td style="width: 2%;"></td>
+                            <td style="font-size:8px;width: 14%;font-weight: bold;">Outros Sólidos:</td>
                             <td style="width:3%; border: 1px solid black;"></td>
                             <td style="width: 2%;"></td>
-                            <td style="width: 16%">Outros Sólidos:</td>
+                            <td style="font-size:8px;width: 8%;font-weight: bold;">Líquidos:</td>
                             <td style="width:3%; border: 1px solid black;"></td>
                             <td style="width: 2%;"></td>
-                            <td style="width: 10%">Líquidos:</td>
-                            <td style="width:3%; border: 1px solid black;"></td>
-                        </tr>
-                        <div></div>
-                        <tr>
-                            <td style="width: 16%">Sól. Pequenos:</td>
+                            <td style="font-size:8px;width: 14%;font-weight: bold;">Sól. Pequenos:</td>
                             <td style="width:3%; border: 1px solid black;"></td>
                         </tr>
                     </table>
                     <div></div>
                     <table>
-                        <tr>Zaragatoas: Volume (Ml) líquido:_________________ Área amostragem:___________________</tr>
+                        <tr style="font-size:10px;"><span style="font-weight: bold;">Zaragatoas: Volume (Ml) líquido:</span>_________________ <span style="font-weight: bold;">Área amostragem:</span>___________________</tr>
                     </table>
                     <div></div>
                     {#<div class="alimentos_cabecalho2">#}
@@ -267,58 +265,53 @@
                     </div>#}
                 {% endif %}
 
-
+                    <table nobr="true">
                     <table>
+
                         <tr>
-                            <div></div>
-                            <td colspan="4"><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</td>
-                            <td><span class="bold">Tipo :</span>{{ item.tipo}}</td>
+                            <td style="font-size:10px;" ><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</td>
+                            <td style="font-size:10px;"><span class="bold">Tipo :</span>{{ item.tipo}}</td>
                         </tr>
 
                     </table>
 
                     <div></div>
-                    <table border="1" >
                         {{ item.tablejson  | raw}}
                     </table>
 
             </div>
-            </table>
 
         {% elseif item.tipo_modelo == "ERROR" %}
 
         <div class="amostra_content">Por favor seleccione apenas amostras de uma área de ensaio</div>
 
         {% else %}
-            <table nobr="true">
+
             <div class="amostra_content">
 
                 {% if foo == item.id_amostra %}
 
                 {% else %}
                     {% set foo = item.id_amostra %}
-                    <div class="id_amostra">
-                        <span class="bold">Identificação Amostra : </span>{{ item.id_amostra}}
-                        Data de entrada : {{ item.data_inicio |date("d-m-Y") }}</div>
+                    <div class="id_amostra"><span style="font-size:10px;" class="bold">Identificação Amostra : {{ item.id_amostra}}
+                            Data de entrada : {{ item.data_inicio |date("d-m-Y") }}</span></div>
                 {% endif %}
 
-                    <table >
+                <table nobr="true">
+                    <table>
+
                         <tr>
-                            <div></div>
-                           <td colspan="4"><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</td>
-                           <td><span class="bold">Tipo :</span>{{ item.tipo}}</td>
+                            <td style="font-size:10px;" ><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</td>
+                            <td style="font-size:10px;"><span class="bold">Tipo :</span>{{ item.tipo}}</td>
                         </tr>
 
                     </table>
-                    {#<div class="nome_parametro"><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</div>
-                    <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo}}</div>#}
                     <div></div>
-                    <table border="1">
                     {{ item.tablejson  | raw}}
-                    </table>
+                </table>
+
 
             </div>
-            </table>
         {% endif %}
 
 
@@ -327,28 +320,8 @@
 
     </div>
 </div>
-<br pagebreak="true" />
 
-<table >
-    <tr>
-        <td rowspan="3"><p class="data_border" >Data:</p> <p></p> <br /><br /><br />____-____-____</td>
-        <td class="rubrica_border">Rubrica:<br/></td>
-    </tr>
-    <tr>
-        <td>
-            <br />
-            <br />
-            Sementeira:______________________________<br />
-            <br />
-            Leitura/Repicagens:________________________<br />
-            <br />
-            Resultado:_______________________________<br />
-            <br />
-            Validado por:_____________________________
-        </td>
-    </tr>
 
-</table>
 
 {#<table>
     <tr >

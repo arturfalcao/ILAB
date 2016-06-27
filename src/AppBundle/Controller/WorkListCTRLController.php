@@ -236,7 +236,7 @@ class WorkListCTRLController extends Controller
         }
         return new Response("ok");
     }
-    //AQUI
+
     public function EmitirRelatorioAction($slug){
         error_reporting(0);
         $samples = explode(",", $slug);
@@ -655,7 +655,7 @@ EOF;
             $fileNL = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "relatorios" . DIRECTORY_SEPARATOR . "relatorio_amostra_" . $samples[0] .".pdf";
         $pdf->Output($fileNL , 'FI');
     }
-    //AQUI
+
     public function EmitRelatorioAction($slug){
         error_reporting(0);
         $pdf = $this->container->get("white_october.tcpdf")->create(
@@ -1457,10 +1457,12 @@ EOF;
             $unicode=true,
             $encoding='UTF-8',
             $diskcache=false,
-            $pdfa=false
+            $pdfa=false,
+            1
         );
-        $pdf->setPrintFooter(false);
+        $pdf->setPrintFooter(true);
         $pdf->setPrintHeader(false);
+        $pdf->SetMargins(5,6,0,false);
         $pdf->AddPage();
         $pdf->writeHTML($html, true, false, true, false, '');
         $pdf->lastPage();
@@ -1555,7 +1557,7 @@ EOF;
         $pdf = $this->container->get("white_october.tcpdf")->create(
             $orientation='L',
             $unit='mm',
-            $format='A3',
+            $format='A4',
             $unicode=true,
             $encoding='UTF-8',
             $diskcache=false, $pdfa=false
