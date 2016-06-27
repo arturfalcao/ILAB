@@ -3,6 +3,7 @@ namespace TCPDF\TCPDFBundle;
 use TCPDF;
 use TCPDF_STATIC;
 use TCPDF_FONTS;
+use TCPDF_IMAGES;
 
 class PDF extends TCPDF{
 
@@ -162,6 +163,94 @@ class PDF extends TCPDF{
         register_shutdown_function(array($this, '_destroy'), true);
     }
 
+    public function Header() {
+
+        if ($this->header_xobjid === false) {
+            // start a new XObject Template
+            $this->header_xobjid = $this->startTemplate($this->w, $this->tMargin);
+            $headerfont = $this->getHeaderFont();
+            $headerdata = $this->getHeaderData();
+            $this->y = $this->header_margin;
+            if ($this->rtl) {
+                $this->x = $this->w - $this->original_rMargin;
+            } else {
+                $this->x = $this->original_lMargin;
+            }
+            if (($headerdata['logo']) AND ($headerdata['logo'] != K_BLANK_IMAGE)) {
+                $imgtype = TCPDF_IMAGES::getImageFileType(K_PATH_IMAGES.$headerdata['logo']);
+                if (($imgtype == 'eps') OR ($imgtype == 'ai')) {
+                    $this->ImageEps(K_PATH_IMAGES.$headerdata['logo'], '', '', $headerdata['logo_width']);
+                } elseif ($imgtype == 'svg') {
+                    $this->ImageSVG(K_PATH_IMAGES.$headerdata['logo'], '', '', $headerdata['logo_width']);
+                } else {
+
+                    $this->Image(K_PATH_IMAGES.$headerdata['logo'], 17, 10, $headerdata['logo_width'],20);
+                    if(substr($headerdata['title'],0,6) === "<table") {}
+                    else {
+                        $this->Image(K_PATH_IMAGES . 'ipac.jpg', 170, 10, 25, 29);
+                    }
+                }
+                $imgy = $this->getImageRBY();
+            } else {
+                $imgy = $this->y;
+            }
+            $cell_height = $this->getCellHeight($headerfont[2] / $this->k);
+            // set starting margin for text data cell
+            if ($this->getRTL()) {
+                $header_x = $this->original_rMargin + ($headerdata['logo_width'] * 1.1);
+            } else {
+                $header_x = $this->original_lMargin + ($headerdata['logo_width'] * 1.1);
+            }
+            $cw = $this->w - $this->original_lMargin - $this->original_rMargin - ($headerdata['logo_width'] * 1.1);
+            $this->SetTextColorArray($this->header_text_color);
+            // header title
+            $this->SetFont($headerfont[0], 'B', $headerfont[2] + 1);
+            $this->SetX($header_x + 10);
+            if(substr($headerdata['title'],0,6) === "<table") {
+                $this->writeHTMLCell(
+                    $w = 0, $h = 0, $x = 70, $y = 10,
+                    $headerdata['title'], $border = 0, $ln = 1, $fill = 0,
+                    $reseth = true, $align = 'middle', $autopadding = true);
+            }
+            else {
+                $this->Cell($cw, 50, $headerdata['title'], 0, 1, '', 0, '', 0);
+            }
+
+            //public function Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M') {
+
+            // header string
+            $this->SetFont($headerfont[0], $headerfont[1], $headerfont[2]);
+            $this->SetX($header_x);
+            //$this->MultiCell($cw, $cell_height, $headerdata['string'], 0, '', 0, 1, '', '', true, 0, false, true, 0, 'T', false);
+            // print an ending header line
+            $this->SetLineStyle(array('width' => 0.85 / $this->k, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => $headerdata['line_color']));
+            $this->SetY((2.835 / $this->k) + max($imgy, $this->y));
+            if ($this->rtl) {
+                $this->SetX($this->original_rMargin);
+            } else {
+                $this->SetX($this->original_lMargin);
+            }
+            $this->Cell(($this->w - $this->original_lMargin - $this->original_rMargin), 0, '', 'T', 0, 'C');
+            $this->endTemplate();
+        }
+        // print header template
+        $x = 0;
+        $dx = 0;
+        if (!$this->header_xobj_autoreset AND $this->booklet AND (($this->page % 2) == 0)) {
+            // adjust margins for booklet mode
+            $dx = ($this->original_lMargin - $this->original_rMargin);
+        }
+        if ($this->rtl) {
+            $x = $this->w + $dx;
+        } else {
+            $x = 0 + $dx;
+        }
+        $this->printTemplate($this->header_xobjid, $x, 0, 0, 0, '', '', false);
+        if ($this->header_xobj_autoreset) {
+            // reset header xobject template at each page
+            $this->header_xobjid = false;
+        }
+    }
     // Page footer
     public function Footer() {
 
