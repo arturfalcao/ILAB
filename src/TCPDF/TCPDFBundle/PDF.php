@@ -166,9 +166,6 @@ class PDF extends TCPDF{
     public function Footer() {
 
         if($this->cf == 1) {
-            $this->SetY(-15);
-            // Set font
-            //$this->SetFont('helvetica', 'I', 8);
             $html = '<table >
                         <tr>
                             <td style="width: 15%;border-bottom: 2px solid black;font-weight: bold;" class="data_border">Data:</td>
