@@ -121,7 +121,6 @@
                                idamostra: {{ admin.id(object) is null ? 0 : admin.id(object)}}},
                         contentType: "application/json",
                         success: function (data) {
-                            alert(data);
                             $("#parametros_grid").bootgrid("destroy");
                             GetParametros();
 

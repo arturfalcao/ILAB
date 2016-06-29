@@ -1474,6 +1474,72 @@ EOF;
         return $response;
     }
 
+
+    public function GeraCodigoBarrasAction($slug)
+    {
+        error_reporting(0);
+        $samples = explode(",", $slug);
+        $ids = "";
+        $pdf = $this->container->get("white_october.tcpdf")->create(
+            $orientation='L',
+            $unit='mm',
+            $format='A4',
+            $unicode=true,
+            $encoding='UTF-8',
+            $diskcache=false,
+            $pdfa=false
+            );
+
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Pimenta do Vale');
+        $pdf->SetTitle('Código de Barras');
+        // set default header data
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setAutoPageBreak(true, 30);
+
+// set image scale factor
+        $pdf->SetFont('helvetica', '', 10);
+        $style = array(
+            'position' => '',
+            'align' => 'C',
+            'stretch' => true,
+            'fitwidth' => false,
+            'cellfitalign' => '',
+            'border' => true,
+            'hpadding' => 'auto',
+            'vpadding' => 'auto',
+            'fgcolor' => array(0,0,0),
+            'bgcolor' => false, //array(255,255,255),
+            'text' => true,
+            'font' => 'helvetica',
+            'fontsize' => 20,
+            'stretchtext' => 0
+        );
+
+// add a page
+        $pdf->setPrintFooter(false);
+        $pdf->setPrintHeader(false);
+        $pdf->AddPage();
+
+        foreach ($samples as &$slug) {
+            $ids .= "_" . $slug;
+            $em = $this->getDoctrine()->getManager();
+            $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($slug);
+            //$pdf->Cell(0, 0, 'Amostra com o ID ' . $amostra->getFnId(), 0, 1);
+            $pdf->write1DBarcode('' . $amostra->getFnId(), 'EAN13', '', '', '', 180 , 0.4, $style, 'N');
+
+            $pdf->Ln();
+        }
+
+        if(count($samples) > 1)
+            $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "codigobarras" . DIRECTORY_SEPARATOR . "codigos_barras_amostras". $ids.".pdf";
+        else
+            $target_dir = $this->container->getParameter('kernel.root_dir') . DIRECTORY_SEPARATOR . "codigobarras" . DIRECTORY_SEPARATOR . "codigos_barras_amostra". $ids.".pdf";
+        
+        $pdf->Output($target_dir,'FI');
+        return new Response("ok");
+    }
+
     public function GetPDFFileAction($slug)
     {
         if(substr( $slug, 0, 6 ) === "Defina")

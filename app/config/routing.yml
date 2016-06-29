@@ -54,6 +54,10 @@ emitirrel:
     path:     /emitirrelatorio/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:EmitirRelatorio }
 
+generatebarcode:
+    path:     /generatebarcode/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:GeraCodigoBarras }
+
 generateworklistalt:
     path:     /generateworklistalt/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Generateworklistalt }

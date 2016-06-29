@@ -123,6 +123,7 @@ file that was distributed with this source code.
                                                             <select id="action_ok" name="action"  style="width: auto; height: auto" class="form-control">
                                                                 <option value="printworklist">Imprimir Lista de Trabalho</option>
                                                                 <option value="emitirrelatorio">Imprimir Relatório</option>
+                                                                <option value="gerarcodigo">Gerar Código de Barras</option>
 
                                                             </select>
                                                         {% endblock %}
@@ -553,6 +554,22 @@ file that was distributed with this source code.
                         ids = ids.slice(0,ids.length-1);
                         e.preventDefault();
                         window.open('/app_dev.php/generateworklist/' + ids, '_blank');
+                    }
+                    else{
+                        e.preventDefault();
+                    }
+                }
+                else if(accao == 'gerarcodigo')
+                {
+                    ids = "";
+                    $('input[name="idx[]"]:checked').each(function() {
+                        ids+=$(this).val()+',';
+                    });
+                    if(ids.length != 0)
+                    {
+                        ids = ids.slice(0,ids.length-1);
+                        e.preventDefault();
+                        window.open('/app_dev.php/generatebarcode/' + ids, '_blank');
                     }
                     else{
                         e.preventDefault();

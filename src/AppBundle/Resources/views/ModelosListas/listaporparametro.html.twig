@@ -204,6 +204,7 @@
             success: function(data) {
                 if(data != ""){
                     data = data.replace(/['"]+/g, '');
+                    location.reload();
                     window.open("/app_dev.php/getpdflista/" + data,"_blank");
                 }else{
                     

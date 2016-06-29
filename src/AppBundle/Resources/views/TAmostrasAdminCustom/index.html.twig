@@ -274,6 +274,7 @@
                                         url: '{{path('tamostras_planeamentolancaamostras')}}',
                                         data:  send ,
                                         success: function(data) {
+                                            data = data.slice(-2);
                                             if(data == "ok"){
                                                 location.reload();
                                             }else{

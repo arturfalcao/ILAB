@@ -126,8 +126,9 @@ class TAmostrasAdminCustomController extends Controller
         $arr = $this->get("request")->getContent();
         $arr2 = explode("-", $arr);
         $where ="";
+        $ids = "";
         foreach ($arr2 as &$value) {
-
+            $ids .= $value . ",";
             if($where == ""){
                 $where = "fn_id =" . $value ;
             }else{
@@ -180,7 +181,12 @@ class TAmostrasAdminCustomController extends Controller
         } catch (Exception $e) {
             return new Response(json_encode($e));
         }
-        return new Response("ok");
+
+        $ids = rtrim ( $ids,",");
+        $response = $this->forward('AppBundle:WorkListCTRL:GeraCodigoBarras', array(
+            'slug'  => $ids,
+        ));
+        return $response;
     }
 
     public function AmostrasGetCicloVidaAction()
