@@ -110,25 +110,51 @@ class TAmostrasAdmin extends Admin
             ->add('fnId',null,array('label' => 'ID'))
             ->add('fnNumero',null,array('label' => 'Número'))
             ->add('ftSerie',null,array('label' => 'Série'))
-            ->add('fdCriacao',null,array('label' => 'Criação'))
-            ->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data colheita','widget' => 'single_text','attr' => array('class' => 'datepicker')))
-            ->add('fdRecepcao',null,array('label' => 'Recepção'))
-            ->add('fdConclusao',null,array('label' => 'Conclusão'))
-            ->add('fdLimite',null,array('label' => 'Limite'))
+            ->add('fdCriacao','doctrine_orm_datetime', array('label'=> 'Criação',
+                'field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdCriacao',null, array('label'=> 'Criação'))
+            ->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data colheita','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdRecepcao','doctrine_orm_datetime', array('label'=> 'Recepção','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdRecepcao',null,array('label' => 'Recepção'))
+            ->add('fdConclusao','doctrine_orm_datetime', array('label'=> 'Conclusão','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdConclusao',null,array('label' => 'Conclusão'))
+            ->add('fdLimite','doctrine_orm_datetime', array('label'=> 'Limite','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdLimite',null,array('label' => 'Limite'))
             ->add('ftResponsavelcolheita',null,array('label' => 'Responsável'))
             ->add('fnLocalcolheita',null,array('label' => 'Local da colheita'))
             ->add('fnOperador',null,array('label' => 'Operador'))
             ->add('fnCliente',null,array('label' => 'Cliente'))
             ->add('fnModelo',null,array('label' => 'Modelo'))
             ->add('fnTipoaprovacao',null,array('label' => 'Tipo de aprovação'))
-            ->add('fdAutorizacao',null,array('label' => 'Autorização'))
+            ->add('fdAutorizacao','doctrine_orm_datetime', array('label'=> 'Autorização','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdAutorizacao',null,array('label' => 'Autorização'))
             ->add('fnProduto',null,array('label' => 'Produto'))
             ->add('fnTipocontrolo',null,array('label' => 'Tipo de controlo'))
             ->add('fnIdOrcamento',null,array('label' => 'ID orçamento'))
             ->add('ftEstado',null,array('label' => 'Estado'))
             ->add('fnEspecificacao',null,array('label' => 'Especificação'))
             ->add('ftCumpreespecificacao',null,array('label' => 'Cumpre especificação'))
-            ->add('fdInicioanalise',null,array('label' => 'Início da análise'))
+            ->add('fdInicioanalise','doctrine_orm_datetime', array('label'=> 'Ínicio da análise','field_type'=>'sonata_type_datetime_picker',))
+            //->add('fdInicioanalise',null,array('label' => 'Início da análise'))
             ->add('fbFacturada',null,array('label' => 'Faturada'))
             ->add('fnRequisicaocliente',null,array('label' => 'Requisição cliente'))
 

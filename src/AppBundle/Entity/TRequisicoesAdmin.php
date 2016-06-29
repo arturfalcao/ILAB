@@ -18,7 +18,11 @@ class TRequisicoesAdmin extends Admin
         $datagridMapper
             ->add('fnId',null,array('label' => 'ID'))
             ->add('fnIdLaboratorio',null,array('label' => 'ID laboratório'))
-            ->add('fdUltimaemissao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Última emissão','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdUltimaemissao', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdUltimaemissao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Última emissão','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('ftUltimoutilizador',null,array('label' => 'Último utilizador'))
             ->add('fbAnulada',null,array('label' => 'Anulada'))
