@@ -49,6 +49,15 @@ tamostras_new:
 generateworklist:
     path:     /generateworklist/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Generateworklist }
+
+emitirrel:
+    path:     /emitirrelatorio/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:EmitirRelatorio }
+
+generateworklistalt:
+    path:     /generateworklistalt/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:Generateworklistalt }
+
 completesample:
     path:     /completesample/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Completesample }
@@ -74,16 +83,17 @@ reopensample:
 cancelsample:
     path:     /cancelsample/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Cancelsample }
+
 notifysample:
     path:     /notifysample/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:Notifysample }
+
 EntradaResultados:
     path:     /EntradaResultados
     defaults: { _controller: AppBundle:EntResultados:EntradaResultados }
 EntradaResultadosGetByParameter:
   pattern:  /EntradaResultados/para
   defaults: { _controller: AppBundle:EntResultados:getByParameter }
-
 EntradaResultadosGetByAmostra:
     pattern:  /EntradaResultados/amostra
     defaults: { _controller: AppBundle:EntResultados:getByAmostra }
@@ -123,7 +133,9 @@ GetAllUnidadesMedida:
 GetAllFamilias:
     pattern:  /GetAllFamilias
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllFamilias}
-
+GetRel:
+    pattern:  /getrelatorio/{slug}
+    defaults: { _controller: AppBundle:WorkListCTRL:GetRelatorio}
 GetAllLaboratorios:
     pattern:  /GetAllLaboratorios
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllLaboratorios}
@@ -133,9 +145,25 @@ GetAllArea:
 GetAllMetodo:
     pattern:  /GetAllMetodo
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllMetodo}
+GetGrupoByModelo:
+    pattern:  /GetGrupoByModelo
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetGrupoByModelo}
 GetAllTecnica:
     pattern:  /GetAllTecnica
     defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetAllTecnica}
+GetTecnicaByMetodo:
+    pattern:  /GetTecnicaByMetodo
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetTecnicaByMetodo}
+
+
+GetLegislacaoByProduto:
+    pattern:  /GetLegislacaoByProduto
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetLegislacaoByProduto}
+
+GetEspecificacaoByProduto:
+    pattern:  /GetEspecificacaoByProduto
+    defaults: { _controller: AppBundle:TAmostrasAdminCustom:GetEspecificacaoByProduto}
+
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
@@ -171,6 +199,22 @@ adesigns_calendar:
 EmitRelatorio:
     path:     /relatorio/emit/{slug}
     defaults: { _controller: AppBundle:WorkListCTRL:EmitRelatorio }
+EmiteListaporParametro:
+    path:     /listaporparametro
+    defaults: { _controller: AppBundle:WorkListCTRL:EmiteListaporParametro }
+Getparameterbysample:
+  pattern:  /Getparameterbysample
+  defaults: { _controller: AppBundle:WorkListCTRL:Getparameterbysample }
+GetparameterbysampleForParameter:
+  pattern:  /parametroslista
+  defaults: { _controller: AppBundle:WorkListCTRL:GetparameterbysampleForParameter}
+GenerateworklistbyParameter:
+  pattern:  /getlistaporparametro
+  defaults: { _controller: AppBundle:WorkListCTRL:GenerateworklistbyParameter}
+GetPDFFile:
+  pattern:  /getpdflista/{slug}
+  defaults: { _controller: AppBundle:WorkListCTRL:GetPDFFile}
+
 #Jose
 sucesso:
     path:     /sucesso

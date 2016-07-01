@@ -21,7 +21,7 @@ class TAmostrasalimentosAdmin extends Admin
             ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
             ->add('ftValidade',null,array('label'=>'Validade'))
             ->add('ftTemperatura',null,array('label'=>'Temperatura'))
-            ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
+            ->add('ftFaseprocesso',null,array('label'=>'Fase do proc.'))
         ;
     }
 
@@ -54,14 +54,13 @@ class TAmostrasalimentosAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnId',null,array('label'=>'ID'))
-            ->add('ftLote',null,array('label'=>'Lote'))
-            ->add('ftAcondicionamento',null,array('label'=>'Acondicionamento'))
+            ->add('ftLote',null,array('required' => false,'label'=>'Lote'))
+            ->add('ftAcondicionamento',null,array('required' => false,'label'=>'Acondicionamento'))
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
-            ->add('ftValidade',null,array('label'=>'Validade'))
-            ->add('ftTemperatura',null,array('label'=>'Temperatura'))
-            ->add('ftFaseprocesso',null,array('label'=>'Fase do processo'))
+            ->add('ftValidade',null,array('required' => false,'label'=>'Validade'))
+            ->add('ftTemperatura',null,array('required' => false,'label'=>'Temperatura'))
+            ->add('ftFaseprocesso',null,array('required' => false,'label'=>'Fase do processo'))
             ->end()
         ;
     }

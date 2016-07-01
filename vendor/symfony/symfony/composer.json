@@ -18,6 +18,9 @@
     "require": {
         "php": ">=5.3.9",
         "doctrine/common": "~2.4",
+        "paragonie/random_compat": "~1.0",
+        "symfony/polyfill-apcu": "~1.1",
+        "symfony/polyfill-mbstring": "~1.1",
         "twig/twig": "~1.23|~2.0",
         "psr/log": "~1.0"
     },
@@ -74,7 +77,7 @@
         "doctrine/doctrine-bundle": "~1.2",
         "monolog/monolog": "~1.11",
         "ircmaxell/password-compat": "~1.0",
-        "ocramius/proxy-manager": "~0.4|~1.0",
+        "ocramius/proxy-manager": "~0.4|~1.0|~2.0",
         "egulias/email-validator": "~1.2"
     },
     "autoload": {
@@ -95,6 +98,11 @@
         "exclude-from-classmap": [
             "**/Tests/"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symfony\\Bridge\\PhpUnit\\": "src/Symfony/Bridge/PhpUnit/"
+        }
     },
     "minimum-stability": "dev",
     "extra": {

@@ -102,7 +102,7 @@ var chat = $("#chat");
 
             	if(arr.length != 0)
                 {
-                  $.each(arr, function(index,value) {
+                    $.each(arr, function(index,value) {
 
                       var firstname = value.firstname;
                       imagem = value.imagem;
@@ -127,11 +127,11 @@ var chat = $("#chat");
 						            chat.append("<div>");
 
 
-                  			if($("#hc_" + value.id).length == 0) {
+                  			if($("#hc_" + value.ident).length == 0) {
                   				var imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
                   				chat.append(imagem);
-  								chat.append("<p class='triangle-isosceles esq quebra' id='hc_" + value.id + "'>" + value.mensagem + "</p>" );
-							         }
+  								chat.append("<p class='triangle-isosceles esq quebra' id='hc_" + value.ident + "'>" + value.mensagem + "</p>" );
+							       }
 
 	                    	chat.append("</div>");
 
@@ -139,16 +139,16 @@ var chat = $("#chat");
 
                   });
 
-
-
               }
-              $.ajax({
-	                type: "POST",
-	                url: '{{path('chat_updatehistorico')}}',
-	                data: {id: nid, id2: user},
-	                success: function(data) {}
 
-				     });
+              $.ajax({
+                type: "POST",
+                url: '{{path('chat_updatehistorico')}}',
+                data: {id: nid, id2: user},
+                success: function(data) {}
+
+                });
+
           }
 	});
 
@@ -175,67 +175,70 @@ function histMens(element)
 	    $("#insere").remove();
 	    chat.remove();
 
-	    $.ajax({
+        $.ajax({
                 type: "POST",
                 url: '{{path('chat_gethistorico')}}',
                 data: {id: nid, id2: user},
                 success: function(data) {
                 	var arr = $.parseJSON(data);
-                	tabs_2.append("<div id='chat' style='border-top:1px solid #DFDFDF;padding-top: 23px;'>");
+                    if(tabs_2.find("#chat").length == 0)
+                        tabs_2.append("<div id='chat' style='max-height:300px;overflow-y:scroll;overflow-x:hidden;border-top:1px solid #DFDFDF;padding-top:23px;'>");
                 	if(arr.length != 0)
                     {
                         chat = $("#chat");
-                        chat.append("<h6 class='h6' align='center'>" + nome_user + "</h6>" );
-                      $.each(arr, function(index,value) {
-                          var firstname = value.firstname;
-                          imagem = value.imagem;
+                        if(chat.find("h6").length == 0) {
+                            chat.append("<h6 class='h6' align='center'>" + nome_user + "</h6>");
+                            $.each(arr, function (index, value) {
+                                var firstname = value.firstname;
+                                imagem = value.imagem;
 
-                          if(imagem)
-                          {
-                            imagem = imagem.replace('"','');
-                            imagem = imagem.replace('"','');
-                            imagem = imagem.replace(/\\/g,'');
-                          }
-                          else {
-                            imagem = '';
-                          }
+                                if (imagem) {
+                                    imagem = imagem.replace('"', '');
+                                    imagem = imagem.replace('"', '');
+                                    imagem = imagem.replace(/\\/g, '');
+                                }
+                                else {
+                                    imagem = '';
+                                }
 
-                          if(!firstname)
-                          {
-                            firstname = '';
-                          }
+                                if (!firstname) {
+                                    firstname = '';
+                                }
 
-                          if(value.id_emissor == user)
-                      		{
-                                username=firstname;
-                                t=imagem;
-                                chat.append("<div>");
+                                if (value.id_emissor == user) {
+                                    username = firstname;
+                                    t = imagem;
+                                    chat.append("<div>");
+                                    if ($("#hc_" + value.ident).length == 0) {
+                                        imagem = '<img class="circle_image imagem_direita" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
+                                        chat.append(imagem);
+                                        chat.append("<p  class='triangle-isosceles dir quebra' id='hc_" + value.ident + "'>" + value.mensagem + "</p>");
 
-                                imagem = '<img class="circle_image imagem_direita" id="us_' + value.id_emissor + '" src="' + imagem +'" alt="' + firstname + '" >';
-                                chat.append(imagem);
-                                chat.append("<p  class='triangle-isosceles dir quebra'>" + value.mensagem + "</p>" );
-                                chat.append("</div>");
-                      		}
-                          else{
-                                chat.append("<div>");
-                                imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="' + imagem +'" alt="' + firstname + '" >';
-                                chat.append(imagem);
-                                chat.append("<p class='triangle-isosceles esq quebra'>" + value.mensagem + "</p>" );
-                                chat.append("</div>");
-                          }
-                      });
+                                    }
+                                    chat.append("</div>");
+                                }
+                                else {
+                                    chat.append("<div>");
+                                    if ($("#hc_" + value.ident).length == 0) {
+                                        imagem = '<img class="circle_image imagem_esquerda" id="us_' + value.id_emissor + '" src="' + imagem + '" alt="' + firstname + '" >';
+                                        chat.append(imagem);
+                                        chat.append("<p class='triangle-isosceles esq quebra' id='hc_" + value.ident + "'>" + value.mensagem + "</p>");
+                                        chat.append("</div>");
+                                    }
+                                }
+                            });
 
-                        tabs_2.append("</div>");
-                        tabs_2.append('<input type="hidden" id="clicked_user" value="' + nid + '">');
-                        novasMensagensUtilizador();
-                        TextoMensagensNaoLidas();
+                            tabs_2.append("</div>");
+                            tabs_2.append('<input type="hidden" id="clicked_user" value="' + nid + '">');
+                            novasMensagensUtilizador();
+                            TextoMensagensNaoLidas();
 
-                        tabs_2.append("<p class='sms_n_lidas'></p>");
-                        tabs_2.append("<div id='insere'>" +
-                                "<input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid +"' >" +
-                                "<img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t +  "' x='" + username +"' onclick='sendMessage(this);' id='b_" + user + "_" + nid +"'>"  +
-                                "</div>");
-
+                            tabs_2.append("<p class='sms_n_lidas'></p>");
+                            tabs_2.append("<div id='insere'>" +
+                                    "<input id='texto_imp' placeholder='A sua resposta' type='text' x='i_" + user + "_" + nid + "' >" +
+                                    "<img src='/bundles/app/images/chat-enviar.png'  class='botao_enviar' z='" + t + "' x='" + username + "' onclick='sendMessage(this);' id='b_" + user + "_" + nid + "'>" +
+                                    "</div>");
+                        }
                     }
                     else{
 
@@ -245,7 +248,6 @@ function histMens(element)
                             data: {id: user},
                             success: function(data) {
                                 var arr = $.parseJSON(data);
-                                var p_n='';
                                 imagem='';
                                 if(arr.length != 0)
                                 {
@@ -260,10 +262,11 @@ function histMens(element)
                                         else{
                                             imagem = '';
                                         }
+                                        t=imagem;
                                         if(!value.firstname)
-                                            p_n ="";
+                                            username ="";
                                         else
-                                            p_n = value.firstname;
+                                            username = value.firstname;
 
 
                                     });
@@ -349,7 +352,7 @@ function removeParagrafo(element)
 $( document ).ready(function() {
 
 		var user = Number($('#logged').val());
-
+        MensagensNaoLidas();
 		$('.li_chat, .li_chat a').click(function(){
                     var tabs_2 =  $('#tabs-2');
                     tabs_2.append("<div class='loading' style='margin-top:20px!important;'></div>");

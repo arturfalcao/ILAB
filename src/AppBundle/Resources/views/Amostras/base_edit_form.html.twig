@@ -12,37 +12,128 @@
     {% else %}
         <script type="text/javascript" src="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.js') }}"></script>
         <link href="{{ asset('bundles/app/js/node_modules/jquery-bootgrid/dist/jquery.bootgrid.css') }}" rel="stylesheet">
+
+        <script type="text/javascript" src="{{ asset('/bundles/app/js/toastr.min.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('/bundles/app/css/toastr.min.css') }}" />
+
+        <div class="ecra" style="display: none;"></div>
+
         <script>
+            var dicionario = {};
             $(function() {
                 $( "#tabs_Amostra" ).tabs( { active: 2 });
                 $( "#tabs2" ).tabs({ active: 2 });
 
             });
         </script>
+
+
         <script>
+
+            function removeNulos(mydict)
+            {
+                for (var key in mydict) {
+                    if(key === null || key === undefined)
+                    {
+                    }
+                    else{
+                        if(mydict[key]["AE"] === null ||  mydict[key]["AE"] === undefined)
+                        {mydict[key]["AE"] = "";}
+
+                        if(mydict[key]["CD"] === null ||  mydict[key]["CD"] === undefined)
+                        {mydict[key]["CD"] = "";}
+
+                        if(mydict[key]["CL"] === null ||  mydict[key]["CL"] === undefined)
+                        {mydict[key]["CL"] = "";}
+
+                        if(mydict[key]["CM"] === null ||  mydict[key]["CM"] === undefined)
+                        {mydict[key]["CM"] = "";}
+
+                        if(mydict[key]["FA"] === null ||  mydict[key]["FA"] === undefined)
+                        {mydict[key]["FA"] = "";}
+
+                        if(mydict[key]["FO"] === null ||  mydict[key]["FO"] === undefined)
+                        {mydict[key]["FO"] = "";}
+
+                        if(mydict[key]["FQ"] === null ||  mydict[key]["FQ"] === undefined)
+                        {mydict[key]["FQ"] = "";}
+
+                        if(mydict[key]["FT"] === null ||  mydict[key]["FT"] === undefined)
+                        {mydict[key]["FT"] = "";}
+
+                        if(mydict[key]["IA"] === null ||  mydict[key]["IA"] === undefined)
+                        {mydict[key]["IA"] = "";}
+
+                        if(mydict[key]["LA"] === null ||  mydict[key]["LA"] === undefined)
+                        {mydict[key]["LA"] = "";}
+
+                        if(mydict[key]["ME"] === null ||  mydict[key]["ME"] === undefined)
+                        {mydict[key]["ME"] = "";}
+
+                        if(mydict[key]["OB"] === null ||  mydict[key]["OB"] === undefined)
+                        {mydict[key]["OB"] = "";}
+
+                        if(mydict[key]["OR"] === null ||  mydict[key]["OR"] === undefined)
+                        {mydict[key]["OR"] = "";}
+
+                        if(mydict[key]["TE"] === null ||  mydict[key]["TE"] === undefined)
+                        {mydict[key]["TE"] = "";}
+
+                        if(mydict[key]["UM"] === null ||  mydict[key]["UM"] === undefined)
+                        {mydict[key]["UM"] = "";}
+
+                        if(mydict[key]["VE"] === null ||  mydict[key]["VE"] === undefined)
+                        {mydict[key]["VE"] = "";}
+
+                    }
+                }
+                return mydict;
+            }
+
+            function outrometodoVazio(mydict){
+                var omv=0;
+                for (var key in mydict) {
+                    if(key === null || key === undefined)
+                    {
+                    }
+                    else{
+                        if(mydict[key]["OM"] === 1 &&  mydict[key]["CD"] == "")
+                        {omv=1;break;}
+                    }
+                }
+                return omv;
+            }
+
 
             var rowIds = [];
             var selectedRows = [];
             var _lastSelectedRow = 0;
             var _ParaData = [];
             var _oldoriginalvalue = 0;
+
             function AddParaActions(){
                 if(typeof $('.NewPara').select2('data').id != 'undefined' && $('.NewPara').select2('data').id != ""){
-                    $.ajax({
-                        type: "POST",
-                        url: '/app_dev.php/addpara',
-                        data: {idpara: $('.NewPara').select2('data').id , idamostra : {{ admin.id(object)  }}},
-                        contentType: "application/json",
-                        success: function(data) {
-                            alert(data);
-                            $("#parametros_grid").bootgrid("destroy");
-                            GetParametros();
 
-                        }
-                    });
+
+                        $.ajax({
+                            type: "POST",
+                            url: '/app_dev.php/addpara',
+                            data: {idpara: $('.NewPara').select2('data').id,
+                                idamostra: {{ admin.id(object) is null ? 0 : admin.id(object)}}},
+                            contentType: "application/json",
+                            success: function (data) {
+                                $("#parametros_grid").bootgrid("destroy");
+                                GetParametros();
+
+                            }
+                        });
+
+
                 }
             }
+
             function UpdateParaActions(URL){
+
                 var _old = rowIds.slice(0);
                 $.each(_ParaData, function( index, value ) {
                     $.each(rowIds, function( index1, value1 ) {
@@ -71,6 +162,7 @@
                 });
 
                 if(rowIds.length != 0){
+                    $(".ecra").show();
                     $.ajax({
                         type: "POST",
                         url: URL,
@@ -79,10 +171,25 @@
                         success: function(data) {
                             $("#parametros_grid").bootgrid("destroy");
                             rowIds.length = 0;
+
                             GetParametros();
 
+                            if(URL == '/completepara')
+                            {toastr.info('Autorizado');
+
+                            }
+                            else if(URL == '/reopenpara')
+                            {toastr.info('Desautorizado');
+
+
+                            }
+                            else if(URL == '/cancelpara')
+                            {toastr.info('Eliminado');
+
+                            }
                         }
                     });
+
                 }
                 rowIds = _old;
 
@@ -91,8 +198,10 @@
                 $.ajax({
                     type: "POST",
                     url: '{{path('AmostrasGetParametros')}}',
-                    data: {data: {{ admin.id(object)  }} },
+                    data: {data: {{ admin.id(object) is null ? 0 : admin.id(object)}} },
                     success: function(data) {
+                        $('.ecra').hide();
+                        $("#parametros_grid").bootgrid("destroy");
 
                         var grid_para = $("#parametros_grid").bootgrid({
                             navigation:0,
@@ -106,6 +215,16 @@
                             {
                                 rowIds.push(rows[i].id);
                             }
+                            if(!dicionario[rows[0].idparametro]) {
+                                dicionario[rows[0].idparametro] = {};
+                                dicionario[rows[0].idparametro]["IA"] = $("#_amostra").val();
+                            }
+                            GetAllMetodo(rows[0].idparametro);
+                            GetCicloPorParametro(rows[0].idparametro);
+                            GetResultadoPorParametro(rows[0].idparametro);
+                            GetParametroData(rows[0].idparametro);
+
+
                         }).on("deselected.rs.jquery.bootgrid", function(e, rows)
                         {
                             for (var i = 0; i < rows.length; i++)
@@ -120,24 +239,35 @@
                             }
                         }).on("click.rs.jquery.bootgrid", function (e,rows,row)
                         {
-
-                            GetCicloPorParametro(row.idparametro);
-                            GetResultadoPorParametro(row.idparametro);
-                            GetParametroData(row.idparametro);
-                            selectedRows = rows;
+                            if(rows) {
+                                GetAllMetodo(row.idparametro);
+                                GetCicloPorParametro(row.idparametro);
+                                GetResultadoPorParametro(row.idparametro);
+                                GetParametroData(row.idparametro);
+                                selectedRows = rows;
+                            }
                         });
                         var obj = $.parseJSON(data);
                         _ParaData= obj;
                         if (obj.length != 0) {
                             grid_para.bootgrid("append",obj );
+
                             $.each(obj, function (key, value) {
 
                             });
                         } else {
 
                         }
+
+
+
+
+
+
                     }
                 });
+
+
             }
             function GetAllPara(){
                 $.ajax({
@@ -145,14 +275,17 @@
                     url: "/app_dev.php/GetAllPara",
                     dataType: 'json',
                     success: function(data) {
-                        $('.NewParaDiv').append("<select  class='NewPara'></select>");
+                        $('.NewParaDiv').append("<select  class='NewPara'><option></option></select>");
 
                         $.each(data, function(index, value) {
                             $('.NewPara').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".NewPara").select2();
+                        $(".NewPara").select2({
+                            placeholder: "Selecione um parâmetro a adicionar",
+                            allowClear: true
+                        });
                     }
                 });
             }
@@ -162,13 +295,17 @@
                     url: "{{ path('GetAllUnidadesMedida') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.NewUnidadesDiv').append("<select  class='NewUnidades'></select>");
+                        $('.NewUnidadesDiv').append("<select  class='NewUnidades'><option></option></select>");
+
                         $.each(data, function(index, value) {
                             $('.NewUnidades').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".NewUnidades").select2();
+                        $(".NewUnidades").select2({
+                            placeholder: "Selecione uma unidade de medida",
+                            allowClear: true
+                        });
                     }
                 });
             }
@@ -178,15 +315,21 @@
                     url: "{{ path('GetAllFamilias') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.familiadiv').append("<select  class='familia'></select>");
+                        $('.familiadiv').append("<select  class='familia'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.familia').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".familia").select2();
+
+                        $(".familia").select2({
+                            placeholder: "Selecione uma Família",
+                            allowClear: true
+                        });
                     }
                 });
+
+
             }
             //get laboratorios
             function GetAllLaboratorios(){
@@ -195,13 +338,16 @@
                     url: "{{ path('GetAllLaboratorios') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.laboratoriodiv').append("<select  class='laboratirio'></select>");
+                        $('.laboratoriodiv').append("<select  class='laboratirio'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.laboratirio').append(
                                     '<option value="' + value.fnId + '">' + value.ftNome + '</option>'
                             );
                         });
-                        $(".laboratirio").select2();
+                        $(".laboratirio").select2({
+                            placeholder: "Selecione um laboratório",
+                            allowClear: true
+                        });
                     }
                 });
             }
@@ -212,30 +358,135 @@
                     url: "{{ path('GetAllArea') }}",
                     dataType: 'json',
                     success: function(data) {
-                        $('.areaensaiodiv').append("<select  class='areaensaio'></select>");
+                        $('.areaensaiodiv').append("<select  class='areaensaio'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.areaensaio').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".areaensaio").select2();
+
+                        $(".areaensaio").select2({
+                            placeholder: "Selecione uma área de ensaio",
+                            allowClear: true
+                        });
                     }
                 });
             }
             //get metodo
-            function GetAllMetodo(){
+            function GetAllMetodo(_idpara){
                 $.ajax({
                     type: "POST",
                     url: "{{ path('GetAllMetodo') }}",
-                    dataType: 'json',
+                    data: {data: _idpara  },
                     success: function(data) {
-                        $('.metododiv').append("<select  class='metodo'></select>");
+                        $(".metodo").select2('destroy');
+                        $(".metododiv .metodo").remove();
+                        data  = JSON.parse(data);
+                        $('.metododiv').append("<select  class='metodo'><option></option></select>");
                         $.each(data, function(index, value) {
                             $('.metodo').append(
                                     '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
                             );
                         });
-                        $(".metodo").select2();
+                        $(".metodo").select2({
+                            placeholder: "Selecione um método",
+                            allowClear: true
+                        }).on("change", function(e) {
+                            GetTecnicaByMetodo(e.val,_idpara);
+                        });
+                    }
+                });
+            }
+            //get grupo by modelo selection
+            //get metodo
+            function GetGrupoByModelo(_modelo){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetGrupoByModelo') }}",
+                    data: {data: _modelo  },
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        $("._grupoparametros").select2("val", data[0].fnId);
+
+                    }
+                });
+            }
+
+
+            function GetLegislacaoByProduto(_produto){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetLegislacaoByProduto') }}",
+                    data: {data: _produto  },
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        if(data.length!=0)
+                        {
+                            $("._legislacao.select2-offscreen").select2("val", data[0].id_legislacao);
+                        }
+
+                    }
+                });
+            }
+
+            function GetEspecificacaoByProduto(_produto){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetEspecificacaoByProduto') }}",
+                    data: {data: _produto  },
+                    success: function(data) {
+                        data = JSON.parse(data);
+                        if(data.length != 0)
+                        {
+
+                            $('._especificacao.select2-offscreen').html('');
+                            $.each(data, function(index, value) {
+                                $('._especificacao.select2-offscreen').append(
+                                        '<option value="' + value.id_especificacao + '">' + value.descricao + '</option>'
+                                );
+                            });
+                            $("._especificacao.select2-offscreen").select2("val", data[0].id_especificacao);
+
+                        }
+
+                    }
+                });
+            }
+
+
+            function GetTecnicaByMetodo(_idmetodo,_id_Para){
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetTecnicaByMetodo') }}",
+                    data: {data: _idmetodo  },
+                    dataType: 'json',
+                    success: function(data) {
+                        if(_idmetodo.length == 0)
+                        {
+                            dicionario[_id_Para]["ME"] = "";
+                            dicionario[_id_Para]["TE"] = "";
+                            $(".tecnica").select2("val", "");
+                            dicionario[_id_Para]["OM"] = 1;
+                            $('#_outrometodo').iCheck('check');
+                            $("#_outrometodo").prop('checked', true);
+                        }
+
+                        if(data.length != 0 && _idmetodo.length != 0){
+                            $(".metodo").select2("val", _idmetodo);
+                            $(".tecnica").select2("val", data[0].tecnica);
+                            $('.tecnica').select2("enable",false);
+                            dicionario[_id_Para]["ME"] = _idmetodo;
+                            dicionario[_id_Para]["TE"] = data[0].tecnica;
+
+                            dicionario[_id_Para]["OM"] = 0;
+                            dicionario[_id_Para]["CD"] = "";
+                            $('#_outrometodo').iCheck('uncheck');
+                            $("#_outrometodo").prop('checked', false);
+                            $("#_custommethod").val("");
+                        }
+
                     }
                 });
             }
@@ -270,29 +521,38 @@
                             var estado = "";
                             var bullet = "";
                             $.each(obj, function (key, value) {
-                                if(value.ft_id_estado == 'I'){
+
+                                if(value.ft_id_estado == 7){
+                                    estado = 'Cancelada';
+                                    bullet = "bullet-red";
+                                }
+                                if(value.ft_id_estado == 1){
+                                    estado = 'Aprovado';
+                                    bullet = "bullet-green";
+                                }
+                                if(value.ft_id_estado == 4){
                                     estado = 'Indisponivel';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == 'V'){
-                                    estado = 'Disponivel';
+                                if(value.ft_id_estado == 5){
+                                    estado = 'Planeado';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == 'D'){
+                                if(value.ft_id_estado == 6){
+                                    estado = 'Disponivel';
+                                    bullet = "bullet-blue";
+                                }
+                                if(value.ft_id_estado == 8){
+                                    estado = 'Parcial';
+                                    bullet = "bullet-yellow";
+                                }
+                                if(value.ft_id_estado == 3){
                                     estado = 'Em Progresso';
                                     bullet = "bullet-yellow";
                                 }
-                                if(value.ft_id_estado == 'P'){
-                                    estado = 'Planeada';
-                                    bullet = "bullet-blue";
-                                }
-                                if(value.ft_id_estado == 'C'){
+                                if(value.ft_id_estado == 2){
                                     estado = 'Completo';
                                     bullet = "bullet-green";
-                                }
-                                if(value.ft_id_estado == 'X'){
-                                    estado = 'Cancelada';
-                                    bullet = "bullet-pink";
                                 }
                                 html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.date  +'</td><td>'+value.user +'</td></tr>'
 
@@ -317,10 +577,23 @@
                             $("#_valorformatado").val(obj[0].ft_formatado);
                             $("#_idresultado").val(obj[0].fn_id);
                             $("#_idparametro").val(obj[0].fn_id_parametro);
+                            // ??? $("#_conclusao_2").val(obj[0].ft_conclusao);
 
+                            dicionario[_id_Para]["UM"] = obj[0].fn_id_unidade;
+                            dicionario[_id_Para]["OR"] = obj[0].ft_original;
+                            dicionario[_id_Para]["FO"] = obj[0].ft_formatado;
 
-                            if(obj[0].fb_incluirnorelatorio != null){
+                            if(obj[0].fb_incluirnorelatorio != "0"){
+                                $('#_incluirelatorio').iCheck('check');
                                 $("#_incluirelatorio").prop('checked', true);
+                                dicionario[_id_Para]["IR"] = 1;
+                                $('#_incluirelatorio').iCheck('disable');
+                            }
+                            else{
+                                $('#_incluirelatorio').iCheck('check');
+                                $("#_incluirelatorio").prop('checked', false);
+                                dicionario[_id_Para]["IR"] = 0;
+                                $('#_incluirelatorio').iCheck('disable');
                             }
                         }
                     }
@@ -334,20 +607,56 @@
                     success: function(data) {
                         var obj = $.parseJSON(data);
                         if (obj.length != 0) {
+                            $("#_idparametroData").val(_id_Para);
 
                             $("#_nomeparametro").val(obj[0].ft_descricao);
+
                             $(".familia").select2("val", obj[0].fn_id_familiaparametro);
+
+
+                            $("#_custommethod").val(obj[0].ft_custommethod);
+
+                            dicionario[_id_Para]["FA"] = obj[0].fn_id_familiaparametro;
+
+                            if(obj[0].ft_custommethod != null && obj[0].ft_custommethod != ""){
+                                $("#_custommethod").show();
+                                $("#_custommethod").attr('required',true);
+                                $(".metododiv").hide();
+                                $(".tecnicadiv").hide();
+                                $(".labelformetododiv").hide();
+                                $(".labelfortecnicadiv").hide();
+                                $('#_outrometodo').iCheck('check');
+                                $("#_outrometodo").prop('checked', true);
+
+                                dicionario[_id_Para]["OM"] = 1;
+                                dicionario[_id_Para]["CD"] = obj[0].ft_custommethod;
+
+                            }else{
+                                $(".metododiv").show();
+                                $(".tecnicadiv").show();
+                                $(".labelformetododiv").show();
+                                $(".labelfortecnicadiv").show();
+                                $('#_outrometodo').iCheck('uncheck');
+                                $("#_outrometodo").prop('checked', false);
+
+                                dicionario[_id_Para]["OM"] = 0;
+                                dicionario[_id_Para]["CD"] = obj[0].ft_custommethod;
+                            }
 
                             $("#_modeloparametro").val(obj[0].modelodepara);
                             $("#_formulaquimica").val(obj[0].ft_formulaquimica);
                             $("#_idmodeloparametro").val(obj[0].fn_id_modeloparametro);
-                            $("#_idparametroData").val(obj[0].id);
 
 
                             $(".laboratirio").select2("val", obj[0].fn_id_laboratorio);
+
+
                             $(".areaensaio").select2("val", obj[0].fn_id_areaensaio);
+
+
                             $(".metodo").select2("val", obj[0].fn_id_metodo);
-                            $(".tecnica").select2("val", obj[0].fn_id_tecnica);
+
+                            GetTecnicaByMetodo(obj[0].fn_id_metodo,_id_Para);
 
                             $("#_compra").val(obj[0].fn_precocompra);
                             $("#_venda").val(obj[0].fn_precovenda);
@@ -356,71 +665,165 @@
                             $("#_conclusao").val(obj[0].ft_conclusao);
                             $("#_observacoes").val(obj[0].ft_observacao);
 
+                            dicionario[_id_Para]["FQ"] = obj[0].ft_formulaquimica;
+                            dicionario[_id_Para]["LA"] = obj[0].fn_id_laboratorio;
+                            dicionario[_id_Para]["AE"] = obj[0].fn_id_areaensaio;
+                            dicionario[_id_Para]["CM"] = obj[0].fn_precocompra;
+                            dicionario[_id_Para]["VE"] = obj[0].fn_precovenda;
+                            dicionario[_id_Para]["FT"] = obj[0].fn_factorcorreccao;
+                            dicionario[_id_Para]["CL"] = obj[0].ft_conclusao;
+                            dicionario[_id_Para]["OB"] = obj[0].ft_observacao;
+
                             if(obj[0].fb_confirmacao == 1){
                                 $('#_confirmacao').iCheck('check');
                                 $("#_confirmacao").prop('checked', true);
+                                dicionario[_id_Para] ["CO"] = 1;
+
+                            }else{
+                                $('#_confirmacao').iCheck('uncheck');
+                                $("#_confirmacao").prop('checked', false);
+                                dicionario[_id_Para]["CO"] = 0;
+
                             }
                             if(obj[0].fb_contraanalise == 1){
                                 $('#_contraanalise').iCheck('check');
                                 $("#_contraanalise").prop('checked', true);
+                                dicionario[_id_Para]["CA"] = 1;
+                            }else{
+                                $('#_contraanalise').iCheck('uncheck');
+                                $("#_contraanalise").prop('checked', false);
+                                dicionario[_id_Para]["CA"] = 0;
                             }
                             if(obj[0].fb_amostraexterno == 1){
                                 $('#_ambexterno').iCheck('check');
                                 $("#_ambexterno").prop('checked', true);
+                                dicionario[_id_Para]["AM"] = 1;
+                            }else{
+                                $('#_ambexterno').iCheck('uncheck');
+                                $("#_ambexterno").prop('checked', false);
+                                dicionario[_id_Para]["AM"] = 0;
                             }
                             if(obj[0].fb_amostrainterno == 1){
                                 $('#_ambinterno').iCheck('check');
                                 $("#_ambinterno").prop('checked', true);
+                                dicionario[_id_Para]["AI"] = 1;
+                            }else{
+                                $('#_ambinterno').iCheck('uncheck');
+                                $("#_ambinterno").prop('checked', false);
+                                dicionario[_id_Para]["AI"] = 0;
                             }
                             if(obj[0].fb_determinacaoexterno == 1){
                                 $('#_deterexterno').iCheck('check');
                                 $("#_deterexterno").prop('checked', true);
+                                dicionario[_id_Para]["DE"] = 1;
+                            }else{
+                                $('#_deterexterno').iCheck('uncheck');
+                                $("#_deterexterno").prop('checked', false);
+                                dicionario[_id_Para]["DE"] = 0;
                             }
                             if(obj[0].fb_determinacaointerno == 1){
                                 $('#_deterinterno').iCheck('check');
                                 $("#_deterinterno").prop('checked', true);
+                                dicionario[_id_Para]["DI"] = 1;
+                            }else{
+                                $('#_deterinterno').iCheck('uncheck');
+                                $("#_deterinterno").prop('checked', false);
+                                dicionario[_id_Para]["DI"] = 0;
                             }
 
-                            if(obj[0].fb_incluirnorelatorio != null){
-                                $("#_incluirelatorio").prop('checked', true);
-                            }
                         }
                     }
                 });
+
+                $('.familia').on('change', function(){
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["FA"] = $(this).val();
+                });
+
+                $('.laboratirio').on('change', function(){
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["LA"] = $(this).val();
+                });
+
+                $('.areaensaio').on('change', function(){
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["AE"] = $(this).val();
+                });
+
+                $(".NewUnidades").on("change", function() {
+                    var idp = $("#_idparametroData").val();
+                    dicionario[idp]["UM"] = $(this).val();
+                });
+
             }
             function Savedata(){
-                var arr = [$("#_amostra").val(),$("#_idparametro").val() , $("#_valorformatado").val() , $("#_valororiginal").val(), $(".NewUnidades").select2('data').id];
-                var arr2 = [ $("#_idparametro").val(),$("#_formulaquimica").val(), $(".familia").select2('data').id,$(".laboratirio").select2('data').id, $(".areaensaio").select2('data').id , $(".metodo").select2('data').id , $(".tecnica").select2('data').id , $('#_confirmacao:checkbox:checked').length > 0 ? 1 : 0, $('#_contraanalise:checkbox:checked').length > 0 ? 1 : 0,  $('#_compra').val(), $('#_venda').val() , $('#_fator').val(), $('#_conclusao').val() , $('#_observacoes').val() ,$('#_ambexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_ambinterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterexterno:checkbox:checked').length > 0 ? 1 : 0,$('#_deterinterno:checkbox:checked').length > 0 ? 1 : 0  ];
 
-                $.ajax({
-                    type: "POST",
-                    url: '{{path('EntradaResultadossetByRegrasFormatacaoAmostra')}}',
-                    data: JSON.stringify(arr),
-                    success: function(data) {
-                        if(data > 0){
-                            alert("Resultados Guardados com sucesso");
-                            GetParametros();
-                        }else{
-                            alert("Resultado não guardado");
+                dicionario = removeNulos(dicionario);
+                var OMV = outrometodoVazio(dicionario);
+                if(OMV == 0) {
+                    $(".ecra").show();
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('EntradaResultadossetByRegrasFormatacaoAmostra') }}',
+                        data: JSON.stringify(dicionario),
+                        success: function (data) {
+                            if (data > 0) {
+                                toastr.info('Resultados guardados com sucesso');
+                                GetParametros();
+                            } else {
+                                toastr.info('Resultados não guardados');
+                            }
                         }
-                    }
-                });
-                $.ajax({
-                    type: "POST",
-                    url: '{{path('SaveParaporAmostra')}}',
-                    data: JSON.stringify(arr2),
-                    success: function(data) {
-                        if(data > 0){
-                            alert("Resultados Guardados com sucesso");
-                            GetParametros();
-                        }else{
-                            alert("Resultado não guardado");
+                    });
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('SaveParaporAmostra') }}',
+                        data: JSON.stringify(dicionario),
+                        success: function (data) {
+                            if (data > 0) {
+                                toastr.info('Resultados guardados com sucesso');
+                                GetParametros();
+                                $(".ecra").hide();
+                            } else {
+                                $(".ecra").hide();
+                                toastr.info('Resultados não guardados');
+                            }
                         }
-                    }
-                });
-
+                    });
+                }
             }
             $( document ).ready(function() {
+
+
+                $('#_outrometodo').on('ifChecked',
+                        function(){
+                            $("#_custommethod").show();
+                            $("#_custommethod").attr('required',true);
+                            $(".metododiv").hide();
+                            $(".tecnicadiv").hide();
+                            $(".labelformetododiv").hide();
+                            $(".labelfortecnicadiv").hide();
+
+                            var idp = $("#_idparametroData").val();
+                            dicionario[idp]["ME"] = "";
+                            dicionario[idp]["TE"] = "";
+
+                        }).on('ifUnchecked',
+                        function(){
+                            $("#_custommethod").hide();
+                            $("#_custommethod").attr('required',false);
+                            $(".metododiv").show();
+                            $(".tecnicadiv").show();
+                            $(".labelformetododiv").show();
+                            $(".labelfortecnicadiv").show();
+
+                            var idp = $("#_idparametroData").val();
+                            var pri = $(".metodo option").eq(1).val();
+                            $(".metodo").select2("val",pri);
+                            GetTecnicaByMetodo(pri,idp);
+                        });
+
+
 
                 //valor original do resultado altera
                 $('#_valororiginal').focus(function() {
@@ -462,7 +865,7 @@
                 $.ajax({
                     type: "POST",
                     url: '{{path('AmostrasGetCicloVida')}}',
-                    data: {data: {{ admin.id(object)  }} },
+                    data: {data: {{ admin.id(object) is null ? 0 : admin.id(object)}} },
                     success: function(data) {
                         var obj = $.parseJSON(data);
                         if (obj.length != 0) {
@@ -470,29 +873,38 @@
                             var estado = "";
                             var bullet = "";
                             $.each(obj, function (key, value) {
-                                if(value.ft_id_estado == 'I'){
+
+                             if(value.ft_id_estado == 7){
+                                    estado = 'Cancelada';
+                                    bullet = "bullet-red";
+                                }
+                                if(value.ft_id_estado == 1){
+                                    estado = 'Aprovado';
+                                    bullet = "bullet-green";
+                                }
+                                if(value.ft_id_estado == 4){
                                     estado = 'Indisponivel';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == 'V'){
-                                    estado = 'Disponivel';
+                                if(value.ft_id_estado == 5){
+                                    estado = 'Planeado';
                                     bullet = "bullet-gray";
                                 }
-                                if(value.ft_id_estado == 'D'){
+                                if(value.ft_id_estado == 6){
+                                    estado = 'Disponivel';
+                                    bullet = "bullet-blue";
+                                }
+                                if(value.ft_id_estado == 8){
+                                    estado = 'Parcial';
+                                    bullet = "bullet-yellow";
+                                }
+                                if(value.ft_id_estado == 3){
                                     estado = 'Em Progresso';
                                     bullet = "bullet-yellow";
                                 }
-                                if(value.ft_id_estado == 'P'){
-                                    estado = 'Planeada';
-                                    bullet = "bullet-blue";
-                                }
-                                if(value.ft_id_estado == 'C'){
+                                if(value.ft_id_estado == 2){
                                     estado = 'Completo';
                                     bullet = "bullet-green";
-                                }
-                                if(value.ft_id_estado == 'X'){
-                                    estado = 'Cancelada';
-                                    bullet = "bullet-pink";
                                 }
                                 html += '<tr><td><span class="'+ bullet +'"></span>'+ estado +'</td><td>'+ value.updated_by_time +'</td><td>'+value.updated_by +'</td></tr>'
 
@@ -516,24 +928,37 @@
         </script>
 
 
-        <style>
 
-        </style>
+        {% if admin.id(object) is null  %}
+
+            <script>
+                $( document ).ready(function() {
+
+                    $( "#tabs_Amostra" ).tabs( "option","disabled", [1]);
+                });
+
+
+            </script>
+        {% endif %}
+
 
         <script>
             $( document ).ready(function() {
 
+
+
                 $( ".Lote_amostra .form-group .form-group" ).each(function() {
-                    $( this ).addClass( "col-md-4" );
+                    $( this ).addClass( "col-md-6" );
                 });
 
                 $( ".Dados_amostra > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group" ).addClass( "col-md-4" );
+
 
             })
         </script>
 
 
-        <div id="tabs_Amostra">
+        <div id="tabs_Amostra" style="padding: 0;">
             <ul>
                 <li><a href="#tabs-3">Ciclo de Vida</a></li>
                 <li><a href="#tabs-2">Parâmetros</a></li>
@@ -631,14 +1056,71 @@
                                         app.request.attributes.get('_route_params')) %}
 
                                         <a target="_blank" class="btn generateworklist" href="/generateworklist/{{ admin.id(object)  }}"><i class="fa fa-list"></i> Gerar lista de trabalho</a>
-                                        <a target="_blank" class="btn generateworklist" href="/completesample/{{ admin.id(object)  }}"><i class="fa fa-check-circle"></i> Autorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/reopensample/{{ admin.id(object)  }}"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/cancelsample/{{ admin.id(object)  }}"><i class="fa fa-ban"></i> Cancelar </a>
-                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit"><i class="fa fa-file-text"></i> Emitir Relatório </a>
+                                        <a target="_blank" class="btn generateworklist" id="completa_amostra" href="#"><i class="fa fa-check-circle"></i> Autorizar </a>
+                                        <a target="_blank" class="btn generateworklist" id="abre_amostra" href="#"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
+                                        <a target="_blank" class="btn generateworklist" id="cancela_amostra" href="#"><i class="fa fa-ban"></i> Cancelar </a>
+                                        <a target="_blank" class="btn generateworklist" href="/relatorio/emit/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Emitir Relatório </a>
+                                        <a target="_blank" class="btn generateworklist" href="/generateworklistalt/{{ admin.id(object)  }}"><i class="fa fa-file-text"></i> Relatório de alterações </a>
+
                                         <a target="_blank" class="btn generateworklist" href="/notifysample/{{ admin.id(object)  }}"><i class="fa fa-envelope"></i> Notificar Cliente </a>
 
                                         <a class="btn btn-danger" href="{{ admin.generateObjectUrl('delete', object) }}"><i class="fa fa-minus-circle"></i> {{ 'link_delete'|trans({}, 'SonataAdminBundle') }}</a>
 
+
+                                        <script>
+
+                                            $( document ).ready(function() {
+
+                                                $( "#completa_amostra" ).click(function( event ) {
+                                                    event.preventDefault();
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: '/completesample/{{ admin.id(object) }}',
+                                                        data: {},
+                                                        success: function(data) {
+                                                            $("._estado.select2-offscreen").select2("val",data);
+                                                            toastr.info('Autorizada');
+
+                                                        }
+                                                    });
+
+                                                });
+
+                                                $( "#abre_amostra" ).click(function( event ) {
+                                                    event.preventDefault();
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: '/reopensample/{{ admin.id(object) }}',
+                                                        data: {},
+                                                        success: function(data) {
+                                                            $("._estado.select2-offscreen").select2("val",data);
+                                                            toastr.info('Desautorizada');
+
+                                                        }
+                                                    });
+
+                                                });
+
+                                                $( "#cancela_amostra" ).click(function( event ) {
+                                                    event.preventDefault();
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: '/cancelsample/{{ admin.id(object)  }}',
+                                                        data: {},
+                                                        success: function(data) {
+                                                            $("._estado.select2-offscreen").select2("val",data);
+                                                            toastr.info('Cancelada');
+
+                                                        }
+                                                    });
+                                                });
+
+
+
+
+                                            });
+
+                                        </script>
 
                                     {% endif %}
 
@@ -659,7 +1141,7 @@
                     {% endblock formactions %}
                 </form>
             </div>
-            <div id="tabs-2">
+            <div id="tabs-2" >
                 <div class="row">
                     <div class="col-md-6">
                         <table id="parametros_grid" class="table table-condensed table-hover table-striped">
@@ -677,7 +1159,7 @@
                         </table>
 
                         <div class="NewParaDiv"></div>
-                        <a target="_blank" class="btn generateworklist" onclick="AddParaActions()"><i class="fa fa-plus-circle"></i> Adicionar </a>
+                        <a target="_blank" class="btn generateworklist" style="margin-top: 10px!important;" onclick="AddParaActions()"><i class="fa fa-plus-circle"></i> Adicionar </a>
 
                     </div>
                     <div class="col-md-6">
@@ -689,8 +1171,8 @@
                             </ul>
                             <div id="tabs-4">
 
-                                <p style="padding-left: 14px;padding-top: 30px;">Execução:</p>
-                                <div class="form-group col-md-6">
+                                <div class="form-group x1 col-md-6" style="padding-bottom: 30px;">
+                                    <p style="padding-top: 30px;">Execução:</p>
                                     <label for="_nomeparametro">ID</label>
                                     <input type="text" class="form-control" id="_idparametroData" disabled>
                                     <label for="_nomeparametro">Nome</label>
@@ -702,27 +1184,29 @@
                                     <input type="text" class="form-control" id="_formulaquimica" >
                                     <label for="_valororiginal">Família</label>
                                     <div class="familiadiv"></div>
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label for="laboratoriodiv">Laboratório</label>
+                                    <label for="laboratoriodiv" style="padding-top: 22px;">Laboratório</label>
                                     <div class="laboratoriodiv" style="margin-bottom: 25px!important;"></div>
-                                    <label for="areaensaiodiv">Área de ensaio</label>
+                                    <label for="areaensaiodiv" >Área de ensaio</label>
                                     <div class="areaensaiodiv" style="margin-bottom: 25px!important;"></div>
-                                    <label for="metododiv">Método</label>
+
+                                    <label for="_outrometodo" class="" style="float: left;width: 90%;margin-bottom: 15px;">Outro Método</label>
+                                    <input type="checkbox" class="form-control" id="_outrometodo" >
+
+                                    <input style="display: none;" type="text" class="form-control" id="_custommethod">
+
+                                    <label for="metododiv" class="labelformetododiv">Método</label>
                                     <div class="metododiv" style="margin-bottom: 25px!important;"></div>
-                                    <label for="tecnicadiv" >Técnica</label>
+                                    <label for="tecnicadiv" class="labelfortecnicadiv">Técnica</label>
                                     <div class="tecnicadiv" style="margin-bottom: 25px!important;"></div>
 
-                                    <label for="_confirmacao">Confirmação</label>
+                                    <label for="_confirmacao" class="col-md-7 no-padding">Confirmação</label>
                                     <input type="checkbox" class="form-control" id="_confirmacao" >
-                                    <label for="_contraanalise">Contra Análise</label>
+                                    <label for="_contraanalise" class="col-md-7 no-padding">Contra Análise</label>
                                     <input type="checkbox" class="form-control" id="_contraanalise" >
-
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <p>Preço:</p>
+                                    <p style="padding-top: 30px;">Preço:</p>
                                     <label for="_compra">Compra</label>
                                     <input type="text" class="form-control" id="_compra" >
                                     <label for="_venda">Venda</label>
@@ -730,22 +1214,22 @@
                                     <label for="_fator">Fator</label>
                                     <input type="text" class="form-control" id="_fator" >
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <p>Acreditação Amostragem:</p>
-                                    <label for="_confirmacao">Âmbito Interno</label>
+                                <div class="form-group x2 col-md-6">
+                                    <p style="padding-top: 22px;">Acreditação Amostragem:</p>
+                                    <label for="_confirmacao" class="col-md-7 no-padding">Âmbito Interno</label>
                                     <input type="checkbox" class="form-control" id="_ambinterno" >
-                                    <label for="_contraanalise">Âmbito Externo</label>
+                                    <label for="_contraanalise" class="col-md-7 no-padding">Âmbito Externo</label>
                                     <input type="checkbox" class="form-control" id="_ambexterno" >
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <p>Acreditação Determinação:</p>
-                                    <label for="_confirmacao">Âmbito Interno</label>
+                                <div class="form-group x3 col-md-6">
+                                    <p style="padding-top: 22px;">Acreditação Determinação:</p>
+                                    <label for="_confirmacao" class="col-md-7 no-padding">Âmbito Interno</label>
                                     <input type="checkbox" class="form-control" id="_deterinterno" >
-                                    <label for="_contraanalise">Âmbito Externo</label>
+                                    <label for="_contraanalise" class="col-md-7 no-padding">Âmbito Externo</label>
                                     <input type="checkbox" class="form-control" id="_deterexterno" >
                                 </div>
 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-6" style="padding-top: 35px;">
                                     <label for="_fator">Conclusão</label>
                                     <input type="text" class="form-control" id="_conclusao" >
                                 </div>
@@ -753,12 +1237,14 @@
                                     <label for="_fator">Observações</label>
                                     <input type="text" class="form-control" id="_observacoes" >
                                 </div>
+
+
                             </div>
                             <div id="tabs-5">
-                                <p>Resultado:</p>
-                                <div class="checkbox disabled">
+                                <p style="padding-top: 22px;">Resultado:</p>
+                                <div class="checkbox ">
                                     <label>
-                                        <input type="checkbox" id="_incluirelatorio" value="" disabled>
+                                        <input type="checkbox" id="_incluirelatorio" value="" >
                                         Incluir no relatório
                                     </label>
                                 </div>
@@ -772,14 +1258,14 @@
                                 <div class="form-group">
                                     <input type="hidden"  id="_idresultado" >
                                     <input type="hidden"  id="_idparametro" >
-                                    <input type="hidden"  id="_amostra" value="{{ admin.id(object)  }}" >
+                                    <input type="hidden"  id="_amostra" value="{{ admin.id(object) is null ? 0 : admin.id(object)}}" >
 
                                     <label for="_valororiginal">Original</label>
                                     <input type="text" class="form-control" id="_valororiginal" >
                                     <label for="_valorformatado">Formatado</label>
                                     <input type="text" class="form-control" id="_valorformatado" disabled>
-                                    <label for="_conclusao">Conclusão</label>
-                                    <input type="text" class="form-control" id="_conclusao" disabled>
+                                    <label for="_conclusao_2">Conclusão</label>
+                                    <input type="text" class="form-control" id="_conclusao_2" disabled>
                                 </div>
                             </div>
                             <div id="tabs-6">
@@ -800,7 +1286,7 @@
                     </div>
                 </div>
                 </div>
-                <div class="well well-small form-actions large-16 form-group visivel text-center">
+                <div class="well well-small form-actions large-16 medium-16 form-group visivel text-center">
                     <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/completepara')"><i class="fa fa-check-circle"></i> Autorizar </a>
                     <a target="_blank" class="btn generateworklist" onclick="Savedata()"><i class="fa fa-save"></i> Guardar</a>
                     <a target="_blank" class="btn generateworklist" onclick="UpdateParaActions('/reopenpara')"><i class="fa fa-exclamation-circle"></i> Desautorizar </a>
@@ -810,7 +1296,7 @@
             </div>
             <div id="tabs-3">
                 <div class="table-padding">
-                    <table class="hover table_ciclo large-15">
+                    <table class="hover table_ciclo large-15 medium-15">
                         <thead>
                         <tr>
                             <th width="100">Estado</th>
@@ -828,25 +1314,181 @@
 
 
     <style>
+
         #parametros_grid{
             margin-top: 18px;
         }
 
     </style>
+<script>
 
-    {% endif%}
+    $( document ).ready(function() {
 
-    {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}
+        $('._modeloamostra').on("select2-selecting", function(e) {
+            GetGrupoByModelo(e.val);
+        });
 
-    <style>
+        $('._produto').on("select2-selecting", function(e) {
+            GetLegislacaoByProduto(e.val);
+            GetEspecificacaoByProduto(e.val);
+        });
+
+
+
+
+    });
+</script>
+
+<script>
+    $( document ).ready(function() {
+
+
+        $("#_formulaquimica").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["FQ"] = $("#_formulaquimica").val();
+        });
+
+        $("#_outrometodo").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["OM"] = 1;
+        });
+
+        $("#_outrometodo").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp] ["OM"] = 0;
+            $("#_custommethod").val("");
+            dicionario[idp]["CD"] = "";
+        });
+
+
+
+        $("#_custommethod").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CD"] = $("#_custommethod").val();
+        });
+
+
+
+        $("#_confirmacao").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CO"] = 1;
+
+        });
+
+        $("#_confirmacao").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp] ["CO"] = 0;
+        });
+
+
+        $("#_contraanalise").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CA"] = 1;
+
+        });
+
+        $("#_contraanalise").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp] ["CA"] = 0;
+        });
+
+        $("#_compra").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CM"] = $("#_compra").val();
+        });
+
+        $("#_venda").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["VE"] = $("#_venda").val();
+        });
+
+        $("#_fator").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["FT"] = $("#_fator").val();
+        });
+
+
+
+        $("#_ambinterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AI"] = 1;
+
+        });
+
+        $("#_ambinterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AI"] = 0;
+        });
+
+
+        $("#_ambexterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AM"] = 1;
+
+        });
+
+        $("#_ambexterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["AM"] = 0;
+        });
+
+
+        $("#_deterinterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DI"] = 1;
+
+        });
+
+        $("#_deterinterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DI"] = 0;
+        });
+
+        $("#_deterexterno").on('ifChecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DE"] = 1;
+
+        });
+
+        $("#_deterexterno").on('ifUnchecked', function(){
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["DE"] = 0;
+        });
+
+
+        $("#_conclusao").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["CL"] = $("#_conclusao").val();
+        });
+
+        $("#_observacoes").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["OB"] = $("#_observacoes").val();
+
+        });
+
+        $("#_valororiginal").change(function () {
+            var idp = $("#_idparametroData").val();
+            dicionario[idp]["OR"] = $("#_valororiginal").val();
+            dicionario[idp]["FO"] = $("#_valororiginal").val();
+        });
+
+    });
+</script>
+
+<style>
         {% if 'edit' in admin.request.pathInfo %}
+
         .Cliente_amostra .select2-container{
             width: 78% !important;
         }
         {% endif %}
 
+</style>
 
-    </style>
+    {% endif%}
+
+    {{ sonata_block_render_event('sonata.admin.edit.form.bottom', { 'admin': admin, 'object': object }) }}
 
 
 {% endblock %}

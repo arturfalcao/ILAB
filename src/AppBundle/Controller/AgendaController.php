@@ -49,12 +49,16 @@ class AgendaController extends Controller
     /**
      * Obter todas as amostras do dia de hoje.
      *
-     * @Route("calendar/geteventos", name="eventos_planeados")
+     * @Route("/calendar/geteventos", name="eventos_planeados")
      */
     
     public function geteventosAction()
     {
-        
+        $parameter = $this->get("request")->getContent();
+        $parameter = explode("&", $parameter);
+        $arr1 = explode("=", $parameter[0]);
+        $user = intval($arr1[1]);
+
         $t = \date('Y-m-d');
         
         $inicio = $t . " 00:00:00";
@@ -64,34 +68,42 @@ class AgendaController extends Controller
         $data_inicio = \DateTime::createFromFormat("Y-m-d H:i:s",$inicio);
         $data_fim = \DateTime::createFromFormat("Y-m-d H:i:s",$fim);
         
-        $ft_estado = 'P';
         $em = $this->getDoctrine()->getManager();
-        
+
+
+        $estado = $em->getRepository('AppBundle:TEstados')->findOneByftCodigo('P');
+
         $result = $em->createQueryBuilder();
-        
-        $dql = $result->select('a')
-                      ->from('AppBundle:TAmostras', 'a')
-                      ->where('a.startdatetime >= :data_inicio')
-                      ->setParameter('data_inicio', $data_inicio)
-                      ->andWhere('a.startdatetime <= :data_fim')
-                      ->setParameter('data_fim', $data_fim)
-                      ->andWhere('a.ftEstado = :ft_estado')
-                      ->setParameter('ft_estado', $ft_estado)
-                      ->orderBy('a.startdatetime', 'ASC')
-                      ->getQuery()
-                      ->getResult();
-        
         $info = [];
         $i = 0;
+        if($estado) {
+            $data_inicio =  date_format($data_inicio,"Y-m-d H:i:s");
+           $data_fim =  date_format($data_fim,"Y-m-d H:i:s");
 
-        foreach ($dql as $amostra) {
+            $dql = $result->select('a')
+                ->from('AppBundle:TAmostras', 'a')
+                ->where('a.startdatetime >= :data_inicio')
+                ->setParameter('data_inicio', $data_inicio)
+                ->andWhere('a.startdatetime <= :data_fim')
+                ->setParameter('data_fim', $data_fim)
+                ->andWhere('a.ftEstado = :ft_estado')
+                ->setParameter('ft_estado', $estado->getFnId())
+                ->orderBy('a.startdatetime', 'ASC')
+                ->getQuery()
+                ->getResult();
 
-            $info[$i]['tempo'] = $amostra->getStartdatetime();
-            $info[$i]['observacao'] = $amostra->getFtObs(); 
-            $info[$i]['am_ag'] = 1;
-            $info[$i]['id'] = 'am_' . $amostra->getFnId();
-            $info[$i]['done'] = $amostra->getFnDone();
-            $i++;
+
+            foreach ($dql as $amostra) {
+    
+                $info[$i]['tempo'] = $amostra->getStartdatetime();
+                $info[$i]['observacao'] = $amostra->getFtObs();
+                $info[$i]['am_ag'] = 1;
+                $info[$i]['id'] = 'am_' . $amostra->getFnId();
+                $info[$i]['done'] = $amostra->getFnDone();
+                $i++;
+            }
+            
+
         }
 
         $em_2 = $this->getDoctrine()->getManager();
@@ -105,6 +117,8 @@ class AgendaController extends Controller
                            ->setParameter('data_inicio', $data_inicio)
                            ->andWhere('ag.startdatetime <= :data_fim')
                            ->setParameter('data_fim', $data_fim)
+                           ->andWhere('ag.FnIdUtilizador = :user')
+                           ->setParameter('user', $user)
                            ->orderBy('ag.startdatetime', 'ASC')
                            ->getQuery()
                            ->getResult();
@@ -117,7 +131,7 @@ class AgendaController extends Controller
             $info[$i]['id'] = 'ag_' . $agenda->getId();
             $info[$i]['done'] = $agenda->getFnDone();
             $i++;
-        }              
+        }
 
         return new Response(json_encode($info));
     }
@@ -168,6 +182,8 @@ class AgendaController extends Controller
      * @Route("/calendario", name="agenda_create")
      * @Method("POST")
      * @Template("AppBundle:Agenda:new.html.twig")
+     * @param Request $request
+     * @return array
      */
     public function createAction(Request $request)
     {
@@ -177,7 +193,6 @@ class AgendaController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
@@ -259,6 +274,8 @@ class AgendaController extends Controller
      * @Route("calendar/{id}/edit", name="agenda_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {
@@ -296,12 +313,16 @@ class AgendaController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Agenda entity.
      *
      * @Route("calendar/{id}", name="agenda_update")
      * @Method("PUT")
      * @Template("AppBundle:Agenda:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {
@@ -329,11 +350,15 @@ class AgendaController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a Agenda entity.
      *
      * @Route("calendar/{id}", name="agenda_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {
@@ -373,22 +398,22 @@ class AgendaController extends Controller
     }
 
 
-
     /**
      * Creates a new Agenda entity.
      *
      * @Route("/calendar/newshort", name="agenda_create_short")
      * @Method("POST")
+     * @param Request $request
+     * @return Response
      */
     public function newshortAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
         $entity = new Agenda();
-
         $form = $this->createFormBuilder($entity)
             ->add('title',null,array('label' => 'O que'))
             ->add('startdatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'start_date_short'),'label' => false))
             ->add('enddatetime',null,array( 'attr'=>array('style'=>'display:none;','id'=>'end_date_short'),'label' => false))
+            ->add('FnIdUtilizador','hidden',array('label'=>'Utilizador'))
             ->add('submit','submit')
             ->getForm();
         $form->handleRequest($request);
@@ -428,19 +453,17 @@ class AgendaController extends Controller
      *
      * @Route("/calendar/newshort/{slug}", name="agenda_update_short")
      * @Method({"PUT", "DELETE"})
+     * @param $slug
+     * @return Response
      */
     public function updatenewshortAction($slug)
     {
         $em = $this->getDoctrine()->getEntityManager();
         $request = $this->getRequest();
-        $AJAXresponse = array();
-
+        $myEntity = 0;
         if(isset($slug)){
             $myEntity = $em->getRepository('AppBundle:Agenda')->find($slug);
         }
-
-
-        $defaultData = array('message' => 'Type your message here');
 
 
         if ($request->getMethod() == 'PUT') {
@@ -478,7 +501,7 @@ class AgendaController extends Controller
                 $em->remove($myEntity);
                 $em->flush();
 
-                return new Response('' + $myEntity->getId());
+                return new Response('' . $myEntity->getId());
 
             }else{
                 return new Response('Alguma coisa correu mal');

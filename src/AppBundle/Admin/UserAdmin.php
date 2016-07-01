@@ -44,7 +44,7 @@ class UserAdmin extends BaseUserAdmin
     {
         $filterMapper
             ->add('id',null,array('label' => 'ID'))
-            ->add('username',null,array('label' => 'Nome de utilizador'))
+            ->add('username',null,array('label' => 'Nome de util.'))
             ->add('locked',null,array('label' => 'Bloqueado'))
             ->add('email',null,array('label' => 'Email'))
             ->add('groups',null,array('label' => 'Grupos'))
@@ -102,7 +102,7 @@ class UserAdmin extends BaseUserAdmin
             ->add('plainPassword', 'text', array(
                 'required' => (!$this->getSubject() || is_null($this->getSubject()->getId()))
             ))
-            ->add('dateOfBirth','sonata_type_date_picker', array('label' => 'Data de Nascimento','required' => false))
+            ->add('dateOfBirth','sonata_type_date_picker', array('label' => 'Data de nascimento','required' => false))
             ->add('firstname', null, array('label' => 'Primeiro nome' ,'required' => false))
             ->add('lastname', null, array('label' => 'Último nome' ,'required' => false))
             ->add('website', 'url', array('label' => 'Website' ,'required' => false))
@@ -110,21 +110,22 @@ class UserAdmin extends BaseUserAdmin
             ->add('gender', 'sonata_user_gender', array(
                 'label' => 'Género' ,
                 'required' => true,
+                'attr'=> array('class'=>'t_generos'),
                 'translation_domain' => $this->getTranslationDomain()
             ))
             ->add('locale', 'locale', array('label' => 'Nacionalidade' ,'required' => false))
             ->add('timezone', 'timezone', array('label' => 'Fuso horário' ,'required' => false))
             ->add('phone', null, array('label' => 'Telefone' ,'required' => false))
-            ->add('facebookUid', null, array('label' => 'ID Facebook' ,'required' => false))
-            ->add('facebookName', null, array('label' => 'Nome Facebook' ,'required' => false))
-            ->add('twitterUid', null, array('label' => 'ID Twitter' ,'required' => false))
-            ->add('twitterName', null, array('label' => 'Nome Twitter' ,'required' => false))
-            ->add('gplusUid', null, array('label' => 'ID Google+' ,'required' => false))
-            ->add('gplusName', null, array('label' => 'Nome Google+' ,'required' => false))
+            ->add('facebookUid', null, array('label' => 'ID facebook' ,'required' => false))
+            ->add('facebookName', null, array('label' => 'Nome facebook' ,'required' => false))
+            ->add('twitterUid', null, array('label' => 'ID twitter' ,'required' => false))
+            ->add('twitterName', null, array('label' => 'Nome twitter' ,'required' => false))
+            ->add('gplusUid', null, array('label' => 'ID google+' ,'required' => false))
+            ->add('gplusName', null, array('label' => 'Nome google+' ,'required' => false))
             ->add('locked', null, array('label' => 'Bloqueado' ,'required' => false))
             ->add('expired', null, array('label' => 'Expirado' ,'required' => false))
             ->add('enabled', null, array('label' => 'Habilitado' ,'required' => false))
-            ->add('credentialsExpired', null, array('label' => 'Credenciais Expiradas' ,'required' => false))
+            ->add('credentialsExpired', null, array('label' => 'Credenciais expiradas' ,'required' => false))
             ->add('token', null, array('label' => 'Token' ,'required' => false))
             ->add('twoStepVerificationCode', null, array('label' => 'Código de verificação 2 passos' ,'required' => false))
             ->end()

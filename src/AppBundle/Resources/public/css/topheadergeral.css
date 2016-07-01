@@ -146,16 +146,10 @@ a
     margin-right: 0;
     font-weight:normal;
     border: none;
-    /*-webkit-box-shadow: inset 0 -1px 0 #dddddd;
-    -moz-box-shadow: inset 0 -1px 0 #dddddd;
-    box-shadow: inset 0 -1px 0 #dddddd;*/
     -webkit-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s;
-    /*-webkit-transition: all all 0.2s ease-out;
-    -moz-transition: all all 0.2s ease-out;
-    -o-transition: all all 0.2s ease-out;
-    transition: all all 0.2s ease-out;*/
+
 }
 
 #tab_sidebar .nav-tabs > li.active > a, #tab_sidebar .nav-tabs > li.active > a:hover, #tab_sidebar .nav-tabs > li.active > a:focus {
@@ -173,13 +167,32 @@ a
 
 #tab_sidebar .nav > li > a:hover, #tab_sidebar .nav > li > a:focus {
     text-decoration: none;
-    background-color: #eeeeee;
+    background-color: white;
 }
 
 #tab_sidebar .nav > li > a {
     position: relative;
     display: block;
 }
+
+#tab_sidebar a
+{
+    cursor: pointer!important;
+    color: black;
+    text-decoration: none!important;
+    background-color: white!important;
+}
+
+#tab_sidebar a:hover{
+    background-color: transparent!important;
+    color: #139c9b!important;
+}
+
+#tab_sidebar a:focus{
+    background-color: transparent!important;
+    color: #139c9b!important;
+}
+
 
 a:active, a:focus {
     outline: 0;
@@ -264,6 +277,7 @@ p.agenda
     font-size: 13px;
     margin-top: -37px !important;
     margin-left: 30px !important;
+    color: black;
 }
 
 
@@ -283,7 +297,7 @@ p.agenda
 
 .imagem_direita {
     margin-top: 15px;
-    margin-left: 275px;
+    margin-left: 263px;
 }
 
 #texto_imp {
@@ -307,7 +321,7 @@ p.agenda
 }
 
 .triangle-isosceles.dir {
-    margin-left: 20px;
+    margin-left: 10px;
     background: #E6E6E6;
     margin-top: -45px;
     margin-bottom: 3px;
@@ -367,7 +381,6 @@ p.quebra{
     overflow-wrap: break-word;
     word-wrap: break-word;
 
-    /*-ms-word-break: break-all;*/
     word-break: break-all;
 
     -ms-hyphens: auto;
@@ -406,7 +419,7 @@ p.quebra{
 }
 
 .img_align{
-    margin-top: 23px;
+    margin-top: 15px;
     margin-left: 9px;
 }
 
@@ -414,12 +427,14 @@ p.quebra{
     padding: 0 0 !important;
 }
 
-/*#tab_sidebar .ui-tabs, #tab_sidebar .ui-tabs-nav, #tab_sidebar .ui-tabs-anchor {
-    padding: 0.5em 25px !important;
-}*/
+
 
 #tab_sidebar .ui-state-default a, #tab_sidebar .ui-state-default a:link, #tab_sidebar .ui-state-default a:visited{
         color: #535353;
+}
+
+#tab_sidebar > ul li{
+    list-style: none;
 }
 
 .h6{
@@ -427,6 +442,7 @@ p.quebra{
     margin-bottom: 20px;
     font-size: 17px;
     font-weight: bold;
+    font-family: "montserratregular", Helvetica, Roboto, Arial, sans-serif!important;
 
 }
 
@@ -440,7 +456,7 @@ p.quebra{
 
 .circulo
 {
-    margin-left: 255px;
+    margin-left: 270px;
     position: absolute;
     width:15px;
     height:15px;
@@ -509,8 +525,6 @@ p.quebra{
     padding-bottom: 0;
 
 }
-
-
 
 .new-bottom-section {
     position: absolute;

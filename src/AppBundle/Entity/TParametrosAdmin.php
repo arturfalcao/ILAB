@@ -19,7 +19,8 @@ class TParametrosAdmin extends Admin
             ->add('fnId',null, array('label' => 'ID'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             ->add('fnMetodo',null, array('label' => 'Método'))
-            ->add('fnTecnica',null, array('label' => 'Técnica'))
+            //->add('fnTecnica',null, array('label' => 'Técnica'))
+            ->add('fnTipoparametro',null, array('label' => 'Tipo de Parâmetro'))
             ->add('fnAreaensaio',null, array('label' => 'Área Ensaio'))
             ->add('fdLimiterealizacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Limite de Realização','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre Especificação'))
@@ -48,7 +49,8 @@ class TParametrosAdmin extends Admin
             ->add('fnId',null, array('label' => 'ID'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             ->add('fnMetodo',null, array('label' => 'Método'))
-            ->add('fnTecnica',null, array('label' => 'Técnica'))
+            //->add('fnTecnica',null, array('label' => 'Técnica'))
+            ->add('fnTipoparametro',null, array('label' => 'Tipo de Parâmetro'))
             ->add('fnModeloparametro',null, array('label' => 'Modelo de Parâmetro'))
             ->add('fnLaboratorio',null, array('label' => 'Laboratório'))
             ->add('fbAcreditado',null, array('label' => 'Acreditado'))
@@ -69,24 +71,43 @@ class TParametrosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('grupo_1',array('description' => 'X','class' => 'col-md-4'))
+            ->with('grupo_1',array('description' => 'X','class' => 'col-md-4 Parametros'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
-            ->add('fnMetodo',null, array('label' => 'Método'))
-            ->add('fnTecnica',null, array('label' => 'Técnica'))
-            ->add('fnAreaensaio',null, array('label' => 'Área de Ensaio'))
-            ->add('fdLimiterealizacao','sonata_type_datetime_picker', array('label' => 'Limite de Realização'))
+            //->add('fnMetodo',null, array('label' => 'Método'))
+            ->add('fnMetodo', 'sonata_type_model', array('label' => 'Método','multiple' => true,  'property' => 'ftDescricao'))
+
+            //->add('fnTecnica',null, array('label' => 'Técnica'))
+            
+            ->add('fnAreaensaio',null, array('required'=>true,'label' => 'Área de Ensaio'))
+            ->add('fnTipoparametro',null, array('label' => 'Tipo de Parâmetro'))
+            ->add('fdLimiterealizacao','sonata_type_datetime_picker', array('label' => 'Limite de Realização','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
             ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre especificação'))
             ->add('ftConclusao',null, array('label' => 'Conclusão'))
-            ->add('fnModeloparametro',null, array('label' => 'Modelo Parâmetro'))
+            ->add('fnModeloparametro',null, array('required'=>true,'label' => 'Modelo Parâmetro'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
 
             ->end()
             ->with('grupo_2',array('description' => 'Y','class' => 'col-md-4'))
-            ->add('fdCriacao','sonata_type_datetime_picker', array('label' => 'Data de Criação'))
-            ->add('fdRealizacao','sonata_type_datetime_picker', array('label' => 'Data de realização'))
-            ->add('fdConclusao','sonata_type_datetime_picker', array('label' => 'Data de conclusão'))
-            ->add('fdAutorizacao','sonata_type_datetime_picker', array('label' => 'Autorização'))
-            ->add('fnLaboratorio',null, array('label' => 'Laboratório'))
+            ->add('fdCriacao','sonata_type_datetime_picker', array('label' => 'Data de Criação','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            ->add('fdRealizacao','sonata_type_datetime_picker', array('label' => 'Data de realização','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            ->add('fdConclusao','sonata_type_datetime_picker', array('label' => 'Data de conclusão','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            ->add('fdAutorizacao','sonata_type_datetime_picker', array('label' => 'Autorização','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            ->add('fnLaboratorio',null, array('required'=>true,'label' => 'Laboratório'))
             ->add('fnPrecocompra',null, array('label' => 'Preço de Compra'))
             ->add('fnPrecovenda',null, array('label' => 'Preço de venda'))
             ->add('fnFactorcorreccao',null, array('label' => 'Factor de correcção'))
@@ -95,7 +116,7 @@ class TParametrosAdmin extends Admin
             ->end()
             ->with('grupo_3',array('description' => 'X','class' => 'col-md-4'))
                 ->add('fnLimitelegal',null, array('label' => 'Limite legal'))
-                ->add('fnFamiliaparametro',null, array('label' => 'Família Parâmetro'))
+                ->add('fnFamiliaparametro',null, array('required'=>true,'label' => 'Família Parâmetro'))
                 ->add('ftFormulaquimica',null, array('label' => 'Fórmula Química'))
                 ->add('fnFrasco',null, array('label' => 'Frasco'))
                 ->add('fnVolumeminimo',null, array('label' => 'Volume mínimo'))
@@ -117,7 +138,7 @@ class TParametrosAdmin extends Admin
         $showMapper
             ->add('ftDescricao')
             ->add('fnMetodo')
-            ->add('fnTecnica')
+            //->add('fnTecnica')
             ->add('fnAreaensaio')
             ->add('fdLimiterealizacao')
             ->add('ftCumpreespecificacao')
@@ -138,7 +159,7 @@ class TParametrosAdmin extends Admin
             ->add('fnFrasco')
             ->add('fnVolumeminimo')
             ->add('fbConfirmacao')
-            ->add('ftEstado')
+            //->add('ftEstado')
             ->add('fbContraanalise')
             ->add('fdRealizacao')
         ;

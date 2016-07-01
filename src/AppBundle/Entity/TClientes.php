@@ -95,13 +95,6 @@ class TClientes
     /**
      * @var string
      *
-     * @ORM\Column(name="ft_fax", type="string", length=20, nullable=false)
-     */
-    private $ftFax;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="ft_email", type="string", length=50, nullable=false)
      */
     private $ftEmail;
@@ -142,11 +135,7 @@ class TClientes
     private $fbuserativo;
 
 
-    /**
-     * Get fnId
-     *
-     * @return integer 
-     */
+    
     public function __toString()
     {
         return $this->ftNome;
@@ -159,7 +148,7 @@ class TClientes
     /**
      * Set fnId
      *
-     * @param string $fnId
+     * @param boolean $fbuserativo
      * @return TClientes
      */
     public function setFbuserativo($fbuserativo)
@@ -176,7 +165,7 @@ class TClientes
     /**
      * Set fnId
      *
-     * @param string $fnId
+     * @param integer $fnId
      * @return TClientes
      */
     public function setFnId($fnId)
@@ -222,6 +211,8 @@ class TClientes
 
         return $this;
     }
+
+
     /**
      * Set ftNomeUtilizador
      *
@@ -272,7 +263,7 @@ class TClientes
      */
     public function getFtNome()
     {
-        return $this->ftNome;
+        return utf8_decode($this->ftNome);
     }
 
     /**
@@ -295,7 +286,7 @@ class TClientes
      */
     public function getFtAlias()
     {
-        return $this->ftAlias;
+        return utf8_decode($this->ftAlias);
     }
 
     /**
@@ -318,7 +309,7 @@ class TClientes
      */
     public function getFtMorada()
     {
-        return $this->ftMorada;
+        return utf8_decode($this->ftMorada);
     }
 
     /**
@@ -364,7 +355,7 @@ class TClientes
      */
     public function getFtLocalidade()
     {
-        return $this->ftLocalidade;
+        return utf8_decode($this->ftLocalidade);
     }
 
     /**
@@ -387,7 +378,7 @@ class TClientes
      */
     public function getFtPais()
     {
-        return $this->ftPais;
+        return utf8_decode($this->ftPais);
     }
 
     /**
@@ -412,30 +403,7 @@ class TClientes
     {
         return $this->ftTelefone;
     }
-
-    /**
-     * Set ftFax
-     *
-     * @param string $ftFax
-     * @return TClientes
-     */
-    public function setFtFax($ftFax)
-    {
-        $this->ftFax = $ftFax;
-
-        return $this;
-    }
-
-    /**
-     * Get ftFax
-     *
-     * @return string 
-     */
-    public function getFtFax()
-    {
-        return $this->ftFax;
-    }
-
+    
     /**
      * Set ftEmail
      *

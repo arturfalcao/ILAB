@@ -22,20 +22,20 @@ class TParametrospormetodo
      */
     private $fnId;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="fn_id_especificacao", type="bigint")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     */
-
 
     /**
-     * @ORM\ManyToOne(targetEntity="TTMetodos", inversedBy="fnParametros")
+     * @ORM\ManyToOne(targetEntity="TMetodos", inversedBy="fnParametros")
      * @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
      */
-    private $fnIdEspecificacao;
+    private $fnMetodo;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TParametros", inversedBy="fnParametros")
+     * @ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")
+     */
+    private $fnParametro;
+
 
     /**
      * @var integer
@@ -73,6 +73,26 @@ class TParametrospormetodo
     private $ftTextoRelatorio;
 
 
+    public function getFnMetodo()
+    {
+        return $this->fnMetodo;
+    }
+    public function setFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo = null)
+    {
+        $this->fnMetodo = $fnMetodo;
+
+        return $this;
+    }
+    public function getFnParametro()
+    {
+        return $this->fnParametro;
+    }
+    public function setFnParametro(\AppBundle\Entity\TParametros $fnParametro = null)
+    {
+        $this->fnParametro = $fnParametro;
+
+        return $this;
+    }
 
     /**
      * Get ftTextoRelatorio

@@ -24,15 +24,9 @@ class CalendarEventListener
 
     public function loadEvents(CalendarEvent $calendarEvent)
     {
-        $startDate = $calendarEvent->getStartDatetime();
-        $endDate = $calendarEvent->getEndDatetime();
 
         // The original request so you can get filters from the calendar
         // Use the filter in your query for example
-
-        $request = $calendarEvent->getRequest();
-        $filter = $request->get('filter');
-
 
         // load events using your custom logic here,
         // for instance, retrieving events from a repository
@@ -54,6 +48,7 @@ class CalendarEventListener
             if ($companyEvent->getAllDay() === false) {
                 $eventEntity = new EventEntity($companyEvent->getId(),$companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
             } else {
+                
                 $eventEntity = new EventEntity($companyEvent->getId(),$companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime(), $companyEvent->getAllDay());
             }
             $calendarEvent->addEvent($eventEntity);

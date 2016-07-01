@@ -120,15 +120,16 @@ file that was distributed with this source code.
                                                                  ({{ admin.datagrid.pager.nbresults }})
                                                             </label>
 
-                                                            <select name="action"  style="width: auto; height: auto" class="form-control">
+                                                            <select id="action_ok" name="action"  style="width: auto; height: auto" class="form-control">
                                                                 <option value="printworklist">Imprimir Lista de Trabalho</option>
+                                                                <option value="emitirrelatorio">Imprimir Relatórios</option>
                                                                 {% for action, options in batchactions %}
                                                                     <option value="{{ action }}">{{ options.label }}</option>
                                                                 {% endfor %}
                                                             </select>
                                                         {% endblock %}
 
-                                                        <input type="submit" class="btn btn-small btn-primary" value="{{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}">
+                                                        <input type="submit" id="botao_ok" class="btn btn-small btn-primary" value="{{ 'btn_batch'|trans({}, 'SonataAdminBundle') }}">
                                                     {% endblock %}
                                                 {% endif %}
 
@@ -209,9 +210,9 @@ file that was distributed with this source code.
                     {{ form_errors(form) }}
                         <div class="filter_container {{ admin.datagrid.hasActiveFilters ? 'active' : 'inactive' }}">
 
-                            <div class="large-16 columns no-padding">
+                            <div class="large-16 medium-16 columns no-padding">
 
-                                <div class="large-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
+                                <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -240,7 +241,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                                 </div>
 
-                                <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                                <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                     {% for filter in admin.datagrid.filters %}
 
                                             {% if filter.formName == 'fdColheita' or filter.formName == 'fdCriacao'
@@ -269,7 +270,7 @@ file that was distributed with this source code.
                                 </div>
 
 
-                                <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                                <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
                                     {% for filter in admin.datagrid.filters %}
 
                                         {% if filter.formName == 'fnLocalcolheita' or filter.formName == 'ftEstado'
@@ -299,7 +300,7 @@ file that was distributed with this source code.
                                 </div>
 
 
-                                <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                                <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
                                     {% for filter in admin.datagrid.filters %}
 
                                         {% if filter.formName == 'fnCliente' or filter.formName == 'fnProduto'
@@ -328,7 +329,7 @@ file that was distributed with this source code.
                                     {% endfor %}
                                 </div>
 
-                                <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                                <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
                                     {% for filter in admin.datagrid.filters %}
 
                                         {% if filter.formName == 'fnIdOrcamento' or filter.formName == 'fdInicioanalise'
@@ -363,7 +364,7 @@ file that was distributed with this source code.
 
                                 {% set foo = form.children['_page'].setRendered() %}
                                 {{ form_rest(form) }}
-                                <div class="well well-small form-actions large-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
+                                <div class="well well-small form-actions large-16 medium-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
                                     <button type="submit" class="btn btn-success visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
 
                                     <div class="btn btn-success">
@@ -412,6 +413,29 @@ file that was distributed with this source code.
                 $( ".visivel" ).toggle();
                 $("#cab_filtros").toggle("hide");
                 $("#rod_filtros").toggle("show");
+            });
+
+            $( "#botao_ok" ).click(function(e) {
+                var accao = $("#action_ok").val();
+                if(accao == 'emitirrelatorio')
+                {
+                    var ids = "";
+                    $('input[name="idx[]"]:checked').each(function() {
+                        ids+=$(this).val()+',';
+                    });
+                    if(ids.length != 0)
+                    {
+                        ids = ids.slice(0,ids.length-1);
+                        e.preventDefault();
+                        window.open('/app_dev.php/emitirrelatorio/' + ids, '_blank');
+                        //window.location.href = '';
+                    }
+                    else{
+                        e.preventDefault();
+                    }
+
+                }
+
             });
 
 

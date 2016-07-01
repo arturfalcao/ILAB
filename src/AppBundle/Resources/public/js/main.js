@@ -11,7 +11,7 @@ $( document ).ready(function() {
 
 
     $('.amostas_list').on('submit', function(e){
-        if($('#select2-chosen-2').html() == 'Apagar'){
+        if($('#select2-chosen-36').html() == 'Apagar'){
 
         }else{
             var arr = [];

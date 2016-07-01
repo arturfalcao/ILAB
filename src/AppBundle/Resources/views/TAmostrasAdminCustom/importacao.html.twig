@@ -4,8 +4,8 @@
 
 
 {% stylesheets%}
-
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/net/jquery-ui.css') }}" />
+{#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">#}
 {% endstylesheets %}
 
 {% block javascripts %}
@@ -13,10 +13,9 @@
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-
-
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/jquery-1.11.3.min.js') }}"></script>
+    {#<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>#}
 
     <link rel="stylesheet" href="/bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bundles/sonataadmin/vendor/AdminLTE/css/font-awesome.min.css">
@@ -35,16 +34,20 @@
     <link rel="stylesheet" type="text/css" href="/bundles/app/css/style.css">
     <link rel="stylesheet" type="text/css" href="/bundles/app/css/menu.css">
     <link rel="stylesheet" type="text/css" href="/bundles/app/js/icheck/skins/minimal/minimal.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/bundles/app/css/net/bootstrap-datetimepicker.min.css">
+    {#<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">#}
 
 
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/jquery-ui.min.js') }}"></script>
+    {#<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/bootstrap.min.js') }}"></script>
+    {#<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/moment.min.js') }}"></script>
+    {#<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>#}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
-
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/fullcalendar.min.js') }}"></script>
+    {#<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>#}
 
     <script type="text/javascript" src="{{ asset('bundles/app/js/icheck/icheck.js') }}"></script>
 
@@ -53,26 +56,29 @@
     <script type="text/javascript" src="{{ asset('bundles/app/js/ajaxsave.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/sonataadmin/vendor/select2/select2.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/sonataadmin/vendor/select2/select2_locale_pt-PT.js') }}"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/bootstrap-datetimepicker.min.js') }}"></script>
+    {#<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>#}
 
 
 {% endblock %}
 
 
 {% block scripts -%}
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/angular.min.js') }}"></script>
+    {#<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>#}
 
 {% endblock %}
 
 <div class="new_cal_element">
     <div class="row">
-        <div class="large-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;padding: 0;">
+        <div class="large-1 medium-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;padding: 0;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
+        <div class=" large-15 medium-15 columns">
             <div class="row">
 
-                <div class="large-16 columns" >
+                <div class="large-16 medium-16 columns" >
                     {% include 'default/topheader_importacao.html.twig' %}
                 </div>
             </div>

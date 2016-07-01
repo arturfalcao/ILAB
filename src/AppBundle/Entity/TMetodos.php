@@ -22,6 +22,16 @@ class TMetodos
     private $fnId;
 
     /**
+     * @var \TTecnicas
+     *
+     * @ORM\ManyToOne(targetEntity="TTecnicas")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tecnica", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTecnica;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="ft_codigo", type="string", length=20, nullable=false)
@@ -54,6 +64,28 @@ class TMetodos
         return $this->ftDescricao;
     }
 
+    /**
+     * Set fnTecnica
+     *
+     * @param \AppBundle\Entity\TTecnicas $fnTecnica
+     * @return TParametros
+     */
+    public function setFnTecnica(\AppBundle\Entity\TTecnicas $fnTecnica = null)
+    {
+        $this->fnTecnica = $fnTecnica;
+
+        return $this;
+    }
+
+    /**
+     * Get fnTecnica
+     *
+     * @return \AppBundle\Entity\TTecnicas
+     */
+    public function getFnTecnica()
+    {
+        return $this->fnTecnica;
+    }
 
     /**
      * Get fnId

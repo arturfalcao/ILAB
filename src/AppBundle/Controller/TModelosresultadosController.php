@@ -58,6 +58,8 @@ class TModelosresultadosController extends Controller
      *
      * @Route("/DeleteSelec/{id}", name="tmodelosresultados_delete_selec")
      * @Method("DELETE")
+     * @param $id
+     * @return Response
      */
     public function deleteSelecAction($id)
     {
@@ -81,13 +83,15 @@ class TModelosresultadosController extends Controller
     }
 
 
-
     /**
      * Creates a new TModelosresultados entity.
      *
      * @Route("/", name="tmodelosresultados_create")
      * @Method("POST")
      * @Template("AppBundle:TModelosresultados:new.html.twig")
+     * @param Request $request
+     * @param $goto
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createAction(Request $request, $goto)
     {
@@ -148,6 +152,8 @@ class TModelosresultadosController extends Controller
      * @Route("/{id}", name="tmodelosresultados_show")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function showAction($id)
     {
@@ -173,6 +179,8 @@ class TModelosresultadosController extends Controller
      * @Route("/{id}/edit", name="tmodelosresultados_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {
@@ -212,12 +220,16 @@ class TModelosresultadosController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing TModelosresultados entity.
      *
      * @Route("/{id}", name="tmodelosresultados_update")
      * @Method("PUT")
      * @Template("AppBundle:TModelosresultados:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {
@@ -245,11 +257,15 @@ class TModelosresultadosController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a TModelosresultados entity.
      *
      * @Route("/{id}", name="tmodelosresultados_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {

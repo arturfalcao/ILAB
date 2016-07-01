@@ -20,15 +20,17 @@ class TParametros
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $fnId;
+
+
     /**
-     * @var \TMetodos
-     *
-     * @ORM\ManyToOne(targetEntity="TMetodos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")
-     * })
+     * @ORM\ManyToMany(targetEntity="TMetodos")
+     * @ORM\JoinTable(name="t_parametrospormetodo",
+     *      joinColumns={@ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")}
+     *      )
      */
-    private $fnMetodo;
+    public $fnMetodo;
+
 
     /**
      * @var \TAreasensaio
@@ -39,6 +41,17 @@ class TParametros
      * })
      */
     private $fnAreaensaio;
+
+
+    /**
+     * @var \TTipoparametro
+     *
+     * @ORM\ManyToOne(targetEntity="TTipoparametro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoparametro", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoparametro;
 
     /**
      * @var \TModelosparametro
@@ -75,7 +88,7 @@ class TParametros
      *
      * @ORM\ManyToOne(targetEntity="TEstados")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="fn_id")
      * })
      */
     private $ftEstado;
@@ -89,11 +102,14 @@ class TParametros
     private $ftDescricao;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="fn_id_metodo", type="bigint", nullable=false)
+     * @ORM\Column(name="ft_metodo_texto", type="string", length=100, nullable=true)
      */
-    private $fnIdMetodo;
+    private $ftMetodotexto;
+
+
+
 
     /**
      * @var integer
@@ -303,7 +319,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbAmostrainterno
      * @return TParametros
      */
     public function setFbAmostrainterno($fbAmostrainterno)
@@ -326,7 +342,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbAmostraexterno
      * @return TParametros
      */
     public function setFbAmostraexterno($fbAmostraexterno)
@@ -350,7 +366,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbDeterminacaoexterno
      * @return TParametros
      */
     public function setFbDeterminacaoexterno($fbDeterminacaoexterno)
@@ -374,7 +390,7 @@ class TParametros
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbDeterminacaointerno
      * @return TParametros
      */
     public function setFbDeterminacaointerno($fbDeterminacaointerno)
@@ -403,7 +419,7 @@ class TParametros
     /**
      * @ORM\ManyToMany(targetEntity="TEspecificacoes", mappedBy="fnEspecificacoes")
      */
-    private $especificacoes;
+    //private $especificacoes;
 
 
     /**
@@ -425,11 +441,11 @@ class TParametros
     }
 
 
-
     /**
      * Get fnId
      *
-     * @return integer
+     * @param $fnId
+     * @return int
      */
     public function setFnId($fnId)
     {
@@ -442,10 +458,12 @@ class TParametros
     /**
      * Add fnEspecificacoes
      *
-     * @param \AppBundle\Entity\TEspecificacoes $fnProdutos
+     * @param \AppBundle\Entity\TEspecificacoes $especificacoes
      */
     public function setespecificacoes(\AppBundle\Entity\TEspecificacoes $especificacoes = null)
     {
+        /*var_dump($especificacoes);
+        die;*/
         $this->especificacoes[] = $especificacoes;
 
     }
@@ -487,6 +505,30 @@ class TParametros
         $this->ftDescricao = $ftDescricao;
 
         return $this;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftMetodotexto
+     * @return TParametros
+     */
+    public function setFtMetodotexto($ftMetodotexto)
+    {
+        $this->ftMetodotexto= $ftMetodotexto;
+
+        return $this;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftMetodotexto
+     * @return TParametros
+     */
+    public function getFtMetodotexto()
+    {
+        return $this->ftMetodotexto;
     }
 
     /**
@@ -545,28 +587,7 @@ class TParametros
         return $this->fnTecnica;
     }
 
-    /**
-     * Set fnIdMetodo
-     *
-     * @param integer $fnIdMetodo
-     * @return TParametros
-     */
-    public function setFnIdMetodo($fnIdMetodo)
-    {
-        $this->fnIdMetodo = $fnIdMetodo;
 
-        return $this;
-    }
-
-    /**
-     * Get fnIdMetodo
-     *
-     * @return integer 
-     */
-    public function getFnIdMetodo()
-    {
-        return $this->fnIdMetodo;
-    }
 
     /**
      * Set fnIdTecnica
@@ -1178,19 +1199,38 @@ class TParametros
         return $this->especificacoes;
     }
 
+
+
+
     /**
-     * Set fnMetodo
+     * Add projectMedia
      *
-     * @param \AppBundle\Entity\TMetodos $fnMetodo
+     * @param \AppBundle\Entity\TParametros
      * @return TParametros
      */
-    public function setFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo = null)
+    public function addFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo)
     {
-        $this->fnMetodo = $fnMetodo;
-
+        $this->fnMetodo[] = $fnMetodo;
         return $this;
     }
-
+    public function removeFnMetodo(\AppBundle\Entity\TMetodos $fnMetodo)
+    {
+        $this->fnMetodo->remove($fnMetodo);
+    }
+    /**
+     * Set projectMedia
+     *
+     * @param array
+     * @return TParametros
+     */
+    public function setFnMetodo($fnMetodo)
+    {
+        $this->$fnMetodo = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach ($fnMetodo as $m) {
+            $this->addFnMetodo($m);
+        }
+        return $this;
+    }
     /**
      * Get fnMetodo
      *
@@ -1200,6 +1240,30 @@ class TParametros
     {
         return $this->fnMetodo;
     }
+
+    /**
+     * Set fnAreaensaio
+     *
+     * @param \AppBundle\Entity\TTipoparametro $fnAreaensaio
+     * @return TParametros
+     */
+    public function setFnTipoparametro(\AppBundle\Entity\TTipoparametro $fnTipoparametro = null)
+    {
+        $this->fnTipoparametro = $fnTipoparametro;
+
+        return $this;
+    }
+
+    /**
+     * Get fnAreaensaio
+     *
+     * @return \AppBundle\Entity\TTipoparametro
+     */
+    public function getFnTipoparametro()
+    {
+        return $this->fnTipoparametro;
+    }
+
 
     /**
      * Set fnAreaensaio

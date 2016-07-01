@@ -16,7 +16,7 @@ use AppBundle\Entity\TMetodos;
 use AppBundle\Form\TParametrosType;
 
 
-class DefaultController extends Controller
+class SideBarController extends Controller
 {
 
     public function SideBarAction()

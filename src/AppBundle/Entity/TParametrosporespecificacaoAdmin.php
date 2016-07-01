@@ -51,7 +51,7 @@ class TParametrosporespecificacaoAdmin extends Admin
             ->end()
             ->with('grupo_2',array('description' => 'x','class' => 'col-md-6'))
             ->add('fnMinimo', 'text', array('label' => 'Mínimo'))
-            ->add('ftTextoRelatorio', 'text', array('label' => 'Texto no Relatório'))
+            ->add('ftTextoRelatorio', 'text', array('label' => 'Texto no relatório'))
             ->end()
         ;
 

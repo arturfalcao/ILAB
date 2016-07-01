@@ -30,6 +30,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento", name="tamostras")
      * @Method("GET")
      * @Template()
+     * @param Request $request
+     * @return array
      */
     public function indexAction(Request $request)
     {
@@ -40,13 +42,17 @@ class TAmostrasAdminCustomController extends Controller
         $qb = $em->createQueryBuilder();
 
 
+        $repository = $this->getDoctrine()
+            ->getRepository('AppBundle:TEstados');
+
+        $estado = $repository->findOneBy(array('ftId' => 'P'));
+
 
         $query = $qb->select('s')
             ->from('AppBundle:TAmostras', 's')
             ->where('s.ftEstado = :estado')
-            ->setParameter('estado', 'P');
+            ->setParameter('estado', $estado->getFnId());
 
-        $arr_filtros = array("ftEstado"=>"D");
 
         if ($request->isMethod('GET')) {
 
@@ -73,17 +79,39 @@ class TAmostrasAdminCustomController extends Controller
             }
         }
 
+        $limit = $request->query->get('limit');
+        if(empty($limit) ){
+            $limit = 50;
+        }
+
+
+        $offset = $request->query->get('offset');
+        if(!empty($offset) ){
+            $offset = $offset+$limit+1;
+            $query->andWhere("s.fnId < " . $offset . "");
+            $limit = $limit + 50;
+        }
+        else{
+            $offset=0;
+        }
+
+        $qb->setMaxResults($limit);
+
         $entities =  $query->getQuery()->getResult();
 
+        foreach ($entities as $entidade){
+                $offset = intval($entidade->getFnId());
+        }
 
-        //$entities = $em->getRepository('AppBundle:TAmostras')->findBy(array($arr_filtros));
+        $offset+=1;
+
         $clientes = $em->getRepository('AppBundle:TClientes')->findAll();
         $produtos = $em->getRepository('AppBundle:TProdutos')->findAll();
         $grupos = $em->getRepository('AppBundle:TGruposparametros')->findAll();
 
-
         return array(
             'entities' => $entities,'clientes' => $clientes,'produtos' => $produtos,'grupos' => $grupos,
+            'offset' => $offset, 'limit' => $limit
         );
     }
 
@@ -118,7 +146,7 @@ class TAmostrasAdminCustomController extends Controller
                 $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                 $activeDate->execute();
 
-                $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 'V' , fn_id_amostra = " .$value . " where id_table > " . $last[0]["MAX(id_table)"] ;
+                $sql = "UPDATE t_parametrosamostra_log SET  date = NOW() ,  user = '". $this->get('security.token_storage')->getToken()->getUser() ."' , ft_id_estado = 6 , fn_id_amostra = " .$value . " where id_table > " . $last[0]["MAX(id_table)"] ;
                 $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                 $activeDate->execute();
 
@@ -129,7 +157,7 @@ class TAmostrasAdminCustomController extends Controller
         }
 
         try {
-            $sql = "update t_amostras set ft_id_estado = 'V' , updated_by_time = NOW() ,  updated_by = '". $this->get('security.token_storage')->getToken()->getUser() ."' where " . $where;
+            $sql = "update t_amostras set ft_id_estado = 6 , updated_by_time = NOW() ,  updated_by = '". $this->get('security.token_storage')->getToken()->getUser() ."' where " . $where;
             $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
             $activeDate->execute();
         } catch (Exception $e) {
@@ -162,7 +190,7 @@ class TAmostrasAdminCustomController extends Controller
     {
         $arr = $this->get("request")->getContent();
         $arr2 = explode("=", $arr);
-        $sql = "SELECT para.fn_id, para.ft_descricao,para.fn_id_metodo,para.fn_id_tecnica,para.fn_id_amostra,para.fn_id_areaensaio,para.fd_limiterealizacao,para.ft_cumpreespecificacao,para.ft_conclusao,para.fn_id_modeloparametro,para.ft_observacao,para.fd_criacao,para.fd_conclusao,para.fd_autorizacao,para.fn_id_laboratorio,para.fn_precocompra,para.fn_precovenda,para.fn_factorcorreccao,para.fb_acreditado,para.fn_limitelegal,para.fn_id_familiaparametro,para.ft_formulaquimica,para.fn_id_frasco,para.fn_volumeminimo,para.fb_confirmacao,para.ft_id_estado,para.fb_contraanalise,para.fd_Realizacao,para.fb_amostrainterno ,para.fb_amostraexterno ,para.fb_determinacaoexterno ,para.fb_determinacaointerno , modelo.ft_descricao AS modelodepara FROM t_parametrosamostra AS para  INNER JOIN t_modelosparametro AS modelo ON para.fn_id_modeloparametro = modelo.fn_id WHERE id = ". $arr2[1];
+        $sql = "SELECT para.ft_custommethod, para.fn_id, para.ft_descricao,para.fn_id_metodo,para.fn_id_tecnica,para.fn_id_amostra,para.fn_id_areaensaio,para.fd_limiterealizacao,para.ft_cumpreespecificacao,para.ft_conclusao,para.fn_id_modeloparametro,para.ft_observacao,para.fd_criacao,para.fd_conclusao,para.fd_autorizacao,para.fn_id_laboratorio,para.fn_precocompra,para.fn_precovenda,para.fn_factorcorreccao,para.fb_acreditado,para.fn_limitelegal,para.fn_id_familiaparametro,para.ft_formulaquimica,para.fn_id_frasco,para.fn_volumeminimo,para.fb_confirmacao,para.ft_id_estado,para.fb_contraanalise,para.fd_Realizacao,para.fb_amostrainterno ,para.fb_amostraexterno ,para.fb_determinacaoexterno ,para.fb_determinacaointerno , modelo.ft_descricao AS modelodepara FROM t_parametrosamostra AS para  INNER JOIN t_modelosparametro AS modelo ON para.fn_id_modeloparametro = modelo.fn_id WHERE id = ". $arr2[1];
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
@@ -180,34 +208,43 @@ class TAmostrasAdminCustomController extends Controller
         return new Response(json_encode($result));
     }
 
+    /**
+     * Atualização relativa aos Parametrosamostra associados à amostra e parâmetros em questão
+     *
+     */
     public function SaveParaporAmostraAction()
     {
         $arr1 = json_decode($this->get("request")->getContent(),true);
 
-        $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $p = 0;
 
-        $q = $qb->update('AppBundle\Entity\TParametrosamostra', 'u')
-            ->set('u.ftFormulaquimica', $qb->expr()->literal($arr1[1]))
-            ->set('u.fnFamiliaparametro', $qb->expr()->literal($arr1[2]))
-            ->set('u.fnLaboratorio', $qb->expr()->literal($arr1[3]))
-            ->set('u.fnAreaensaio', $qb->expr()->literal($arr1[4]))
-            ->set('u.fnMetodo', $qb->expr()->literal($arr1[5]))
-            ->set('u.fnTecnica', $qb->expr()->literal($arr1[6]))
-            ->set('u.fbConfirmacao', $qb->expr()->literal($arr1[7]))
-            ->set('u.fbContraanalise', $qb->expr()->literal($arr1[8]))
-            ->set('u.fnPrecocompra', $qb->expr()->literal($arr1[9]))
-            ->set('u.fnPrecovenda', $qb->expr()->literal($arr1[10]))
-            ->set('u.fnFactorcorreccao', $qb->expr()->literal($arr1[11]))
-            ->set('u.ftConclusao', $qb->expr()->literal($arr1[12]))
-            ->set('u.ftObservacao', $qb->expr()->literal($arr1[13]))
-            ->set('u.fbAmostraexterno', $qb->expr()->literal($arr1[14]))
-            ->set('u.fbAmostrainterno', $qb->expr()->literal($arr1[15]))
-            ->set('u.fbDeterminacaoexterno', $qb->expr()->literal($arr1[16]))
-            ->set('u.fbDeterminacaointerno', $qb->expr()->literal($arr1[17]))
-            ->where('u.id  = :idpara')
-            ->setParameter('idpara', ($arr1[0]))
-            ->getQuery();
-        $p = $q->execute();
+        foreach ($arr1 as $i => $value) {
+            $qb = $this->getDoctrine()->getManager()->createQueryBuilder();
+            $q = $qb->update('AppBundle\Entity\TParametrosamostra', 'u')
+                ->set('u.ftFormulaquimica', $qb->expr()->literal($arr1[$i]["FQ"]))
+                ->set('u.fnFamiliaparametro', $qb->expr()->literal($arr1[$i]["FA"]))
+                ->set('u.fnLaboratorio', $qb->expr()->literal($arr1[$i]["LA"]))
+                ->set('u.fnAreaensaio', $qb->expr()->literal($arr1[$i]["AE"]))
+                ->set('u.fnMetodo', $qb->expr()->literal($arr1[$i]["ME"]))
+                ->set('u.fnTecnica', $qb->expr()->literal($arr1[$i]["TE"]))
+                ->set('u.fbConfirmacao', $qb->expr()->literal($arr1[$i]["CO"]))
+                ->set('u.fbContraanalise', $qb->expr()->literal($arr1[$i]["CA"]))
+                ->set('u.fnPrecocompra', $qb->expr()->literal($arr1[$i]["CM"]))
+                ->set('u.fnPrecovenda', $qb->expr()->literal($arr1[$i]["VE"]))
+                ->set('u.fnFactorcorreccao', $qb->expr()->literal($arr1[$i]["FT"]))
+                ->set('u.ftConclusao', $qb->expr()->literal($arr1[$i]["CL"]))
+                ->set('u.ftObservacao', $qb->expr()->literal($arr1[$i]["OB"]))
+                ->set('u.fbAmostraexterno', $qb->expr()->literal($arr1[$i]["AM"]))
+                ->set('u.fbAmostrainterno', $qb->expr()->literal($arr1[$i]["AI"]))
+                ->set('u.fbDeterminacaoexterno', $qb->expr()->literal($arr1[$i]["DE"]))
+                ->set('u.fbDeterminacaointerno', $qb->expr()->literal($arr1[$i]["DI"]))
+                ->set('u.ftCustomMethod', $qb->expr()->literal($arr1[$i]["CD"]))
+                ->where('u.id  = :idpara')
+                ->setParameter('idpara', ($i))
+                ->getQuery();
+            $p = $q->execute();
+        }
+
         return new Response(json_encode($p));
     }
 
@@ -246,11 +283,75 @@ class TAmostrasAdminCustomController extends Controller
         // consider using ->getArrayResult() to use less memory
         return new Response(json_encode($queryBuilder->getQuery()->getResult()));
     }
+
+    public function GetTecnicaByMetodoAction()
+    {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+        $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $queryBuilder->select('c.ftDescricao','c.fnId','(c.fnTecnica) as tecnica' )->from('AppBundle:TMetodos','c')->where('c.fnId=:cp')->setParameter('cp', $arr2[1]);
+        return new Response(json_encode($queryBuilder->getQuery()->getResult()));
+
+
+    }
+
+    public function GetGrupoByModeloAction(){
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+        $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder();
+        $queryBuilder1 = $this->getDoctrine()->getManager()->createQueryBuilder();
+
+        $queryBuilder->select('(u.fnGrupoparametros) as grupo' )->from('AppBundle:TModelosamostra','u')->where('u.fnId=:cp')->setParameter('cp', $arr2[1]);
+
+        $queryBuilder1->select('u.fnId' )->from('AppBundle:TGruposparametros','u')->where('u.fnId=:cp')->setParameter('cp', $queryBuilder->getQuery()->getResult()[0]['grupo'] );
+
+        return new Response(json_encode($queryBuilder1->getQuery()->getResult()));
+
+    }
     public function GetAllMetodoAction()
     {
+        $arr = $this->get("request")->getContent();
+        $arr2 = explode("=", $arr);
+
         $queryBuilder = $this->getDoctrine()->getManager()->createQueryBuilder();
-        $queryBuilder->select('u.ftDescricao','u.fnId' )->from('AppBundle:TMetodos','u');
-        // consider using ->getArrayResult() to use less memory
+
+        if(array_key_exists( 1, $arr2) == true){
+            $queryBuilder->select('u.fnId' )->from('AppBundle:TParametrosamostra','u')->where('u.id=:cp')->setParameter('cp', $arr2[1]);
+            // consider using ->getArrayResult() to use less memory
+
+            if($queryBuilder->getQuery()->getResult()[0]['fnId'] !== null){
+                $sql = "SELECT * from t_parametrospormetodo where fn_id_metodo = ". $queryBuilder->getQuery()->getResult()[0]['fnId'] ." " ;
+                $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                $activeDate->execute();
+                $result = $activeDate->fetchAll();
+                $where ="";
+                foreach ($result as &$value) {
+
+                    if($where  == ""){
+                        $where .= "fn_id = " . $value['fn_id_parametro']  . "" ;
+                    }else{
+                        $where .= " or fn_id = " . $value['fn_id_parametro']  . "" ;
+                    }
+                }
+                if( count($result) != 0){
+                    $sql = "SELECT ft_descricao as ftDescricao , fn_id as fnId , fn_id_tecnica from t_metodos where ". $where ." " ;
+                    $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
+                    $activeDate->execute();
+                    $result = $activeDate->fetchAll();
+                    return new Response(json_encode($result));
+
+                }else{
+                    $queryBuilder->select('c.ftDescricao','c.fnId','(u.fnTecnica) as tecnica ' )->from('AppBundle:TMetodos','c');
+                }
+
+            }else{
+                $queryBuilder->select('u.ftDescricao','u.fnId' ,'(u.fnTecnica) as tecnica')->from('AppBundle:TMetodos','u');
+
+            }
+        }else{
+            $queryBuilder->select('u.ftDescricao','u.fnId' ,'(u.fnTecnica) as tecnica')->from('AppBundle:TMetodos','u');
+        }
+
         return new Response(json_encode($queryBuilder->getQuery()->getResult()));
     }
     public function GetAllTecnicaAction()
@@ -262,13 +363,81 @@ class TAmostrasAdminCustomController extends Controller
     }
 
 
+    /**
+     * Obter legislação associada ao produto
+     *
+     */
+    public function GetLegislacaoByProdutoAction()
+    {
+        $parameter = $this->get("request")->getContent();
+        $parameter = explode("&", $parameter);
+        $arr1 = explode("=", $parameter[0]);
+
+        $produto_id = intval($arr1[1]);
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $connection = $em->getConnection();
+
+        $statement = $connection->prepare('SELECT DISTINCT prod.fn_id_legislacao id_legislacao 
+                                           FROM t_produtos prod
+                                           WHERE prod.fn_id = :prod_id');
+
+        $statement->bindValue('prod_id', $produto_id);
+        $statement->execute();
+        $results = $statement->fetchAll();
+
+        $info = [];
+
+        for($j=0;$j < count($results); $j++)
+        {
+            $info[$j]['id_legislacao'] = $results[$j]['id_legislacao'];
+        }
+
+        return new Response(json_encode($info));
+    }
+
+    /**
+     * Obter especificações associadas ao produto
+     *
+     */
+    public function GetEspecificacaoByProdutoAction()
+    {
+        $parameter = $this->get("request")->getContent();
+        $parameter = explode("&", $parameter);
+        $arr1 = explode("=", $parameter[0]);
+
+        $produto_id = intval($arr1[1]);
+
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $connection = $em->getConnection();
+        $statement = $connection->prepare('SELECT DISTINCT te.fn_id_especificacao id_especificacao , e.ft_descricao descricao 
+                                           FROM t_produtosespecificacoes te
+                                           INNER JOIN t_especificacoes e ON te.fn_id_especificacao = e.fn_id
+                                           WHERE te.fn_id_produto = :prod_id');
+        $statement->bindValue('prod_id', $produto_id);
+        $statement->execute();
+        $results = $statement->fetchAll();
+
+        $info = [];
+
+        for($j=0;$j < count($results); $j++)
+            {
+                $info[$j]['id_especificacao'] = $results[$j]['id_especificacao'];
+                $info[$j]['descricao'] = $results[$j]['descricao'];
+            }
+
+        return new Response(json_encode($info));
+    }
+
+
 
 
     public function AmostrasGetParametrosAction()
     {
         $arr = $this->get("request")->getContent();
         $arr2 = explode("=", $arr);
-        $sql = "SELECT DISTINCT p.id AS idparametro,r.fn_id as id ,r.ft_descricao AS resultado, p.ft_descricao AS parametros, e.ft_codigo , r.ft_formatado ,u.ft_descricao AS unidades , para_esp.ft_texto_relatorio FROM t_resultados AS r INNER JOIN t_parametrosamostra AS p ON r.fn_id_parametro = p.id  INNER JOIN t_estados AS e ON r.ft_id_estado = e.ft_id INNER JOIN t_unidadesmedida AS u ON r.fn_id_unidade = u.fn_id INNER JOIN t_amostras AS a ON r.fn_id_amostra = a.fn_id INNER JOIN t_produtosespecificacoes AS pro ON a.fn_id_produto = pro.fn_id_produto LEFT JOIN t_parametrosporespecificacao AS para_esp ON pro.fn_id_especificacao = para_esp.fn_id_especificacao AND  p.fn_id = para_esp.fn_id_familiaparametro  WHERE  p.ft_id_estado NOT LIKE 'X' and r.fn_id_amostra = ".$arr2[1]." GROUP BY idparametro" ;
+        $sql = "SELECT DISTINCT p.id AS idparametro,r.fn_id as id ,r.ft_descricao AS resultado, p.ft_descricao AS parametros, e.ft_codigo , r.ft_formatado ,u.ft_descricao AS unidades , para_esp.ft_texto_relatorio FROM t_resultados AS r INNER JOIN t_parametrosamostra AS p ON r.fn_id_parametro = p.id  INNER JOIN t_estados AS e ON r.ft_id_estado = e.fn_id INNER JOIN t_unidadesmedida AS u ON r.fn_id_unidade = u.fn_id INNER JOIN t_amostras AS a ON r.fn_id_amostra = a.fn_id LEFT JOIN t_parametrosporespecificacao AS para_esp ON a.fn_id_especificacao = para_esp.fn_id_especificacao AND  p.fn_id = para_esp.fn_id_familiaparametro  WHERE  p.ft_id_estado != 4 and r.fn_id_amostra = ".$arr2[1]." GROUP BY idparametro" ;
         $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
         $activeDate->execute();
         $result = $activeDate->fetchAll();
@@ -283,6 +452,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/importacao", name="importacaoamostra")
      * @Method("POST")
      * @Template("AppBundle:TAmostrasAdminCustom:importacao.html.twig")
+     * @param Request $request
+     * @return Response
      */
     public function importacaoAction(Request $request)
     {
@@ -298,13 +469,12 @@ class TAmostrasAdminCustomController extends Controller
             }
             try {
                 foreach ($array as &$value) {
-                    $rr = explode(";",$value[0]);
-
+                    $rr = $value;
+                        
                     if(count($rr) != 0){
                         $entity = new TAmostras();
                         $em = $this->getDoctrine()->getManager();
 
-                        //$modelo = $em->getRepository('AppBundle:TModelosamostra')->findOneByftDescricao($rr[5]);
                         $estado = $em->getRepository('AppBundle:TEstados')->findOneByftCodigo('P');
                         $clientes = $em->getRepository('AppBundle:TClientes')->findOneByftCodigo($rr[2]);
                         $produtos = $em->getRepository('AppBundle:TProdutos')->findOneByftDescricao($rr[0]);
@@ -316,10 +486,10 @@ class TAmostrasAdminCustomController extends Controller
                         $entity->setFtRefexterna($rr[5]);
                         $entity->setUpdatedByTime(date("Y-m-d H:m:s"));
                         $entity->setUpdatedBy($this->get('security.token_storage')->getToken()->getUser());
-                        //$entity->setFnModelo($modelo);
-                        $date = new \DateTime(str_replace("/","-",$rr[3]));
+
+                        $date = new \DateTime($rr[3]);
                         $entity->setStartdatetime($date);
-                        $date = new \DateTime(str_replace("/","-",$rr[4]));
+                        $date = new \DateTime($rr[4]);
                         $entity->setEnddatetime($date);
                         $em->persist($entity);
                         $em->flush();
@@ -340,22 +510,20 @@ class TAmostrasAdminCustomController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($sample);
-        $arr= [];
 
         $paraGroupID  = $em->getRepository('AppBundle:TGruposparametros')->findByftCodigo($paraGroup);
         $arr = $em->getRepository('AppBundle:TParametrosgrupo')->findBytgrupo($paraGroupID);
 
         // Cria os parametros e gera os primeiros log
         foreach ($arr as $value) {
-            $value2= $em->getRepository('AppBundle:TParametros')->findOneByFnId($value->getTparametro());
-            $conn = $this->getDoctrine()->getConnection();
-            $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao ,fb_amostrainterno ,fb_amostraexterno ,fb_determinacaoexterno ,fb_determinacaointerno) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 'P' , aa.fb_contraanalise, aa.fd_Realizacao ,aa.fb_amostrainterno ,aa.fb_amostraexterno ,aa.fb_determinacaoexterno ,aa.fb_determinacaointerno FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
+
+            $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao ,fb_amostrainterno ,fb_amostraexterno ,fb_determinacaoexterno ,fb_determinacaointerno) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 5 , aa.fb_contraanalise, aa.fd_Realizacao ,aa.fb_amostrainterno ,aa.fb_amostraexterno ,aa.fb_determinacaoexterno ,aa.fb_determinacaointerno FROM t_parametros AS aa WHERE aa.fn_id = " . $value->getTparametro();
             $activeDate = $this->getDoctrine()->getManager()->getConnection();
             $activeDate->prepare($sql)->execute();
             $last = $activeDate->lastInsertId();
-
+            
             //log parametros
-            $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 'P' , aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra AS aa WHERE aa.id = " . $last ;
+            $sql = "INSERT INTO t_parametrosamostra_log (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,id) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 4 , aa.fb_contraanalise, aa.fd_Realizacao , aa.id FROM t_parametrosamostra AS aa WHERE aa.id = " . $last ;
             $activeDate = $this->getDoctrine()->getManager()->getConnection();
             $activeDate->prepare($sql)->execute();
 
@@ -373,7 +541,7 @@ class TAmostrasAdminCustomController extends Controller
             $arr = $em->getRepository('AppBundle:TParametrosamostra')->findByFnIdAmostra($sample);
             foreach ($arr as $value) {
             $value2= $em->getRepository('AppBundle:TParametrosamostra')->findOneBy(array('id' => $value->getId()));
-            $info = $value2->getFtDescricao();
+
             if(!$em->getRepository('AppBundle:TResultados')->findOneBy(array('fnParametro' => $value2->getFnId(),'fnAmostra' => $amostra->getFnId()))){
 
                     $result = new TResultados();
@@ -404,6 +572,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento/new", name="tamostras_create")
      * @Method("GET")
      * @Template("AppBundle:TAmostrasAdminCustom:new.html.twig")
+     * @param Request $request
+     * @return array
      */
     public function createAction(Request $request)
     {
@@ -428,7 +598,7 @@ class TAmostrasAdminCustomController extends Controller
     /**
      * Creates a form to create a Agenda entity.
      *
-     * @param Agenda $entity The entity
+     * @param TAmostras $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
@@ -470,6 +640,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento/{id}", name="tamostras_show")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function showAction($id)
     {
@@ -491,6 +663,8 @@ class TAmostrasAdminCustomController extends Controller
      * @Route("/NovoPlaneamento/{id}/edit", name="tamostras_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {
@@ -528,12 +702,16 @@ class TAmostrasAdminCustomController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing TAmostras entity.
      *
      * @Route("/NovoPlaneamento/{id}", name="tamostras_update")
      * @Method("PUT")
      * @Template("AppBundle:TAmostras:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {
@@ -559,11 +737,15 @@ class TAmostrasAdminCustomController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a TAmostras entity.
      *
      * @Route("/NovoPlaneamento/{id}", name="tamostras_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {

@@ -124,21 +124,42 @@ class Agenda
     private $cssclass;
 
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_id_user", type="bigint", nullable=false)
+     */
+        private $FnIdUtilizador;
+
 
     /**
-     * Get id
+     * Set done
      *
-     * @return integer 
+     * @param integer $user
+     * @return Agenda
      */
-    public function getId()
+    public function setFnIdUtilizador($user)
     {
-        return $this->id;
+        $this->FnIdUtilizador = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get done
+     *
+     * @return integer
+     */
+    public function getFnIdUtilizador()
+    {
+        return $this->FnIdUtilizador;
     }
 
     /**
      * Set title
      *
-     * @param string $title
+     *
+     * @param $title
      * @return Agenda
      */
     public function setTitle($title)
@@ -151,13 +172,22 @@ class Agenda
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * Set morada
      *

@@ -17,13 +17,13 @@ class TRequisicoesAdmin extends Admin
     {
         $datagridMapper
             ->add('fnId',null,array('label' => 'ID'))
-            ->add('fnIdLaboratorio',null,array('label' => 'ID Laboratório'))
+            ->add('fnIdLaboratorio',null,array('label' => 'ID laboratório'))
             ->add('fdUltimaemissao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Última emissão','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('ftObservacao',null,array('label' => 'Observação'))
-            ->add('ftUltimoutilizador',null,array('label' => 'Último Utilizador'))
+            ->add('ftUltimoutilizador',null,array('label' => 'Último utilizador'))
             ->add('fbAnulada',null,array('label' => 'Anulada'))
             ->add('fnDesconto',null,array('label' => 'Desconto'))
-            ->add('ftTipopagamento',null,array('label' => 'Tipo de Pagamento'))
+            ->add('ftTipopagamento',null,array('label' => 'Tipo de pag.'))
             ->add('ftPrazoentrega',null,array('label' => 'Prazo de entrega'))
         ;
     }
@@ -35,7 +35,7 @@ class TRequisicoesAdmin extends Admin
     {
         $listMapper
             ->add('fnId',null,array('label' => 'ID'))
-            ->add('fnIdLaboratorio',null,array('label' => 'ID Laboratório'))
+            ->add('fnIdLaboratorio',null,array('label' => 'ID laboratório'))
             ->add('fdUltimaemissao',null,array('label' => 'Última emissão'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('ftUltimoutilizador',null,array('label' => 'Último utilizador'))
@@ -60,9 +60,11 @@ class TRequisicoesAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'x','class' => 'col-md-6'))
-            ->add('fnId',null,array('label' => 'ID'))
-            ->add('fnIdLaboratorio',null,array('label' => 'ID Laboratório'))
-            ->add('fdUltimaemissao','sonata_type_datetime_picker', array('label' => 'Última emissão'))
+            ->add('fnIdLaboratorio',null,array('label' => 'ID laboratório'))
+            ->add('fdUltimaemissao','sonata_type_datetime_picker', array('label' => 'Última emissão','format' => 'dd-MM-yyyy',
+                'attr' => array(
+        'data-date-format' => 'DD-MM-YYYY',
+    )))
             ->add('ftObservacao',null,array('label' => 'Observação'))
             ->add('ftUltimoutilizador',null,array('label' => 'Último utilizador'))
             ->end()

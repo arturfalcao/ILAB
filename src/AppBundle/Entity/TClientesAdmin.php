@@ -21,11 +21,10 @@ class TClientesAdmin extends Admin
             ->add('ftNome',null, array('label' => 'Nome'))
             ->add('ftAlias',null, array('label' => 'Acrónimo'))
             ->add('ftMorada',null, array('label' => 'Morada'))
-            ->add('ftCodpostal',null, array('label' => 'Codigo Postal'))
+            ->add('ftCodpostal',null, array('label' => 'Codigo postal'))
             ->add('ftLocalidade',null, array('label' => 'Localidade'))
             ->add('ftPais',null, array('label' => 'País'))
             ->add('ftTelefone',null, array('label' => 'Telefone'))
-            ->add('ftFax',null, array('label' => 'Fax'))
             ->add('ftEmail',null, array('label' => 'Email'))
         ;
     }
@@ -37,7 +36,7 @@ class TClientesAdmin extends Admin
     {
         $listMapper
             ->add('fnId',null, array('label' => 'ID'))
-            ->add('ftCodigo',null, array('label' => 'Codigo'))
+            ->add('ftCodigo',null, array('label' => 'Código'))
             ->add('ftNome',null, array('label' => 'Nome'))
             ->add('ftMorada',null, array('label' => 'Morada'))
             ->add('ftLocalidade',null, array('label' => 'Localidade'))
@@ -65,17 +64,16 @@ class TClientesAdmin extends Admin
             ->add('ftCodigo', 'text', array('required' => true,'label' => 'Código'))
             ->add('ftNome', 'text', array('required' => true,'label' => 'Nome'))
             ->add('ftMorada', 'text', array('required' => true,'label' => 'Morada'))
-            ->add('ftCodpostal', 'text', array('required' => true,'label' => 'Código Postal'))
+            ->add('ftCodpostal', 'text', array('required' => true,'label' => 'Código postal'))
             ->add('ftLocalidade', 'text', array('required' => true,'label' => 'Localidade'))
             ->add('ftPais', 'text', array('required' => true,'label' => 'País'))
-
             ->end();
 
 
         $formMapper
             ->with('grupo_2',array('description' => 'Y','class' => 'col-md-4'))
+
             ->add('ftTelefone', 'integer', array('required' => true,'label' => 'Telefone'))
-            ->add('ftFax', 'integer', array('required' => false,'label' => 'Fax'))
             ->add('ftNomeUtilizador', 'text', array('required' => false,'label' => 'Nome de Utilizador'))
             ->add('ftEmail', 'text', array('required' => true,'label' => 'Email'))
             ->add('ftpassword', 'text', array('required' => false,'label' => 'Password'))
@@ -108,7 +106,6 @@ class TClientesAdmin extends Admin
             ->add('ftLocalidade')
             ->add('ftPais')
             ->add('ftTelefone')
-            ->add('ftFax')
             ->add('ftEmail')
             ->add('ftObservacao')
             ->add('ftNomecontacto')

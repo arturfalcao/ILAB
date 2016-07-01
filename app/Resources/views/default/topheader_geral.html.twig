@@ -4,10 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
 {% endblock %}
 
-<style>
 
-
-</style>
 
 {% if admin is defined %} 
 <div class="row full-width-row">
@@ -17,14 +14,18 @@
     <input type="hidden" id="logged_username" value="{{app.user.username}}">
   {% endif %}
     
-    <div class="large-6 medium-6 columns">
+    <div class="large-8 medium-8 columns">
       {% if 'list' in admin.request.pathInfo%}
           {% if 'Legislacao' == admin.label %}
-          <h6 class="title"> Listagem de Legislações </h6>
+          <h6 class="title"> Listagem de Legislacoes </h6>
           {% elseif 'users'  == admin.label%}
               <h6 class="title"> Listagem de Utilizadores </h6>
           {% elseif 'groups'  == admin.label%}
               <h6 class="title"> Listagem de Grupos </h6>
+          {% elseif 'Regras formatacao'  == admin.label%}
+              <h6 class="title"> Listagem de Regras formatacoes </h6>
+          {% elseif 'Tipo de aprovacao'  == admin.label%}
+              <h6 class="title"> Listagem de Tipo de aprovacoes </h6>
           {% else %}
           <h6 class="title"> Listagem de {{  admin.label ~ (admin.label|last == 's' ? '' : 's') }} </h6>
           {% endif %}
@@ -49,7 +50,7 @@
       {% endif %}
     </div>
     {% if 'list' in admin.request.pathInfo %}
-      <div class="large-8 medium-8 columns">
+      <div class="large-6 medium-6 columns">
           <a  id="nova_entidade" href="#" class="button right">Adicionar Novo</a>
       </div>
       <div class="large-1 medium-1 columns">
@@ -58,9 +59,20 @@
         </div>
       </div> 
     {% else %}
-       <div class="large-8 medium-8 columns">
-          <a class="button right inactiveLink bg_color"></a> 
-       </div>
+       {% if 'delete'in admin.request.pathInfo %}
+          <div class="large-14 medium-14 columns">
+              <a class="button right inactiveLink bg_color"></a>
+          </div>
+       {% elseif 'batch' in admin.request.pathInfo %}
+        <div class="large-14 medium-14 columns">
+            <a class="button right inactiveLink bg_color"></a>
+        </div>
+       {% else %}
+          <div class="large-6 medium-6 columns">
+              <a class="button right inactiveLink bg_color"></a>
+          </div>
+       {% endif %}
+
        <div class="large-1 medium-1 columns">
         <div class="menu_direita">
           <div id="menu_direita_circulo"></div>
@@ -74,12 +86,6 @@
 
     {% include 'default/ajax_agenda_topheader_geral.html.twig' %}
 
-    <script>
-    $( document ).ready(function() {
-       MensagensNaoLidas();
-    });   
-    </script>
-    
     <div id="tab_sidebar" class="sideBarRight" style="display: none;">
 
 
@@ -93,7 +99,7 @@
             </li>
         
         </ul>
-        <div id="n_lidas" style="margin-top: -15px;">
+        <div id="n_lidas" style="margin-top: -12px;">
                 
         </div>
         

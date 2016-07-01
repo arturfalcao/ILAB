@@ -37,12 +37,15 @@ class TRegrasformatacaoController extends Controller
             'entities' => $entities,
         );
     }
+
     /**
      * Creates a new TRegrasformatacao entity.
      *
      * @Route("/", name="tregrasformatacao_create")
      * @Method("POST")
      * @Template("AppBundle:TRegrasformatacao:new.html.twig")
+     * @param Request $request
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createAction(Request $request)
     {
@@ -106,6 +109,8 @@ class TRegrasformatacaoController extends Controller
      * @Route("/{id}", name="tregrasformatacao_show")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function showAction($id)
     {
@@ -131,6 +136,8 @@ class TRegrasformatacaoController extends Controller
      * @Route("/{id}/edit", name="tregrasformatacao_edit")
      * @Method("GET")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function editAction($id)
     {
@@ -176,6 +183,8 @@ class TRegrasformatacaoController extends Controller
      *
      * @Route("/GetAllRegrasFormatacao/{slug}")
      * @Method("Get")
+     * @param $slug
+     * @return Response
      */
     public function GetAllRegrasFormatacaoAction($slug)
     {
@@ -201,6 +210,9 @@ class TRegrasformatacaoController extends Controller
      * @Route("/{id}", name="tregrasformatacao_update")
      * @Method("PUT")
      * @Template("AppBundle:TRegrasformatacao:edit.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function updateAction(Request $request, $id)
     {
@@ -228,11 +240,15 @@ class TRegrasformatacaoController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
+
     /**
      * Deletes a TRegrasformatacao entity.
      *
      * @Route("/{id}", name="tregrasformatacao_delete")
      * @Method("DELETE")
+     * @param Request $request
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteAction(Request $request, $id)
     {

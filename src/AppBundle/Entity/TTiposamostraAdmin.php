@@ -52,7 +52,6 @@ class TTiposamostraAdmin extends Admin
     {
         $formMapper
             ->with('grupo_1',array('description' => 'Lançamento','class' => 'col-md-6'))
-            ->add('fnId',null,array('label' => 'ID'))
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->add('ftDescricao',null,array('label' => 'Descrição'))
             ->end()

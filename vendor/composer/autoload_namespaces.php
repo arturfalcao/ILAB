@@ -34,7 +34,6 @@ return array(
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
     'Doctrine\\Common\\Collections\\' => array($vendorDir . '/doctrine/collections/lib'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib'),
-    'ComponentInstaller' => array($vendorDir . '/robloach/component-installer/src'),
     'Braincrafted\\Bundle\\BootstrapBundle' => array($vendorDir . '/braincrafted/bootstrap-bundle'),
     'Bmatzner\\JQueryBundle' => array($vendorDir . '/bmatzner/jquery-bundle'),
     'Bmatzner\\FoundationBundle' => array($vendorDir . '/bmatzner/foundation-bundle'),

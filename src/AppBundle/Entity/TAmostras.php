@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\ORM\EntityManager;
 /**
  * TAmostras
  *
@@ -13,6 +13,41 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TAmostras
 {
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="fn_done", type="integer")
+     */
+
+    private $fnDone=0;
+
+    /**
+     * Set done
+     *
+     * @param integer $done
+     * @return Agenda
+     */
+    public function setFnDone($done)
+    {
+        $this->fnDone = $done;
+
+        return $this;
+    }
+
+    /**
+     * Get done
+     *
+     * @return integer
+     */
+    public function getFnDone()
+    {
+        return $this->fnDone;
+    }
+
+
+
+
     /**
      * @var string $createdBy
      *
@@ -375,7 +410,7 @@ class TAmostras
      *
      * @ORM\ManyToOne(targetEntity="TEstados")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="fn_id")
      * })
      */
     private $ftEstado;
@@ -1335,6 +1370,7 @@ class TAmostras
         return $this->fnLegislacao;
     }
 
+
     /**
      * Set fnModelo
      *
@@ -1430,7 +1466,7 @@ class TAmostras
 
 
     /**
-     * Set ftEstado
+     * Set setFnAmostrasalimentos
      *
      * @param \AppBundle\Entity\TAmostrasalimentos $fnAmostrasalimentos
      * @return TAmostras
@@ -1443,7 +1479,7 @@ class TAmostras
     }
 
     /**
-     * Get ftEstado
+     * Get getFnAmostrasalimentos
      *
      * @return \AppBundle\Entity\TEstados
      */

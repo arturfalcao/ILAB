@@ -20,6 +20,22 @@ class TParametrosamostra
     private $fnId;
 
     /**
+     * @var \TTipoparametro
+     *
+     * @ORM\ManyToOne(targetEntity="TTipoparametro")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="fn_id_tipoparametro", referencedColumnName="fn_id")
+     * })
+     */
+    private $fnTipoparametro;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="listatrabalho_id", type="bigint", nullable=false)
+     */
+    private $fnIdlista;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="bigint", nullable=false)
@@ -84,7 +100,7 @@ class TParametrosamostra
      *
      * @ORM\ManyToOne(targetEntity="TEstados")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="ft_id")
+     *   @ORM\JoinColumn(name="ft_id_estado", referencedColumnName="fn_id")
      * })
      */
     private $ftEstado;
@@ -96,6 +112,13 @@ class TParametrosamostra
      * @ORM\Column(name="ft_descricao", type="string", length=100, nullable=false)
      */
     private $ftDescricao;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ft_custommethod", type="string", length=100, nullable=false)
+     */
+    private $ftCustomMethod;
 
     /**
      * @var integer
@@ -435,7 +458,15 @@ class TParametrosamostra
     {
         $this->especificacoes = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
 
     /**
@@ -448,13 +479,22 @@ class TParametrosamostra
         $this->fnId = $fnId;
         return $this;
     }
+    /**
+     * Get fnId
+     *
+     * @return integer
+     */
+    public function setFnIdlista($fnIdlista)
+    {
+        $this->fnIdlista = $fnIdlista;
+        return $this;
+    }
 
 
-
-    public function getId()
+    public function getFnIdlista()
     {
 
-        return $this->id ;
+        return $this->fnIdlista ;
     }
 
 
@@ -506,6 +546,25 @@ class TParametrosamostra
         $this->ftDescricao = $ftDescricao;
 
         return $this;
+    }
+
+    /**
+     * Set ftDescricao
+     *
+     * @param string $ftDescricao
+     * @return TParametros
+     */
+    public function setFtCustomMethod($ftCustomMethod)
+    {
+        $this->ftCustomMethod = $ftCustomMethod;
+
+        return $this;
+    }
+
+
+    public function getFtCustomMethod()
+    {
+        return $this->ftCustomMethod ;
     }
 
     /**
@@ -576,7 +635,28 @@ class TParametrosamostra
 
         return $this;
     }
+    /**
+     * Set fnAreaensaio
+     *
+     * @param \AppBundle\Entity\TTipoparametro $fnAreaensaio
+     * @return TParametros
+     */
+    public function setFnTipoparametro(\AppBundle\Entity\TTipoparametro $fnTipoparametro = null)
+    {
+        $this->fnTipoparametro = $fnTipoparametro;
 
+        return $this;
+    }
+
+    /**
+     * Get fnAreaensaio
+     *
+     * @return \AppBundle\Entity\TTipoparametro
+     */
+    public function getFnTipoparametro()
+    {
+        return $this->fnTipoparametro;
+    }
     /**
      * Get fnIdMetodo
      *

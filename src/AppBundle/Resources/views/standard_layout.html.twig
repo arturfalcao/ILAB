@@ -21,13 +21,9 @@ file that was distributed with this source code.
 {% set _navbar_title = block('navbar_title') %}
 <!DOCTYPE html>
 <html {% block html_attributes %}class="no-js"{% endblock %}>
-<div class="splash_screen">
+<div class="splash_screen" style="display: none;">
 </div>
-<script>
-    setTimeout(function(){
-        $(".splash_screen").hide();
-    }, 2000);
-</script>
+
 
 <head>
 
@@ -83,6 +79,9 @@ file that was distributed with this source code.
 
     {% endblock %}
 
+    <script>
+        $(".splash_screen").show();
+    </script>
     <title>
         {% block sonata_head_title %}
             {{ 'Admin'|trans({}, 'SonataAdminBundle') }}
@@ -133,9 +132,6 @@ file that was distributed with this source code.
 
                         }
 
-                        a.sonata-action-element{
-                            display: none;
-                        }
                     </style>
 
                 </div>
@@ -238,30 +234,15 @@ file that was distributed with this source code.
 {% endif %}
 
 </body>
-<style>
-    .splash_screen {
 
-        position: absolute;
-        z-index: 1000;
-        height: 100%;
-        width:  100%;
-        background: white url('/bundles/app/images/ring-alt.gif') 50% 50% no-repeat;
-
-    }
-
-    .box {
-        border-top: none;
-    }
-</style>
 <script>
 
     $( document ).ready(function() {
 
-
         $('.sonata-ba-list-field-header-actions').html('Ações');
 
 
-        $('.sonata-ba-content>.row>div').removeClass('col-md-6').addClass('col-md-7 push-3');
+        $('.sonata-ba-content>.row>div').removeClass('col-md-6').addClass('col-md-8 push-3');
 
 
         $( ".Modelosresultados > .box.box-success > .box-body > .sonata-ba-collapsed-fields > .form-group" ).each(function( index ) {
@@ -310,18 +291,14 @@ file that was distributed with this source code.
 
         });
 
+        $(".select2-container.t_generos .select2-choice .select2-chosen").text('Masculino');
+        $(".t_generos option[value='u']").text('Desconhecido');
+        $(".t_generos option[value='f']").text('Feminino');
+        $(".t_generos option[value='m']").text('Masculino');
 
 
+        $(".splash_screen").hide();
     })
 </script>
 
-<style>
-    .TabelaModeloresultados  a{
-         margin-top: 10px!important;
-     }
-
-    .GrupoParametros a{
-        margin-top: 10px!important;
-    }
-</style>
 </html>

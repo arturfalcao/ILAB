@@ -205,14 +205,12 @@ file that was distributed with this source code.
                     {{ form_errors(form) }}
                     <div class="filter_container {{ admin.datagrid.hasActiveFilters ? 'active' : 'inactive' }}">
 
-                        <div class="large-16 columns no-padding">
+                        <div class="large-16 medium-16 columns no-padding">
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;margin-left: 35px;">
+                            <div class="large-2 vazio medium-2 form-group visivel" style="margin-left: 35px;margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
-
-
-                                        {% if filter.formName == 'fnId' or filter.formName == 'ftId' or filter.formName == 'ftCodigo'
+                                        {% if filter.formName == 'fnId'  or filter.formName == 'ftCodigo'
                                         or filter.formName == 'fbActivo' or filter.formName == 'ftFormulaquimica'
                                         or filter.formName == 'fbIncluirnorelatorio'
                                         or filter.formName == 'fnAreaensaio' or filter.formName == 'fnLaboratorio'
@@ -223,7 +221,7 @@ file that was distributed with this source code.
                                         or filter.formName == 'fnValor' or filter.formName == 'ftLote'
                                         or filter.formName == 'id' or filter.formName == 'username'
                                         or filter.formName == 'fnCapacidade' or filter.formName == 'ftNclaboratorio'
-                                        or filter.formName == 'ftNomecontacto' %}
+                                        or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'%}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -247,7 +245,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-3 vazio_1 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -256,7 +254,7 @@ file that was distributed with this source code.
                                          or filter.formName == 'fnModeloparametro' or filter.formName == 'fnFamiliaparametro'
                                             or filter.formName == 'ftOriginal' or filter.formName == 'ftAcondicionamento'
                                              or filter.formName == 'ftValidade' or filter.formName == 'name'
-                                        or filter.formName == 'fnOrdem'
+                                        or filter.formName == 'fnOrdem' or filter.formName == 'ftId'
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -281,7 +279,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -294,8 +292,9 @@ file that was distributed with this source code.
                                         or filter.formName == 'fnFrasco' or filter.formName == 'ftUltimoutilizador'
                                             or filter.formName == 'fbAnulada' or filter.formName == 'fnCalculado'
                                             or filter.formName == 'ftTemperatura' or filter.formName == 'ftFaseprocesso'
-                                             or filter.formName == 'ftTelefonecontacto'
+
                                         or filter.formName == 'fnLimiteinferior' or filter.formName == 'fnLimitesuperior'
+                                            or filter.formName == 'fnTipoparametro'
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -320,7 +319,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -356,7 +355,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -390,18 +389,18 @@ file that was distributed with this source code.
 
                             </div>
 
-                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
-                                        {% if filter.formName == 'ftTelefone' or filter.formName == 'ftFax'
+                                        {% if filter.formName == 'ftTelefone' or filter.formName == 'ftTelefonecontacto'
                                          or filter.formName == 'fbAcreditado' or filter.formName == 'fnVolumeminimo'
                                         or filter.formName == 'fnLimitequantificacao' or filter.formName == 'ftConclusao'
                                           or filter.formName == 'fbAcreditado' or filter.formName == 'fbContraanalise'
                                         or filter.formName == 'fbConfirmacao' or filter.formName == 'fnParametro'
                                         or filter.formName == 'groups' or filter.formName == 'email' or filter.formName == 'ftFormatado'
                                         or filter.formName == 'fdDatarequisicao'
-                                        or filter.formName == 'fdUltimaemissao' %}
+                                        or filter.formName == 'fdUltimaemissao' or filter.formName == 'fnIncerteza' %}
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -425,7 +424,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -456,7 +455,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -485,7 +484,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-3 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-3 medium-3 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -513,7 +512,7 @@ file that was distributed with this source code.
                                 {% endfor %}
                             </div>
 
-                            <div class="large-2 form-group visivel" style="margin-right: 20px;">
+                            <div class="large-2 medium-2 form-group visivel" style="margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
 
 
@@ -547,7 +546,7 @@ file that was distributed with this source code.
 
                             {% set foo = form.children['_page'].setRendered() %}
                             {{ form_rest(form) }}
-                            <div class="well well-small form-actions large-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
+                            <div class="well well-small form-actions large-16 medium-16 form-group visivel text-center" style="margin-right: 20px;border-top: none;">
                                 <button type="submit" class="btn btn-success visivel"><i class="fa fa-filter"></i> {{ 'btn_filter'|trans({}, 'SonataAdminBundle') }}</button>
 
                                 <div class="btn btn-success">
@@ -576,23 +575,32 @@ file that was distributed with this source code.
             $('.visivel').hide();
             $('#rod_filtros').hide();
 
-            $("label[for='filter_fdCriacao_value_start']").html('Data de Criação de');
+            $("label[for='filter_fdCriacao_value_start']").html('Data Criação de');
             $("label[for='filter_fdCriacao_value_end']").html('até');
 
-            $("label[for='filter_fdConclusao_value_start']").html('Data de Conclusão de');
+            $("label[for='filter_fdConclusao_value_start']").html('Data Conc. de');
             $("label[for='filter_fdConclusao_value_end']").html('até');
 
-            $("label[for='filter_fdAutorizacao_value_start']").html('Data Autorização de');
+            $("label[for='filter_fdAutorizacao_value_start']").html('Data Autor. de');
             $("label[for='filter_fdAutorizacao_value_end']").html('até');
 
-            $("label[for='filter_fdLimiterealizacao_value_start']").html('Limite Realização de');
+            $("label[for='filter_fdLimiterealizacao_value_start']").html('Limite Real. de');
             $("label[for='filter_fdLimiterealizacao_value_end']").html('até');
 
-            $("label[for='filter_fdDatarequisicao_value_start']").html('Data da Requisição de');
+            $("label[for='filter_fdDatarequisicao_value_start']").html('Data Req. de');
             $("label[for='filter_fdDatarequisicao_value_end']").html('até');
 
-            $("label[for='filter_fdUltimaemissao_value_start']").html('Data da Requisição de');
+            $("label[for='filter_fdUltimaemissao_value_start']").html('Data Req. de');
             $("label[for='filter_fdUltimaemissao_value_end']").html('até');
+
+
+            var prim = $(".vazio");
+
+            var texto = prim.text().trim();
+            if(texto.length == 0)
+                $(".vazio_1").css("padding-left","35px");
+
+
 
 
             $(".datepicker").datepicker({

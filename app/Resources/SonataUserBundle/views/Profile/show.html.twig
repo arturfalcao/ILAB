@@ -12,9 +12,10 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/style.css') }}" />
 <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/menu.css') }}" />
 
-<link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/chat_agenda.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/net/ui-grid.min.css') }}" />
+{#<link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">#}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/perfil.css') }}" />
+
 {% endstylesheets %}
 
 
@@ -22,16 +23,23 @@
 {% block javascripts %}
 	<script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/vendor/jquery.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/foundation.min.js') }}"></script>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/jquery-1.11.3.min.js') }}"></script>
+	{#<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/moment.min.js') }}"></script>
+	{#<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/fullcalendar.min.js') }}"></script>
+    {#<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>#}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/net/jquery-ui.css') }}" />
+    {#<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/jquery-ui.js') }}"></script>
+	{#<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/angular.min.js') }}"></script>
+	{#<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/bootstrap.min.js') }}"></script>
+	{#<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/ui-grid.min.js') }}"></script>
+    {#<script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>#}
 	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 	<script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
 
@@ -40,20 +48,16 @@
 
 {% endblock %}
 
-<style>
-
-</style>
-
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="large-1 columns" style="position:fixed;height:100vh;border: 1px solid #DFDFDF;z-index: 5;padding: 0;">
+		<div class="large-1 medium-1 columns" style="position:fixed;height:100vh;border: 1px solid #DFDFDF;z-index: 5;padding: 0;">
 			{% include 'default/menu.html.twig' %}
 		</div>
 
-		<div class="large-15 columns">
+		<div class="large-15 medium-15 columns">
 			<div class="row">
-				<div class="large-16 columns">
+				<div class="large-16 medium-16 columns">
 					{% include 'default/profile.html.twig' %}
 
 
@@ -104,23 +108,23 @@
                     <div class="col-md-6 linha_branco" >0</div>
 					<div class="row">
 						<div class="col-md-2 col-md-offset-1" style="padding-left: 10px;">
-							<label class="cor_label">Primeiro nome<span class="cor_asterisco">*</span></label>
+							<label for="primeiro_nome" class="cor_label">Primeiro nome<span class="cor_asterisco">*</span></label>
                             <input id="primeiro_nome" type="text"
                                    name="primeiro_nome" value="{{app.user.firstname}}" required>
                         </div>
 						<div class="col-md-2">
-							<label class="cor_label">Último nome<span class="cor_asterisco">*</span></label>
+							<label for="ultimo_nome" class="cor_label">Último nome<span class="cor_asterisco">*</span></label>
                             <input id="ultimo_nome" type="text"
                                    name="ultimo_nome" value="{{app.user.lastname}}" required>
                         </div>
 						<div class="col-md-3">
-							<label class="cor_label">Email<span class="cor_asterisco">*</span></label>
+							<label for="email" class="cor_label">Email<span class="cor_asterisco">*</span></label>
                             <input id="email" type="text" name="email" value="{{app.user.email}}" required>
 						</div>
 
 						<div class="col-md-1 linha_branco">0</div>
 						<div class="col-md-2" style="padding-left: 10px;">
-							<label class="cor_label">Cargo<span class="cor_asterisco">*</span></label>
+							<label for="cargo" class="cor_label">Cargo<span class="cor_asterisco">*</span></label>
                             <div class="styled-select" >
                                 <select id="cargo" name="cargo">
                                     <option value="tecnica">Técnica</option>
@@ -131,7 +135,7 @@
                             </div>
 						</div>
 						<div class="col-md-2">
-							<label class="cor_label">Género<span class="cor_asterisco">*</span></label>
+							<label for="genero" class="cor_label">Género<span class="cor_asterisco">*</span></label>
                             <div class="styled-select">
                                 <select id="genero" name="genero">
                                     <option value="f">Feminino</option>
@@ -239,18 +243,18 @@
 				</div>
 
                 <div class="col-md-2">
-                    <label class="cor_label">Telefone</label>
+                    <label for="telefone" class="cor_label">Telefone</label>
                     <input id="telefone" type="text" maxlength="64" name="telefone" value="{{app.user.phone}}">
                 </div>
 
 				<div class="row"><div class="col-md-4 linha_branco">0</div></div>
 
 					<div class="col-md-4 col-md-offset-4">
-                        <label class="cor_label pos_label_morada">Morada</label>
+                        <label for="morada" class="cor_label pos_label_morada">Morada</label>
                         <textarea id="morada" name="morada"></textarea>
                     </div>
 					<div class="col-md-2">
-						<label class="cor_label">Telemóvel</label>
+						<label for="telemovel" class="cor_label">Telemóvel</label>
                         <input id="telemovel" type="text" maxlength="64" name="telemovel" value="">
 					</div>
 
@@ -290,13 +294,13 @@
 				<div class="popup" data-popup="popup-1">
 					<div class="popup-inner">
 						<img data-popup-close="popup-1" id="fecha_botao" src="/bundles/app/images/close.png" alt="">
-						<label class="cor_label pos_label_old_pass">Password antiga<span class="cor_asterisco">*</span></label>
+						<label for="pass_antiga" class="cor_label pos_label_old_pass">Password antiga<span class="cor_asterisco">*</span></label>
 						<input id="pass_antiga" type="password" name="pass_antiga" value="">
 
-						<label class="cor_label pos_label_new_pass">Nova password<span class="cor_asterisco">*</span></label>
+						<label for="pass_nova" class="cor_label pos_label_new_pass">Nova password<span class="cor_asterisco">*</span></label>
 						<input id="pass_nova" type="password" name="pass_nova" value="">
 
-						<label class="cor_label pos_label_r_new_pass">Reescreva a nova password<span class="cor_asterisco">*</span></label>
+						<label for="r_pass_nova" class="cor_label pos_label_r_new_pass">Reescreva a nova password<span class="cor_asterisco">*</span></label>
 						<input id="r_pass_nova" type="password" name="re_pass_nova" value="">
 
                         <button type="submit" id="g_sair_1" class="btn-sucess">
@@ -307,9 +311,7 @@
                             <i class="fa fa-times-circle"></i>
                             <span>Cancelar</span>
                         </button>
-						{#<button id="g_sair_1" class="btn-sucess"><i class="fa fa-chevron-circle-left"></i><span>Guardar</span></button>
-						<button data-popup-close="popup-1" id="cancelar_1" class="btn-danger"><i class="fa fa-times-circle"></i><span>Cancelar</span></button>
-#}
+
 					</div>
 				</div>
                 {% include 'default/show_profile.html.twig' %}

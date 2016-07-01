@@ -4,8 +4,8 @@
 
 
 {% stylesheets%}
-
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/css/net/jquery-ui.css') }}" />
+{#<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">#}
 
 {% endstylesheets %}
 
@@ -17,11 +17,15 @@
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/jquery-1.11.3.min.js') }}"></script>
+    {#<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/jquery-ui.min.js') }}"></script>
+    {#<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/moment.min.js') }}"></script>
+    {#<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>#}
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/fullcalendar.min.js') }}"></script>
+    {#<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.4.0/fullcalendar.min.js"></script>#}
 
 
     <script type="text/javascript" src="{{ asset('bundles/app/js/lang-all.js') }}"></script>
@@ -37,7 +41,8 @@
 <link rel="stylesheet" type="text/css" href="/bundles/app/css/jquery.timepicker.css" />
 
 {% block scripts -%}
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bundles/app/js/net/angular.min.js') }}"></script>
+    {#<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>#}
     <script type="text/javascript">
         angular.module('CalendarModule', [])
                 .controller('CalendarCtrl', function($scope, $locale, $http) {
@@ -56,16 +61,16 @@
 
 <div class="container-fluid new_cal_element">
     <div class="row">
-        <div class="large-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;">
+        <div class="large-1 medium-1 columns no-padding" style="position:fixed;height: 100vh;border: 1px solid #DFDFDF;z-index: 5;">
             {% include 'default/menu.html.twig' %}
         </div>
-        <div class=" large-15 columns">
+        <div class=" large-15 medium-15 columns">
             <div class="row">
 
-                <div class="large-16 columns" >
+                <div class="large-16 medium-16 columns" >
                     {% include 'default/topheader_agenda_new.html.twig' %}
 
-                    <link rel="stylesheet" type="text/css" href="/bundles/app/css/chat_agenda.css" />
+
                     <link rel="stylesheet" type="text/css" href="/bundles/app/css/style.css" />
 
                 </div>
@@ -74,50 +79,51 @@
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row linha_branco"><div class="col-md-12">0</div></div>
             <div class="row">
-                <div class="large-16 columns no-padding" >
+                <div class="large-16 medium-16 columns no-padding" >
 
                     {% block body -%}
 
                         {{ form_start(form) }}
                         <div class="row linha_branco">0</div>
                         <div class="row linha_branco">0</div>
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_label(form.title, 'Nome do Evento') }}
                         {{ form_widget(form.title) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_label(form.morada, 'Onde') }}
                         {{ form_widget(form.morada) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_label(form.descricao, 'Descrição') }}
                         {{ form_widget(form.descricao) }}
                         </div>
 
-                        <div class="large-3 push-1 form-group">
+                        <div class="large-3 medium-3 push-1 form-group">
                         {{ form_label(form.startdatetime, 'Data de início') }}
                         {{ form_widget(form.startdatetime) }}
                         </div>
 
-                        <div class="large-3 push-1 form-group">
+                        <div class="large-3 medium-3 push-1 form-group">
                         {{ form_label(form.enddatetime, 'Data de fim') }}
                         {{ form_widget(form.enddatetime) }}
                         </div>
 
-                        <div class="large-6 push-1 form-group">
+                        <div class="large-6 medium-6 push-1 form-group">
                         {{ form_widget(form.allDay) }}
                         {{ form_label(form.allDay, 'Todo o dia?') }}
 
                         </div>
 
+                        {{ form_widget(form.FnIdUtilizador) }}
                         <div class="row linha_branco">0</div>
                         <hr>
 
 
                         <div class="bottom-buttons buttons-center">
-                            <button type="submit" id="g_sair" class="btn-sucess">
+                            <button type="submit" id="g_sair" class="btn-success">
                                 <i class="fa fa-save" ></i>
                                 <span>Guardar</span>
                             </button>
@@ -183,22 +189,12 @@
     });
 </script>
 
-<style>
-    input[type=date]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        display: none;
-    }
 
-    input[type=time]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        display: none;
-    }
-
-
-</style>
 
 <script>
     $( document ).ready(function() {
+
+        $("#Agenda_FnIdUtilizador").val("{{app.user.id}}");
 
         $('#cancelar').on('click', function(e)  {
             window.location.href = '/app_dev.php/calendar';
@@ -235,7 +231,6 @@
 
 
 
-    $('#Agenda_descricao').attr('required',false);
     $('#Agenda_enddatetime_date').attr('required',false);
     $('#Agenda_enddatetime_time').attr('required',false);
     $('#Agenda_allDay').attr('required',false);
@@ -252,7 +247,31 @@
         if($("#Agenda_allDay").is( ':checked') == true || ( $('#Agenda_enddatetime_date').val().length != 0
                 && $('#Agenda_enddatetime_time').val().length != 0 ))
 
-                $( "form" ).submit();
+
+
+                if($('#Agenda_enddatetime_date').val().length != 0 && $('#Agenda_enddatetime_time').val().length != 0)
+                {
+                    var data_ini = $("#Agenda_startdatetime_date").val();
+                    var data_ini_temp = $('#Agenda_startdatetime_time').val();
+
+                    var data_fim = $('#Agenda_enddatetime_date').val();
+                    var data_fim_temp = $('#Agenda_enddatetime_time').val();
+
+                    if (data_ini < data_fim) {
+                        $("form").submit();
+                    }
+                    else if (data_ini == data_fim && data_ini_temp < data_fim_temp) {
+                        $("form").submit();
+                    }
+                    else
+                    {
+                        e.preventDefault();
+                    }
+                }
+            else{
+                    $("form").submit();
+                }
+
 
     });
 
