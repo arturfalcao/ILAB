@@ -44,8 +44,8 @@ class ListaTrabalhoController extends Controller
         $sql = 'SELECT t_metodos.fn_id fnId,t_metodos.ft_descricao ftDescricao
                 FROM t_metodos 
                 INNER JOIN t_parametrospormetodo 
-                ON t_parametrospormetodo.fn_id_parametro = t_metodos.fn_id
-                WHERE t_parametrospormetodo.fn_id_metodo = ' . $arr2[1];
+                ON t_parametrospormetodo.fn_id_metodo = t_metodos.fn_id
+                WHERE t_parametrospormetodo.fn_id_parametro = ' . $arr2[1];
         $result= $conn->query($sql)->fetchAll();
         return new Response(json_encode($result));
     }

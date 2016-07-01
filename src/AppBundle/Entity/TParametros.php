@@ -25,8 +25,8 @@ class TParametros
     /**
      * @ORM\ManyToMany(targetEntity="TMetodos")
      * @ORM\JoinTable(name="t_parametrospormetodo",
-     *      joinColumns={@ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")}
+     *      joinColumns={@ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")}
      *      )
      */
     public $fnMetodo;

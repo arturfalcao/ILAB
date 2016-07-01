@@ -212,7 +212,7 @@ class TAmostras
     }
     public function addFnOperador(\Application\Sonata\UserBundle\Entity\User $fnOperador)
     {
-        $this->fnParametros[] = $fnOperador;
+        $this->fnOperador[] = $fnOperador;
         return $this;
     }
     public function removeFnOperador(\Application\Sonata\UserBundle\Entity\User $fnOperador)

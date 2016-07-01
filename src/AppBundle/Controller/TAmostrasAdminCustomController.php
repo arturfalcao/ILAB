@@ -353,7 +353,7 @@ class TAmostrasAdminCustomController extends Controller
             // consider using ->getArrayResult() to use less memory
 
             if($queryBuilder->getQuery()->getResult()[0]['fnId'] !== null){
-                $sql = "SELECT * from t_parametrospormetodo where fn_id_metodo = ". 
+                $sql = "SELECT * from t_parametrospormetodo where fn_id_parametro = ".
                         $queryBuilder->getQuery()->getResult()[0]['fnId'] ." " ;
                 $activeDate = $this->getDoctrine()->getManager()->getConnection()->prepare($sql);
                 $activeDate->execute();
@@ -362,9 +362,9 @@ class TAmostrasAdminCustomController extends Controller
                 foreach ($result as &$value) {
 
                     if($where  == ""){
-                        $where .= "fn_id = " . $value['fn_id_parametro']  . "" ;
+                        $where .= "fn_id = " . $value['fn_id_metodo']  . "" ;
                     }else{
-                        $where .= " or fn_id = " . $value['fn_id_parametro']  . "" ;
+                        $where .= " or fn_id = " . $value['fn_id_metodo']  . "" ;
                     }
                 }
                 if( count($result) != 0){
