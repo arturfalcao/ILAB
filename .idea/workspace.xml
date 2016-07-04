@@ -8,10 +8,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ListaTrabalhoController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ListaTrabalhoController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostras.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TAmostras.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,30 +37,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EntResultadosController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EntResultadosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="135" column="47" selection-start-line="135" selection-start-column="47" selection-end-line="135" selection-end-column="47" />
+            <state relative-caret-position="362">
+              <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
               <folding>
-                <marker date="1467386884794" expanded="true" signature="1142:1998" ph="SELECT t_res... t_resultados" />
-                <marker date="1467386884794" expanded="true" signature="2616:2655" ph="select * fro... t_regrasformatacao" />
-                <marker date="1467386884794" expanded="true" signature="3339:4294" ph="SELECT t_res... t_resultados" />
-                <marker date="1467386884794" expanded="true" signature="7816:8666" ph="SELECT t_res... t_resultados" />
-                <marker date="1467386884794" expanded="true" signature="9055:9094" ph="select * fro... t_regrasformatacao" />
-                <marker date="1467386884794" expanded="true" signature="9593:10446" ph="SELECT t_res... t_resultados" />
-                <marker date="1467386884794" expanded="true" signature="11066:11105" ph="select * fro... t_regrasformatacao" />
+                <marker date="1467624415339" expanded="true" signature="1142:1998" ph="SELECT t_res... t_resultados" />
+                <marker date="1467624415339" expanded="true" signature="2616:2655" ph="select * fro... t_regrasformatacao" />
+                <marker date="1467624415339" expanded="true" signature="3339:4294" ph="SELECT t_res... t_resultados" />
+                <marker date="1467624415339" expanded="true" signature="7848:8698" ph="SELECT t_res... t_resultados" />
+                <marker date="1467624415339" expanded="true" signature="9087:9126" ph="select * fro... t_regrasformatacao" />
+                <marker date="1467624415339" expanded="true" signature="9625:10478" ph="SELECT t_res... t_resultados" />
+                <marker date="1467624415339" expanded="true" signature="11098:11137" ph="select * fro... t_regrasformatacao" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TParametros.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php">
+      <file leaf-file-name="PDF.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TCPDF/TCPDFBundle/PDF.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-204">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state relative-caret-position="5236">
+              <caret line="311" column="20" selection-start-line="311" selection-start-column="20" selection-end-line="311" selection-end-column="20" />
+              <folding>
+                <marker date="1467041712804" expanded="true" signature="11491:13036" ph="..." />
+                <marker date="1467041712804" expanded="true" signature="11521:11878" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="11562:11622" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="11694:11703" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="11750:11811" ph="..." />
+                <marker date="1467041712804" expanded="true" signature="11907:12393" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="11948:11960" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12007:12016" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12063:12088" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12146:12171" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12237:12262" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12319:12344" ph="..." />
+                <marker date="1467041712804" expanded="true" signature="12422:12980" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12463:12489" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12550:12560" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12607:12632" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12703:12728" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12799:12824" ph="..." />
+                <marker date="1467041712804" expanded="false" signature="12895:12920" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="786" column="56" selection-start-line="786" selection-start-column="56" selection-end-line="786" selection-end-column="56" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="120" column="81" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="81" />
+              <folding>
+                <marker date="1467197685720" expanded="true" signature="5692:5735" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -227,7 +266,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TResultadosAdmin.php" />
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_list.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php" />
@@ -235,8 +273,9 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ListaTrabalhoController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php" />
       </list>
     </option>
   </component>
@@ -284,6 +323,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -372,8 +413,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -569,12 +608,14 @@
       <workItem from="1467361913088" duration="1226000" />
       <workItem from="1467379906810" duration="250000" />
       <workItem from="1467380926412" duration="1100000" />
-      <workItem from="1467382107582" duration="7422000" />
+      <workItem from="1467382107582" duration="9699000" />
+      <workItem from="1467452248095" duration="3337000" />
+      <workItem from="1467621174730" duration="4027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="572475000" />
+    <option name="totallyTimeSpent" value="582116000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -587,13 +628,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3721634" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38426626" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869694" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" show_stripe_button="true" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="359" y="158" width="647" height="412" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3397762" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -606,6 +646,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="FLOATING" visible="false" show_stripe_button="true" weight="0.59450895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="359" y="158" width="647" height="412" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -681,13 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55811">
           <caret line="3440" column="75" selection-start-line="3440" selection-start-column="75" selection-end-line="3440" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TCPDF/TCPDFBundle/PDF.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="204" column="51" selection-start-line="204" selection-start-column="51" selection-end-line="204" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -935,7 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1489">
           <caret line="214" column="25" selection-start-line="214" selection-start-column="25" selection-end-line="214" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="93" column="7" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,7 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-773">
           <caret line="511" column="27" selection-start-line="511" selection-start-column="11" selection-end-line="511" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -967,38 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="366" column="71" selection-start-line="366" selection-start-column="71" selection-end-line="366" selection-end-column="71" />
-          <folding>
-            <marker date="1467385452425" expanded="true" signature="4256:4305" ph="SELECT MAX(i... t_parametrosamostra_log" />
-            <marker date="1467385452425" expanded="true" signature="4522:6003" ph="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1467385452425" expanded="true" signature="5190:6003" ph="SELECT aa.fn... t_parametrosamostra_log" />
-            <marker date="1467385452425" expanded="true" signature="6179:6437" ph="UPDATE t_par... " />
-            <marker date="1467385452425" expanded="true" signature="6759:6935" ph="update t_amo... " />
-            <marker date="1467385452425" expanded="true" signature="7523:7574" ph="SELECT * FRO... t_amostras_logs" />
-            <marker date="1467385452425" expanded="true" signature="7979:8059" ph="SELECT * FRO... t_parametrosamostra_log" />
-            <marker date="1467385452425" expanded="true" signature="8447:9492" ph="SELECT para.... t_parametrosamostra" />
-            <marker date="1467385452425" expanded="true" signature="9897:9948" ph="SELECT * FRO... t_resultados" />
-            <marker date="1467385452425" expanded="true" signature="15989:16049" ph="SELECT * fro... t_parametrospormetodo" />
-            <marker date="1467385452425" expanded="true" signature="16734:16822" ph="SELECT ft_de... t_metodos" />
-            <marker date="1467385452425" expanded="true" signature="18535:18722" ph="SELECT DISTI... t_produtos" />
-            <marker date="1467385452425" expanded="true" signature="19541:19886" ph="SELECT DISTI... t_produtosespecificacoes" />
-            <marker date="1467385452425" expanded="true" signature="20484:21365" ph="SELECT DISTI... t_resultados" />
-            <marker date="1467385452425" expanded="true" signature="24785:26394" ph="INSERT INTO t_parametrosamostra... " />
-            <marker date="1467385452425" expanded="true" signature="25529:26394" ph="SELECT aa.fn... t_parametros" />
-            <marker date="1467385452425" expanded="true" signature="26664:28045" ph="INSERT INTO t_parametrosamostra_log... " />
-            <marker date="1467385452425" expanded="true" signature="27308:28045" ph="SELECT aa.fn... t_parametrosamostra" />
-            <marker date="1467385452425" expanded="true" signature="28208:28280" ph="UPDATE t_par... " />
-            <marker date="1467385452425" expanded="true" signature="28470:28533" ph="SELECT max(i... t_parametrosamostra_log" />
-            <marker date="1467385452425" expanded="true" signature="28830:29040" ph="UPDATE t_par... " />
-            <marker date="1467385452425" expanded="true" signature="30475:30600" ph="UPDATE t_res... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="172" column="72" selection-start-line="172" selection-start-column="60" selection-end-line="172" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1006,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,15 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="792" column="23" selection-start-line="792" selection-start-column="23" selection-end-line="792" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1030,9 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="47" column="59" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="59" />
-          <folding>
-            <marker date="1467384629408" expanded="true" signature="1555:1834" ph="SELECT t_met... t_metodos" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1040,7 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="53" column="36" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1048,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,7 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1064,7 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1072,7 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="152" column="20" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1080,31 +1060,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="485">
           <caret line="130" column="63" selection-start-line="130" selection-start-column="36" selection-end-line="130" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1003">
+          <caret line="172" column="18" selection-start-line="172" selection-start-column="18" selection-end-line="172" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TCPDF/TCPDFBundle/PDF.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5236">
+          <caret line="311" column="20" selection-start-line="311" selection-start-column="20" selection-end-line="311" selection-end-column="20" />
+          <folding>
+            <marker date="1467041712804" expanded="true" signature="11491:13036" ph="..." />
+            <marker date="1467041712804" expanded="true" signature="11521:11878" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="11562:11622" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="11694:11703" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="11750:11811" ph="..." />
+            <marker date="1467041712804" expanded="true" signature="11907:12393" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="11948:11960" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12007:12016" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12063:12088" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12146:12171" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12237:12262" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12319:12344" ph="..." />
+            <marker date="1467041712804" expanded="true" signature="12422:12980" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12463:12489" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12550:12560" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12607:12632" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12703:12728" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12799:12824" ph="..." />
+            <marker date="1467041712804" expanded="false" signature="12895:12920" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="120" column="81" selection-start-line="120" selection-start-column="53" selection-end-line="120" selection-end-column="81" />
+          <folding>
+            <marker date="1467197685720" expanded="true" signature="5692:5735" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="786" column="56" selection-start-line="786" selection-start-column="56" selection-end-line="786" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/EntResultadosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="135" column="47" selection-start-line="135" selection-start-column="47" selection-end-line="135" selection-end-column="47" />
+        <state relative-caret-position="362">
+          <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
           <folding>
-            <marker date="1467386884794" expanded="true" signature="1142:1998" ph="SELECT t_res... t_resultados" />
-            <marker date="1467386884794" expanded="true" signature="2616:2655" ph="select * fro... t_regrasformatacao" />
-            <marker date="1467386884794" expanded="true" signature="3339:4294" ph="SELECT t_res... t_resultados" />
-            <marker date="1467386884794" expanded="true" signature="7816:8666" ph="SELECT t_res... t_resultados" />
-            <marker date="1467386884794" expanded="true" signature="9055:9094" ph="select * fro... t_regrasformatacao" />
-            <marker date="1467386884794" expanded="true" signature="9593:10446" ph="SELECT t_res... t_resultados" />
-            <marker date="1467386884794" expanded="true" signature="11066:11105" ph="select * fro... t_regrasformatacao" />
+            <marker date="1467624415339" expanded="true" signature="1142:1998" ph="SELECT t_res... t_resultados" />
+            <marker date="1467624415339" expanded="true" signature="2616:2655" ph="select * fro... t_regrasformatacao" />
+            <marker date="1467624415339" expanded="true" signature="3339:4294" ph="SELECT t_res... t_resultados" />
+            <marker date="1467624415339" expanded="true" signature="7848:8698" ph="SELECT t_res... t_resultados" />
+            <marker date="1467624415339" expanded="true" signature="9087:9126" ph="select * fro... t_regrasformatacao" />
+            <marker date="1467624415339" expanded="true" signature="9625:10478" ph="SELECT t_res... t_resultados" />
+            <marker date="1467624415339" expanded="true" signature="11098:11137" ph="select * fro... t_regrasformatacao" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametros.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-204">
-          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
