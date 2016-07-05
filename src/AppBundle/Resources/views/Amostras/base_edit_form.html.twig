@@ -232,10 +232,10 @@
                             for (var i = 0; i < rows.length; i++)
                             {
                                 rowIds.push(rows[i].id);
-                            }
-                            if(!dicionario[rows[0].idparametro]) {
-                                dicionario[rows[0].idparametro] = {};
-                                dicionario[rows[0].idparametro]["IA"] = $("#_amostra").val();
+                                if(!dicionario[rows[i].idparametro]) {
+                                    dicionario[rows[i].idparametro] = {};
+                                    dicionario[rows[i].idparametro]["IA"] = $("#_amostra").val();
+                                }
                             }
                             GetAllMetodo(rows[0].idparametro);
                             GetCicloPorParametro(rows[0].idparametro);
@@ -247,6 +247,10 @@
                         {
                             for (var i = 0; i < rows.length; i++)
                             {
+                                if(dicionario[rows[i].idparametro]) {
+                                    delete dicionario[rows[i].idparametro];
+
+                                }
                                 $.each(rowIds, function( index, value ) {
                                     if(value == rows[i].id){
                                         rowIds.splice(index,1);
@@ -772,40 +776,49 @@
                 });
 
             }
+            function isEmpty(o){
+                for(var i in o){
+                    if(o.hasOwnProperty(i)){
+                        return false;
+                    }
+                }
+                return true;
+            }
             function Savedata(){
-
-                dicionario = removeNulos(dicionario);
-                var OMV = outrometodoVazio(dicionario);
-                if(OMV == 0) {
-                    $(".ecra").show();
-                    $.ajax({
-                        type: "POST",
-                        url: '{{ path('EntradaResultadossetByRegrasFormatacaoAmostra') }}',
-                        data: JSON.stringify(dicionario),
-                        success: function (data) {
-                            data = data.replace('"','');
-                            data = data.replace('"','');
-                            $('._conclusao').val(data);
-                            toastr.info('Resultados guardados com sucesso');
-                            GetParametros();
-
-                        }
-                    });
-                    $.ajax({
-                        type: "POST",
-                        url: '{{ path('SaveParaporAmostra') }}',
-                        data: JSON.stringify(dicionario),
-                        success: function (data) {
-                            if (data > 0) {
+                if(isEmpty(dicionario) == false) {
+                    dicionario = removeNulos(dicionario);
+                    var OMV = outrometodoVazio(dicionario);
+                    if (OMV == 0) {
+                        $(".ecra").show();
+                        $.ajax({
+                            type: "POST",
+                            url: '{{ path('EntradaResultadossetByRegrasFormatacaoAmostra') }}',
+                            data: JSON.stringify(dicionario),
+                            success: function (data) {
+                                data = data.replace('"', '');
+                                data = data.replace('"', '');
+                                $('._conclusao').val(data);
                                 toastr.info('Resultados guardados com sucesso');
                                 GetParametros();
-                                $(".ecra").hide();
-                            } else {
-                                $(".ecra").hide();
-                                toastr.info('Resultados não guardados');
+
                             }
-                        }
-                    });
+                        });
+                        $.ajax({
+                            type: "POST",
+                            url: '{{ path('SaveParaporAmostra') }}',
+                            data: JSON.stringify(dicionario),
+                            success: function (data) {
+                                if (data > 0) {
+                                    toastr.info('Resultados guardados com sucesso');
+                                    GetParametros();
+                                    $(".ecra").hide();
+                                } else {
+                                    $(".ecra").hide();
+                                    toastr.info('Resultados não guardados');
+                                }
+                            }
+                        });
+                    }
                 }
             }
             $( document ).ready(function() {
