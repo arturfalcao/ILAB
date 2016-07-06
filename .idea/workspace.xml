@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Twig/AppExtension.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list_field.html.twig" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list_field.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig" afterPath="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
     </list>
     <ignored path="ILAB.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,21 +42,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="base_edit_form.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
+      <file leaf-file-name="base_list_field.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list_field.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="250" column="74" selection-start-line="250" selection-start-column="74" selection-end-line="250" selection-end-column="74" />
+            <state relative-caret-position="280">
+              <caret line="33" column="80" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listaporparametro.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig">
+      <file leaf-file-name="form_admin_fields.html.twig" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="216" column="68" selection-start-line="216" selection-start-column="68" selection-end-line="216" selection-end-column="68" />
+            <state relative-caret-position="252">
+              <caret line="211" column="54" selection-start-line="211" selection-start-column="46" selection-end-line="211" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppExtension.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/AppExtension.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="361" column="24" selection-start-line="361" selection-start-column="24" selection-end-line="361" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="10546" column="20" selection-start-line="10546" selection-start-column="20" selection-end-line="10546" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -80,9 +124,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Resources/views/default/profile.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/tinymce.min.js" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/js/main.js" />
@@ -99,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/modelo.html.twig" />
         <option value="$PROJECT_DIR$/src/Acme/DemoBundle/MYPDF.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/TMetodosAdmin.php" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/TCPDF/TCPDFBundle/TCPDF.php" />
         <option value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf/tcpdf.php" />
         <option value="$PROJECT_DIR$/src/TCPDF/TCPDFBundle/PDF.php" />
@@ -124,13 +164,17 @@
         <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/base_list_inner_row.html.twig" />
         <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/base_list_flat_field.html.twig" />
         <option value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/CRUD/base_list_field.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list_field.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_edit_form.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_edit_form_macro.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_filter_field.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list_field.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Twig/AppExtension.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
+        <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig" />
       </list>
     </option>
   </component>
@@ -147,7 +191,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1370" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -246,33 +290,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ILAB" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
+              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -481,12 +499,14 @@
       <workItem from="1467639421093" duration="8330000" />
       <workItem from="1467708430456" duration="2310000" />
       <workItem from="1467726043092" duration="3059000" />
-      <workItem from="1467734799153" duration="57000" />
+      <workItem from="1467734799153" duration="4397000" />
+      <workItem from="1467794133621" duration="11680000" />
+      <workItem from="1467812099788" duration="12790000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="596874000" />
+    <option name="totallyTimeSpent" value="625684000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -498,10 +518,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26946566" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27458397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869694" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -540,48 +560,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Agenda.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="398" column="5" selection-start-line="398" selection-start-column="5" selection-end-line="398" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/TAmostrasAdminCustom/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4216">
-          <caret line="248" column="0" selection-start-line="248" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/FosUserGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TAmostras.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1489">
-          <caret line="214" column="25" selection-start-line="214" selection-start-column="25" selection-end-line="214" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TProdutos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="93" column="7" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TParametrosamostra.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-773">
-          <caret line="511" column="27" selection-start-line="511" selection-start-column="11" selection-end-line="511" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/TAmostrasAdminCustomController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -666,13 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/admin.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/RegrasFormatacao/base_edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
@@ -709,13 +680,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/var/sessions" />
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3706">
-          <caret line="218" column="76" selection-start-line="218" selection-start-column="76" selection-end-line="218" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Pager/base_results.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-95">
@@ -815,13 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_edit_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/WorkListCTRLController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20842">
@@ -833,13 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2907">
           <caret line="81" column="36" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_filter_field.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -857,32 +807,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3009">
-          <caret line="177" column="146" selection-start-line="177" selection-start-column="146" selection-end-line="177" selection-end-column="146" />
+        <state relative-caret-position="-544">
+          <caret line="216" column="68" selection-start-line="216" selection-start-column="68" selection-end-line="216" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_filter_field.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_edit_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/topheader_geral.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4250">
+          <caret line="250" column="74" selection-start-line="250" selection-start-column="74" selection-end-line="250" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/config/admin.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="95" column="19" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/sonata-project/admin-bundle/Resources/views/Form/form_admin_fields.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="178" column="0" selection-start-line="177" selection-start-column="16" selection-end-line="178" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="10546" column="20" selection-start-line="10546" selection-start-column="20" selection-end-line="10546" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/TResultadosAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/AppExtension.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="361" column="24" selection-start-line="361" selection-start-column="24" selection-end-line="361" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list_field.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Amostras/base_edit_form.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="250" column="74" selection-start-line="250" selection-start-column="74" selection-end-line="250" selection-end-column="74" />
+          <caret line="33" column="80" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="80" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/ModelosListas/listaporparametro.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="216" column="68" selection-start-line="216" selection-start-column="68" selection-end-line="216" selection-end-column="68" />
+        <state relative-caret-position="252">
+          <caret line="211" column="54" selection-start-line="211" selection-start-column="46" selection-end-line="211" selection-end-column="54" />
           <folding />
         </state>
       </provider>
