@@ -14,8 +14,6 @@ class AppExtension extends \Twig_Extension
 
     public function e_utf8Filter($str)
     {
-        //<input type="text" id="s577cecdf047ac_ftCodpostal" name="s577cecdf047ac[ftCodpostal]" required="required" maxlength="10" class=" form-control" value="4750-109" />
-
         $pos = strpos ( $str ,"value" );
         if($pos === false )
         {
