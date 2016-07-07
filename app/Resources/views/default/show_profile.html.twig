@@ -26,45 +26,51 @@
             var pass_nova = $("#pass_nova").val();
             var r_pass_nova = $("#r_pass_nova").val();
             var user = Number($('#util').val());
-
+            var ok;
             $.ajax({
                 type: "POST",
-                url: '{{path('chat_validapass')}}',
+                url: '{{path('perfil_validapass')}}',
                 data: {id: user, password: pass_antiga},
                 success: function(data) {
-                    var ok = Number(data);
+                    ok = Number(data);
                     if(ok == 0)
                     {
                         $("#pass_antiga").val('');
                         e.preventDefault();
+                    }
+                    else{
+                        if(pass_nova != r_pass_nova)
+                        {
+                            $("#pass_nova").val('');
+                            $("#r_pass_nova").val('');
+                            e.preventDefault();
+                        }
+                        else{
+                            if(pass_nova.length > 0)
+                            {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '{{path('perfil_mudapass')}}',
+                                    data: {id: user, password: pass_nova},
+                                    success: function(data) {
+
+                                    }
+                                });
+                                $(".popup").hide();
+                            }
+                            else
+                            {
+                                e.preventDefault();
+                            }
+                        }
+
                     }
 
                 }
             });
 
 
-            if(pass_nova != r_pass_nova)
-            {
-                $("#pass_nova").val('');
-                $("#r_pass_nova").val('');
-                e.preventDefault();
-            }
-            else{
-                if(pass_nova.length > 0)
-                {
-                    $.ajax({
-                        type: "POST",
-                        url: '{{path('chat_mudapass')}}',
-                        data: {id: user, password: pass_nova},
-                        success: function(data) {
 
-                        }
-                    });
-                    $(".popup").hide();
-                }
-
-                e.preventDefault();
-            }
 
         });
 

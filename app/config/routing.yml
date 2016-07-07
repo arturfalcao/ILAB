@@ -249,9 +249,9 @@ GetPDFFile:
   pattern:  /getpdflista/{slug}
   defaults: { _controller: AppBundle:WorkListCTRL:GetPDFFile}
 
-sucesso:
-    path:     /sucesso
-    defaults: { _controller: AppBundle:Chat:profilehandler }
+perfil:
+    path:     /perfil
+    defaults: { _controller: AppBundle:Profile:profilehandler }
 #Jose
 calendar_geteventos:
     path:     /calendar/geteventos
@@ -297,13 +297,13 @@ chat_getimagem:
     path:     /chat/getimagem
     defaults: { _controller: AppBundle:Chat:getimagem }
 
-chat_validapass:
-    path:     /chat/chat_validapass
-    defaults: { _controller: AppBundle:Chat:chat_validapass }
+perfil_validapass:
+    path:     /perfil/perfil_validapass
+    defaults: { _controller: AppBundle:Profile:perfil_validapass }
 
-chat_mudapass:
-    path:     /chat/chat_mudapass
-    defaults: { _controller: AppBundle:Chat:chat_mudapass }
+perfil_mudapass:
+    path:     /perfil/perfil_mudapass
+    defaults: { _controller: AppBundle:Profile:perfil_mudapass }
 
 GetAllParametroAmostra:
     pattern:  /GetAllParametroAmostra

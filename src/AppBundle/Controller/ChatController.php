@@ -105,8 +105,6 @@ class ChatController extends Controller
     }
 
     /**
-     * Mensagens novas do utilizado clicado para o utilizador autenticado
-     *
      * @Route("/sucesso", name="sucesso")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -212,6 +210,13 @@ class ChatController extends Controller
       return $this->redirectToRoute('calendar');
   }
 
+
+    /**
+     * Mensagens novas do utilizado clicado para o utilizador autenticado
+     *
+     * @Route("/chat/gethistoriconovo", name="historiconovo")
+     *
+     */  
   public function gethistoriconovoAction()
     {
 
