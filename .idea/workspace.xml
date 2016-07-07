@@ -7,7 +7,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
     </list>
     <ignored path="ILAB.iws" />
@@ -47,29 +46,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+            <state relative-caret-position="328">
+              <caret line="367" column="4" selection-start-line="367" selection-start-column="4" selection-end-line="367" selection-end-column="4" />
               <folding>
                 <element signature="e#592#728#0#PHP" expanded="false" />
                 <element signature="e#733#1573#0#PHP" expanded="false" />
                 <element signature="e#1581#1692#0#PHP" expanded="false" />
                 <element signature="e#1697#2833#0#PHP" expanded="false" />
-                <element signature="e#2839#3000#0#PHP" expanded="false" />
-                <element signature="e#3005#4556#0#PHP" expanded="false" />
+                <element signature="e#2841#3002#0#PHP" expanded="false" />
+                <element signature="e#3007#4558#0#PHP" expanded="false" />
                 <element signature="e#4562#4704#0#PHP" expanded="false" />
-                <element signature="e#4708#6466#0#PHP" expanded="false" />
-                <element signature="e#6472#6637#0#PHP" expanded="false" />
-                <element signature="e#6642#7566#0#PHP" expanded="false" />
-                <element signature="e#7573#7750#0#PHP" expanded="false" />
-                <element signature="e#7755#8776#0#PHP" expanded="false" />
-                <element signature="e#8782#8943#0#PHP" expanded="false" />
-                <element signature="e#8948#11332#0#PHP" expanded="false" />
-                <element signature="e#11340#11457#0#PHP" expanded="false" />
-                <element signature="e#11462#11887#0#PHP" expanded="false" />
-                <marker date="1467911168955" expanded="true" signature="10612:10780" ph="SELECT COUNT... histchat" />
+                <element signature="e#4707#6465#0#PHP" expanded="false" />
+                <element signature="e#6469#6634#0#PHP" expanded="false" />
+                <element signature="e#6639#7563#0#PHP" expanded="false" />
+                <element signature="e#7568#7745#0#PHP" expanded="false" />
+                <element signature="e#7750#8771#0#PHP" expanded="false" />
+                <element signature="e#8775#8936#0#PHP" expanded="false" />
+                <element signature="e#8941#11325#0#PHP" expanded="false" />
+                <element signature="e#11333#11450#0#PHP" expanded="false" />
+                <element signature="e#11455#11880#0#PHP" expanded="false" />
+                <marker date="1467911328085" expanded="true" signature="10605:10773" ph="SELECT COUNT... histchat" />
               </folding>
             </state>
           </provider>
@@ -78,10 +77,14 @@
       <file leaf-file-name="ProfileController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ProfileController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="170" column="29" selection-start-line="170" selection-start-column="29" selection-end-line="170" selection-end-column="29" />
+            <state relative-caret-position="345">
+              <caret line="167" column="7" selection-start-line="167" selection-start-column="7" selection-end-line="167" selection-end-column="7" />
               <folding>
+                <element signature="e#597#745#0#PHP" expanded="false" />
                 <element signature="e#751#4375#0#PHP" expanded="false" />
+                <element signature="e#4381#4512#0#PHP" expanded="false" />
+                <element signature="e#4517#5312#0#PHP" expanded="false" />
+                <element signature="e#5319#5440#0#PHP" expanded="false" />
                 <element signature="e#5445#6253#0#PHP" expanded="false" />
               </folding>
             </state>
@@ -100,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="300" column="21" selection-start-line="300" selection-start-column="14" selection-end-line="300" selection-end-column="21" />
+            <state relative-caret-position="290">
+              <caret line="305" column="64" selection-start-line="305" selection-start-column="64" selection-end-line="305" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -526,12 +529,12 @@
       <workItem from="1467812099788" duration="13236000" />
       <workItem from="1467880517577" duration="2586000" />
       <workItem from="1467898361716" duration="219000" />
-      <workItem from="1467908080615" duration="3130000" />
+      <workItem from="1467908080615" duration="3237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="632065000" />
+    <option name="totallyTimeSpent" value="632172000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -898,25 +901,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="300" column="21" selection-start-line="300" selection-start-column="14" selection-end-line="300" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ProfileController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="170" column="29" selection-start-line="170" selection-start-column="29" selection-end-line="170" selection-end-column="29" />
-          <folding>
-            <element signature="e#751#4375#0#PHP" expanded="false" />
-            <element signature="e#5445#6253#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -937,27 +921,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+        <state relative-caret-position="328">
+          <caret line="367" column="4" selection-start-line="367" selection-start-column="4" selection-end-line="367" selection-end-column="4" />
           <folding>
             <element signature="e#592#728#0#PHP" expanded="false" />
             <element signature="e#733#1573#0#PHP" expanded="false" />
             <element signature="e#1581#1692#0#PHP" expanded="false" />
             <element signature="e#1697#2833#0#PHP" expanded="false" />
-            <element signature="e#2839#3000#0#PHP" expanded="false" />
-            <element signature="e#3005#4556#0#PHP" expanded="false" />
+            <element signature="e#2841#3002#0#PHP" expanded="false" />
+            <element signature="e#3007#4558#0#PHP" expanded="false" />
             <element signature="e#4562#4704#0#PHP" expanded="false" />
-            <element signature="e#4708#6466#0#PHP" expanded="false" />
-            <element signature="e#6472#6637#0#PHP" expanded="false" />
-            <element signature="e#6642#7566#0#PHP" expanded="false" />
-            <element signature="e#7573#7750#0#PHP" expanded="false" />
-            <element signature="e#7755#8776#0#PHP" expanded="false" />
-            <element signature="e#8782#8943#0#PHP" expanded="false" />
-            <element signature="e#8948#11332#0#PHP" expanded="false" />
-            <element signature="e#11340#11457#0#PHP" expanded="false" />
-            <element signature="e#11462#11887#0#PHP" expanded="false" />
-            <marker date="1467911168955" expanded="true" signature="10612:10780" ph="SELECT COUNT... histchat" />
+            <element signature="e#4707#6465#0#PHP" expanded="false" />
+            <element signature="e#6469#6634#0#PHP" expanded="false" />
+            <element signature="e#6639#7563#0#PHP" expanded="false" />
+            <element signature="e#7568#7745#0#PHP" expanded="false" />
+            <element signature="e#7750#8771#0#PHP" expanded="false" />
+            <element signature="e#8775#8936#0#PHP" expanded="false" />
+            <element signature="e#8941#11325#0#PHP" expanded="false" />
+            <element signature="e#11333#11450#0#PHP" expanded="false" />
+            <element signature="e#11455#11880#0#PHP" expanded="false" />
+            <marker date="1467911328085" expanded="true" signature="10605:10773" ph="SELECT COUNT... histchat" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ProfileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="167" column="7" selection-start-line="167" selection-start-column="7" selection-end-line="167" selection-end-column="7" />
+          <folding>
+            <element signature="e#597#745#0#PHP" expanded="false" />
+            <element signature="e#751#4375#0#PHP" expanded="false" />
+            <element signature="e#4381#4512#0#PHP" expanded="false" />
+            <element signature="e#4517#5312#0#PHP" expanded="false" />
+            <element signature="e#5319#5440#0#PHP" expanded="false" />
+            <element signature="e#5445#6253#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="305" column="64" selection-start-line="305" selection-start-column="64" selection-end-line="305" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>

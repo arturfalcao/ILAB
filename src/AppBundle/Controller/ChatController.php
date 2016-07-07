@@ -59,10 +59,8 @@ class ChatController extends Controller
 
         return new Response(json_encode($info));
     }
-
-
-
-    /**
+    
+  /**
      * Dados  do utilizador autenticado
      *
      * @Route("chat/getdusers", name="utilizadores")
@@ -103,8 +101,8 @@ class ChatController extends Controller
 
         return new Response(json_encode($info));
     }
-
-    /**
+    
+  /**
      * Mensagens novas do utilizado clicado para o utilizador autenticado
      *
      * @Route("/chat/gethistoriconovo", name="historiconovo")
@@ -157,12 +155,11 @@ class ChatController extends Controller
         return new Response(json_encode($info));
     }
 
-    /**
+  /**
      * Mensagens entre o utilizador clicado e o utilizador autenticado
      *
      * @Route("chat/gethistorico", name="historico")
      */
-
   public function gethistoricoAction()
     {
 
@@ -212,7 +209,7 @@ class ChatController extends Controller
         return new Response(json_encode($info));
     }
 
-    /**
+  /**
      * Atualizador o histórico com as mensagens enviadas pelo utilizador autenticado
      *
      * @Route("chat/inserthistorico", name="inserehistorico")
@@ -253,7 +250,7 @@ class ChatController extends Controller
     }
 
 
-    /**
+  /**
      * Atualizar as mensagens não lidas como lidas entre o utilizador clicaodo e o autenticado
      *
      * @Route("chat/updatehistorico", name="atualizahistorico")
@@ -294,7 +291,7 @@ class ChatController extends Controller
         return new Response(json_encode($user_logado));
     }
 
-    /**
+  /**
      * Mensagens não lidas que tem como destinatário o utilizador autenticado
      *
      * @Route("chat/mens_nao_lidas", name="mensagens_nao_lidas")
@@ -368,10 +365,8 @@ class ChatController extends Controller
        return new Response(json_encode($mens_nao_lidas));
 
     }
-
-
-
-    /**
+    
+  /**
      * Obter imagem associado ao utilizador logado
      *
      * @Route("chat/getimagem", name="imagens")
