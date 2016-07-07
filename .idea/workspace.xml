@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1eeffc2e-7191-4240-ab84-65eb8c13ffcb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ProfileController.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Resources/public/images/avatar_1.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" afterPath="$PROJECT_DIR$/recursos_celso/Lab_site/Lab_site" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" afterPath="$PROJECT_DIR$/vendor/sonata-project/user-bundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/twig/twig" afterPath="$PROJECT_DIR$/vendor/twig/twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" afterPath="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/default/show_profile.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/default/show_profile.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/routing.yml" afterPath="$PROJECT_DIR$/app/config/routing.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
     </list>
     <ignored path="ILAB.iws" />
@@ -52,14 +47,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChatController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
+            <state relative-caret-position="39">
+              <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
               <folding>
-                <element signature="e#2993#6423#0#PHP" expanded="false" />
-                <marker date="1467909019958" expanded="true" signature="14203:14371" ph="SELECT COUNT... histchat" />
+                <element signature="e#592#728#0#PHP" expanded="false" />
+                <element signature="e#733#1573#0#PHP" expanded="false" />
+                <element signature="e#1581#1692#0#PHP" expanded="false" />
+                <element signature="e#1697#2833#0#PHP" expanded="false" />
+                <element signature="e#2839#3000#0#PHP" expanded="false" />
+                <element signature="e#3005#4556#0#PHP" expanded="false" />
+                <element signature="e#4562#4704#0#PHP" expanded="false" />
+                <element signature="e#4708#6466#0#PHP" expanded="false" />
+                <element signature="e#6472#6637#0#PHP" expanded="false" />
+                <element signature="e#6642#7566#0#PHP" expanded="false" />
+                <element signature="e#7573#7750#0#PHP" expanded="false" />
+                <element signature="e#7755#8776#0#PHP" expanded="false" />
+                <element signature="e#8782#8943#0#PHP" expanded="false" />
+                <element signature="e#8948#11332#0#PHP" expanded="false" />
+                <element signature="e#11340#11457#0#PHP" expanded="false" />
+                <element signature="e#11462#11887#0#PHP" expanded="false" />
+                <marker date="1467911168955" expanded="true" signature="10612:10780" ph="SELECT COUNT... histchat" />
               </folding>
             </state>
           </provider>
@@ -78,7 +88,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_profile.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show_profile.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/show_profile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
@@ -167,12 +177,12 @@
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/CRUD/base_list_field.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/app.css" />
         <option value="$PROJECT_DIR$/app/Resources/SonataAdminBundle/views/Form/form_admin_fields.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Twig/AppExtension.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/ProfileController.php" />
         <option value="$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/show_profile.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php" />
       </list>
     </option>
   </component>
@@ -516,12 +526,12 @@
       <workItem from="1467812099788" duration="13236000" />
       <workItem from="1467880517577" duration="2586000" />
       <workItem from="1467898361716" duration="219000" />
-      <workItem from="1467908080615" duration="2945000" />
+      <workItem from="1467908080615" duration="3130000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="631880000" />
+    <option name="totallyTimeSpent" value="632065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -533,7 +543,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2881997" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -907,17 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="107" column="5" selection-start-line="107" selection-start-column="5" selection-end-line="107" selection-end-column="5" />
-          <folding>
-            <element signature="e#2993#6423#0#PHP" expanded="false" />
-            <marker date="1467909019958" expanded="true" signature="14203:14371" ph="SELECT COUNT... histchat" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/SonataUserBundle/views/Profile/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -932,6 +931,32 @@
           <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
           <folding>
             <marker date="1467910937583" expanded="true" signature="2659:2672" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/ChatController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+          <folding>
+            <element signature="e#592#728#0#PHP" expanded="false" />
+            <element signature="e#733#1573#0#PHP" expanded="false" />
+            <element signature="e#1581#1692#0#PHP" expanded="false" />
+            <element signature="e#1697#2833#0#PHP" expanded="false" />
+            <element signature="e#2839#3000#0#PHP" expanded="false" />
+            <element signature="e#3005#4556#0#PHP" expanded="false" />
+            <element signature="e#4562#4704#0#PHP" expanded="false" />
+            <element signature="e#4708#6466#0#PHP" expanded="false" />
+            <element signature="e#6472#6637#0#PHP" expanded="false" />
+            <element signature="e#6642#7566#0#PHP" expanded="false" />
+            <element signature="e#7573#7750#0#PHP" expanded="false" />
+            <element signature="e#7755#8776#0#PHP" expanded="false" />
+            <element signature="e#8782#8943#0#PHP" expanded="false" />
+            <element signature="e#8948#11332#0#PHP" expanded="false" />
+            <element signature="e#11340#11457#0#PHP" expanded="false" />
+            <element signature="e#11462#11887#0#PHP" expanded="false" />
+            <marker date="1467911168955" expanded="true" signature="10612:10780" ph="SELECT COUNT... histchat" />
           </folding>
         </state>
       </provider>
