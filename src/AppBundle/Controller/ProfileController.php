@@ -16,9 +16,9 @@ use AppBundle\Entity\HistChat;
 use AppBundle\Entity\FosUserUser;
 
 /**
- * Agenda controller.
+ * Profile Controller.
  *
- * @Route("/chat")
+ *
  */
 class ProfileController extends Controller
 {
