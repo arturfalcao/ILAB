@@ -25,8 +25,8 @@ class TParametros
     /**
      * @ORM\ManyToMany(targetEntity="TMetodos")
      * @ORM\JoinTable(name="t_parametrospormetodo",
-     *      joinColumns={@ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")}
+     *      joinColumns={@ORM\JoinColumn(name="fn_id_parametro", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="fn_id_metodo", referencedColumnName="fn_id")}
      *      )
      */
     public $fnMetodo;
@@ -523,7 +523,7 @@ class TParametros
     /**
      * Set ftDescricao
      *
-     * @param string $ftMetodotexto
+     * 
      * @return TParametros
      */
     public function getFtMetodotexto()
@@ -1244,8 +1244,9 @@ class TParametros
     /**
      * Set fnAreaensaio
      *
-     * @param \AppBundle\Entity\TTipoparametro $fnAreaensaio
+     * @param TTipoparametro $fnTipoparametro
      * @return TParametros
+     * @internal param TTipoparametro $fnAreaensaio
      */
     public function setFnTipoparametro(\AppBundle\Entity\TTipoparametro $fnTipoparametro = null)
     {

@@ -197,16 +197,36 @@ class TAmostras
      */
     private $ftResponsavelcolheita;
 
+  
     /**
-     * @var \FosUserUser
-     *
-     * @ORM\ManyToOne(targetEntity="\Application\Sonata\UserBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="fn_id_operador", referencedColumnName="id")
-     * })
+     * @ORM\ManyToMany(targetEntity="\Application\Sonata\UserBundle\Entity\User")
+     * @ORM\JoinTable(name="operador_amostra",
+     *      joinColumns={@ORM\JoinColumn(name="fn_id_amostra", referencedColumnName="fn_id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="id_operador", referencedColumnName="id")}
+     *      )
      */
     private $fnOperador;
 
+    public function __construct() {
+        $this->fnOperador = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    public function addFnOperador(\Application\Sonata\UserBundle\Entity\User $fnOperador)
+    {
+        $this->fnOperador[] = $fnOperador;
+        return $this;
+    }
+    public function removeFnOperador(\Application\Sonata\UserBundle\Entity\User $fnOperador)
+    {
+        $this->fnOperador->remove($fnOperador);
+    }
+    public function setFnOperador($fnOperador)
+    {
+        $this->fnOperador = new \Doctrine\Common\Collections\ArrayCollection();
+        foreach ($fnOperador as $m) {
+            $this->addFnOperador($m);
+        }
+        return $this;
+    }
     /**
      * @var \DateTime
      *
@@ -730,12 +750,7 @@ class TAmostras
      * @param \Application\Sonata\UserBundle\Entity\User $fnOperador
      * @return TAmostras
      */
-    public function setFnOperador(\Application\Sonata\UserBundle\Entity\User $fnOperador = null)
-    {
-        $this->fnOperador = $fnOperador;
 
-        return $this;
-    }
 
     /**
      * Get fnOperador

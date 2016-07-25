@@ -213,7 +213,7 @@
                 url: '{{path('EntradaResultadosGetByParameter')}}',
                 data: $('.parametro_ent_resultados').select2('data').id,
                 success: function(data) {
-                    if(data != "NoData"){
+                    if(data != "null"){
                         var metadata = [];
                         metadata.push({name: "ft_id_estado", label: "E", datatype: "string", editable: false});
                         metadata.push({
@@ -263,6 +263,7 @@
                         editableGrid.load({"metadata": metadata, "data": data2});
                         editableGrid.renderGrid("tablecontent", "testgrid");
                     }else{
+                        $("table.testgrid tbody").html('');
                         toastr.info("Não foram encontrados resultados para o seu pedido.")
                     }
                 }
@@ -274,7 +275,7 @@
                     url: '{{path('EntradaResultadosGetByAmostra')}}',
                     data: $('#Amostra_id').val(),
                     success: function(data) {
-                        if (data != "NoData") {
+                        if (data != "null") {
                             var metadata = [];
                             metadata.push({name: "ft_id_estado", label: "E", datatype: "string", editable: false});
                             metadata.push({

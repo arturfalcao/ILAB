@@ -12,15 +12,21 @@ namespace AppBundle\EventListener;
 use ADesigns\CalendarBundle\Event\CalendarEvent;
 use ADesigns\CalendarBundle\Entity\EventEntity;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+
 
 class CalendarEventListener
 {
     private $entityManager;
+    private $token_storage;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManager $entityManager,TokenStorageInterface $token_storage)
     {
         $this->entityManager = $entityManager;
+        $this->token_storage = $token_storage;
+
     }
+
 
     public function loadEvents(CalendarEvent $calendarEvent)
     {
@@ -30,9 +36,14 @@ class CalendarEventListener
 
         // load events using your custom logic here,
         // for instance, retrieving events from a repository
+        $user_id = $this->token_storage->getToken()->getUser()->getId();
 
         $companyEvents = $this->entityManager->getRepository('AppBundle:Agenda')
             ->createQueryBuilder('company_events')
+            ->select('ag')
+            ->from('AppBundle:Agenda', 'ag')
+            ->where('ag.FnIdUtilizador = :user')
+            ->setParameter('user', $user_id)
             ->getQuery()->getResult();
 
         // $companyEvents and $companyEvent in this example

@@ -28,12 +28,36 @@ class TParametrosamostra
      * })
      */
     private $fnTipoparametro;
+
+
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="listatrabalho_id", type="bigint", nullable=false)
+     * @var \ListaTrabalhos
+     * @ORM\ManyToOne(targetEntity="ListaTrabalhos",inversedBy="id_parametro_amostra")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="listatrabalho_id", referencedColumnName="id")
+     * })
      */
     private $fnIdlista;
+
+    /**
+     *
+     * @param \AppBundle\Entity\ListaTrabalhos $fnIdlista
+     * @return ListaTrabalhos
+     */
+    public function setFnIdlista(\AppBundle\Entity\ListaTrabalhos $fnIdlista)
+    {
+        $this->fnIdlista = $fnIdlista;
+
+        return $this;
+    }
+
+    /**
+     * @return \AppBundle\Entity\ListaTrabalhos
+     */
+    public function getFnIdlista()
+    {
+        return $this->fnIdlista;
+    }
 
     /**
      * @var integer
@@ -163,6 +187,8 @@ class TParametrosamostra
      * @ORM\Column(name="fd_limiterealizacao", type="datetime", nullable=false)
      */
     private $fdLimiterealizacao;
+    
+    
 
     /**
      * @var string
@@ -360,8 +386,9 @@ class TParametrosamostra
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param $fbAmostrainterno
      * @return TParametros
+     * @internal param int $fbContraanalise
      */
     public function setFbAmostrainterno($fbAmostrainterno)
     {
@@ -383,7 +410,7 @@ class TParametrosamostra
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbAmostraexterno
      * @return TParametros
      */
     public function setFbAmostraexterno($fbAmostraexterno)
@@ -407,7 +434,7 @@ class TParametrosamostra
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbDeterminacaoexterno
      * @return TParametros
      */
     public function setFbDeterminacaoexterno($fbDeterminacaoexterno)
@@ -431,7 +458,7 @@ class TParametrosamostra
     /**
      * Set fbContraanalise
      *
-     * @param integer $fbContraanalise
+     * @param integer $fbDeterminacaointerno
      * @return TParametros
      */
     public function setFbDeterminacaointerno($fbDeterminacaointerno)
@@ -472,36 +499,20 @@ class TParametrosamostra
     /**
      * Get fnId
      *
-     * @return integer
+     * @param $fnId
+     * @return int
      */
     public function setFnId($fnId)
     {
         $this->fnId = $fnId;
         return $this;
     }
-    /**
-     * Get fnId
-     *
-     * @return integer
-     */
-    public function setFnIdlista($fnIdlista)
-    {
-        $this->fnIdlista = $fnIdlista;
-        return $this;
-    }
-
-
-    public function getFnIdlista()
-    {
-
-        return $this->fnIdlista ;
-    }
-
-
+    
     /**
      * Add fnEspecificacoes
      *
-     * @param \AppBundle\Entity\TEspecificacoes $fnProdutos
+     * @param TEspecificacoes $especificacoes
+     * @internal param TEspecificacoes $fnProdutos
      */
     public function setespecificacoes(\AppBundle\Entity\TEspecificacoes $especificacoes = null)
     {
@@ -551,8 +562,9 @@ class TParametrosamostra
     /**
      * Set ftDescricao
      *
-     * @param string $ftDescricao
+     * @param $ftCustomMethod
      * @return TParametros
+     * @internal param string $ftDescricao
      */
     public function setFtCustomMethod($ftCustomMethod)
     {
@@ -635,11 +647,13 @@ class TParametrosamostra
 
         return $this;
     }
+
     /**
      * Set fnAreaensaio
      *
-     * @param \AppBundle\Entity\TTipoparametro $fnAreaensaio
+     * @param TTipoparametro $fnTipoparametro
      * @return TParametros
+     * @internal param TTipoparametro $fnAreaensaio
      */
     public function setFnTipoparametro(\AppBundle\Entity\TTipoparametro $fnTipoparametro = null)
     {

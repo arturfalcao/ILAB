@@ -394,4 +394,11 @@ class Agenda
     {
         return $this->cssclass;
     }
+
+    public function __construct()
+    {
+        $this->startdatetime = new \DateTime();
+        $data_final  = new \DateTime();
+        $this->enddatetime = $data_final->add(new \DateInterval('PT1M'));
+    }
 }

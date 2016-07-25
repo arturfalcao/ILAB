@@ -122,10 +122,9 @@ file that was distributed with this source code.
 
                                                             <select id="action_ok" name="action"  style="width: auto; height: auto" class="form-control">
                                                                 <option value="printworklist">Imprimir Lista de Trabalho</option>
-                                                                <option value="emitirrelatorio">Imprimir Relatórios</option>
-                                                                {% for action, options in batchactions %}
-                                                                    <option value="{{ action }}">{{ options.label }}</option>
-                                                                {% endfor %}
+                                                                <option value="emitirrelatorio">Imprimir Relatório</option>
+                                                                <option value="gerarcodigo">Gerar Código de Barras</option>
+
                                                             </select>
                                                         {% endblock %}
 
@@ -385,17 +384,129 @@ file that was distributed with this source code.
         </div>
 
     {% endif %}
-
     <script>
         $( document ).ready(function() {
             $('.invisivel').hide();
             $('.visivel').hide();
             $('#rod_filtros').hide();
-            $("label[for='filter_fdColheita_value_start']").html('Data de início');
-            $("label[for='filter_fdColheita_value_end']").html('Data de fim');
+            $("label[for='filter_fdColheita_value_start']").html('Data Colheita de');
+            $("label[for='filter_fdColheita_value_end']").html('até');
+
+            /*$('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .datepicker-days .table-condensed thead tr:nth-child(2) th').each(function( index ) {
+                //alert( index + ": " + $( this ).text() );
+                if($( this ).text() == 'Su')
+                {$( this ).html('Do');}
+                else if($( this ).text() == 'Mo')
+                {$( this ).html('Se');}
+                else if($( this ).text() == 'Tu')
+                {$( this ).html('Te');}
+                else if($( this ).text() == 'We')
+                {$( this ).html('Qu');}
+                else if($( this ).text() == 'Th')
+                {$( this ).html('Qu');}
+                else if($( this ).text() == 'Fr')
+                {$( this ).html('Se');}
+                else if($( this ).text() == 'Sa')
+                {$( this ).html('Sa');}
+
+            });
+
+            $('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .datepicker-months .table-condensed tbody tr td span').each(function( index ) {
+                if($( this ).text() == 'Jan')
+                {$( this ).html('Jan');}
+                else if($( this ).text() == 'Feb')
+                {$( this ).html('Fev');}
+                else if($( this ).text() == 'Mar')
+                {$( this ).html('Mar');}
+                else if($( this ).text() == 'Apr')
+                {$( this ).html('Abr');}
+                else if($( this ).text() == 'May')
+                {$( this ).html('Mai');}
+                else if($( this ).text() == 'Jun')
+                {$( this ).html('Jun');}
+                else if($( this ).text() == 'Jul')
+                {$( this ).html('Jul');}
+                else if($( this ).text() == 'Aug')
+                {$( this ).html('Ago');}
+                else if($( this ).text() == 'Sep')
+                {$( this ).html('Set');}
+                else if($( this ).text() == 'Oct')
+                {$( this ).html('Out');}
+                else if($( this ).text() == 'Nov')
+                {$( this ).html('Nov');}
+                else if($( this ).text() == 'Dec')
+                {$( this ).html('Dez');}
+            });
+
+            $('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .table-condensed thead tr .picker-switch').change(function(){
+                alert($(this).text());
+            });*/
+            /*$( "#dtp_filter_fdCriacao_value .input-group-addon" ).click(function() {
+                var y = $('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .table-condensed thead tr .picker-switch');
+                var x = $('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .table-condensed thead tr .picker-switch').text();
+
+                var n = x.indexOf(" ");
+                var mes = x.substr(0, n);
+                var ano = new Date().getFullYear();
+
+                if(mes == 'January')
+                {
+                    y.html('Janeiro '+ ano);
+                }
+                else if(mes == 'February')
+                {
+                    y.html('Fevereiro '+ ano);
+                }
+                else if(mes == 'March')
+                {
+                    y.html('Março '+ ano);
+                }
+                else if(mes == 'April')
+                {
+                    y.html('Abril '+ ano);
+                }
+                else if(mes == 'May')
+                {
+                    y.html('Maio '+ ano);
+                }
+                else if(mes == 'June')
+                {
+                    y.html('Junho '+ ano);
+                }
+                else if(mes == 'July')
+                {
+                    y.html('Julho '+ ano);
+                }
+                else if(mes == 'August')
+                {
+                    y.html('Agosto '+ ano);
+                }
+                else if(mes == 'September')
+                {
+                    y.html('Setembro '+ ano);
+                }
+                else if(mes == 'October')
+                {
+                    y.html('Outubro '+ ano);
+                }
+                else if(mes == 'November')
+                {
+                    y.html('Novembro '+ ano);
+                }
+                else if(mes == 'December')
+                {
+                    y.html('Dezembro '+ ano);
+                }
 
 
-            $(".datepicker").datepicker({
+            });
+
+            $('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .table-condensed thead tr .prev').click(function() {
+                var y = $('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .table-condensed thead tr .picker-switch');
+                //var x = $('.bootstrap-datetimepicker-widget .list-unstyled .collapse.in .datepicker .table-condensed thead tr .picker-switch').text();
+                y.html('Maio '+ 2015);
+            });*/
+            /*$(".datepicker").datepicker({
                 dateFormat: 'dd/mm/yy',
                 dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
                 dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
@@ -404,11 +515,8 @@ file that was distributed with this source code.
                 monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
                 nextText: 'Próximo',
                 prevText: 'Anterior'
-            });
+            });*/
 
-
-
-            
             $( "#filtros" ).click(function() {
                 $( ".visivel" ).toggle();
                 $("#cab_filtros").toggle("hide");
@@ -417,9 +525,10 @@ file that was distributed with this source code.
 
             $( "#botao_ok" ).click(function(e) {
                 var accao = $("#action_ok").val();
+                var ids;
                 if(accao == 'emitirrelatorio')
                 {
-                    var ids = "";
+                    ids = "";
                     $('input[name="idx[]"]:checked').each(function() {
                         ids+=$(this).val()+',';
                     });
@@ -428,17 +537,54 @@ file that was distributed with this source code.
                         ids = ids.slice(0,ids.length-1);
                         e.preventDefault();
                         window.open('/app_dev.php/emitirrelatorio/' + ids, '_blank');
-                        //window.location.href = '';
                     }
                     else{
                         e.preventDefault();
                     }
 
                 }
+                else if(accao == 'printworklist')
+                {
+                    ids = "";
+                    $('input[name="idx[]"]:checked').each(function() {
+                        ids+=$(this).val()+',';
+                    });
+                    if(ids.length != 0)
+                    {
+                        ids = ids.slice(0,ids.length-1);
+                        e.preventDefault();
+                        window.open('/app_dev.php/generateworklist/' + ids, '_blank');
+                    }
+                    else{
+                        e.preventDefault();
+                    }
+                }
+                else if(accao == 'gerarcodigo')
+                {
+                    ids = "";
+                    $('input[name="idx[]"]:checked').each(function() {
+                        ids+=$(this).val()+',';
+                    });
+                    if(ids.length != 0)
+                    {
+                        ids = ids.slice(0,ids.length-1);
+                        e.preventDefault();
+                        window.open('/app_dev.php/generatebarcode/' + ids, '_blank');
+                    }
+                    else{
+                        e.preventDefault();
+                    }
+                }
 
             });
-
-
         })
     </script>
+    {% if 'Amostra' == admin.label %}
+        <script>
+
+            $( document ).ready(function() {
+                $("label.checkbox").remove();
+            })
+        </script>
+    {% endif %}
 {% endblock %}

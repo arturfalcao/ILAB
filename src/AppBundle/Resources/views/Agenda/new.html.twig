@@ -117,7 +117,7 @@
 
                         </div>
 
-                        {{ form_widget(form.FnIdUtilizador) }}
+                        {#{{ form_widget(form.FnIdUtilizador) }}#}
                         <div class="row linha_branco">0</div>
                         <hr>
 
@@ -193,9 +193,6 @@
 
 <script>
     $( document ).ready(function() {
-
-        $("#Agenda_FnIdUtilizador").val("{{app.user.id}}");
-
         $('#cancelar').on('click', function(e)  {
             window.location.href = '/app_dev.php/calendar';
             e.preventDefault();
@@ -229,48 +226,44 @@
 
     });
 
-
-
-    $('#Agenda_enddatetime_date').attr('required',false);
-    $('#Agenda_enddatetime_time').attr('required',false);
     $('#Agenda_allDay').attr('required',false);
 
     $('#g_sair').on('click', function(e)  {
 
-        if($("#Agenda_allDay").is( ':checked') == false)
-        {
-            $('#Agenda_enddatetime_date').attr('required',true);
-            $('#Agenda_enddatetime_time').attr('required',true);
-            e.preventDefault();
-        }
+        var titulo = $('#Agenda_title').val();
+        var morada = $('#Agenda_morada').val();
+        var descricao = $('#Agenda_descricao').val();
+        var data_inicio = $('#Agenda_startdatetime_date').val().length;
+        var tempo_inicio = $('#Agenda_startdatetime_time').val().length;
+        var data_fim_1 = $('#Agenda_enddatetime_date').val().length;
+        var tempo_fim = $('#Agenda_enddatetime_time').val().length;
+        if( titulo && morada && descricao && data_inicio != 0 && tempo_inicio != 0
+                && data_fim_1 != 0 && tempo_fim != 0) {
 
-        if($("#Agenda_allDay").is( ':checked') == true || ( $('#Agenda_enddatetime_date').val().length != 0
-                && $('#Agenda_enddatetime_time').val().length != 0 ))
+            if (data_fim_1 != 0 && tempo_fim != 0) {
+                var data_ini = $("#Agenda_startdatetime_date").val();
+                var data_ini_temp = $('#Agenda_startdatetime_time').val();
 
+                var data_fim = $('#Agenda_enddatetime_date').val();
+                var data_fim_temp = $('#Agenda_enddatetime_time').val();
 
-
-                if($('#Agenda_enddatetime_date').val().length != 0 && $('#Agenda_enddatetime_time').val().length != 0)
-                {
-                    var data_ini = $("#Agenda_startdatetime_date").val();
-                    var data_ini_temp = $('#Agenda_startdatetime_time').val();
-
-                    var data_fim = $('#Agenda_enddatetime_date').val();
-                    var data_fim_temp = $('#Agenda_enddatetime_time').val();
-
-                    if (data_ini < data_fim) {
-                        $("form").submit();
-                    }
-                    else if (data_ini == data_fim && data_ini_temp < data_fim_temp) {
-                        $("form").submit();
-                    }
-                    else
-                    {
-                        e.preventDefault();
-                    }
-                }
-            else{
+                if (data_ini < data_fim) {
                     $("form").submit();
                 }
+                else if (data_ini == data_fim && data_ini_temp < data_fim_temp) {
+                    $("form").submit();
+                }
+                else {
+                    e.preventDefault();
+                }
+            }
+            else {
+                $("form").submit();
+            }
+        }
+        else{
+            e.preventDefault();
+        }
 
 
     });

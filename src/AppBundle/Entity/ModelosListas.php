@@ -7,7 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ModelosListas
  *
- * @ORM\Table(name="modelos_listas", indexes={@ORM\Index(name="aasdsadsadsad", columns={"id_parametro"})})
+ * @ORM\Table(name="modelos_listas",uniqueConstraints={@ORM\UniqueConstraint(name="IX_modelos_listas_parametro", columns={"id_parametro"})},
+ *     indexes={@ORM\Index(name="aasdsadsadsad", columns={"id_parametro"})})
  * @ORM\Entity
  */
 class ModelosListas

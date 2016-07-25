@@ -10,16 +10,13 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class TAmostrasAdmin extends Admin
 {
-
-    public function postPersist($user)
+   public function postPersist($user)
     {
         $em = $this->getConfigurationPool()->getContainer()->get('Doctrine')->getManager();
         $sample = $user->getFnId();
 
-        if($user->getFtGrupoparametros())
-            $paraGroup = $user->getFtGrupoparametros()->getFnId();
-        else
-            $paraGroup = 0;
+        $paraGroup = $user->getFtGrupoparametros()->getFnId();
+
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($sample);
         
         $sql = "select * from t_parametrosgrupo where t_grupo = " . $paraGroup;
@@ -28,17 +25,8 @@ class TAmostrasAdmin extends Admin
         $activeDate->execute();
         $arr =  $activeDate->fetchAll();
 
-
-        $sql = "SELECT max(fn_id_lista) as max_id_lista from t_parametrosamostra";
-        $activeDate =$em->getConnection()->prepare($sql);
-        $activeDate->execute();
-        $result1 = $activeDate->fetchAll();
-        $result1[0]['max_id_lista'] =$result1[0]['max_id_lista'] != null ?$result1[0]['max_id_lista'] : 0;
-        $result1[0]['max_id_lista']++;
-
         // Cria os parametros e gera os primeiros log
         foreach ($arr as $value) {
-
 
             $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao ,fb_amostrainterno ,fb_amostraexterno ,fb_determinacaoexterno ,fb_determinacaointerno) SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, aa.fb_acreditado, aa.fn_limitelegal, aa.fn_id_familiaparametro, aa.ft_formulaquimica, aa.fn_id_frasco, aa.fn_volumeminimo, aa.fb_confirmacao, 6 , aa.fb_contraanalise, aa.fd_Realizacao ,aa.fb_amostrainterno ,aa.fb_amostraexterno ,aa.fb_determinacaoexterno ,aa.fb_determinacaointerno FROM t_parametros AS aa WHERE aa.fn_id = " . $value['t_parametro'];
             $activeDate = $em->getConnection();
@@ -51,8 +39,7 @@ class TAmostrasAdmin extends Admin
             $activeDate->prepare($sql)->execute();
 
 
-
-            $sql = "UPDATE t_parametrosamostra SET fn_id_lista = ". $result1[0]['max_id_lista'] . " , fn_id_amostra = " . $sample . " where id=" .$last;
+            $sql = "UPDATE t_parametrosamostra SET fn_id_amostra = " . $sample . " where id=" .$last;
             $activeDate = $em->getConnection()->prepare($sql);
             $activeDate->execute();
 
@@ -99,12 +86,14 @@ class TAmostrasAdmin extends Admin
         $user->setUpdatedBy($user1->getUsername());
         $user->setUpdatedByTime(date('Y-m-d H:i:s'));
     }
+
     public function preUpdate($user)
     {
         $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
         $user->setUpdatedBy($user1->getUsername());
         $user->setUpdatedByTime(date('Y-m-d H:i:s'));
     }
+
     public function preRemove($user)
     {
         $user1 = $this->getConfigurationPool()->getContainer()->get('security.context')->getToken()->getUser();
@@ -121,27 +110,54 @@ class TAmostrasAdmin extends Admin
             ->add('fnId',null,array('label' => 'ID'))
             ->add('fnNumero',null,array('label' => 'Número'))
             ->add('ftSerie',null,array('label' => 'Série'))
-            ->add('fdCriacao',null,array('label' => 'Criação'))
-            ->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data colheita','widget' => 'single_text','attr' => array('class' => 'datepicker')))
-            ->add('fdRecepcao',null,array('label' => 'Recepção'))
-            ->add('fdConclusao',null,array('label' => 'Conclusão'))
-            ->add('fdLimite',null,array('label' => 'Limite'))
+            ->add('fdCriacao','doctrine_orm_datetime', array('label'=> 'Criação',
+                'field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdCriacao',null, array('label'=> 'Criação'))
+            ->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdColheita', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data colheita','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdRecepcao','doctrine_orm_datetime', array('label'=> 'Recepção','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdRecepcao',null,array('label' => 'Recepção'))
+            ->add('fdConclusao','doctrine_orm_datetime', array('label'=> 'Conclusão','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdConclusao',null,array('label' => 'Conclusão'))
+            ->add('fdLimite','doctrine_orm_datetime', array('label'=> 'Limite','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdLimite',null,array('label' => 'Limite'))
             ->add('ftResponsavelcolheita',null,array('label' => 'Responsável'))
             ->add('fnLocalcolheita',null,array('label' => 'Local da colheita'))
             ->add('fnOperador',null,array('label' => 'Operador'))
             ->add('fnCliente',null,array('label' => 'Cliente'))
             ->add('fnModelo',null,array('label' => 'Modelo'))
             ->add('fnTipoaprovacao',null,array('label' => 'Tipo de aprovação'))
-            ->add('fdAutorizacao',null,array('label' => 'Autorização'))
+            ->add('fdAutorizacao','doctrine_orm_datetime', array('label'=> 'Autorização','field_type'=>'sonata_type_datetime_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdAutorizacao',null,array('label' => 'Autorização'))
             ->add('fnProduto',null,array('label' => 'Produto'))
             ->add('fnTipocontrolo',null,array('label' => 'Tipo de controlo'))
             ->add('fnIdOrcamento',null,array('label' => 'ID orçamento'))
             ->add('ftEstado',null,array('label' => 'Estado'))
             ->add('fnEspecificacao',null,array('label' => 'Especificação'))
             ->add('ftCumpreespecificacao',null,array('label' => 'Cumpre especificação'))
-            ->add('fdInicioanalise',null,array('label' => 'Início da análise'))
+            ->add('fdInicioanalise','doctrine_orm_datetime', array('label'=> 'Ínicio da análise','field_type'=>'sonata_type_datetime_picker',))
+            //->add('fdInicioanalise',null,array('label' => 'Início da análise'))
             ->add('fbFacturada',null,array('label' => 'Faturada'))
             ->add('fnRequisicaocliente',null,array('label' => 'Requisição cliente'))
+
         ;
     }
 
@@ -165,7 +181,7 @@ class TAmostrasAdmin extends Admin
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),
-                    'delete' => array(),
+                    
 
                 )
             ))
@@ -207,7 +223,8 @@ class TAmostrasAdmin extends Admin
             ->add('fnTipo', 'sonata_type_model', array('label' => 'Tipo', 'by_reference' => false))
             ->add('fnTipoaprovacao', 'sonata_type_model', array('label' => 'Tipo de aprovação', 'by_reference' => false))
             ->add('ftEstado', 'sonata_type_model', array('attr'=> array('class'=>'_estado'),'label' => 'Estado', 'by_reference' => false))
-            ->add('ftConclusao', 'text', array('label' => 'Conclusão'))
+            ->add('fbFacturada', null, array('label' => 'Faturada'))
+            ->add('ftConclusao', 'text', array('attr'=> array('class'=>'_conclusao'),'label' => 'Conclusão'))
             ->add('ftObs', 'text', array('label' => 'Observações'))
             ->end()
 
@@ -219,7 +236,7 @@ class TAmostrasAdmin extends Admin
 
             ->with('Lote',array('description' => 'Lote','class' => 'Lote_amostra'))
             ->add('fnAmostrasalimentos', 'sonata_type_admin',array(
-                'btn_add' => false,'delete' => false,'label' => 'Amostras de alimentos',
+                'btn_add' => false,'delete' => false,'label' => 'Amostras de alimentos','required' => false,
                 'label_attr' => array('class' => 'L_AA'),
             ))
             ->end()

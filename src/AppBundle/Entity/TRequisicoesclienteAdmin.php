@@ -20,7 +20,11 @@ class TRequisicoesclienteAdmin extends Admin
             ->add('fnIdCliente',null,array('label' => 'ID cliente'))
             ->add('ftCodigo',null,array('label' => 'Código'))
             ->add('ftObservacao',null,array('label' => 'Observação'))
-            ->add('fdDatarequisicao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data da requisição','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdDatarequisicao', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdDatarequisicao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data da requisição','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('fbActiva',null,array('label' => 'Activa'))
         ;
     }

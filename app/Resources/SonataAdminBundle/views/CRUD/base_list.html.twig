@@ -209,7 +209,6 @@ file that was distributed with this source code.
 
                             <div class="large-2 vazio medium-2 form-group visivel" style="margin-left: 35px;margin-right: 20px;">
                                 {% for filter in admin.datagrid.filters %}
-
                                         {% if filter.formName == 'fnId'  or filter.formName == 'ftCodigo'
                                         or filter.formName == 'fbActivo' or filter.formName == 'ftFormulaquimica'
                                         or filter.formName == 'fbIncluirnorelatorio'
@@ -221,7 +220,17 @@ file that was distributed with this source code.
                                         or filter.formName == 'fnValor' or filter.formName == 'ftLote'
                                         or filter.formName == 'id' or filter.formName == 'username'
                                         or filter.formName == 'fnCapacidade' or filter.formName == 'ftNclaboratorio'
-                                        or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'%}
+                                        or filter.formName == 'ftNomecontacto' or filter.formName == 'fbFacturada'
+                                        %}
+                                            {% if admin is defined %}
+                                            {% if 'Listas de Trabalho' == admin.label %}
+                                            <label for="parametro">Parâmetro</label>
+                                            <div class="parametrodiv"></div>
+                                            {% endif %}
+                                            {% endif %}
+                                            {#or filter.formName == 'id_parametro_amostra__ftDescricao'#}
+
+
 
                                             {% if filter.label is not same as(false) %}
                                                 <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -255,6 +264,7 @@ file that was distributed with this source code.
                                             or filter.formName == 'ftOriginal' or filter.formName == 'ftAcondicionamento'
                                              or filter.formName == 'ftValidade' or filter.formName == 'name'
                                         or filter.formName == 'fnOrdem' or filter.formName == 'ftId'
+
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -294,7 +304,8 @@ file that was distributed with this source code.
                                             or filter.formName == 'ftTemperatura' or filter.formName == 'ftFaseprocesso'
 
                                         or filter.formName == 'fnLimiteinferior' or filter.formName == 'fnLimitesuperior'
-                                            or filter.formName == 'fnTipoparametro'
+                                            or filter.formName == 'fnTipoparametro' or filter.formName == 'dataemissao'
+
                                          %}
 
                                             {% if filter.label is not same as(false) %}
@@ -330,7 +341,7 @@ file that was distributed with this source code.
                                       or filter.formName == 'fdCriacao' or filter.formName == 'fdConclusao'
                                         or filter.formName == 'fnDesconto' or filter.formName == 'ftTipopagamento'
                                         or filter.formName == 'fnCasasdecimais' or filter.formName == 'fbFormatoexponencial'
-
+                                    or filter.formName == 'datafecho'
                                     %}
 
                                         {% if filter.label is not same as(false) %}
@@ -362,7 +373,8 @@ file that was distributed with this source code.
                                     {% if filter.formName == 'fdAutorizacao' or filter.formName == 'fdLimiterealizacao'
                                         or filter.formName == 'ftPrazoentrega'
                                         or filter.formName == 'ftPrefixo' or filter.formName == 'fbFormatoutilizador'
-                                     or filter.formName == 'ftExpressaoutilizador'%}
+                                     or filter.formName == 'ftExpressaoutilizador' or filter.formName == 'id_parametro_amostra__fnIdAmostra'
+                                    or filter.formName == 'id_parametro_amostra__ftDescricao'%}
 
                                         {% if filter.label is not same as(false) %}
                                             <label for="{{ form.children[filter.formName].children['value'].vars.id }}">{{ admin.trans(filter.label, {}, filter.translationDomain) }}</label>
@@ -570,6 +582,38 @@ file that was distributed with this source code.
 
     <script>
         $( document ).ready(function() {
+            $("label[for='filter_id_parametro_amostra__ftDescricao_value']").hide();
+            $("input#filter_id_parametro_amostra__ftDescricao_value").hide();
+            function GetAllParametrosAmostra(){
+                $.ajax({
+                    type: "POST",
+                    url: "{{ path('GetAllParametroAmostra') }}",
+                    dataType: 'json',
+                    success: function(data) {
+                        $('.parametrodiv').append("<select  class='parametro'></select>");
+                        $('.parametro').append(
+                                '<option></option>'
+                        );
+                        $.each(data, function(index, value) {
+                            $('.parametro').append(
+                                    '<option value="' + value.fnId + '">' + value.ftDescricao + '</option>'
+                            );
+                        });
+                        $(".parametro").select2({
+                            placeholder: "Selecione um Pârametro",
+                            allowClear: true
+                        });
+                    }
+                });
+            }
+            GetAllParametrosAmostra();
+
+            $('.parametrodiv').on("select2-selecting", function(e) {
+                $("input#filter_id_parametro_amostra__ftDescricao_value").val(e.object.text);
+            }).on("change", function(e) {
+                if(!e.val)
+                    $("input#filter_id_parametro_amostra__ftDescricao_value").val('');
+            });
 
             $('.invisivel').hide();
             $('.visivel').hide();
@@ -590,9 +634,14 @@ file that was distributed with this source code.
             $("label[for='filter_fdDatarequisicao_value_start']").html('Data Req. de');
             $("label[for='filter_fdDatarequisicao_value_end']").html('até');
 
-            $("label[for='filter_fdUltimaemissao_value_start']").html('Data Req. de');
+            $("label[for='filter_fdUltimaemissao_value_start']").html('Última Emissão de');
             $("label[for='filter_fdUltimaemissao_value_end']").html('até');
 
+            $("label[for='filter_dataemissao_value_start']").html('Data de Emissão de');
+            $("label[for='filter_dataemissao_value_end']").html('até');
+
+            $("label[for='filter_datafecho_value_start']").html('Data de Fecho de');
+            $("label[for='filter_datafecho_value_end']").html('até');
 
             var prim = $(".vazio");
 
@@ -600,10 +649,7 @@ file that was distributed with this source code.
             if(texto.length == 0)
                 $(".vazio_1").css("padding-left","35px");
 
-
-
-
-            $(".datepicker").datepicker({
+            /*$(".datepicker").datepicker({
                 dateFormat: 'dd/mm/yy',
                 dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
                 dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
@@ -612,7 +658,7 @@ file that was distributed with this source code.
                 monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
                 nextText: 'Próximo',
                 prevText: 'Anterior'
-            });
+            });*/
 
 
 
@@ -631,6 +677,25 @@ file that was distributed with this source code.
             });
 
 
+
+
+
         })
     </script>
+    {% if admin is defined %}
+    {% if 'Listas de Trabalho' == admin.label %}
+        <script>
+
+            $( document ).ready(function() {
+                $(".icheckbox_minimal").remove();
+                $("label.checkbox").remove();
+                $(".form-inline>.select2-container.form-control").remove();
+                $("input.btn.btn-small.btn-primary").remove();
+
+
+            })
+        </script>
+    {% endif %}
+    {% endif %}
+
 {% endblock %}

@@ -22,14 +22,31 @@ class TParametrosAdmin extends Admin
             //->add('fnTecnica',null, array('label' => 'Técnica'))
             ->add('fnTipoparametro',null, array('label' => 'Tipo de Parâmetro'))
             ->add('fnAreaensaio',null, array('label' => 'Área Ensaio'))
-            ->add('fdLimiterealizacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Limite de Realização','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdLimiterealizacao', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdLimiterealizacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Limite de Realização','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre Especificação'))
             ->add('ftConclusao',null, array('label' => 'Conclusão'))
             ->add('fnModeloparametro',null, array('label' => 'Modelo de Parâmetro'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
-            ->add('fdCriacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data de Criação','widget' => 'single_text','attr' => array('class' => 'datepicker')))
-            ->add('fdConclusao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data de Conclusão','widget' => 'single_text','attr' => array('class' => 'datepicker')))
-            ->add('fdAutorizacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Autorização','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdCriacao', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            
+            //->add('fdCriacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data de Criação','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdConclusao', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdConclusao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Data de Conclusão','widget' => 'single_text','attr' => array('class' => 'datepicker')))
+            ->add('fdAutorizacao', 'doctrine_orm_datetime_range', array('label' => false,'field_type'=>'sonata_type_datetime_range_picker','format' => 'dd-MM-yyyy',
+                'attr' => array(
+                    'data-date-format' => 'DD-MM-YYYY',
+                )))
+            //->add('fdAutorizacao', 'doctrine_orm_datetime_range', array('label' => false), null, array('label' => 'Autorização','widget' => 'single_text','attr' => array('class' => 'datepicker')))
             ->add('fnLaboratorio',null, array('label' => 'Laboratório'))
             ->add('fbAcreditado',null, array('label' => 'Acreditado'))
             ->add('fnFamiliaparametro',null, array('label' => 'Família Parâmetro'))

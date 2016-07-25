@@ -2,27 +2,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="{{ asset('bundles/bmatznerfoundation/js/vendor/jquery.js') }}"></script>
-
 </head>
 <style>
-    @page {
-        size: A4;
-        margin: 10mm;
-    }
-    @media print {
-        html, body {
-            width: 210mm;
-            height: 297mm;
-        }
-        /* ... the rest of the rules ... */
-    }
+
     #content{
         text-align: center ;
         width: 1000px ;
         margin-left: auto ;
         margin-right: auto ;
-        /* float: left; */
         content: "";
         display: table;
         clear: both;
@@ -42,7 +29,7 @@
         text-align: left;
         background-color: lightgray;
         color: white;
-        font-size: 19px;
+        font-size: 14px; /*19px*/
         padding-left: 11px;
         font-weight: bold;
     }
@@ -128,41 +115,34 @@
 <body>
 
 
-<script>
-    $( document ).ready(function() {
-        var altura = 0;
-
-        $( ".amostra_content" ).each(function( index , value) {
-
-            altura = altura + $(value).height();
-
-            if(altura > 1200 && $('#tipo_de_amostra').val() == 'Agua' ){
-                $(this).css('margin-top', '200px');
-                altura = 0;
-            }
-            if(altura > 1200 && $('#tipo_de_amostra').val() == 'Alimentos' ){
-                $(this).css('margin-top', '350px');
-                altura = 0;
-            }
-
-        });
-
-
-
-
-
-    });
-
-</script>
-
 <div id="content">
 
     <input type="hidden" id="tipo_de_amostra" value="{{ tipo_de_amostra }}">
 
 
     {% if tipo_de_amostra  == "Alimentos" %}
+        <table >
+            <tr>
+                <td rowspan="3" style="width:10%;"><img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="40" width="40" ></td>
+                <td style="font-size: 10px;font-weight: bold;text-align: left;">PIMENTA DO VALE</td>
+                <td style="font-size: 11px;font-weight: bold;text-align: left;width:100%;">
+                    Lista de Trabalho - Microbiologia Alimentos e Zaragatoas
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: 8px;text-align: left;">LABORATORIOS, LDA</td>
+                <td style="width:10%;"></td>
+                <td style="font-size: 8px;text-align: center;">Data Emissão Lista de Trabalho : {{  "now"|date("d/m/Y") }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8px;text-align: left;">ANÁLISE DE ÁGUAS E ALIMENTOS</td>
 
-    <div class="left_logo" style="float: left;width: 100%;">
+            </tr>
+            <tr>
+
+            </tr>
+        </table>
+   {# <div class="left_logo" style="float: left;width: 100%;">
         <img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="80" width="80" style="float:left;">
         <div style="float: left;margin-left: 10px;">
             <div style="font-size: 24px;font-weight: bold;text-align: left;">PIMENTA DO VALE</div>
@@ -174,87 +154,163 @@
             <div style="font-size: 17px;text-align: center;">Data Emissão Lista de Trabalho : {{  "now"|date("m/d/Y") }}</div>
 
         </div>
-    </div>
+    </div>#}
     {% else %}
-        <div class="left_logo" style="float: left;width: 100%;">
-            <img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="80" width="80" style="float:left;">
-            <div style="float: left;margin-left: 10px;">
-                <div style="font-size: 24px;font-weight: bold;text-align: left;">PIMENTA DO VALE</div>
-                <div style="font-size: 17px;text-align: left;">LABORATORIOS, LDA</div>
-                <div style="font-size: 17px;text-align: left;"> ANÁLISE DE ÁGUAS E ALIMENTOS</div>
-            </div>
+        <table>
+            <tr>
+                <td rowspan="3" style="width:10%;"><img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="40" width="40" ></td>
+                <td style="font-size: 10px;font-weight: bold;text-align: left;">PIMENTA DO VALE</td>
+                <td style="font-size: 11px;font-weight: bold;text-align: left;width:100%;">
+                    Lista de Trabalho - Microbiologia de águas
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: 8px;text-align: left;">LABORATORIOS, LDA</td>
+                <td style="width:10%;"></td>
+                <td style="font-size: 8px;text-align: left;">Data Emissão Lista de Trabalho : {{  "now"|date("d/m/Y") }}</td>
+            </tr>
+            <tr>
+                <td style="font-size: 8px;text-align: left;">ANÁLISE DE ÁGUAS E ALIMENTOS</td>
+
+            </tr>
+            <tr>
+
+            </tr>
+        </table>
+        {#<table>
+            <tr class="cabecalho alinhamento">
+                24 17 17
+                <th><img src="/bundles/app/images/logo_lab.png" alt="Smiley face" height="80" width="80" ></th>
+                <th style="font-size: 14px;font-weight: bold;text-align: center;">PIMENTA DO VALE</th>
+                <th style="font-size: 12px;text-align: center;">LABORATORIOS, LDA</th>
+                <th style="font-size: 12px;text-align: center;"> ANÁLISE DE ÁGUAS E ALIMENTOS</th>
+            </tr>
+        </table>#}
+
+
+        {#<div class="left_logo" style="float: left;width: 100%;">
             <div style="float: right;margin-left: 10px;">
                 <div style="font-size: 24px;font-weight: bold;text-align: center;">Lista de Trabalho - Microbiologia de águas</div>
-                <div style="font-size: 17px;text-align: center;">Data Emissão Lista de Trabalho : {{  "now"|date("m/d/Y") }}</div>
+                <div style="font-size: 17px;text-align: center;">Data Emissão Lista de Trabalho : {{  "now"|date("d/m/Y") }}</div>
             </div>
-        </div>
+        </div>#}
     {% endif %}
 
     {% set foo = 0 %}
 
-
     {% for item in par_container %}
-
         {% if item.tipo_modelo  == "Alimentos" %}
+
             <div class="amostra_content">
 
                 {% if foo == item.id_amostra %}
 
                 {% else %}
                     {% set foo = item.id_amostra %}
-                    <div class="id_amostra"><span class="bold">Identificação Amostra :</span>{{ item.id_amostra}} Data de entrada : {{ item.data_inicio |date("Y-m-d") }}</div>
-                    <div class="alimentos_cabecalho">
+                    <div class="id_amostra"><span style="font-size:10px;" class="bold">Identificação Amostra : {{ item.id_amostra}} Data de entrada : {{ item.data_inicio |date("d-m-Y") }} </span></div>
+                    <br/>
+
+                    <table>
+                        <tr>
+                            <td style="font-size: 8px;font-weight: bold;">Data de início:_____________</td>
+                            <td style="font-size: 8px;font-weight: bold;">Técnico:_____________</td>
+                            <td style="font-size: 8px;font-weight: bold;width:30%;">Data de fim de análise:_____________</td>
+                            <td style="font-size: 8px;font-weight: bold;">Técnico:_____________</td>
+                        </tr>
+
+                    </table>
+                    {#<div class="alimentos_cabecalho">
                         <div class="alimentos_cabecalho1">Data de início :______________</div>
                         <div class="alimentos_cabecalho1">Técnico :______________</div>
                         <div class="alimentos_cabecalho1">Data de fim de análise: :______________</div>
                         <div class="alimentos_cabecalho1">Técnico :______________</div>
-                    </div>
-                    <div class="alimentos_cabecalho2">
-                        <div class="alimentos_cabecalho3 titulo">Tipo de amostra:</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>Sól. Bem misturado:</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>Outros sólidos:</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>Líquidos:</div>
-                        <div class="alimentos_cabecalho3"><span class="box"></span>Sól. Pequenos:</div>
-                    </div>
-                    <div class="alimentos_cabecalho4">
+                    </div>#}
+                    <br/> <br/>
+                    <table>
+                        <tr>
+
+                            <td style="font-size:8px;width: 16%;font-weight: bold;">Tipo de amostra:</td>
+                            <td style="width:3%; border: 1px solid black;"></td>
+                            <td style="width: 2%;"></td>
+                            <td style="font-size:8px;width: 19%;font-weight: bold;">Sól. Bem misturado:</td>
+                            <td style="width:3%; border: 1px solid black;font-weight: bold;"></td>
+                            <td style="width: 2%;"></td>
+                            <td style="font-size:8px;width: 14%;font-weight: bold;">Outros Sólidos:</td>
+                            <td style="width:3%; border: 1px solid black;"></td>
+                            <td style="width: 2%;"></td>
+                            <td style="font-size:8px;width: 8%;font-weight: bold;">Líquidos:</td>
+                            <td style="width:3%; border: 1px solid black;"></td>
+                            <td style="width: 2%;"></td>
+                            <td style="font-size:8px;width: 14%;font-weight: bold;">Sól. Pequenos:</td>
+                            <td style="width:3%; border: 1px solid black;"></td>
+                        </tr>
+                    </table>
+                    <div></div>
+                    <table>
+                        <tr style="font-size:10px;"><span style="font-weight: bold;">Zaragatoas: Volume (Ml) líquido:</span>_________________ <span style="font-weight: bold;">Área amostragem:</span>___________________</tr>
+                    </table>
+                    <div></div>
+                    {#<div class="alimentos_cabecalho2">#}
+                        {#<div class="alimentos_cabecalho3 titulo">Tipo de amostra:</div>#}
+                        {#<div class="alimentos_cabecalho3"><span class="box"></span>Sól. Bem misturado:</div>#}
+                        {#<div class="alimentos_cabecalho3"><span class="box"></span>Outros sólidos:</div>#}
+                        {#<div class="alimentos_cabecalho3"><span class="box"></span>Líquidos:</div>#}
+                        {#<div class="alimentos_cabecalho3"><span class="box"></span>Sól. Pequenos:</div>#}
+                    {#</div>#}
+                    {#<div class="alimentos_cabecalho4">
                         <div class="alimentos_cabecalho3 titulo">Zaragatoas:</div>
                         <div class="alimentos_cabecalho3">Volume (Ml) líquido:_________________</div>
                         <div class="alimentos_cabecalho3">Área amostragem:___________________</div>
 
-                    </div>
+                    </div>#}
                 {% endif %}
 
+                    <table nobr="true">
+                    <table>
 
-                <div class="nome_parametro"><span class="bold">Nome Parametro:</span>{{ item.nome_parametro}}</div>
-                <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo}}</div>
-                <div class="delimiter_list"></div>
-                <div class="table_content">
-                    {{ item.tablejson  | raw}}
-                </div>
+                        <tr>
+                            <td style="font-size:10px;" ><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</td>
+                            <td style="font-size:10px;"><span class="bold">Tipo :</span>{{ item.tipo}}</td>
+                        </tr>
+
+                    </table>
+
+                    <div></div>
+                        {{ item.tablejson  | raw}}
+                    </table>
+
             </div>
-
 
         {% elseif item.tipo_modelo == "ERROR" %}
 
-        <div class="amostra_content">Por favor seleccione apenas amostras de uma area de ensaio</div>
+        <div class="amostra_content">Por favor seleccione apenas amostras de uma área de ensaio</div>
 
         {% else %}
+
             <div class="amostra_content">
 
                 {% if foo == item.id_amostra %}
 
                 {% else %}
                     {% set foo = item.id_amostra %}
-                    <div class="id_amostra"><span class="bold">Identificação Amostra : </span>{{ item.id_amostra}} Data de entrada : {{ item.data_inicio |date("Y-m-d") }}</div>
+                    <div class="id_amostra"><span style="font-size:10px;" class="bold">Identificação Amostra : {{ item.id_amostra}}
+                            Data de entrada : {{ item.data_inicio |date("d-m-Y") }}</span></div>
                 {% endif %}
 
+                <table nobr="true">
+                    <table>
 
-                <div class="nome_parametro"><span class="bold">Nome Parametro:</span>{{ item.nome_parametro}}</div>
-                <div class="tipo_lista"><span class="bold">Tipo :</span>{{ item.tipo}}</div>
-                <div class="delimiter_list"></div>
-                <div class="table_content">
+                        <tr>
+                            <td style="font-size:10px;" ><span class="bold">Nome Parâmetro:</span>{{ item.nome_parametro}}</td>
+                            <td style="font-size:10px;"><span class="bold">Tipo :</span>{{ item.tipo}}</td>
+                        </tr>
+
+                    </table>
+                    <div></div>
                     {{ item.tablejson  | raw}}
-                </div>
+                </table>
+
+
             </div>
         {% endif %}
 
@@ -265,7 +321,25 @@
     </div>
 </div>
 
-<footer>
+
+
+{#<table>
+    <tr >
+        <td class="data_border" style="width:18%;">Data:</td>
+        <td style="width:1%;"> </td>
+        <td class="rubrica_border">Rubrica:</td>
+    </tr>
+
+    <tr>
+        <td>____-____-____</td>
+        <td>Sementeira:_________________</td>
+        <td>Leitura/Repicagens:_________________</td>
+        <td>Resultado:_________________</td>
+        <td>Validado por:_________________</td>
+    </tr>
+</table>#}
+
+{#<footer>
     <div class="data_lista">
         <div class="data_border">
             <span>Data:</span>
@@ -298,7 +372,7 @@
         </div>
 
     </div>
-</footer>
+</footer>#}
 
 
 </body>
