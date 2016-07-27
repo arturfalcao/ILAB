@@ -156,9 +156,11 @@ class EntResultadosController extends Controller
         
 
         if($flag == 1){
-            return new Response(json_encode($repository->getFnEspecificacao()->getFtTextoQdNaoCumpreA()));
+            $texto = $repository->getFnEspecificacao()->getFtTextoQdNaoCumpreA();
+            return new Response($texto);
         }else{
-            return new Response(json_encode($repository->getFnEspecificacao()->getFtTextoQdCumpreA()));
+            $texto = $repository->getFnEspecificacao()->getFtTextoQdCumpreA();
+            return new Response($texto);
         }
         
     }

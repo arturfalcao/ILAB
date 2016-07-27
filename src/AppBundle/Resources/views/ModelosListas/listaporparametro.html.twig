@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}Lista de trabalho por parametro{% endblock %}</title>
+    <title>{% block title %}Lista de trabalho por parâmetro{% endblock %}</title>
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
@@ -195,22 +195,27 @@
         {
             _amostras = rowIds[i] + "," + _amostras;
         }
-        if(_amostras.charAt(_amostras.length-1)== ',')
-            _amostras = _amostras.slice(0,_amostras.length-1);
-        $.ajax({
-            type: "POST",
-            url: '{{path('GenerateworklistbyParameter')}}',
-            data: {amostras : _amostras, parametro : _parametro , metodo : _metodo},
-            success: function(data) {
-                if(data != ""){
-                    data = data.replace(/['"]+/g, '');
-                    location.reload();
-                    window.open("/app_dev.php/getpdflista/" + data,"_blank");
-                }else{
-                    
+        if(_amostras!= "") {
+            if (_amostras.charAt(_amostras.length - 1) == ',')
+                _amostras = _amostras.slice(0, _amostras.length - 1);
+            $.ajax({
+                type: "POST",
+                url: '{{ path('GenerateworklistbyParameter') }}',
+                data: {amostras: _amostras, parametro: _parametro, metodo: _metodo},
+                success: function (data) {
+                    if (data != "") {
+                        data = data.replace(/['"]+/g, '');
+                        location.reload();
+                        window.open("/app_dev.php/getpdflista/" + data, "_blank");
+                    } else {
+
+                    }
                 }
-            }
-        });
+            });
+        }
+        else{
+            toastr.info("Selecione pelo menos um parâmetro da grelha");
+        }
     }
 
     function getdata(){

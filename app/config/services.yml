@@ -9,3 +9,9 @@ services:
         tags:
             - { name: kernel.event_listener, event: calendar.load_events, method: loadEvents }
         arguments: ['@doctrine.orm.entity_manager','@security.token_storage']
+
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        public: false
+        tags:
+            - { name: twig.extension }

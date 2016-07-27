@@ -69,7 +69,7 @@
 			<div class="row linha_branco"><div class="col-md-12">0</div></div>
 			<div class="row linha_branco"><div class="col-md-12">0</div></div>
 
-			<form id="form" action="/app_dev.php/sucesso" method="post" enctype="multipart/form-data">
+			<form id="form" action="/app_dev.php/perfil" method="post" enctype="multipart/form-data">
 				<input type="hidden" id="util" name="util" value="{{app.user.id}}">
 
                 <div class="row">
@@ -291,33 +291,34 @@
 				</div>
 
 
-				<div class="popup" data-popup="popup-1">
-					<div class="popup-inner">
-						<img data-popup-close="popup-1" id="fecha_botao" src="/bundles/app/images/close.png" alt="">
-						<label for="pass_antiga" class="cor_label pos_label_old_pass">Password antiga<span class="cor_asterisco">*</span></label>
-						<input id="pass_antiga" type="password" name="pass_antiga" value="">
 
-						<label for="pass_nova" class="cor_label pos_label_new_pass">Nova password<span class="cor_asterisco">*</span></label>
-						<input id="pass_nova" type="password" name="pass_nova" value="">
-
-						<label for="r_pass_nova" class="cor_label pos_label_r_new_pass">Reescreva a nova password<span class="cor_asterisco">*</span></label>
-						<input id="r_pass_nova" type="password" name="re_pass_nova" value="">
-
-                        <button type="submit" id="g_sair_1" class="btn-sucess">
-                            <i class="fa fa-chevron-circle-left"></i>
-                            <span>Guardar</span>
-                        </button>
-                        <button data-popup-close="popup-1" id="cancelar_1" class="btn-danger">
-                            <i class="fa fa-times-circle"></i>
-                            <span>Cancelar</span>
-                        </button>
-
-					</div>
-				</div>
                 {% include 'default/show_profile.html.twig' %}
             </div>
 			</form>
         </div>
+    </div>
+</div>
+<div class="popup" data-popup="popup-1">
+    <div class="popup-inner">
+        <img data-popup-close="popup-1" id="fecha_botao" src="/bundles/app/images/close.png" alt="">
+        <label for="pass_antiga" class="cor_label pos_label_old_pass">Password antiga<span class="cor_asterisco">*</span></label>
+        <input id="pass_antiga" type="password" name="pass_antiga" value="">
+
+        <label for="pass_nova" class="cor_label pos_label_new_pass">Nova password<span class="cor_asterisco">*</span></label>
+        <input id="pass_nova" type="password" name="pass_nova" value="">
+
+        <label for="r_pass_nova" class="cor_label pos_label_r_new_pass">Reescreva a nova password<span class="cor_asterisco">*</span></label>
+        <input id="r_pass_nova" type="password" name="re_pass_nova" value="">
+
+        <button type="submit" id="g_sair_1" class="btn-sucess">
+            <i class="fa fa-chevron-circle-left"></i>
+            <span>Guardar</span>
+        </button>
+        <button data-popup-close="popup-1" id="cancelar_1" class="btn-danger">
+            <i class="fa fa-times-circle"></i>
+            <span>Cancelar</span>
+        </button>
+
     </div>
 </div>
 {% endif %}
