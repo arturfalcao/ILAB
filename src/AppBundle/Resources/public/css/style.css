@@ -274,9 +274,8 @@ section.login p {
     -webkit-transition: all 0.5s ease-out;
     position: absolute;
     width: 250px;
-    top: 0!important;
-    left: 93px!important;
-    z-index: 99999;
+    left: 88% !important;
+    z-index: 99999999;
     max-width: 638px;
     background: #fff;
     box-shadow: 1px 2px 2px #dfdfdf;
@@ -403,7 +402,7 @@ section.login p {
 
 .submenu{
     top: 0!important;
-    left: 85px!important;
+    
 }
 
 .grande_big{
