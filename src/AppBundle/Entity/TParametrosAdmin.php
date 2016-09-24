@@ -91,7 +91,7 @@ class TParametrosAdmin extends Admin
             ->with('grupo_1',array('description' => 'X','class' => 'col-md-4 Parametros'))
             ->add('ftDescricao',null, array('label' => 'Descrição'))
             //->add('fnMetodo',null, array('label' => 'Método'))
-            ->add('fnMetodo', 'sonata_type_model', array('label' => 'Método','multiple' => true,  'property' => 'ftDescricao'))
+            //->add('fnMetodo', 'sonata_type_model', array('label' => 'Método','multiple' => true,  'property' => 'ftDescricao'))
 
             //->add('fnTecnica',null, array('label' => 'Técnica'))
             
@@ -103,7 +103,7 @@ class TParametrosAdmin extends Admin
                 )))*/
             ->add('ftCumpreespecificacao',null, array('label' => 'Cumpre especificação'))
             //->add('ftConclusao',null, array('label' => 'Conclusão'))
-            //->add('fnModeloparametro',null, array('required'=>true,'label' => 'Modelo Parâmetro'))
+            ->add('fnModeloparametro',null, array('required'=>true,'label' => 'Modelo Parâmetro'))
             ->add('ftObservacao',null, array('label' => 'Observação'))
 
             ->end()
@@ -138,7 +138,7 @@ class TParametrosAdmin extends Admin
             ->end()
             ->with('grupo_3',array('description' => 'X','class' => 'col-md-4'))
                 //->add('fnLimitelegal',null, array('label' => 'Limite legal'))
-                ->add('fnFamiliaparametro',null, array('required'=>true,'label' => 'Família Parâmetro'))
+                //->add('fnFamiliaparametro',null, array('required'=>true,'label' => 'Família Parâmetro'))
                 ->add('ftFormulaquimica',null, array('label' => 'Fórmula Química'))
                 ->add('fnFrasco',null, array('label' => 'Frasco'))
                 ->add('fnVolumeminimo',null, array('label' => 'Volume mínimo'))

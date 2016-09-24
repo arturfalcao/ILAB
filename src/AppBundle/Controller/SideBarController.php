@@ -26,8 +26,7 @@ class SideBarController extends Controller
             return $this->redirectToRoute('sonata_user_security_login');
 
         }
-        var_dump("sdaasddas");
-        die;
+        
 
         return $this->render('default/index.html.twig');
     }
