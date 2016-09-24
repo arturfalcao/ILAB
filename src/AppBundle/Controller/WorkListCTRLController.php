@@ -1226,14 +1226,13 @@ EOF;
         //add new tparametrosamostra
         $amostra = $em->getRepository('AppBundle:TAmostras')->findOneByFnId($idsample);
         $conn = $this->getDoctrine()->getConnection();
-        $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, 
-                fn_id_metodo, fn_id_tecnica, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, 
+        $sql = "INSERT INTO t_parametrosamostra (fn_id, listatrabalho_id, ft_descricao, fn_id_amostra, fn_id_areaensaio, fd_limiterealizacao, 
                 ft_cumpreespecificacao, ft_conclusao, fn_id_modeloparametro, ft_observacao, fd_criacao, 
                 fd_conclusao, fd_autorizacao, fn_id_laboratorio, fn_precocompra, fn_precovenda, fn_factorcorreccao, 
                 fb_acreditado, fn_limitelegal, fn_id_familiaparametro, ft_formulaquimica, fn_id_frasco, 
                 fn_volumeminimo, fb_confirmacao, ft_id_estado, fb_contraanalise, fd_Realizacao,fb_amostrainterno ,
                 fb_amostraexterno ,fb_determinacaoexterno ,fb_determinacaointerno) 
-                SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, aa.fn_id_metodo, aa.fn_id_tecnica, 
+                SELECT aa.fn_id, aa.listatrabalho_id, aa.ft_descricao, 
                 aa.fn_id_amostra, aa.fn_id_areaensaio, aa.fd_limiterealizacao, aa.ft_cumpreespecificacao, 
                 aa.ft_conclusao, aa.fn_id_modeloparametro, aa.ft_observacao, aa.fd_criacao, aa.fd_conclusao, 
                 aa.fd_autorizacao, aa.fn_id_laboratorio, aa.fn_precocompra, aa.fn_precovenda, aa.fn_factorcorreccao, 
